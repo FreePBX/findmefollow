@@ -1,0 +1,13 @@
+<module>
+	<rawname>findmefollow</rawname>
+	<name>Follow Me</name>
+	<version>1.2</version>
+	<type>setup</type>
+	<category>Basic</category>
+	<menuitems>
+		<findmefollow>Follow Me</findmefollow>
+	</menuitems>
+	<location>release/findmefollow-1.2.tgz</location>
+	<info>http://freepbx.org/wiki/FollowMe</info>
+	<md5sum></md5sum>
+</module>
