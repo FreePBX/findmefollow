@@ -216,13 +216,12 @@ elseif ($action == 'delGRP') {
 		<td>
 			<select name="annmsg"/>
 			<?php
-				$tresults = recordings_list("/var/lib/asterisk/sounds/custom");
+				$tresults = recordings_list();
 				$default = (isset($annmsg) ? $annmsg : '');
 				echo '<option value="">'._("None");
 				if (isset($tresults)) {
 					foreach ($tresults as $tresult) {
-						$searchvalue="custom/$tresult";	
-						echo '<option value="custom/'.$tresult.'"'.($searchvalue == $default ? ' SELECTED' : '').'>'.$tresult;
+						echo '<option value="'.$tresult[2].'"'.($tresult[2] == $default ? ' SELECTED' : '').'>'.$tresult[1];
 					}
 				}
 			?>		
