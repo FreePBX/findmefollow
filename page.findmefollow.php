@@ -102,7 +102,7 @@ if (isset($gresults)) {
 <?php 
 
 if (!$extdisplay) {
-	echo '<br><h2>FOLLOW ME</h2><br><h3>Choose A user/extension:</h3><br><br><br><br><br><br><br>';
+	echo '<br><h2>'._("Follow Me").'</h2><br><h3>'._('Choose a user/extension:')_.'</h3><br><br><br><br><br><br><br>';
 	}
 elseif ($action == 'delGRP') {
 	echo '<br><h3>'._("Follow Me").' '.$account.' '._("deleted").'!</h3><br><br><br><br><br><br><br><br>';
