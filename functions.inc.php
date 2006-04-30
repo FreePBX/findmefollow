@@ -153,7 +153,7 @@ function findmefollow_get($grpnum) {
 function findmefollow_hook_core($viewing_itemid, $target_menuid) {
 	if ($viewing_itemid != "" & ($target_menuid == 'extensions' | $target_menuid == 'users')) { 
 		$set_findmefollow = findmefollow_list();
-		$grpURL = $_REQUEST['PHP_SELF'].'?'.'display=findmefollow&extdisplay=GRP-'.$viewing_itemid;
+		$grpURL = $_SERVER['PHP_SELF'].'?'.'display=findmefollow&extdisplay=GRP-'.$viewing_itemid;
 		if (is_array($set_findmefollow)) {
 			$grpTEXT = (in_array($viewing_itemid,$set_findmefollow) ? "Edit" : "Add")." Follow Me Settings";
 		} else {
