@@ -1,5 +1,5 @@
 <?php /* $Id: page.findmefollow.php 1197 2006-03-19 17:59:02Z mheydon1973 $ */
-//Copyright (C) 2004 Coalescent Systems Inc. (info@coalescentsystems.ca)
+//Copyright (C) 2006 Philippe Lindheimer (p_lindheimer at yahoo dot com)
 //
 //This program is free software; you can redistribute it and/or
 //modify it under the terms of the GNU General Public License
