@@ -110,10 +110,12 @@ function findmefollow_list() {
         if(DB::IsError($results)) {
                 $results = null;
         }
-        foreach($results as $result){
-                if (checkRange($result)){
-                        $grps[] = $result;
-                }
+        if (isset($results)) {
+		foreach($results as $result) {
+			if (checkRange($result)){
+				$grps[] = $result;
+			}
+		}
         }
         if (isset($grps)) {
 		sort($grps); // hmm, should be sorted already
