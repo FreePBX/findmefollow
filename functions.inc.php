@@ -49,7 +49,7 @@ function findmefollow_get_config($engine) {
                                                 $ext->add($contextname, $grpnum, '', new ext_setvar("_ALERT_INFO", $dring));
                                         }
 					// check for old prefix
-					$ext->add($contextname, $grpnum, '', new ext_gotoif('$[${CALLERID(name):0:${LEN(${RGPREFIX})}} != ${RGPREFIX}]', 'NEWPREFIX'));
+					$ext->add($contextname, $grpnum, '', new ext_gotoif('$["${CALLERID(name):0:${LEN(${RGPREFIX})}}" != "${RGPREFIX}]"', 'NEWPREFIX'));
 					// strip off old prefix
 					$ext->add($contextname, $grpnum, '', new ext_setvar('CALLERID(name)','${CALLERID(name):${LEN(${RGPREFIX})}}'));
 					// set new prefix
@@ -63,7 +63,7 @@ function findmefollow_get_config($engine) {
 					$ext->add($contextname, $grpnum, '', new ext_setvar('RingGroupMethod',$strategy));
 					if ((isset($annmsg) ? $annmsg : '') != '') {
 						// should always answer before playing anything, shouldn't we ?
-						$ext->add($contextname, $grpnum, '', new ext_gotoif('$[${DIALSTATUS} = ANSWER]','DIALGRP'));			
+						$ext->add($contextname, $grpnum, '', new ext_gotoif('$["${DIALSTATUS}" = "ANSWER"]','DIALGRP'));			
 						$ext->add($contextname, $grpnum, '', new ext_answer(''));
 						$ext->add($contextname, $grpnum, '', new ext_wait(1));
 						$ext->add($contextname, $grpnum, '', new ext_playback($annmsg));

@@ -1,7 +1,7 @@
 <module>
 	<rawname>findmefollow</rawname>
 	<name>Follow Me</name>
-	<version>1.2.4</version>
+	<version>1.2.5</version>
 	<type>setup</type>
 	<category>Basic</category>
 	<menuitems>
