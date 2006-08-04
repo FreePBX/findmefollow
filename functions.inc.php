@@ -36,11 +36,37 @@ function findmefollow_get_config($engine) {
 					$grptime = $grp['grptime'];
 					$grplist = $grp['grplist'];
 					$postdest = $grp['postdest'];
-					$grppre = $grp['grppre'];
+					$grppre = (isset($grp['grppre'])?$grp['grppre']:'');
 					$annmsg = $grp['annmsg'];
 					$dring = $grp['dring'];
-					
+
+					$needsconf = $grp['needsconf'];
+					$remotealert = $grp['remotealert'];
+					$toolate = $grp['toolate'];
+					$ringing = $grp['ringing'];
+
+					if($ringing == 'Ring' || empty($ringing) ) {
+						$dialopts = '${DIAL_OPTIONS}';
+					} else {
+						// We need the DIAL_OPTIONS variable
+						$sops = sql("SELECT value from globals where variable='DIAL_OPTIONS'", "getRow");
+						$dialopts = "m(${ringing})".str_replace('r', '', $sops[0]);
+					}
+
+
 					$ext->add($contextname, $grpnum, '', new ext_macro('user-callerid'));
+
+
+					// deal with group CID prefix
+					$ext->add($contextname, $grpnum, '', new ext_gotoif('$["foo${RGPREFIX}" = "foo"]', 'REPCID'));
+					$ext->add($contextname, $grpnum, '', new ext_noop('Current RGPREFIX is ${RGPREFIX}....stripping from Caller ID'));
+					$ext->add($contextname, $grpnum, '', new ext_setvar('CALLERID(name)', '${CALLERID(name):${LEN(${RGPREFIX})}}'));
+					$ext->add($contextname, $grpnum, '', new ext_setvar('RGPREFIX', ''));
+					$ext->add($contextname, $grpnum, 'REPCID', new ext_noop('CALLERID(name) is ${CALLERID(name)}'));
+					if ($grppre != '') {
+						$ext->add($contextname, $grpnum, '', new ext_setvar('RGPREFIX', $grppre));
+						$ext->add($contextname, $grpnum, '', new ext_setvar('CALLERID(name)','${RGPREFIX}${CALLERID(name)}'));
+					}
 
 					// MODIFIED (PL)
 					// Add Alert Info if set
@@ -48,17 +74,11 @@ function findmefollow_get_config($engine) {
 					if ((isset($dring) ? $dring : '') != '') {
                                                 $ext->add($contextname, $grpnum, '', new ext_setvar("_ALERT_INFO", $dring));
                                         }
-					// check for old prefix
-					$ext->add($contextname, $grpnum, '', new ext_gotoif('$["${CALLERID(name):0:${LEN(${RGPREFIX})}}" != "${RGPREFIX}]"', 'NEWPREFIX'));
-					// strip off old prefix
-					$ext->add($contextname, $grpnum, '', new ext_setvar('CALLERID(name)','${CALLERID(name):${LEN(${RGPREFIX})}}'));
-					// set new prefix
-					$ext->add($contextname, $grpnum, 'NEWPREFIX', new ext_setvar('RGPREFIX',$grppre));
-					// add prefix to callerid name
-					$ext->add($contextname, $grpnum, '', new ext_setvar('CALLERID(name)','${RGPREFIX}${CALLERID(name)}'));
+
 					// recording stuff
 					$ext->add($contextname, $grpnum, '', new ext_setvar('RecordMethod','Group'));
 					$ext->add($contextname, $grpnum, '', new ext_macro('record-enable','${MACRO_EXTEN},${RecordMethod}'));
+
 					// group dial
 					$ext->add($contextname, $grpnum, '', new ext_setvar('RingGroupMethod',$strategy));
 					if ((isset($annmsg) ? $annmsg : '') != '') {
@@ -68,21 +88,36 @@ function findmefollow_get_config($engine) {
 						$ext->add($contextname, $grpnum, '', new ext_wait(1));
 						$ext->add($contextname, $grpnum, '', new ext_playback($annmsg));
 					}
-					$ext->add($contextname, $grpnum, 'DIALGRP', new ext_macro('dial',$grptime.',${DIAL_OPTIONS},'.$grplist));
+
+
+
+
+
+					if ($needsconf == "CHECKED") {
+						$len=strlen($grpnum)+4;
+						$ext->add("grps", "_RG-${grpnum}-.", '', new ext_macro('dial',$grptime.
+							",M(confirm^${remotealert}^${toolate}^${grpnum})$dialopts".',${EXTEN:'.$len.'}'));
+						$ext->add($contextname, $grpnum, 'DIALGRP', new ext_macro('dial-confirm',"$grptime,$dialopts,$grplist,$grpnum"));
+					} else {
+						$ext->add($contextname, $grpnum, 'DIALGRP', new ext_macro('dial',$grptime.",$dialopts,".$grplist));
+					}
 					$ext->add($contextname, $grpnum, '', new ext_setvar('RingGroupMethod',''));
+
 					// where next?
-					if ((isset($postdest) ? $postdest : '') != '')
+					if ((isset($postdest) ? $postdest : '') != '') {
 						$ext->add($contextname, $grpnum, '', new ext_goto($postdest));
-					else
+					} else {
 						$ext->add($contextname, $grpnum, '', new ext_hangup(''));
+					}
 				}
 			}
 		break;
 	}
 }
 
-function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg='',$dring='') {
-	$results = sql("INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg, postdest, dring) VALUES (".$grpnum.", '".str_replace("'", "''", $strategy)."', ".str_replace("'", "''", $grptime).", '".str_replace("'", "''", $grppre)."', '".str_replace("'", "''", $grplist)."', '".str_replace("'", "''", $annmsg)."', '".str_replace("'", "''", $postdest)."', '".str_replace("'", "''", $dring)."')");
+function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg='',$dring,$needsconf,$remotealert,$toolate,$ringing) {
+	$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg, postdest, dring, needsconf, remotealert, toolate, ringing) VALUES (".$grpnum.", '".str_replace("'", "''", $strategy)."', ".str_replace("'", "''", $grptime).", '".str_replace("'", "''", $grppre)."', '".str_replace("'", "''", $grplist)."', '".str_replace("'", "''", $annmsg)."', '".str_replace("'", "''", $postdest)."', '".str_replace("'", "''", $dring)."', '$needsconf', '$remotealert', '$toolate', '$ringing')";
+	$results = sql($sql);
 }
 
 function findmefollow_del($grpnum) {
@@ -148,7 +183,7 @@ function findmefollow_allusers() {
 }
 
 function findmefollow_get($grpnum) {
-	$results = sql("SELECT grpnum, strategy, grptime, grppre, grplist, annmsg, postdest, dring FROM findmefollow WHERE grpnum = $grpnum","getRow",DB_FETCHMODE_ASSOC);
+	$results = sql("SELECT grpnum, strategy, grptime, grppre, grplist, annmsg, postdest, dring, needsconf, remotealert, toolate, ringing FROM findmefollow WHERE grpnum = $grpnum","getRow",DB_FETCHMODE_ASSOC);
 	return $results;
 }
 
