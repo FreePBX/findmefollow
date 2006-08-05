@@ -290,9 +290,9 @@ elseif ($action == 'delGRP') {
 			<input type="hidden" name="annmsg" value="<?php echo $default; ?>"><?php echo ($default != '' ? $default : 'None'); ?>
 		</td>
 	</tr>
-+<?php } if (function_exists('music_list')) { ?>
-+       <tr>
-+               <td><a href="#" class="info"><?php echo _("Play Music On Hold?")?><span><?php echo _("If you select a Music on Hold class to play, instead of 'Ring', they will hear that instead of Ringing while they are waiting for someone to pick up. Note this DOES NOT WORK with call confirmation, due to limitations of Asterisk")?></span></a></td>
+<?php } if (function_exists('music_list')) { ?>
+	<tr>
+		<td><a href="#" class="info"><?php echo _("Play Music On Hold?")?><span><?php echo _("If you select a Music on Hold class to play, instead of 'Ring', they will hear that instead of Ringing while they are waiting for someone to pick up. Note this DOES NOT WORK with call confirmation, due to limitations of Asterisk")?></span></a></td>
 		<td>
 			&nbsp;&nbsp;<select name="ringing"/>
 			<?php
