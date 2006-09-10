@@ -187,8 +187,19 @@ function findmefollow_get($grpnum) {
 	return $results;
 }
 
-function findmefollow_hook_core($viewing_itemid, $target_menuid) {
-	if ($viewing_itemid != "" & ($target_menuid == 'extensions' | $target_menuid == 'users')) { 
+function findmefollow_configpageinit($dispnum) {
+	global $currentcomponent;
+
+	if ( ($dispnum == 'users' || $dispnum == 'extensions') ) {
+		$currentcomponent->addguifunc('findmefollow_configpageload');
+	}	
+}
+
+function findmefollow_configpageload() {
+	global $currentcomponent;
+
+	$viewing_itemid = $_REQUEST['extdisplay'];
+	if ( $viewing_itemid != '' ) {
 		$set_findmefollow = findmefollow_list();
 		$grpURL = $_SERVER['PHP_SELF'].'?'.'display=findmefollow&extdisplay=GRP-'.$viewing_itemid;
 		if (is_array($set_findmefollow)) {
@@ -196,8 +207,8 @@ function findmefollow_hook_core($viewing_itemid, $target_menuid) {
 		} else {
 			$grpTEXT = "Add Follow Me Settings";
 		}
-		return "<p><a href=\"".$grpURL.'">'.$grpTEXT."</a></p>";
-	}
+		$currentcomponent->addguielem('_top', new gui_link('findmefollowlink', $grpTEXT, $grpURL));
+	}	
 }
 
 ?>
