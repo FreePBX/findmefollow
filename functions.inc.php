@@ -14,7 +14,7 @@ function findmefollow_destinations() {
 		}
 	}
 	
-	return $extens;
+	return isset($extens)?$extens:null;
 }
 
 /* 	Generates dialplan for findmefollow
