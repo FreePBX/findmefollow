@@ -146,11 +146,11 @@ elseif ($action == 'delGRP') {
 		// Copied straight out of old code,let's see if it works?
 		//
 		if (isset($amp_conf["AMPEXTENSIONS"]) && ($amp_conf["AMPEXTENSIONS"] == "deviceanduser")) {
-			$editURL = $_REQUEST['PHP_SELF'].'?display=users&extdisplay='.ltrim($extdisplay,'GRP-');
+			$editURL = $_SERVER['PHP_SELF'].'?display=users&extdisplay='.ltrim($extdisplay,'GRP-');
 			$EXTorUSER = "User";
 		}
 		else {
-			$editURL = $_REQUEST['PHP_SELF'].'?display=extensions&extdisplay='.ltrim($extdisplay,'GRP-');
+			$editURL = $_SERVER['PHP_SELF'].'?display=extensions&extdisplay='.ltrim($extdisplay,'GRP-');
 			$EXTorUSER = "Extension";
 		}
 
