@@ -65,7 +65,6 @@ if(isset($_POST['action'])){
 	} else {
 		//add group
 		if ($action == 'addGRP') {
-			//findmefollow_add($account,implode("-",$grplist),$strategy,$grptime,$grppre,$goto);
 			findmefollow_add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg,$dring,$needsconf,$remotealert,$toolate,$ringing);
 
 			needreload();
@@ -200,7 +199,7 @@ elseif ($action == 'delGRP') {
 				<td><input size="18" type="text" name="dring" value="<?php  echo $dring ?>"></td>
 			</tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Confirm Calls")?><span><?php echo _('Enable this if you\'re calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through.')?></span></a>:</td>
+		<td><a href="#" class="info"><?php echo _("Confirm Calls")?><span><?php echo _('Enable this if you\'re calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through. This feature only works with the ringall ring strategy')?></span></a>:</td>
 		<td> <?php if (!function_exists('recordings_list')) { echo _("System Recordings not installed. Option Disabled"); } else { ?>
 			<input type="checkbox" name="needsconf" value="CHECKED" <?php echo $needsconf ?>  /></td>
 <?php } ?>
@@ -338,12 +337,12 @@ function checkGRP(theForm) {
 	var msgInvalidGrpPrefix = "<?php echo _('Invalid prefix. Valid characters: a-z A-Z 0-9 : _ -'); ?>";
 	var msgInvalidTime = "<?php echo _('Invalid time specified'); ?>";
 	var msgInvalidGrpTimeRange = "<?php echo _('Time must be between 1 and 60 seconds'); ?>";
+	var msgInvalidRingStrategy = "<?php echo _('You must choose ringall ring strategy when using Confirm Calls'); ?>";
 
 	// set up the Destination stuff
 	setDestinations(theForm, 1);
 
 	// form validation
-
 	defaultEmptyOK = false;	
 	if (isEmpty(theForm.grplist.value))
 		return warnInvalid(theForm.grplist, msgInvalidExtList);
@@ -357,15 +356,18 @@ function checkGRP(theForm) {
 			return warnInvalid(theForm.grptime, msgInvalidGrpTimeRange);
 	}
 
+	if (theForm.needsconf.checked && theForm.strategy.value != "ringall") {
+		return warnInvalid(theForm.needsconf, msgInvalidRingStrategy);
+	}
+
 	defaultEmptyOK = true;
 	if (!isPrefix(theForm.grppre.value))
 		return warnInvalid(theForm.grppre, msgInvalidGrpPrefix);
-	
+
 	if (!validateDestinations(theForm, 1, true))
 		return false;
-		
+
 	return true;
 }
 //-->
 </script>
-
