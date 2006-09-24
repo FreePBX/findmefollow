@@ -72,7 +72,7 @@ function findmefollow_get_config($engine) {
 					// Add Alert Info if set
 					//
 					if ((isset($dring) ? $dring : '') != '') {
-                                                $ext->add($contextname, $grpnum, '', new ext_setvar("_ALERT_INFO", $dring));
+                                                $ext->add($contextname, $grpnum, '', new ext_setvar("_ALERT_INFO", str_replace(';', '\;', $dring)));
                                         }
 
 					// recording stuff
