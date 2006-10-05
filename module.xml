@@ -2,6 +2,10 @@
 	<rawname>findmefollow</rawname>
 	<name>Follow Me</name>
 	<version>2.1.5</version>
+	<changelog>
+		2.1.5: Fix bug #1142
+		2.1.4: Code cleanup
+	</changelog>
 	<type>setup</type>
 	<category>Basic</category>
 	<menuitems>
