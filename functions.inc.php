@@ -1,4 +1,4 @@
-<?php /* $Id: functions.inc.php 32 2006-04-11 02:51:19Z abrown $ */
+<?php /* $Id: functions.inc.php 196 2006-10-12 00:49:12Z plindheimer $ */
 
 // The destinations this module provides
 // returns a associative arrays with keys 'destination' and 'description'
@@ -44,6 +44,7 @@ function findmefollow_get_config($engine) {
 					$remotealert = $grp['remotealert'];
 					$toolate = $grp['toolate'];
 					$ringing = $grp['ringing'];
+					$pre_ring = $grp['pre_ring'];
 
 					if($ringing == 'Ring' || empty($ringing) ) {
 						$dialopts = '${DIAL_OPTIONS}';
@@ -72,7 +73,12 @@ function findmefollow_get_config($engine) {
 					// Add Alert Info if set
 					//
 					if ((isset($dring) ? $dring : '') != '') {
-                                                $ext->add($contextname, $grpnum, '', new ext_setvar("_ALERT_INFO", str_replace(';', '\;', $dring)));
+						$ext->add($contextname, $grpnum, '', new ext_setvar("_ALERT_INFO", str_replace(';', '\;', $dring)));
+					}
+					// If pre_ring is set, then ring this number of seconds prior to moving on
+					//
+					if ((isset($pre_ring) ? $pre_ring : 0) != 0) {
+						$ext->add($contextname, $grpnum, '', new ext_macro('simple-dial',$grpnum.",".$pre_ring));
                                         }
 
 					// recording stuff
@@ -88,10 +94,6 @@ function findmefollow_get_config($engine) {
 						$ext->add($contextname, $grpnum, '', new ext_wait(1));
 						$ext->add($contextname, $grpnum, '', new ext_playback($annmsg));
 					}
-
-
-
-
 
 					if ($needsconf == "CHECKED") {
 						$len=strlen($grpnum)+4;
@@ -115,8 +117,8 @@ function findmefollow_get_config($engine) {
 	}
 }
 
-function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg='',$dring,$needsconf,$remotealert,$toolate,$ringing) {
-	$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg, postdest, dring, needsconf, remotealert, toolate, ringing) VALUES (".$grpnum.", '".str_replace("'", "''", $strategy)."', ".str_replace("'", "''", $grptime).", '".str_replace("'", "''", $grppre)."', '".str_replace("'", "''", $grplist)."', '".str_replace("'", "''", $annmsg)."', '".str_replace("'", "''", $postdest)."', '".str_replace("'", "''", $dring)."', '$needsconf', '$remotealert', '$toolate', '$ringing')";
+function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg='',$dring,$needsconf,$remotealert,$toolate,$ringing,$pre_ring) {
+	$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg, postdest, dring, needsconf, remotealert, toolate, ringing, pre_ring) VALUES (".$grpnum.", '".str_replace("'", "''", $strategy)."', ".str_replace("'", "''", $grptime).", '".str_replace("'", "''", $grppre)."', '".str_replace("'", "''", $grplist)."', '".str_replace("'", "''", $annmsg)."', '".str_replace("'", "''", $postdest)."', '".str_replace("'", "''", $dring)."', '$needsconf', '$remotealert', '$toolate', '$ringing', '$pre_ring')";
 	$results = sql($sql);
 }
 
@@ -183,7 +185,7 @@ function findmefollow_allusers() {
 }
 
 function findmefollow_get($grpnum) {
-	$results = sql("SELECT grpnum, strategy, grptime, grppre, grplist, annmsg, postdest, dring, needsconf, remotealert, toolate, ringing FROM findmefollow WHERE grpnum = $grpnum","getRow",DB_FETCHMODE_ASSOC);
+	$results = sql("SELECT grpnum, strategy, grptime, grppre, grplist, annmsg, postdest, dring, needsconf, remotealert, toolate, ringing, pre_ring FROM findmefollow WHERE grpnum = $grpnum","getRow",DB_FETCHMODE_ASSOC);
 	return $results;
 }
 

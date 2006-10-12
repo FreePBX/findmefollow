@@ -26,6 +26,7 @@ isset($_REQUEST['needsconf'])?$needsconf = $_REQUEST['needsconf']:$needsconf='';
 isset($_REQUEST['remotealert'])?$remotealert = $_REQUEST['remotealert']:$remotealert='';
 isset($_REQUEST['toolate'])?$toolate = $_REQUEST['toolate']:$toolate='';
 isset($_REQUEST['ringing'])?$ringing = $_REQUEST['ringing']:$ringing='';
+isset($_REQUEST['pre_ring'])?$pre_ring = $_REQUEST['pre_ring']:$pre_ring='0';
 
 
 if (isset($_REQUEST['goto0']) && isset($_REQUEST[$_REQUEST['goto0']."0"])) {
@@ -65,7 +66,7 @@ if(isset($_POST['action'])){
 	} else {
 		//add group
 		if ($action == 'addGRP') {
-			findmefollow_add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg,$dring,$needsconf,$remotealert,$toolate,$ringing);
+			findmefollow_add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg,$dring,$needsconf,$remotealert,$toolate,$ringing,$pre_ring);
 
 			needreload();
 		}
@@ -79,7 +80,7 @@ if(isset($_POST['action'])){
 		//edit group - just delete and then re-add the extension
 		if ($action == 'edtGRP') {
 			findmefollow_del($account);	
-			findmefollow_add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg,$dring,$needsconf,$remotealert,$toolate,$ringing);
+			findmefollow_add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg,$dring,$needsconf,$remotealert,$toolate,$ringing,$pre_ring);
 
 			needreload();
 		}
@@ -128,6 +129,7 @@ elseif ($action == 'delGRP') {
 		$needsconf = $thisgrp['needsconf'];
 		$toolate = $thisgrp['toolate'];
 		$ringing = $thisgrp['ringing'];
+		$pre_ring = $thisgrp['pre_ring'];
 		unset($grpliststr);
 		unset($thisgrp);
 		
@@ -174,6 +176,23 @@ elseif ($action == 'delGRP') {
 <?php 		} ?>
 			</tr>
 			<tr>
+				<td><a href="#" class="info"><?php echo _("Initial Ring Time:")?>
+				<span><?php echo _("This is the number of seconds to ring the primary extension prior to proceeding to the follow-me list. The extension can also be included in the follow-me list. A 0 setting will bypass this.")?>
+				</span></a>
+				</td>
+				<td>
+					&nbsp;
+					<select name="pre_ring"/>
+					<?php
+						$default = (isset($pre_ring) ? $pre_ring : 0);
+						for ($i=0; $i <= 60; $i++) {
+							echo '<option value="'.$i.'" '.($i == $default ? 'SELECTED' : '').'>'.$i.'</option>';
+						}
+					?>
+					</select>
+				</td>
+			</tr>
+			<tr>
 				<td> <a href="#" class="info"><?php echo _("ring strategy:")?>
 				<span>
 					<b><?php echo _("ringall")?></b>:  <?php echo _("ring all available channels until one answers (default)")?><br>
@@ -199,7 +218,7 @@ elseif ($action == 'delGRP') {
 				<td><input size="18" type="text" name="dring" value="<?php  echo $dring ?>"></td>
 			</tr>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("Confirm Calls")?><span><?php echo _('Enable this if you\'re calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through. This feature only works with the ringall ring strategy')?></span></a>:</td>
+		<td><a href="#" class="info"><?php echo _("Confirm Calls")?><span><?php echo _('Enable this if you\'re calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through. This feature only works with the ringall/ringall-prim  ring strategy')?></span></a>:</td>
 		<td> <?php if (!function_exists('recordings_list')) { echo _("System Recordings not installed. Option Disabled"); } else { ?>
 			<input type="checkbox" name="needsconf" value="CHECKED" <?php echo $needsconf ?>  /></td>
 <?php } ?>
@@ -337,7 +356,9 @@ function checkGRP(theForm) {
 	var msgInvalidGrpPrefix = "<?php echo _('Invalid prefix. Valid characters: a-z A-Z 0-9 : _ -'); ?>";
 	var msgInvalidTime = "<?php echo _('Invalid time specified'); ?>";
 	var msgInvalidGrpTimeRange = "<?php echo _('Time must be between 1 and 60 seconds'); ?>";
-	var msgInvalidRingStrategy = "<?php echo _('You must choose ringall ring strategy when using Confirm Calls'); ?>";
+	var msgInvalidRingStrategy = "<?php echo _('You must choose ringall or ringall-prim ring strategy when using Confirm Calls'); ?>";
+
+
 
 	// set up the Destination stuff
 	setDestinations(theForm, 1);
@@ -356,7 +377,7 @@ function checkGRP(theForm) {
 			return warnInvalid(theForm.grptime, msgInvalidGrpTimeRange);
 	}
 
-	if (theForm.needsconf.checked && theForm.strategy.value != "ringall") {
+	if (theForm.needsconf.checked && theForm.strategy.value.substring(0,7) != "ringall") {
 		return warnInvalid(theForm.needsconf, msgInvalidRingStrategy);
 	}
 
@@ -371,3 +392,4 @@ function checkGRP(theForm) {
 }
 //-->
 </script>
+
