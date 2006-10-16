@@ -1,7 +1,7 @@
-<?php /* $Id: functions.inc.php 201 2006-10-13 21:40:20Z plindheimer $ */
+<?php /* $Id: functions.inc.php 214 2006-10-16 04:10:16Z plindheimer $ */
 
-//require('common/php-asmanager.php');
-include_once('common/php-asmanager.php');
+global $amp_conf;
+require_once($amp_conf['AMPWEBROOT'].'/admin/common/php-asmanager.php');
 
 // The destinations this module provides
 // returns a associative arrays with keys 'destination' and 'description'

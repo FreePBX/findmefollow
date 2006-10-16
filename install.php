@@ -38,7 +38,8 @@ if(DB::IsError($check)) {
     if(DB::IsError($result)) { die($result->getDebugInfo()); }
 }
 
-require_once('common/php-asmanager.php');
+global $amp_conf;
+require_once($amp_conf['AMPWEBROOT'].'/admin/common/php-asmanager.php');
 
 // this function builds the AMPUSER/<grpnum>/followme tree for each user who has a group number
 // it's purpose is to convert after an upgrade
