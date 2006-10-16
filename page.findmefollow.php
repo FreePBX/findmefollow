@@ -267,7 +267,7 @@ elseif ($action == 'delGRP') {
 				<td valign="top">&nbsp;
 <?php
 		$rows = count($grplist)+1; 
-		if ($rows = 1) $grplist[0] = ltrim($extdisplay,'GRP-');
+		if ($rows == 1) $grplist[0] = ltrim($extdisplay,'GRP-');
 		($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows);
 ?>
 					<textarea id="grplist" cols="15" rows="<?php  echo $rows ?>" name="grplist"><?php echo implode("\n",$grplist);?></textarea><br>
