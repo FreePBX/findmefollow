@@ -116,7 +116,7 @@ elseif ($action == 'delGRP') {
 } else {
 	if ($extdisplay) {
 		// We need to populate grplist with the existing extension list.
-		$thisgrp = findmefollow_get(ltrim($extdisplay,'GRP-'));
+		$thisgrp = findmefollow_get(ltrim($extdisplay,'GRP-'), 1);
 		$grpliststr = $thisgrp['grplist'];
 		$grplist = explode("-", $grpliststr);
 		$strategy = $thisgrp['strategy'];
@@ -175,6 +175,7 @@ elseif ($action == 'delGRP') {
 				<td><input size="5" type="text" name="account" value="<?php  echo $gresult[0] + 1; ?>"></td>
 <?php 		} ?>
 			</tr>
+
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Initial Ring Time:")?>
 				<span><?php echo _("This is the number of seconds to ring the primary extension prior to proceeding to the follow-me list. The extension can also be included in the follow-me list. A 0 setting will bypass this.")?>
@@ -192,6 +193,8 @@ elseif ($action == 'delGRP') {
 					</select>
 				</td>
 			</tr>
+
+
 			<tr>
 				<td> <a href="#" class="info"><?php echo _("ring strategy:")?>
 				<span>
@@ -264,6 +267,7 @@ elseif ($action == 'delGRP') {
 				<td valign="top">&nbsp;
 <?php
 		$rows = count($grplist)+1; 
+		if ($rows = 1) $grplist[0] = ltrim($extdisplay,'GRP-');
 		($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows);
 ?>
 					<textarea id="grplist" cols="15" rows="<?php  echo $rows ?>" name="grplist"><?php echo implode("\n",$grplist);?></textarea><br>

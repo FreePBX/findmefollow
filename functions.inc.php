@@ -1,4 +1,7 @@
-<?php /* $Id: functions.inc.php 196 2006-10-12 00:49:12Z plindheimer $ */
+<?php /* $Id: functions.inc.php 201 2006-10-13 21:40:20Z plindheimer $ */
+
+//require('common/php-asmanager.php');
+include_once('common/php-asmanager.php');
 
 // The destinations this module provides
 // returns a associative arrays with keys 'destination' and 'description'
@@ -57,7 +60,6 @@ function findmefollow_get_config($engine) {
 
 					$ext->add($contextname, $grpnum, '', new ext_macro('user-callerid'));
 
-
 					// deal with group CID prefix
 					$ext->add($contextname, $grpnum, '', new ext_gotoif('$["foo${RGPREFIX}" = "foo"]', 'REPCID'));
 					$ext->add($contextname, $grpnum, '', new ext_noop('Current RGPREFIX is ${RGPREFIX}....stripping from Caller ID'));
@@ -76,14 +78,12 @@ function findmefollow_get_config($engine) {
 						$ext->add($contextname, $grpnum, '', new ext_setvar("_ALERT_INFO", str_replace(';', '\;', $dring)));
 					}
 					// If pre_ring is set, then ring this number of seconds prior to moving on
-					//
-					if ((isset($pre_ring) ? $pre_ring : 0) != 0) {
-						$ext->add($contextname, $grpnum, '', new ext_macro('simple-dial',$grpnum.",".$pre_ring));
-                                        }
+					$ext->add($contextname, $grpnum, '', new ext_gotoif('$[ ${DB(AMPUSER/'.$grpnum.'/followme/prering)} = 0 ]', 'skipsimple'));
+					$ext->add($contextname, $grpnum, '', new ext_macro('simple-dial',$grpnum.',${DB(AMPUSER/'."$grpnum/followme/prering)}"));
 
 					// recording stuff
-					$ext->add($contextname, $grpnum, '', new ext_setvar('RecordMethod','Group'));
-					$ext->add($contextname, $grpnum, '', new ext_macro('record-enable',$grplist.',${RecordMethod}'));
+					$ext->add($contextname, $grpnum, 'skipsimple', new ext_setvar('RecordMethod','Group'));
+					$ext->add($contextname, $grpnum, '', new ext_macro('record-enable','${DB(AMPUSER/'."$grpnum/followme/grplist)}".',${RecordMethod}'));
 
 					// group dial
 					$ext->add($contextname, $grpnum, '', new ext_setvar('RingGroupMethod',$strategy));
@@ -95,15 +95,25 @@ function findmefollow_get_config($engine) {
 						$ext->add($contextname, $grpnum, '', new ext_playback($annmsg));
 					}
 
-					if ($needsconf == "CHECKED") {
-						$len=strlen($grpnum)+4;
-						$ext->add("grps", "_RG-${grpnum}-.", '', new ext_macro('dial',$grptime.
-							",M(confirm^${remotealert}^${toolate}^${grpnum})$dialopts".',${EXTEN:'.$len.'}'));
-						$ext->add($contextname, $grpnum, 'DIALGRP', new ext_macro('dial-confirm',"$grptime,$dialopts,$grplist,$grpnum"));
-					} else {
-						$ext->add($contextname, $grpnum, 'DIALGRP', new ext_macro('dial',$grptime.",$dialopts,".$grplist));
-					}
-					$ext->add($contextname, $grpnum, '', new ext_setvar('RingGroupMethod',''));
+					// Create the confirm target
+					$len=strlen($grpnum)+4;
+					$ext->add("grps", "_RG-${grpnum}-.", '', new ext_macro('dial','${DB(AMPUSER/'."$grpnum/followme/grptime)},".
+						"M(confirm^${remotealert}^${toolate}^${grpnum})$dialopts".',${EXTEN:'.$len.'}'));
+
+					// If grpconf == ENABLED call with confirmation ELSE call normal
+					$ext->add($contextname, $grpnum, 'DIALGRP', new 
+					    ext_gotoif('$[ "${DB(AMPUSER/'.$grpnum.'/followme/grpconf)}" = "ENABLED" ]', 'doconfirm'));
+
+					// Normal call
+					$ext->add($contextname, $grpnum, '', new 
+					    ext_macro('dial','${DB(AMPUSER/'."$grpnum/followme/grptime)},$dialopts,".'${DB(AMPUSER/'."$grpnum/followme/grplist)}"));
+					$ext->add($contextname, $grpnum, '', new ext_goto('nextstep'));
+
+					// Call Confirm call
+					$ext->add($contextname, $grpnum, 'doconfirm', new 
+					    ext_macro('dial-confirm','${DB(AMPUSER/'."$grpnum/followme/grptime)},$dialopts,".'${DB(AMPUSER/'."$grpnum/followme/grplist)},".$grpnum));
+
+					$ext->add($contextname, $grpnum, 'nextstep', new ext_setvar('RingGroupMethod',''));
 
 					// where next?
 					if ((isset($postdest) ? $postdest : '') != '') {
@@ -118,12 +128,41 @@ function findmefollow_get_config($engine) {
 }
 
 function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg='',$dring,$needsconf,$remotealert,$toolate,$ringing,$pre_ring) {
+	global $amp_conf;
+
 	$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg, postdest, dring, needsconf, remotealert, toolate, ringing, pre_ring) VALUES (".$grpnum.", '".str_replace("'", "''", $strategy)."', ".str_replace("'", "''", $grptime).", '".str_replace("'", "''", $grppre)."', '".str_replace("'", "''", $grplist)."', '".str_replace("'", "''", $annmsg)."', '".str_replace("'", "''", $postdest)."', '".str_replace("'", "''", $dring)."', '$needsconf', '$remotealert', '$toolate', '$ringing', '$pre_ring')";
+
 	$results = sql($sql);
+
+	$astman = new AGI_AsteriskManager();
+	if ($res = $astman->connect("127.0.0.1", $amp_conf["AMPMGRUSER"] , $amp_conf["AMPMGRPASS"])) {
+		$astman->database_put("AMPUSER",$grpnum."/followme/prering",isset($pre_ring)?$pre_ring:'');
+		$astman->database_put("AMPUSER",$grpnum."/followme/grptime",isset($grptime)?$grptime:'');
+		$astman->database_put("AMPUSER",$grpnum."/followme/grplist",isset($grplist)?$grplist:'');
+		$confvalue = ($needsconf == 'CHECKED')?'ENABLED':'DISABLED';
+		$astman->database_put("AMPUSER",$grpnum."/followme/grpconf",isset($needsconf)?$confvalue:'');
+		$astman->disconnect();
+	} else {
+		fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
+	}
 }
 
 function findmefollow_del($grpnum) {
+	global $amp_conf;
+
 	$results = sql("DELETE FROM findmefollow WHERE grpnum = $grpnum","query");
+
+	$astman = new AGI_AsteriskManager();                                                                                               
+	if ($res = $astman->connect("127.0.0.1", $amp_conf["AMPMGRUSER"] , $amp_conf["AMPMGRPASS"])) {                                     
+		$astman->database_del("AMPUSER",$grpnum."/followme/prering");
+		$astman->database_del("AMPUSER",$grpnum."/followme/grptime");
+		$astman->database_del("AMPUSER",$grpnum."/followme/grplist");
+		$astman->database_del("AMPUSER",$grpnum."/followme/grpconf");
+		$astman->disconnect();                                                                                                     
+	} else {                                                                                                                           
+		fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);                     
+	}                                                                                                                                  
+
 }
 
 function findmefollow_full_list() {
@@ -184,8 +223,66 @@ function findmefollow_allusers() {
         return $users;
 }
 
-function findmefollow_get($grpnum) {
+// Only check astdb if check_astdb is not 0. For some reason, this fails if the asterisk manager code
+// is included (executed) by all calls to this function. This results in silently not generating the
+// extensions_additional.conf file. page.findmefollow.php does set it to 1 which means that when running
+// the GUI, any changes not reflected in SQL will be detected and written back to SQL so that they are
+// in sync. Ideally, anything that changes the astdb should change SQL. (in some ways, these should both
+// not be here but ...
+//
+function findmefollow_get($grpnum, $check_astdb=0) {
+	global $amp_conf;
+
 	$results = sql("SELECT grpnum, strategy, grptime, grppre, grplist, annmsg, postdest, dring, needsconf, remotealert, toolate, ringing, pre_ring FROM findmefollow WHERE grpnum = $grpnum","getRow",DB_FETCHMODE_ASSOC);
+
+	if ($check_astdb) {
+		$astman = new AGI_AsteriskManager();                                                                                               
+		if ($res = $astman->connect("127.0.0.1", $amp_conf["AMPMGRUSER"] , $amp_conf["AMPMGRPASS"])) {                                     
+			$astdb_prering = $astman->database_get("AMPUSER",$grpnum."/followme/prering");                                     
+			$astdb_grptime = $astman->database_get("AMPUSER",$grpnum."/followme/grptime");                                  
+			$astdb_grplist = $astman->database_get("AMPUSER",$grpnum."/followme/grplist");                                     
+			$astdb_grpconf = $astman->database_get("AMPUSER",$grpnum."/followme/grpconf");                                     
+			$astman->disconnect();                                                                                                     
+		} else {                                                                                                                           
+			fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);                     
+		}                                                                                                                                  
+		// If the values are different then use what is in astdb as it may have been changed.
+		//
+		$changed=0;
+		if (($astdb_prering != $results['pre_ring']) && ($astdb_prering >= 0)) {
+			$results['pre_ring'] = $astdb_prering;
+			$changed=1;
+		}
+		if (($astdb_grptime != $results['grptime']) && ($astdb_grptime > 0)) {
+			$results['grptime'] = $astdb_grptime;
+			$changed=1;
+		}
+		if ((trim($astdb_grplist) != trim($results['grplist'])) && (trim($astdb_grplist) != '')) {
+			$results['grplist'] = $astdb_grplist;
+			$changed=1;
+		}
+
+		if (trim($astdb_grpconf) == 'ENABLED') {
+			$confvalue = 'CHECKED';
+		} elseif (trim($astdb_grpconf) == 'DISABLED') {
+			$confvalue = '';
+		} else {
+			//Bogus value, should not get here but treat as disabled
+			$confvalue = '';
+		}
+		if ($confvalue != trim($results['needsconf'])) {
+			$results['needsconf'] = $confvalue;
+			$changed=1;
+		}
+
+		if ($changed) {
+			$sql = "UPDATE findmefollow SET grptime = '".$results['grptime']."', grplist = '".
+				str_replace("'", "''", trim($results['grplist']))."', pre_ring = '".$results['pre_ring'].
+				"', needsconf = '".$results['needsconf']."' WHERE grpnum = $grpnum LIMIT 1";
+			$sql_results = sql($sql);
+		}
+	} // if check_astdb
+
 	return $results;
 }
 
@@ -211,6 +308,35 @@ function findmefollow_configpageload() {
 		}
 		$currentcomponent->addguielem('_top', new gui_link('findmefollowlink', $grpTEXT, $grpURL));
 	}	
+}
+
+
+// this function builds the AMPUSE/<grpnum>/followme tree for each user who has a group number
+// it's purpose is to convert after an upgrade
+// 
+function findmefollow_users2astdb(){
+	checkAstMan();
+	global $amp_conf;
+	$sql = "SELECT * FROM findmefollow";
+	$userresults = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
+	
+	//add details to astdb
+	$astman = new AGI_AsteriskManager();
+	if ($res = $astman->connect("127.0.0.1", $amp_conf["AMPMGRUSER"] , $amp_conf["AMPMGRPASS"])) {
+		foreach($userresults as $usr) {
+
+			extract($usr);
+
+			$astman->database_put("AMPUSER",$grpnum."/followme/prering",isset($pre_ring)?$pre_ring:'');
+			$astman->database_put("AMPUSER",$grpnum."/followme/grptime",isset($grptime)?$grptime:'');
+			$astman->database_put("AMPUSER",$grpnum."/followme/grplist",isset($grplist)?$grplist:'');
+			$confvalue = ($needsconf == 'CHECKED')?'ENABLED':'DISABLED';
+			$astman->database_put("AMPUSER",$grpnum."/followme/grpconf",isset($needsconf)?$confvalue:'');
+		}	
+	} else {
+		echo _("Cannot connect to Asterisk Manager with ").$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"];
+	}
+	return $astman->disconnect();
 }
 
 ?>

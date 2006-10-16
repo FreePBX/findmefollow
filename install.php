@@ -38,5 +38,33 @@ if(DB::IsError($check)) {
     if(DB::IsError($result)) { die($result->getDebugInfo()); }
 }
 
+require_once('common/php-asmanager.php');
+
+// this function builds the AMPUSER/<grpnum>/followme tree for each user who has a group number
+// it's purpose is to convert after an upgrade
+// 
+
+checkAstMan();
+global $amp_conf;
+$sql = "SELECT * FROM findmefollow";
+$userresults = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
+	
+//add details to astdb
+$astman = new AGI_AsteriskManager();
+if ($res = $astman->connect("127.0.0.1", $amp_conf["AMPMGRUSER"] , $amp_conf["AMPMGRPASS"])) {
+	foreach($userresults as $usr) {
+
+		extract($usr);
+
+		$astman->database_put("AMPUSER",$grpnum."/followme/prering",isset($pre_ring)?$pre_ring:'');
+		$astman->database_put("AMPUSER",$grpnum."/followme/grptime",isset($grptime)?$grptime:'');
+		$astman->database_put("AMPUSER",$grpnum."/followme/grplist",isset($grplist)?$grplist:'');
+		$confvalue = ($needsconf == 'CHECKED')?'ENABLED':'DISABLED';
+		$astman->database_put("AMPUSER",$grpnum."/followme/grpconf",isset($needsconf)?$confvalue:'');
+	}	
+} else {
+	echo _("Cannot connect to Asterisk Manager with ").$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"];
+}
+$astman->disconnect();
 
 ?>
