@@ -13,7 +13,7 @@
 	<menuitems>
 		<findmefollow>Follow Me</findmefollow>
 	</menuitems>
-	<location>release/2.2/findmefollow-2.2.0.tgz</location>
+	<location>release/2.2/findmefollow-2.2.1.tgz</location>
 	<info>http://aussievoip.com.au/wiki/freePBX-FollowMe</info>
-	<md5sum>5d1ad93df321f636fbc440405d35591c</md5sum>
+	<md5sum>5aa5a74353343099320dd4539118e136</md5sum>
 </module>
