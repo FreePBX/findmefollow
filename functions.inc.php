@@ -1,7 +1,4 @@
-<?php /* $Id: functions.inc.php 214 2006-10-16 04:10:16Z plindheimer $ */
-
-global $amp_conf;
-require_once($amp_conf['AMPWEBROOT'].'/admin/common/php-asmanager.php');
+<?php /* $Id: functions.inc.php 175 2006-10-03 19:12:39Z plindheimer $ */
 
 // The destinations this module provides
 // returns a associative arrays with keys 'destination' and 'description'
@@ -129,6 +126,8 @@ function findmefollow_get_config($engine) {
 
 function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg='',$dring,$needsconf,$remotealert,$toolate,$ringing,$pre_ring) {
 	global $amp_conf;
+	require_once($amp_conf['AMPWEBROOT'].'/admin/common/php-asmanager.php');
+
 
 	$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg, postdest, dring, needsconf, remotealert, toolate, ringing, pre_ring) VALUES (".$grpnum.", '".str_replace("'", "''", $strategy)."', ".str_replace("'", "''", $grptime).", '".str_replace("'", "''", $grppre)."', '".str_replace("'", "''", $grplist)."', '".str_replace("'", "''", $annmsg)."', '".str_replace("'", "''", $postdest)."', '".str_replace("'", "''", $dring)."', '$needsconf', '$remotealert', '$toolate', '$ringing', '$pre_ring')";
 
@@ -149,6 +148,7 @@ function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre=
 
 function findmefollow_del($grpnum) {
 	global $amp_conf;
+	require_once($amp_conf['AMPWEBROOT'].'/admin/common/php-asmanager.php');
 
 	$results = sql("DELETE FROM findmefollow WHERE grpnum = $grpnum","query");
 
@@ -232,6 +232,7 @@ function findmefollow_allusers() {
 //
 function findmefollow_get($grpnum, $check_astdb=0) {
 	global $amp_conf;
+	require_once($amp_conf['AMPWEBROOT'].'/admin/common/php-asmanager.php');
 
 	$results = sql("SELECT grpnum, strategy, grptime, grppre, grplist, annmsg, postdest, dring, needsconf, remotealert, toolate, ringing, pre_ring FROM findmefollow WHERE grpnum = $grpnum","getRow",DB_FETCHMODE_ASSOC);
 
@@ -308,35 +309,6 @@ function findmefollow_configpageload() {
 		}
 		$currentcomponent->addguielem('_top', new gui_link('findmefollowlink', $grpTEXT, $grpURL));
 	}	
-}
-
-
-// this function builds the AMPUSE/<grpnum>/followme tree for each user who has a group number
-// it's purpose is to convert after an upgrade
-// 
-function findmefollow_users2astdb(){
-	checkAstMan();
-	global $amp_conf;
-	$sql = "SELECT * FROM findmefollow";
-	$userresults = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
-	
-	//add details to astdb
-	$astman = new AGI_AsteriskManager();
-	if ($res = $astman->connect("127.0.0.1", $amp_conf["AMPMGRUSER"] , $amp_conf["AMPMGRPASS"])) {
-		foreach($userresults as $usr) {
-
-			extract($usr);
-
-			$astman->database_put("AMPUSER",$grpnum."/followme/prering",isset($pre_ring)?$pre_ring:'');
-			$astman->database_put("AMPUSER",$grpnum."/followme/grptime",isset($grptime)?$grptime:'');
-			$astman->database_put("AMPUSER",$grpnum."/followme/grplist",isset($grplist)?$grplist:'');
-			$confvalue = ($needsconf == 'CHECKED')?'ENABLED':'DISABLED';
-			$astman->database_put("AMPUSER",$grpnum."/followme/grpconf",isset($needsconf)?$confvalue:'');
-		}	
-	} else {
-		echo _("Cannot connect to Asterisk Manager with ").$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"];
-	}
-	return $astman->disconnect();
 }
 
 ?>
