@@ -299,7 +299,8 @@ function findmefollow_configpageload() {
 	global $currentcomponent;
 
 	$viewing_itemid =  isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
-	if ( $viewing_itemid != '' ) {
+	$action =  isset($_REQUEST['action'])?$_REQUEST['action']:null;
+	if ( $viewing_itemid != '' && $action != 'del') {
 		$set_findmefollow = findmefollow_list();
 		$grpURL = $_SERVER['PHP_SELF'].'?'.'display=findmefollow&extdisplay=GRP-'.$viewing_itemid;
 		if (is_array($set_findmefollow)) {
