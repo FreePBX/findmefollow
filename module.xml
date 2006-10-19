@@ -1,8 +1,9 @@
 <module>
 	<rawname>findmefollow</rawname>
 	<name>Follow Me</name>
-	<version>2.2.5</version>
+	<version>2.3</version>
 	<changelog>
+		2.3: First release for 2.2, fixed minor display issues
 		2.2.5: fixed so extension number is put into empty lists
 		2.2.4: moved require_once() in functions.php, was breaking other stuff
 		2.2.3: full path in require_once to keep retrieve_conf from dieing
@@ -17,7 +18,7 @@
 	<menuitems>
 		<findmefollow>Follow Me</findmefollow>
 	</menuitems>
-	<location>release/2.2/findmefollow-2.2.5.tgz</location>
+	<location>release/2.2/findmefollow-2.3.tgz</location>
 	<info>http://aussievoip.com.au/wiki/freePBX-FollowMe</info>
-	<md5sum>a6608ce7b2a145917ec007eec6c8e300</md5sum>
+	<md5sum>e2c56a7f9782b138e3976233107ceb94</md5sum>
 </module>
