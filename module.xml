@@ -14,7 +14,11 @@
 		2.1.4: Code cleanup
 	</changelog>
 	<type>setup</type>
-	<category>Basic</category>
+	<category>Inbound Call Control</category>
+	<description>
+		Much like a ring group, but works on individual extensions. When someone calls the extension, it can be setup to ring for a number of seconds before trying to ring other extensions and/or external numbers, or to ring all at once, or in other various 'hunt' configurations. Most commonly used to ring someone's cell phone if they don't answer their extension.
+	</description>
+	<menuitems>
 	<menuitems>
 		<findmefollow>Follow Me</findmefollow>
 	</menuitems>
