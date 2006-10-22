@@ -126,21 +126,17 @@ function findmefollow_get_config($engine) {
 
 function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg='',$dring,$needsconf,$remotealert,$toolate,$ringing,$pre_ring) {
 	global $amp_conf;
-	require_once($amp_conf['AMPWEBROOT'].'/admin/common/php-asmanager.php');
-
+	global $astman;
 
 	$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg, postdest, dring, needsconf, remotealert, toolate, ringing, pre_ring) VALUES (".$grpnum.", '".str_replace("'", "''", $strategy)."', ".str_replace("'", "''", $grptime).", '".str_replace("'", "''", $grppre)."', '".str_replace("'", "''", $grplist)."', '".str_replace("'", "''", $annmsg)."', '".str_replace("'", "''", $postdest)."', '".str_replace("'", "''", $dring)."', '$needsconf', '$remotealert', '$toolate', '$ringing', '$pre_ring')";
-
 	$results = sql($sql);
 
-	$astman = new AGI_AsteriskManager();
-	if ($res = $astman->connect("127.0.0.1", $amp_conf["AMPMGRUSER"] , $amp_conf["AMPMGRPASS"])) {
+	if ($astman) {
 		$astman->database_put("AMPUSER",$grpnum."/followme/prering",isset($pre_ring)?$pre_ring:'');
 		$astman->database_put("AMPUSER",$grpnum."/followme/grptime",isset($grptime)?$grptime:'');
 		$astman->database_put("AMPUSER",$grpnum."/followme/grplist",isset($grplist)?$grplist:'');
 		$confvalue = ($needsconf == 'CHECKED')?'ENABLED':'DISABLED';
 		$astman->database_put("AMPUSER",$grpnum."/followme/grpconf",isset($needsconf)?$confvalue:'');
-		$astman->disconnect();
 	} else {
 		fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
 	}
@@ -148,21 +144,18 @@ function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre=
 
 function findmefollow_del($grpnum) {
 	global $amp_conf;
-	require_once($amp_conf['AMPWEBROOT'].'/admin/common/php-asmanager.php');
+	global $astman;
 
 	$results = sql("DELETE FROM findmefollow WHERE grpnum = $grpnum","query");
 
-	$astman = new AGI_AsteriskManager();                                                                                               
-	if ($res = $astman->connect("127.0.0.1", $amp_conf["AMPMGRUSER"] , $amp_conf["AMPMGRPASS"])) {                                     
+	if ($astman) {
 		$astman->database_del("AMPUSER",$grpnum."/followme/prering");
 		$astman->database_del("AMPUSER",$grpnum."/followme/grptime");
 		$astman->database_del("AMPUSER",$grpnum."/followme/grplist");
 		$astman->database_del("AMPUSER",$grpnum."/followme/grpconf");
-		$astman->disconnect();                                                                                                     
-	} else {                                                                                                                           
-		fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);                     
-	}                                                                                                                                  
-
+	} else {
+		fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
+	}
 }
 
 function findmefollow_full_list() {
@@ -232,21 +225,19 @@ function findmefollow_allusers() {
 //
 function findmefollow_get($grpnum, $check_astdb=0) {
 	global $amp_conf;
-	require_once($amp_conf['AMPWEBROOT'].'/admin/common/php-asmanager.php');
+	global $astman;
 
 	$results = sql("SELECT grpnum, strategy, grptime, grppre, grplist, annmsg, postdest, dring, needsconf, remotealert, toolate, ringing, pre_ring FROM findmefollow WHERE grpnum = $grpnum","getRow",DB_FETCHMODE_ASSOC);
 
 	if ($check_astdb) {
-		$astman = new AGI_AsteriskManager();                                                                                               
-		if ($res = $astman->connect("127.0.0.1", $amp_conf["AMPMGRUSER"] , $amp_conf["AMPMGRPASS"])) {                                     
-			$astdb_prering = $astman->database_get("AMPUSER",$grpnum."/followme/prering");                                     
-			$astdb_grptime = $astman->database_get("AMPUSER",$grpnum."/followme/grptime");                                  
-			$astdb_grplist = $astman->database_get("AMPUSER",$grpnum."/followme/grplist");                                     
-			$astdb_grpconf = $astman->database_get("AMPUSER",$grpnum."/followme/grpconf");                                     
-			$astman->disconnect();                                                                                                     
-		} else {                                                                                                                           
-			fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);                     
-		}                                                                                                                                  
+		if ($astman) {
+			$astdb_prering = $astman->database_get("AMPUSER",$grpnum."/followme/prering");
+			$astdb_grptime = $astman->database_get("AMPUSER",$grpnum."/followme/grptime");
+			$astdb_grplist = $astman->database_get("AMPUSER",$grpnum."/followme/grplist");
+			$astdb_grpconf = $astman->database_get("AMPUSER",$grpnum."/followme/grpconf");
+		} else {
+			fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
+		}
 		// If the values are different then use what is in astdb as it may have been changed.
 		//
 		$changed=0;
@@ -292,7 +283,7 @@ function findmefollow_configpageinit($dispnum) {
 
 	if ( ($dispnum == 'users' || $dispnum == 'extensions') ) {
 		$currentcomponent->addguifunc('findmefollow_configpageload');
-	}	
+	}
 }
 
 function findmefollow_configpageload() {

@@ -38,23 +38,24 @@ if(DB::IsError($check)) {
     if(DB::IsError($result)) { die($result->getDebugInfo()); }
 }
 
-global $amp_conf;
-require_once($amp_conf['AMPWEBROOT'].'/admin/common/php-asmanager.php');
-
 // this function builds the AMPUSER/<grpnum>/followme tree for each user who has a group number
 // it's purpose is to convert after an upgrade
-// 
 
+// TODO do we really need to test for astman...? we do it anyway bellow...?
 checkAstMan();
+
+// TODO, is this needed...?
+// is this global...? what if we include this files
+// from a function...?
+global $astman;
 global $amp_conf;
+
 $sql = "SELECT * FROM findmefollow";
 $userresults = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
 	
 //add details to astdb
-$astman = new AGI_AsteriskManager();
-if ($res = $astman->connect("127.0.0.1", $amp_conf["AMPMGRUSER"] , $amp_conf["AMPMGRPASS"])) {
+if ($astman) {
 	foreach($userresults as $usr) {
-
 		extract($usr);
 
 		$astman->database_put("AMPUSER",$grpnum."/followme/prering",isset($pre_ring)?$pre_ring:'');
@@ -66,6 +67,5 @@ if ($res = $astman->connect("127.0.0.1", $amp_conf["AMPMGRUSER"] , $amp_conf["AM
 } else {
 	echo _("Cannot connect to Asterisk Manager with ").$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"];
 }
-$astman->disconnect();
 
 ?>
