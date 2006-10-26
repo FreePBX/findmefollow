@@ -41,8 +41,6 @@ if(DB::IsError($check)) {
 // this function builds the AMPUSER/<grpnum>/followme tree for each user who has a group number
 // it's purpose is to convert after an upgrade
 
-// TODO do we really need to test for astman...? we do it anyway bellow...?
-checkAstMan();
 
 // TODO, is this needed...?
 // is this global...? what if we include this files

@@ -7,8 +7,6 @@
 // has not followme settings and who knows ... maybe some stray ones got left
 // behind somehow.
 
-// TODO do we really need to test for astman...? we do it anyway bellow...?
-checkAstMan();
 
 // TODO, is this needed...?
 // is this global...? what if we include this files
