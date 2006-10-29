@@ -89,7 +89,7 @@ if(isset($_POST['action'])){
 ?>
 </div>
 
-<div class="rnav">
+<div class="rnav"><ul>
 <?php 
 //get unique ring groups
 $gresults = findmefollow_allusers();
@@ -103,7 +103,7 @@ if (isset($gresults)) {
 	}
 }
 ?>
-</div>
+</ul></div>
 
 <div class="content">
 <?php 
