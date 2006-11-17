@@ -234,7 +234,7 @@ elseif ($action == 'delGRP') {
 			<?php
 				$tresults = recordings_list();
 				$default = (isset($remotealert) ? $remotealert : '');
-				echo '<option value="">'._("None")."</option>";
+				echo '<option value="">'._("Default")."</option>";
 				if (isset($tresults[0])) {
 					foreach ($tresults as $tresult) {
 						echo '<option value="'.$tresult[2].'"'.($tresult[2] == $default ? ' SELECTED' : '').'>'.$tresult[1]."</option>\n";
@@ -251,7 +251,7 @@ elseif ($action == 'delGRP') {
 			<?php
 				$tresults = recordings_list();
 				$default = (isset($toolate) ? $toolate : '');
-				echo '<option value="">'._("None")."</option>";
+				echo '<option value="">'._("Default")."</option>";
 				if (isset($tresults[0])) {
 					foreach ($tresults as $tresult) {
 						echo '<option value="'.$tresult[2].'"'.($tresult[2] == $default ? ' SELECTED' : '').'>'.$tresult[1]."</option>\n";
