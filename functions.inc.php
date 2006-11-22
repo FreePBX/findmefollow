@@ -75,7 +75,7 @@ function findmefollow_get_config($engine) {
 						$ext->add($contextname, $grpnum, '', new ext_setvar("_ALERT_INFO", str_replace(';', '\;', $dring)));
 					}
 					// If pre_ring is set, then ring this number of seconds prior to moving on
-					$ext->add($contextname, $grpnum, '', new ext_gotoif('$[ ${DB(AMPUSER/'.$grpnum.'/followme/prering)} = 0 ]', 'skipsimple'));
+					$ext->add($contextname, $grpnum, '', new ext_gotoif('$[$[ "${DB(AMPUSER/'.$grpnum.'/followme/prering)}" = "0" ] | $[ "${DB(AMPUSER/'.$grpnum.'/followme/prering)}" = "" ]] ', 'skipsimple'));
 					$ext->add($contextname, $grpnum, '', new ext_macro('simple-dial',$grpnum.',${DB(AMPUSER/'."$grpnum/followme/prering)}"));
 
 					// recording stuff
