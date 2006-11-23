@@ -57,6 +57,12 @@ function findmefollow_get_config($engine) {
 
 					$ext->add($contextname, $grpnum, '', new ext_macro('user-callerid'));
 
+					// Remember if NODEST was set later, but clear it in case the call is answered so that subsequent
+					// transfers work.
+					//
+					$ext->add($contextname, $grpnum, '', new ext_setvar('RRNODEST', '${NODEST}'));
+					$ext->add($contextname, $grpnum, '', new ext_setvar('NODEST', ''));
+
 					// deal with group CID prefix
 					$ext->add($contextname, $grpnum, '', new ext_gotoif('$["foo${RGPREFIX}" = "foo"]', 'REPCID'));
 					$ext->add($contextname, $grpnum, '', new ext_noop('Current RGPREFIX is ${RGPREFIX}....stripping from Caller ID'));
@@ -112,12 +118,18 @@ function findmefollow_get_config($engine) {
 
 					$ext->add($contextname, $grpnum, 'nextstep', new ext_setvar('RingGroupMethod',''));
 
+					// Did the call come from a queue or ringgroup, if so, don't go to the destination, just end and let
+					// the queue or ringgroup decide what to do next
+					//
+					$ext->add($contextname, $grpnum, '', new ext_gotoif('$["foo${RRNODEST}" != "foo"]', 'nodest'));
+
 					// where next?
 					if ((isset($postdest) ? $postdest : '') != '') {
 						$ext->add($contextname, $grpnum, '', new ext_goto($postdest));
 					} else {
 						$ext->add($contextname, $grpnum, '', new ext_hangup(''));
 					}
+					$ext->add($contextname, $grpnum, 'nodest', new ext_noop('SKIPPING DEST, CALL CAME FROM Q/RG: ${RRNODEST}'));
 				}
 			}
 		break;

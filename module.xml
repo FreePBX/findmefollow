@@ -3,6 +3,7 @@
 	<name>Follow Me</name>
 	<version>2.4.3</version>
 	<changelog>
+		*2.4.4* Add NODEST so that destination (often vm) is not taken if called from queue or ringgroup
 		*2.4.3* Sanity check for prefing that if not set or there, it won't ring the extension forever (should not happen)
 		*2.4.2* Modified flyover help - since moh works with confirmation now
 		*2.4.1* Added sound files for default confirmation messages
