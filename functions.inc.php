@@ -92,7 +92,7 @@ function findmefollow_get_config($engine) {
 					$ext->add($contextname, $grpnum, '', new ext_setvar('RingGroupMethod',$strategy));
 					if ((isset($annmsg) ? $annmsg : '') != '') {
 						// should always answer before playing anything, shouldn't we ?
-						$ext->add($contextname, $grpnum, '', new ext_gotoif('$["${DIALSTATUS}" = "ANSWER"]','DIALGRP'));			
+						$ext->add($contextname, $grpnum, '', new ext_gotoif('$[$["${DIALSTATUS}" = "ANSWER"] | $["foo${RRNODEST}" != "foo"]]','DIALGRP'));			
 						$ext->add($contextname, $grpnum, '', new ext_answer(''));
 						$ext->add($contextname, $grpnum, '', new ext_wait(1));
 						$ext->add($contextname, $grpnum, '', new ext_playback($annmsg));
