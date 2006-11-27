@@ -69,12 +69,14 @@ if(isset($_POST['action'])){
 			findmefollow_add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg,$dring,$needsconf,$remotealert,$toolate,$ringing,$pre_ring);
 
 			needreload();
+			redirect_standard();
 		}
 		
 		//del group
 		if ($action == 'delGRP') {
 			findmefollow_del($account);
 			needreload();
+			redirect_standard();
 		}
 		
 		//edit group - just delete and then re-add the extension
@@ -83,6 +85,7 @@ if(isset($_POST['action'])){
 			findmefollow_add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg,$dring,$needsconf,$remotealert,$toolate,$ringing,$pre_ring);
 
 			needreload();
+			redirect_standard();
 		}
 	}
 }
