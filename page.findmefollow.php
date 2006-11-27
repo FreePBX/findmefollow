@@ -85,7 +85,7 @@ if(isset($_POST['action'])){
 			findmefollow_add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg,$dring,$needsconf,$remotealert,$toolate,$ringing,$pre_ring);
 
 			needreload();
-			redirect_standard();
+			redirect_standard('extdisplay');
 		}
 	}
 }
