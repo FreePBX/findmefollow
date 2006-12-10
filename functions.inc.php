@@ -25,6 +25,7 @@ function findmefollow_get_config($engine) {
 	switch($engine) {
 		case "asterisk":
 			$ext->addInclude('from-internal-additional','ext-findmefollow');
+			$ext->addInclude('from-internal-additional','fmgrps');
 			$contextname = 'ext-findmefollow';
 			$ringlist = findmefollow_full_list();
 			if (is_array($ringlist)) {
@@ -61,7 +62,9 @@ function findmefollow_get_config($engine) {
 					// transfers work.
 					//
 					$ext->add($contextname, $grpnum, '', new ext_setvar('RRNODEST', '${NODEST}'));
-					$ext->add($contextname, $grpnum, '', new ext_setvar('NODEST', ''));
+					$ext->add($contextname, $grpnum, '', new ext_gotoif('$["foo${RRNODEST}" != "foo"]', 'skipvmblk'));
+					$ext->add($contextname, $grpnum, '', new ext_setvar('RRNODEST', '${BLKVM}'));
+					$ext->add($contextname, $grpnum, 'skipvmblk', new ext_setvar('__NODEST', '${EXTEN}'));
 
 					// deal with group CID prefix
 					$ext->add($contextname, $grpnum, '', new ext_gotoif('$["foo${RGPREFIX}" = "foo"]', 'REPCID'));
@@ -100,7 +103,7 @@ function findmefollow_get_config($engine) {
 
 					// Create the confirm target
 					$len=strlen($grpnum)+4;
-					$ext->add("grps", "_RG-${grpnum}-.", '', new ext_macro('dial','${DB(AMPUSER/'."$grpnum/followme/grptime)},".
+					$ext->add("fmgrps", "_RG-${grpnum}-.", '', new ext_macro('dial','${DB(AMPUSER/'."$grpnum/followme/grptime)},".
 						"M(confirm^${remotealert}^${toolate}^${grpnum})$dialopts".',${EXTEN:'.$len.'}'));
 
 					// If grpconf == ENABLED call with confirmation ELSE call normal
@@ -108,8 +111,13 @@ function findmefollow_get_config($engine) {
 					    ext_gotoif('$[ "${DB(AMPUSER/'.$grpnum.'/followme/grpconf)}" = "ENABLED" ]', 'doconfirm'));
 
 					// Normal call
+					$ext->add($contextname, $grpnum, '', new ext_setvar('RECALL', '${NODEST}'));
+					$ext->add($contextname, $grpnum, '', new ext_setvar('__BLKVM', '${EXTEN}'));
+					$ext->add($contextname, $grpnum, '', new ext_setvar('__NODEST', ''));
 					$ext->add($contextname, $grpnum, '', new 
 					    ext_macro('dial','${DB(AMPUSER/'."$grpnum/followme/grptime)},$dialopts,".'${DB(AMPUSER/'."$grpnum/followme/grplist)}"));
+					$ext->add($contextname, $grpnum, '', new ext_setvar('__NODEST', '${RECALL}'));
+					$ext->add($contextname, $grpnum, '', new ext_setvar('__BLKVM', ''));
 					$ext->add($contextname, $grpnum, '', new ext_goto('nextstep'));
 
 					// Call Confirm call
@@ -122,6 +130,7 @@ function findmefollow_get_config($engine) {
 					// the queue or ringgroup decide what to do next
 					//
 					$ext->add($contextname, $grpnum, '', new ext_gotoif('$["foo${RRNODEST}" != "foo"]', 'nodest'));
+					$ext->add($contextname, $grpnum, '', new ext_setvar('__NODEST', ''));
 
 					// where next?
 					if ((isset($postdest) ? $postdest : '') != '') {
