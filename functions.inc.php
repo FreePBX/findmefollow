@@ -58,12 +58,22 @@ function findmefollow_get_config($engine) {
 
 					$ext->add($contextname, $grpnum, '', new ext_macro('user-callerid'));
 
+					// block voicemail until phone is answered at which point a macro should be called on the answering
+					// line to clear this flag so that subsequent transfers can occur, if already set by a the caller
+					// then don't change.
+					//
+					$ext->add($contextname, $grpnum, '', new ext_gotoif('$["foo${BLKVM_OVERRIDE}" = "foo"]', 'skipdb'));
+					$ext->add($contextname, $grpnum, '', new ext_gotoif('$["${DB(${BLKVM_OVERRIDE})}" = "TRUE"]', 'skipov'));
+
+					$ext->add($contextname, $grpnum, 'skipdb', new ext_setvar('__NODEST', ''));
+					$ext->add($contextname, $grpnum, '', new ext_setvar('__BLKVM_OVERRIDE', 'BLKVM/${EXTEN}/${CHANNEL}'));
+					$ext->add($contextname, $grpnum, '', new ext_setvar('__BLKVM_BASE', '${EXTEN}'));
+					$ext->add($contextname, $grpnum, '', new ext_setvar('DB(${BLKVM_OVERRIDE})', 'TRUE'));
+
 					// Remember if NODEST was set later, but clear it in case the call is answered so that subsequent
 					// transfers work.
 					//
-					$ext->add($contextname, $grpnum, '', new ext_setvar('RRNODEST', '${NODEST}'));
-					$ext->add($contextname, $grpnum, '', new ext_gotoif('$["foo${RRNODEST}" != "foo"]', 'skipvmblk'));
-					$ext->add($contextname, $grpnum, '', new ext_setvar('RRNODEST', '${BLKVM}'));
+					$ext->add($contextname, $grpnum, 'skipov', new ext_setvar('RRNODEST', '${NODEST}'));
 					$ext->add($contextname, $grpnum, 'skipvmblk', new ext_setvar('__NODEST', '${EXTEN}'));
 
 					// deal with group CID prefix
@@ -111,13 +121,8 @@ function findmefollow_get_config($engine) {
 					    ext_gotoif('$[ "${DB(AMPUSER/'.$grpnum.'/followme/grpconf)}" = "ENABLED" ]', 'doconfirm'));
 
 					// Normal call
-					$ext->add($contextname, $grpnum, '', new ext_setvar('RECALL', '${NODEST}'));
-					$ext->add($contextname, $grpnum, '', new ext_setvar('__BLKVM', '${EXTEN}'));
-					$ext->add($contextname, $grpnum, '', new ext_setvar('__NODEST', ''));
 					$ext->add($contextname, $grpnum, '', new 
 					    ext_macro('dial','${DB(AMPUSER/'."$grpnum/followme/grptime)},$dialopts,".'${DB(AMPUSER/'."$grpnum/followme/grplist)}"));
-					$ext->add($contextname, $grpnum, '', new ext_setvar('__NODEST', '${RECALL}'));
-					$ext->add($contextname, $grpnum, '', new ext_setvar('__BLKVM', ''));
 					$ext->add($contextname, $grpnum, '', new ext_goto('nextstep'));
 
 					// Call Confirm call
@@ -131,6 +136,8 @@ function findmefollow_get_config($engine) {
 					//
 					$ext->add($contextname, $grpnum, '', new ext_gotoif('$["foo${RRNODEST}" != "foo"]', 'nodest'));
 					$ext->add($contextname, $grpnum, '', new ext_setvar('__NODEST', ''));
+
+					$ext->add($contextname, $grpnum, '', new ext_dbdel('${BLKVM_OVERRIDE}'));
 
 					// where next?
 					if ((isset($postdest) ? $postdest : '') != '') {
