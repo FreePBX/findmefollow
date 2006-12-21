@@ -1,8 +1,9 @@
 <module>
 	<rawname>findmefollow</rawname>
 	<name>Follow Me</name>
-	<version>2.4.6</version>
+	<version>2.4.7</version>
 	<changelog>
+		*2.2.7* Changed to not set alertinfo value if already set from before hitting followme
 		*2.2.6* Added BLKVM DB tree to fix inability to transfer a received call to another user, and make NODEST stuff work overall
 		*2.4.5* Modified NODEST stuff to improve some cases where it was still failing, and improve '#' transfer scenarios
 		*2.4.4* Add NODEST so that destination (often vm) is not taken if called from queue or ringgroup

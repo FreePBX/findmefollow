@@ -88,10 +88,10 @@ function findmefollow_get_config($engine) {
 					}
 
 					// MODIFIED (PL)
-					// Add Alert Info if set
+					// Add Alert Info if set but don't override and already set value (could be from ringgroup, directdid, etc.)
 					//
 					if ((isset($dring) ? $dring : '') != '') {
-						$ext->add($contextname, $grpnum, '', new ext_setvar("_ALERT_INFO", str_replace(';', '\;', $dring)));
+						$ext->add($contextname, $grpnum, '', new ext_setvar("__ALERT_INFO", '${IF($["x${ALERT_INFO}"="x"]?"'.str_replace(';', '\;', $dring).'":"")}'));
 					}
 					// If pre_ring is set, then ring this number of seconds prior to moving on
 					$ext->add($contextname, $grpnum, '', new ext_gotoif('$[$[ "${DB(AMPUSER/'.$grpnum.'/followme/prering)}" = "0" ] | $[ "${DB(AMPUSER/'.$grpnum.'/followme/prering)}" = "" ]] ', 'skipsimple'));
