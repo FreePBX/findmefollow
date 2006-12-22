@@ -94,8 +94,10 @@ function findmefollow_get_config($engine) {
 						$ext->add($contextname, $grpnum, '', new ext_setvar("__ALERT_INFO", '${IF($["x${ALERT_INFO}"="x"]?"'.str_replace(';', '\;', $dring).'":"")}'));
 					}
 					// If pre_ring is set, then ring this number of seconds prior to moving on
-					$ext->add($contextname, $grpnum, '', new ext_gotoif('$[$[ "${DB(AMPUSER/'.$grpnum.'/followme/prering)}" = "0" ] | $[ "${DB(AMPUSER/'.$grpnum.'/followme/prering)}" = "" ]] ', 'skipsimple'));
-					$ext->add($contextname, $grpnum, '', new ext_macro('simple-dial',$grpnum.',${DB(AMPUSER/'."$grpnum/followme/prering)}"));
+					if ((isset($strategy) ? substr($strategy,0,strlen('ringallv2')) : '') != 'ringallv2') {
+						$ext->add($contextname, $grpnum, '', new ext_gotoif('$[$[ "${DB(AMPUSER/'.$grpnum.'/followme/prering)}" = "0" ] | $[ "${DB(AMPUSER/'.$grpnum.'/followme/prering)}" = "" ]] ', 'skipsimple'));
+						$ext->add($contextname, $grpnum, '', new ext_macro('simple-dial',$grpnum.',${DB(AMPUSER/'."$grpnum/followme/prering)}"));
+					}
 
 					// recording stuff
 					$ext->add($contextname, $grpnum, 'skipsimple', new ext_setvar('RecordMethod','Group'));
@@ -103,6 +105,7 @@ function findmefollow_get_config($engine) {
 
 					// group dial
 					$ext->add($contextname, $grpnum, '', new ext_setvar('RingGroupMethod',$strategy));
+					$ext->add($contextname, $grpnum, '', new ext_setvar('_FMGRP',$grpnum));
 					if ((isset($annmsg) ? $annmsg : '') != '') {
 						// should always answer before playing anything, shouldn't we ?
 						$ext->add($contextname, $grpnum, '', new ext_gotoif('$[$["${DIALSTATUS}" = "ANSWER"] | $["foo${RRNODEST}" != "foo"]]','DIALGRP'));			
@@ -121,13 +124,19 @@ function findmefollow_get_config($engine) {
 					    ext_gotoif('$[ "${DB(AMPUSER/'.$grpnum.'/followme/grpconf)}" = "ENABLED" ]', 'doconfirm'));
 
 					// Normal call
-					$ext->add($contextname, $grpnum, '', new 
-					    ext_macro('dial','${DB(AMPUSER/'."$grpnum/followme/grptime)},$dialopts,".'${DB(AMPUSER/'."$grpnum/followme/grplist)}"));
+					if ((isset($strategy) ? substr($strategy,0,strlen('ringallv2')) : '') != 'ringallv2') {
+						$ext->add($contextname, $grpnum, '', new ext_macro('dial','${DB(AMPUSER/'."$grpnum/followme/grptime)},$dialopts,".'${DB(AMPUSER/'."$grpnum/followme/grplist)}"));
+					} else {
+						$ext->add($contextname, $grpnum, '', new ext_macro('dial','$[ ${DB(AMPUSER/'.$grpnum.'/followme/grptime)} + ${DB(AMPUSER/'.$grpnum.'/followme/prering)} ],'.$dialopts.',${DB(AMPUSER/'.$grpnum.'/followme/grplist)}'));
+					}
 					$ext->add($contextname, $grpnum, '', new ext_goto('nextstep'));
 
 					// Call Confirm call
-					$ext->add($contextname, $grpnum, 'doconfirm', new 
-					    ext_macro('dial-confirm','${DB(AMPUSER/'."$grpnum/followme/grptime)},$dialopts,".'${DB(AMPUSER/'."$grpnum/followme/grplist)},".$grpnum));
+					if ((isset($strategy) ? substr($strategy,0,strlen('ringallv2')) : '') != 'ringallv2') {
+						$ext->add($contextname, $grpnum, 'doconfirm', new ext_macro('dial-confirm','${DB(AMPUSER/'."$grpnum/followme/grptime)},$dialopts,".'${DB(AMPUSER/'."$grpnum/followme/grplist)},".$grpnum));
+					} else {
+						$ext->add($contextname, $grpnum, 'doconfirm', new ext_macro('dial-confirm','$[ ${DB(AMPUSER/'.$grpnum.'/followme/grptime)} + ${DB(AMPUSER/'.$grpnum.'/followme/prering)} ],'.$dialopts.',${DB(AMPUSER/'.$grpnum.'/followme/grplist)},'.$grpnum));
+					}
 
 					$ext->add($contextname, $grpnum, 'nextstep', new ext_setvar('RingGroupMethod',''));
 

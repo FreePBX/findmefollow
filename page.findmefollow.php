@@ -201,6 +201,7 @@ elseif ($action == 'delGRP') {
 			<tr>
 				<td> <a href="#" class="info"><?php echo _("ring strategy:")?>
 				<span>
+					<b><?php echo _("ringallv2")?></b>:  <?php echo _("ring primary extension for initial ring time followed by all additional extensions until one answers")?><br>
 					<b><?php echo _("ringall")?></b>:  <?php echo _("ring all available channels until one answers (default)")?><br>
 					<b><?php echo _("hunt")?></b>: <?php echo _("take turns ringing each available extension")?><br>
 					<b><?php echo _("memoryhunt")?></b>: <?php echo _("ring first extension in the list, then ring the 1st and 2nd extension, then ring 1st 2nd and 3rd extension in the list.... etc.")?><br>
@@ -211,7 +212,7 @@ elseif ($action == 'delGRP') {
 					&nbsp;&nbsp;<select name="strategy"/>
 					<?php
 						$default = (isset($strategy) ? $strategy : 'ringall');
-                                                $items = array('ringall','ringall-prim','hunt','hunt-prim','memoryhunt','memoryhunt-prim');
+                                                $items = array('ringallv2','ringallv2-prim','ringall','ringall-prim','hunt','hunt-prim','memoryhunt','memoryhunt-prim');
 						foreach ($items as $item) {
 							echo '<option value="'.$item.'" '.($default == $item ? 'SELECTED' : '').'>'._($item);
 						}
@@ -365,7 +366,7 @@ function checkGRP(theForm) {
 	var msgInvalidGrpPrefix = "<?php echo _('Invalid prefix. Valid characters: a-z A-Z 0-9 : _ -'); ?>";
 	var msgInvalidTime = "<?php echo _('Invalid time specified'); ?>";
 	var msgInvalidGrpTimeRange = "<?php echo _('Time must be between 1 and 60 seconds'); ?>";
-	var msgInvalidRingStrategy = "<?php echo _('You must choose ringall or ringall-prim ring strategy when using Confirm Calls'); ?>";
+	var msgInvalidRingStrategy = "<?php echo _('You must choose ringall, ringall-prim, ringallv2 or ringallv2-prim ring strategy when using Confirm Calls'); ?>";
 
 
 
