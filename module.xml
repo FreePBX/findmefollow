@@ -3,10 +3,10 @@
 	<name>Follow Me</name>
 	<version>2.4.9</version>
 	<changelog>
-		*2.2.9* never allow extension to include itself as nnn# and create infinite loop
-		*2.2.8* introduction of ringallv2 strategy that eliminates the double ring of the primary ext, REQUIRE CORE r3406
-		*2.2.7* Changed to not set alertinfo value if already set from before hitting followme
-		*2.2.6* Added BLKVM DB tree to fix inability to transfer a received call to another user, and make NODEST stuff work overall
+		*2.4.9* never allow extension to include itself as nnn# and create infinite loop
+		*2.4.8* introduction of ringallv2 strategy that eliminates the double ring of the primary ext, REQUIRE CORE r3406
+		*2.4.7* Changed to not set alertinfo value if already set from before hitting followme
+		*2.4.6* Added BLKVM DB tree to fix inability to transfer a received call to another user, and make NODEST stuff work overall
 		*2.4.5* Modified NODEST stuff to improve some cases where it was still failing, and improve '#' transfer scenarios
 		*2.4.4* Add NODEST so that destination (often vm) is not taken if called from queue or ringgroup
 		*2.4.3* Sanity check for prefing that if not set or there, it won't ring the extension forever (should not happen)
