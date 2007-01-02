@@ -1,0 +1,209 @@
+# Hebrew version for Find Me Follow FreePBX Module.
+# Copyright (C) 2006
+# This file is distributed under the same license as the PACKAGE package.
+# Shimi <shimi@shimi.net>, 2006.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: FreePBX 2.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-10-17 17:20+0300\n"
+"PO-Revision-Date: 2006-10-17 17:30+0300\n"
+"Last-Translator: Shimi <shimi@shimi.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: page.findmefollow.php:65
+msgid "Warning! Extension"
+msgstr "אזהרה! שלוחה"
+
+#: page.findmefollow.php:65
+msgid "is not allowed for your account"
+msgstr "אינה מורשית עבור חשבונך"
+
+#: page.findmefollow.php:101
+msgid "$gresult[1]"
+msgstr ""
+
+#: page.findmefollow.php:112 page.findmefollow.php:115
+#: page.findmefollow.php:144
+msgid "Follow Me"
+msgstr "עקוב אחרי"
+
+#: page.findmefollow.php:115
+msgid "deleted"
+msgstr "נמחק"
+
+#: page.findmefollow.php:141
+msgid "Delete Entries"
+msgstr "מחק רשומות"
+
+#: page.findmefollow.php:166
+msgid "Edit Follow Me"
+msgstr "ערוך עקוב אחרי"
+
+#: page.findmefollow.php:166
+msgid "Add Follow Me"
+msgstr "הוסף עקוב אחרי"
+
+#: page.findmefollow.php:174
+msgid "group number"
+msgstr "מספר קבוצה"
+
+#: page.findmefollow.php:174
+msgid "The number users will dial to ring extensions in this ring group"
+msgstr "המספר שאליו משתמשים יחייגו כדי לחייג לשלוחות בקבוצת צלצול זו"
+
+#: page.findmefollow.php:180
+msgid "Initial Ring Time:"
+msgstr "זמן צלצול ראשוני:"
+
+#: page.findmefollow.php:181
+msgid ""
+"This is the number of seconds to ring the primary extension prior to "
+"proceeding to the follow-me list. The extension can also be included in the "
+"follow-me list. A 0 setting will bypass this."
+msgstr "מספר השניות שיש לצלצל לשלוחה הראשית לפני שממשיכים לרשימת העקוב-אחרי. השלוחה יכולה להיכלל גם ברשימת העקוב-אחרי. הגדרת 0 תעקוף זאת."
+
+#: page.findmefollow.php:199
+msgid "ring strategy:"
+msgstr "אסטרטגיית צלצול:"
+
+#: page.findmefollow.php:201
+msgid "ringall"
+msgstr "צלצל בכל השלוחות"
+
+#: page.findmefollow.php:201
+msgid "ring all available channels until one answers (default)"
+msgstr "צלצל בכל הערוצים הזמינים עד שמישהו יענה (ברירת מחדל)"
+
+#: page.findmefollow.php:202
+msgid "hunt"
+msgstr "ציד"
+
+#: page.findmefollow.php:202
+msgid "take turns ringing each available extension"
+msgstr "עבור בתור וצלצל בכל שלוחה זמינה"
+
+#: page.findmefollow.php:203
+msgid "memoryhunt"
+msgstr "ציד עם זיכרון"
+
+#: page.findmefollow.php:203
+msgid ""
+"ring first extension in the list, then ring the 1st and 2nd extension, then "
+"ring 1st 2nd and 3rd extension in the list.... etc."
+msgstr "צלצל לשלוחה הראשונה ברשימה, לאחר מכן צלצל לראשונה ולשנייה, לאחר מכן לראשונה לשנייה ולשלישית, וכך הלאה."
+
+#: page.findmefollow.php:204
+msgid "*-prim"
+msgstr ""
+
+#: page.findmefollow.php:204
+msgid ""
+"these modes act as described above. However, if the primary extension (first "
+"in list) is occupied, the other extensions will not be rung. If the primary "
+"is freepbx DND, it won't be run. If the primary is freepbx CF unconditional, "
+"then all will be rung"
+msgstr "מצבים אלו יתנהגו כמתואר לעיל. אך, אם השלוחה הראשית (הראשונה ברשימה) נמצאת בשימוש, לא יהיה צלצול לשלוחות האחרות. אם השלוחה הראשית מוגדרת במצב נא-לא-להפריע, כנ\"ל. אם השלוחה הראשית מוגדרת במערכת במצב עקוב-אחרי-בכל-מצב, אזי כל השלוחות תצלצלנה."
+
+#: page.findmefollow.php:220
+msgid "Alert Info"
+msgstr "מידע התראה"
+
+#: page.findmefollow.php:224
+msgid "Confirm Calls"
+msgstr "אשר שיחות"
+
+#: page.findmefollow.php:225
+msgid "System Recordings not installed. Option Disabled"
+msgstr "מודול הקלטות מערכת לא מותקן. האפשרות מבוטלת"
+
+#: page.findmefollow.php:231
+msgid "Remote Announce:"
+msgstr "הכרזה למרוחק:"
+
+#: page.findmefollow.php:231
+msgid ""
+"Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
+"enabled.<br><br>To add additional recordings use the \"System Recordings\" "
+"MENU to the left"
+msgstr "הודעה אשר תושמע לאדם <em>שמקבל</em> את השיחה, אם האפשרות 'אשר שיחות' מופעלת.<br /><br />כדי להוסיף הקלטות נוספות, השתמש <em>בתפריט</em> \"הקלטות מערכת\" שבצד שמאל"
+
+#: page.findmefollow.php:237 page.findmefollow.php:254
+#: page.findmefollow.php:298
+msgid "None"
+msgstr "אין"
+
+#: page.findmefollow.php:248
+msgid "Too-Late Announce:"
+msgstr "הכרזת יותר-מדי-מאוחר:"
+
+#: page.findmefollow.php:248
+msgid ""
+"Message to be played to the person RECEIVING the call, if the call has "
+"already been accepted before they push 1.<br><br>To add additional "
+"recordings use the \"System Recordings\" MENU to the left"
+msgstr "הודעה שתושמע לאדם <em>שמקבל</em> את השיחה, אם השיחה כבר התקבלה לפני שהוא לחץ 1.<br /><br />כדי להוסיף הקלטות נוספות, השתמש <em>בתפריט</em> \"הקלטות מערכת\" שבצד שמאל"
+
+#: page.findmefollow.php:266
+msgid "extension list"
+msgstr "רשימת שלוחות"
+
+#: page.findmefollow.php:266
+msgid ""
+"List extensions to ring, one per line.<br><br>You can include an extension "
+"on a remote system, or an external number by suffixing a number with a pound "
+"(#).  ex:  2448089# would dial 2448089 on the appropriate trunk (see "
+"Outbound Routing)."
+msgstr "רשימת שלוחות שיש לצלצל אליהן, אחת בשורה.<br /><br />אתה יכול לכלול שלוחה על מערכת מרוחקת, או מספר חיצוני, על ידי הקדמת המספר בסולמית (#). לדוגמא: #2448089 יחייג למספר 2448089 דרך מסוף היציאה המתאים (ראה ניתוב החוצה)"
+
+#: page.findmefollow.php:281
+msgid "CID name prefix"
+msgstr "קידומת שם זיהוי שיחות"
+
+#: page.findmefollow.php:287
+msgid "ring time (max 60 sec)"
+msgstr "זמן צלצול (מקס 60 שניות)"
+
+#: page.findmefollow.php:292 page.findmefollow.php:310
+msgid "announcement:"
+msgstr "הכרזה:"
+
+#: page.findmefollow.php:292
+msgid ""
+"Message to be played to the caller before dialing this group.<br><br>To add "
+"additional recordings please use the \"System Recordings\" MENU to the left"
+msgstr "הודעה שתושמע למתקשר לפני החיוג לקבוצה זו.<br /><br />כדי להוסיף הקלטות נוספות, אנא השתמש <em>בתפריט</em> \"הודעות מערכת\" אשר בצד שמאל"
+
+#: page.findmefollow.php:310
+msgid ""
+"Message to be played to the caller before dialing this group.<br><br>You "
+"must install and enable the \"Systems Recordings\" Module to edit this option"
+msgstr "הודעה אשר תושמע למתקשר לפני החיוג לקבוצה זו.<br /><br />אתה חייב להתקין ולהפעיל את המודול \"הקלטות מערכת\" כדי לערוך אפשרות זו"
+
+#: page.findmefollow.php:320
+msgid "Play Music On Hold?"
+msgstr "נגן מוסיקת המתנה?"
+
+#: page.findmefollow.php:320
+msgid ""
+"If you select a Music on Hold class to play, instead of 'Ring', they will "
+"hear that instead of Ringing while they are waiting for someone to pick up. "
+"Note this DOES NOT WORK with call confirmation, due to limitations of "
+"Asterisk"
+msgstr "אם תבחר סוג מוסיקה לנגינה, במקום 'צלצול', הם ישמעו מוסיקה זו במקום צלצול בזמן שהם ממתינים שמישהו ירים את הטלפון. שים לב <em>שזה לא עובד<em> עם אישור שיחות, בגלל מגבלות של אסטריסק"
+
+#: page.findmefollow.php:326
+msgid "Ring"
+msgstr "צלצול"
+
+#: page.findmefollow.php:338
+msgid "Destination if no answer"
+msgstr "יעד אם אין מענה"
+
+#: install.php:67 uninstall.php:31
+msgid "Cannot connect to Asterisk Manager with "
+msgstr "לא מצליח להתחבר למנהל האסטריסק עם "
