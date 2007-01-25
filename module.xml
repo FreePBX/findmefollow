@@ -3,7 +3,7 @@
 	<name>Follow Me</name>
 	<version>2.4.10</version>
 	<changelog>
-		*2.4.10* introduction of firstavailable firstnotonphone strategy that only rings one extension and optionally skips callwaiting REQUIRE CORE r3651
+		*2.4.10* introduction of firstavailable firstnotonphone strategy that only rings one extension and optionally skips callwaiting REQUIRE CORE r3652
 		*2.4.9* never allow extension to include itself as nnn# and create infinite loop
 		*2.4.8* introduction of ringallv2 strategy that eliminates the double ring of the primary ext, REQUIRE CORE r3406
 		*2.4.7* Changed to not set alertinfo value if already set from before hitting followme
