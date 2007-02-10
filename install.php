@@ -61,6 +61,9 @@ if ($astman) {
 		$astman->database_put("AMPUSER",$grpnum."/followme/grplist",isset($grplist)?$grplist:'');
 		$confvalue = ($needsconf == 'CHECKED')?'ENABLED':'DISABLED';
 		$astman->database_put("AMPUSER",$grpnum."/followme/grpconf",isset($needsconf)?$confvalue:'');
+		$ddial = $astman->database_get("AMPUSER",$grpnum."/followme/ddial");                                     
+		$ddial = ($ddial == 'EXTENSION' || $ddial == 'DIRECT')?$ddial:'DIRECT';
+		$astman->database_put("AMPUSER",$grpnum."/followme/ddial",$ddial);
 	}	
 } else {
 	echo _("Cannot connect to Asterisk Manager with ").$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"];

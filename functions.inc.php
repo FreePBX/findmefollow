@@ -10,7 +10,7 @@ function findmefollow_destinations() {
 	if (isset($results)) {
 		foreach($results as $result){
 				$thisgrp = findmefollow_get(ltrim($result['0']));
-				$extens[] = array('destination' => 'ext-findmefollow,'.ltrim($result['0']).',1', 'description' => $thisgrp['grppre'].' <'.ltrim($result['0']).'>');
+				$extens[] = array('destination' => 'ext-findmefollow,FM'.ltrim($result['0']).',1', 'description' => $thisgrp['grppre'].' <'.ltrim($result['0']).'>');
 		}
 	}
 	
@@ -56,7 +56,17 @@ function findmefollow_get_config($engine) {
 					}
 
 
-					$ext->add($contextname, $grpnum, '', new ext_macro('user-callerid'));
+					// Direct target to Follow-Me come here bypassing the followme/ddial conditional check
+					//
+					$ext->add($contextname, 'FM'.$grpnum, '', new ext_goto("$grpnum,FM$grpnum"));
+
+					//
+					// If the followme is configured for extension dialing to go to the the extension and not followme then
+					// go there. This is often used in VmX Locater functionality when the user does not want the followme
+					// to automatically be called but only if chosen by the caller as an alternative to going to voicemail
+					//
+					$ext->add($contextname, $grpnum, '', new ext_gotoif('$[ "${DB(AMPUSER/'.$grpnum.'/followme/ddial)}" = "EXTENSION" ]', 'ext-local,'.$grpnum.',1'));
+					$ext->add($contextname, $grpnum, 'FM'.$grpnum, new ext_macro('user-callerid'));
 
 					// block voicemail until phone is answered at which point a macro should be called on the answering
 					// line to clear this flag so that subsequent transfers can occur, if already set by a the caller
@@ -161,7 +171,7 @@ function findmefollow_get_config($engine) {
 	}
 }
 
-function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg='',$dring,$needsconf,$remotealert,$toolate,$ringing,$pre_ring) {
+function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg='',$dring,$needsconf,$remotealert,$toolate,$ringing,$pre_ring,$ddial) {
 	global $amp_conf;
 	global $astman;
 
@@ -172,8 +182,14 @@ function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre=
 		$astman->database_put("AMPUSER",$grpnum."/followme/prering",isset($pre_ring)?$pre_ring:'');
 		$astman->database_put("AMPUSER",$grpnum."/followme/grptime",isset($grptime)?$grptime:'');
 		$astman->database_put("AMPUSER",$grpnum."/followme/grplist",isset($grplist)?$grplist:'');
+
+		$needsconf = isset($needsconf)?$needsconf:'';
 		$confvalue = ($needsconf == 'CHECKED')?'ENABLED':'DISABLED';
-		$astman->database_put("AMPUSER",$grpnum."/followme/grpconf",isset($needsconf)?$confvalue:'');
+		$astman->database_put("AMPUSER",$grpnum."/followme/grpconf",$confvalue);
+
+		$ddial      = isset($ddial)?$ddial:'';
+		$ddialvalue = ($ddial == 'CHECKED')?'EXTENSION':'DIRECT';
+		$astman->database_put("AMPUSER",$grpnum."/followme/ddial",$ddialvalue);
 	} else {
 		fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
 	}
@@ -186,10 +202,7 @@ function findmefollow_del($grpnum) {
 	$results = sql("DELETE FROM findmefollow WHERE grpnum = $grpnum","query");
 
 	if ($astman) {
-		$astman->database_del("AMPUSER",$grpnum."/followme/prering");
-		$astman->database_del("AMPUSER",$grpnum."/followme/grptime");
-		$astman->database_del("AMPUSER",$grpnum."/followme/grplist");
-		$astman->database_del("AMPUSER",$grpnum."/followme/grpconf");
+		$astman->database_deltree("AMPUSER/".$grpnum."/followme");
 	} else {
 		fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
 	}
@@ -217,11 +230,11 @@ function findmefollow_list() {
                 $results = null;
         }
         if (isset($results)) {
-		foreach($results as $result) {
-			if (checkRange($result)){
-				$grps[] = $result;
-			}
-		}
+					foreach($results as $result) {
+						if (checkRange($result)){
+							$grps[] = $result;
+						}
+					}
         }
         if (isset($grps)) {
 		sort($grps); // hmm, should be sorted already
@@ -260,6 +273,10 @@ function findmefollow_allusers() {
 // in sync. Ideally, anything that changes the astdb should change SQL. (in some ways, these should both
 // not be here but ...
 //
+// Need to go back and confirm at some point that the $check_astdb error is still there and deal with it.
+// as variables like $ddial get introduced to only be in astdb, the result array will not include them
+// if not able to get to astdb. (I suspect in 2.2 and beyond this may all be fixed).
+//
 function findmefollow_get($grpnum, $check_astdb=0) {
 	global $amp_conf;
 	global $astman;
@@ -275,6 +292,7 @@ function findmefollow_get($grpnum, $check_astdb=0) {
 		} else {
 			fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
 		}
+			$astdb_ddial   = $astman->database_get("AMPUSER",$grpnum."/followme/ddial");                                     
 		// If the values are different then use what is in astdb as it may have been changed.
 		//
 		$changed=0;
@@ -303,6 +321,18 @@ function findmefollow_get($grpnum, $check_astdb=0) {
 			$results['needsconf'] = $confvalue;
 			$changed=1;
 		}
+
+		// Not in sql so no sanity check needed
+		//
+		if (trim($astdb_ddial) == 'EXTENSION') {
+			$ddial = 'CHECKED';
+		} elseif (trim($astdb_ddial) == 'DIRECT') {
+			$ddial = '';
+		} else {
+			//Bogus value, should not get here but treat as disabled
+			$ddial = '';
+		}
+		$results['ddial'] = $ddial;
 
 		if ($changed) {
 			$sql = "UPDATE findmefollow SET grptime = '".$results['grptime']."', grplist = '".

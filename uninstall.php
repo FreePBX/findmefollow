@@ -21,10 +21,7 @@ $userresults = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
 if ($astman) {
 	foreach($userresults as $usr) {
 		extract($usr);
-		$astman->database_del("AMPUSER",$extension."/followme/prering");
-		$astman->database_del("AMPUSER",$extension."/followme/grptime");
-		$astman->database_del("AMPUSER",$extension."/followme/grplist");
-		$astman->database_del("AMPUSER",$extension."/followme/grpconf");
+		$astman->database_deltree("AMPUSER/".$grpnum."/followme");
 	}	
 } else {
 	echo _("Cannot connect to Asterisk Manager with ").$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"];

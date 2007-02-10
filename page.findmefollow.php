@@ -27,6 +27,7 @@ isset($_REQUEST['remotealert'])?$remotealert = $_REQUEST['remotealert']:$remotea
 isset($_REQUEST['toolate'])?$toolate = $_REQUEST['toolate']:$toolate='';
 isset($_REQUEST['ringing'])?$ringing = $_REQUEST['ringing']:$ringing='';
 isset($_REQUEST['pre_ring'])?$pre_ring = $_REQUEST['pre_ring']:$pre_ring='0';
+isset($_REQUEST['ddial'])?$ddial = $_REQUEST['ddial']:$ddial='';
 
 
 if (isset($_REQUEST['goto0']) && isset($_REQUEST[$_REQUEST['goto0']."0"])) {
@@ -69,7 +70,7 @@ if(isset($_POST['action'])){
 	} else {
 		//add group
 		if ($action == 'addGRP') {
-			findmefollow_add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg,$dring,$needsconf,$remotealert,$toolate,$ringing,$pre_ring);
+			findmefollow_add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg,$dring,$needsconf,$remotealert,$toolate,$ringing,$pre_ring,$ddial);
 
 			needreload();
 			redirect_standard();
@@ -85,7 +86,7 @@ if(isset($_POST['action'])){
 		//edit group - just delete and then re-add the extension
 		if ($action == 'edtGRP') {
 			findmefollow_del($account);	
-			findmefollow_add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg,$dring,$needsconf,$remotealert,$toolate,$ringing,$pre_ring);
+			findmefollow_add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg,$dring,$needsconf,$remotealert,$toolate,$ringing,$pre_ring,$ddial);
 
 			needreload();
 			redirect_standard('extdisplay');
@@ -136,6 +137,7 @@ elseif ($action == 'delGRP') {
 		$toolate = $thisgrp['toolate'];
 		$ringing = $thisgrp['ringing'];
 		$pre_ring = $thisgrp['pre_ring'];
+		$ddial = $thisgrp['ddial'];
 		unset($grpliststr);
 		unset($thisgrp);
 		
@@ -180,6 +182,11 @@ elseif ($action == 'delGRP') {
 				<td><a href="#" class="info"><?php echo _("group number")?>:<span><?php echo _("The number users will dial to ring extensions in this ring group")?></span></a></td>
 				<td><input size="5" type="text" name="account" value="<?php  echo $gresult[0] + 1; ?>"></td>
 <?php 		} ?>
+			</tr>
+
+			<tr>
+				<td><a href="#" class="info"><?php echo _("Use Extension")?><span><?php echo _('By default (not checked) any call to this extension will go to this FollowMe instead, including directory calls by name from IVRs. If checked, calls will go only to the extension.<BR>However, destinations that specify FollowMe will come here.<BR>Checking this box is often used in conjunction with VmX Locater, where you want a call to ring the extension, and then only if the caller chooses to find you do you want it to come here.')?></span></a>:</td>
+				<td><input type="checkbox" name="ddial" value="CHECKED" <?php echo $ddial ?>  /></td>
 			</tr>
 
 			<tr>
