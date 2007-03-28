@@ -185,7 +185,7 @@ elseif ($action == 'delGRP') {
 			</tr>
 
 			<tr>
-				<td><a href="#" class="info"><?php echo _("Use Extension")?><span><?php echo _('By default (not checked) any call to this extension will go to this FollowMe instead, including directory calls by name from IVRs. If checked, calls will go only to the extension.<BR>However, destinations that specify FollowMe will come here.<BR>Checking this box is often used in conjunction with VmX Locater, where you want a call to ring the extension, and then only if the caller chooses to find you do you want it to come here.')?></span></a>:</td>
+				<td><a href="#" class="info"><?php echo _("Disable as Default")?><span><?php echo _('By default (not checked) any call to this extension will go to this FollowMe instead, including directory calls by name from IVRs. If checked, calls will go only to the extension.<BR>However, destinations that specify FollowMe will come here.<BR>Checking this box is often used in conjunction with VmX Locater, where you want a call to ring the extension, and then only if the caller chooses to find you do you want it to come here.')?></span></a>:</td>
 				<td><input type="checkbox" name="ddial" value="CHECKED" <?php echo $ddial ?>  /></td>
 			</tr>
 
@@ -209,7 +209,7 @@ elseif ($action == 'delGRP') {
 
 
 			<tr>
-				<td> <a href="#" class="info"><?php echo _("ring strategy:")?>
+				<td> <a href="#" class="info"><?php echo _("Ring Strategy:")?>
 				<span>
 					<b><?php echo _("ringallv2")?></b>:  <?php echo _("ring primary extension for initial ring time followed by all additional extensions until one answers")?><br>
 					<b><?php echo _("ringall")?></b>:  <?php echo _("ring all available channels until one answers (default)")?><br>
@@ -279,7 +279,7 @@ elseif ($action == 'delGRP') {
 	</tr>
 <?php } ?>
 			<tr>
-				<td valign="top"><a href="#" class="info"><?php echo _("extension list")?>:<span><br><?php echo _("List extensions to ring, one per line.<br><br>You can include an extension on a remote system, or an external number by suffixing a number with a pound (#).  ex:  2448089# would dial 2448089 on the appropriate trunk (see Outbound Routing).")?><br><br></span></a></td>
+				<td valign="top"><a href="#" class="info"><?php echo _("Follow-Me List")?>:<span><br><?php echo _("List extensions to ring, one per line.<br><br>You can include an extension on a remote system, or an external number by suffixing a number with a pound (#).  ex:  2448089# would dial 2448089 on the appropriate trunk (see Outbound Routing).")?><br><br></span></a></td>
 				<td valign="top">&nbsp;
 <?php
 		$rows = count($grplist)+1; 
@@ -294,18 +294,18 @@ elseif ($action == 'delGRP') {
 				</td>
 			</tr>
 			<tr>
-				<td><a href="#" class="info"><?php echo _("CID name prefix")?>:<span><?php echo _('You can optionally prefix the Caller ID name when ringing extensions in this group. ie: If you prefix with "Sales:", a call from John Doe would display as "Sales:John Doe" on the extensions that ring.')?></span></a></td>
+				<td><a href="#" class="info"><?php echo _("CID Name Prefix")?>:<span><?php echo _('You can optionally prefix the Caller ID name when ringing extensions in this group. ie: If you prefix with "Sales:", a call from John Doe would display as "Sales:John Doe" on the extensions that ring.')?></span></a></td>
 				<td><input size="4" type="text" name="grppre" value="<?php  echo $grppre ?>"></td>
 			</tr>
 
 
 			<tr>
-				<td><?php echo _("ring time (max 60 sec)")?>:</td>
+				<td><?php echo _("Ring Time (max 60 sec)")?>:</td>
 				<td><input size="4" type="text" name="grptime" value="<?php  echo $grptime?$grptime:20 ?>"></td>
 			</tr>
 <?php if(function_exists('recordings_list')) { //only include if recordings is enabled?>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("announcement:")?><span><?php echo _("Message to be played to the caller before dialing this group.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Announcement:")?><span><?php echo _("Message to be played to the caller before dialing this group.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left")?></span></a></td>
 		<td>
 			&nbsp;&nbsp;<select name="annmsg"/>
 			<?php
@@ -323,7 +323,7 @@ elseif ($action == 'delGRP') {
 	</tr>
 <?php }	else { ?>
 	<tr>
-		<td><a href="#" class="info"><?php echo _("announcement:")?><span><?php echo _("Message to be played to the caller before dialing this group.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option")?></span></a></td>
+		<td><a href="#" class="info"><?php echo _("Announcement:")?><span><?php echo _("Message to be played to the caller before dialing this group.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option")?></span></a></td>
 		<td>
 			<?php
 				$default = (isset($annmsg) ? $annmsg : '');
