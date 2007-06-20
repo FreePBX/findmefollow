@@ -88,12 +88,13 @@ function findmefollow_get_config($engine) {
 
 					// deal with group CID prefix
 					$ext->add($contextname, $grpnum, '', new ext_gotoif('$["foo${RGPREFIX}" = "foo"]', 'REPCID'));
+					$ext->add($contextname, $grpnum, '', new ext_gotoif('$["${RGPREFIX}" != "${CALLERID(name):0:${LEN(${RGPREFIX})}}"]', 'REPCID'));
 					$ext->add($contextname, $grpnum, '', new ext_noop('Current RGPREFIX is ${RGPREFIX}....stripping from Caller ID'));
 					$ext->add($contextname, $grpnum, '', new ext_setvar('CALLERID(name)', '${CALLERID(name):${LEN(${RGPREFIX})}}'));
-					$ext->add($contextname, $grpnum, '', new ext_setvar('RGPREFIX', ''));
+					$ext->add($contextname, $grpnum, '', new ext_setvar('_RGPREFIX', ''));
 					$ext->add($contextname, $grpnum, 'REPCID', new ext_noop('CALLERID(name) is ${CALLERID(name)}'));
 					if ($grppre != '') {
-						$ext->add($contextname, $grpnum, '', new ext_setvar('RGPREFIX', $grppre));
+						$ext->add($contextname, $grpnum, '', new ext_setvar('_RGPREFIX', $grppre));
 						$ext->add($contextname, $grpnum, '', new ext_setvar('CALLERID(name)','${RGPREFIX}${CALLERID(name)}'));
 					}
 
