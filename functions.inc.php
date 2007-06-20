@@ -102,7 +102,11 @@ function findmefollow_get_config($engine) {
 					// Add Alert Info if set but don't override and already set value (could be from ringgroup, directdid, etc.)
 					//
 					if ((isset($dring) ? $dring : '') != '') {
-						$ext->add($contextname, $grpnum, '', new ext_setvar("__ALERT_INFO", '${IF($["x${ALERT_INFO}"="x"]?'.str_replace(';', '\;', $dring).':${ALERT_INFO})}'));
+						// If ALERTINFO is set, then skip to the next set command. This was modified to two lines because the previous
+						// IF() couldn't handle ':' as part of the string. The jump to PRIORITY+2 allows for now destination label
+						// which is needed in the 2.3 version.
+						$ext->add($contextname, $grpnum, '', new ext_gotoif('$["x${ALERT_INFO}"!="x"]','$[${PRIORITY}+2])}'));
+						$ext->add($contextname, $grpnum, '', new ext_setvar("__ALERT_INFO", str_replace(';', '\;', $dring) ));
 					}
 					// If pre_ring is set, then ring this number of seconds prior to moving on
 					if ((isset($strategy) ? substr($strategy,0,strlen('ringallv2')) : '') != 'ringallv2') {

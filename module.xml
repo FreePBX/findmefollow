@@ -1,8 +1,9 @@
 <module>
 	<rawname>findmefollow</rawname>
 	<name>Follow Me</name>
-	<version>2.4.12</version>
+	<version>2.4.12.1</version>
 	<changelog>
+		*2.4.12.1* #2002 IF() statement can't handle : in the string and can't escape them anyhow
 		*2.4.12* Fixed bug where nested CID prefixes ends up removing part of the valid CID info
 		*2.4.11.1* Fixed ALERT_INFO bug, if previously set it should not set - it was clearing it
 		*2.4.11* added option to have follow-me always be used in place of extension, or only when explicitly used as a destination, useful in conjunction with VmX
