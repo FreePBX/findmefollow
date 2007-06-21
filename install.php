@@ -37,6 +37,8 @@ if(DB::IsError($check)) {
     $result = $db->query($sql);
     if(DB::IsError($result)) { die($result->getDebugInfo()); }
 }
+// increase size for older installs
+$db->query("ALTER TABLE findmefollow CHANGE dring dring VARCHAR( 255 ) NULL");
 
 // this function builds the AMPUSER/<grpnum>/followme tree for each user who has a group number
 // it's purpose is to convert after an upgrade
