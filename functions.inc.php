@@ -2,6 +2,10 @@
 
 // The destinations this module provides
 // returns a associative arrays with keys 'destination' and 'description'
+/*
+
+// Remove destinations, use from-did-direct in core for 2.3 and on
+
 function findmefollow_destinations() {
 	//get the list of findmefollow
 	$results = findmefollow_full_list();
@@ -16,6 +20,7 @@ function findmefollow_destinations() {
 	
 	return isset($extens)?$extens:null;
 }
+*/
 
 /* 	Generates dialplan for findmefollow
 	We call this with retrieve_conf

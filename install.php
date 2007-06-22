@@ -40,6 +40,25 @@ if(DB::IsError($check)) {
 // increase size for older installs
 $db->query("ALTER TABLE findmefollow CHANGE dring dring VARCHAR( 255 ) NULL");
 
+$results = array();
+$sql = "SELECT grpnum, postdest FROM findmefollow";
+$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
+if (!DB::IsError($results)) { // error - table must not be there
+	foreach ($results as $result) {
+		$old_dest  = $result['postdest'];
+		$grpnum    = $result['grpnum'];
+
+		$new_dest = merge_ext_followme(trim($old_dest));
+		if ($new_dest != $old_dest) {
+			$sql = "UPDATE findmefollow SET postdest = '$new_dest' WHERE grpnum = $grpnum  AND postdest = '$old_dest'";
+			$results = $db->query($sql);
+			if(DB::IsError($results)) {
+				die($results->getMessage());
+			}
+		}
+	}
+}
+
 // this function builds the AMPUSER/<grpnum>/followme tree for each user who has a group number
 // it's purpose is to convert after an upgrade
 
