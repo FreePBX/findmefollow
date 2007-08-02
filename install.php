@@ -50,7 +50,7 @@ if (!DB::IsError($results)) { // error - table must not be there
 
 		$new_dest = merge_ext_followme(trim($old_dest));
 		if ($new_dest != $old_dest) {
-			$sql = "UPDATE findmefollow SET postdest = '$new_dest' WHERE grpnum = $grpnum  AND postdest = '$old_dest'";
+			$sql = "UPDATE findmefollow SET postdest = '$new_dest' WHERE grpnum = '$grpnum'  AND postdest = '$old_dest'";
 			$results = $db->query($sql);
 			if(DB::IsError($results)) {
 				die($results->getMessage());
@@ -88,6 +88,14 @@ if ($astman) {
 	}	
 } else {
 	echo _("Cannot connect to Asterisk Manager with ").$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"];
+}
+
+// Version 2.4.13 change (#1961)
+//
+$results = $db->query("ALTER TABLE `findmefollow` CHANGE `grpnum` `grpnum` VARCHAR( 20 ) NOT NULL");
+if(DB::IsError($results)) {
+	echo $results->getMessage();
+	return false;
 }
 
 ?>

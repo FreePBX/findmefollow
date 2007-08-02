@@ -124,20 +124,21 @@ elseif ($action == 'delGRP') {
 	if ($extdisplay) {
 		// We need to populate grplist with the existing extension list.
 		$thisgrp = findmefollow_get(ltrim($extdisplay,'GRP-'), 1);
-		$grpliststr = $thisgrp['grplist'];
+		$grpliststr = isset($thisgrp['grplist']) ? $thisgrp['grplist'] : '';
 		$grplist = explode("-", $grpliststr);
-		$strategy = $thisgrp['strategy'];
-		$grppre = $thisgrp['grppre'];
-		$grptime = $thisgrp['grptime'];
-		$goto = $thisgrp['postdest'];
-		$annmsg = $thisgrp['annmsg'];
-		$dring = $thisgrp['dring'];
-		$remotealert = $thisgrp['remotealert'];
-		$needsconf = $thisgrp['needsconf'];
-		$toolate = $thisgrp['toolate'];
-		$ringing = $thisgrp['ringing'];
-		$pre_ring = $thisgrp['pre_ring'];
-		$ddial = $thisgrp['ddial'];
+
+		$strategy    = isset($thisgrp['strategy'])    ? $thisgrp['strategy']    : '';
+		$grppre      = isset($thisgrp['grppre'])      ? $thisgrp['grppre']      : '';
+		$grptime     = isset($thisgrp['grptime'])     ? $thisgrp['grptime']     : '';
+		$goto        = isset($thisgrp['postdest'])    ? $thisgrp['postdest']    : '';
+		$annmsg      = isset($thisgrp['annmsg'])      ? $thisgrp['annmsg']      : '';
+		$dring       = isset($thisgrp['dring'])       ? $thisgrp['dring']       : '';
+		$remotealert = isset($thisgrp['remotealert']) ? $thisgrp['remotealert'] : '';
+		$needsconf   = isset($thisgrp['needsconf'])   ? $thisgrp['needsconf']   : '';
+		$toolate     = isset($thisgrp['toolate'])     ? $thisgrp['toolate']     : '';
+		$ringing     = isset($thisgrp['ringing'])     ? $thisgrp['ringing']     : '';
+		$pre_ring    = isset($thisgrp['pre_ring'])    ? $thisgrp['pre_ring']    : '';
+		$ddial       = isset($thisgrp['ddial'])       ? $thisgrp['ddial']       : '';
 		unset($grpliststr);
 		unset($thisgrp);
 		
@@ -373,7 +374,6 @@ echo drawselects($goto,0);
 
 function checkGRP(theForm) {
 	var msgInvalidGrpNum = "<?php echo _('Invalid Group Number specified'); ?>";
-	var msgInvalidGrpNumStartWithZero = "<?php echo _('Group numbers with more than one digit cannot begin with 0'); ?>";
 	var msgInvalidExtList = "<?php echo _('Please enter an extension list.'); ?>";
 	var msgInvalidGrpPrefix = "<?php echo _('Invalid prefix. Valid characters: a-z A-Z 0-9 : _ -'); ?>";
 	var msgInvalidTime = "<?php echo _('Invalid time specified'); ?>";

@@ -1,8 +1,9 @@
 <module>
 	<rawname>findmefollow</rawname>
 	<name>Follow Me</name>
-	<version>2.4.12.3</version>
+	<version>2.4.13</version>
 	<changelog>
+		*2.4.13* added xml attribute needsenginedb, #1961 enabled to work with extension numbers leading with 0s
 		*2.4.12.3* #2057 don't strip CID prefix if no prefix is being added
 		*2.4.12.2* merge findmefollow/core extension destinations if any, and remove findmefollow destinations as a destination since they are handled by core
 		*2.4.12.1* #2002 IF() statement can't handle : in the string and can't escape them anyhow
@@ -37,7 +38,7 @@
 		Much like a ring group, but works on individual extensions. When someone calls the extension, it can be setup to ring for a number of seconds before trying to ring other extensions and/or external numbers, or to ring all at once, or in other various 'hunt' configurations. Most commonly used to ring someone's cell phone if they don't answer their extension.
 	</description>
 	<menuitems>
-		<findmefollow>Follow Me</findmefollow>
+		<findmefollow needsenginedb="yes">Follow Me</findmefollow>
 	</menuitems>
 	<location>release/2.3/findmefollow-2.4.12.3.tgz</location>
 	<info>http://aussievoip.com.au/wiki/freePBX-FollowMe</info>
