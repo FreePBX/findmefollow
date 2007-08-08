@@ -9,7 +9,7 @@ if(DB::IsError($check)) {
 	// add new field
     $sql = "ALTER TABLE findmefollow ADD pre_ring SMALLINT( 6 ) NOT NULL DEFAULT 0 ;";
     $result = $db->query($sql);
-    if(DB::IsError($result)) { die($result->getDebugInfo()); }
+    if(DB::IsError($result)) { die_freepbx($result->getDebugInfo()); }
 }
 // Version 2.0 upgrade. Yeah. 2.0 baby! 
 $sql = "SELECT remotealert FROM findmefollow";
@@ -18,15 +18,15 @@ if(DB::IsError($check)) {
 	// add new field
     $sql = "ALTER TABLE findmefollow ADD remotealert VARCHAR( 80 ) NULL ;";
     $result = $db->query($sql);
-    if(DB::IsError($result)) { die($result->getDebugInfo()); }
+    if(DB::IsError($result)) { die_freepbx($result->getDebugInfo()); }
 
     $sql = "ALTER TABLE findmefollow ADD needsconf VARCHAR( 10 ) NULL ;";
     $result = $db->query($sql);
-    if(DB::IsError($result)) { die($result->getDebugInfo()); }
+    if(DB::IsError($result)) { die_freepbx($result->getDebugInfo()); }
 
     $sql = "ALTER TABLE findmefollow ADD toolate VARCHAR( 80 ) NULL ;";
     $result = $db->query($sql);
-    if(DB::IsError($result)) { die($result->getDebugInfo()); }
+    if(DB::IsError($result)) { die_freepbx($result->getDebugInfo()); }
 }
 // Version 2.1 upgrade. Add support for ${DIALOPTS} override, playing MOH
 $sql = "SELECT ringing FROM findmefollow";
@@ -35,7 +35,7 @@ if(DB::IsError($check)) {
 	// add new field
     $sql = "ALTER TABLE findmefollow ADD ringing VARCHAR( 80 ) NULL ;";
     $result = $db->query($sql);
-    if(DB::IsError($result)) { die($result->getDebugInfo()); }
+    if(DB::IsError($result)) { die_freepbx($result->getDebugInfo()); }
 }
 // increase size for older installs
 $db->query("ALTER TABLE findmefollow CHANGE dring dring VARCHAR( 255 ) NULL");
@@ -53,7 +53,7 @@ if (!DB::IsError($results)) { // error - table must not be there
 			$sql = "UPDATE findmefollow SET postdest = '$new_dest' WHERE grpnum = '$grpnum'  AND postdest = '$old_dest'";
 			$results = $db->query($sql);
 			if(DB::IsError($results)) {
-				die($results->getMessage());
+				die_freepbx($results->getMessage());
 			}
 		}
 	}
