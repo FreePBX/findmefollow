@@ -1,8 +1,9 @@
 <module>
 	<rawname>findmefollow</rawname>
 	<name>Follow Me</name>
-	<version>2.4.13</version>
+	<version>2.4.13.1</version>
 	<changelog>
+		*2.4.13.1* bump for rc1
 		*2.4.13* added xml attribute needsenginedb, #1961 enabled to work with extension numbers leading with 0s
 		*2.4.12.3* #2057 don't strip CID prefix if no prefix is being added
 		*2.4.12.2* merge findmefollow/core extension destinations if any, and remove findmefollow destinations as a destination since they are handled by core
@@ -41,6 +42,5 @@
 		<findmefollow needsenginedb="yes">Follow Me</findmefollow>
 	</menuitems>
 	<location>release/2.3/findmefollow-2.4.13.tgz</location>
-	<info>http://aussievoip.com.au/wiki/freePBX-FollowMe</info>
 	<md5sum>4fbe4530dbde9883a205d0674c55c73d</md5sum>
 </module>
