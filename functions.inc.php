@@ -381,4 +381,31 @@ function findmefollow_configpageload() {
 	}	
 }
 
+function findmefollow_check_destinations($dest=true) {
+	global $active_modules;
+
+	$destlist = array();
+	if (is_array($dest) && empty($dest)) {
+		return $destlist;
+	}
+	$sql = "SELECT grpnum, postdest, name FROM findmefollow INNER JOIN users ON grpnum = extension ";
+	if ($dest !== true) {
+		$sql .= "WHERE postdest in ('".implode("','",$dest)."')";
+	}
+	$results = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
+
+	//$type = isset($active_modules['announcement']['type'])?$active_modules['announcement']['type']:'setup';
+
+	foreach ($results as $result) {
+		$thisdest = $result['postdest'];
+		$thisid   = $result['grpnum'];
+		$destlist[] = array(
+			'dest' => $thisdest,
+			'description' => 'Follow-Me: '.$thisid.' ('.$result['name'].')',
+			'edit_url' => 'config.php?display=findmefollow&extdisplay=GRP-'.urlencode($thisid),
+		);
+	}
+	return $destlist;
+}
+
 ?>
