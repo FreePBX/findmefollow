@@ -1,27 +1,5 @@
 <?php /* $Id: functions.inc.php 175 2006-10-03 19:12:39Z plindheimer $ */
 
-// The destinations this module provides
-// returns a associative arrays with keys 'destination' and 'description'
-/*
-
-// Remove destinations, use from-did-direct in core for 2.3 and on
-
-function findmefollow_destinations() {
-	//get the list of findmefollow
-	$results = findmefollow_full_list();
-	
-	// return an associative array with destination and description
-	if (isset($results)) {
-		foreach($results as $result){
-				$thisgrp = findmefollow_get(ltrim($result['0']));
-				$extens[] = array('destination' => 'ext-findmefollow,FM'.ltrim($result['0']).',1', 'description' => $thisgrp['grppre'].' <'.ltrim($result['0']).'>');
-		}
-	}
-	
-	return isset($extens)?$extens:null;
-}
-*/
-
 /* 	Generates dialplan for findmefollow
 	We call this with retrieve_conf
 */
