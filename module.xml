@@ -1,8 +1,9 @@
 <module>
 	<rawname>findmefollow</rawname>
 	<name>Follow Me</name>
-	<version>2.4.13.2</version>
+	<version>2.4.14</version>
 	<changelog>
+		*2.4.14* Extension/dest registry, extension quickpick, added hunt strategy with confirmation, it trans, formatting changes
 		*2.4.13.2* #2193 moh path hardcoded
 		*2.4.13.1* bump for rc1
 		*2.4.13* added xml attribute needsenginedb, #1961 enabled to work with extension numbers leading with 0s
@@ -42,6 +43,6 @@
 	<menuitems>
 		<findmefollow needsenginedb="yes">Follow Me</findmefollow>
 	</menuitems>
-	<location>release/2.3/findmefollow-2.4.13.2.tgz</location>
-	<md5sum>36fcd802f6e436dd24c50298dadec66a</md5sum>
+	<location>release/2.4/findmefollow-2.4.14.tgz</location>
+	<md5sum>99fcd2babbeb72612ceea50c5b1346fa</md5sum>
 </module>
