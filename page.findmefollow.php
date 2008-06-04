@@ -196,7 +196,7 @@ elseif ($action == 'delGRP') {
 				</span></a>
 				</td>
 				<td>
-					<select name="pre_ring"/>
+					<select name="pre_ring">
 					<?php
 						$default = (isset($pre_ring) ? $pre_ring : 0);
 						for ($i=0; $i <= 60; $i++) {
@@ -222,7 +222,7 @@ elseif ($action == 'delGRP') {
 				</a>
 				</td>
 				<td>
-					<select name="strategy"/>
+					<select name="strategy">
 					<?php
 						$default = (isset($strategy) ? $strategy : 'ringall');
                                                 $items = array('ringallv2','ringallv2-prim','ringall','ringall-prim','hunt','hunt-prim','memoryhunt','memoryhunt-prim','firstavailable','firstnotonphone');
@@ -284,7 +284,7 @@ elseif ($action == 'delGRP') {
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Announcement:")?><span><?php echo _("Message to be played to the caller before dialing this group.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left")?></span></a></td>
 				<td>
-					<select name="annmsg"/>
+					<select name="annmsg">
 					<?php
 						$tresults = recordings_list();
 						$default = (isset($annmsg) ? $annmsg : '');
@@ -313,7 +313,7 @@ elseif ($action == 'delGRP') {
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Play Music On Hold?")?><span><?php echo _("If you select a Music on Hold class to play, instead of 'Ring', they will hear that instead of Ringing while they are waiting for someone to pick up.")?></span></a></td>
 				<td>
-					<select name="ringing"/>
+					<select name="ringing">
 					<?php
 						$tresults = music_list($amp_conf['ASTVARLIBDIR']."/mohmp3");
 						$cur = (isset($ringing) ? $ringing : 'Ring');
@@ -350,7 +350,7 @@ elseif ($action == 'delGRP') {
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Remote Announce:")?><span><?php echo _("Message to be played to the person RECEIVING the call, if 'Confirm Calls' is enabled.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
 				<td>
-					<select name="remotealert"/>
+					<select name="remotealert">
 					<?php
 						$tresults = recordings_list();
 						$default = (isset($remotealert) ? $remotealert : '');
@@ -367,7 +367,7 @@ elseif ($action == 'delGRP') {
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Too-Late Announce:")?><span><?php echo _("Message to be played to the person RECEIVING the call, if the call has already been accepted before they push 1.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
 				<td>
-				<select name="toolate"/>
+				<select name="toolate">
 					<?php
 						$tresults = recordings_list();
 						$default = (isset($toolate) ? $toolate : '');
