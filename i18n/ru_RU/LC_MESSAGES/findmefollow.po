@@ -1,0 +1,409 @@
+# Russian freePBX ver. translation
+# Copyright (c) 2006-2008 PostMet Corporation
+# This file is distributed under the same license as the freePBX package.
+# Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2008.
+#
+# Использовать iconv amp.new -f UTF-8 -t ISO-8859-5 -o amp.po
+# fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-04-19 21:45+0100\n"
+"PO-Revision-Date: 2008-01-31 16:38+0100\n"
+"Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
+"Language-Team: Russian <faq@postmet.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-5\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: install.php:66 uninstall.php:30
+msgid "Cannot connect to Asterisk Manager with "
+msgstr "Невозможно соединится с Asterisk Manager как "
+
+#: page.findmefollow.php:68
+msgid "Warning! Extension"
+msgstr "Внимание! Внутренний номер"
+
+#: page.findmefollow.php:68
+msgid "is not allowed for your account"
+msgstr "не разрешен к использованию в вашем аккаунте"
+
+#: page.findmefollow.php:107
+msgid "$gresult[1]"
+msgstr ""
+
+#: page.findmefollow.php:118 page.findmefollow.php:121
+#: page.findmefollow.php:150
+msgid "Follow Me"
+msgstr "Следуйте сюда"
+
+#: page.findmefollow.php:121
+msgid "deleted"
+msgstr "удалено"
+
+#: page.findmefollow.php:147
+msgid "Delete Entries"
+msgstr "Удалить запись"
+
+#: page.findmefollow.php:172
+msgid "Edit Follow Me"
+msgstr "Изменить указание Следуйте сюда"
+
+#: page.findmefollow.php:172
+msgid "Add Follow Me"
+msgstr "Добавить указание Следуйте сюда"
+
+#: page.findmefollow.php:180
+msgid "group number"
+msgstr "групповой номер"
+
+#: page.findmefollow.php:180
+msgid "The number users will dial to ring extensions in this ring group"
+msgstr "Номер, на который можно позвонить сразу во всю группу вызова"
+
+#: page.findmefollow.php:186
+msgid "Initial Ring Time:"
+msgstr "Начальное время звонка:"
+
+#: page.findmefollow.php:187
+msgid ""
+"This is the number of seconds to ring the primary extension prior to "
+"proceeding to the follow-me list. The extension can also be included in the "
+"follow-me list. A 0 setting will bypass this."
+msgstr ""
+"Время в секундах, в течение которого звонок отрабатывает на первом назначении "
+"(внутреннем номере), после чего следует по направлению, заданному указанием "
+"Следуйте сюда. Значение 0 будет пропускать первый шаг."
+
+#: page.findmefollow.php:205
+msgid "ring strategy:"
+msgstr "стратегия звонков:"
+
+msgid "rinallv2"
+msgstr "1-звонят-все"
+
+msgid "ring primary extension for initial ring time followed by all additional extensions until one answers"
+msgstr ""
+"звенит первый внутренний номер втечение указанного времени (выше), затем все внутренние "
+"номера из списка, пока кто либо один не ответит"
+
+#: page.findmefollow.php:207
+msgid "ringall"
+msgstr "звонят-все"
+
+#: page.findmefollow.php:207
+msgid "ring all available channels until one answers (default)"
+msgstr "звонят все доступные номера из списка, пока кто либо один не ответит."
+
+#: page.findmefollow.php:208
+msgid "hunt"
+msgstr "серийное-искание"
+
+#: page.findmefollow.php:208
+msgid "take turns ringing each available extension"
+msgstr "звонок поступает на любой доступный из номеров по списку"
+
+#: page.findmefollow.php:209
+msgid "memoryhunt"
+msgstr "прогресс-серийное-искание"
+
+#: page.findmefollow.php:209
+msgid ""
+"ring first extension in the list, then ring the 1st and 2nd extension, then "
+"ring 1st 2nd and 3rd extension in the list.... etc."
+msgstr ""
+"Звонит первый внутренний номер в списке, затем первый и второй, затем первый, второй "
+"и третий в списке, и так далее."
+
+#: page.ringgroups.php:186
+msgid "*-prim"
+msgstr "*-прим"
+
+#: page.ringgroups.php:186
+msgid ""
+"These modes act as described above. However, if the primary extension (first "
+"in list) is occupied, the other extensions will not be rung. If the primary "
+"is FreePBX DND, it won't be rung. If the primary is FreePBX CF "
+"unconditional, then all will be rung"
+msgstr ""
+"Этот режим работает так же, как вышеописанные, за исключением того, что если первый "
+"внутренний номер из списка занят, следующие по списку не будут звонить. Также зависит от "
+"установок 'Не беспокоить' и 'Перенаправление' на первом внутреннем номере списка. Если "
+"DND, то поиск в группе на этом заканчивается. Если CF (перенаправление) не перенаправит, "
+"то поиск в группе продолжится."
+
+#: page.ringgroups.php:187
+msgid "firstavailable"
+msgstr "первый-доступный"
+
+#: page.ringgroups.php:187
+msgid "ring only the first available channel"
+msgstr "звонит первый доступный канал"
+
+#: page.ringgroups.php:188
+msgid "firstnotonphone"
+msgstr "первый-на-телефоне"
+
+#: page.ringgroups.php:188
+msgid "ring only the first channel which is not offhook - ignore CW"
+msgstr "звонит первый телефон, у которого не снята трубка - форвардинг игнорируется"
+
+
+#: page.findmefollow.php:226
+msgid "Alert Info"
+msgstr "Дополнительная информация"
+
+#: page.findmefollow.php:230
+msgid "Confirm Calls"
+msgstr "Подтверждать вызовы"
+
+#: page.findmefollow.php:231
+msgid "System Recordings not installed. Option Disabled"
+msgstr "Запись сообщений не проинсталлирована. Опция недоступна"
+
+#: page.findmefollow.php:237
+msgid "Remote Announce:"
+msgstr "Удалённое приветствие:"
+
+#: page.findmefollow.php:237
+msgid ""
+"Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
+"enabled.<br><br>To add additional recordings use the \"System Recordings\" "
+"MENU to the left"
+msgstr ""
+"Сообщение, которое будет воспроизведено для адресата звонка, если задействована опция "
+"Подтверждение вызова.<br><br>Добавить запись можно в секции Запись сообщений в меню слева."
+
+#: page.findmefollow.php:243 page.findmefollow.php:260
+msgid "Default"
+msgstr "По умолчанию"
+
+#: page.findmefollow.php:254
+msgid "Too-Late Announce:"
+msgstr "Сообщение Уже-поздно"
+
+#: page.findmefollow.php:254
+msgid ""
+"Message to be played to the person RECEIVING the call, if the call has "
+"already been accepted before they push 1.<br><br>To add additional "
+"recordings use the \"System Recordings\" MENU to the left"
+msgstr ""
+"Сообщение воспроизводится для принявшего этот звонок, если звонок уже принят прежде чем он успел "
+"нажать 1.<br><br>Для создания такого сообщения используйте раздел меню Запись сообщений."
+
+#: page.findmefollow.php:272
+msgid "extension list"
+msgstr "список номеров"
+
+#: page.findmefollow.php:249
+msgid ""
+"List extensions to ring, one per line, or use the Extension Quick Pick below."
+"<br><br>You can include an extension on a remote system, or an external "
+"number by suffixing a number with a pound (#).  ex:  2448089# would dial "
+"2448089 on the appropriate trunk (see Outbound Routing)."
+msgstr ""
+"Лист номеров, по одному в строке, или воспользуйтесь Выбором из меню ниже чтобы добавить в "
+"список <br><br>Можно включать номера из других удалённых систем, или внешние номера, с "
+"использованием знака # в качестве суффикса. Например: 2448089# наберёт номер 2448089 на "
+"любом внешнем транке, попадающем в правила Исходящей маршрутизации.<br><br>Задействуются "
+"только фактические внутренние номера. Если хотите использовать при этом посторонние каналы "
+"(чтобы звонить на follow-me или в другие группы вызова, или очереди, просто ставьте знак # "
+"в конце номера. Но будте осторожны! Это рекурсия, и система может задушиться."
+
+#: page.findmefollow.php:287
+msgid "CID name prefix"
+msgstr "Префикс ИД имени"
+
+msgid "You can optionally prefix the Caller ID name when ringing extensions in this group. "
+"ie: If you prefix with \"Sales:\", a call from John Doe would display as \"Sales:John Doe\" "
+"on the extensions that ring."
+msgstr ""
+"Опционально, можно использовать какой-то префикс для звонка в эту группу. Например, если это группа "
+"\"Sales:\", то, установив такой префикс для этой группы, можно видеть, если звонит John Doe, то "
+"мы увидим на дисплее Sales:John Doe."
+
+#: page.findmefollow.php:293
+msgid "ring time (max 60 sec)"
+msgstr "время вызова (макс. 60 сек.)"
+
+#: page.findmefollow.php:241
+msgid ""
+"Time in seconds that the phones will ring. For all hunt style ring "
+"strategies, this is the time for each iteration of phone(s) that are rung"
+msgstr ""
+"Время в секундах, в течение которого телефоны будут звонить. Для всех видов "
+"стратегий серийного искания это время звонка повторяется для всех телефонов, "
+"которые включены в серию."
+
+#: page.findmefollow.php:298 page.findmefollow.php:316
+msgid "announcement:"
+msgstr "приветствие:"
+
+#: page.findmefollow.php:298
+msgid ""
+"Message to be played to the caller before dialing this group.<br><br>To add "
+"additional recordings please use the \"System Recordings\" MENU to the left"
+msgstr ""
+"Сообщение, которое воспроизводится позвонившему прежде, чем звонок перйдёт в "
+"группу.<br><br>Для создания такого сообщения используйте раздел меню Запись сообщений."
+
+#: page.findmefollow.php:304
+msgid "None"
+msgstr "Нет"
+
+#: page.findmefollow.php:316
+msgid ""
+"Message to be played to the caller before dialing this group.<br><br>You "
+"must install and enable the \"Systems Recordings\" Module to edit this option"
+msgstr ""
+"Сообщение, которое воспроизводится позвонившему прежде, чем звонок перйдёт в "
+"группу.<br><br>Необходимо инсталлировать модуль Запись сообщений чтобы менять "
+"что-либо в этой опции."
+
+#: page.findmefollow.php:326
+msgid "Play Music On Hold?"
+msgstr "Музыку в ожидании?"
+
+#: page.findmefollow.php:326
+msgid ""
+"If you select a Music on Hold class to play, instead of 'Ring', they will "
+"hear that instead of Ringing while they are waiting for someone to pick up."
+msgstr ""
+"Если выбран класс Музыки в ожидании вместо простого сигнала вызова, то позвонивший "
+"будет слушать музыку, пока кто-то не поднимет трубку."
+
+#: page.findmefollow.php:332
+msgid "Ring"
+msgstr "Звонок"
+
+#: page.findmefollow.php:344
+msgid "Destination if no answer"
+msgstr "Назначение если нет ответа"
+
+msgid "Misc Destinations"
+msgstr "Различные направления"
+
+msgid "IVR"
+msgstr "Интерактивное меню"
+
+msgid "Languages"
+msgstr "Языки"
+
+msgid "Conferences"
+msgstr "Конференции"
+
+msgid "Phonebook Directory"
+msgstr "Телефонная книга"
+
+msgid "Queues"
+msgstr "Очереди"
+
+msgid "Ring Groups"
+msgstr "Группы вызова"
+
+msgid "Speed dial functions"
+msgstr "Функции быстрого набора"
+
+msgid "Time Conditions"
+msgstr "Правила по времени"
+
+msgid "Custom Application"
+msgstr "Специальное приложение"
+
+msgid "Extended Routing"
+msgstr "Расширенная маршрутизация"
+
+msgid "Custom App<span><br>ADVANCED USERS ONLY<br><br>Uses Goto() to send caller to "
+"a custom context.<br><br>The context name should start with \"custom-\", and be in "
+"the format custom-context,extension,priority. Example "
+"entry:<br><br><b>custom-myapp,s,1</b><br><br>The <b>[custom-myapp]</b> context would "
+"need to be created and included in extensions_custom.conf</span>"
+msgstr ""
+"Особые приложения<span><br>ТОЛЬКО ОПЫТНЫМ ПОЛЬЗОВАТЕЛЯМ<br>Используйте операнд "
+"Goto() для перенаправления в custom контекст.<br><br>Название контекста должно "
+"начинаться с \"custom-\" и быть в формате custom-context,extension,приоритет. "
+"Например:<br><b>custom-app,s,1</b><br>Контекст <b>[custom-app]</b> должен быть создан "
+"в extensions_custom.conf</span"
+
+msgid "Submit Changes"
+msgstr "Применить изменения"
+
+msgid "Edit"
+msgstr "Изменить"
+
+msgid "extension"
+msgstr "внутренний номер"
+
+msgid "You can optionally include an Alert Info which can create distinctive rings on SIP phones."
+msgstr ""
+"Дополнительная информация ALERT_INFO может быть использования для распознавания адресата "
+"чтобы присвоить различный тип звонков на SIP устройствах."
+
+msgid "Enable this if you're calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through. This feature only works with the ringall/ringall-prim  ring strategy"
+msgstr ""
+"Используйте это, если звонок идёт на внешний номер, который нуждается в подтверждении. Например, "
+"мобильный телефон может включить головую почту, которая перехватит этот вызов. Нажатием на 1 можно "
+"заблокировать такие действия. Опция действительна только при стратегии вызова звонят-все."
+
+msgid "Choose a user/extension:"
+msgstr "Выбрать пользователя/внутренний номер:"
+
+msgid "Day Night Mode"
+msgstr "Дневной/ночной режим"
+
+msgid "Terminate Call"
+msgstr "Терминировать звонок"
+
+msgid "Extensions"
+msgstr "Внутренний номер"
+
+msgid "Voicemail"
+msgstr "Голосовая почта"
+
+msgid "Announcement:"
+msgstr "Приветствие:"
+
+msgid "Ring Time (max 60 sec)"
+msgstr "Время вызова (макс. 60 сек.)"
+
+msgid "CID Name Prefix"
+msgstr "Префикс ИД имени"
+
+msgid "Follow-Me List"
+msgstr "Список"
+
+msgid "Disable"
+msgstr "Не использовать"
+
+msgid "Extension Quick Pick"
+msgstr "Выбрать номера"
+
+msgid "Choose an extension to append to the end of the extension list above."
+msgstr "Выберите номера для добавления в конец списка выше"
+
+msgid ""
+"By default (not checked) any call to this extension will go to this Follow-Me instead, including directory calls by name from IVRs. If checked, calls will go only to the extension.<BR>"
+"However, destinations that specify FollowMe will come here.<BR>"
+"Checking this box is often used in conjunction with VmX Locater, where you want a call to ring the extension, and then only if the caller chooses to find you do you want it to come here."
+msgstr ""
+"По умолчанию (не отмечено) все звонки поступают в модуль 'Следуйте сюда', "
+"включая звонки с поиском по имени в Интерактивных меню. Но если отмечено, "
+"звонок поступает прямо на указаный номер.<br>В любом случае, назначение, указанное в "
+"'Следуйте сюда' будет исполняться. Использование этой опции часто оправдано вместе с "
+"VmX Локатором, где можно просто направить звонок на внутренний номер, пользователь "
+"которого может непосредственно сам указать, хочет ли он, штобы поступающие звонки "
+"находили его везде, или нет."
+
+msgid "Ring Strategy:"
+msgstr "Стратегия дозвона:"
+
+msgid "(edit)"
+msgstr "(изменить)"
+
+msgid "Edit Extension %s"
+msgstr "Изменить номер %s"
+
+msgid "Edit Follow Me Settings"
+msgstr "Изменить установки 'Следуйте сюда'"
+
