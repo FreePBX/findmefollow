@@ -14,6 +14,10 @@
 global $astman;
 global $amp_conf;
 
+$fcc = new featurecode('findmefollow', 'fmf_toggle');
+$fcc->delete();
+unset($fcc);
+
 $sql = "SELECT * FROM users";
 $userresults = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
 	

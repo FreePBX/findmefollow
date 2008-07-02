@@ -2,6 +2,14 @@
 
 global $db;
 
+//TODO: Also need to create all the states if enabled
+
+$fcc = new featurecode('findmefollow', 'fmf_toggle');
+$fcc->setDescription('Findme Follow Toggle');
+$fcc->setDefault('*21');
+$fcc->update();
+unset($fcc);
+
 // Adding support for a pre_ring before follow-me group
 $sql = "SELECT pre_ring FROM findmefollow";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);

@@ -5,8 +5,18 @@
 */
 function findmefollow_get_config($engine) {
 	global $ext;  // is this the best way to pass this?
+	global $amp_conf;
 	switch($engine) {
 		case "asterisk":
+
+			$fcc = new featurecode('findmefollow', 'fmf_toggle');
+			$fmf_code = $fcc->getCodeActive();
+			unset($fcc);
+
+			if ($fmf_code != '') {
+				findmefollow_fmf_toggle($fmf_code);
+			}
+
 			$ext->addInclude('from-internal-additional','ext-findmefollow');
 			$ext->addInclude('from-internal-additional','fmgrps');
 			$contextname = 'ext-findmefollow';
@@ -38,10 +48,16 @@ function findmefollow_get_config($engine) {
 						$dialopts = "m(${ringing})".str_replace('r', '', $sops[0]);
 					}
 
+					if ($fmf_code != '') {
+						$ext->add($contextname, $fmf_code.$grpnum, '', new ext_goto("1",$fmf_code,"app-fmf-toggle"));
+						if ($amp_conf['USEDEVSTATE']) {
+							$ext->addHint($contextname, $fmf_code.$grpnum, "Custom:FOLLOWME".$grpnum);
+						}
+					}
 
 					// Direct target to Follow-Me come here bypassing the followme/ddial conditional check
 					//
-					$ext->add($contextname, 'FM'.$grpnum, '', new ext_goto("$grpnum,FM$grpnum"));
+					$ext->add($contextname, 'FM'.$grpnum, '', new ext_goto("FM$grpnum","$grpnum"));
 
 					//
 					// If the followme is configured for extension dialing to go to the the extension and not followme then
@@ -384,6 +400,39 @@ function findmefollow_check_destinations($dest=true) {
 		);
 	}
 	return $destlist;
+}
+
+function findmefollow_fmf_toggle($c) {
+	global $ext;
+	global $amp_conf;
+
+	$id = "app-fmf-toggle"; // The context to be included
+	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
+
+	$ext->add($id, $c, '', new ext_goto('start','s',$id));
+	$c = 's';
+
+	$ext->add($id, $c, 'start', new ext_answer(''));
+	$ext->add($id, $c, '', new ext_wait('1'));
+	$ext->add($id, $c, '', new ext_macro('user-callerid'));
+
+	$ext->add($id, $c, '', new ext_gotoif('$["${DB(AMPUSER/${AMPUSER}/followme/ddial)}" = "EXTENSION"]', 'activate'));
+	$ext->add($id, $c, '', new ext_gotoif('$["${DB(AMPUSER/${AMPUSER}/followme/ddial)}" = "DIRECT"]', 'deactivate','end'));
+
+	$ext->add($id, $c, 'deactivate', new ext_setvar('DB(AMPUSER/${AMPUSER}/followme/ddial)', 'EXTENSION'));
+	if ($amp_conf['USEDEVSTATE']) {
+		$ext->add($id, $c, '', new ext_setvar('DEVSTATE(Custom:FOLLOWME${AMPUSER})', 'NOT_INUSE'));
+	}
+	$ext->add($id, $c, 'end', new ext_playback('followme&de-activated'));
+	$ext->add($id, $c, '', new ext_macro('hangupcall'));
+
+	$ext->add($id, $c, 'activate', new ext_setvar('DB(AMPUSER/${AMPUSER}/followme/ddial)', 'DIRECT'));
+	if ($amp_conf['USEDEVSTATE']) {
+		$ext->add($id, $c, '', new ext_setvar('DEVSTATE(Custom:FOLLOWME${AMPUSER})', 'INUSE'));
+	}
+	$ext->add($id, $c, '', new ext_playback('followme&activated'));
+	$ext->add($id, $c, '', new ext_macro('hangupcall'));
+
 }
 
 ?>
