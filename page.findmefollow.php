@@ -187,7 +187,7 @@ elseif ($action == 'delGRP') {
 
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Disable")?><span><?php echo _('By default (not checked) any call to this extension will go to this Follow-Me instead, including directory calls by name from IVRs. If checked, calls will go only to the extension.<BR>However, destinations that specify FollowMe will come here.<BR>Checking this box is often used in conjunction with VmX Locater, where you want a call to ring the extension, and then only if the caller chooses to find you do you want it to come here.')?></span></a>:</td>
-				<td><input type="checkbox" name="ddial" value="CHECKED" <?php echo $ddial ?>  /></td>
+				<td><input type="checkbox" name="ddial" value="CHECKED" <?php echo $ddial ?>   tabindex="<?php echo ++$tabindex;?>"/></td>
 			</tr>
 
 			<tr>
@@ -196,7 +196,7 @@ elseif ($action == 'delGRP') {
 				</span></a>
 				</td>
 				<td>
-					<select name="pre_ring">
+					<select name="pre_ring" tabindex="<?php echo ++$tabindex;?>">
 					<?php
 						$default = (isset($pre_ring) ? $pre_ring : 0);
 						for ($i=0; $i <= 60; $i++) {
@@ -222,7 +222,7 @@ elseif ($action == 'delGRP') {
 				</a>
 				</td>
 				<td>
-					<select name="strategy">
+					<select name="strategy" tabindex="<?php echo ++$tabindex;?>">
 					<?php
 						$default = (isset($strategy) ? $strategy : 'ringall');
                                                 $items = array('ringallv2','ringallv2-prim','ringall','ringall-prim','hunt','hunt-prim','memoryhunt','memoryhunt-prim','firstavailable','firstnotonphone');
@@ -242,7 +242,7 @@ elseif ($action == 'delGRP') {
 						</span>
 					</a>
 				</td>
-				<td><input size="4" type="text" name="grptime" value="<?php  echo $grptime?$grptime:20 ?>"></td>
+				<td><input size="4" type="text" name="grptime" value="<?php  echo $grptime?$grptime:20 ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 			</tr>
 
 			<tr>
@@ -255,7 +255,7 @@ elseif ($action == 'delGRP') {
 		}
 		($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows);
 ?>
-					<textarea id="grplist" cols="15" rows="<?php  echo $rows ?>" name="grplist"><?php echo implode("\n",$grplist);?></textarea>
+					<textarea id="grplist" cols="15" rows="<?php  echo $rows ?>" name="grplist" tabindex="<?php echo ++$tabindex;?>"><?php echo implode("\n",$grplist);?></textarea>
 				</td>
 			</tr>
 
@@ -268,7 +268,7 @@ elseif ($action == 'delGRP') {
 				</a>
 				</td>
 				<td>
-					<select onChange="insertExten();" id="insexten">
+					<select onChange="insertExten();" id="insexten" tabindex="<?php echo ++$tabindex;?>">
 						<option value=""><?php echo _("(pick extension)")?></option>
 	<?php
 						$results = core_users_list();
@@ -284,7 +284,7 @@ elseif ($action == 'delGRP') {
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Announcement:")?><span><?php echo _("Message to be played to the caller before dialing this group.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left")?></span></a></td>
 				<td>
-					<select name="annmsg">
+					<select name="annmsg" tabindex="<?php echo ++$tabindex;?>">
 					<?php
 						$tresults = recordings_list();
 						$default = (isset($annmsg) ? $annmsg : '');
@@ -313,7 +313,7 @@ elseif ($action == 'delGRP') {
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Play Music On Hold?")?><span><?php echo _("If you select a Music on Hold class to play, instead of 'Ring', they will hear that instead of Ringing while they are waiting for someone to pick up.")?></span></a></td>
 				<td>
-					<select name="ringing">
+					<select name="ringing" tabindex="<?php echo ++$tabindex;?>">
 					<?php
 						$tresults = music_list($amp_conf['ASTVARLIBDIR']."/mohmp3");
 						$cur = (isset($ringing) ? $ringing : 'Ring');
@@ -331,18 +331,18 @@ elseif ($action == 'delGRP') {
 
 			<tr>
 				<td><a href="#" class="info"><?php echo _("CID Name Prefix")?>:<span><?php echo _('You can optionally prefix the Caller ID name when ringing extensions in this group. ie: If you prefix with "Sales:", a call from John Doe would display as "Sales:John Doe" on the extensions that ring.')?></span></a></td>
-				<td><input size="4" type="text" name="grppre" value="<?php  echo $grppre ?>"></td>
+				<td><input size="4" type="text" name="grppre" value="<?php  echo $grppre ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 			</tr>
 
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Alert Info")?>:<span><?php echo _('You can optionally include an Alert Info which can create distinctive rings on SIP phones.')?></span></a></td>
-				<td><input size="18" type="text" name="dring" value="<?php  echo $dring ?>"></td>
+				<td><input size="18" type="text" name="dring" value="<?php  echo $dring ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 			</tr>
 
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Confirm Calls")?><span><?php echo _('Enable this if you\'re calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through. This feature only works with the ringall/ringall-prim  ring strategy')?></span></a>:</td>
 				<td> 
-					<input type="checkbox" name="needsconf" value="CHECKED" <?php echo $needsconf ?>  />
+					<input type="checkbox" name="needsconf" value="CHECKED" <?php echo $needsconf ?>   tabindex="<?php echo ++$tabindex;?>"/>
 				</td>
 			</tr>
 
@@ -350,7 +350,7 @@ elseif ($action == 'delGRP') {
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Remote Announce:")?><span><?php echo _("Message to be played to the person RECEIVING the call, if 'Confirm Calls' is enabled.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
 				<td>
-					<select name="remotealert">
+					<select name="remotealert" tabindex="<?php echo ++$tabindex;?>">
 					<?php
 						$tresults = recordings_list();
 						$default = (isset($remotealert) ? $remotealert : '');
@@ -367,7 +367,7 @@ elseif ($action == 'delGRP') {
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Too-Late Announce:")?><span><?php echo _("Message to be played to the person RECEIVING the call, if the call has already been accepted before they push 1.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
 				<td>
-				<select name="toolate">
+				<select name="toolate" tabindex="<?php echo ++$tabindex;?>">
 					<?php
 						$tresults = recordings_list();
 						$default = (isset($toolate) ? $toolate : '');
@@ -391,7 +391,7 @@ echo drawselects($goto,0);
 ?>
 			
 			<tr>
-			<td colspan="2"><br><h6><input name="Submit" type="submit" value="<?php echo _("Submit Changes")?>"></h6></td>		
+			<td colspan="2"><br><h6><input name="Submit" type="submit" value="<?php echo _("Submit Changes")?>" tabindex="<?php echo ++$tabindex;?>"></h6></td>		
 			
 			</tr>
 			</table>
