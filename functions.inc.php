@@ -367,11 +367,19 @@ function findmefollow_configpageload() {
 		$set_findmefollow = findmefollow_list();
 		$grpURL = $_SERVER['PHP_SELF'].'?'.'display=findmefollow&extdisplay=GRP-'.$viewing_itemid;
 		if (is_array($set_findmefollow)) {
-			$grpTEXT = (in_array($viewing_itemid,$set_findmefollow) ? "Edit" : "Add")." Follow Me Settings";
+			if (in_array($viewing_itemid,$set_findmefollow)) {
+				$grpTEXT = _("Edit Follow Me Settings");
+				$icon = "images/user_go.png";
+			} else {
+				$grpTEXT = _("Add Follow Me Settings");
+				$icon = "images/user_add.png";
+			}
 		} else {
-			$grpTEXT = "Add Follow Me Settings";
+			$grpTEXT = _("Add Follow Me Settings");
+			$icon = "images/user_add.png";
 		}
-		$currentcomponent->addguielem('_top', new gui_link('findmefollowlink', $grpTEXT, $grpURL));
+		$label = '<span><img width="16" height="16" border="0" title="Delete Extension" alt="" src="'.$icon.'"/>&nbsp;'.$grpTEXT.'</span>';
+		$currentcomponent->addguielem('_top', new gui_link('findmefollowlink', $label, $grpURL));
 	}	
 }
 

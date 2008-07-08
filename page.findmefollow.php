@@ -157,14 +157,15 @@ elseif ($action == 'delGRP') {
 		//
 		if (isset($amp_conf["AMPEXTENSIONS"]) && ($amp_conf["AMPEXTENSIONS"] == "deviceanduser")) {
 			$editURL = $_SERVER['PHP_SELF'].'?display=users&extdisplay='.ltrim($extdisplay,'GRP-');
-			$EXTorUSER = "User";
+			$EXTorUSER = _("User");
 		}
 		else {
 			$editURL = $_SERVER['PHP_SELF'].'?display=extensions&extdisplay='.ltrim($extdisplay,'GRP-');
-			$EXTorUSER = "Extension";
+			$EXTorUSER = _("Extension");
 		}
 
-		echo "<p><a href=".$editURL."> Edit ".$EXTorUSER." ".ltrim($extdisplay,'GRP-')."</a></p>";
+		$label = '<span><img width="16" height="16" border="0" title="'.sprintf(_("Edit %s"),$EXTorUSER).'" alt="" src="images/user_edit.png"/>&nbsp;'.sprintf(_("Edit %s %s"),$EXTorUSER, ltrim($extdisplay,'GRP-')).'</span>';
+		echo "<p><a href=".$editURL.">".$label."</a></p>";
 		echo "<p>".$delButton."</p>";
 	} 
 	?>
