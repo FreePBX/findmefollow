@@ -11,6 +11,8 @@
 //MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 //GNU General Public License for more details.
 
+$tabindex = 0;
+
 $dispnum = 'findmefollow'; //used for switch on config.php
 
 isset($_REQUEST['action'])?$action = $_REQUEST['action']:$action='';
