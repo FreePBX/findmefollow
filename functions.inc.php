@@ -226,24 +226,23 @@ function findmefollow_full_list() {
 		return null;
 }
 
-function findmefollow_list() {
+function findmefollow_list($get_all=false) {
 
-        global $db;
-        $sql = "SELECT grpnum FROM findmefollow ORDER BY CAST(grpnum as UNSIGNED)";
-        $results = $db->getCol($sql);
-        if(DB::IsError($results)) {
-                $results = null;
-        }
-        if (isset($results)) {
-					foreach($results as $result) {
-						if (checkRange($result)){
-							$grps[] = $result;
-						}
-					}
-        }
-        if (isset($grps)) {
-		sort($grps); // hmm, should be sorted already
-        	return $grps;
+	global $db;
+	$sql = "SELECT grpnum FROM findmefollow ORDER BY CAST(grpnum as UNSIGNED)";
+	$results = $db->getCol($sql);
+	if(DB::IsError($results)) {
+		$results = null;
+	}
+	if (isset($results)) {
+		foreach($results as $result) {
+			if ($get_all || checkRange($result)){
+				$grps[] = $result;
+			}
+		}
+	}
+	if (isset($grps)) {
+		return $grps;
 	}
 	else {
 		return null;
