@@ -8,6 +8,9 @@ function findmefollow_get_config($engine) {
 	global $amp_conf;
 	switch($engine) {
 		case "asterisk":
+			if ($amp_conf['USEDEVSTATE']) {
+				$ext->addGlobal('FMDEVSTATE','TRUE');
+			}
 
 			$fcc = new featurecode('findmefollow', 'fmf_toggle');
 			$fmf_code = $fcc->getCodeActive();
@@ -20,6 +23,17 @@ function findmefollow_get_config($engine) {
 			$ext->addInclude('from-internal-additional','ext-findmefollow');
 			$ext->addInclude('from-internal-additional','fmgrps');
 			$contextname = 'ext-findmefollow';
+
+			// Before creating all the contexts, let's make a list of hints if needed
+			//
+			if ($amp_conf['USEDEVSTATE'] && $fmf_code != '') {
+				$device_list = core_devices_list("all", false, true);
+				foreach ($device_list as $device) {
+					$ext->add($contextname, $fmf_code.$device['id'], '', new ext_goto("1",$fmf_code,"app-fmf-toggle"));
+					$ext->addHint($contextname, $fmf_code.$device['id'], "Custom:FOLLOWME".$device['id']);
+				}
+			}
+
 			$ringlist = findmefollow_full_list();
 			if (is_array($ringlist)) {
 				foreach($ringlist as $item) {
@@ -46,13 +60,6 @@ function findmefollow_get_config($engine) {
 						// We need the DIAL_OPTIONS variable
 						$sops = sql("SELECT value from globals where variable='DIAL_OPTIONS'", "getRow");
 						$dialopts = "m(${ringing})".str_replace('r', '', $sops[0]);
-					}
-
-					if ($fmf_code != '') {
-						$ext->add($contextname, $fmf_code.$grpnum, '', new ext_goto("1",$fmf_code,"app-fmf-toggle"));
-						if ($amp_conf['USEDEVSTATE']) {
-							$ext->addHint($contextname, $fmf_code.$grpnum, "Custom:FOLLOWME".$grpnum);
-						}
 					}
 
 					// Direct target to Follow-Me come here bypassing the followme/ddial conditional check
@@ -428,18 +435,32 @@ function findmefollow_fmf_toggle($c) {
 
 	$ext->add($id, $c, 'deactivate', new ext_setvar('DB(AMPUSER/${AMPUSER}/followme/ddial)', 'EXTENSION'));
 	if ($amp_conf['USEDEVSTATE']) {
-		$ext->add($id, $c, '', new ext_setvar('DEVSTATE(Custom:FOLLOWME${AMPUSER})', 'NOT_INUSE'));
+		$ext->add($id, $c, '', new ext_setvar('STATE', 'NOT_INUSE'));
+		$ext->add($id, $c, '', new ext_gosub('1', 'sstate'));
+		//$ext->add($id, $c, '', new ext_setvar('DEVSTATE(Custom:FOLLOWME${AMPUSER})', 'NOT_INUSE'));
 	}
 	$ext->add($id, $c, 'end', new ext_playback('followme&de-activated'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall'));
 
 	$ext->add($id, $c, 'activate', new ext_setvar('DB(AMPUSER/${AMPUSER}/followme/ddial)', 'DIRECT'));
 	if ($amp_conf['USEDEVSTATE']) {
-		$ext->add($id, $c, '', new ext_setvar('DEVSTATE(Custom:FOLLOWME${AMPUSER})', 'INUSE'));
+		$ext->add($id, $c, '', new ext_setvar('STATE', 'INUSE'));
+		$ext->add($id, $c, '', new ext_gosub('1', 'sstate'));
+		//$ext->add($id, $c, '', new ext_setvar('DEVSTATE(Custom:FOLLOWME${AMPUSER})', 'INUSE'));
 	}
 	$ext->add($id, $c, '', new ext_playback('followme&activated'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall'));
 
+	if ($amp_conf['USEDEVSTATE']) {
+	$c = 'sstate';
+		$ext->add($id, $c, '', new ext_dbget('DEVICES','AMPUSER/${AMPUSER}/device'));
+		$ext->add($id, $c, '', new ext_gotoif('$["${DEVICES}" = "" ]', 'return'));
+		$ext->add($id, $c, '', new ext_setvar('LOOPCNT', '${FIELDQTY(DEVICES,&)}'));
+		$ext->add($id, $c, '', new ext_setvar('ITER', '1'));
+		$ext->add($id, $c, 'begin', new ext_setvar('DEVSTATE(Custom:FOLLOWME${CUT(DEVICES,&,${ITER})})','${STATE}'));
+		$ext->add($id, $c, '', new ext_setvar('ITER', '$[${ITER} + 1]'));
+		$ext->add($id, $c, '', new ext_gotoif('$[${ITER} <= ${LOOPCNT}]', 'begin'));
+		$ext->add($id, $c, 'return', new ext_return());
+	}
 }
-
 ?>
