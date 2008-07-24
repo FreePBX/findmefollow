@@ -31,4 +31,6 @@ if ($astman) {
 	echo _("Cannot connect to Asterisk Manager with ").$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"];
 }
 
+sql('DROP TABLE IF EXISTS findmefollow');
+
 ?>

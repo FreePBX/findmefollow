@@ -22,11 +22,11 @@ isset($_REQUEST['account'])?$account = $_REQUEST['account']:$account='';
 isset($_REQUEST['grptime'])?$grptime = $_REQUEST['grptime']:$grptime='';
 isset($_REQUEST['grppre'])?$grppre = $_REQUEST['grppre']:$grppre='';
 isset($_REQUEST['strategy'])?$strategy = $_REQUEST['strategy']:$strategy='';
-isset($_REQUEST['annmsg'])?$annmsg = $_REQUEST['annmsg']:$annmsg='';
+isset($_REQUEST['annmsg_id'])?$annmsg_id = $_REQUEST['annmsg_id']:$annmsg_id='';
 isset($_REQUEST['dring'])?$dring = $_REQUEST['dring']:$dring='';
 isset($_REQUEST['needsconf'])?$needsconf = $_REQUEST['needsconf']:$needsconf='';
-isset($_REQUEST['remotealert'])?$remotealert = $_REQUEST['remotealert']:$remotealert='';
-isset($_REQUEST['toolate'])?$toolate = $_REQUEST['toolate']:$toolate='';
+isset($_REQUEST['remotealert_id'])?$remotealert_id = $_REQUEST['remotealert_id']:$remotealert_id='';
+isset($_REQUEST['toolate_id'])?$toolate_id = $_REQUEST['toolate_id']:$toolate_id='';
 isset($_REQUEST['ringing'])?$ringing = $_REQUEST['ringing']:$ringing='';
 isset($_REQUEST['pre_ring'])?$pre_ring = $_REQUEST['pre_ring']:$pre_ring='0';
 isset($_REQUEST['ddial'])?$ddial = $_REQUEST['ddial']:$ddial='';
@@ -72,7 +72,7 @@ if(isset($_POST['action'])){
 	} else {
 		//add group
 		if ($action == 'addGRP') {
-			findmefollow_add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg,$dring,$needsconf,$remotealert,$toolate,$ringing,$pre_ring,$ddial);
+			findmefollow_add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial);
 
 			needreload();
 			redirect_standard();
@@ -88,7 +88,7 @@ if(isset($_POST['action'])){
 		//edit group - just delete and then re-add the extension
 		if ($action == 'edtGRP') {
 			findmefollow_del($account);	
-			findmefollow_add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg,$dring,$needsconf,$remotealert,$toolate,$ringing,$pre_ring,$ddial);
+			findmefollow_add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial);
 
 			needreload();
 			redirect_standard('extdisplay');
@@ -133,11 +133,11 @@ elseif ($action == 'delGRP') {
 		$grppre      = isset($thisgrp['grppre'])      ? $thisgrp['grppre']      : '';
 		$grptime     = isset($thisgrp['grptime'])     ? $thisgrp['grptime']     : '';
 		$goto        = isset($thisgrp['postdest'])    ? $thisgrp['postdest']    : '';
-		$annmsg      = isset($thisgrp['annmsg'])      ? $thisgrp['annmsg']      : '';
+		$annmsg_id      = isset($thisgrp['annmsg_id'])      ? $thisgrp['annmsg_id']      : '';
 		$dring       = isset($thisgrp['dring'])       ? $thisgrp['dring']       : '';
-		$remotealert = isset($thisgrp['remotealert']) ? $thisgrp['remotealert'] : '';
+		$remotealert_id = isset($thisgrp['remotealert_id']) ? $thisgrp['remotealert_id'] : '';
 		$needsconf   = isset($thisgrp['needsconf'])   ? $thisgrp['needsconf']   : '';
-		$toolate     = isset($thisgrp['toolate'])     ? $thisgrp['toolate']     : '';
+		$toolate_id     = isset($thisgrp['toolate_id'])     ? $thisgrp['toolate_id']     : '';
 		$ringing     = isset($thisgrp['ringing'])     ? $thisgrp['ringing']     : '';
 		$pre_ring    = isset($thisgrp['pre_ring'])    ? $thisgrp['pre_ring']    : '';
 		$ddial       = isset($thisgrp['ddial'])       ? $thisgrp['ddial']       : '';
@@ -287,14 +287,14 @@ elseif ($action == 'delGRP') {
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Announcement:")?><span><?php echo _("Message to be played to the caller before dialing this group.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left")?></span></a></td>
 				<td>
-					<select name="annmsg" tabindex="<?php echo ++$tabindex;?>">
+					<select name="annmsg_id" tabindex="<?php echo ++$tabindex;?>">
 					<?php
 						$tresults = recordings_list();
-						$default = (isset($annmsg) ? $annmsg : '');
+						$default = (isset($annmsg_id) ? $annmsg_id : '');
 						echo '<option value="">'._("None");
 						if (isset($tresults)) {
 							foreach ($tresults as $tresult) {
-								echo '<option value="'.$tresult[2].'"'.($tresult[2] == $default ? ' SELECTED' : '').'>'.$tresult[1];
+								echo '<option value="'.$tresult['id'].'"'.($tresult['id'] == $default ? ' SELECTED' : '').'>'.$tresult['displayname']."</option>\n";
 							}
 						}
 					?>		
@@ -306,9 +306,9 @@ elseif ($action == 'delGRP') {
 				<td><a href="#" class="info"><?php echo _("Announcement:")?><span><?php echo _("Message to be played to the caller before dialing this group.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option")?></span></a></td>
 				<td>
 					<?php
-						$default = (isset($annmsg) ? $annmsg : '');
+						$default = (isset($annmsg_id) ? $annmsg_id : '');
 					?>
-					<input type="hidden" name="annmsg" value="<?php echo $default; ?>"><?php echo ($default != '' ? $default : 'None'); ?>
+					<input type="hidden" name="annmsg_id" value="<?php echo $default; ?>"><?php echo ($default != '' ? $default : 'None'); ?>
 				</td>
 			</tr>
 
@@ -353,14 +353,14 @@ elseif ($action == 'delGRP') {
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Remote Announce:")?><span><?php echo _("Message to be played to the person RECEIVING the call, if 'Confirm Calls' is enabled.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
 				<td>
-					<select name="remotealert" tabindex="<?php echo ++$tabindex;?>">
+					<select name="remotealert_id" tabindex="<?php echo ++$tabindex;?>">
 					<?php
 						$tresults = recordings_list();
-						$default = (isset($remotealert) ? $remotealert : '');
+						$default = (isset($remotealert_id) ? $remotealert_id : '');
 						echo '<option value="">'._("Default")."</option>";
 						if (isset($tresults[0])) {
 							foreach ($tresults as $tresult) {
-								echo '<option value="'.$tresult[2].'"'.($tresult[2] == $default ? ' SELECTED' : '').'>'.$tresult[1]."</option>\n";
+								echo '<option value="'.$tresult['id'].'"'.($tresult['id'] == $default ? ' SELECTED' : '').'>'.$tresult['displayname']."</option>\n";
 							}
 						}
 					?>
@@ -370,14 +370,14 @@ elseif ($action == 'delGRP') {
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Too-Late Announce:")?><span><?php echo _("Message to be played to the person RECEIVING the call, if the call has already been accepted before they push 1.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left")?></span></a></td>
 				<td>
-				<select name="toolate" tabindex="<?php echo ++$tabindex;?>">
+				<select name="toolate_id" tabindex="<?php echo ++$tabindex;?>">
 					<?php
 						$tresults = recordings_list();
-						$default = (isset($toolate) ? $toolate : '');
+						$default = (isset($toolate_id) ? $toolate_id : '');
 						echo '<option value="">'._("Default")."</option>";
 						if (isset($tresults[0])) {
 							foreach ($tresults as $tresult) {
-								echo '<option value="'.$tresult[2].'"'.($tresult[2] == $default ? ' SELECTED' : '').'>'.$tresult[1]."</option>\n";
+								echo '<option value="'.$tresult['id'].'"'.($tresult['id'] == $default ? ' SELECTED' : '').'>'.$tresult['displayname']."</option>\n";
 							}
 						}
 					?>

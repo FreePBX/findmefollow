@@ -45,12 +45,12 @@ function findmefollow_get_config($engine) {
 					$grplist = $grp['grplist'];
 					$postdest = $grp['postdest'];
 					$grppre = (isset($grp['grppre'])?$grp['grppre']:'');
-					$annmsg = $grp['annmsg'];
+					$annmsg_id = $grp['annmsg_id'];
 					$dring = $grp['dring'];
 
 					$needsconf = $grp['needsconf'];
-					$remotealert = $grp['remotealert'];
-					$toolate = $grp['toolate'];
+					$remotealert_id = $grp['remotealert_id'];
+					$toolate_id = $grp['toolate_id'];
 					$ringing = $grp['ringing'];
 					$pre_ring = $grp['pre_ring'];
 
@@ -128,7 +128,8 @@ function findmefollow_get_config($engine) {
 					// group dial
 					$ext->add($contextname, $grpnum, '', new ext_setvar('RingGroupMethod',$strategy));
 					$ext->add($contextname, $grpnum, '', new ext_setvar('_FMGRP',$grpnum));
-					if ((isset($annmsg) ? $annmsg : '') != '') {
+					if ((isset($annmsg_id) ? $annmsg_id : '')) {
+						$annmsg = recordings_get_file($annmsg_id);
 						// should always answer before playing anything, shouldn't we ?
 						$ext->add($contextname, $grpnum, '', new ext_gotoif('$[$["${DIALSTATUS}" = "ANSWER"] | $["foo${RRNODEST}" != "foo"]]','DIALGRP'));			
 						$ext->add($contextname, $grpnum, '', new ext_answer(''));
@@ -138,6 +139,8 @@ function findmefollow_get_config($engine) {
 
 					// Create the confirm target
 					$len=strlen($grpnum)+4;
+					$remotealert = recordings_get_file($remotealert_id);
+					$toolate = recordings_get_file($toolate_id);
 					$ext->add("fmgrps", "_RG-${grpnum}-.", '', new ext_macro('dial','${DB(AMPUSER/'."$grpnum/followme/grptime)},".
 						"M(confirm^${remotealert}^${toolate}^${grpnum})$dialopts".',${EXTEN:'.$len.'}'));
 
@@ -183,11 +186,11 @@ function findmefollow_get_config($engine) {
 	}
 }
 
-function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg='',$dring,$needsconf,$remotealert,$toolate,$ringing,$pre_ring,$ddial) {
+function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg_id='',$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial) {
 	global $amp_conf;
 	global $astman;
 
-	$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg, postdest, dring, needsconf, remotealert, toolate, ringing, pre_ring) VALUES ('".str_replace("'", "''",$grpnum)."', '".str_replace("'", "''", $strategy)."', ".str_replace("'", "''", $grptime).", '".str_replace("'", "''", $grppre)."', '".str_replace("'", "''", $grplist)."', '".str_replace("'", "''", $annmsg)."', '".str_replace("'", "''", $postdest)."', '".str_replace("'", "''", $dring)."', '$needsconf', '$remotealert', '$toolate', '$ringing', '$pre_ring')";
+	$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring) VALUES ('".str_replace("'", "''",$grpnum)."', '".str_replace("'", "''", $strategy)."', ".str_replace("'", "''", $grptime).", '".str_replace("'", "''", $grppre)."', '".str_replace("'", "''", $grplist)."', '".str_replace("'", "''", $annmsg_id)."', '".str_replace("'", "''", $postdest)."', '".str_replace("'", "''", $dring)."', '$needsconf', '$remotealert_id', '$toolate_id', '$ringing', '$pre_ring')";
 	$results = sql($sql);
 
 	if ($astman) {
@@ -292,7 +295,7 @@ function findmefollow_get($grpnum, $check_astdb=0) {
 	global $amp_conf;
 	global $astman;
 
-	$results = sql("SELECT grpnum, strategy, grptime, grppre, grplist, annmsg, postdest, dring, needsconf, remotealert, toolate, ringing, pre_ring FROM findmefollow WHERE grpnum = '".str_replace("'", "''", $grpnum)."'","getRow",DB_FETCHMODE_ASSOC);
+	$results = sql("SELECT grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring FROM findmefollow WHERE grpnum = '".str_replace("'", "''", $grpnum)."'","getRow",DB_FETCHMODE_ASSOC);
 
 	if ($check_astdb) {
 		if ($astman) {
@@ -414,6 +417,24 @@ function findmefollow_check_destinations($dest=true) {
 		);
 	}
 	return $destlist;
+}
+
+function findmefollow_recordings_usage($recording_id) {
+	global $active_modules;
+
+	$results = sql("SELECT `grpnum` FROM `findmefollow` WHERE `annmsg_id` = '$recording_id' OR `remotealert_id` = '$recording_id' OR `toolate_id` = '$recording_id'","getAll",DB_FETCHMODE_ASSOC);
+	if (empty($results)) {
+		return array();
+	} else {
+		//$type = isset($active_modules['ivr']['type'])?$active_modules['ivr']['type']:'setup';
+		foreach ($results as $result) {
+			$usage_arr[] = array(
+				'url_query' => 'config.php?display=findmefollow&extdisplay=GRP-'.urlencode($result['grpnum']),
+				'description' => "Follow-Me User: ".$result['grpnum'],
+			);
+		}
+		return $usage_arr;
+	}
 }
 
 function findmefollow_fmf_toggle($c) {
