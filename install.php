@@ -85,9 +85,10 @@ if(DB::IsError($check)) {
     $result = $db->query($sql);
     if(DB::IsError($result)) { die_freepbx($result->getDebugInfo()); }
 }
-// increase size for older installs
-$db->query("ALTER TABLE findmefollow CHANGE dring dring VARCHAR( 255 ) NULL");
-
+// increase size for older installs, ignore sqlite3, doesn't support ALTER...CHANGE syntax, table created properly above
+if($amp_conf["AMPDBENGINE"] != "sqlite3")  {
+	$db->query("ALTER TABLE findmefollow CHANGE dring dring VARCHAR( 255 ) NULL");
+}
 $results = array();
 $sql = "SELECT grpnum, postdest FROM findmefollow";
 $results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
@@ -137,159 +138,165 @@ if ($astman) {
 }
 
 // Version 2.4.13 change (#1961)
-//
-$results = $db->query("ALTER TABLE `findmefollow` CHANGE `grpnum` `grpnum` VARCHAR( 20 ) NOT NULL");
-if(DB::IsError($results)) {
-	echo $results->getMessage();
-	return false;
+// Ignore sqlite3, doesn't support ALTER...CHANGE syntax, table created properly above
+if($amp_conf["AMPDBENGINE"] != "sqlite3")  {
+	$sql = "ALTER TABLE `findmefollow` CHANGE `grpnum` `grpnum` VARCHAR( 20 ) NOT NULL";
+	$results = $db->query($sql);
+	if(DB::IsError($results)) {
+		echo $results->getMessage();
+		return false;
+	}
 }
 
 // Version 2.5 migrate to recording ids
 //
 outn(_("Checking if recordings need migration.."));
-$sql = "SELECT annmsg_id FROM findmefollow";
-$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
-if(DB::IsError($check)) {
-	//  Add recording_id field
-	//
-	out("migrating");
-	outn(_("adding annmsg_id field.."));
-  $sql = "ALTER TABLE findmefollow ADD annmsg_id INTEGER";
-  $result = $db->query($sql);
-  if(DB::IsError($result)) {
-		out(_("fatal error"));
-		die_freepbx($result->getDebugInfo()); 
-	} else {
-		out(_("ok"));
-	}
-	outn(_("adding remotealert_id field.."));
-  $sql = "ALTER TABLE findmefollow ADD remotealert_id INTEGER";
-  $result = $db->query($sql);
-  if(DB::IsError($result)) {
-		out(_("fatal error"));
-		die_freepbx($result->getDebugInfo()); 
-	} else {
-		out(_("ok"));
-	}
-	outn(_("adding toolate_id field.."));
-  $sql = "ALTER TABLE findmefollow ADD toolate_id INTEGER";
-  $result = $db->query($sql);
-  if(DB::IsError($result)) {
-		out(_("fatal error"));
-		die_freepbx($result->getDebugInfo()); 
-	} else {
-		out(_("ok"));
-	}
-
-	// Get all the valudes and replace them with recording_id
-	//
-	outn(_("migrate annmsg to ids.."));
-  $sql = "SELECT `grpnum`, `annmsg` FROM `findmefollow`";
-	$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
-	if(DB::IsError($results)) {
-		out(_("fatal error"));
-		die_freepbx($results->getDebugInfo());	
-	}
-	$migrate_arr = array();
-	$count = 0;
-	foreach ($results as $row) {
-		if (trim($row['annmsg']) != '') {
-			$rec_id = recordings_get_or_create_id($row['annmsg'], 'findmefollow');
-			$migrate_arr[] = array($rec_id, $row['grpnum']);
-			$count++;
-		}
-	}
-	if ($count) {
-		$compiled = $db->prepare('UPDATE `findmefollow` SET `annmsg_id` = ? WHERE `grpnum` = ?');
-		$result = $db->executeMultiple($compiled,$migrate_arr);
-		if(DB::IsError($result)) {
+// Do not do upgrades for sqlite3.  Assume full support begins in 2.5 and our CREATE syntax is correct
+if($amp_conf["AMPDBENGINE"] != "sqlite3")  {
+	$sql = "SELECT annmsg_id FROM findmefollow";
+	$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+	if(DB::IsError($check)) {
+		//  Add recording_id field
+		//
+		out("migrating");	
+		outn(_("adding annmsg_id field.."));
+  	$sql = "ALTER TABLE findmefollow ADD annmsg_id INTEGER";
+  	$result = $db->query($sql);
+  	if(DB::IsError($result)) {
 			out(_("fatal error"));
-			die_freepbx($result->getDebugInfo());	
+			die_freepbx($result->getDebugInfo()); 	
+		} else {
+			out(_("ok"));
 		}
-	}
-	out(sprintf(_("migrated %s entries"),$count));
-
-	outn(_("migrate remotealert to ids.."));
-  $sql = "SELECT `grpnum`, `remotealert` FROM `findmefollow`";
-	$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
-	if(DB::IsError($results)) {
-		out(_("fatal error"));
-		die_freepbx($results->getDebugInfo());	
-	}
-	$migrate_arr = array();
-	$count = 0;
-	foreach ($results as $row) {
-		if (trim($row['remotealert']) != '') {
-			$rec_id = recordings_get_or_create_id($row['remotealert'], 'findmefollow');
-			$migrate_arr[] = array($rec_id, $row['grpnum']);
-			$count++;
-		}
-	}
-	if ($count) {
-		$compiled = $db->prepare('UPDATE `findmefollow` SET `remotealert_id` = ? WHERE `grpnum` = ?');
-		$result = $db->executeMultiple($compiled,$migrate_arr);
-		if(DB::IsError($result)) {
+		outn(_("adding remotealert_id field.."));
+  	$sql = "ALTER TABLE findmefollow ADD remotealert_id INTEGER";
+  	$result = $db->query($sql);
+  	if(DB::IsError($result)) {
 			out(_("fatal error"));
-			die_freepbx($result->getDebugInfo());	
+			die_freepbx($result->getDebugInfo()); 
+		} else {
+			out(_("ok"));
 		}
-	}
-	out(sprintf(_("migrated %s entries"),$count));
+		outn(_("adding toolate_id field.."));
+ 	 	$sql = "ALTER TABLE findmefollow ADD toolate_id INTEGER";
+		  $result = $db->query($sql);
+ 		 if(DB::IsError($result)) {
+				out(_("fatal error"));
+				die_freepbx($result->getDebugInfo()); 
+			} else {
+				out(_("ok"));
+			}
 
-	outn(_("migrate toolate to  ids.."));
-  $sql = "SELECT `grpnum`, `toolate` FROM `findmefollow`";
-	$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
-	if(DB::IsError($results)) {
-		out(_("fatal error"));
-		die_freepbx($results->getDebugInfo());	
-	}
-	$migrate_arr = array();
-	$count = 0;
-	foreach ($results as $row) {
-		if (trim($row['toolate']) != '') {
-			$rec_id = recordings_get_or_create_id($row['toolate'], 'findmefollow');
-			$migrate_arr[] = array($rec_id, $row['grpnum']);
-			$count++;
-		}
-	}
-	if ($count) {
-		$compiled = $db->prepare('UPDATE `findmefollow` SET `toolate_id` = ? WHERE `grpnum` = ?');
-		$result = $db->executeMultiple($compiled,$migrate_arr);
-		if(DB::IsError($result)) {
+		// Get all the valudes and replace them with recording_id
+		//
+		outn(_("migrate annmsg to ids.."));
+ 	 $sql = "SELECT `grpnum`, `annmsg` FROM `findmefollow`";
+		$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
+		if(DB::IsError($results)) {
 			out(_("fatal error"));
-			die_freepbx($result->getDebugInfo());	
+			die_freepbx($results->getDebugInfo());	
 		}
-	}
-	out(sprintf(_("migrated %s entries"),$count));
+		$migrate_arr = array();
+		$count = 0;
+		foreach ($results as $row) {
+			if (trim($row['annmsg']) != '') {
+				$rec_id = recordings_get_or_create_id($row['annmsg'], 'findmefollow');
+				$migrate_arr[] = array($rec_id, $row['grpnum']);
+				$count++;
+			}
+		}
+		if ($count) {
+			$compiled = $db->prepare('UPDATE `findmefollow` SET `annmsg_id` = ? WHERE `grpnum` = ?');
+			$result = $db->executeMultiple($compiled,$migrate_arr);
+			if(DB::IsError($result)) {
+				out(_("fatal error"));
+				die_freepbx($result->getDebugInfo());	
+			}
+		}
+		out(sprintf(_("migrated %s entries"),$count));
 
-	// Now remove the old recording field replaced by new id field
-	//
-	outn(_("dropping annmsg field.."));
-  $sql = "ALTER TABLE `findmefollow` DROP `annmsg`";
-  $result = $db->query($sql);
-  if(DB::IsError($result)) { 
-		out(_("no annmsg field???"));
-	} else {
-		out(_("ok"));
-	}
-	outn(_("dropping remotealert field.."));
-  $sql = "ALTER TABLE `findmefollow` DROP `remotealert`";
-  $result = $db->query($sql);
-  if(DB::IsError($result)) { 
-		out(_("no remotealert field???"));
-	} else {
-		out(_("ok"));
-	}
-	outn(_("dropping toolate field.."));
-  $sql = "ALTER TABLE `findmefollow` DROP `toolate`";
-  $result = $db->query($sql);
-  if(DB::IsError($result)) { 
-		out(_("no toolate field???"));
-	} else {
-		out(_("ok"));
-	}
+		outn(_("migrate remotealert to ids.."));
+  	$sql = "SELECT `grpnum`, `remotealert` FROM `findmefollow`";
+		$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
+		if(DB::IsError($results)) {
+			out(_("fatal error"));
+			die_freepbx($results->getDebugInfo());	
+		}
+		$migrate_arr = array();
+		$count = 0;
+		foreach ($results as $row) {
+			if (trim($row['remotealert']) != '') {
+				$rec_id = recordings_get_or_create_id($row['remotealert'], 'findmefollow');
+				$migrate_arr[] = array($rec_id, $row['grpnum']);
+				$count++;
+			}
+		}
+		if ($count) {
+			$compiled = $db->prepare('UPDATE `findmefollow` SET `remotealert_id` = ? WHERE `grpnum` = ?');
+			$result = $db->executeMultiple($compiled,$migrate_arr);
+			if(DB::IsError($result)) {
+				out(_("fatal error"));
+				die_freepbx($result->getDebugInfo());	
+			}
+		}
+		out(sprintf(_("migrated %s entries"),$count));	
 
-} else {
-	out("already migrated");
+		outn(_("migrate toolate to  ids.."));
+ 	 $sql = "SELECT `grpnum`, `toolate` FROM `findmefollow`";
+		$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
+		if(DB::IsError($results)) {
+			out(_("fatal error"));
+			die_freepbx($results->getDebugInfo());	
+		}
+		$migrate_arr = array();
+		$count = 0;
+		foreach ($results as $row) {
+			if (trim($row['toolate']) != '') {
+				$rec_id = recordings_get_or_create_id($row['toolate'], 'findmefollow');
+				$migrate_arr[] = array($rec_id, $row['grpnum']);
+				$count++;
+			}
+		}
+		if ($count) {
+			$compiled = $db->prepare('UPDATE `findmefollow` SET `toolate_id` = ? WHERE `grpnum` = ?');
+			$result = $db->executeMultiple($compiled,$migrate_arr);
+			if(DB::IsError($result)) {
+				out(_("fatal error"));
+				die_freepbx($result->getDebugInfo());	
+			}
+		}
+		out(sprintf(_("migrated %s entries"),$count));
+
+		// Now remove the old recording field replaced by new id field
+		//
+		outn(_("dropping annmsg field.."));
+  	$sql = "ALTER TABLE `findmefollow` DROP `annmsg`";
+  	$result = $db->query($sql);
+  	if(DB::IsError($result)) { 
+			out(_("no annmsg field???"));
+		} else {
+			out(_("ok"));
+		}
+		outn(_("dropping remotealert field.."));
+	  $sql = "ALTER TABLE `findmefollow` DROP `remotealert`";
+ 	 $result = $db->query($sql);
+  	if(DB::IsError($result)) { 
+			out(_("no remotealert field???"));
+		} else {
+			out(_("ok"));
+		}
+		outn(_("dropping toolate field.."));
+ 	 $sql = "ALTER TABLE `findmefollow` DROP `toolate`";
+  	$result = $db->query($sql);
+  	if(DB::IsError($result)) { 
+			out(_("no toolate field???"));
+		} else {
+			out(_("ok"));
+		}
+
+	} else {
+		out("already migrated");
+	}
 }
 
 ?>
