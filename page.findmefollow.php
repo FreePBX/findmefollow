@@ -218,9 +218,9 @@ elseif ($action == 'delGRP') {
 					<b><?php echo _("ringall")?></b>:  <?php echo _("ring all available channels until one answers (default)")?><br>
 					<b><?php echo _("hunt")?></b>: <?php echo _("take turns ringing each available extension")?><br>
 					<b><?php echo _("memoryhunt")?></b>: <?php echo _("ring first extension in the list, then ring the 1st and 2nd extension, then ring 1st 2nd and 3rd extension in the list.... etc.")?><br>
-					<b><?php echo _("*-prim")?></b>:  <?php echo _("these modes act as described above. However, if the primary extension (first in list) is occupied, the other extensions will not be rung. If the primary is freepbx DND, it won't be run. If the primary is freepbx CF unconditional, then all will be rung")?><br>
+					<b><?php echo _("*-prim")?></b>:  <?php echo _("these modes act as described above. However, if the primary extension (first in list) is occupied, the other extensions will not be rung. If the primary is FreePBX DND, it won't be rung. If the primary is freepbx CF unconditional, then all will be rung")?><br>
 					<b><?php echo _("firstavailable")?></b>:  <?php echo _("ring only the first available channel")?><br>
-					<b><?php echo _("firstnotonphone")?></b>:  <?php echo _("ring only the first channel which is not offhook - ignore CW")?><br>
+					<b><?php echo _("firstnotonphone")?></b>:  <?php echo _("ring only the first channel which is not off hook - ignore CW")?><br>
 				</span>
 				</a>
 				</td>
