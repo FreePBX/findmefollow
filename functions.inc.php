@@ -104,6 +104,9 @@ function findmefollow_get_config($engine) {
 						$ext->add($contextname, $grpnum, '', new ext_setvar('_RGPREFIX', $grppre));
 						$ext->add($contextname, $grpnum, '', new ext_setvar('CALLERID(name)','${RGPREFIX}${CALLERID(name)}'));
 					}
+					// recording stuff
+					$ext->add($contextname, $grpnum, '', new ext_setvar('RecordMethod','Group'));
+					$ext->add($contextname, $grpnum, '', new ext_macro('record-enable','${DB(AMPUSER/'."$grpnum/followme/grplist)}".',${RecordMethod}'));
 
 					// MODIFIED (PL)
 					// Add Alert Info if set but don't override and already set value (could be from ringgroup, directdid, etc.)
@@ -121,12 +124,8 @@ function findmefollow_get_config($engine) {
 						$ext->add($contextname, $grpnum, '', new ext_macro('simple-dial',$grpnum.',${DB(AMPUSER/'."$grpnum/followme/prering)}"));
 					}
 
-					// recording stuff
-					$ext->add($contextname, $grpnum, 'skipsimple', new ext_setvar('RecordMethod','Group'));
-					$ext->add($contextname, $grpnum, '', new ext_macro('record-enable','${DB(AMPUSER/'."$grpnum/followme/grplist)}".',${RecordMethod}'));
-
 					// group dial
-					$ext->add($contextname, $grpnum, '', new ext_setvar('RingGroupMethod',$strategy));
+					$ext->add($contextname, $grpnum, 'skipsimple', new ext_setvar('RingGroupMethod',$strategy));
 					$ext->add($contextname, $grpnum, '', new ext_setvar('_FMGRP',$grpnum));
 					if ((isset($annmsg_id) ? $annmsg_id : '')) {
 						$annmsg = recordings_get_file($annmsg_id);
@@ -460,8 +459,8 @@ function findmefollow_fmf_toggle($c) {
 		$ext->add($id, $c, '', new ext_gosub('1', 'sstate'));
 		//$ext->add($id, $c, '', new ext_setvar('DEVSTATE(Custom:FOLLOWME${AMPUSER})', 'NOT_INUSE'));
 	}
-	$ext->add($id, $c, 'end', new ext_playback('followme&de-activated'));
-	$ext->add($id, $c, '', new ext_macro('hangupcall'));
+	$ext->add($id, $c, '', new ext_playback('followme&de-activated'));
+	$ext->add($id, $c, 'end', new ext_macro('hangupcall'));
 
 	$ext->add($id, $c, 'activate', new ext_setvar('DB(AMPUSER/${AMPUSER}/followme/ddial)', 'DIRECT'));
 	if ($amp_conf['USEDEVSTATE']) {
