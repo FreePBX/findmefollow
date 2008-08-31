@@ -16,30 +16,7 @@
 		*2.4.12.3* #2057 don't strip CID prefix if no prefix is being added
 		*2.4.12.2* merge findmefollow/core extension destinations if any, and remove findmefollow destinations as a destination since they are handled by core
 		*2.4.12.1* #2002 IF() statement can't handle : in the string and can't escape them anyhow
-		*2.4.12* Fixed bug where nested CID prefixes ends up removing part of the valid CID info
-		*2.4.11.1* Fixed ALERT_INFO bug, if previously set it should not set - it was clearing it
-		*2.4.11* added option to have follow-me always be used in place of extension, or only when explicitly used as a destination, useful in conjunction with VmX
-		*2.4.10* introduction of firstavailable firstnotonphone strategy that only rings one extension and optionally skips callwaiting REQUIRE CORE r3652
-		*2.4.9* never allow extension to include itself as nnn# and create infinite loop
-		*2.4.8* introduction of ringallv2 strategy that eliminates the double ring of the primary ext, REQUIRE CORE r3406
-		*2.4.7* Changed to not set alertinfo value if already set from before hitting followme
-		*2.4.6* Added BLKVM DB tree to fix inability to transfer a received call to another user, and make NODEST stuff work overall
-		*2.4.5* Modified NODEST stuff to improve some cases where it was still failing, and improve '#' transfer scenarios
-		*2.4.4* Add NODEST so that destination (often vm) is not taken if called from queue or ringgroup
-		*2.4.3* Sanity check for prefing that if not set or there, it won't ring the extension forever (should not happen)
-		*2.4.2* Modified flyover help - since moh works with confirmation now
-		*2.4.1* Added sound files for default confirmation messages
-		2.4: First release for FreePBX 2.2 - Fixed compatibility issue with new UI
-		2.3.1: removed checkastman
-		2.3: First release for 2.2, fixed minor display issues
-		2.2.5: fixed so extension number is put into empty lists
-		2.2.4: moved require_once() in functions.php, was breaking other stuff
-		2.2.3: full path in require_once to keep retrieve_conf from dieing
-		2.2.2: bug fix = should be ==
-		2.2.1: Use astdb for some settings
-		2.2.0: Add Pre-Ring
-		2.1.5: Fix bug #1142
-		2.1.4: Code cleanup
+		*2.4.12* CHANGELOG TRUNCATED See SVN Repository
 	</changelog>
 	<depends>
 		<version>2.5.0alpha1</version>
