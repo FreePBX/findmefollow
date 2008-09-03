@@ -117,22 +117,24 @@ if (isset($gresults)) {
 <div class="content">
 <?php 
 
-if (!$extdisplay) {
+if ($extdisplay == "") {
 	echo '<br><h2>'._("Follow Me").'</h2><br><h3>'._('Choose a user/extension:').'</h3><br><br><br><br><br><br><br>';
 	}
 elseif ($action == 'delGRP') {
 	echo '<br><h3>'._("Follow Me").' '.$account.' '._("deleted").'!</h3><br><br><br><br><br><br><br><br>';
 } else {
-	if ($extdisplay) {
+	if ($extdisplay != "") {
 		// We need to populate grplist with the existing extension list.
-		$thisgrp = findmefollow_get(ltrim($extdisplay,'GRP-'), 1);
+		$extdisplay = ltrim($extdisplay,'GRP-');
+
+		$thisgrp = findmefollow_get($extdisplay, 1);
 		$grpliststr = isset($thisgrp['grplist']) ? $thisgrp['grplist'] : '';
 		$grplist = explode("-", $grpliststr);
 
 		$strategy    = isset($thisgrp['strategy'])    ? $thisgrp['strategy']    : '';
 		$grppre      = isset($thisgrp['grppre'])      ? $thisgrp['grppre']      : '';
 		$grptime     = isset($thisgrp['grptime'])     ? $thisgrp['grptime']     : '';
-		$goto        = isset($thisgrp['postdest'])    ? $thisgrp['postdest']    : '';
+		$goto        = isset($thisgrp['postdest'])    ? $thisgrp['postdest']    : "ext-local,vmu$extdisplay,1";
 		$annmsg_id      = isset($thisgrp['annmsg_id'])      ? $thisgrp['annmsg_id']      : '';
 		$dring       = isset($thisgrp['dring'])       ? $thisgrp['dring']       : '';
 		$remotealert_id = isset($thisgrp['remotealert_id']) ? $thisgrp['remotealert_id'] : '';
@@ -147,41 +149,41 @@ elseif ($action == 'delGRP') {
 		$delButton = "
 			<form name=delete action=\"{$_SERVER['PHP_SELF']}\" method=POST>
 				<input type=\"hidden\" name=\"display\" value=\"{$dispnum}\">
-				<input type=\"hidden\" name=\"account\" value=\"".ltrim($extdisplay,'GRP-')."\">
+				<input type=\"hidden\" name=\"account\" value=\"{$extdisplay}\">
 				<input type=\"hidden\" name=\"action\" value=\"delGRP\">
 				<input type=submit value=\""._("Delete Entries")."\">
 			</form>";
 			
-		echo "<h2>"._("Follow Me").": ".ltrim($extdisplay,'GRP-')."</h2>";
+		echo "<h2>"._("Follow Me").": ".$extdisplay."</h2>";
 
 
 		// Copied straight out of old code,let's see if it works?
 		//
 		if (isset($amp_conf["AMPEXTENSIONS"]) && ($amp_conf["AMPEXTENSIONS"] == "deviceanduser")) {
-			$editURL = $_SERVER['PHP_SELF'].'?display=users&extdisplay='.ltrim($extdisplay,'GRP-');
+			$editURL = $_SERVER['PHP_SELF'].'?display=users&extdisplay='.$extdisplay;
 			$EXTorUSER = _("User");
 		}
 		else {
-			$editURL = $_SERVER['PHP_SELF'].'?display=extensions&extdisplay='.ltrim($extdisplay,'GRP-');
+			$editURL = $_SERVER['PHP_SELF'].'?display=extensions&extdisplay='.$extdisplay;
 			$EXTorUSER = _("Extension");
 		}
 
-		$label = '<span><img width="16" height="16" border="0" title="'.sprintf(_("Edit %s"),$EXTorUSER).'" alt="" src="images/user_edit.png"/>&nbsp;'.sprintf(_("Edit %s %s"),$EXTorUSER, ltrim($extdisplay,'GRP-')).'</span>';
+		$label = '<span><img width="16" height="16" border="0" title="'.sprintf(_("Edit %s"),$EXTorUSER).'" alt="" src="images/user_edit.png"/>&nbsp;'.sprintf(_("Edit %s %s"),$EXTorUSER, $extdisplay).'</span>';
 		echo "<p><a href=".$editURL.">".$label."</a></p>";
 		echo "<p>".$delButton."</p>";
 	} 
 	?>
 			<form name="editGRP" action="<?php  $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return checkGRP(editGRP);">
 			<input type="hidden" name="display" value="<?php echo $dispnum?>">
-			<input type="hidden" name="action" value="<?php echo ($extdisplay ? 'edtGRP' : 'addGRP'); ?>">
+			<input type="hidden" name="action" value="<?php echo (($extdisplay != "") ? 'edtGRP' : 'addGRP'); ?>">
 			<table>
-			<tr><td colspan="2"><h5><?php  echo ($extdisplay ? _("Edit Follow Me") : _("Add Follow Me")) ?><hr></h5></td></tr>
+			<tr><td colspan="2"><h5><?php  echo (($extdisplay != "") ? _("Edit Follow Me") : _("Add Follow Me")) ?><hr></h5></td></tr>
 			<tr>
 <?php
-	if ($extdisplay) { 
+	if ($extdisplay != "") { 
 
 ?>
-				<input size="5" type="hidden" name="account" value="<?php  echo ltrim($extdisplay,'GRP-'); ?>">
+				<input size="5" type="hidden" name="account" value="<?php  echo $extdisplay; ?>">
 <?php 		} else { ?>
 				<td><a href="#" class="info"><?php echo _("group number")?>:<span><?php echo _("The number users will dial to ring extensions in this ring group")?></span></a></td>
 				<td><input size="5" type="text" name="account" value="<?php  echo $gresult[0] + 1; ?>"></td>
@@ -254,7 +256,7 @@ elseif ($action == 'delGRP') {
 <?php
 		$rows = count($grplist)+1; 
 		if ($rows <= 2 && trim($grplist[0]) == "") {
-			$grplist[0] = ltrim($extdisplay,'GRP-');
+			$grplist[0] = $extdisplay;
 		}
 		($rows < 5) ? 5 : (($rows > 20) ? 20 : $rows);
 ?>
