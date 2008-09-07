@@ -188,8 +188,9 @@ function findmefollow_get_config($engine) {
 function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg_id='',$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial) {
 	global $amp_conf;
 	global $astman;
+	global $db;
 
-	$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring) VALUES ('".str_replace("'", "''",$grpnum)."', '".str_replace("'", "''", $strategy)."', ".str_replace("'", "''", $grptime).", '".str_replace("'", "''", $grppre)."', '".str_replace("'", "''", $grplist)."', '".str_replace("'", "''", $annmsg_id)."', '".str_replace("'", "''", $postdest)."', '".str_replace("'", "''", $dring)."', '$needsconf', '$remotealert_id', '$toolate_id', '$ringing', '$pre_ring')";
+	$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring) VALUES ('".$db->escapeSimple($grpnum)."', '".$db->escapeSimple($strategy)."', ".$db->escapeSimple($grptime).", '".$db->escapeSimple($grppre)."', '".$db->escapeSimple($grplist)."', '".$db->escapeSimple($annmsg_id)."', '".$db->escapeSimple($postdest)."', '".$db->escapeSimple($dring)."', '$needsconf', '$remotealert_id', '$toolate_id', '$ringing', '$pre_ring')";
 	$results = sql($sql);
 
 	if ($astman) {
@@ -212,8 +213,9 @@ function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre=
 function findmefollow_del($grpnum) {
 	global $amp_conf;
 	global $astman;
+	global $db;
 
-	$results = sql("DELETE FROM findmefollow WHERE grpnum = '".str_replace("'", "''", $grpnum)."'","query");
+	$results = sql("DELETE FROM findmefollow WHERE grpnum = '".$db->escapeSimple($grpnum)."'","query");
 
 	if ($astman) {
 		$astman->database_deltree("AMPUSER/".$grpnum."/followme");
@@ -293,8 +295,9 @@ function findmefollow_allusers() {
 function findmefollow_get($grpnum, $check_astdb=0) {
 	global $amp_conf;
 	global $astman;
+	global $db;
 
-	$results = sql("SELECT grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring FROM findmefollow WHERE grpnum = '".str_replace("'", "''", $grpnum)."'","getRow",DB_FETCHMODE_ASSOC);
+	$results = sql("SELECT grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring FROM findmefollow WHERE grpnum = '".$db->escapeSimple($grpnum)."'","getRow",DB_FETCHMODE_ASSOC);
 
 	if ($check_astdb) {
 		if ($astman) {
@@ -349,8 +352,8 @@ function findmefollow_get($grpnum, $check_astdb=0) {
 
 		if ($changed) {
 			$sql = "UPDATE findmefollow SET grptime = '".$results['grptime']."', grplist = '".
-				str_replace("'", "''", trim($results['grplist']))."', pre_ring = '".$results['pre_ring'].
-				"', needsconf = '".$results['needsconf']."' WHERE grpnum = '".str_replace("'", "''", $grpnum)."' LIMIT 1";
+				$db->escapeSimple(trim($results['grplist']))."', pre_ring = '".$results['pre_ring'].
+				"', needsconf = '".$results['needsconf']."' WHERE grpnum = '".$db->escapeSimple($grpnum)."' LIMIT 1";
 			$sql_results = sql($sql);
 		}
 	} // if check_astdb
