@@ -1,8 +1,9 @@
 <module>
 	<rawname>findmefollow</rawname>
 	<name>Follow Me</name>
-	<version>2.5.1.1</version>
+	<version>2.5.1.2</version>
 	<changelog>
+		*2.5.1.2* #3152, #3165, set voicemail as default dest on new followme
 		*2.5.1.1* #2987, #3006, #3029 sqlite3 install, spelling, cidprefix missing fix
 		*2.5.1* #2065 Migrate recordings to recording ids
 		*2.5.0.1* #2391, #2908, #2845, #1791, added delete and add icons
@@ -30,6 +31,6 @@
 	<menuitems>
 		<findmefollow needsenginedb="yes">Follow Me</findmefollow>
 	</menuitems>
-	<location>release/2.5/findmefollow-2.5.1.1.tgz</location>
-	<md5sum>baaaed304537081b7b18022193e245de</md5sum>
+	<location>release/2.5/findmefollow-2.5.1.2.tgz</location>
+	<md5sum>42c43fc2313a2027686e520c0c7e16a3</md5sum>
 </module>
