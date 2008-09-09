@@ -134,15 +134,15 @@ elseif ($action == 'delGRP') {
 		$strategy    = isset($thisgrp['strategy'])    ? $thisgrp['strategy']    : '';
 		$grppre      = isset($thisgrp['grppre'])      ? $thisgrp['grppre']      : '';
 		$grptime     = isset($thisgrp['grptime'])     ? $thisgrp['grptime']     : '';
-		$goto        = isset($thisgrp['postdest'])    ? $thisgrp['postdest']    : "ext-local,vmu$extdisplay,1";
-		$annmsg_id      = isset($thisgrp['annmsg_id'])      ? $thisgrp['annmsg_id']      : '';
+		$annmsg_id   = isset($thisgrp['annmsg_id'])      ? $thisgrp['annmsg_id']      : '';
 		$dring       = isset($thisgrp['dring'])       ? $thisgrp['dring']       : '';
 		$remotealert_id = isset($thisgrp['remotealert_id']) ? $thisgrp['remotealert_id'] : '';
 		$needsconf   = isset($thisgrp['needsconf'])   ? $thisgrp['needsconf']   : '';
-		$toolate_id     = isset($thisgrp['toolate_id'])     ? $thisgrp['toolate_id']     : '';
+		$toolate_id  = isset($thisgrp['toolate_id'])     ? $thisgrp['toolate_id']     : '';
 		$ringing     = isset($thisgrp['ringing'])     ? $thisgrp['ringing']     : '';
 		$pre_ring    = isset($thisgrp['pre_ring'])    ? $thisgrp['pre_ring']    : '';
 		$ddial       = isset($thisgrp['ddial'])       ? $thisgrp['ddial']       : '';
+		$goto = isset($thisgrp['postdest'])?$thisgrp['postdest']:((isset($thisgrp['voicemail']) && $thisgrp['voicemail'] != 'novm')?"ext-local,vmu$extdisplay,1":'');
 		unset($grpliststr);
 		unset($thisgrp);
 		
