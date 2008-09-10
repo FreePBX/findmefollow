@@ -41,8 +41,9 @@ if(DB::IsError($check)) {
 
 //TODO: Also need to create all the states if enabled
 
+$findmefollowtoggle = _("Findme Follow Toggle");
 $fcc = new featurecode('findmefollow', 'fmf_toggle');
-$fcc->setDescription('Findme Follow Toggle');
+$fcc->setDescription($findmefollowtoggle);
 $fcc->setDefault('*21');
 $fcc->update();
 unset($fcc);
@@ -158,7 +159,7 @@ if($amp_conf["AMPDBENGINE"] != "sqlite3")  {
 	if(DB::IsError($check)) {
 		//  Add recording_id field
 		//
-		out("migrating");	
+		out(_("migrating"));	
 		outn(_("adding annmsg_id field.."));
   	$sql = "ALTER TABLE findmefollow ADD annmsg_id INTEGER";
   	$result = $db->query($sql);
@@ -295,7 +296,7 @@ if($amp_conf["AMPDBENGINE"] != "sqlite3")  {
 		}
 
 	} else {
-		out("already migrated");
+		out(_("already migrated"));
 	}
 }
 
