@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: FreePBX findmefollow\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-09-09 12:48+0200\n"
-"PO-Revision-Date: 2008-09-10 08:37+0100\n"
+"PO-Revision-Date: 2008-09-17 10:05+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -117,7 +117,7 @@ msgstr "kastar fältet toolate.."
 
 #: install.php:293
 msgid "no toolate field???"
-msgstr "inge toolate fält???"
+msgstr "inget toolate fält???"
 
 #: install.php:299
 msgid "already migrated"
@@ -189,7 +189,7 @@ msgstr "Avaktivera"
 
 #: page.findmefollow.php:194
 msgid "By default (not checked) any call to this extension will go to this Follow-Me instead, including directory calls by name from IVRs. If checked, calls will go only to the extension.<BR>However, destinations that specify FollowMe will come here.<BR>Checking this box is often used in conjunction with VmX Locater, where you want a call to ring the extension, and then only if the caller chooses to find you do you want it to come here."
-msgstr "Som standard (inte aktiverad) kommer alla samtal till denna anknytning gå till Följ-mig. Om den är aktiverad kommer samtalen bara att gå till denna anknytning.<br>Men, destinationer som anger Följ-mig kommer hit.<br>Aktivering av dett val används ofta i samband med VmX Lokatorn, när du vill att samtalet ska ringa denna anknytning, och endast om uppringaren väljer att hitta dig kommer den hit."
+msgstr "Som standard (inte aktiverad) kommer alla samtal till denna anknytning gå till Följ-mig. Om den är aktiverad kommer samtalen bara att gå till denna anknytning.<br>Men, destinationer som anger Följ-mig kommer hit.<br>Aktivering av detta val används ofta i samband med VmX Lokatorn, när du vill att samtalet ska ringa denna anknytning, och endast om uppringaren väljer att hitta dig kommer den hit."
 
 #: page.findmefollow.php:199
 msgid "Initial Ring Time:"
@@ -294,7 +294,7 @@ msgstr "Meddelande:"
 
 #: page.findmefollow.php:290
 msgid "Message to be played to the caller before dialing this group.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left"
-msgstr "Meddelande som ska spelas upp för uppringaren innan det kommer att ringa denna grupp.<br><br>För att lägga till inspelningar, välj \"Systeminspelningar\" i menun till vänster."
+msgstr "Meddelande som ska spelas upp för uppringaren innan det kommer att ringa denna grupp.<br><br>För att lägga till inspelningar, välj \"Systeminspelningar\" i menyn till vänster."
 
 #: page.findmefollow.php:296
 msgid "None"
@@ -322,7 +322,7 @@ msgstr "Prefix för nummerpresentation"
 
 #: page.findmefollow.php:338
 msgid "You can optionally prefix the Caller ID name when ringing extensions in this group. ie: If you prefix with \"Sales:\", a call from John Doe would display as \"Sales:John Doe\" on the extensions that ring."
-msgstr "Du kan välja att skriva in ett prefix för nummerpresentation för aknytningarna i denna grupp. Om du valt att skriva \"Support\", kommer det att för ett samtal från 040123456 att stå \"Support:040123456\" på alla uppringda anknytningars textfönster."
+msgstr "Du kan välja att skriva in ett prefix för nummerpresentation för anknytningarna i denna grupp. Om du valt att skriva \"Support\", kommer det att för ett samtal från 040123456 att stå \"Support:040123456\" på alla uppringda anknytningars textfönster."
 
 #: page.findmefollow.php:343
 msgid "Alert Info"
@@ -346,7 +346,7 @@ msgstr "Fjärrmeddelande:"
 
 #: page.findmefollow.php:356
 msgid "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is enabled.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left"
-msgstr "Meddelande att spale upp för den UPPRINGDE om 'Bekräfta samtal' är aktiverat.<br><br>För att lägga till inspelningar väljer du \"Systeminspelningar\" i menyn till vänster."
+msgstr "Meddelande att spela upp för den UPPRINGDE om 'Bekräfta samtal' är aktiverat.<br><br>För att lägga till inspelningar väljer du \"Systeminspelningar\" i menyn till vänster."
 
 #: page.findmefollow.php:362
 #: page.findmefollow.php:379
