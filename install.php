@@ -151,9 +151,9 @@ if($amp_conf["AMPDBENGINE"] != "sqlite3")  {
 
 // Version 2.5 migrate to recording ids
 //
-outn(_("Checking if recordings need migration.."));
 // Do not do upgrades for sqlite3.  Assume full support begins in 2.5 and our CREATE syntax is correct
-if($amp_conf["AMPDBENGINE"] != "sqlite3")  {
+if($amp_conf["AMPDBENGINE"] != "sqlite3") {
+	outn(_("Checking if recordings need migration.."));
 	$sql = "SELECT annmsg_id FROM findmefollow";
 	$check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 	if(DB::IsError($check)) {
