@@ -1,4 +1,8 @@
 <?php
+//for translation only
+if (false) {
+_("Findme Follow Toggle");
+}
 
 global $db;
 global $amp_conf;
@@ -41,9 +45,8 @@ if(DB::IsError($check)) {
 
 //TODO: Also need to create all the states if enabled
 
-$findmefollowtoggle = _("Findme Follow Toggle");
 $fcc = new featurecode('findmefollow', 'fmf_toggle');
-$fcc->setDescription($findmefollowtoggle);
+$fcc->setDescription('Findme Follow Toggle'); 
 $fcc->setDefault('*21');
 $fcc->update();
 unset($fcc);
