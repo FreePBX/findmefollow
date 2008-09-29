@@ -17,6 +17,14 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-5\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: functions.inc.php:388 functions.inc.php:392
+msgid "Add Follow Me Settings"
+msgstr "Добавить настройки функции Следуйте сюда"
+
+#: install.php:44
+msgid "Findme Follow Toggle"
+msgstr "Переключение Найти меня тут"
+
 #: install.php:66 uninstall.php:30
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "Невозможно соединится с Asterisk Manager как "
