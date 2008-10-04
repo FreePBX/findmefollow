@@ -418,6 +418,7 @@ function findmefollow_check_destinations($dest=true) {
 		$destlist[] = array(
 			'dest' => $thisdest,
 			'description' => 'Follow-Me: '.$thisid.' ('.$result['name'].')',
+
 			'edit_url' => 'config.php?display=findmefollow&extdisplay=GRP-'.urlencode($thisid),
 		);
 	}
@@ -445,6 +446,9 @@ function findmefollow_recordings_usage($recording_id) {
 function findmefollow_fmf_toggle($c) {
 	global $ext;
 	global $amp_conf;
+	global $version;
+
+	$DEVSTATE = version_compare($version, "1.6", "ge") ? "DEVICE_STATE" : "DEVSTATE";
 
 	$id = "app-fmf-toggle"; // The context to be included
 	$ext->addInclude('from-internal-additional', $id); // Add the include from from-internal
@@ -463,7 +467,6 @@ function findmefollow_fmf_toggle($c) {
 	if ($amp_conf['USEDEVSTATE']) {
 		$ext->add($id, $c, '', new ext_setvar('STATE', 'NOT_INUSE'));
 		$ext->add($id, $c, '', new ext_gosub('1', 'sstate'));
-		//$ext->add($id, $c, '', new ext_setvar('DEVSTATE(Custom:FOLLOWME${AMPUSER})', 'NOT_INUSE'));
 	}
 	$ext->add($id, $c, '', new ext_playback('followme&de-activated'));
 	$ext->add($id, $c, 'end', new ext_macro('hangupcall'));
@@ -472,7 +475,6 @@ function findmefollow_fmf_toggle($c) {
 	if ($amp_conf['USEDEVSTATE']) {
 		$ext->add($id, $c, '', new ext_setvar('STATE', 'INUSE'));
 		$ext->add($id, $c, '', new ext_gosub('1', 'sstate'));
-		//$ext->add($id, $c, '', new ext_setvar('DEVSTATE(Custom:FOLLOWME${AMPUSER})', 'INUSE'));
 	}
 	$ext->add($id, $c, '', new ext_playback('followme&activated'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall'));
@@ -483,7 +485,7 @@ function findmefollow_fmf_toggle($c) {
 		$ext->add($id, $c, '', new ext_gotoif('$["${DEVICES}" = "" ]', 'return'));
 		$ext->add($id, $c, '', new ext_setvar('LOOPCNT', '${FIELDQTY(DEVICES,&)}'));
 		$ext->add($id, $c, '', new ext_setvar('ITER', '1'));
-		$ext->add($id, $c, 'begin', new ext_setvar('DEVSTATE(Custom:FOLLOWME${CUT(DEVICES,&,${ITER})})','${STATE}'));
+		$ext->add($id, $c, 'begin', new ext_setvar($DEVSTATE.'(Custom:FOLLOWME${CUT(DEVICES,&,${ITER})})','${STATE}'));
 		$ext->add($id, $c, '', new ext_setvar('ITER', '$[${ITER} + 1]'));
 		$ext->add($id, $c, '', new ext_gotoif('$[${ITER} <= ${LOOPCNT}]', 'begin'));
 		$ext->add($id, $c, 'return', new ext_return());
