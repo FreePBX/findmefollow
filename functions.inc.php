@@ -417,8 +417,7 @@ function findmefollow_check_destinations($dest=true) {
 		$thisid   = $result['grpnum'];
 		$destlist[] = array(
 			'dest' => $thisdest,
-			'description' => 'Follow-Me: '.$thisid.' ('.$result['name'].')',
-
+			'description' => sprintf(_("Follow-Me: %s (%s)"),$thisid,$result['name']),
 			'edit_url' => 'config.php?display=findmefollow&extdisplay=GRP-'.urlencode($thisid),
 		);
 	}

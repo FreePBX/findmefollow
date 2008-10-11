@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-17 11:16+0200\n"
+"POT-Creation-Date: 2008-10-05 23:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,87 +24,92 @@ msgstr ""
 msgid "Add Follow Me Settings"
 msgstr ""
 
-#: install.php:44
+#: functions.inc.php:420
+#, php-format
+msgid "Follow-Me: %s (%s)"
+msgstr ""
+
+#: install.php:4
 msgid "Findme Follow Toggle"
 msgstr ""
 
-#: install.php:138 uninstall.php:31
+#: install.php:141 uninstall.php:31
 msgid "Cannot connect to Asterisk Manager with "
 msgstr ""
 
-#: install.php:154
+#: install.php:159
 msgid "Checking if recordings need migration.."
 msgstr ""
 
-#: install.php:162
+#: install.php:165
 msgid "migrating"
 msgstr ""
 
-#: install.php:163
+#: install.php:166
 msgid "adding annmsg_id field.."
 msgstr ""
 
-#: install.php:167 install.php:176 install.php:185 install.php:197
-#: install.php:213 install.php:223 install.php:239 install.php:249
-#: install.php:265
+#: install.php:170 install.php:179 install.php:188 install.php:200
+#: install.php:216 install.php:226 install.php:242 install.php:252
+#: install.php:268
 msgid "fatal error"
 msgstr ""
 
-#: install.php:170 install.php:179 install.php:188 install.php:279
-#: install.php:287 install.php:295
+#: install.php:173 install.php:182 install.php:191 install.php:282
+#: install.php:290 install.php:298
 msgid "ok"
 msgstr ""
 
-#: install.php:172
+#: install.php:175
 msgid "adding remotealert_id field.."
 msgstr ""
 
-#: install.php:181
+#: install.php:184
 msgid "adding toolate_id field.."
 msgstr ""
 
-#: install.php:193
+#: install.php:196
 msgid "migrate annmsg to ids.."
 msgstr ""
 
-#: install.php:217 install.php:243 install.php:269
+#: install.php:220 install.php:246 install.php:272
 #, php-format
 msgid "migrated %s entries"
 msgstr ""
 
-#: install.php:219
+#: install.php:222
 msgid "migrate remotealert to ids.."
 msgstr ""
 
-#: install.php:245
+#: install.php:248
 msgid "migrate toolate to  ids.."
 msgstr ""
 
-#: install.php:273
+#: install.php:276
 msgid "dropping annmsg field.."
 msgstr ""
 
-#: install.php:277
+#: install.php:280
 msgid "no annmsg field???"
 msgstr ""
 
-#: install.php:281
+#: install.php:284
 msgid "dropping remotealert field.."
 msgstr ""
 
-#: install.php:285
+#: install.php:288
 msgid "no remotealert field???"
 msgstr ""
 
-#: install.php:289
+#: install.php:292
 msgid "dropping toolate field.."
 msgstr ""
 
-#: install.php:293
+#: install.php:296
 msgid "no toolate field???"
 msgstr ""
 
-#: install.php:299
+#: install.php:302
 msgid "already migrated"
 msgstr ""
 
