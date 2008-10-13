@@ -465,7 +465,7 @@ function findmefollow_fmf_toggle($c) {
 	$ext->add($id, $c, 'deactivate', new ext_setvar('DB(AMPUSER/${AMPUSER}/followme/ddial)', 'EXTENSION'));
 	if ($amp_conf['USEDEVSTATE']) {
 		$ext->add($id, $c, '', new ext_setvar('STATE', 'NOT_INUSE'));
-		$ext->add($id, $c, '', new ext_gosub('1', 'sstate'));
+		$ext->add($id, $c, '', new ext_gosub('1', 'sstate', $id));
 	}
 	$ext->add($id, $c, '', new ext_playback('followme&de-activated'));
 	$ext->add($id, $c, 'end', new ext_macro('hangupcall'));
@@ -473,7 +473,7 @@ function findmefollow_fmf_toggle($c) {
 	$ext->add($id, $c, 'activate', new ext_setvar('DB(AMPUSER/${AMPUSER}/followme/ddial)', 'DIRECT'));
 	if ($amp_conf['USEDEVSTATE']) {
 		$ext->add($id, $c, '', new ext_setvar('STATE', 'INUSE'));
-		$ext->add($id, $c, '', new ext_gosub('1', 'sstate'));
+		$ext->add($id, $c, '', new ext_gosub('1', 'sstate', $id));
 	}
 	$ext->add($id, $c, '', new ext_playback('followme&activated'));
 	$ext->add($id, $c, '', new ext_macro('hangupcall'));
