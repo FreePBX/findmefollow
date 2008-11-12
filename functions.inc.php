@@ -435,7 +435,7 @@ function findmefollow_recordings_usage($recording_id) {
 		foreach ($results as $result) {
 			$usage_arr[] = array(
 				'url_query' => 'config.php?display=findmefollow&extdisplay=GRP-'.urlencode($result['grpnum']),
-				'description' => "Follow-Me User: ".$result['grpnum'],
+				'description' => sprintf(_("Follow-Me User: %s"),$result['grpnum']),
 			);
 		}
 		return $usage_arr;
