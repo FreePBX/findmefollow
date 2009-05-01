@@ -467,7 +467,11 @@ function findmefollow_fmf_toggle($c) {
 		$ext->add($id, $c, '', new ext_setvar('STATE', 'NOT_INUSE'));
 		$ext->add($id, $c, '', new ext_gosub('1', 'sstate', $id));
 	}
-	$ext->add($id, $c, '', new ext_playback('followme&de-activated'));
+	if (!$amp_conf['FCBEEPONLY']) {
+		$ext->add($id, $c, 'hook_off', new ext_playback('beep')); // $cmd,n,Playback(...)
+	} else {
+		$ext->add($id, $c, 'hook_off', new ext_playback('followme&de-activated'));
+	}
 	$ext->add($id, $c, 'end', new ext_macro('hangupcall'));
 
 	$ext->add($id, $c, 'activate', new ext_setvar('DB(AMPUSER/${AMPUSER}/followme/ddial)', 'DIRECT'));
@@ -475,7 +479,11 @@ function findmefollow_fmf_toggle($c) {
 		$ext->add($id, $c, '', new ext_setvar('STATE', 'INUSE'));
 		$ext->add($id, $c, '', new ext_gosub('1', 'sstate', $id));
 	}
-	$ext->add($id, $c, '', new ext_playback('followme&activated'));
+	if (!$amp_conf['FCBEEPONLY']) {
+		$ext->add($id, $c, 'hook_on', new ext_playback('beep')); // $cmd,n,Playback(...)
+	} else {
+		$ext->add($id, $c, 'hook_on', new ext_playback('followme&activated'));
+	}
 	$ext->add($id, $c, '', new ext_macro('hangupcall'));
 
 	if ($amp_conf['USEDEVSTATE']) {
