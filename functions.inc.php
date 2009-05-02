@@ -467,7 +467,7 @@ function findmefollow_fmf_toggle($c) {
 		$ext->add($id, $c, '', new ext_setvar('STATE', 'NOT_INUSE'));
 		$ext->add($id, $c, '', new ext_gosub('1', 'sstate', $id));
 	}
-	if (!$amp_conf['FCBEEPONLY']) {
+	if ($amp_conf['FCBEEPONLY']) {
 		$ext->add($id, $c, 'hook_off', new ext_playback('beep')); // $cmd,n,Playback(...)
 	} else {
 		$ext->add($id, $c, 'hook_off', new ext_playback('followme&de-activated'));
@@ -479,7 +479,7 @@ function findmefollow_fmf_toggle($c) {
 		$ext->add($id, $c, '', new ext_setvar('STATE', 'INUSE'));
 		$ext->add($id, $c, '', new ext_gosub('1', 'sstate', $id));
 	}
-	if (!$amp_conf['FCBEEPONLY']) {
+	if ($amp_conf['FCBEEPONLY']) {
 		$ext->add($id, $c, 'hook_on', new ext_playback('beep')); // $cmd,n,Playback(...)
 	} else {
 		$ext->add($id, $c, 'hook_on', new ext_playback('followme&activated'));
