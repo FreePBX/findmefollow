@@ -315,6 +315,18 @@ function findmefollow_get($grpnum, $check_astdb=0) {
 		// If the values are different then use what is in astdb as it may have been changed.
 		//
 		$changed=0;
+    if (!isset($results['pre_ring'])) {
+      $results['pre_ring'] = '';
+    }
+    if (!isset($results['grptime'])) {
+      $results['grptime'] = '';
+    }
+    if (!isset($results['grplist'])) {
+      $results['grplist'] = '';
+    }
+    if (!isset($results['needsconf'])) {
+      $results['needsconf'] = '';
+    }
 		if (($astdb_prering != $results['pre_ring']) && ($astdb_prering >= 0)) {
 			$results['pre_ring'] = $astdb_prering;
 			$changed=1;
