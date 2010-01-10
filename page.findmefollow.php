@@ -398,7 +398,7 @@ elseif ($action == 'delGRP') {
 			<tr><td colspan="2"><h5><?php echo _("Change External CID Configuration") ?><hr></h5></td></tr>
 			<tr>
 				<td>
-				<a href="#" class="info"><?php echo _("Mode")?>
+				<a href="#" class="info"><?php echo _("Mode")?>:
 				<span>
 					<b><?php echo _("Default")?></b>:  <?php echo _("Transmits the Callers CID if allowed by the trunk.")?><br>
 					<b><?php echo _("Fixed CID Value")?></b>:  <?php echo _("Always transmit the Fixed CID Value below.")?><br>
