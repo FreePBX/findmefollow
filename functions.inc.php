@@ -191,9 +191,10 @@ function findmefollow_get_config($engine) {
 
           changecid:
             default   - works as always, same as if not present
-            did       - set to the DID that the call came in on or leave alone
             fixed     - set to the fixedcid
             extern    - set to the fixedcid if the call is from the outside only
+            did       - set to the DID that the call came in on or leave alone, treated as foreign
+            forcedid  - set to the DID that the call came in on or leave alone, not treated as foreign
           
           BLKVM_BASE - has the exten num called, hoaky if that goes away but for now use it
         */
@@ -203,15 +204,19 @@ function findmefollow_get_config($engine) {
           $ext->add($contextname, $exten, '', new ext_goto('1','s-${DB(AMPUSER/${BLKVM_BASE}/followme/changecid)}'));
 
           $exten = 's-fixed';
-			    $ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${DB(AMPUSER/${BLKVM_BASE}/followme/fixedcid)})}" = "1"]', 'Set', '__REALCALLERIDNUM=${DB(AMPUSER/${BLKVM_BASE}/followme/fixedcid)}'));
+			    $ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${DB(AMPUSER/${BLKVM_BASE}/followme/fixedcid)})}" = "1"]', 'Set', '__TRUNKCIDOVERRIDE=${DB(AMPUSER/${BLKVM_BASE}/followme/fixedcid)}'));
+			    $ext->add($contextname, $exten, '', new ext_return(''));
+
+          $exten = 's-extern';
+			    $ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${DB(AMPUSER/${BLKVM_BASE}/followme/fixedcid)})}" == "1" & "${FROM_DID}" != ""]', 'Set', '__TRUNKCIDOVERRIDE=${DB(AMPUSER/${BLKVM_BASE}/followme/fixedcid)}'));
 			    $ext->add($contextname, $exten, '', new ext_return(''));
 
           $exten = 's-did';
 			    $ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${FROM_DID})}" = "1"]', 'Set', '__REALCALLERIDNUM=${FROM_DID}'));
 			    $ext->add($contextname, $exten, '', new ext_return(''));
 
-          $exten = 's-extern';
-			    $ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${DB(AMPUSER/${BLKVM_BASE}/followme/fixedcid)})}" == "1" & "${FROM_DID}" != ""]', 'Set', '__REALCALLERIDNUM=${DB(AMPUSER/${BLKVM_BASE}/followme/fixedcid)}'));
+          $exten = 's-forcedid';
+			    $ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${FROM_DID})}" = "1"]', 'Set', '__TRUNKCIDOVERRIDE=${FROM_DID}'));
 			    $ext->add($contextname, $exten, '', new ext_return(''));
 
           $exten = '_s-.';
@@ -224,7 +229,7 @@ function findmefollow_get_config($engine) {
 	}
 }
 
-function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg_id='',$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial) {
+function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg_id='',$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid='default',$fixedcid='') {
 	global $amp_conf;
 	global $astman;
 	global $db;
@@ -244,6 +249,10 @@ function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre=
 		$ddial      = isset($ddial)?$ddial:'';
 		$ddialvalue = ($ddial == 'CHECKED')?'EXTENSION':'DIRECT';
 		$astman->database_put("AMPUSER",$grpnum."/followme/ddial",$ddialvalue);
+
+		$astman->database_put("AMPUSER",$grpnum."/followme/changecid",$changecid);
+	  $fixedcid = preg_replace("/[^0-9\+]/" ,"", trim($fixedcid));
+		$astman->database_put("AMPUSER",$grpnum."/followme/fixedcid",$fixedcid);
 	} else {
 		fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
 	}
@@ -347,6 +356,21 @@ function findmefollow_get($grpnum, $check_astdb=0) {
 			$astdb_grptime = $astman->database_get("AMPUSER",$grpnum."/followme/grptime");
 			$astdb_grplist = $astman->database_get("AMPUSER",$grpnum."/followme/grplist");
 			$astdb_grpconf = $astman->database_get("AMPUSER",$grpnum."/followme/grpconf");
+
+      $astdb_changecid = strtolower($astman->database_get("AMPUSER",$grpnum."/followme/changecid"));
+      switch($astdb_changecid) {
+        case 'default':
+        case 'did':
+        case 'forcedid':
+        case 'fixed':
+        case 'extern':
+          break;
+        default:
+          $astdb_changecid = 'default';
+      }
+      $results['changecid'] = $astdb_changecid;
+      $fixedcid = $astman->database_get("AMPUSER",$grpnum."/followme/fixedcid");
+	    $results['fixedcid'] = preg_replace("/[^0-9\+]/" ,"", trim($fixedcid));
 		} else {
 			fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
 		}
