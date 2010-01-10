@@ -346,7 +346,7 @@ elseif ($action == 'delGRP') {
 
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Alert Info")?>:<span><?php echo _('You can optionally include an Alert Info which can create distinctive rings on SIP phones.')?></span></a></td>
-				<td><input size="18" type="text" name="dring" value="<?php  echo $dring ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+				<td><input size="30" type="text" name="dring" value="<?php  echo $dring ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 			</tr>
 
 			<tr><td colspan="2"><h5><?php echo _("Call Confirmation Configuration") ?><hr></h5></td></tr>
@@ -424,7 +424,7 @@ elseif ($action == 'delGRP') {
 
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Fixed CID Value")?>:<span><?php echo _('Fixed value to replace the CID with used with some of the modes above. Should be in a format of digits only with an option of E164 format using a leading "+".')?></span></a></td>
-				<td><input size="18" type="text" name="fixedcid" value="<?php  echo $fixedcid ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+				<td><input size="30" type="text" name="fixedcid" value="<?php  echo $fixedcid ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 			</tr>
 			
 			<tr><td colspan="2"><br><h5><?php echo _("Destination if no answer")?>:<hr></h5></td></tr>
