@@ -92,6 +92,9 @@ function findmefollow_get_config($engine) {
 					$ext->add($contextname, $grpnum, 'skipov', new ext_setvar('RRNODEST', '${NODEST}'));
 					$ext->add($contextname, $grpnum, 'skipvmblk', new ext_setvar('__NODEST', '${EXTEN}'));
 
+					$ext->add($contextname, $grpnum, '', new ext_gosubif('$[${DB_EXISTS(AMPUSER/'.$grpnum.'/followme/changecid)} = 1 & "${DB(AMPUSER/'.$grpnum.'/followme/changecid)}" != "default" & "${DB(AMPUSER/222/followme/changecid)}" != ""]', 'sub-fmsetcid,s,1'));
+
+
 					// deal with group CID prefix
 					// but strip only if you plan on setting a new one
 					if ($grppre != '') {
@@ -180,6 +183,42 @@ function findmefollow_get_config($engine) {
 					}
 					$ext->add($contextname, $grpnum, 'nodest', new ext_noop('SKIPPING DEST, CALL CAME FROM Q/RG: ${RRNODEST}'));
 				}
+
+        /*
+          ASTDB Settings:
+          AMPUSER/nnn/followme/changecid default | did | fixed | extern
+          AMPUSER/nnn/followme/fixedcid XXXXXXXX
+
+          changecid:
+            default   - works as always, same as if not present
+            did       - set to the DID that the call came in on or leave alone
+            fixed     - set to the fixedcid
+            extern    - set to the fixedcid if the call is from the outside only
+          
+          BLKVM_BASE - has the exten num called, hoaky if that goes away but for now use it
+        */
+        if (count($ringlist)) {
+          $contextname = 'sub-fmsetcid';
+          $exten = 's';
+          $ext->add($contextname, $exten, '', new ext_goto('1','s-${DB(AMPUSER/${BLKVM_BASE}/followme/changecid)}'));
+
+          $exten = 's-fixed';
+			    $ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${DB(AMPUSER/${BLKVM_BASE}/followme/fixedcid)})}" = "1"]', 'Set', '__REALCALLERIDNUM=${DB(AMPUSER/${BLKVM_BASE}/followme/fixedcid)}'));
+			    $ext->add($contextname, $exten, '', new ext_return(''));
+
+          $exten = 's-did';
+			    $ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${FROM_DID})}" = "1"]', 'Set', '__REALCALLERIDNUM=${FROM_DID}'));
+			    $ext->add($contextname, $exten, '', new ext_return(''));
+
+          $exten = 's-extern';
+			    $ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${DB(AMPUSER/${BLKVM_BASE}/followme/fixedcid)})}" == "1" & "${FROM_DID}" != ""]', 'Set', '__REALCALLERIDNUM=${DB(AMPUSER/${BLKVM_BASE}/followme/fixedcid)}'));
+			    $ext->add($contextname, $exten, '', new ext_return(''));
+
+          $exten = '_s-.';
+					$ext->add($contextname, $exten, '', new ext_noop('Unknown value for AMPUSER/${BLKVM_BASE}/followme/changecid of ${DB(AMPUSER/${BLKVM_BASE}/followme/changecid)} set to "default"'));
+					$ext->add($contextname, $exten, '', new ext_setvar('DB(AMPUSER/${BLKVM_BASE}/followme/changecid)', 'default'));
+			    $ext->add($contextname, $exten, '', new ext_return(''));
+        }
 			}
 		break;
 	}
