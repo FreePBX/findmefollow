@@ -415,7 +415,7 @@ elseif ($action == 'delGRP') {
 						echo '<option value="default" '.($default == 'default' ? 'SELECTED' : '').'>'._("Default");
 						echo '<option value="fixed" '.($default == 'fixed' ? 'SELECTED' : '').'>'._("Fixed CID Value");
 						echo '<option value="extern" '.($default == 'extern' ? 'SELECTED' : '').'>'._("Outside Calls Fixed CID Value");
-						echo '<option value="did" '.($default == 'did' ? 'SELECTED' : '').'>'._("Used Dialed Number");
+						echo '<option value="did" '.($default == 'did' ? 'SELECTED' : '').'>'._("Use Dialed Number");
 						echo '<option value="forcedid" '.($default == 'forcedid' ? 'SELECTED' : '').'>'._("Force Dialed Number");
 					?>		
 					</select>
