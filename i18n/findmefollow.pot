@@ -1,14 +1,26 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# This file is part of FreePBX.
 #
+#    FreePBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    FreePBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# FreePBX language template for findmefollow
+# Copyright (C) 2008, 2009 Bandwith.com
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-08 18:34+0100\n"
+"POT-Creation-Date: 2010-01-12 02:19+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,20 +28,20 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: functions.inc.php:385
+#: functions.inc.php:460
 msgid "Edit Follow Me Settings"
 msgstr ""
 
-#: functions.inc.php:388 functions.inc.php:392
+#: functions.inc.php:463 functions.inc.php:467
 msgid "Add Follow Me Settings"
 msgstr ""
 
-#: functions.inc.php:420
+#: functions.inc.php:495
 #, php-format
 msgid "Follow-Me: %s (%s)"
 msgstr ""
 
-#: functions.inc.php:438
+#: functions.inc.php:513
 #, php-format
 msgid "Follow-Me User: %s"
 msgstr ""
@@ -118,70 +130,70 @@ msgstr ""
 msgid "already migrated"
 msgstr ""
 
-#: page.findmefollow.php:71
+#: page.findmefollow.php:73
 msgid "Warning! Extension"
 msgstr ""
 
-#: page.findmefollow.php:71
+#: page.findmefollow.php:73
 msgid "is not allowed for your account"
 msgstr ""
 
-#: page.findmefollow.php:121 page.findmefollow.php:124
-#: page.findmefollow.php:157
+#: page.findmefollow.php:123 page.findmefollow.php:126
+#: page.findmefollow.php:162
 msgid "Follow Me"
 msgstr ""
 
-#: page.findmefollow.php:121
+#: page.findmefollow.php:123
 msgid "Choose a user/extension:"
 msgstr ""
 
-#: page.findmefollow.php:124
+#: page.findmefollow.php:126
 msgid "deleted"
 msgstr ""
 
-#: page.findmefollow.php:154
+#: page.findmefollow.php:159
 msgid "Delete Entries"
 msgstr ""
 
-#: page.findmefollow.php:164
+#: page.findmefollow.php:169
 msgid "User"
 msgstr ""
 
-#: page.findmefollow.php:168
+#: page.findmefollow.php:173
 msgid "Extension"
 msgstr ""
 
-#: page.findmefollow.php:171
+#: page.findmefollow.php:176
 #, php-format
 msgid "Edit %s"
 msgstr ""
 
-#: page.findmefollow.php:171
+#: page.findmefollow.php:176
 #, php-format
 msgid "Edit %s %s"
 msgstr ""
 
-#: page.findmefollow.php:180
+#: page.findmefollow.php:185
 msgid "Edit Follow Me"
 msgstr ""
 
-#: page.findmefollow.php:180
+#: page.findmefollow.php:185
 msgid "Add Follow Me"
 msgstr ""
 
-#: page.findmefollow.php:188
+#: page.findmefollow.php:193
 msgid "group number"
 msgstr ""
 
-#: page.findmefollow.php:188
+#: page.findmefollow.php:193
 msgid "The number users will dial to ring extensions in this ring group"
 msgstr ""
 
-#: page.findmefollow.php:194
+#: page.findmefollow.php:199
 msgid "Disable"
 msgstr ""
 
-#: page.findmefollow.php:194
+#: page.findmefollow.php:199
 msgid ""
 "By default (not checked) any call to this extension will go to this Follow-"
 "Me instead, including directory calls by name from IVRs. If checked, calls "
@@ -191,62 +203,62 @@ msgid ""
 "if the caller chooses to find you do you want it to come here."
 msgstr ""
 
-#: page.findmefollow.php:199
+#: page.findmefollow.php:204
 msgid "Initial Ring Time:"
 msgstr ""
 
-#: page.findmefollow.php:200
+#: page.findmefollow.php:205
 msgid ""
 "This is the number of seconds to ring the primary extension prior to "
 "proceeding to the follow-me list. The extension can also be included in the "
 "follow-me list. A 0 setting will bypass this."
 msgstr ""
 
-#: page.findmefollow.php:217
+#: page.findmefollow.php:222
 msgid "Ring Strategy:"
 msgstr ""
 
-#: page.findmefollow.php:219
+#: page.findmefollow.php:224
 msgid "ringallv2"
 msgstr ""
 
-#: page.findmefollow.php:219
+#: page.findmefollow.php:224
 msgid ""
 "ring primary extension for initial ring time followed by all additional "
 "extensions until one answers"
 msgstr ""
 
-#: page.findmefollow.php:220
+#: page.findmefollow.php:225
 msgid "ringall"
 msgstr ""
 
-#: page.findmefollow.php:220
+#: page.findmefollow.php:225
 msgid "ring all available channels until one answers (default)"
 msgstr ""
 
-#: page.findmefollow.php:221
+#: page.findmefollow.php:226
 msgid "hunt"
 msgstr ""
 
-#: page.findmefollow.php:221
+#: page.findmefollow.php:226
 msgid "take turns ringing each available extension"
 msgstr ""
 
-#: page.findmefollow.php:222
+#: page.findmefollow.php:227
 msgid "memoryhunt"
 msgstr ""
 
-#: page.findmefollow.php:222
+#: page.findmefollow.php:227
 msgid ""
 "ring first extension in the list, then ring the 1st and 2nd extension, then "
 "ring 1st 2nd and 3rd extension in the list.... etc."
 msgstr ""
 
-#: page.findmefollow.php:223
+#: page.findmefollow.php:228
 msgid "*-prim"
 msgstr ""
 
-#: page.findmefollow.php:223
+#: page.findmefollow.php:228
 msgid ""
 "these modes act as described above. However, if the primary extension (first "
 "in list) is occupied, the other extensions will not be rung. If the primary "
@@ -254,37 +266,37 @@ msgid ""
 "unconditional, then all will be rung"
 msgstr ""
 
-#: page.findmefollow.php:224
+#: page.findmefollow.php:229
 msgid "firstavailable"
 msgstr ""
 
-#: page.findmefollow.php:224
+#: page.findmefollow.php:229
 msgid "ring only the first available channel"
 msgstr ""
 
-#: page.findmefollow.php:225
+#: page.findmefollow.php:230
 msgid "firstnotonphone"
 msgstr ""
 
-#: page.findmefollow.php:225
+#: page.findmefollow.php:230
 msgid "ring only the first channel which is not off hook - ignore CW"
 msgstr ""
 
-#: page.findmefollow.php:244
+#: page.findmefollow.php:249
 msgid "Ring Time (max 60 sec)"
 msgstr ""
 
-#: page.findmefollow.php:246
+#: page.findmefollow.php:251
 msgid ""
 "Time in seconds that the phones will ring. For all hunt style ring "
 "strategies, this is the time for each iteration of phone(s) that are rung"
 msgstr ""
 
-#: page.findmefollow.php:254
+#: page.findmefollow.php:259
 msgid "Follow-Me List"
 msgstr ""
 
-#: page.findmefollow.php:254
+#: page.findmefollow.php:259
 msgid ""
 "List extensions to ring, one per line, or use the Extension Quick Pick below."
 "<br><br>You can include an extension on a remote system, or an external "
@@ -292,78 +304,82 @@ msgid ""
 "2448089 on the appropriate trunk (see Outbound Routing)."
 msgstr ""
 
-#: page.findmefollow.php:269
+#: page.findmefollow.php:274
 msgid "Extension Quick Pick"
 msgstr ""
 
-#: page.findmefollow.php:271
+#: page.findmefollow.php:276
 msgid "Choose an extension to append to the end of the extension list above."
 msgstr ""
 
-#: page.findmefollow.php:277
+#: page.findmefollow.php:282
 msgid "(pick extension)"
 msgstr ""
 
-#: page.findmefollow.php:290 page.findmefollow.php:308
+#: page.findmefollow.php:295 page.findmefollow.php:313
 msgid "Announcement:"
 msgstr ""
 
-#: page.findmefollow.php:290
+#: page.findmefollow.php:295
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
 "additional recordings please use the \"System Recordings\" MENU to the left"
 msgstr ""
 
-#: page.findmefollow.php:296
+#: page.findmefollow.php:301
 msgid "None"
 msgstr ""
 
-#: page.findmefollow.php:308
+#: page.findmefollow.php:313
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>You "
 "must install and enable the \"Systems Recordings\" Module to edit this option"
 msgstr ""
 
-#: page.findmefollow.php:319
+#: page.findmefollow.php:324
 msgid "Play Music On Hold?"
 msgstr ""
 
-#: page.findmefollow.php:319
+#: page.findmefollow.php:324
 msgid ""
 "If you select a Music on Hold class to play, instead of 'Ring', they will "
 "hear that instead of Ringing while they are waiting for someone to pick up."
 msgstr ""
 
-#: page.findmefollow.php:325
+#: page.findmefollow.php:330
 msgid "Ring"
 msgstr ""
 
-#: page.findmefollow.php:338
+#: page.findmefollow.php:343
 msgid "CID Name Prefix"
 msgstr ""
 
-#: page.findmefollow.php:338
+#: page.findmefollow.php:343
 msgid ""
 "You can optionally prefix the Caller ID name when ringing extensions in this "
 "group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
 "as \"Sales:John Doe\" on the extensions that ring."
 msgstr ""
 
-#: page.findmefollow.php:343
+#: page.findmefollow.php:348
 msgid "Alert Info"
 msgstr ""
 
-#: page.findmefollow.php:343
+#: page.findmefollow.php:348
 msgid ""
 "You can optionally include an Alert Info which can create distinctive rings "
 "on SIP phones."
 msgstr ""
 
-#: page.findmefollow.php:348
+#: page.findmefollow.php:352
+msgid "Call Confirmation Configuration"
+msgstr ""
+
+#: page.findmefollow.php:355
 msgid "Confirm Calls"
 msgstr ""
 
-#: page.findmefollow.php:348
+#: page.findmefollow.php:355
 msgid ""
 "Enable this if you're calling external numbers that need confirmation - eg, "
 "a mobile phone may go to voicemail which will pick up the call. Enabling "
@@ -371,61 +387,125 @@ msgid ""
 "through. This feature only works with the ringall/ringall-prim  ring strategy"
 msgstr ""
 
-#: page.findmefollow.php:356
+#: page.findmefollow.php:363
 msgid "Remote Announce:"
 msgstr ""
 
-#: page.findmefollow.php:356
+#: page.findmefollow.php:363
 msgid ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
 "enabled.<br><br>To add additional recordings use the \"System Recordings\" "
 "MENU to the left"
 msgstr ""
 
-#: page.findmefollow.php:362 page.findmefollow.php:379
+#: page.findmefollow.php:369 page.findmefollow.php:386
+#: page.findmefollow.php:403 page.findmefollow.php:415
 msgid "Default"
 msgstr ""
 
-#: page.findmefollow.php:373
+#: page.findmefollow.php:380
 msgid "Too-Late Announce:"
 msgstr ""
 
-#: page.findmefollow.php:373
+#: page.findmefollow.php:380
 msgid ""
 "Message to be played to the person RECEIVING the call, if the call has "
 "already been accepted before they push 1.<br><br>To add additional "
 "recordings use the \"System Recordings\" MENU to the left"
 msgstr ""
 
-#: page.findmefollow.php:391
-msgid "Destination if no answer"
+#: page.findmefollow.php:398
+msgid "Change External CID Configuration"
 msgstr ""
 
-#: page.findmefollow.php:399
-msgid "Submit Changes"
+#: page.findmefollow.php:401
+msgid "Mode"
+msgstr ""
+
+#: page.findmefollow.php:403
+msgid "Transmits the Callers CID if allowed by the trunk."
+msgstr ""
+
+#: page.findmefollow.php:404 page.findmefollow.php:416
+#: page.findmefollow.php:426
+msgid "Fixed CID Value"
+msgstr ""
+
+#: page.findmefollow.php:404
+msgid "Always transmit the Fixed CID Value below."
+msgstr ""
+
+#: page.findmefollow.php:405 page.findmefollow.php:417
+msgid "Outside Calls Fixed CID Value"
+msgstr ""
+
+#: page.findmefollow.php:405
+msgid ""
+"Transmit the Fixed CID Value below on calls that come in from outside only. "
+"Internal extension to extension calls will continue to operate in default "
+"mode."
+msgstr ""
+
+#: page.findmefollow.php:406 page.findmefollow.php:418
+msgid "Use Dialed Number"
+msgstr ""
+
+#: page.findmefollow.php:406
+msgid ""
+"Transmit the number that was dialed as the CID for calls coming from "
+"outside. Internal extension to extension calls will continue to operate in "
+"default mode. There must be a DID on the inbound route for this. This will "
+"be BLOCKED on trunks that block foreign callerid"
+msgstr ""
+
+#: page.findmefollow.php:407 page.findmefollow.php:419
+msgid "Force Dialed Number"
+msgstr ""
+
+#: page.findmefollow.php:407
+msgid ""
+"Transmit the number that was dialed as the CID for calls coming from "
+"outside. Internal extension to extension calls will continue to operate in "
+"default mode. There must be a DID on the inbound route for this. This WILL "
+"be transmitted on trunks that block foreign callerid"
 msgstr ""
 
 #: page.findmefollow.php:426
-msgid "Invalid Group Number specified"
-msgstr ""
-
-#: page.findmefollow.php:427
-msgid "Please enter an extension list."
-msgstr ""
-
-#: page.findmefollow.php:428
-msgid "Invalid prefix. Valid characters: a-z A-Z 0-9 : _ -"
-msgstr ""
-
-#: page.findmefollow.php:429
-msgid "Invalid time specified"
+msgid ""
+"Fixed value to replace the CID with used with some of the modes above. "
+"Should be in a format of digits only with an option of E164 format using a "
+"leading \"+\"."
 msgstr ""
 
 #: page.findmefollow.php:430
+msgid "Destination if no answer"
+msgstr ""
+
+#: page.findmefollow.php:438
+msgid "Submit Changes"
+msgstr ""
+
+#: page.findmefollow.php:465
+msgid "Invalid Group Number specified"
+msgstr ""
+
+#: page.findmefollow.php:466
+msgid "Please enter an extension list."
+msgstr ""
+
+#: page.findmefollow.php:467
+msgid "Invalid prefix. Valid characters: a-z A-Z 0-9 : _ -"
+msgstr ""
+
+#: page.findmefollow.php:468
+msgid "Invalid time specified"
+msgstr ""
+
+#: page.findmefollow.php:469
 msgid "Time must be between 1 and 60 seconds"
 msgstr ""
 
-#: page.findmefollow.php:431
+#: page.findmefollow.php:470
 msgid ""
 "Only ringall, ringallv2, hunt and the respective -prim versions are "
 "supported when confirmation is checked"
