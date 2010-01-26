@@ -409,7 +409,7 @@ elseif ($action == 'delGRP') {
 				</a>
 				</td>
 				<td>
-					<select name="changecid" tabindex="<?php echo ++$tabindex;?>">
+					<select name="changecid" id="changecid" tabindex="<?php echo ++$tabindex;?>">
 					<?php
 						$default = (isset($changecid) ? $changecid : 'default');
 						echo '<option value="default" '.($default == 'default' ? 'SELECTED' : '').'>'._("Default");
@@ -417,6 +417,7 @@ elseif ($action == 'delGRP') {
 						echo '<option value="extern" '.($default == 'extern' ? 'SELECTED' : '').'>'._("Outside Calls Fixed CID Value");
 						echo '<option value="did" '.($default == 'did' ? 'SELECTED' : '').'>'._("Use Dialed Number");
 						echo '<option value="forcedid" '.($default == 'forcedid' ? 'SELECTED' : '').'>'._("Force Dialed Number");
+            $fixedcid_disabled = ($default != 'fixed' && $default != 'extern') ? 'disabled = "disabled"':'';
 					?>		
 					</select>
 				</td>
@@ -424,7 +425,7 @@ elseif ($action == 'delGRP') {
 
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Fixed CID Value")?>:<span><?php echo _('Fixed value to replace the CID with used with some of the modes above. Should be in a format of digits only with an option of E164 format using a leading "+".')?></span></a></td>
-				<td><input size="30" type="text" name="fixedcid" value="<?php  echo $fixedcid ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+        <td><input size="30" type="text" name="fixedcid" id="fixedcid" value="<?php  echo $fixedcid ?>" tabindex="<?php echo ++$tabindex;?>" <?php echo $fixedcid_disabled ?>></td>
 			</tr>
 			
 			<tr><td colspan="2"><br><h5><?php echo _("Destination if no answer")?>:<hr></h5></td></tr>
@@ -447,6 +448,13 @@ echo drawselects($goto,0);
 <script language="javascript">
 <!--
 
+$(document).ready(function(){
+	$("#changecid").change(function(){
+    state = (this.value == "fixed" || this.value == "extern") ? "" : "disabled";
+	  $("#fixedcid").attr("disabled",state);
+	});
+});
+
 function insertExten() {
 	exten = document.getElementById('insexten').value;
 
@@ -462,14 +470,11 @@ function insertExten() {
 }
 
 function checkGRP(theForm) {
-	var msgInvalidGrpNum = "<?php echo _('Invalid Group Number specified'); ?>";
 	var msgInvalidExtList = "<?php echo _('Please enter an extension list.'); ?>";
-	var msgInvalidGrpPrefix = "<?php echo _('Invalid prefix. Valid characters: a-z A-Z 0-9 : _ -'); ?>";
 	var msgInvalidTime = "<?php echo _('Invalid time specified'); ?>";
 	var msgInvalidGrpTimeRange = "<?php echo _('Time must be between 1 and 60 seconds'); ?>";
 	var msgInvalidRingStrategy = "<?php echo _('Only ringall, ringallv2, hunt and the respective -prim versions are supported when confirmation is checked'); ?>";
-
-
+	var msgInvalidCID = "<?php echo _('Invalid CID Number. Must be in a format of digits only with an option of E164 format using a leading "+"'); ?>";
 
 	// set up the Destination stuff
 	setDestinations(theForm, 1);
@@ -479,7 +484,16 @@ function checkGRP(theForm) {
 	if (isEmpty(theForm.grplist.value))
 		return warnInvalid(theForm.grplist, msgInvalidExtList);
 
-	defaultEmptyOK = false;
+  if (!theForm.fixedcid.disabled) {
+    fixedcid = $.trim(theForm.fixedcid.value);
+    if (theForm.fixedcid.value.substring(0,1) == '+') {
+      fixedcid = theForm.fixedcid.value.substring(1);
+    }
+	  if (!isInteger(fixedcid)) {
+		  return warnInvalid(theForm.fixedcid, msgInvalidCID);
+    }
+  }
+
 	if (!isInteger(theForm.grptime.value)) {
 		return warnInvalid(theForm.grptime, msgInvalidTime);
 	} else {
@@ -493,8 +507,6 @@ function checkGRP(theForm) {
 	}
 
 	defaultEmptyOK = true;
-	if (!isPrefix(theForm.grppre.value))
-		return warnInvalid(theForm.grppre, msgInvalidGrpPrefix);
 
 	if (!validateDestinations(theForm, 1, true))
 		return false;
