@@ -486,10 +486,7 @@ function checkGRP(theForm) {
 
   if (!theForm.fixedcid.disabled) {
     fixedcid = $.trim(theForm.fixedcid.value);
-    if (theForm.fixedcid.value.substring(0,1) == '+') {
-      fixedcid = theForm.fixedcid.value.substring(1);
-    }
-	  if (!isInteger(fixedcid)) {
+	  if (!fixedcid.match('^[+]{0,1}[0-9]+$')) {
 		  return warnInvalid(theForm.fixedcid, msgInvalidCID);
     }
   }
