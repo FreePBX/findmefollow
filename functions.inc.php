@@ -92,7 +92,7 @@ function findmefollow_get_config($engine) {
 					$ext->add($contextname, $grpnum, 'skipov', new ext_setvar('RRNODEST', '${NODEST}'));
 					$ext->add($contextname, $grpnum, 'skipvmblk', new ext_setvar('__NODEST', '${EXTEN}'));
 
-					$ext->add($contextname, $grpnum, '', new ext_gosubif('$[${DB_EXISTS(AMPUSER/'.$grpnum.'/followme/changecid)} = 1 & "${DB(AMPUSER/'.$grpnum.'/followme/changecid)}" != "default" & "${DB(AMPUSER/222/followme/changecid)}" != ""]', 'sub-fmsetcid,s,1'));
+					$ext->add($contextname, $grpnum, '', new ext_gosubif('$[${DB_EXISTS(AMPUSER/'.$grpnum.'/followme/changecid)} = 1 & "${DB(AMPUSER/'.$grpnum.'/followme/changecid)}" != "default" & "${DB(AMPUSER/'.$grpnum.'/followme/changecid)}" != ""]', 'sub-fmsetcid,s,1'));
 
 
 					// deal with group CID prefix
