@@ -130,7 +130,6 @@ elseif ($action == 'delGRP') {
 		$extdisplay = ltrim($extdisplay,'GRP-');
 
 		$thisgrp = findmefollow_get($extdisplay, 1);
-    freepbx_debug($thisgrp);
 		$grpliststr = isset($thisgrp['grplist']) ? $thisgrp['grplist'] : '';
 		$grplist = explode("-", $grpliststr);
 
