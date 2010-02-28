@@ -1,10 +1,11 @@
 <module>
 	<rawname>findmefollow</rawname>
 	<name>Follow Me</name>
-	<version>2.7.0.3</version>
+	<version>2.7.0.4</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<changelog>
+		*2.7.0.4* localizations
 		*2.7.0.3* #4051 (requires MoH 2.7.0.0 or above)
 		*2.7.0.2* debug statement removed
 		*2.7.0.1* #4026
@@ -44,6 +45,6 @@
 	<menuitems>
 		<findmefollow needsenginedb="yes">Follow Me</findmefollow>
 	</menuitems>
-	<location>release/2.7/findmefollow-2.7.0.3.tgz</location>
-	<md5sum>3b213307dd24d6fc1bc22e99c14b15ef</md5sum>
+	<location>release/2.7/findmefollow-2.7.0.4.tgz</location>
+	<md5sum>f6e215993cf8515eb9261de31d683e29</md5sum>
 </module>
