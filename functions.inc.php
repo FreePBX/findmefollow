@@ -71,7 +71,7 @@ function findmefollow_get_config($engine) {
 					// go there. This is often used in VmX Locater functionality when the user does not want the followme
 					// to automatically be called but only if chosen by the caller as an alternative to going to voicemail
 					//
-					$ext->add($contextname, $grpnum, '', new ext_set('__INTENDEDUSER','${EXTEN}'));
+					$ext->add($contextname, $grpnum, '', new ext_set('__EXTTOCALL','${EXTEN}'));
 					$ext->add($contextname, $grpnum, '', new ext_gotoif('$[ "${DB(AMPUSER/'.$grpnum.'/followme/ddial)}" = "EXTENSION" ]', 'ext-local,'.$grpnum.',1'));
 					$ext->add($contextname, $grpnum, 'FM'.$grpnum, new ext_macro('user-callerid'));
 
