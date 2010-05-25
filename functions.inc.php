@@ -27,10 +27,12 @@ function findmefollow_get_config($engine) {
 			// Before creating all the contexts, let's make a list of hints if needed
 			//
 			if ($amp_conf['USEDEVSTATE'] && $fmf_code != '') {
-				$device_list = core_devices_list("all", false, true);
+				$device_list = core_devices_list("all", 'full', true);
 				foreach ($device_list as $device) {
-					$ext->add($contextname, $fmf_code.$device['id'], '', new ext_goto("1",$fmf_code,"app-fmf-toggle"));
-					$ext->addHint($contextname, $fmf_code.$device['id'], "Custom:FOLLOWME".$device['id']);
+          if ($device['tech'] == 'sip' || $device['tech'] == 'iax2') {
+					  $ext->add($contextname, $fmf_code.$device['id'], '', new ext_goto("1",$fmf_code,"app-fmf-toggle"));
+					  $ext->addHint($contextname, $fmf_code.$device['id'], "Custom:FOLLOWME".$device['id']);
+          }
 				}
 			}
 
