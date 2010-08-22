@@ -135,8 +135,8 @@ function findmefollow_get_config($engine) {
 					// group dial
 					$ext->add($contextname, $grpnum, 'skipsimple', new ext_setvar('RingGroupMethod',$strategy));
 					$ext->add($contextname, $grpnum, '', new ext_setvar('_FMGRP',$grpnum));
-					$ext->add($contextname, $grpnum, '', new ext_setvar('CDR(accountcode)','${DB(AMPUSER/'."$grpnum/accountcode)}"));
-					if ((isset($annmsg_id) ? $annmsg_id : '')) {
+
+                                        if ((isset($annmsg_id) ? $annmsg_id : '')) {
 						$annmsg = recordings_get_file($annmsg_id);
 						// should always answer before playing anything, shouldn't we ?
 						$ext->add($contextname, $grpnum, '', new ext_gotoif('$[$["${DIALSTATUS}" = "ANSWER"] | $["foo${RRNODEST}" != "foo"]]','DIALGRP'));			
