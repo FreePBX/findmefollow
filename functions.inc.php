@@ -202,19 +202,19 @@ function findmefollow_get_config($engine) {
             did       - set to the DID that the call came in on or leave alone, treated as foreign
             forcedid  - set to the DID that the call came in on or leave alone, not treated as foreign
           
-          BLKVM_BASE - has the exten num called, hoaky if that goes away but for now use it
+          EXTTOCALL   - has the exten num called, hoaky if that goes away but for now use it
         */
         if (count($ringlist)) {
           $contextname = 'sub-fmsetcid';
           $exten = 's';
-          $ext->add($contextname, $exten, '', new ext_goto('1','s-${DB(AMPUSER/${BLKVM_BASE}/followme/changecid)}'));
+          $ext->add($contextname, $exten, '', new ext_goto('1','s-${DB(AMPUSER/${EXTTOCALL}/followme/changecid)}'));
 
           $exten = 's-fixed';
-			    $ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${DB(AMPUSER/${BLKVM_BASE}/followme/fixedcid)})}" = "1"]', 'Set', '__TRUNKCIDOVERRIDE=${DB(AMPUSER/${BLKVM_BASE}/followme/fixedcid)}'));
+			    $ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${DB(AMPUSER/${EXTTOCALL}/followme/fixedcid)})}" = "1"]', 'Set', '__TRUNKCIDOVERRIDE=${DB(AMPUSER/${EXTTOCALL}/followme/fixedcid)}'));
 			    $ext->add($contextname, $exten, '', new ext_return(''));
 
           $exten = 's-extern';
-			    $ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${DB(AMPUSER/${BLKVM_BASE}/followme/fixedcid)})}" == "1" & "${FROM_DID}" != ""]', 'Set', '__TRUNKCIDOVERRIDE=${DB(AMPUSER/${BLKVM_BASE}/followme/fixedcid)}'));
+			    $ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${DB(AMPUSER/${EXTTOCALL}/followme/fixedcid)})}" == "1" & "${FROM_DID}" != ""]', 'Set', '__TRUNKCIDOVERRIDE=${DB(AMPUSER/${EXTTOCALL}/followme/fixedcid)}'));
 			    $ext->add($contextname, $exten, '', new ext_return(''));
 
           $exten = 's-did';
@@ -226,8 +226,8 @@ function findmefollow_get_config($engine) {
 			    $ext->add($contextname, $exten, '', new ext_return(''));
 
           $exten = '_s-.';
-					$ext->add($contextname, $exten, '', new ext_noop('Unknown value for AMPUSER/${BLKVM_BASE}/followme/changecid of ${DB(AMPUSER/${BLKVM_BASE}/followme/changecid)} set to "default"'));
-					$ext->add($contextname, $exten, '', new ext_setvar('DB(AMPUSER/${BLKVM_BASE}/followme/changecid)', 'default'));
+					$ext->add($contextname, $exten, '', new ext_noop('Unknown value for AMPUSER/${EXTTOCALL}/followme/changecid of ${DB(AMPUSER/${EXTTOCALL}/followme/changecid)} set to "default"'));
+					$ext->add($contextname, $exten, '', new ext_setvar('DB(AMPUSER/${EXTTOCALL}/followme/changecid)', 'default'));
 			    $ext->add($contextname, $exten, '', new ext_return(''));
         }
 			}
