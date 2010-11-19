@@ -21,7 +21,7 @@ function findmefollow_destinations() {
 	
 	// return an associative array with destination and description
 	if ($grpnum != '') {
-    $extens[] = array('destination' => 'ext-findmefollow,'.$grpnum.',FM'.$grpnum, 'description' => _("Force Follow Me"));
+    $extens[] = array('destination' => 'ext-findmefollow,FM'.$grpnum.',1', 'description' => _("Force Follow Me"));
 		return $extens;
 	} else {
 		return null;
