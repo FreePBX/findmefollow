@@ -3,6 +3,31 @@
 /* 	Generates dialplan for findmefollow
 	We call this with retrieve_conf
 */
+
+function findmefollow_destinations() {
+  global $display;
+  global $extdisplay;
+  global $db;
+  if (($display != 'extensions' && $display != 'users') || !isset($extdisplay) || $extdisplay == '') {
+		return null;
+  }
+
+  //TODO: need to do a join with user to get the displayname also
+
+  //TODO: if extdisplay is set, sort such that this extension's follow-me is at the top of the list if they have one
+  //      alternatively, only put this extension's follow-me since you should not be able to force to others and you can use their extension
+	//$results = findmefollow_list();
+	$grpnum = sql("SELECT grpnum FROM findmefollow WHERE grpnum = '".$db->escapeSimple($extdisplay)."'","getOne");
+	
+	// return an associative array with destination and description
+	if ($grpnum != '') {
+    $extens[] = array('destination' => 'ext-findmefollow,'.$grpnum.',FM'.$grpnum, 'description' => _("Force Follow Me"));
+		return $extens;
+	} else {
+		return null;
+  }
+}
+
 function findmefollow_get_config($engine) {
 	global $ext;  // is this the best way to pass this?
 	global $amp_conf;
