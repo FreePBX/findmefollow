@@ -14,9 +14,7 @@
 global $astman;
 global $amp_conf;
 
-$fcc = new featurecode('findmefollow', 'fmf_toggle');
-$fcc->delete();
-unset($fcc);
+// Don't bother uninstalling feature codes, now module_uninstall does it
 
 $sql = "SELECT * FROM users";
 $userresults = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
