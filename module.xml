@@ -1,5 +1,6 @@
 <module>
 	<rawname>findmefollow</rawname>
+	<repo>standard</repo>
 	<name>Follow Me</name>
 	<version>2.9.0.0</version>
 	<publisher>FreePBX</publisher>
