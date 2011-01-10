@@ -2,10 +2,11 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>2.9.0.0</version>
+	<version>2.9.0.1</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<changelog>
+		*2.9.0.1* #4651, #4701
 		*2.9.0.0* #4646
 		*2.8.0.4* #4484
 		*2.8.0.3* #4383
@@ -52,6 +53,6 @@
 	<menuitems>
 		<findmefollow needsenginedb="yes">Follow Me</findmefollow>
 	</menuitems>
-	<location>release/2.9/findmefollow-2.9.0.0.tgz</location>
-	<md5sum>78eea3be460b22bc1bf578af8b56d2f7</md5sum>
+	<location>release/2.9/findmefollow-2.9.0.1.tgz</location>
+	<md5sum>dd2d3e41d6b32afbe13252f125eaea8c</md5sum>
 </module>
