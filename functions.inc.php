@@ -530,6 +530,12 @@ function findmefollow_check_destinations($dest=true) {
 	return $destlist;
 }
 
+function findmefollow_change_destination($old_dest, $new_dest) {
+	$sql = 'UPDATE findmefollow SET postdest = "' . $new_dest . '" WHERE postdest = "' . $old_dest . '"';
+	sql($sql, "query");
+}
+
+
 function findmefollow_recordings_usage($recording_id) {
 	global $active_modules;
 
