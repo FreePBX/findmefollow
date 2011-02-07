@@ -176,7 +176,7 @@ function findmefollow_get_config($engine) {
 
 					// If grpconf == ENABLED call with confirmation ELSE call normal
 					$ext->add($contextname, $grpnum, 'DIALGRP', new 
-					    ext_gotoif('$[("${DB(AMPUSER/'.$grpnum.'/followme/grpconf)}"="ENABLED") | ("FORCE_CONFIRM"!="") ]', 'doconfirm'));
+					    ext_gotoif('$[("${DB(AMPUSER/'.$grpnum.'/followme/grpconf)}"="ENABLED") | ("${FORCE_CONFIRM}"!="") ]', 'doconfirm'));
 
 					// Normal call
 					if ((isset($strategy) ? substr($strategy,0,strlen('ringallv2')) : '') != 'ringallv2') {
