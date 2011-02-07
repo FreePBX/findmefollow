@@ -106,13 +106,10 @@ function findmefollow_get_config($engine) {
 					// line to clear this flag so that subsequent transfers can occur, if already set by a the caller
 					// then don't change.
 					//
-					$ext->add($contextname, $grpnum, '', new ext_gotoif('$["foo${BLKVM_OVERRIDE}" = "foo"]', 'skipdb'));
-					$ext->add($contextname, $grpnum, '', new ext_gotoif('$["${DB(${BLKVM_OVERRIDE})}" = "TRUE"]', 'skipov'));
-
-					$ext->add($contextname, $grpnum, 'skipdb', new ext_setvar('__NODEST', ''));
-					$ext->add($contextname, $grpnum, '', new ext_setvar('__BLKVM_OVERRIDE', 'BLKVM/${EXTEN}/${CHANNEL}'));
-					$ext->add($contextname, $grpnum, '', new ext_setvar('__BLKVM_BASE', '${EXTEN}'));
-					$ext->add($contextname, $grpnum, '', new ext_setvar('DB(${BLKVM_OVERRIDE})', 'TRUE'));
+					$ext->add($contextname, $grpnum, '', new ext_macro('blkvm-setifempty'));
+					$ext->add($contextname, $grpnum, '', new ext_gotoif('$["${GOSUB_RETVAL}" = "TRUE"]', 'skipov'));
+					$ext->add($contextname, $grpnum, '', new ext_macro('blkvm-set','reset'));
+					$ext->add($contextname, $grpnum, '', new ext_setvar('__NODEST', ''));
 
 					// Remember if NODEST was set later, but clear it in case the call is answered so that subsequent
 					// transfers work.
@@ -203,8 +200,7 @@ function findmefollow_get_config($engine) {
 					//
 					$ext->add($contextname, $grpnum, '', new ext_gotoif('$["foo${RRNODEST}" != "foo"]', 'nodest'));
 					$ext->add($contextname, $grpnum, '', new ext_setvar('__NODEST', ''));
-
-					$ext->add($contextname, $grpnum, '', new ext_dbdel('${BLKVM_OVERRIDE}'));
+					$ext->add($contextname, $grpnum, '', new ext_macro('blkvm-clr'));
 
 					// where next?
 					if ((isset($postdest) ? $postdest : '') != '') {
