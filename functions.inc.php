@@ -101,6 +101,7 @@ function findmefollow_get_config($engine) {
 					$ext->add($contextname, $grpnum, '', new ext_gotoif('$[ "${DB(AMPUSER/'.$grpnum.'/followme/ddial)}" = "EXTENSION" ]', 'ext-local,'.$grpnum.',1'));
 					$ext->add($contextname, $grpnum, 'FM'.$grpnum, new ext_macro('user-callerid'));
 					$ext->add($contextname, $grpnum, '', new ext_set('__EXTTOCALL','${EXTEN}'));
+					$ext->add($contextname, $grpnum, '', new ext_set('__PICKUPMARK','${EXTEN}'));
 
 					// block voicemail until phone is answered at which point a macro should be called on the answering
 					// line to clear this flag so that subsequent transfers can occur, if already set by a the caller
@@ -200,6 +201,7 @@ function findmefollow_get_config($engine) {
 					//
 					$ext->add($contextname, $grpnum, '', new ext_gotoif('$["foo${RRNODEST}" != "foo"]', 'nodest'));
 					$ext->add($contextname, $grpnum, '', new ext_setvar('__NODEST', ''));
+					$ext->add($contextname, $grpnum, '', new ext_set('__PICKUPMARK',''));
 					$ext->add($contextname, $grpnum, '', new ext_macro('blkvm-clr'));
 
 					// where next?
