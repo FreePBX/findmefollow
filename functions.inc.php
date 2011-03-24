@@ -85,7 +85,9 @@ function findmefollow_get_config($engine) {
 						$dialopts = '${DIAL_OPTIONS}';
 					} else {
 						// We need the DIAL_OPTIONS variable
-						$sops = sql("SELECT value from globals where variable='DIAL_OPTIONS'", "getRow");
+            if (!isset($sops)) {
+						  $sops = sql("SELECT value from globals where variable='DIAL_OPTIONS'", "getRow");
+            }
 						$dialopts = "m(${ringing})".str_replace('r', '', $sops[0]);
 					}
 
@@ -164,8 +166,7 @@ function findmefollow_get_config($engine) {
 					$len=strlen($grpnum)+4;
 					$remotealert = recordings_get_file($remotealert_id);
 					$toolate = recordings_get_file($toolate_id);
-					$ext->add("fmgrps", "_RG-${grpnum}-.", '', new ext_macro('dial','${DB(AMPUSER/'."$grpnum/followme/grptime)},".
-						"M(confirm^${remotealert}^${toolate}^${grpnum})$dialopts".',${EXTEN:'.$len.'}'));
+					$ext->add("fmgrps", "_RG-${grpnum}-.", '', new ext_macro('dial','${DB(AMPUSER/'."$grpnum/followme/grptime)},$dialopts" . "M(confirm^${remotealert}^${toolate}^${grpnum})".',${EXTEN:'.$len.'}'));
 
 					// If grpconf == ENABLED call with confirmation ELSE call normal
 					$ext->add($contextname, $grpnum, 'DIALGRP', new 
