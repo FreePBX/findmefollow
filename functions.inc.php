@@ -169,6 +169,7 @@ function findmefollow_get_config($engine) {
 					$len=strlen($grpnum)+4;
 					$remotealert = recordings_get_file($remotealert_id);
 					$toolate = recordings_get_file($toolate_id);
+					$ext->add("fmgrps", "_RG-${grpnum}-.", '', new ext_nocdr(''));
 					$ext->add("fmgrps", "_RG-${grpnum}-.", '', new ext_macro('dial','${DB(AMPUSER/'."$grpnum/followme/grptime)},$dialopts" . "M(confirm^${remotealert}^${toolate}^${grpnum})".',${EXTEN:'.$len.'}'));
 
 					// If grpconf == ENABLED call with confirmation ELSE call normal
