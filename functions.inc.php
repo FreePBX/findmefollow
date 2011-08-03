@@ -131,7 +131,7 @@ function findmefollow_get_config($engine) {
 					$ext->add($contextname, $grpnum, '', new ext_setvar('RecordMethod','Group'));
           // append the followme's extension to the grouplist. This may be redundant but will ensure recording if the extension itself is not part of
           // the list
-					$ext->add($contextname, $grpnum, '', new ext_macro('record-enable','${DB(AMPUSER/'."$grpnum/followme/grplist)}-$grpnum".',${RecordMethod}'));
+          $ext->add($contextname, $grpnum, 'checkrecord', new ext_gosub('1','s','sub-record-check',"exten,$grpnum"));
 
           // Note there is no cancel later as the special case of follow-me, if they say record, it should stick
           $ext->add($contextname, $grpnum, '', new ext_gosub('1','s','sub-record-check','exten,${EXTEN}'));
