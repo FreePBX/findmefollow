@@ -98,7 +98,7 @@ if(isset($_POST['action'])){
 	}
 }
 ?>
-</div>
+
 
 <div class="rnav"><ul>
 <?php 
@@ -116,7 +116,6 @@ if (isset($gresults)) {
 ?>
 </ul></div>
 
-<div class="content">
 <?php 
 
 if ($extdisplay == "") {
