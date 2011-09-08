@@ -129,12 +129,9 @@ function findmefollow_get_config($engine) {
 					}
 					// recording stuff
 					$ext->add($contextname, $grpnum, '', new ext_setvar('RecordMethod','Group'));
-          // append the followme's extension to the grouplist. This may be redundant but will ensure recording if the extension itself is not part of
-          // the list
-          $ext->add($contextname, $grpnum, 'checkrecord', new ext_gosub('1','s','sub-record-check',"exten,$grpnum"));
 
           // Note there is no cancel later as the special case of follow-me, if they say record, it should stick
-          $ext->add($contextname, $grpnum, '', new ext_gosub('1','s','sub-record-check','exten,${EXTEN}'));
+          $ext->add($contextname, $grpnum, 'checkrecord', new ext_gosub('1','s','sub-record-check',"exten,$grpnum"));
 
 					// MODIFIED (PL)
 					// Add Alert Info if set but don't override and already set value (could be from ringgroup, directdid, etc.)
