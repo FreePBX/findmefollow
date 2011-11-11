@@ -131,7 +131,7 @@ function findmefollow_get_config($engine) {
 					$ext->add($contextname, $grpnum, '', new ext_setvar('RecordMethod','Group'));
 
           // Note there is no cancel later as the special case of follow-me, if they say record, it should stick
-          $ext->add($contextname, $grpnum, 'checkrecord', new ext_gosub('1','s','sub-record-check',"exten,$grpnum"));
+          $ext->add($contextname, $grpnum, 'checkrecord', new ext_gosub('1','s','sub-record-check',"exten,$grpnum,"));
 
 					// MODIFIED (PL)
 					// Add Alert Info if set but don't override and already set value (could be from ringgroup, directdid, etc.)
