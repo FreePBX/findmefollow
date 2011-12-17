@@ -1,4 +1,5 @@
 <?php /* $Id: functions.inc.php 175 2006-10-03 19:12:39Z plindheimer $ */
+if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 /* 	Generates dialplan for findmefollow
 	We call this with retrieve_conf

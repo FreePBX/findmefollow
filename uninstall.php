@@ -1,4 +1,5 @@
 <?php
+if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 // Delete all the followme trees. This function selects from the users table
 // and not the findmefollow table because the uninstall code deletes the tables
