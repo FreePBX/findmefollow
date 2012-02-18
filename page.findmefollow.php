@@ -14,6 +14,9 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 $tabindex = 0;
 
+global $followme_exten;
+$followme_exten = '';
+
 $dispnum = 'findmefollow'; //used for switch on config.php
 
 isset($_REQUEST['action'])?$action = $_REQUEST['action']:$action='';
@@ -128,6 +131,7 @@ elseif ($action == 'delGRP') {
 	if ($extdisplay != "") {
 		// We need to populate grplist with the existing extension list.
 		$extdisplay = ltrim($extdisplay,'GRP-');
+		$followme_exten = $extdisplay;
 
 		$thisgrp = findmefollow_get($extdisplay, 1);
 		$grpliststr = isset($thisgrp['grplist']) ? $thisgrp['grplist'] : '';
@@ -431,6 +435,9 @@ elseif ($action == 'delGRP') {
 
 <?php 
 //draw goto selects
+if (empty($goto)) {
+	$goto = "ext-local,$extdisplay,dest";
+}
 echo drawselects($goto,0);
 ?>
 			

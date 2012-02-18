@@ -6,9 +6,15 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 */
 
 function findmefollow_destinations() {
-  global $display;
-  global $extdisplay;
-  global $db;
+	global $display;
+	global $extdisplay;
+	global $followme_exten;
+	global $db;
+
+	if ($display == 'findmefollow' && $followme_exten != '') {
+		$extens[] = array('destination' => 'ext-local,'.$followme_exten.',dest', 'description' => _("Normal Extension Behavior"));
+		return $extens;
+	}
   if (($display != 'extensions' && $display != 'users') || !isset($extdisplay) || $extdisplay == '') {
 		return null;
   }
@@ -103,6 +109,7 @@ function findmefollow_get_config($engine) {
 					//
 					$ext->add($contextname, $grpnum, '', new ext_gotoif('$[ "${DB(AMPUSER/'.$grpnum.'/followme/ddial)}" = "EXTENSION" ]', 'ext-local,'.$grpnum.',1'));
 					$ext->add($contextname, $grpnum, 'FM'.$grpnum, new ext_macro('user-callerid'));
+					$ext->add($contextname, $grpnum, '', new ext_set('FM_DIALSTATUS','${EXTENSION_STATE(' .$grpnum. '@ext-local)}'));
 					$ext->add($contextname, $grpnum, '', new ext_set('__EXTTOCALL','${EXTEN}'));
 					$ext->add($contextname, $grpnum, '', new ext_set('__PICKUPMARK','${EXTEN}'));
 
@@ -198,6 +205,16 @@ function findmefollow_get_config($engine) {
 					$ext->add($contextname, $grpnum, '', new ext_setvar('__NODEST', ''));
 					$ext->add($contextname, $grpnum, '', new ext_set('__PICKUPMARK',''));
 					$ext->add($contextname, $grpnum, '', new ext_macro('blkvm-clr'));
+
+					/* NOANSWER:    NOT_INUSE 
+					 * CHANUNAVAIL: UNAVAILABLE, UNKNOWN, INVALID (or DIALSTATUS=CHANUNAVAIL)
+					 * BUSY:        BUSY, INUSE, RINGING, RINGINUSE, HOLDINUSE, ONHOLD
+					 */
+					$ext->add($contextname, $grpnum, '', new ext_noop_trace('FM_DIALSTATUS: ${FM_DIALSTATUS} DIALSTATUS: ${DIALSTATUS}'));
+					$ext->add($contextname, $grpnum, '', new ext_set('DIALSTATUS',
+						'${IF($["${FM_DIALSTATUS}"="NOT_INUSE"&"${DIALSTATUS}"!="CHANUNAVAIL"]?NOANSWER:'
+						. '${IF($["${DIALSTATUS}="CHANUNAVAIL"|"${FM_DIALSTATUS}"="UNAVAILABLE"|"${FM_DIALSTATUS}"="UNKNOWN"|"${FM_DIALSTATUS}"="INVALID"]?'
+					 	. 'CHANUNAVAIL:BUSY)})}'));
 
 					// where next?
 					if ((isset($postdest) ? $postdest : '') != '') {
