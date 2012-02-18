@@ -275,6 +275,10 @@ function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre=
 	global $astman;
 	global $db;
 
+	if (empty($postdest)) {
+		$postdest = "ext-local,$grpnum,dest";
+	}
+
 	$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring) VALUES ('".$db->escapeSimple($grpnum)."', '".$db->escapeSimple($strategy)."', ".$db->escapeSimple($grptime).", '".$db->escapeSimple($grppre)."', '".$db->escapeSimple($grplist)."', '".$db->escapeSimple($annmsg_id)."', '".$db->escapeSimple($postdest)."', '".$db->escapeSimple($dring)."', '$needsconf', '$remotealert_id', '$toolate_id', '$ringing', '$pre_ring')";
 	$results = sql($sql);
 
@@ -390,6 +394,9 @@ function findmefollow_get($grpnum, $check_astdb=0) {
 	if (!isset($results['voicemail'])) {
 		$results['voicemail'] = sql("SELECT `voicemail` FROM `users` WHERE `extension` = '".$db->escapeSimple($grpnum)."'","getOne");
 	}
+	if (!isset($results['strategy'])) {
+		$results['strategy'] = $amp_conf['FOLLOWME_RG_STRATEGY'];
+	}
 
 	if ($check_astdb) {
 		if ($astman) {
@@ -417,13 +424,15 @@ function findmefollow_get($grpnum, $check_astdb=0) {
 		}
 			$astdb_ddial   = $astman->database_get("AMPUSER",$grpnum."/followme/ddial");                                     
 		// If the values are different then use what is in astdb as it may have been changed.
+		// If sql returned no results for pre_ring/grptime then it's not configued so we reset
+		// the astdb defaults as well
 		//
 		$changed=0;
     if (!isset($results['pre_ring'])) {
-      $results['pre_ring'] = '';
+      $results['pre_ring'] = $astdb_prering = $amp_conf['FOLLOWME_PRERING'];
     }
     if (!isset($results['grptime'])) {
-      $results['grptime'] = '';
+      $results['grptime'] = $astdb_grptime = $amp_conf['FOLLOWME_TIME'];
     }
     if (!isset($results['grplist'])) {
       $results['grplist'] = '';
@@ -464,8 +473,8 @@ function findmefollow_get($grpnum, $check_astdb=0) {
 		} elseif (trim($astdb_ddial) == 'DIRECT') {
 			$ddial = '';
 		} else {
-			//Bogus value, should not get here but treat as disabled
-			$ddial = '';
+			// If here then followme must not be set so use default
+			$ddial = $amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '';
 		}
 		$results['ddial'] = $ddial;
 
@@ -482,9 +491,17 @@ function findmefollow_get($grpnum, $check_astdb=0) {
 
 function findmefollow_configpageinit($dispnum) {
 	global $currentcomponent;
+	global $amp_conf;
 
 	if ( ($dispnum == 'users' || $dispnum == 'extensions') ) {
 		$currentcomponent->addguifunc('findmefollow_configpageload');
+
+		if ($amp_conf['FOLLOWME_AUTO_CREATE']) {
+			$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
+			if ($action=="add") {
+				$currentcomponent->addprocessfunc('findmefollow_configprocess', 8);
+			}
+		}
 	}
 }
 
@@ -511,6 +528,34 @@ function findmefollow_configpageload() {
 		$label = '<span><img width="16" height="16" border="0" title="'.$grpTEXT.'" alt="" src="'.$icon.'"/>&nbsp;'.$grpTEXT.'</span>';
 		$currentcomponent->addguielem('_top', new gui_link('findmefollowlink', $label, $grpURL));
 	}	
+}
+
+// If we are auto-creating a followme for each extension then add the hook funcitons for
+// extensions and users.
+//
+if ($amp_conf['FOLLOWME_AUTO_CREATE']) {
+	function findmefollow_configprocess() {
+		global $amp_conf;
+
+		//create vars from the request
+		$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
+		$ext = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
+		$extn = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
+
+		if ($ext=='') { 
+			$extdisplay = $extn; 
+		} else {
+			$extdisplay = $ext;
+		} 
+		if ($action == "add") {
+			if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
+
+				$ddial = $amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '';
+				findmefollow_add($extdisplay, $amp_conf['FOLLOWME_RG_STRATEGY'], $amp_conf['FOLLOWME_TIME'],
+					$extdisplay, "", "", "", "", "", "", "","", $amp_conf['FOLLOWME_PRERING'], $ddial,'default','');
+			}
+		}
+	}
 }
 
 function findmefollow_check_destinations($dest=true) {

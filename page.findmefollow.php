@@ -23,27 +23,26 @@ isset($_REQUEST['action'])?$action = $_REQUEST['action']:$action='';
 //the extension we are currently displaying
 isset($_REQUEST['extdisplay'])?$extdisplay=$_REQUEST['extdisplay']:$extdisplay='';
 isset($_REQUEST['account'])?$account = $_REQUEST['account']:$account='';
-isset($_REQUEST['grptime'])?$grptime = $_REQUEST['grptime']:$grptime='';
+isset($_REQUEST['grptime'])?$grptime = $_REQUEST['grptime']:$grptime=$amp_conf['FOLLOWME_TIME'];
 isset($_REQUEST['grppre'])?$grppre = $_REQUEST['grppre']:$grppre='';
-isset($_REQUEST['strategy'])?$strategy = $_REQUEST['strategy']:$strategy='';
+isset($_REQUEST['strategy'])?$strategy = $_REQUEST['strategy']:$strategy=$amp_conf['FOLLOWME_RG_STRATEGY'];
 isset($_REQUEST['annmsg_id'])?$annmsg_id = $_REQUEST['annmsg_id']:$annmsg_id='';
 isset($_REQUEST['dring'])?$dring = $_REQUEST['dring']:$dring='';
 isset($_REQUEST['needsconf'])?$needsconf = $_REQUEST['needsconf']:$needsconf='';
 isset($_REQUEST['remotealert_id'])?$remotealert_id = $_REQUEST['remotealert_id']:$remotealert_id='';
 isset($_REQUEST['toolate_id'])?$toolate_id = $_REQUEST['toolate_id']:$toolate_id='';
 isset($_REQUEST['ringing'])?$ringing = $_REQUEST['ringing']:$ringing='';
-isset($_REQUEST['pre_ring'])?$pre_ring = $_REQUEST['pre_ring']:$pre_ring='0';
-isset($_REQUEST['ddial'])?$ddial = $_REQUEST['ddial']:$ddial='';
+isset($_REQUEST['pre_ring'])?$pre_ring = $_REQUEST['pre_ring']:$pre_ring=$amp_conf['FOLLOWME_PRERING'];
 isset($_REQUEST['changecid'])?$changecid = $_REQUEST['changecid']:$changecid='default';
 isset($_REQUEST['fixedcid'])?$fixedcid = $_REQUEST['fixedcid']:$fixedcid='';
 
+$ddial = isset($_REQUEST['ddial']) ? $_REQUEST['ddial'] : ($amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '');
 
 if (isset($_REQUEST['goto0']) && isset($_REQUEST[$_REQUEST['goto0']."0"])) {
-        $goto = $_REQUEST[$_REQUEST['goto0']."0"];
+	$goto = $_REQUEST[$_REQUEST['goto0']."0"];
 } else {
-        $goto = '';
+	$goto = "ext-local,$extdisplay,dest";
 }
-
 
 if (isset($_REQUEST["grplist"])) {
 	$grplist = explode("\n",$_REQUEST["grplist"]);
