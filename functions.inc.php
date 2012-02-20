@@ -109,6 +109,10 @@ function findmefollow_get_config($engine) {
 					//
 					$ext->add($contextname, $grpnum, '', new ext_gotoif('$[ "${DB(AMPUSER/'.$grpnum.'/followme/ddial)}" = "EXTENSION" ]', 'ext-local,'.$grpnum.',1'));
 					$ext->add($contextname, $grpnum, 'FM'.$grpnum, new ext_macro('user-callerid'));
+
+					$ext->add($contextname, $grpnum, '', new ext_set('DIAL_OPTIONS','${DIAL_OPTIONS}I'));
+					$ext->add($contextname, $grpnum, '', new ext_set('CONNECTEDLINE(num)', $grpnum));
+					$ext->add($contextname, $grpnum, '', new ext_set('CONNECTEDLINE(name,i)','${DB(AMPUSER/' . $grpnum . '/cidname)}'));
 					$ext->add($contextname, $grpnum, '', new ext_set('FM_DIALSTATUS','${EXTENSION_STATE(' .$grpnum. '@ext-local)}'));
 					$ext->add($contextname, $grpnum, '', new ext_set('__EXTTOCALL','${EXTEN}'));
 					$ext->add($contextname, $grpnum, '', new ext_set('__PICKUPMARK','${EXTEN}'));
