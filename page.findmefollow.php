@@ -36,7 +36,11 @@ isset($_REQUEST['pre_ring'])?$pre_ring = $_REQUEST['pre_ring']:$pre_ring=$amp_co
 isset($_REQUEST['changecid'])?$changecid = $_REQUEST['changecid']:$changecid='default';
 isset($_REQUEST['fixedcid'])?$fixedcid = $_REQUEST['fixedcid']:$fixedcid='';
 
-$ddial = isset($_REQUEST['ddial']) ? $_REQUEST['ddial'] : ($amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '');
+if (isset($_REQUEST['ddial'])) {
+	$ddial =	$_REQUEST['ddial'];
+}	else {
+	$ddial == isset($_REQUEST['ddial_value']) ? $_REQUEST['ddial_value'] : ($amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '');
+}
 
 if (isset($_REQUEST['goto0']) && isset($_REQUEST[$_REQUEST['goto0']."0"])) {
 	$goto = $_REQUEST[$_REQUEST['goto0']."0"];
@@ -199,7 +203,8 @@ elseif ($action == 'delGRP') {
 
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Disable")?><span><?php echo _('By default (not checked) any call to this extension will go to this Follow-Me instead, including directory calls by name from IVRs. If checked, calls will go only to the extension.<BR>However, destinations that specify FollowMe will come here.<BR>Checking this box is often used in conjunction with VmX Locater, where you want a call to ring the extension, and then only if the caller chooses to find you do you want it to come here.')?></span></a>:</td>
-				<td><input type="checkbox" name="ddial" value="CHECKED" <?php echo $ddial ?>   tabindex="<?php echo ++$tabindex;?>"/></td>
+				<td><input type="checkbox" name="ddial" value="CHECKED" <?php echo $ddial ?>   tabindex="<?php echo ++$tabindex;?>"/>
+				<input type="hidden" name="ddial_value" value="<?php  echo $ddial; ?>"></td>
 			</tr>
 
 			<tr>
