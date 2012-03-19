@@ -72,6 +72,9 @@ function findmefollow_get_config($engine) {
 			if (is_array($ringlist)) {
 				foreach($ringlist as $item) {
 					$grpnum = ltrim($item['0']);
+					if ($grpnum == "") {
+						continue;
+					}
 					$grp = findmefollow_get($grpnum);
 					
 					$strategy = $grp['strategy'];
@@ -217,7 +220,7 @@ function findmefollow_get_config($engine) {
 					$ext->add($contextname, $grpnum, '', new ext_noop_trace('FM_DIALSTATUS: ${FM_DIALSTATUS} DIALSTATUS: ${DIALSTATUS}'));
 					$ext->add($contextname, $grpnum, '', new ext_set('DIALSTATUS',
 						'${IF($["${FM_DIALSTATUS}"="NOT_INUSE"&"${DIALSTATUS}"!="CHANUNAVAIL"]?NOANSWER:'
-						. '${IF($["${DIALSTATUS}="CHANUNAVAIL"|"${FM_DIALSTATUS}"="UNAVAILABLE"|"${FM_DIALSTATUS}"="UNKNOWN"|"${FM_DIALSTATUS}"="INVALID"]?'
+						. '${IF($["${DIALSTATUS}"="CHANUNAVAIL"|"${FM_DIALSTATUS}"="UNAVAILABLE"|"${FM_DIALSTATUS}"="UNKNOWN"|"${FM_DIALSTATUS}"="INVALID"]?'
 					 	. 'CHANUNAVAIL:BUSY)})}'));
 
 					// where next?
