@@ -398,6 +398,9 @@ function findmefollow_get($grpnum, $check_astdb=0) {
 	global $db;
 
 	$results = sql("SELECT grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, voicemail FROM findmefollow INNER JOIN `users` ON `extension` = `grpnum` WHERE grpnum = '".$db->escapeSimple($grpnum)."'","getRow",DB_FETCHMODE_ASSOC);
+	if (empty($results)) {
+		return array();
+	}
 	if (!isset($results['voicemail'])) {
 		$results['voicemail'] = sql("SELECT `voicemail` FROM `users` WHERE `extension` = '".$db->escapeSimple($grpnum)."'","getOne");
 	}
@@ -562,6 +565,28 @@ if ($amp_conf['FOLLOWME_AUTO_CREATE']) {
 					$extdisplay, "", "", "", "", "", "", "","", $amp_conf['FOLLOWME_PRERING'], $ddial,'default','');
 			}
 		}
+	}
+}
+
+// we only return the destination that other modules might use, e.g. extenions/users
+function findmefollow_getdest($exten) {
+	return array('ext-findmefollow,FM' . $exten . ',1');
+}
+
+function findmefollow_getdestinfo($dest) {
+	if (substr(trim($dest),0,17) == 'ext-findmefollow,' || substr(trim($dest),0,10) == 'ext-local,' && substr(trim($dest),-4) == 'dest') {
+		$grp = explode(',',$dest);
+		$grp = ltrim($grp[1],'FM');
+		$thisgrp = findmefollow_get($grp);
+		if (empty($thisgrp)) {
+			return array();
+		} else {
+			return array('description' => sprintf(_("Follow Me: %s"),urlencode($grp)),
+			             'edit_url' => 'config.php?display=findmefollow&extdisplay=GRP-'.urlencode($grp),
+								  );
+		}
+	} else {
+		return false;
 	}
 }
 
