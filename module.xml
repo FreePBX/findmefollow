@@ -2,10 +2,11 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>2.10.0.7</version>
+	<version>2.10.0.8</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<changelog>
+		*2.10.0.8* #5832
 		*2.10.0.7* #5734
 		*2.10.0.6* syntax error in IF() dialplan function, other bug fix
 		*2.10.0.5* #5603
@@ -33,6 +34,6 @@
 	<menuitems>
 		<findmefollow needsenginedb="yes">Follow Me</findmefollow>
 	</menuitems>
-	<location>release/2.10/findmefollow-2.10.0.7.tgz</location>
-	<md5sum>c94a4d0ada710ac88b372e976d3332c4</md5sum>
+	<location>release/2.10/findmefollow-2.10.0.8.tgz</location>
+	<md5sum>fe05bf3fbd4e37fa68fcda667fa6abd8</md5sum>
 </module>
