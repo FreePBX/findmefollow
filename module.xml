@@ -34,6 +34,6 @@
 	<menuitems>
 		<findmefollow needsenginedb="yes">Follow Me</findmefollow>
 	</menuitems>
-	<location>release/2.10/findmefollow-2.10.0.8.tgz</location>
-	<md5sum>fe05bf3fbd4e37fa68fcda667fa6abd8</md5sum>
+	<location>release/2.11/findmefollow-2.10.0.8.tgz</location>
+	<md5sum>50b5efae3d4d53ee38195a071361f3dd</md5sum>
 </module>
