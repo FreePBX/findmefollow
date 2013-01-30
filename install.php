@@ -384,3 +384,5 @@ $set['name'] = 'Default Follow Me Ring Strategy';
 $set['description'] = "The default Ring Strategy selected for a Follow Me set upon creation and used if auto-created with an extension.";
 $set['type'] = CONF_TYPE_SELECT;
 $freepbx_conf->define_conf_setting('FOLLOWME_RG_STRATEGY',$set);
+
+$freepbx_conf->commit_conf_settings();
