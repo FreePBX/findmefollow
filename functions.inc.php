@@ -543,7 +543,7 @@ function findmefollow_configpageload() {
 // If we are auto-creating a followme for each extension then add the hook funcitons for
 // extensions and users.
 //
-if ($amp_conf['FOLLOWME_AUTO_CREATE']) {
+if (isset($amp_conf['FOLLOWME_AUTO_CREATE']) && $amp_conf['FOLLOWME_AUTO_CREATE']) {
 	function findmefollow_configprocess() {
 		global $amp_conf;
 
