@@ -301,6 +301,10 @@ function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre=
 		$ddial      = isset($ddial)?$ddial:'';
 		$ddialvalue = ($ddial == 'CHECKED')?'EXTENSION':'DIRECT';
 		$astman->database_put("AMPUSER",$grpnum."/followme/ddial",$ddialvalue);
+		if ($amp_conf['USEDEVSTATE']) {
+			$ddialstate = ($ddial == 'CHECKED')?'NOT_INUSE':'BUSY';
+			$astman->set_global($amp_conf['AST_FUNC_DEVICE_STATE'] . "(Custom:FOLLOWME$grpnum)", $ddialstate);
+		}
 
 		$astman->database_put("AMPUSER",$grpnum."/followme/changecid",$changecid);
 	  $fixedcid = preg_replace("/[^0-9\+]/" ,"", trim($fixedcid));
