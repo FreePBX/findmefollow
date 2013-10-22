@@ -60,7 +60,7 @@ if (isset($_REQUEST["grplist"])) {
 		$grplist[$key] = trim($grplist[$key]);
 		
 		// remove invalid chars
-		$grplist[$key] = preg_replace("/[^0-9#*]/", "", $grplist[$key]);
+		$grplist[$key] = preg_replace("/[^0-9#*+]/", "", $grplist[$key]);
 
 		if ($grplist[$key] == ltrim($extdisplay,'GRP-').'#')
 			$grplist[$key] = rtrim($grplist[$key],'#');
