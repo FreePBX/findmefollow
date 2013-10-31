@@ -303,7 +303,12 @@ function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre=
 		$astman->database_put("AMPUSER",$grpnum."/followme/ddial",$ddialvalue);
 		if ($amp_conf['USEDEVSTATE']) {
 			$ddialstate = ($ddial == 'CHECKED')?'NOT_INUSE':'BUSY';
-			$astman->set_global($amp_conf['AST_FUNC_DEVICE_STATE'] . "(Custom:FOLLOWME$grpnum)", $ddialstate);
+
+			$devices = $astman->database_get("AMPUSER", $grpnum . "/device");
+			$device_arr = explode('&', $devices);
+			foreach ($device_arr as $device) {
+				$astman->set_global($amp_conf['AST_FUNC_DEVICE_STATE'] . "(Custom:FOLLOWME$device)", $ddialstate);
+			}
 		}
 
 		$astman->database_put("AMPUSER",$grpnum."/followme/changecid",$changecid);
