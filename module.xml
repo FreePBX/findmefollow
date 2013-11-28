@@ -37,4 +37,4 @@
 	</menuitems>
 	<location>release/2.11/findmefollow-2.11.0.0.tgz</location>
 	<md5sum>6ff294c59e2677640b976c7f14d1d8a6</md5sum>
-</module>
+<supported><version>2.11</version></supported></module>
