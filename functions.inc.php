@@ -115,7 +115,12 @@ function findmefollow_get_config($engine) {
 
 					$ext->add($contextname, $grpnum, '', new ext_set('DIAL_OPTIONS','${DIAL_OPTIONS}I'));
 					$ext->add($contextname, $grpnum, '', new ext_set('CONNECTEDLINE(num)', $grpnum));
-					$ext->add($contextname, $grpnum, '', new ext_set('CONNECTEDLINE(name,i)','${DB(AMPUSER/' . $grpnum . '/cidname)}'));
+					$cidnameval = '${DB(AMPUSER/' . $grpnum . '/cidname)}';
+					if ($amp_conf['AST_FUNC_PRESENCE_STATE'] && $amp_conf['CONNECTEDLINE_PRESENCESTATE']) {
+						$ext->add($contextname, $grpnum, '', new ext_gosub('1', 's', 'sub-presencestate-display', $grpnum));
+						$cidnameval.= '${PRESENCESTATE_DISPLAY}';
+					}
+					$ext->add($contextname, $grpnum, '', new ext_set('CONNECTEDLINE(name,i)', $cidnameval));
 					$ext->add($contextname, $grpnum, '', new ext_set('FM_DIALSTATUS','${EXTENSION_STATE(' .$grpnum. '@ext-local)}'));
 					$ext->add($contextname, $grpnum, '', new ext_set('__EXTTOCALL','${EXTEN}'));
 					$ext->add($contextname, $grpnum, '', new ext_set('__PICKUPMARK','${EXTEN}'));

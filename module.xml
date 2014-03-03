@@ -2,10 +2,11 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>2.11.0.4</version>
+	<version>2.11.0.5</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<changelog>
+		*2.11.0.5* Allow connected line display of callee presence state
 		*2.11.0.4* Help Text and supported tag
 		*2.11.0.3* #6785
 		*2.11.0.2* misc
