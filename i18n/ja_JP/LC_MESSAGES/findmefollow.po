@@ -1,0 +1,551 @@
+# CREDITS for JAPANESE TRANSLATION
+# ================================
+# Current translation & maintenance: QLOOG, Inc. (Kobe, Japan)
+# Inquiries: info@qloog.com / www.qloog.com
+# 
+# This translation is a culmination of the hard work of
+# several outstanding individuals, which started in 2009 with the 
+# first-ever Japanese localization of FreePBX by Kenichi Fukaumi 
+# and Kazuhiro Tokuyama (FreePBX Japanized Project).
+#
+# Beginning in 2013, with the approval of the original authors, 
+# QLOOG undertook a large scale overhaul of the translation to 
+# expand it for compatibility with FreePBX 2.11. Our work is, 
+# of course, released under the same GPLv2 license as FreePBX. 
+# We only ask that you kindly retain these credits in honor of 
+# the time and effort that all of us have contributed. Enjoy!
+# 
+# This file is part of FreePBX.
+#
+#    FreePBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    FreePBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# FreePBX language template for findmefollow
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: FreePBX 2.10.0.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-05 19:32+0900\n"
+"PO-Revision-Date: 2014-02-21 03:21+0200\n"
+"Last-Translator: Kenichi Fukaumi <k.fukaumi@qloog.com>\n"
+"Language-Team: Japanese "
+"<http://192.168.30.85/projects/freepbx/findmefollow/ja/>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 1.8\n"
+
+msgid "Follow Me"
+msgstr "フォローミー"
+
+msgid "Applications"
+msgstr "アプリケーション"
+
+msgid ""
+"Much like a ring group, but works on individual extensions. When someone "
+"calls the extension, it can be setup to ring for a number of seconds before "
+"trying to ring other extensions and/or external numbers, or to ring all at "
+"once, or in other various 'hunt' configurations. Most commonly used to ring "
+"someone's cell phone if they don't answer their extension."
+msgstr ""
+"着信グループに非常に似ていますが、個人の内線で機能します。誰かが内線を呼び出"
+"した時に、他の内線や外線を呼び出そうとする前に、もしくは一斉着信する前に、ま"
+"たは他の様々な'ハント'設定を実行する前に第二の番号を着信させることができま"
+"す。最も一般的には、かれらが内線に応答しない場合、誰かの携帯電話を鳴らすとき"
+"などに使用されます。"
+
+msgid "Create Follow Me at Extension Creation Time"
+msgstr "内線作成時にフォローミーを作成する"
+
+msgid "Follow Me Module"
+msgstr "フォローミーモジュール"
+
+msgid ""
+"When creating a new user or extension, setting this to true will "
+"automatically create a new Follow Me for that user using the default "
+"settings listed below"
+msgstr "trueを設定すると、新規ユーザーもしくは内線を作成する際に以下のデフォルト設定を使用して、自動的にそのユーザーのフォローミーを新規作成します"
+
+msgid "Disable Follow Me Upon Creation"
+msgstr "作成時にフォローミーを無効にする。"
+
+msgid "This is the default value for the Follow Me "
+msgstr "フォローミーのデフォルト値です。"
+
+msgid "Default Follow Me Ring Time"
+msgstr "フォローミーのデフォルト呼び出し時間"
+
+msgid ""
+"The default Ring Time for a Follow Me set upon creation and used if auto-"
+"created with a new extension."
+msgstr "内線を新規作成時に自動作成された場合に作成され、設定、使用されるフォローミーのデフォルトの呼び出し時間。"
+
+msgid "Default Follow Me Initial Ring Time"
+msgstr "フォローミーのデフォルト初期呼出時間"
+
+msgid ""
+"The default Initial Ring Time for a Follow Me set upon creation and used if "
+"auto-created with a new extension."
+msgstr "内線を新規作成時に自動作成された場合に作成され、設定、使用されるフォローミーのデフォルトの初期呼出時間。"
+
+msgid "Default Follow Me Ring Strategy"
+msgstr "デフォルトのフォローミールール"
+
+msgid ""
+"The default Ring Strategy selected for a Follow Me set upon creation and "
+"used if auto-created with an extension."
+msgstr ""
+"作成時に設定する、フォローミーのデフォルトのリングルール。新規内線と同時に作"
+"成された場合は、このルールを使用します。"
+
+msgid "Cannot connect to Asterisk Manager with "
+msgstr "アスタリスクマネージャーに接続できません。"
+
+msgid "Findme Follow Toggle"
+msgstr "ファインドミーフォロー切り替え"
+
+msgid "Checking if recordings need migration.."
+msgstr "録音の移行が必要かチェック中.."
+
+msgid "migrating"
+msgstr "移行中"
+
+msgid "adding annmsg_id field.."
+msgstr "annmsg_idフィールドを追加中.."
+
+msgid "fatal error"
+msgstr "致命的なエラー"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "adding remotealert_id field.."
+msgstr "remotealert_idフィールドを追加中.."
+
+msgid "adding toolate_id field.."
+msgstr "toolate_idフィールドを追加中.."
+
+msgid "migrate annmsg to ids.."
+msgstr "annmsgをidsに移行中.."
+
+#, php-format
+msgid "migrated %s entries"
+msgstr "%sエントリーを移行する"
+
+msgid "migrate remotealert to ids.."
+msgstr "remotealert を idsに移行中.."
+
+msgid "migrate toolate to  ids.."
+msgstr "toolate を idsに移行中.."
+
+msgid "dropping annmsg field.."
+msgstr "annmsgフィールドをドロップ中.."
+
+msgid "no annmsg field???"
+msgstr "annmsgフィールドが無い???"
+
+msgid "dropping remotealert field.."
+msgstr "remotealertフィールドをドロップ中.."
+
+msgid "no remotealert field???"
+msgstr "remotealertフィールドが無い???"
+
+msgid "dropping toolate field.."
+msgstr "toolateフィールドをドロップ中.."
+
+msgid "no toolate field???"
+msgstr "toolateフィールドが無い???"
+
+msgid "already migrated"
+msgstr "移行済み"
+
+msgid "Normal Extension Behavior"
+msgstr "通常の内線動作"
+
+msgid "Force Follow Me"
+msgstr "強制的にフォローミーを行う"
+
+msgid "Edit Follow Me Settings"
+msgstr "フォローミー設定を編集する"
+
+msgid "Add Follow Me Settings"
+msgstr "フォローミー設定を追加する"
+
+#, php-format
+msgid "Follow Me: %s"
+msgstr "フォローミー: %s"
+
+#, php-format
+msgid "Follow-Me: %s (%s)"
+msgstr "フォローミー: %s (%s)"
+
+#, php-format
+msgid "Follow-Me User: %s"
+msgstr "フォローミーユーザー: %s"
+
+msgid "Warning! Extension"
+msgstr "警告! 内線"
+
+msgid "is not allowed for your account"
+msgstr "はあなたのアカウントに許可されていません"
+
+msgid "Choose a user/extension:"
+msgstr "ユーザー/内線を選択してください："
+
+msgid "deleted"
+msgstr "削除されました"
+
+msgid "Delete Entries"
+msgstr "エントリーを削除"
+
+msgid "User"
+msgstr "ユーザー"
+
+msgid "Extension"
+msgstr "内線"
+
+#, php-format
+msgid "Edit %s"
+msgstr "%sを編集"
+
+#, php-format
+msgid "Edit %s %s"
+msgstr "%s %s を編集"
+
+msgid "Edit Follow Me"
+msgstr "フォローミーを編集"
+
+msgid "Add Follow Me"
+msgstr "フォローミーを追加"
+
+msgid "group number"
+msgstr "グループ番号"
+
+msgid "The number users will dial to ring extensions in this ring group"
+msgstr "このリンググループに所属する内線を鳴らすためのダイヤル番号"
+
+msgid "Disable"
+msgstr "無効"
+
+msgid ""
+"By default (not checked) any call to this extension will go to this Follow-"
+"Me instead, including directory calls by name from IVRs. If checked, calls "
+"will go only to the extension.<BR>However, destinations that specify "
+"FollowMe will come here.<BR>Checking this box is often used in conjunction "
+"with VmX Locater, where you want a call to ring the extension, and then only "
+"if the caller chooses to find you do you want it to come here."
+msgstr ""
+"デフォルトでは、（チェックされていない）、この内線へのコールは、IVRからの名前"
+"のディレクトリ呼び出しを含み、代わりにこのフォローミーに着信します。チェック"
+"された場合、コールは内線に着信するのみとなります。<BR>しかしながら、フォロー"
+"ミーを特定する宛先はここに来ます。<BR>このチェックボックスをオンにする場合"
+"は、内線に着信させたいVmXロケータ―と一緒によく使用され、それは発信者があなた"
+"を発見することを選択し、あなたがそれに応じたい場合のみ使用されます。"
+
+msgid "Initial Ring Time:"
+msgstr "最初のリング時間："
+
+msgid ""
+"This is the number of seconds to ring the primary extension prior to "
+"proceeding to the follow-me list. The extension can also be included in the "
+"follow-me list. A 0 setting will bypass this."
+msgstr ""
+"これはフォローミーリストに進むに先立って主内線の着信を鳴らす秒数です。フォ"
+"ローミーリスト内にこの内線を含めることもできます。0を設定するとこれは回避され"
+"ます。"
+
+msgid "Ring Strategy:"
+msgstr "リングルール:"
+
+msgid "ringallv2"
+msgstr "リングオールv2"
+
+msgid ""
+"ring primary extension for initial ring time followed by all additional "
+"extensions until one answers"
+msgstr ""
+"最初の応答時に、他の追加内線に先駆けて初期リング時間にはメイン内線を鳴らしま"
+"す。"
+
+msgid "ringall"
+msgstr "リングオール"
+
+msgid "ring all available channels until one answers (default)"
+msgstr "一応答までに全ての利用可能なチャネルを鳴らす(デフォルト)"
+
+msgid "hunt"
+msgstr "ハント"
+
+msgid "take turns ringing each available extension"
+msgstr "利用可能な内線を順番に着信させます。"
+
+msgid "memoryhunt"
+msgstr "メモリーハント"
+
+msgid ""
+"ring first extension in the list, then ring the 1st and 2nd extension, then "
+"ring 1st 2nd and 3rd extension in the list.... etc."
+msgstr ""
+"最初にリスト中の1番目の内線を鳴らします、次に一番目と二番目の内線を鳴らしま"
+"す、次に一番目、二番目、三番目の内線を鳴らします....。"
+
+msgid "*-prim"
+msgstr "*-prim"
+
+msgid ""
+"these modes act as described above. However, if the primary extension (first "
+"in list) is occupied, the other extensions will not be rung. If the primary "
+"is FreePBX DND, it won't be rung. If the primary is FreePBX CF "
+"unconditional, then all will be rung"
+msgstr ""
+"このモードは上記と同じような挙動をしますが、メインの内線(リスト中の最初の内"
+"線)が占有されている場合、他の内線は鳴りません。もしメインがFreePBX DND(do "
+"not disturb)の場合は鳴りません。もしメインがFreePBX 無条件転送の場合、全てが"
+"鳴ります。"
+
+msgid "firstavailable"
+msgstr "利用可能な最初"
+
+msgid "ring only the first available channel"
+msgstr "利用可能な最初のチャネルのみ鳴ります"
+
+msgid "firstnotonphone"
+msgstr "電話中でない最初のもの"
+
+msgid "ring only the first channel which is not off hook - ignore CW"
+msgstr ""
+"オフフック状態でない最初のチャネルのみ鳴らします。 - コールウェイテイングは無"
+"視されます"
+
+msgid "Ring Time (max 60 sec)"
+msgstr "リングタイム (最大60秒)"
+
+msgid ""
+"Time in seconds that the phones will ring. For all hunt style ring "
+"strategies, this is the time for each iteration of phone(s) that are rung"
+msgstr "電話が鳴る秒数。全てのハント形式のリングルールにとって、それぞれの電話が反復して鳴る時間です"
+
+msgid "Follow-Me List"
+msgstr "フォローミーリスト"
+
+msgid ""
+"List extensions to ring, one per line, or use the Extension Quick Pick below."
+"<br><br>You can include an extension on a remote system, or an external "
+"number by suffixing a number with a pound (#).  ex:  2448089# would dial "
+"2448089 on the appropriate trunk (see Outbound Routing)."
+msgstr ""
+"1回線につき、1つ着信させる内線をリストアップしてください、もしくは以下の内線"
+"クイックピックを使用してください。<br><br>末尾にシャープ記号(#)をつけることに"
+"より、リモートシステム上の内線、もしくは外線番号を含めることができます。"
+"例:2448089# は適切なトランク上で（アウトバウンドルーティングを参照） 2448089 "
+"をダイヤルします。"
+
+msgid "Extension Quick Pick"
+msgstr "内線クイックピックアップ"
+
+msgid "Choose an extension to append to the end of the extension list above."
+msgstr "上記内線リストの最後に追加する内線を選択してください。"
+
+msgid "(pick extension)"
+msgstr "(内線を選択)"
+
+msgid "Announcement:"
+msgstr "アナウンス："
+
+msgid ""
+"Message to be played to the caller before dialing this group.<br><br>To add "
+"additional recordings please use the \"System Recordings\" MENU to the left"
+msgstr ""
+"このグループにダイヤルする前に発信者に再生されるメッセージ。<br><br>追加で録音をする場合はメニュー左側にある\"システム録音\"を使用してください"
+
+msgid "None"
+msgstr "なし"
+
+msgid ""
+"Message to be played to the caller before dialing this group.<br><br>You "
+"must install and enable the \"Systems Recordings\" Module to edit this option"
+msgstr ""
+"このグループにダイヤルする前に発信者に再生されるメッセージ。<br><br>このオプションを編集するには\"システム録音\"モジュールをインストールし有効に"
+"する必要があります"
+
+msgid "Play Music On Hold?"
+msgstr "保留中に音楽を鳴らす?"
+
+msgid ""
+"If you select a Music on Hold class to play, instead of 'Ring', they will "
+"hear that instead of Ringing while they are waiting for someone to pick up."
+msgstr ""
+"もし'リング'の代わりに保留音クラスを再生するように選択した場合、誰かが電話を"
+"取るのを待っている間、リング音の代わりに保留音クラスが聞こえるようになりま"
+"す。"
+
+msgid "Ring"
+msgstr "リング"
+
+msgid "CID Name Prefix"
+msgstr "CID名プリフィックス"
+
+msgid ""
+"You can optionally prefix the Caller ID name when ringing extensions in this "
+"group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
+"as \"Sales:John Doe\" on the extensions that ring."
+msgstr ""
+"このグループ内の内線が着信しｓた際に、オプションで発信者番号にプリフィックス"
+"を付けることができます。例:もし\"営業:\"というプリフィックスをつければ、\"森"
+"圭介\"からのコールは着信した内線電話に\"営業:森圭介\"と表示されます。"
+
+msgid "Alert Info"
+msgstr "アラート情報"
+
+msgid ""
+"You can optionally include an Alert Info which can create distinctive rings "
+"on SIP phones."
+msgstr ""
+"必要に応じて、SIP電話機上でアラート情報を含めて独特の着信を作成することができ"
+"ます。"
+
+msgid "Call Confirmation Configuration"
+msgstr "コール確認設定"
+
+msgid "Confirm Calls"
+msgstr "コールを確認"
+
+msgid ""
+"Enable this if you're calling external numbers that need confirmation - eg, "
+"a mobile phone may go to voicemail which will pick up the call. Enabling "
+"this requires the remote side push 1 on their phone before the call is put "
+"through. This feature only works with the ringall/ringall-prim  ring strategy"
+msgstr ""
+"もしあなたが確認が必要な外線に発信する場合、このオプションを有効にします。 - "
+"例、携帯電話の場合、着信を拾ってボイスメールになります。このオプションを有効"
+"にすることにより、発信者に対してコールがボイスメールになる前に1ボタンを押すよ"
+"うに要求するようになります。この機能はリングオール/リングオール-メイン 計画で"
+"のみ動作します。"
+
+msgid "Remote Announce:"
+msgstr "リモートアナウンス："
+
+msgid ""
+"Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
+"enabled.<br><br>To add additional recordings use the \"System Recordings\" "
+"MENU to the left"
+msgstr ""
+"もし'コールを確認'が有効な場合に、コールを着信した人に対して再生するメッセー"
+"ジです。<br><br>録音を追加するには、メニュー左側の\"システム録音\"を使用して"
+"ください。"
+
+msgid "Default"
+msgstr "デフォルト"
+
+msgid "Too-Late Announce:"
+msgstr "時間超過アナウンス："
+
+msgid ""
+"Message to be played to the person RECEIVING the call, if the call has "
+"already been accepted before they push 1.<br><br>To add additional "
+"recordings use the \"System Recordings\" MENU to the left"
+msgstr ""
+"1が押される前にコールが既に受け付けられた場合に、コールを着信した人に対して再生するメッセージです。<br><br>録音を追加するには、メニュー左側の\""
+"システム録音\"を使用してください"
+
+msgid "Change External CID Configuration"
+msgstr "外部CID設定変更"
+
+msgid "Mode"
+msgstr "モード"
+
+msgid "Transmits the Callers CID if allowed by the trunk."
+msgstr "トランクによって許可されている場合に発信者番号を転送します。"
+
+msgid "Fixed CID Value"
+msgstr "固定のCID値"
+
+msgid "Always transmit the Fixed CID Value below."
+msgstr "常に以下の固定のCID値を渡す。"
+
+msgid "Outside Calls Fixed CID Value"
+msgstr "外部コールの固定CID値"
+
+msgid ""
+"Transmit the Fixed CID Value below on calls that come in from outside only. "
+"Internal extension to extension calls will continue to operate in default "
+"mode."
+msgstr ""
+"外線から着信したコールのみ以下の固定の発信者番号値を転送します。内部の内線間"
+"通話では引き続きデフォルトモードで動作します。"
+
+msgid "Use Dialed Number"
+msgstr "ダイヤルされた番号を使用"
+
+msgid ""
+"Transmit the number that was dialed as the CID for calls coming from "
+"outside. Internal extension to extension calls will continue to operate in "
+"default mode. There must be a DID on the inbound route for this. This will "
+"be BLOCKED on trunks that block foreign CallerID"
+msgstr ""
+"外線から着信したコールで発信者番号としてダイヤルされた番号を転送します。内部"
+"の内線間通話では引き続きデフォルトモードで動作します。インバウンドルート上で"
+"ダイヤルイン番号が必要となります。海外の発信者番号をブロックするトランクでは"
+"これもブロックされます。"
+
+msgid "Force Dialed Number"
+msgstr "強制的にダイヤルされた番号を使用する"
+
+msgid ""
+"Transmit the number that was dialed as the CID for calls coming from "
+"outside. Internal extension to extension calls will continue to operate in "
+"default mode. There must be a DID on the inbound route for this. This WILL "
+"be transmitted on trunks that block foreign CallerID"
+msgstr ""
+"外線から着信したコールでCID番号としてダイヤルされた番号を転送します。内部の内線間通話では引き続きデフォルトモードで動作します。この為にはインバウンド"
+"ルート上でDID番号が必要となります。これは外部の発信者番号をブロックするトランクでも転送されます。"
+
+msgid ""
+"Fixed value to replace the CID with used with some of the modes above. "
+"Should be in a format of digits only with an option of E164 format using a "
+"leading \"+\"."
+msgstr ""
+"上記モードのうち、いくつかとともに使用される発信者番号を置き換える固定値。先"
+"頭に \"+\"がついたE164フォーマットオプションと数字のみのフォーマットである必"
+"要があります。"
+
+msgid "Destination if no answer"
+msgstr "応答なし時の宛先"
+
+msgid "Submit Changes"
+msgstr "変更を適用"
+
+msgid "Please enter an extension list."
+msgstr "内線リストを入力してください。"
+
+msgid "Invalid time specified"
+msgstr "無効な時間が指定されました"
+
+msgid "Time must be between 1 and 60 seconds"
+msgstr "時間は1秒～60秒でなければいけません。"
+
+msgid ""
+"Only ringall, ringallv2, hunt and the respective -prim versions are "
+"supported when confirmation is checked"
+msgstr "'確認'がチェックされている場合は、リングオール、リングオールv2、ハントと各 *-primバージョンのみがサポートされます"
+
+msgid ""
+"Invalid CID Number. Must be in a format of digits only with an option of "
+"E164 format using a leading \"+\""
+msgstr ""
+"無効な発信者番号。先頭に \"+\"がついたE164フォーマットオプションと数字のみの"
+"フォーマットでなければいけません。"
