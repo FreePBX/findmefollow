@@ -33,17 +33,19 @@ class Findmefollow extends Modules{
 	}
 
 	public function getSettingsDisplay($ext) {
+		$settings = $this->UCP->FreePBX->Findmefollow->getSettingsById($ext,1);
 		$displayvars = array(
-			"enabled" => $this->UCP->FreePBX->Findmefollow->getDDial($ext) ? false : true,
-			"confirm" => $this->UCP->FreePBX->Findmefollow->getConfirm($ext),
-			"list" => explode("-",$this->UCP->FreePBX->Findmefollow->getList($ext)),
-			"ringtime" => $this->UCP->FreePBX->Findmefollow->getListRingTime($ext),
-			"prering" => $this->UCP->FreePBX->Findmefollow->getPreRingTime($ext),
-			"exten" => $ext
+			"enabled" => $settings['ddial'] ? false : true,
+			"confirm" => $settings['needsconf'],
+			"list" => explode("-",$settings['grplist']),
+			"ringtime" => $settings['grptime'],
+			"prering" => $settings['pre_ring'],
+			"exten" => $settings['grpnum'],
+			"recordings" => $this->UCP->FreePBX->Recordings->getAllRecordings(),
+			"annmsg_id" => $settings['annmsg_id'],
+			"remotealert_id" => $settings['remotealert_id'],
+			"toolate_id" => $settings['toolate_id']
 		);
-		$displayvars['extras'] = $this->UCP->FreePBX->Findmefollow->getSettingsById($ext);
-		//$z = $this->UCP->FreePBX->Recordings->getRecordingsById($displayvars['extras']['annmsg_id']);
-		//dbug($z);
 		for($i = 0;$i<=30;$i++) {
 			$displayvars['prering_time'][$i] = $i;
 		}
@@ -53,11 +55,65 @@ class Findmefollow extends Modules{
 		$out = array(
 			array(
 				"title" => _('Find Me/Follow Me'),
-				"content" => $this->load_view(__DIR__.'/views/settings.php',$displayvars),
-				"size" => 6
+				"content" => $this->load_view(__DIR__.'/views/settings.php',$displayvars).$this->LoadScripts(),
+				"size" => 6,
+				"order" => 0
 			)
 		);
 		return $out;
 	}
 
+	/**
+	 * Determine what commands are allowed
+	 *
+	 * Used by Ajax Class to determine what commands are allowed by this class
+	 *
+	 * @param string $command The command something is trying to perform
+	 * @param string $settings The Settings being passed through $_POST or $_PUT
+	 * @return bool True if pass
+	 */
+	function ajaxRequest($command, $settings) {
+		if(!$this->_checkExtension($_POST['ext'])) {
+			return false;
+		}
+		switch($command) {
+			case 'settings':
+				return true;
+			default:
+				return false;
+			break;
+		}
+	}
+
+	/**
+	 * The Handler for all ajax events releated to this class
+	 *
+	 * Used by Ajax Class to process commands
+	 *
+	 * @return mixed Output if success, otherwise false will generate a 500 error serverside
+	 */
+	function ajaxHandler() {
+		$return = array("status" => false, "message" => "");
+		switch($_REQUEST['command']) {
+			case 'settings':
+				$_POST['value'] = ($_POST['key'] == 'grplist') ? explode("\n",$_POST['value']) : $_POST['value'];
+				if($_POST['key'] == 'ddial') {
+					$_POST['value'] = ($_POST['value'] == 'true') ? false : true;
+				}
+				if($_POST['key'] == 'needsconf') {
+					$_POST['value'] = ($_POST['value'] == 'true') ? true : false;
+				}
+				$this->UCP->FreePBX->Findmefollow->addSettingById($_POST['ext'],$_POST['key'],$_POST['value']);
+				return array("status" => true, "alert" => "success", "message" => _('Find Me/Follow Me Has Been Updated!'));
+				break;
+			default:
+				return $return;
+			break;
+		}
+	}
+
+	private function _checkExtension($extension) {
+		$user = $this->UCP->User->getUser();
+		return in_array($extension,$user['assigned']);
+	}
 }

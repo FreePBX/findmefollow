@@ -62,6 +62,7 @@ class Findmefollow implements BMO {
 	 * @param $follow_me_list Follow Me List
 	 */
 	function setList($exten,$follow_me_list) {
+		$follow_me_list = implode("-",$follow_me_list);
 		$this->FreePBX->astman->database_put('AMPUSER', "$exten/followme/grplist", $follow_me_list);
 	}
 
@@ -185,6 +186,93 @@ class Findmefollow implements BMO {
 		return 1;
 	}
 
+	function addSettingById($grpnum,$setting,$value='') {
+		$valid = array('strategy','grptime','grppre','grplist','annmsg_id','postdest','dring','needsconf','remotealert_id','toolate_id','ringing','pre_ring','ddial','changecid','fixedcid');
+		if(!in_array($setting,$valid)) {
+			return false;
+		}
+		$sql = "INSERT INTO findmefollow (grpnum,$setting) VALUES (:grpnum,:value) ON DUPLICATE KEY UPDATE $setting = :value";
+		$sth = $this->db->prepare($sql);
+
+		switch($setting) {
+			case 'strategy':
+				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+			break;
+			case 'grptime':
+				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+				$this->setListRingTime($grpnum,$value);
+			break;
+			case 'grppre':
+				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+			break;
+			case 'grplist':
+				$this->setList($grpnum,$value);
+				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => implode("-",$value)));
+			break;
+			case 'annmsg_id':
+				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+			break;
+			case 'postdest':
+				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+			break;
+			case 'dring':
+				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+			break;
+			case 'needsconf':
+				$val = ($value) ? 'CHECKED' : '';
+				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $val));
+				$val = ($value) ? 'ENABLED' : 'DISABLED';
+				$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/grpconf",$val);
+			break;
+			case 'remotealert_id':
+				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+			break;
+			case 'toolate_id':
+				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+			break;
+			case 'ringing':
+				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+			break;
+			case 'pre_ring':
+				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+				$this->setPreRingTime($grpnum,$value);
+			break;
+			case 'ddial':
+				//(DIRECT is enabled, EXTENSION is disabled)
+				$ddialstate = ($value) ? 'NOT_INUSE' : 'BUSY';
+				$val = ($value) ? 'EXTENSION' : 'DIRECT';
+				$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/ddial",$val);
+				if ($this->FreePBX->Config->get_conf_setting('USEDEVSTATE')) {
+					$devices = $this->FreePBX->astman->database_get("AMPUSER", $grpnum . "/device");
+					$device_arr = explode('&', $devices);
+					foreach ($device_arr as $device) {
+						$this->FreePBX->astman->set_global($this->FreePBX->Config->get_conf_setting('AST_FUNC_DEVICE_STATE') . "(Custom:FOLLOWME$device)", $ddialstate);
+					}
+				}
+				if(!$value) {
+					$sql = "INSERT INTO findmefollow (grpnum,grptime,grplist) VALUES (:grpnum,20,:grpnum) ON DUPLICATE KEY UPDATE grptime = 20, grplist = :grpnum";
+					$sth = $this->db->prepare($sql);
+					$sth->execute(array(':grpnum' => $grpnum));
+					$this->setListRingTime($grpnum,20);
+					$this->setList($grpnum,array($grpnum));
+				}
+			break;
+			case 'changecid':
+				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+				$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/changecid",$value);
+			break;
+			case 'fixedcid':
+				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+				$value = preg_replace("/[^0-9\+]/" ,"", trim($value));
+				$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/fixedcid",$value);
+			break;
+			default:
+				return false;
+			break;
+		}
+		return true;
+	}
+
 	function getSettingsById($grpnum, $check_astdb=0) {
 		$db = $this->db;
 		$sql = "SELECT grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, voicemail FROM findmefollow INNER JOIN `users` ON `extension` = `grpnum` WHERE grpnum = ?";
@@ -193,7 +281,18 @@ class Findmefollow implements BMO {
 		$results = $sth->fetch(\PDO::FETCH_ASSOC);
 
 		if (empty($results)) {
-			return array();
+			//defaults
+			return array(
+				"ddial" => true,
+				"needsconf" => false,
+				"grplist" => $grpnum,
+				"pre_ring" => '',
+				"grpnum" => $grpnum,
+				"annmsg_id" => '',
+				"remotealert_id" => '',
+				"toolate_id" => '',
+				"grptime" => '20'
+			);
 		}
 
 		if (!isset($results['voicemail'])) {
@@ -266,58 +365,16 @@ class Findmefollow implements BMO {
 				$changed=1;
 			}
 
-			$results['ddial'] = ($astdb_ddial) ? 'CHECKED' : '';
+			$results['ddial'] = $astdb_ddial;
 
 			if ($changed) {
-				$sql = "UPDATE findmefollow SET grptime = '".$results['grptime']."', grplist = '".
-				$db->escapeSimple(trim($results['grplist']))."', pre_ring = '".$results['pre_ring'].
-				"', needsconf = '".$results['needsconf']."' WHERE grpnum = '".$db->escapeSimple($grpnum)."' LIMIT 1";
-				$sql_results = $db->query($sql);
+				$sql = "UPDATE findmefollow SET grptime = ?, grplist = ?, pre_ring = ?, needsconf = ? WHERE grpnum = ? LIMIT 1";
+				$sth = $db->prepare($sql);
+				$sth->execute(array($results['grptime'],$results['grplist'],$results['pre_ring'],$results['needsconf'],$results['grpnum']));
 			}
 		} // if check_astdb
-	return $results;
-}
-
-	function add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg_id='',$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid='default',$fixedcid='') {
-	global $amp_conf;
-	global $astman;
-	global $db;
-
-	if (empty($postdest)) {
-	$postdest = "ext-local,$grpnum,dest";
-	}
-
-	$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring) VALUES ('".$db->escapeSimple($grpnum)."', '".$db->escapeSimple($strategy)."', ".$db->escapeSimple($grptime).", '".$db->escapeSimple($grppre)."', '".$db->escapeSimple($grplist)."', '".$db->escapeSimple($annmsg_id)."', '".$db->escapeSimple($postdest)."', '".$db->escapeSimple($dring)."', '$needsconf', '$remotealert_id', '$toolate_id', '$ringing', '$pre_ring')";
-	$results = sql($sql);
-
-	if ($astman) {
-	$astman->database_put("AMPUSER",$grpnum."/followme/prering",isset($pre_ring)?$pre_ring:'');
-	$astman->database_put("AMPUSER",$grpnum."/followme/grptime",isset($grptime)?$grptime:'');
-	$astman->database_put("AMPUSER",$grpnum."/followme/grplist",isset($grplist)?$grplist:'');
-
-	$needsconf = isset($needsconf)?$needsconf:'';
-	$confvalue = ($needsconf == 'CHECKED')?'ENABLED':'DISABLED';
-	$astman->database_put("AMPUSER",$grpnum."/followme/grpconf",$confvalue);
-
-	$ddial      = isset($ddial)?$ddial:'';
-	$ddialvalue = ($ddial == 'CHECKED')?'EXTENSION':'DIRECT';
-	$astman->database_put("AMPUSER",$grpnum."/followme/ddial",$ddialvalue);
-	if ($amp_conf['USEDEVSTATE']) {
-	$ddialstate = ($ddial == 'CHECKED')?'NOT_INUSE':'BUSY';
-
-	$devices = $astman->database_get("AMPUSER", $grpnum . "/device");
-	$device_arr = explode('&', $devices);
-	foreach ($device_arr as $device) {
-	$astman->set_global($amp_conf['AST_FUNC_DEVICE_STATE'] . "(Custom:FOLLOWME$device)", $ddialstate);
-	}
-	}
-
-	$astman->database_put("AMPUSER",$grpnum."/followme/changecid",$changecid);
-	$fixedcid = preg_replace("/[^0-9\+]/" ,"", trim($fixedcid));
-	$astman->database_put("AMPUSER",$grpnum."/followme/fixedcid",$fixedcid);
-	} else {
-	fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
-	}
+		$results['needsconf'] = ($results['needsconf'] == "CHECKED") ? true : false;
+		return $results;
 	}
 
 	function del($grpnum) {
