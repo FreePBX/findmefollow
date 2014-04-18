@@ -12,7 +12,7 @@
 	</label>
 	<div class="form-group">
 		<label for="grplist"><?php echo _('Follow Me List')?></label>
-		<textarea id="grplist" name="grplist" class="form-control" rows="3"><?php echo implode("\n",$list)?></textarea>
+		<textarea id="grplist" name="grplist" class="form-control" rows="<?php echo count($list) < 3 ? 3 : count($list)?>"><?php echo implode("\n",$list)?></textarea>
 	</div>
 	<div class="form-group">
 		<label for="annmsg_id"><?php echo _('Announcement') ?>:</label><br/>
