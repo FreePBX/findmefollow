@@ -1,5 +1,9 @@
 <?php /* $Id: functions.inc.php 175 2006-10-03 19:12:39Z plindheimer $ */
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
+//	License for all code of this FreePBX module can be found in the license file inside the module directory
+//	Copyright 2013 Schmooze Com Inc.
+//  Copyright (C) 2006 Philippe Lindheimer
+//
 
 /* 	Generates dialplan for findmefollow
 	We call this with retrieve_conf
