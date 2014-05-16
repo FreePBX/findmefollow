@@ -5,11 +5,12 @@ var Findmefollow = new function() {
 		if(this.initalized) {
 			return false;
 		}
-		$('#module-Findmefollow input[type="text"]').blur(function() {
-			Findmefollow.saveSettings({key: $(this).prop('name'), value: $(this).val()});
-		});
-		$('#module-Findmefollow textarea').blur(function() {
-			Findmefollow.saveSettings({key: $(this).prop('name'), value: $(this).val()});
+		/* Settings changes binds */
+		$('#module-Findmefollow input[type="text"], #module-Findmefollow textarea').change(function() {
+			$(this).blur(function() {
+				Findmefollow.saveSettings({key: $(this).prop('name'), value: $(this).val()});
+				$(this).off('blur');
+			});
 		});
 		$('#module-Findmefollow input[type="checkbox"]').change(function() {
 			Findmefollow.saveSettings({key: $(this).prop('name'), value: $(this).is(':checked')});
