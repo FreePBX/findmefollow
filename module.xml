@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>12.0.1</version>
+	<version>12.0.2</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*12.0.2* Detect Change on change then blur for UCP
 		*12.0.1* UCP Module Addition
 		*2.11.0.6* Add license file
 		*2.11.0.5* Allow connected line display of callee presence state
