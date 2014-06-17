@@ -1,4 +1,4 @@
-var FindmefollowC = UCPC.extend({
+var FindmefollowC = UCPMC.extend({
 	init: function(){
 	},
 	settingsDisplay: function() {
@@ -24,11 +24,11 @@ var FindmefollowC = UCPC.extend({
 		data.ext = ext;
 		$.post( "index.php?quietmode=1&module=findmefollow&command=settings", data, function( data ) {
 			$('#module-Findmefollow .message').text(data.message).addClass('alert-'+data.alert).fadeIn('fast', function() {
-				$('.masonry-container').packery();
 				$(this).delay(5000).fadeOut('fast', function() {
 					$('.masonry-container').packery();
 				});
 			});
+			$('.masonry-container').packery();
 		});
 	}
 });
