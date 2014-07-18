@@ -42,21 +42,21 @@ if (isset($_REQUEST["grplist"])) {
 	if (!$grplist) {
 		$grplist = null;
 	}
-	
+
 	foreach (array_keys($grplist) as $key) {
 		//trim it
 		$grplist[$key] = trim($grplist[$key]);
-		
+
 		// remove invalid chars
 		$grplist[$key] = preg_replace("/[^0-9#*+]/", "", $grplist[$key]);
 
 		if ($grplist[$key] == ltrim($extdisplay,'GRP-').'#')
 			$grplist[$key] = rtrim($grplist[$key],'#');
-		
+
 		// remove blanks
 		if ($grplist[$key] == "") unset($grplist[$key]);
 	}
-	
+
 	// check for duplicates, and re-sequence
 	$grplist = array_values(array_unique($grplist));
 }
@@ -74,17 +74,17 @@ if(isset($_POST['action'])){
 			needreload();
 			redirect_standard();
 		}
-		
+
 		//del group
 		if ($action == 'delGRP') {
 			findmefollow_del($account);
 			needreload();
 			redirect_standard();
 		}
-		
+
 		//edit group - just delete and then re-add the extension
 		if ($action == 'edtGRP') {
-			findmefollow_del($account);	
+			findmefollow_del($account);
 			findmefollow_add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid);
 
 			needreload();
@@ -96,7 +96,7 @@ if(isset($_POST['action'])){
 
 
 <div class="rnav"><ul>
-<?php 
+<?php
 //get unique ring groups
 $gresults = findmefollow_allusers();
 $set_users = findmefollow_list();
@@ -111,7 +111,7 @@ if (isset($gresults)) {
 ?>
 </ul></div>
 
-<?php 
+<?php
 
 if ($extdisplay == "") {
 	echo '<br><h2>'._("Follow Me").'</h2><br><h3>'._('Choose a user/extension:').'</h3><br><br><br><br><br><br><br>';
@@ -144,42 +144,42 @@ elseif ($action == 'delGRP') {
 		$goto = isset($thisgrp['postdest'])?$thisgrp['postdest']:((isset($thisgrp['voicemail']) && $thisgrp['voicemail'] != 'novm')?"ext-local,vmu$extdisplay,1":'');
 		unset($grpliststr);
 		unset($thisgrp);
-		
+
 		$delButton = "
-			<form name=delete action=\"{$_SERVER['PHP_SELF']}\" method=POST>
+			<form name=delete action=\"\" method=POST>
 				<input type=\"hidden\" name=\"display\" value=\"{$dispnum}\">
 				<input type=\"hidden\" name=\"account\" value=\"{$extdisplay}\">
 				<input type=\"hidden\" name=\"action\" value=\"delGRP\">
 				<input type=submit value=\""._("Delete Entries")."\">
 			</form>";
-			
+
 		echo "<h2>"._("Follow Me").": ".$extdisplay."</h2>";
 
 
 		// Copied straight out of old code,let's see if it works?
 		//
 		if (isset($amp_conf["AMPEXTENSIONS"]) && ($amp_conf["AMPEXTENSIONS"] == "deviceanduser")) {
-			$editURL = $_SERVER['PHP_SELF'].'?display=users&extdisplay='.$extdisplay;
+			$editURL = '?display=users&extdisplay='.$extdisplay;
 			$EXTorUSER = _("User");
 		}
 		else {
-			$editURL = $_SERVER['PHP_SELF'].'?display=extensions&extdisplay='.$extdisplay;
+			$editURL = '?display=extensions&extdisplay='.$extdisplay;
 			$EXTorUSER = _("Extension");
 		}
 
 		$label = '<span><img width="16" height="16" border="0" title="'.sprintf(_("Edit %s"),$EXTorUSER).'" alt="" src="images/user_edit.png"/>&nbsp;'.sprintf(_("Edit %s %s"),$EXTorUSER, $extdisplay).'</span>';
 		echo "<p><a href=".$editURL.">".$label."</a></p>";
 		echo "<p>".$delButton."</p>";
-	} 
+	}
 	?>
-			<form name="editGRP" action="<?php  $_SERVER['PHP_SELF'] ?>" method="post" onsubmit="return checkGRP(editGRP);">
+			<form name="editGRP" action="" method="post" onsubmit="return checkGRP(editGRP);">
 			<input type="hidden" name="display" value="<?php echo $dispnum?>">
 			<input type="hidden" name="action" value="<?php echo (($extdisplay != "") ? 'edtGRP' : 'addGRP'); ?>">
 			<table>
 			<tr><td colspan="2"><h5><?php  echo (($extdisplay != "") ? _("Edit Follow Me") : _("Add Follow Me")) ?><hr></h5></td></tr>
 			<tr>
 <?php
-	if ($extdisplay != "") { 
+	if ($extdisplay != "") {
 
 ?>
 				<input size="5" type="hidden" name="account" value="<?php  echo $extdisplay; ?>">
@@ -234,7 +234,7 @@ elseif ($action == 'delGRP') {
 						foreach ($items as $item) {
 							echo '<option value="'.$item.'" '.($default == $item ? 'SELECTED' : '').'>'._($item);
 						}
-					?>		
+					?>
 					</select>
 				</td>
 			</tr>
@@ -254,7 +254,7 @@ elseif ($action == 'delGRP') {
 				<td valign="top"><a href="#" class="info"><?php echo _("Follow-Me List")?>:<span><br><?php echo _("List extensions to ring, one per line, or use the Extension Quick Pick below.<br><br>You can include an extension on a remote system, or an external number by suffixing a number with a pound (#).  ex:  2448089# would dial 2448089 on the appropriate trunk (see Outbound Routing).")?><br><br></span></a></td>
 				<td valign="top">
 <?php
-		$rows = count($grplist)+1; 
+		$rows = count($grplist)+1;
 		if ($rows <= 2 && trim($grplist[0]) == "") {
 			$grplist[0] = $extdisplay;
 		}
@@ -299,8 +299,8 @@ elseif ($action == 'delGRP') {
 								echo '<option value="'.$tresult['id'].'"'.($tresult['id'] == $default ? ' SELECTED' : '').'>'.$tresult['displayname']."</option>\n";
 							}
 						}
-					?>		
-					</select>		
+					?>
+					</select>
 				</td>
 			</tr>
 <?php }	else { ?>
@@ -348,7 +348,7 @@ elseif ($action == 'delGRP') {
 
 			<tr>
 				<td><a href="#" class="info"><?php echo _("Confirm Calls")?><span><?php echo _('Enable this if you\'re calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through. This feature only works with the ringall/ringall-prim  ring strategy')?></span></a>:</td>
-				<td> 
+				<td>
 					<input type="checkbox" name="needsconf" value="CHECKED" <?php echo $needsconf ?>   tabindex="<?php echo ++$tabindex;?>"/>
 				</td>
 			</tr>
@@ -413,7 +413,7 @@ elseif ($action == 'delGRP') {
 						echo '<option value="did" '.($default == 'did' ? 'SELECTED' : '').'>'._("Use Dialed Number");
 						echo '<option value="forcedid" '.($default == 'forcedid' ? 'SELECTED' : '').'>'._("Force Dialed Number");
             $fixedcid_disabled = ($default != 'fixed' && $default != 'extern') ? 'disabled = "disabled"':'';
-					?>		
+					?>
 					</select>
 				</td>
 			</tr>
@@ -422,26 +422,26 @@ elseif ($action == 'delGRP') {
 				<td><a href="#" class="info"><?php echo _("Fixed CID Value")?>:<span><?php echo _('Fixed value to replace the CID with used with some of the modes above. Should be in a format of digits only with an option of E164 format using a leading "+".')?></span></a></td>
         <td><input size="30" type="text" name="fixedcid" id="fixedcid" value="<?php  echo $fixedcid ?>" tabindex="<?php echo ++$tabindex;?>" <?php echo $fixedcid_disabled ?>></td>
 			</tr>
-			
+
 			<tr><td colspan="2"><br><h5><?php echo _("Destination if no answer")?>:<hr></h5></td></tr>
 
-<?php 
+<?php
 //draw goto selects
 if (empty($goto)) {
 	$goto = "ext-local,$extdisplay,dest";
 }
 echo drawselects($goto,0);
 ?>
-			
+
 			<tr>
-			<td colspan="2"><br><h6><input name="Submit" type="submit" value="<?php echo _("Submit Changes")?>" tabindex="<?php echo ++$tabindex;?>"></h6></td>		
-			
+			<td colspan="2"><br><h6><input name="Submit" type="submit" value="<?php echo _("Submit Changes")?>" tabindex="<?php echo ++$tabindex;?>"></h6></td>
+
 			</tr>
 			</table>
 			</form>
-<?php 		
+<?php
 		} //end if action == delGRP
-		
+
 ?>
 <script language="javascript">
 <!--
@@ -482,7 +482,7 @@ function checkGRP(theForm) {
 	setDestinations(theForm, 1);
 
 	// form validation
-	defaultEmptyOK = false;	
+	defaultEmptyOK = false;
 	if (isEmpty(theForm.grplist.value))
 		return warnInvalid(theForm.grplist, msgInvalidExtList);
 
@@ -514,4 +514,3 @@ function checkGRP(theForm) {
 }
 //-->
 </script>
-

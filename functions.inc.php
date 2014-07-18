@@ -29,7 +29,7 @@ function findmefollow_destinations() {
   //      alternatively, only put this extension's follow-me since you should not be able to force to others and you can use their extension
 	//$results = findmefollow_list();
 	$grpnum = sql("SELECT grpnum FROM findmefollow WHERE grpnum = '".$db->escapeSimple($extdisplay)."'","getOne");
-	
+
 	// return an associative array with destination and description
 	if ($grpnum != '') {
     $extens[] = array('destination' => 'ext-findmefollow,FM'.$grpnum.',1', 'description' => _("Force Follow Me"));
@@ -80,7 +80,7 @@ function findmefollow_get_config($engine) {
 						continue;
 					}
 					$grp = findmefollow_get($grpnum);
-					
+
 					$strategy = $grp['strategy'];
 					$grptime = $grp['grptime'];
 					$grplist = $grp['grplist'];
@@ -180,7 +180,7 @@ function findmefollow_get_config($engine) {
                                         if ((isset($annmsg_id) ? $annmsg_id : '')) {
 						$annmsg = recordings_get_file($annmsg_id);
 						// should always answer before playing anything, shouldn't we ?
-						$ext->add($contextname, $grpnum, '', new ext_gotoif('$[$["${DIALSTATUS}" = "ANSWER"] | $["foo${RRNODEST}" != "foo"]]','DIALGRP'));			
+						$ext->add($contextname, $grpnum, '', new ext_gotoif('$[$["${DIALSTATUS}" = "ANSWER"] | $["foo${RRNODEST}" != "foo"]]','DIALGRP'));
 						$ext->add($contextname, $grpnum, '', new ext_answer(''));
 						$ext->add($contextname, $grpnum, '', new ext_wait(1));
 						$ext->add($contextname, $grpnum, '', new ext_playback($annmsg));
@@ -194,7 +194,7 @@ function findmefollow_get_config($engine) {
 					$ext->add("fmgrps", "_RG-${grpnum}.", '', new ext_macro('dial','${DB(AMPUSER/'."$grpnum/followme/grptime)},$dialopts" . "M(confirm^${remotealert}^${toolate}^${grpnum})".',${EXTEN:'.$len.'}'));
 
 					// If grpconf == ENABLED call with confirmation ELSE call normal
-					$ext->add($contextname, $grpnum, 'DIALGRP', new 
+					$ext->add($contextname, $grpnum, 'DIALGRP', new
 					    ext_gotoif('$[("${DB(AMPUSER/'.$grpnum.'/followme/grpconf)}"="ENABLED") | ("${FORCE_CONFIRM}"!="") ]', 'doconfirm'));
 
 					// Normal call
@@ -222,7 +222,7 @@ function findmefollow_get_config($engine) {
 					$ext->add($contextname, $grpnum, '', new ext_set('__PICKUPMARK',''));
 					$ext->add($contextname, $grpnum, '', new ext_macro('blkvm-clr'));
 
-					/* NOANSWER:    NOT_INUSE 
+					/* NOANSWER:    NOT_INUSE
 					 * CHANUNAVAIL: UNAVAILABLE, UNKNOWN, INVALID (or DIALSTATUS=CHANUNAVAIL)
 					 * BUSY:        BUSY, INUSE, RINGING, RINGINUSE, HOLDINUSE, ONHOLD
 					 */
@@ -252,7 +252,7 @@ function findmefollow_get_config($engine) {
             extern    - set to the fixedcid if the call is from the outside only
             did       - set to the DID that the call came in on or leave alone, treated as foreign
             forcedid  - set to the DID that the call came in on or leave alone, not treated as foreign
-          
+
           EXTTOCALL   - has the exten num called, hoaky if that goes away but for now use it
         */
         if (count($ringlist)) {
@@ -450,7 +450,7 @@ function findmefollow_get($grpnum, $check_astdb=0) {
 		} else {
 			fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
 		}
-			$astdb_ddial   = $astman->database_get("AMPUSER",$grpnum."/followme/ddial");                                     
+			$astdb_ddial   = $astman->database_get("AMPUSER",$grpnum."/followme/ddial");
 		// If the values are different then use what is in astdb as it may have been changed.
 		// If sql returned no results for pre_ring/grptime then it's not configued so we reset
 		// the astdb defaults as well
@@ -540,7 +540,7 @@ function findmefollow_configpageload() {
 	$action =  isset($_REQUEST['action'])?$_REQUEST['action']:null;
 	if ( $viewing_itemid != '' && $action != 'del') {
 		$set_findmefollow = findmefollow_list();
-		$grpURL = $_SERVER['PHP_SELF'].'?'.'display=findmefollow&extdisplay=GRP-'.$viewing_itemid;
+		$grpURL = '?'.'display=findmefollow&extdisplay=GRP-'.$viewing_itemid;
 		if (is_array($set_findmefollow)) {
 			if (in_array($viewing_itemid,$set_findmefollow)) {
 				$grpTEXT = _("Edit Follow Me Settings");
@@ -555,7 +555,7 @@ function findmefollow_configpageload() {
 		}
 		$label = '<span><img width="16" height="16" border="0" title="'.$grpTEXT.'" alt="" src="'.$icon.'"/>&nbsp;'.$grpTEXT.'</span>';
 		$currentcomponent->addguielem('_top', new gui_link('findmefollowlink', $label, $grpURL));
-	}	
+	}
 }
 
 // If we are auto-creating a followme for each extension then add the hook funcitons for
@@ -570,11 +570,11 @@ if ($amp_conf['FOLLOWME_AUTO_CREATE']) {
 		$ext = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
 		$extn = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
 
-		if ($ext=='') { 
-			$extdisplay = $extn; 
+		if ($ext=='') {
+			$extdisplay = $extn;
 		} else {
 			$extdisplay = $ext;
-		} 
+		}
 		if ($action == "add") {
 			if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
 
