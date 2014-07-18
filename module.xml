@@ -2,11 +2,13 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>12.0.3</version>
+	<version>12.0.5</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*12.0.5* Cleanup for UCP
+		*12.0.4* Missing functionality
 		*12.0.3* Restructure Parts of UCP
 		*12.0.2* Detect Change on change then blur for UCP
 		*12.0.1* UCP Module Addition
