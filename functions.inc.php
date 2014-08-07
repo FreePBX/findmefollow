@@ -1,5 +1,9 @@
 <?php /* $Id: functions.inc.php 175 2006-10-03 19:12:39Z plindheimer $ */
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
+//	License for all code of this FreePBX module can be found in the license file inside the module directory
+//	Copyright 2013 Schmooze Com Inc.
+//  Copyright (C) 2006 Philippe Lindheimer
+//
 
 /* 	Generates dialplan for findmefollow
 	We call this with retrieve_conf
@@ -115,7 +119,12 @@ function findmefollow_get_config($engine) {
 
 					$ext->add($contextname, $grpnum, '', new ext_set('DIAL_OPTIONS','${DIAL_OPTIONS}I'));
 					$ext->add($contextname, $grpnum, '', new ext_set('CONNECTEDLINE(num)', $grpnum));
-					$ext->add($contextname, $grpnum, '', new ext_set('CONNECTEDLINE(name,i)','${DB(AMPUSER/' . $grpnum . '/cidname)}'));
+					$cidnameval = '${DB(AMPUSER/' . $grpnum . '/cidname)}';
+					if ($amp_conf['AST_FUNC_PRESENCE_STATE'] && $amp_conf['CONNECTEDLINE_PRESENCESTATE']) {
+						$ext->add($contextname, $grpnum, '', new ext_gosub('1', 's', 'sub-presencestate-display', $grpnum));
+						$cidnameval.= '${PRESENCESTATE_DISPLAY}';
+					}
+					$ext->add($contextname, $grpnum, '', new ext_set('CONNECTEDLINE(name,i)', $cidnameval));
 					$ext->add($contextname, $grpnum, '', new ext_set('FM_DIALSTATUS','${EXTENSION_STATE(' .$grpnum. '@ext-local)}'));
 					$ext->add($contextname, $grpnum, '', new ext_set('__EXTTOCALL','${EXTEN}'));
 					$ext->add($contextname, $grpnum, '', new ext_set('__PICKUPMARK','${EXTEN}'));
