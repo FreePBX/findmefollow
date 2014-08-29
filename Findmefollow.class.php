@@ -62,8 +62,36 @@ class Findmefollow implements BMO {
 	 * @param $follow_me_list Follow Me List
 	 */
 	function setList($exten,$follow_me_list) {
+		foreach($follow_me_list as &$value) {
+			$value = $this->lookupSetExtensionFormat($value);
+		}
 		$follow_me_list = implode("-",$follow_me_list);
 		$this->FreePBX->astman->database_put('AMPUSER', "$exten/followme/grplist", $follow_me_list);
+	}
+
+	/**
+	 * Lookup extension format
+	 * This should be depreciated eventually
+	 * @param {int} $exten The Phone Number
+	 */
+	function lookupSetExtensionFormat($exten) {
+		if (trim($exten) == "") {
+			return $exten;
+		};
+
+		$exten = preg_replace("/[^0-9*+]/", "", $exten);
+
+		//TODO: Should be using core user function here instead of cheating.
+		$sql = "SELECT extension FROM users WHERE extension = ?";
+		$sth = $this->db->prepare($sql);
+		$sth->execute(array($exten));
+		$result = $sth->fetch(PDO::FETCH_ASSOC);
+
+		if (!is_array($result)) {
+			return $exten.'#';
+		} else {
+			return $exten;
+		}
 	}
 
 	/*
