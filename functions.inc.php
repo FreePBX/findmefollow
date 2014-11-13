@@ -295,6 +295,30 @@ function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre=
 		$postdest = "ext-local,$grpnum,dest";
 	}
 
+	//Follow Me auto # on external number.
+	//http://code.freepbx.org/cru/FREEPBX-51#CFR-111
+	$users = findmefollow_allusers();
+	foreach ($users as $user) {
+		$extens[$user[0]] = $user[1];
+	}
+
+	$list = explode("-", $grplist);
+	foreach (array_keys($list) as $key) {
+		// remove invalid chars
+		$list[$key] = preg_replace("/[^0-9*+]/", "", $list[$key]);
+
+		if ($list[$key] == "") {
+			unset($list[$key]);
+			continue;
+		}
+
+		if (!$extens[$list[$key]]) {
+			/* Extension not found.  Must be an external number. */
+			$list[$key].= '#';
+		}
+	}
+	$grplist = implode("-", $list);
+
 	$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring) VALUES ('".$db->escapeSimple($grpnum)."', '".$db->escapeSimple($strategy)."', ".$db->escapeSimple($grptime).", '".$db->escapeSimple($grppre)."', '".$db->escapeSimple($grplist)."', '".$db->escapeSimple($annmsg_id)."', '".$db->escapeSimple($postdest)."', '".$db->escapeSimple($dring)."', '$needsconf', '$remotealert_id', '$toolate_id', '$ringing', '$pre_ring')";
 	$results = sql($sql);
 
@@ -554,7 +578,7 @@ function findmefollow_configpageload() {
 			$icon = "images/user_add.png";
 		}
 		$label = '<span><img width="16" height="16" border="0" title="'.$grpTEXT.'" alt="" src="'.$icon.'"/>&nbsp;'.$grpTEXT.'</span>';
-		$currentcomponent->addguielem('_top', new gui_link('findmefollowlink', $label, $grpURL));
+		//$currentcomponent->addguielem('_top', new gui_link('findmefollowlink', $label, $grpURL));
 	}
 }
 
