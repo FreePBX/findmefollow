@@ -541,11 +541,530 @@ function findmefollow_get($grpnum, $check_astdb=0) {
 	return $results;
 }
 
+function findmefollow_users_configpageinit($dispnum) {
+	global $currentcomponent;
+
+	$currentcomponent->addguifunc('findmefollow_users_configpageload');
+	$currentcomponent->addprocessfunc('findmefollow_users_configprocess', 6);
+}
+
+function findmefollow_users_configpageload() {
+	global $currentcomponent;
+	global $amp_conf;
+	global $extdisplay;
+
+	$fmfm = findmefollow_get($extdisplay, 1);
+	$moh = music_list();
+	$recordings = recordings_list();
+	$recordingslist = array();
+	$recordingslist[] = array(
+		"value" => "",
+		"text" => _("None")
+	);
+	if (!empty($recordings)) {
+		foreach ($recordings as $recording) {
+			$recordingslist[] = array(
+				"value" => $recording['id'],
+				"text" => $recording['displayname']
+			);
+		}
+	}
+
+	$disabled = ($fmfm['ddial'] == "CHECKED");
+	$category = "findmefollowme";
+
+	findmefollow_draw_general($fmfm,$currentcomponent,$category,$disabled,$recordingslist,$moh);
+	findmefollow_draw_confirm($fmfm,$currentcomponent,$category,$disabled,$recordingslist,$moh);
+	findmefollow_draw_cid($fmfm,$currentcomponent,$category,$disabled,$recordingslist,$moh);
+	findmefollow_draw_destinations($fmfm,$currentcomponent,$category,$disabled,$recordingslist,$moh);
+}
+
+function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisabled,$recordingslist,$moh) {
+	global $display;
+	$js = "
+	var dval = $('#fmfm_ddial0').prop('checked') ? false : true;
+	$('.fpbx-fmfm').prop('disabled',dval);
+	if(!$('html').hasClass('firsttypeofselector')) {
+		$('.radioset').buttonset('refresh');
+	}
+	return true;
+	";
+	$currentcomponent->addjsfunc('fmfmEnabled(notused)', $js);
+
+	$js = "
+		var ext = $('#fmfm_quickpick').val(),
+				fml = $('#fmfm_grplist').val().trim()
+		if(fml.length > 0) {
+			$('#fmfm_grplist').val(fml + '\\n' + ext).trigger('autosize.resize');;
+		} else {
+			$('#fmfm_grplist').val(ext).trigger('autosize.resize');;
+		}
+	";
+	$currentcomponent->addjsfunc('fmfmQuickPick(notused)', $js);
+
+	$section = _("General Settings");
+	$guidefaults = array(
+		"elemname" => "",
+		"prompttext" => "",
+		"helptext" => "",
+		"currentvalue" => "",
+		"valarray" => array(),
+		"jsonclick" => '',
+		"jsvalidation" => "",
+		"failvalidationmsg" => "",
+		"canbeempty" => true,
+		"maxchars" => 0,
+		"disable" => false,
+		"inputgroup" => false,
+		"class" => "",
+		"cblabel" => 'Enable',
+		"disabled_value" => 'DEFAULT',
+		"check_enables" => 'true',
+		"cbdisable" => false,
+		"cbclass" => ''
+	);
+
+	$el = array(
+		"elemname" => "fmfm_ddial",
+		"prompttext" => _('Enabled'),
+		"helptext" => _('By default (not checked) any call to this extension will go to this Follow-Me instead, including directory calls by name from IVRs. If checked, calls will go only to the extension.<BR>However, destinations that specify FollowMe will come here.<BR>Checking this box is often used in conjunction with VmX Locater, where you want a call to ring the extension, and then only if the caller chooses to find you do you want it to come here.'),
+		"currentvalue" => (($fmfmdisabled) ? 'disabled' : 'enabled'),
+		"valarray" => array(
+			array(
+				"value" => "enabled",
+				"text" => _("Yes")
+			),
+			array(
+				"value" => "disabled",
+				"text" => _("No")
+			)
+		),
+		"jsonclick" => "frm_${display}_fmfmEnabled() && frm_${display}_fmfmConfirmEnabled() && frm_${display}_fmfmCIDMode()",
+		"class" => "",
+		"disable" => "",
+		"pairedvalues" => false
+	);
+	$currentcomponent->addguielem($section, new gui_radio(array_merge($guidefaults,$el)), $category);
+
+	$sixtey = array();
+	for ($i=0; $i <= 60; $i++) {
+		$sixtey[] = array(
+			"value" => $i,
+			"text" => $i
+		);
+	}
+	$el = array(
+		"elemname" => "fmfm_pre_ring",
+		"prompttext" => _('Initial Ring Time'),
+		"helptext" => _("This is the number of seconds to ring the primary extension prior to proceeding to the follow-me list. The extension can also be included in the follow-me list. A 0 setting will bypass this."),
+		"currentvalue" => $fmfm['prering'],
+		"valarray" => $sixtey,
+		"class" => "fpbx-fmfm",
+		"disable" => $fmfmdisabled,
+		"canbeempty" => false
+	);
+	$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)), $category);
+
+	$helptext = '<b>'. _("ringallv2") .'</b>: '._("ring Extension for duration set in Initial Ring Time, and then, while continuing call to extension, ring Follow-Me List for duration set in Ring Time.").'<br>'.
+	'<b>'. _("ringall"). '</b>:  '. _("ring Extension for duration set in Initial Ring Time, and then terminate call to Extension and ring Follow-Me List for duration set in Ring Time."). '<br>'.
+	'<b>'. _("hunt"). '</b>: '. _("take turns ringing each available extension"). '<br>'.
+	'<b>'. _("memoryhunt"). '</b>: '. _("ring first extension in the list, then ring the 1st and 2nd extension, then ring 1st 2nd and 3rd extension in the list.... etc."). '<br>'.
+	'<b>'. _("*-prim"). '</b>:  '. _("these modes act as described above. However, if the primary extension (first in list) is occupied, the other extensions will not be rung. If the primary is FreePBX DND, it won't be rung. If the primary is FreePBX CF unconditional, then all will be rung"). '<br>'.
+	'<b>'. _("firstavailable"). '</b>:  '. _("ring only the first available channel"). '<br>'.
+	'<b>'. _("firstnotonphone"). '</b>:  '. _("ring only the first channel which is not off hook - ignore CW"). '';
+	$items = array('ringallv2','ringallv2-prim','ringall','ringall-prim','hunt','hunt-prim','memoryhunt','memoryhunt-prim','firstavailable','firstnotonphone');
+	$optlist = array();
+	foreach ($items as $item) {
+		$optlist[] = array(
+			"value" => $item,
+			"text" => $item
+		);
+	}
+	$el = array(
+		"elemname" => "fmfm_strategy",
+		"prompttext" => _("Ring Strategy"),
+		"helptext" => $helptext,
+		"currentvalue" => $fmfm['strategy'],
+		"valarray" => $optlist,
+		"class" => "fpbx-fmfm",
+		"disable" => $fmfmdisabled,
+		"canbeempty" => false
+	);
+	$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)), $category);
+
+	$el = array(
+		"elemname" => "fmfm_pre_ring",
+		"prompttext" => _('Ring Time'),
+		"helptext" => _("Time in seconds that the phones will ring. For all hunt style ring strategies, this is the time for each iteration of phone(s) that are rung"),
+		"currentvalue" => $fmfm['grptime'],
+		"valarray" => $sixtey,
+		"class" => "fpbx-fmfm",
+		"disable" => $fmfmdisabled,
+		"canbeempty" => false
+	);
+	$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)), $category);
+
+	$el = array(
+		"elemname" => "fmfm_grplist",
+		"prompttext" => _('Follow-Me List'),
+		"helptext" => _("List extensions to ring, one per line, or use the Extension Quick Pick below.<br><br>You can include an extension on a remote system, or an external number by suffixing a number with a pound (#).  ex:  2448089# would dial 2448089 on the appropriate trunk (see Outbound Routing)."),
+		"currentvalue" => $fmfm['grplist'],
+		"canbeempty" => false,
+		"class" => "fpbx-fmfm",
+		"disable" => $fmfmdisabled
+	);
+	$currentcomponent->addguielem($section, new gui_textarea(array_merge($guidefaults,$el)),$category);
+
+	$optlist = array();
+	$optlist[] = array(
+		"value" => "",
+		"text" => _("(pick extension)")
+	);
+	foreach (core_users_list() as $result) {
+		$optlist[] = array(
+			"value" => $result[0],
+			"text" => $result[0]." (".$result[1].")"
+		);
+	}
+	$el = array(
+		"elemname" => "fmfm_quickpick",
+		"prompttext" => _('Extension Quick Pick'),
+		"helptext" => _("Choose an extension to append to the end of the extension list above."),
+		"currentvalue" => $fmfm['grptime'],
+		"valarray" => $optlist,
+		"class" => "fpbx-fmfm",
+		"disable" => $fmfmdisabled,
+		"canbeempty" => false,
+		"onchange" => "frm_${display}_fmfmQuickPick()"
+	);
+	$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)), $category);
+
+	$el = array(
+		"elemname" => "fmfm_annmsg_id",
+		"prompttext" => _('Announcement'),
+		"helptext" => _("Message to be played to the caller before dialing this group.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left"),
+		"currentvalue" => $fmfm['annmsg_id'],
+		"valarray" => $recordingslist,
+		"class" => "fpbx-fmfm",
+		"disable" => $fmfmdisabled,
+		"canbeempty" => false
+	);
+	$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)), $category);
+
+	$optlist = array();
+	$optlist[] = array(
+		"value" => "Ring",
+		"text" => _("Ring")
+	);
+	if (!empty($moh)) {
+		foreach ($moh as $music) {
+			$optlist[] = array(
+				"value" => $music,
+				"text" => $music
+			);
+		}
+	}
+	$el = array(
+		"elemname" => "fmfm_ringing",
+		"prompttext" => _('Play Music On Hold'),
+		"helptext" => _("If you select a Music on Hold class to play, instead of 'Ring', they will hear that instead of Ringing while they are waiting for someone to pick up."),
+		"currentvalue" => $fmfm['ringing'],
+		"valarray" => $optlist,
+		"class" => "fpbx-fmfm",
+		"disable" => $fmfmdisabled,
+		"canbeempty" => false
+	);
+	$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)), $category);
+
+	$el = array(
+		"elemname" => "fmfm_grppre",
+		"prompttext" => _('CID Name Prefix'),
+		"helptext" => _('You can optionally prefix the Caller ID name when ringing extensions in this group. ie: If you prefix with "Sales:", a call from John Doe would display as "Sales:John Doe" on the extensions that ring.'),
+		"currentvalue" => $fmfm['grppre'],
+		"canbeempty" => true,
+		"class" => "fpbx-fmfm",
+		"disable" => $fmfmdisabled
+	);
+	$currentcomponent->addguielem($section, new gui_textbox(array_merge($guidefaults,$el)),$category);
+
+	$el = array(
+		"elemname" => "fmfm_dring",
+		"prompttext" => _('Alert Info'),
+		"helptext" => _('You can optionally include an Alert Info which can create distinctive rings on SIP phones.'),
+		"currentvalue" => $fmfm['dring'],
+		"canbeempty" => true,
+		"class" => "fpbx-fmfm",
+		"disable" => $fmfmdisabled
+	);
+	$currentcomponent->addguielem($section, new gui_textbox(array_merge($guidefaults,$el)),$category);
+}
+
+function findmefollow_draw_confirm($fmfm,&$currentcomponent,$category,$fmfmdisabled,$recordingslist,$moh) {
+	global $display;
+	$js = "
+	var dval = $('#fmfm_needsconf0').prop('checked') && !$('#fmfm_needsconf0').prop('disabled') ? false : true;
+	$('.fpbx-fmfm-confirm-opts').prop('disabled',dval);
+	if(!$('html').hasClass('firsttypeofselector')) {
+		$('.radioset').buttonset('refresh');
+	}
+	return true;
+	";
+	$currentcomponent->addjsfunc('fmfmConfirmEnabled(notused)', $js);
+
+	$confimDisabled = ($fmfm['needsconf'] != 'CHECKED' || $fmfmdisabled);
+	$section = _("Call Confirmation Configuration");
+	$guidefaults = array(
+		"elemname" => "",
+		"prompttext" => "",
+		"helptext" => "",
+		"currentvalue" => "",
+		"valarray" => array(),
+		"jsonclick" => '',
+		"jsvalidation" => "",
+		"failvalidationmsg" => "",
+		"canbeempty" => true,
+		"maxchars" => 0,
+		"disable" => false,
+		"inputgroup" => false,
+		"class" => "",
+		"cblabel" => 'Enable',
+		"disabled_value" => 'DEFAULT',
+		"check_enables" => 'true',
+		"cbdisable" => false,
+		"cbclass" => ''
+	);
+	$el = array(
+		"elemname" => "fmfm_needsconf",
+		"prompttext" => _('Confirm Calls'),
+		"helptext" => _('Enable this if you\'re calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through. This feature only works with the ringall/ringall-prim  ring strategy'),
+		"currentvalue" => (($fmfm['needsconf'] != 'CHECKED') ? 'disabled' : 'enabled'),
+		"valarray" => array(
+			array(
+				"value" => "enabled",
+				"text" => _("Yes")
+			),
+			array(
+				"value" => "disabled",
+				"text" => _("No")
+			)
+		),
+		"jsonclick" => "frm_${display}_fmfmConfirmEnabled()",
+		"class" => "fpbx-fmfm",
+		"disable" => $fmfmdisabled,
+		"pairedvalues" => false
+	);
+	$currentcomponent->addguielem($section, new gui_radio(array_merge($guidefaults,$el)), $category);
+
+	$recordingslist = array();
+	$recordingslist[] = array(
+		"value" => "",
+		"text" => _("Default")
+	);
+	if (!empty($recordings)) {
+		foreach ($recordings as $recording) {
+			$recordingslist[] = array(
+				"value" => $recording['id'],
+				"text" => $recording['displayname']
+			);
+		}
+	}
+	$el = array(
+		"elemname" => "fmfm_remotealert_id",
+		"prompttext" => _('Remote Announce'),
+		"helptext" => _("Message to be played to the person RECEIVING the call, if 'Confirm Calls' is enabled.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left"),
+		"currentvalue" => $fmfm['remotealert_id'],
+		"valarray" => $recordingslist,
+		"class" => "fpbx-fmfm-confirm-opts",
+		"disable" => $confimDisabled,
+		"canbeempty" => false
+	);
+	$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)), $category);
+
+	$el = array(
+		"elemname" => "fmfm_toolate_id",
+		"prompttext" => _('Too-Late Announce'),
+		"helptext" => _("Message to be played to the person RECEIVING the call, if the call has already been accepted before they push 1.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left"),
+		"currentvalue" => $fmfm['toolate_id'],
+		"valarray" => $recordingslist,
+		"class" => "fpbx-fmfm-confirm-opts",
+		"disable" => $confimDisabled,
+		"canbeempty" => false
+	);
+	$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)), $category);
+}
+
+function findmefollow_draw_cid($fmfm,&$currentcomponent,$category,$fmfmdisabled,$recordingslist,$moh) {
+	global $display;
+	$js = "
+		var val = $('#fmfm_changecid').val();
+		if(!$('#fmfm_changecid').prop('disabled') && (val == 'extern' || val == 'fixed')) {
+			$('#fmfm_fixedcid').prop('disabled',false);
+		} else {
+			$('#fmfm_fixedcid').prop('disabled',true);
+		}
+	";
+	$currentcomponent->addjsfunc('fmfmCIDMode(notused)', $js);
+
+	$section = _("Change External CID Configuration");
+	$guidefaults = array(
+		"elemname" => "",
+		"prompttext" => "",
+		"helptext" => "",
+		"currentvalue" => "",
+		"valarray" => array(),
+		"jsonclick" => '',
+		"jsvalidation" => "",
+		"failvalidationmsg" => "",
+		"canbeempty" => true,
+		"maxchars" => 0,
+		"disable" => false,
+		"inputgroup" => false,
+		"class" => "",
+		"cblabel" => 'Enable',
+		"disabled_value" => 'DEFAULT',
+		"check_enables" => 'true',
+		"cbdisable" => false,
+		"cbclass" => ''
+	);
+
+	$helptext = '<b>'. _("Default") .'</b>: '._("Transmits the Callers CID if allowed by the trunk.").'<br>'.
+	'<b>'. _("Fixed CID Value"). '</b>:  '. _("Always transmit the Fixed CID Value below."). '<br>'.
+	'<b>'. _("Outside Calls Fixed CID Value"). '</b>: '. _("Transmit the Fixed CID Value below on calls that come in from outside only. Internal extension to extension calls will continue to operate in default mode."). '<br>'.
+	'<b>'. _("Use Dialed Number"). '</b>: '. _("Transmit the number that was dialed as the CID for calls coming from outside. Internal extension to extension calls will continue to operate in default mode. There must be a DID on the inbound route for this. This will be BLOCKED on trunks that block foreign CallerID"). '<br>'.
+	'<b>'. _("Force Dialed Number"). '</b>:  '. _("Transmit the number that was dialed as the CID for calls coming from outside. Internal extension to extension calls will continue to operate in default mode. There must be a DID on the inbound route for this. This WILL be transmitted on trunks that block foreign CallerID");
+	$el = array(
+		"elemname" => "fmfm_changecid",
+		"prompttext" => _('Mode'),
+		"helptext" => $helptext,
+		"currentvalue" => $fmfm['changecid'],
+		"valarray" => array(
+			array(
+				"value" => "default",
+				"text" => _("Default")
+			),
+			array(
+				"value" => "fixed",
+				"text" => _("Fixed CID Value")
+			),
+			array(
+				"value" => "extern",
+				"text" => _("Outside Calls Fixed CID Value")
+			),
+			array(
+				"value" => "did",
+				"text" => _("Use Dialed Number")
+			),
+			array(
+				"value" => "forcedid",
+				"text" => _("Force Dialed Number")
+			)
+		),
+		"onchange" => "frm_${display}_fmfmCIDMode()",
+		"class" => "fpbx-fmfm",
+		"disable" => $fmfmdisabled,
+		"canbeempty" => false
+	);
+	$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)), $category);
+
+	$el = array(
+		"elemname" => "fmfm_fixedcid",
+		"prompttext" => _('Fixed CID Value'),
+		"helptext" => _('Fixed value to replace the CID with used with some of the modes above. Should be in a format of digits only with an option of E164 format using a leading "+".'),
+		"currentvalue" => $fmfm['fixedcid'],
+		"canbeempty" => true,
+		"class" => "fpbx-fmfm-cid",
+		"disable" => true
+	);
+	$currentcomponent->addguielem($section, new gui_textbox(array_merge($guidefaults,$el)),$category);
+}
+
+function findmefollow_draw_destinations($fmfm,&$currentcomponent,$category,$fmfmdisabled,$recordingslist,$moh) {
+	$section = _("Destinations");
+	$guidefaults = array(
+		"elemname" => "",
+		"prompttext" => "",
+		"helptext" => "",
+		"currentvalue" => "",
+		"valarray" => array(),
+		"jsonclick" => '',
+		"jsvalidation" => "",
+		"failvalidationmsg" => "",
+		"canbeempty" => true,
+		"maxchars" => 0,
+		"disable" => false,
+		"inputgroup" => false,
+		"class" => "",
+		"cblabel" => 'Enable',
+		"disabled_value" => 'DEFAULT',
+		"check_enables" => 'true',
+		"cbdisable" => false,
+		"cbclass" => ''
+	);
+
+	$el = array(
+		"elemname" => "fmfm_goto",
+		"prompttext" => _('No Answer'),
+		"helptext" => _('Optional destination call is routed to when the call is not answered on an otherwise idle phone. If the phone is in use and the call is simply ignored, then the busy destination will be used.'),
+		"canbeempty" => true,
+		"class" => "fpbx-fmfm",
+		"disable" => $fmfmdisabled,
+		"index" => "fmfm",
+		"required" => true,
+		"dest" => $fmfm['postdest'],
+		"nodest_msg" => ""
+	);
+	$currentcomponent->addguielem($section, new gui_drawselects(array_merge($guidefaults,$el)),$category);
+}
+
+function findmefollow_users_configprocess() {
+	global $currentcomponent;
+	global $amp_conf;
+
+	//create vars from the request
+	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
+	$ext = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
+	$extn = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
+
+	if ($ext=='') {
+		$extdisplay = $extn;
+	} else {
+		$extdisplay = $ext;
+	}
+	$settings = array();
+
+	dbug(count($_REQUEST));
+	//foreach($_REQUEST as $key => $value) {
+		//if(preg_match("/^fmfm_(.*)/",$key,$matches)) {
+	//		dbug($matches);
+		//}
+	//}
+
+	switch($action) {
+		case "add":
+			if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
+			}
+		break;
+		case "edit":
+		break;
+		case "delete":
+		break;
+	}
+	if ($action == "add") {
+		if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
+
+			//$ddial = $amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '';
+			//findmefollow_add();
+		}
+	}
+}
+
 function findmefollow_configpageinit($dispnum) {
 	global $currentcomponent;
 	global $amp_conf;
 
 	if ( ($dispnum == 'users' || $dispnum == 'extensions') ) {
+		findmefollow_users_configpageinit($dispnum);
+		/*
 		$currentcomponent->addguifunc('findmefollow_configpageload');
 
 		if ($amp_conf['FOLLOWME_AUTO_CREATE']) {
@@ -554,6 +1073,7 @@ function findmefollow_configpageinit($dispnum) {
 				$currentcomponent->addprocessfunc('findmefollow_configprocess', 8);
 			}
 		}
+		*/
 	}
 }
 

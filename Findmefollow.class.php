@@ -32,6 +32,14 @@ class Findmefollow implements BMO {
 
 	}
 
+	public static function myGuiHooks() {
+    return array("core");
+	}
+
+	public function doGuiHook(&$cc) {
+	    $cc->addguielem("_top", new gui_pageheading('', 'I added a header', false));
+	}
+
 
 	/*
 	 * Gets Follow Me Confirmation Setting
