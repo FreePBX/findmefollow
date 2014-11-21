@@ -9,7 +9,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 	We call this with retrieve_conf
 */
 
-function findmefollow_destinations() {
+function findmefollow_destinations($index) {
 	global $display;
 	global $extdisplay;
 	global $followme_exten;
@@ -17,6 +17,10 @@ function findmefollow_destinations() {
 
 	if ($display == 'findmefollow' && $followme_exten != '') {
 		$extens[] = array('destination' => 'ext-local,'.$followme_exten.',dest', 'description' => _("Normal Extension Behavior"));
+		return $extens;
+	}
+	if(($display == "extensions" || $display == "users") && $index == "fmfm") {
+		$extens[] = array('destination' => 'ext-local,'.$extdisplay.',dest', 'description' => _("Normal Extension Behavior"));
 		return $extens;
 	}
   if (($display != 'extensions' && $display != 'users') || !isset($extdisplay) || $extdisplay == '') {
@@ -545,7 +549,7 @@ function findmefollow_users_configpageinit($dispnum) {
 	global $currentcomponent;
 
 	$currentcomponent->addguifunc('findmefollow_users_configpageload');
-	$currentcomponent->addprocessfunc('findmefollow_users_configprocess', 6);
+	$currentcomponent->addprocessfunc('findmefollow_users_configprocess', 8);
 }
 
 function findmefollow_users_configpageload() {
@@ -554,6 +558,30 @@ function findmefollow_users_configpageload() {
 	global $extdisplay;
 
 	$fmfm = findmefollow_get($extdisplay, 1);
+	if(empty($fmfm)) {
+		$action			= isset($_REQUEST['action'])		? $_REQUEST['action']			: null;
+		$extdisplay		= isset($_REQUEST['extdisplay'])	? $_REQUEST['extdisplay']		: null;
+		$extension		= isset($_REQUEST['extension'])		? $_REQUEST['extension']		: null;
+		$tech_hardware	= isset($_REQUEST['tech_hardware'])	? $_REQUEST['tech_hardware']	: null;
+		if ($tech_hardware != null || $pagename == 'users') {
+			if (!$amp_conf['FOLLOWME_AUTO_CREATE'] || !$amp_conf['FOLLOWME_DISABLED']) {
+				$fmfm['ddial'] = "CHECKED";
+				$fmfm['strategy'] = $amp_conf['FOLLOWME_RG_STRATEGY'];
+				$fmfm['grptime'] = $amp_conf['FOLLOWME_TIME'];
+				$fmfm['pre_ring'] = $amp_conf['FOLLOWME_PRERING'];
+				$fmfm['grplist'] = $extdisplay;
+			}
+		} elseif ($action == "add") {
+		} elseif ($extdisplay != '') {
+			$fmfm['ddial'] = "CHECKED";
+			$fmfm['strategy'] = 'ringallv2';
+			$fmfm['grptime'] = 20;
+			$fmfm['pre_ring'] = 0;
+			$fmfm['grplist'] = $extdisplay;
+			$fmfm['postdest'] = "ext-local,$extdisplay,dest";
+		}
+	}
+
 	$moh = music_list();
 	$recordings = recordings_list();
 	$recordingslist = array();
@@ -571,8 +599,9 @@ function findmefollow_users_configpageload() {
 	}
 
 	$disabled = ($fmfm['ddial'] == "CHECKED");
-	$category = "findmefollowme";
+	$category = "findmefollow";
 
+	$currentcomponent->addTabTranslation($category, _("Find Me/Follow Me"));
 	findmefollow_draw_general($fmfm,$currentcomponent,$category,$disabled,$recordingslist,$moh);
 	findmefollow_draw_confirm($fmfm,$currentcomponent,$category,$disabled,$recordingslist,$moh);
 	findmefollow_draw_cid($fmfm,$currentcomponent,$category,$disabled,$recordingslist,$moh);
@@ -657,7 +686,7 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 		"elemname" => "fmfm_pre_ring",
 		"prompttext" => _('Initial Ring Time'),
 		"helptext" => _("This is the number of seconds to ring the primary extension prior to proceeding to the follow-me list. The extension can also be included in the follow-me list. A 0 setting will bypass this."),
-		"currentvalue" => $fmfm['prering'],
+		"currentvalue" => $fmfm['pre_ring'],
 		"valarray" => $sixtey,
 		"class" => "fpbx-fmfm",
 		"disable" => $fmfmdisabled,
@@ -693,7 +722,7 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 	$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)), $category);
 
 	$el = array(
-		"elemname" => "fmfm_pre_ring",
+		"elemname" => "fmfm_grptime",
 		"prompttext" => _('Ring Time'),
 		"helptext" => _("Time in seconds that the phones will ring. For all hunt style ring strategies, this is the time for each iteration of phone(s) that are rung"),
 		"currentvalue" => $fmfm['grptime'],
@@ -708,7 +737,7 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 		"elemname" => "fmfm_grplist",
 		"prompttext" => _('Follow-Me List'),
 		"helptext" => _("List extensions to ring, one per line, or use the Extension Quick Pick below.<br><br>You can include an extension on a remote system, or an external number by suffixing a number with a pound (#).  ex:  2448089# would dial 2448089 on the appropriate trunk (see Outbound Routing)."),
-		"currentvalue" => $fmfm['grplist'],
+		"currentvalue" => str_replace("-","\n",$fmfm['grplist']),
 		"canbeempty" => false,
 		"class" => "fpbx-fmfm",
 		"disable" => $fmfmdisabled
@@ -730,7 +759,7 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 		"elemname" => "fmfm_quickpick",
 		"prompttext" => _('Extension Quick Pick'),
 		"helptext" => _("Choose an extension to append to the end of the extension list above."),
-		"currentvalue" => $fmfm['grptime'],
+		"currentvalue" => "",
 		"valarray" => $optlist,
 		"class" => "fpbx-fmfm",
 		"disable" => $fmfmdisabled,
@@ -855,19 +884,10 @@ function findmefollow_draw_confirm($fmfm,&$currentcomponent,$category,$fmfmdisab
 	);
 	$currentcomponent->addguielem($section, new gui_radio(array_merge($guidefaults,$el)), $category);
 
-	$recordingslist = array();
-	$recordingslist[] = array(
+	$recordingslist[0] = array(
 		"value" => "",
 		"text" => _("Default")
 	);
-	if (!empty($recordings)) {
-		foreach ($recordings as $recording) {
-			$recordingslist[] = array(
-				"value" => $recording['id'],
-				"text" => $recording['displayname']
-			);
-		}
-	}
 	$el = array(
 		"elemname" => "fmfm_remotealert_id",
 		"prompttext" => _('Remote Announce'),
@@ -904,6 +924,15 @@ function findmefollow_draw_cid($fmfm,&$currentcomponent,$category,$fmfmdisabled,
 		}
 	";
 	$currentcomponent->addjsfunc('fmfmCIDMode(notused)', $js);
+
+	$js = "
+	if(!$('#fmfm_fixedcid').prop('disabled')) {
+		var cid = $('#fmfm_fixedcid').val();
+		return !(/^\+?\d+$/.test(cid));
+	}
+	return false;
+	";
+	$currentcomponent->addjsfunc('fmfmCheckFixed(notused)', $js);
 
 	$section = _("Change External CID Configuration");
 	$guidefaults = array(
@@ -973,12 +1002,18 @@ function findmefollow_draw_cid($fmfm,&$currentcomponent,$category,$fmfmdisabled,
 		"currentvalue" => $fmfm['fixedcid'],
 		"canbeempty" => true,
 		"class" => "fpbx-fmfm-cid",
-		"disable" => true
+		"disable" => ($fmfm['changecid'] != "fixed" && $fmfm['changecid'] != "extern"),
+		"jsvalidation" => "frm_${display}_fmfmCheckFixed()",
+		"failvalidationmsg" => _('Fixed CID Value should be in a format of digits only with an option of E164 format using a leading "+"'),
 	);
 	$currentcomponent->addguielem($section, new gui_textbox(array_merge($guidefaults,$el)),$category);
 }
 
 function findmefollow_draw_destinations($fmfm,&$currentcomponent,$category,$fmfmdisabled,$recordingslist,$moh) {
+	global $extdisplay;
+	if(empty($extdisplay)) {
+		return;
+	}
 	$section = _("Destinations");
 	$guidefaults = array(
 		"elemname" => "",
@@ -1011,7 +1046,8 @@ function findmefollow_draw_destinations($fmfm,&$currentcomponent,$category,$fmfm
 		"index" => "fmfm",
 		"required" => true,
 		"dest" => $fmfm['postdest'],
-		"nodest_msg" => ""
+		"nodest_msg" => "",
+		"reset" => true
 	);
 	$currentcomponent->addguielem($section, new gui_drawselects(array_merge($guidefaults,$el)),$category);
 }
@@ -1032,30 +1068,67 @@ function findmefollow_users_configprocess() {
 	}
 	$settings = array();
 
-	dbug(count($_REQUEST));
-	//foreach($_REQUEST as $key => $value) {
-		//if(preg_match("/^fmfm_(.*)/",$key,$matches)) {
-	//		dbug($matches);
-		//}
-	//}
+
+	if(!empty($_REQUEST)) {
+		foreach($_REQUEST as $key => $value) {
+			if(preg_match("/^fmfm_(.*)/",$key,$matches)) {
+				$settings[$matches[1]] = $value;
+			}
+		}
+	}
+
+	if(!empty($settings)) {
+		$settings['ddial'] = ($settings['ddial'] == "enabled") ? "" : "CHECKED";
+		if(isset($settings['needsconf'])) {
+			$settings['needsconf'] = ($settings['needsconf'] == "enabled") ? "CHECKED" : "";
+		}
+		if(!empty($_REQUEST[$_REQUEST[$settings['goto']]."fmfm"])) {
+			$settings['postdest'] = $_REQUEST[$_REQUEST[$settings['goto']]."fmfm"];
+		} else {
+			$settings['postdest'] = "ext-local,$extdisplay,dest";
+		}
+		if(!empty($settings['grplist'])) {
+			$settings['grplist'] = explode("\n",$settings['grplist']);
+		}
+		unset($settings['quickpick']);
+	}
 
 	switch($action) {
 		case "add":
 			if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
+				if(!empty($settings)) {
+					if($settings['ddial'] != "CHECKED") {
+						findmefollow_update($extdisplay,$settings);
+					} elseif($amp_conf['FOLLOWME_AUTO_CREATE']) {
+						$ddial = $amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '';
+						findmefollow_add($extdisplay, $amp_conf['FOLLOWME_RG_STRATEGY'], $amp_conf['FOLLOWME_TIME'],
+						$extdisplay, "", "", "", "", "", "", "","", $amp_conf['FOLLOWME_PRERING'], $ddial,'default','');
+					}
+				}
 			}
 		break;
 		case "edit":
+			if(!empty($settings)) {
+				findmefollow_update($extdisplay,$settings);
+			}
 		break;
 		case "delete":
+			findmefollow_del($extdisplay);
 		break;
 	}
-	if ($action == "add") {
-		if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
+}
 
-			//$ddial = $amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '';
-			//findmefollow_add();
-		}
+function findmefollow_update($grpnum,$settings) {
+	$old = findmefollow_get($grpnum);
+	if(!empty($old)) {
+		findmefollow_del($grpnum);
+		$old['grplist'] = explode("-",$old['grplist']);
+		$settings = array_merge($old,$settings);
+	} else if(empty($old) && $settings['ddial'] == "CHECKED") {
+		return;
 	}
+	extract($settings);
+	findmefollow_add($grpnum,$strategy,$grptime,implode("-",$grplist),$postdest,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid);
 }
 
 function findmefollow_configpageinit($dispnum) {
@@ -1063,69 +1136,16 @@ function findmefollow_configpageinit($dispnum) {
 	global $amp_conf;
 
 	if ( ($dispnum == 'users' || $dispnum == 'extensions') ) {
-		findmefollow_users_configpageinit($dispnum);
-		/*
-		$currentcomponent->addguifunc('findmefollow_configpageload');
-
-		if ($amp_conf['FOLLOWME_AUTO_CREATE']) {
-			$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
-			if ($action=="add") {
-				$currentcomponent->addprocessfunc('findmefollow_configprocess', 8);
-			}
-		}
-		*/
-	}
-}
-
-function findmefollow_configpageload() {
-	global $currentcomponent;
-
-	$viewing_itemid =  isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
-	$action =  isset($_REQUEST['action'])?$_REQUEST['action']:null;
-	if ( $viewing_itemid != '' && $action != 'del') {
-		$set_findmefollow = findmefollow_list();
-		$grpURL = '?'.'display=findmefollow&extdisplay=GRP-'.$viewing_itemid;
-		if (is_array($set_findmefollow)) {
-			if (in_array($viewing_itemid,$set_findmefollow)) {
-				$grpTEXT = _("Edit Follow Me Settings");
-				$icon = "images/user_go.png";
-			} else {
-				$grpTEXT = _("Add Follow Me Settings");
-				$icon = "images/user_add.png";
-			}
-		} else {
-			$grpTEXT = _("Add Follow Me Settings");
-			$icon = "images/user_add.png";
-		}
-		$label = '<span><img width="16" height="16" border="0" title="'.$grpTEXT.'" alt="" src="'.$icon.'"/>&nbsp;'.$grpTEXT.'</span>';
-		//$currentcomponent->addguielem('_top', new gui_link('findmefollowlink', $label, $grpURL));
-	}
-}
-
-// If we are auto-creating a followme for each extension then add the hook funcitons for
-// extensions and users.
-//
-if ($amp_conf['FOLLOWME_AUTO_CREATE']) {
-	function findmefollow_configprocess() {
-		global $amp_conf;
-
-		//create vars from the request
-		$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
-		$ext = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
-		$extn = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
-
-		if ($ext=='') {
-			$extdisplay = $extn;
-		} else {
-			$extdisplay = $ext;
-		}
-		if ($action == "add") {
-			if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
-
-				$ddial = $amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '';
-				findmefollow_add($extdisplay, $amp_conf['FOLLOWME_RG_STRATEGY'], $amp_conf['FOLLOWME_TIME'],
-					$extdisplay, "", "", "", "", "", "", "","", $amp_conf['FOLLOWME_PRERING'], $ddial,'default','');
-			}
+		$action			= isset($_REQUEST['action'])		? $_REQUEST['action']			: null;
+		$extdisplay		= isset($_REQUEST['extdisplay'])	? $_REQUEST['extdisplay']		: null;
+		$extension		= isset($_REQUEST['extension'])		? $_REQUEST['extension']		: null;
+		$tech_hardware	= isset($_REQUEST['tech_hardware'])	? $_REQUEST['tech_hardware']	: null;
+		if ($tech_hardware != null || $pagename == 'users') {
+			findmefollow_users_configpageinit($dispnum);
+		} elseif ($action == "add") {
+			findmefollow_users_configpageinit($dispnum);
+		} elseif ($extdisplay != '') {
+			findmefollow_users_configpageinit($dispnum);
 		}
 	}
 }
