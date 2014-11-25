@@ -2,7 +2,7 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>12.0.8</version>
+	<version>13.0.1</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -51,7 +51,7 @@
 		<findmefollow needsenginedb="yes">Follow Me</findmefollow>
 	</menuitems>
 	<supported>
-		<version>12.0</version>
+		<version>13.0</version>
 	</supported>
 	<location>release/2.11/findmefollow-2.11.0.3.tgz</location>
 	<md5sum>eb10d338f7206c288e52b240ccf4b850</md5sum>
