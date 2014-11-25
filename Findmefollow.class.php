@@ -278,11 +278,15 @@ class Findmefollow implements BMO {
 					}
 				}
 				if(!$value) {
-					$sql = "INSERT INTO findmefollow (grpnum,grptime,grplist) VALUES (:grpnum,20,:grpnum) ON DUPLICATE KEY UPDATE grptime = 20, grplist = :grpnum";
+					$sql = "INSERT INTO findmefollow (grpnum,grptime,grplist) VALUES (:grpnum,20,:grpnum)";
 					$sth = $this->db->prepare($sql);
-					$sth->execute(array(':grpnum' => $grpnum));
-					$this->setListRingTime($grpnum,20);
-					$this->setList($grpnum,array($grpnum));
+					//wrapped into a try/catch incase the find me is already defined, then we won't do the additional steps.
+					try {
+						$sth->execute(array(':grpnum' => $grpnum));
+						//these are the additional steps
+						$this->setListRingTime($grpnum,20);
+						$this->setList($grpnum,array($grpnum));
+					} catch(\Exception $e) {}
 				}
 			break;
 			case 'changecid':
