@@ -578,7 +578,7 @@ function findmefollow_configpageload() {
 			$icon = "images/user_add.png";
 		}
 		$label = '<span><img width="16" height="16" border="0" title="'.$grpTEXT.'" alt="" src="'.$icon.'"/>&nbsp;'.$grpTEXT.'</span>';
-		//$currentcomponent->addguielem('_top', new gui_link('findmefollowlink', $label, $grpURL));
+		$currentcomponent->addguielem('_top', new gui_link('findmefollowlink', $label, $grpURL));
 	}
 }
 
