@@ -1,5 +1,8 @@
-<?php /* $Id: page.findmefollow.php 1197 2006-03-19 17:59:02Z mheydon1973 $ */
+<?php
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
+//	License for all code of this FreePBX module can be found in the license file inside the module directory
+//	Copyright 2013 Schmooze Com Inc.
+//
 $tabindex = 0;
 
 global $followme_exten;
