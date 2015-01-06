@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>12.0.10</version>
+	<version>12.0.11</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*12.0.11* FREEPBX-8513 Connectedline wrong placement of ,i
 		*12.0.10* Licensing updates
 		*12.0.9* Add find me link back to extensions page
 		*12.0.8* FREEPBX-8272 UCP Deletes Follow Me Entries
