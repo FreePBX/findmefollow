@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"POT-Creation-Date: 2015-02-11 17:55-0500\n"
 "PO-Revision-Date: 2009-04-20 14:07+0100\n"
 "Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
 "Language-Team: Français <LL@li.org>\n"
@@ -28,144 +28,41 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Follow Me"
-msgstr "Suivez-Moi"
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:280
+msgid "(pick extension)"
+msgstr "(choisir extension)"
 
-msgid "Applications"
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:226
+msgid "*-prim"
 msgstr ""
 
-msgid ""
-"Much like a ring group, but works on individual extensions. When someone "
-"calls the extension, it can be setup to ring for a number of seconds before "
-"trying to ring other extensions and/or external numbers, or to ring all at "
-"once, or in other various 'hunt' configurations. Most commonly used to ring "
-"someone's cell phone if they don't answer their extension."
-msgstr ""
-
-msgid "Force Follow Me"
-msgstr ""
-
-msgid "Edit Follow Me Settings"
-msgstr "Modifier les Paramètres Suivez-Moi"
-
-msgid "Add Follow Me Settings"
-msgstr "Ajouter des Paramètres Suivez-Moi"
-
-#, php-format
-msgid "Follow-Me: %s (%s)"
-msgstr "Suivez-Moi : %s (%s)"
-
-#, php-format
-msgid "Follow-Me User: %s"
-msgstr "Utilisateur Suivez-Moi : %s"
-
-msgid "Findme Follow Toggle"
-msgstr "Activer/Désactiver Suivez-Moi"
-
-msgid "Cannot connect to Asterisk Manager with "
-msgstr "Impossible de se connecter à Asterisk Manager avec "
-
-msgid "Checking if recordings need migration.."
-msgstr "Contrôle si les enregistrements ont besoin d'être migrés..."
-
-msgid "migrating"
-msgstr "migration en cours"
-
-msgid "adding annmsg_id field.."
-msgstr "ajout du champ annmsg_id"
-
-msgid "fatal error"
-msgstr "erreur fatale"
-
-msgid "ok"
-msgstr "ok"
-
-msgid "adding remotealert_id field.."
-msgstr "ajout du champ remotealert_id"
-
-msgid "adding toolate_id field.."
-msgstr "ajout du champ toolate_id"
-
-msgid "migrate annmsg to ids.."
-msgstr "migration d'annmsg vers ids..."
-
-#, php-format
-msgid "migrated %s entries"
-msgstr "%s entrées migrées"
-
-msgid "migrate remotealert to ids.."
-msgstr "migration de remotealert vers ids..."
-
-msgid "migrate toolate to  ids.."
-msgstr "migration de toolate vers ids..."
-
-msgid "dropping annmsg field.."
-msgstr "suppression du champ annmsg..."
-
-msgid "no annmsg field???"
-msgstr "pas de champ annmsg ???"
-
-msgid "dropping remotealert field.."
-msgstr "supression du champ remotealert..."
-
-msgid "no remotealert field???"
-msgstr "pas de champ remotealert ???"
-
-msgid "dropping toolate field.."
-msgstr "suppression du champ toolate..."
-
-msgid "no toolate field???"
-msgstr "pas de champ toolate ???"
-
-msgid "already migrated"
-msgstr "déjà migré"
-
-msgid "Warning! Extension"
-msgstr "Attention ! L'Extension"
-
-msgid "is not allowed for your account"
-msgstr "n'est pas autorisée pour votre compte"
-
-msgid "Choose a user/extension:"
-msgstr "Choisissez un utilisateur/une extension :"
-
-msgid "deleted"
-msgstr "supprimé"
-
-msgid "Delete Entries"
-msgstr "Supprimer Entrées"
-
-msgid "User"
-msgstr "Utilisateur"
-
-msgid "Extension"
-msgstr "Extension"
-
-#, php-format
-msgid "Edit %s"
-msgstr "Editer %s"
-
-#, php-format
-msgid "Edit %s %s"
-msgstr "Editer %s %s"
-
-msgid "Edit Follow Me"
-msgstr "Editer Suivez-Moi"
-
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:182
 msgid "Add Follow Me"
 msgstr "Ajouter Suivez-Moi"
 
-msgid "group number"
-msgstr "numéro de groupe"
+#: /usr/src/freepbx/findmefollow/functions.inc.php:572
+#: /usr/src/freepbx/findmefollow/functions.inc.php:576
+msgid "Add Follow Me Settings"
+msgstr "Ajouter des Paramètres Suivez-Moi"
 
-msgid "The number users will dial to ring extensions in this ring group"
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:346
+msgid "Alert Info"
+msgstr "Info d'Alerte"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:402
+msgid "Always transmit the Fixed CID Value below."
 msgstr ""
-"Le numéro que les utilisateurs composeront pour faire sonner les extensions "
-"de ce groupe"
 
-msgid "Disable"
-msgstr "Désactiver"
+#: /usr/src/freepbx/findmefollow/ucp/views/settings.php:20
+msgid "Announcement"
+msgstr ""
 
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:293
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:311
+msgid "Announcement:"
+msgstr "Annonce :"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:196
 msgid ""
 "By default (not checked) any call to this extension will go to this Follow-"
 "Me instead, including directory calls by name from IVRs. If checked, calls "
@@ -182,184 +79,91 @@ msgstr ""
 "seulement si l'appelant choisit de vous trouver, vous voulez que l'appel "
 "arrive ici."
 
-msgid "Initial Ring Time:"
-msgstr "Temps de Sonnerie Initial :"
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:341
+msgid "CID Name Prefix"
+msgstr "Préfixe de Nom CID"
 
-msgid ""
-"This is the number of seconds to ring the primary extension prior to "
-"proceeding to the follow-me list. The extension can also be included in the "
-"follow-me list. A 0 setting will bypass this."
-msgstr ""
-"Il s'agit du nombre de secondes à faire sonner l'extension primaire avant de "
-"passer à la liste Suivez-Moi. L'extension peut aussi être incluse dans la "
-"liste Suivez-Moi. Un paramètre 0 ignorera ceci."
-
-msgid "Ring Strategy:"
-msgstr "Stratégie de Sonnerie :"
-
-msgid "ringallv2"
-msgstr "Sonner Partout v2"
-
-msgid ""
-"ring primary extension for initial ring time followed by all additional "
-"extensions until one answers"
-msgstr ""
-"fait sonner l'extension primaire pendant le temps de sonnerie initial suivi "
-"de toutes les extensions additionnelles jusqu'à qu'une réponde"
-
-msgid "ringall"
-msgstr "Sonner Partout"
-
-msgid "ring all available channels until one answers (default)"
-msgstr ""
-"fait sonner tous les canaux disponibles jusqu'à qu'un réponde (par défaut)"
-
-msgid "hunt"
-msgstr "Chasse"
-
-msgid "take turns ringing each available extension"
-msgstr "Fait sonner tour à tour chaque extension disponible"
-
-msgid "memoryhunt"
-msgstr "Chasse avec mémoire"
-
-msgid ""
-"ring first extension in the list, then ring the 1st and 2nd extension, then "
-"ring 1st 2nd and 3rd extension in the list.... etc."
-msgstr ""
-"fait sonner la première extension dans la liste, puis fait sonner la 1e et "
-"la 2e extension, puis 1e, 2e et 3e extension de la liste, etc..."
-
-msgid "*-prim"
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:350
+msgid "Call Confirmation Configuration"
 msgstr ""
 
-msgid ""
-"these modes act as described above. However, if the primary extension (first "
-"in list) is occupied, the other extensions will not be rung. If the primary "
-"is FreePBX DND, it won't be rung. If the primary is FreePBX CF "
-"unconditional, then all will be rung"
+#: /usr/src/freepbx/findmefollow/install.php:130
+#: /usr/src/freepbx/findmefollow/uninstall.php:30
+msgid "Cannot connect to Asterisk Manager with "
+msgstr "Impossible de se connecter à Asterisk Manager avec "
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:396
+msgid "Change External CID Configuration"
 msgstr ""
-"ces modes se agissent tel que décrit ci-dessus. Cependant, si l'extension "
-"primaire (1e dans la liste) est occupée, les autres extensions ne sonneront "
-"pas. Si la primaire est FreePBX Ne pas Déranger, elle ne sonnera pas. Si la "
-"primaire est FreePBX Transfert d'Appel inconditionnel, alors toutes sonneront"
 
-msgid "firstavailable"
-msgstr "Premier Disponible"
+#: /usr/src/freepbx/findmefollow/install.php:148
+msgid "Checking if recordings need migration.."
+msgstr "Contrôle si les enregistrements ont besoin d'être migrés..."
 
-msgid "ring only the first available channel"
-msgstr "fait sonner uniquement le premier canal disponible"
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:120
+msgid "Choose a user/extension:"
+msgstr "Choisissez un utilisateur/une extension :"
 
-msgid "firstnotonphone"
-msgstr "Premier pas au téléphone"
-
-msgid "ring only the first channel which is not off hook - ignore CW"
-msgstr ""
-"fait sonner uniquement le premier canal qui n'est pas au téléphone - ignore "
-"les alertes d'appel "
-
-msgid "Ring Time (max 60 sec)"
-msgstr "Temps de Sonnerie (max 60 secondes)"
-
-msgid ""
-"Time in seconds that the phones will ring. For all hunt style ring "
-"strategies, this is the time for each iteration of phone(s) that are rung"
-msgstr ""
-"Temps en secondes pendant lequel les téléphones sonneront. Pour toutes les "
-"stratégies de styles de sonnerie \"Chasse\", c'est le temps pour chaque "
-"itération de téléphone qui sonne"
-
-msgid "Follow-Me List"
-msgstr "Liste Suivez-Moi"
-
-msgid ""
-"List extensions to ring, one per line, or use the Extension Quick Pick below."
-"<br><br>You can include an extension on a remote system, or an external "
-"number by suffixing a number with a pound (#).  ex:  2448089# would dial "
-"2448089 on the appropriate trunk (see Outbound Routing)."
-msgstr ""
-"Listez les extensions à faire sonner, une par ligne, ou utilisez l'Extension "
-"Sélection Rapide ci-dessous.<br><br>Vous pouvez inclure une extension sur un "
-"système distant, ou un numéro externe en suffixant un numéro avec un dièse "
-"(#). exemple : 2448089# composera 2448089 sur le trunk approprié (voir "
-"Routes Sortantes)."
-
-msgid "Extension Quick Pick"
-msgstr "Extension de Sélection Rapide"
-
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:274
 msgid "Choose an extension to append to the end of the extension list above."
 msgstr ""
 "Choisissez une extension à placer à la fin de la liste d'extensions ci-"
 "dessous."
 
-msgid "(pick extension)"
-msgstr "(choisir extension)"
-
-msgid "Announcement:"
-msgstr "Annonce :"
-
-msgid ""
-"Message to be played to the caller before dialing this group.<br><br>To add "
-"additional recordings please use the \"System Recordings\" MENU to the left"
-msgstr ""
-"Message qui sera joué à l'appelant avant de composer le numéro de ce groupe."
-"<br><br>Pour ajouter des enregistrements additionnels, veuillez utiliser le "
-"MENU \"Enregistrements Système\" sur la gauche"
-
-msgid "None"
-msgstr "Aucun"
-
-msgid ""
-"Message to be played to the caller before dialing this group.<br><br>You "
-"must install and enable the \"Systems Recordings\" Module to edit this option"
-msgstr ""
-"Message qui sera joué à l'appelant avant de composer le numéro de ce groupe."
-"<br><br>Vous devez installer et activer le Module \"Enregistrements Système"
-"\" pour éditer cette option"
-
-msgid "Play Music On Hold?"
-msgstr "Jouer la Musique d'Attente ?"
-
-msgid ""
-"If you select a Music on Hold class to play, instead of 'Ring', they will "
-"hear that instead of Ringing while they are waiting for someone to pick up."
-msgstr ""
-"Si vous sélectionnez une classe de Musique d'Attente à jouer, à la place de "
-"'Sonner', ils entendront cela à la place de la Sonnerie pendant qu'ils "
-"attendent que quelqu'un ne leur réponde."
-
-msgid "Ring"
-msgstr "Sonner"
-
-msgid "CID Name Prefix"
-msgstr "Préfixe de Nom CID"
-
-msgid ""
-"You can optionally prefix the Caller ID name when ringing extensions in this "
-"group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
-"as \"Sales:John Doe\" on the extensions that ring."
-msgstr ""
-"Vous pouvez optionnellement préfixer le nom de l'identifiant de l'appelant "
-"quand les extensions de ce groupe sonnent. Par exemple : Si vous préfixez "
-"avec \"Ventes :\", un appel de John Doe affichera \"Ventes : John Doe\" sur "
-"les extensions qui sonnent."
-
-msgid "Alert Info"
-msgstr "Info d'Alerte"
-
-msgid ""
-"You can optionally include an Alert Info which can create distinctive rings "
-"on SIP phones."
-msgstr ""
-"Vous pouvez optionnellement inclure une Info d'Alerte qui peut créer des "
-"sonneries différentes sur les téléphones SIP"
-
-msgid "Call Confirmation Configuration"
-msgstr ""
-
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:353
 msgid "Confirm Calls"
 msgstr "Confirmer les Appels"
 
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:367
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:384
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:401
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:413
+msgid "Default"
+msgstr "Par Défaut"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:156
+msgid "Delete Entries"
+msgstr "Supprimer Entrées"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:429
+msgid "Destination if no answer"
+msgstr "Destination si pas de réponse"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:196
+msgid "Disable"
+msgstr "Désactiver"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:173
+#, php-format
+msgid "Edit %s"
+msgstr "Editer %s"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:173
+#, php-format
+msgid "Edit %s %s"
+msgstr "Editer %s %s"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:182
+msgid "Edit Follow Me"
+msgstr "Editer Suivez-Moi"
+
+#: /usr/src/freepbx/findmefollow/functions.inc.php:569
+msgid "Edit Follow Me Settings"
+msgstr "Modifier les Paramètres Suivez-Moi"
+
+#: /usr/src/freepbx/findmefollow/ucp/views/settings.php:4
+msgid "Enable"
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/ucp/views/settings.php:56
+msgid ""
+"Enable this if you're calling external numbers that need confirmation - eg, "
+"a mobile phone may go to voicemail which will pick up the call. Enabling "
+"this requires the remote side push 1 on their phone before the call is put "
+"through."
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:353
 msgid ""
 "Enable this if you're calling external numbers that need confirmation - eg, "
 "a mobile phone may go to voicemail which will pick up the call. Enabling "
@@ -373,9 +177,149 @@ msgstr ""
 "Cette fonctionnalité ne fonctionne qu'avec les stratégies de sonnerie Sonner "
 "Partout/Sonner Partout-prim"
 
-msgid "Remote Announce:"
-msgstr "Annonce Distante :"
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:170
+msgid "Extension"
+msgstr "Extension"
 
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:272
+msgid "Extension Quick Pick"
+msgstr "Extension de Sélection Rapide"
+
+#: /usr/src/freepbx/findmefollow/ucp/Findmefollow.class.php:35
+msgid "Find Me/Follow Me"
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/ucp/Findmefollow.class.php:85
+msgid "Find Me/Follow Me Has Been Updated!"
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/install.php:5
+msgid "Findme Follow Toggle"
+msgstr "Activer/Désactiver Suivez-Moi"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:402
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:414
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:425
+msgid "Fixed CID Value"
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:425
+msgid ""
+"Fixed value to replace the CID with used with some of the modes above. "
+"Should be in a format of digits only with an option of E164 format using a "
+"leading \"+\"."
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:120
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:123
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:159
+msgid "Follow Me"
+msgstr "Suivez-Moi"
+
+#: /usr/src/freepbx/findmefollow/ucp/views/settings.php:15
+msgid "Follow Me List"
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/functions.inc.php:625
+#, php-format
+msgid "Follow Me: %s"
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:257
+msgid "Follow-Me List"
+msgstr "Liste Suivez-Moi"
+
+#: /usr/src/freepbx/findmefollow/functions.inc.php:678
+#, php-format
+msgid "Follow-Me User: %s"
+msgstr "Utilisateur Suivez-Moi : %s"
+
+#: /usr/src/freepbx/findmefollow/functions.inc.php:654
+#, php-format
+msgid "Follow-Me: %s (%s)"
+msgstr "Suivez-Moi : %s (%s)"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:405
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:417
+msgid "Force Dialed Number"
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/functions.inc.php:34
+msgid "Force Follow Me"
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:322
+msgid ""
+"If you select a Music on Hold class to play, instead of 'Ring', they will "
+"hear that instead of Ringing while they are waiting for someone to pick up."
+msgstr ""
+"Si vous sélectionnez une classe de Musique d'Attente à jouer, à la place de "
+"'Sonner', ils entendront cela à la place de la Sonnerie pendant qu'ils "
+"attendent que quelqu'un ne leur réponde."
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:202
+msgid "Initial Ring Time:"
+msgstr "Temps de Sonnerie Initial :"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:482
+msgid ""
+"Invalid CID Number. Must be in a format of digits only with an option of "
+"E164 format using a leading \"+\""
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:479
+msgid "Invalid time specified"
+msgstr "Temps spécifié invalide"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:257
+msgid ""
+"List extensions to ring, one per line, or use the Extension Quick Pick below."
+"<br><br>You can include an extension on a remote system, or an external "
+"number by suffixing a number with a pound (#).  ex:  2448089# would dial "
+"2448089 on the appropriate trunk (see Outbound Routing)."
+msgstr ""
+"Listez les extensions à faire sonner, une par ligne, ou utilisez l'Extension "
+"Sélection Rapide ci-dessous.<br><br>Vous pouvez inclure une extension sur un "
+"système distant, ou un numéro externe en suffixant un numéro avec un dièse "
+"(#). exemple : 2448089# composera 2448089 sur le trunk approprié (voir "
+"Routes Sortantes)."
+
+#: /usr/src/freepbx/findmefollow/ucp/views/settings.php:17
+msgid ""
+"List extensions to ring, one per line. You can include an extension on a "
+"remote system, or an external number by suffixing a number with a pound "
+"(#).  ex:  2448089# would dial 2448089."
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/ucp/views/settings.php:27
+msgid "Message to be played to the caller before dialing this group."
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:293
+msgid ""
+"Message to be played to the caller before dialing this group.<br><br>To add "
+"additional recordings please use the \"System Recordings\" MENU to the left"
+msgstr ""
+"Message qui sera joué à l'appelant avant de composer le numéro de ce groupe."
+"<br><br>Pour ajouter des enregistrements additionnels, veuillez utiliser le "
+"MENU \"Enregistrements Système\" sur la gauche"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:311
+msgid ""
+"Message to be played to the caller before dialing this group.<br><br>You "
+"must install and enable the \"Systems Recordings\" Module to edit this option"
+msgstr ""
+"Message qui sera joué à l'appelant avant de composer le numéro de ce groupe."
+"<br><br>Vous devez installer et activer le Module \"Enregistrements Système"
+"\" pour éditer cette option"
+
+#: /usr/src/freepbx/findmefollow/ucp/views/settings.php:66
+msgid ""
+"Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
+"enabled."
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:361
 msgid ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
 "enabled.<br><br>To add additional recordings use the \"System Recordings\" "
@@ -385,12 +329,13 @@ msgstr ""
 "Appels' est activé.<br><br>Pour ajouter des enregistrements additionnels, "
 "utilisez le MENU \"Enregistrements Système\" sur la gauche"
 
-msgid "Default"
-msgstr "Par Défaut"
+#: /usr/src/freepbx/findmefollow/ucp/views/settings.php:76
+msgid ""
+"Message to be played to the person RECEIVING the call, if the call has "
+"already been accepted before they push 1."
+msgstr ""
 
-msgid "Too-Late Announce:"
-msgstr "Annonce Trop Tard :"
-
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:378
 msgid ""
 "Message to be played to the person RECEIVING the call, if the call has "
 "already been accepted before they push 1.<br><br>To add additional "
@@ -401,71 +346,22 @@ msgstr ""
 "enregistrements additionnels, utilisez le MENU  \"Enregistrements Système\" "
 "sur la gauche"
 
-msgid "Change External CID Configuration"
-msgstr ""
-
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:399
 msgid "Mode"
 msgstr ""
 
-msgid "Transmits the Callers CID if allowed by the trunk."
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:299
+#: /usr/src/freepbx/findmefollow/ucp/views/settings.php:22
+#: /usr/src/freepbx/findmefollow/ucp/views/settings.php:61
+#: /usr/src/freepbx/findmefollow/ucp/views/settings.php:71
+msgid "None"
+msgstr "Aucun"
+
+#: /usr/src/freepbx/findmefollow/functions.inc.php:18
+msgid "Normal Extension Behavior"
 msgstr ""
 
-msgid "Fixed CID Value"
-msgstr ""
-
-msgid "Always transmit the Fixed CID Value below."
-msgstr ""
-
-msgid "Outside Calls Fixed CID Value"
-msgstr ""
-
-msgid ""
-"Transmit the Fixed CID Value below on calls that come in from outside only. "
-"Internal extension to extension calls will continue to operate in default "
-"mode."
-msgstr ""
-
-msgid "Use Dialed Number"
-msgstr ""
-
-msgid ""
-"Transmit the number that was dialed as the CID for calls coming from "
-"outside. Internal extension to extension calls will continue to operate in "
-"default mode. There must be a DID on the inbound route for this. This will "
-"be BLOCKED on trunks that block foreign CallerID"
-msgstr ""
-
-msgid "Force Dialed Number"
-msgstr ""
-
-msgid ""
-"Transmit the number that was dialed as the CID for calls coming from "
-"outside. Internal extension to extension calls will continue to operate in "
-"default mode. There must be a DID on the inbound route for this. This WILL "
-"be transmitted on trunks that block foreign CallerID"
-msgstr ""
-
-msgid ""
-"Fixed value to replace the CID with used with some of the modes above. "
-"Should be in a format of digits only with an option of E164 format using a "
-"leading \"+\"."
-msgstr ""
-
-msgid "Destination if no answer"
-msgstr "Destination si pas de réponse"
-
-msgid "Submit Changes"
-msgstr "Appliquer les Modifications"
-
-msgid "Please enter an extension list."
-msgstr "Veuillez entrer une liste d'extension"
-
-msgid "Invalid time specified"
-msgstr "Temps spécifié invalide"
-
-msgid "Time must be between 1 and 60 seconds"
-msgstr "Le temps doit être compris entre 1 et 60 secondes"
-
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:481
 msgid ""
 "Only ringall, ringallv2, hunt and the respective -prim versions are "
 "supported when confirmation is checked"
@@ -473,10 +369,346 @@ msgstr ""
 "Sonner Partout, Sonner\tPartout v2, Chasse et les versions -prim respectives "
 "uniquement sont supportés lorsque confirmation est coché"
 
-msgid ""
-"Invalid CID Number. Must be in a format of digits only with an option of "
-"E164 format using a leading \"+\""
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:403
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:415
+msgid "Outside Calls Fixed CID Value"
 msgstr ""
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:322
+msgid "Play Music On Hold?"
+msgstr "Jouer la Musique d'Attente ?"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:478
+msgid "Please enter an extension list."
+msgstr "Veuillez entrer une liste d'extension"
+
+#: /usr/src/freepbx/findmefollow/ucp/views/settings.php:59
+msgid "Remote Announce"
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:361
+msgid "Remote Announce:"
+msgstr "Annonce Distante :"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:328
+msgid "Ring"
+msgstr "Sonner"
+
+#: /usr/src/freepbx/findmefollow/ucp/views/settings.php:30
+#, php-format
+msgid "Ring %s First For"
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/ucp/views/settings.php:39
+msgid "Ring Followme List For"
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:220
+msgid "Ring Strategy:"
+msgstr "Stratégie de Sonnerie :"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:247
+msgid "Ring Time (max 60 sec)"
+msgstr "Temps de Sonnerie (max 60 secondes)"
+
+#: /usr/src/freepbx/findmefollow/ucp/views/settings.php:33
+#: /usr/src/freepbx/findmefollow/ucp/views/settings.php:42
+msgid "Seconds"
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:440
+msgid "Submit Changes"
+msgstr "Appliquer les Modifications"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:190
+msgid "The number users will dial to ring extensions in this ring group"
+msgstr ""
+"Le numéro que les utilisateurs composeront pour faire sonner les extensions "
+"de ce groupe"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:203
+#: /usr/src/freepbx/findmefollow/ucp/views/settings.php:36
+msgid ""
+"This is the number of seconds to ring the primary extension prior to "
+"proceeding to the follow-me list. The extension can also be included in the "
+"follow-me list. A 0 setting will bypass this."
+msgstr ""
+"Il s'agit du nombre de secondes à faire sonner l'extension primaire avant de "
+"passer à la liste Suivez-Moi. L'extension peut aussi être incluse dans la "
+"liste Suivez-Moi. Un paramètre 0 ignorera ceci."
+
+#: /usr/src/freepbx/findmefollow/ucp/views/settings.php:45
+msgid "Time in seconds that the phones will ring"
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:249
+msgid ""
+"Time in seconds that the phones will ring. For all hunt style ring "
+"strategies, this is the time for each iteration of phone(s) that are rung"
+msgstr ""
+"Temps en secondes pendant lequel les téléphones sonneront. Pour toutes les "
+"stratégies de styles de sonnerie \"Chasse\", c'est le temps pour chaque "
+"itération de téléphone qui sonne"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:480
+msgid "Time must be between 1 and 60 seconds"
+msgstr "Le temps doit être compris entre 1 et 60 secondes"
+
+#: /usr/src/freepbx/findmefollow/ucp/views/settings.php:69
+msgid "Too-Late Announce"
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:378
+msgid "Too-Late Announce:"
+msgstr "Annonce Trop Tard :"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:403
+msgid ""
+"Transmit the Fixed CID Value below on calls that come in from outside only. "
+"Internal extension to extension calls will continue to operate in default "
+"mode."
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:405
+msgid ""
+"Transmit the number that was dialed as the CID for calls coming from "
+"outside. Internal extension to extension calls will continue to operate in "
+"default mode. There must be a DID on the inbound route for this. This WILL "
+"be transmitted on trunks that block foreign CallerID"
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:404
+msgid ""
+"Transmit the number that was dialed as the CID for calls coming from "
+"outside. Internal extension to extension calls will continue to operate in "
+"default mode. There must be a DID on the inbound route for this. This will "
+"be BLOCKED on trunks that block foreign CallerID"
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:401
+msgid "Transmits the Callers CID if allowed by the trunk."
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/ucp/views/settings.php:48
+msgid "Use Confirmation"
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:404
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:416
+msgid "Use Dialed Number"
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:166
+msgid "User"
+msgstr "Utilisateur"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:71
+msgid "Warning! Extension"
+msgstr "Attention ! L'Extension"
+
+#: /usr/src/freepbx/findmefollow/ucp/views/settings.php:12
+msgid ""
+"When enabled any call to this extension will go to this Follow-Me instead, "
+"including directory calls by name from IVRs. If disabled, calls will go only "
+"to the extension."
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:346
+msgid ""
+"You can optionally include an Alert Info which can create distinctive rings "
+"on SIP phones."
+msgstr ""
+"Vous pouvez optionnellement inclure une Info d'Alerte qui peut créer des "
+"sonneries différentes sur les téléphones SIP"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:341
+msgid ""
+"You can optionally prefix the Caller ID name when ringing extensions in this "
+"group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
+"as \"Sales:John Doe\" on the extensions that ring."
+msgstr ""
+"Vous pouvez optionnellement préfixer le nom de l'identifiant de l'appelant "
+"quand les extensions de ce groupe sonnent. Par exemple : Si vous préfixez "
+"avec \"Ventes :\", un appel de John Doe affichera \"Ventes : John Doe\" sur "
+"les extensions qui sonnent."
+
+#: /usr/src/freepbx/findmefollow/install.php:155
+msgid "adding annmsg_id field.."
+msgstr "ajout du champ annmsg_id"
+
+#: /usr/src/freepbx/findmefollow/install.php:164
+msgid "adding remotealert_id field.."
+msgstr "ajout du champ remotealert_id"
+
+#: /usr/src/freepbx/findmefollow/install.php:173
+msgid "adding toolate_id field.."
+msgstr "ajout du champ toolate_id"
+
+#: /usr/src/freepbx/findmefollow/install.php:291
+msgid "already migrated"
+msgstr "déjà migré"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:123
+msgid "deleted"
+msgstr "supprimé"
+
+#: /usr/src/freepbx/findmefollow/install.php:265
+msgid "dropping annmsg field.."
+msgstr "suppression du champ annmsg..."
+
+#: /usr/src/freepbx/findmefollow/install.php:273
+msgid "dropping remotealert field.."
+msgstr "supression du champ remotealert..."
+
+#: /usr/src/freepbx/findmefollow/install.php:281
+msgid "dropping toolate field.."
+msgstr "suppression du champ toolate..."
+
+#: /usr/src/freepbx/findmefollow/install.php:159
+#: /usr/src/freepbx/findmefollow/install.php:168
+#: /usr/src/freepbx/findmefollow/install.php:177
+#: /usr/src/freepbx/findmefollow/install.php:189
+#: /usr/src/freepbx/findmefollow/install.php:205
+#: /usr/src/freepbx/findmefollow/install.php:215
+#: /usr/src/freepbx/findmefollow/install.php:231
+#: /usr/src/freepbx/findmefollow/install.php:241
+#: /usr/src/freepbx/findmefollow/install.php:257
+msgid "fatal error"
+msgstr "erreur fatale"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:227
+msgid "firstavailable"
+msgstr "Premier Disponible"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:228
+msgid "firstnotonphone"
+msgstr "Premier pas au téléphone"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:190
+msgid "group number"
+msgstr "numéro de groupe"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:224
+msgid "hunt"
+msgstr "Chasse"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:71
+msgid "is not allowed for your account"
+msgstr "n'est pas autorisée pour votre compte"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:225
+msgid "memoryhunt"
+msgstr "Chasse avec mémoire"
+
+#: /usr/src/freepbx/findmefollow/install.php:185
+msgid "migrate annmsg to ids.."
+msgstr "migration d'annmsg vers ids..."
+
+#: /usr/src/freepbx/findmefollow/install.php:211
+msgid "migrate remotealert to ids.."
+msgstr "migration de remotealert vers ids..."
+
+#: /usr/src/freepbx/findmefollow/install.php:237
+msgid "migrate toolate to  ids.."
+msgstr "migration de toolate vers ids..."
+
+#: /usr/src/freepbx/findmefollow/install.php:209
+#: /usr/src/freepbx/findmefollow/install.php:235
+#: /usr/src/freepbx/findmefollow/install.php:261
+#, php-format
+msgid "migrated %s entries"
+msgstr "%s entrées migrées"
+
+#: /usr/src/freepbx/findmefollow/install.php:154
+msgid "migrating"
+msgstr "migration en cours"
+
+#: /usr/src/freepbx/findmefollow/install.php:269
+msgid "no annmsg field???"
+msgstr "pas de champ annmsg ???"
+
+#: /usr/src/freepbx/findmefollow/install.php:277
+msgid "no remotealert field???"
+msgstr "pas de champ remotealert ???"
+
+#: /usr/src/freepbx/findmefollow/install.php:285
+msgid "no toolate field???"
+msgstr "pas de champ toolate ???"
+
+#: /usr/src/freepbx/findmefollow/install.php:162
+#: /usr/src/freepbx/findmefollow/install.php:171
+#: /usr/src/freepbx/findmefollow/install.php:180
+#: /usr/src/freepbx/findmefollow/install.php:271
+#: /usr/src/freepbx/findmefollow/install.php:279
+#: /usr/src/freepbx/findmefollow/install.php:287
+msgid "ok"
+msgstr "ok"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:223
+msgid ""
+"ring Extension for duration set in Initial Ring Time, and then terminate "
+"call to Extension and ring Follow-Me List for duration set in Ring Time."
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:222
+msgid ""
+"ring Extension for duration set in Initial Ring Time, and then, while "
+"continuing call to extension, ring Follow-Me List for duration set in Ring "
+"Time."
+msgstr ""
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:225
+msgid ""
+"ring first extension in the list, then ring the 1st and 2nd extension, then "
+"ring 1st 2nd and 3rd extension in the list.... etc."
+msgstr ""
+"fait sonner la première extension dans la liste, puis fait sonner la 1e et "
+"la 2e extension, puis 1e, 2e et 3e extension de la liste, etc..."
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:227
+msgid "ring only the first available channel"
+msgstr "fait sonner uniquement le premier canal disponible"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:228
+msgid "ring only the first channel which is not off hook - ignore CW"
+msgstr ""
+"fait sonner uniquement le premier canal qui n'est pas au téléphone - ignore "
+"les alertes d'appel "
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:223
+msgid "ringall"
+msgstr "Sonner Partout"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:222
+msgid "ringallv2"
+msgstr "Sonner Partout v2"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:224
+msgid "take turns ringing each available extension"
+msgstr "Fait sonner tour à tour chaque extension disponible"
+
+#: /usr/src/freepbx/findmefollow/page.findmefollow.php:226
+msgid ""
+"these modes act as described above. However, if the primary extension (first "
+"in list) is occupied, the other extensions will not be rung. If the primary "
+"is FreePBX DND, it won't be rung. If the primary is FreePBX CF "
+"unconditional, then all will be rung"
+msgstr ""
+"ces modes se agissent tel que décrit ci-dessus. Cependant, si l'extension "
+"primaire (1e dans la liste) est occupée, les autres extensions ne sonneront "
+"pas. Si la primaire est FreePBX Ne pas Déranger, elle ne sonnera pas. Si la "
+"primaire est FreePBX Transfert d'Appel inconditionnel, alors toutes sonneront"
+
+#~ msgid ""
+#~ "ring primary extension for initial ring time followed by all additional "
+#~ "extensions until one answers"
+#~ msgstr ""
+#~ "fait sonner l'extension primaire pendant le temps de sonnerie initial "
+#~ "suivi de toutes les extensions additionnelles jusqu'à qu'une réponde"
+
+#~ msgid "ring all available channels until one answers (default)"
+#~ msgstr ""
+#~ "fait sonner tous les canaux disponibles jusqu'à qu'un réponde (par défaut)"
 
 #~ msgid "Invalid Group Number specified"
 #~ msgstr "Numéro de Groupe spécifié invalide"
