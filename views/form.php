@@ -1,0 +1,544 @@
+<?php
+namespace FreePBX\modules;
+//	License for all code of this FreePBX module can be found in the license file inside the module directory
+//	Copyright 2015 Sangoma Technologies.
+//
+extract($request);
+
+if ($extdisplay != "") {
+	// We need to populate grplist with the existing extension list.
+	$extdisplay = ltrim($extdisplay,'GRP-');
+	$followme_exten = $extdisplay;
+	$thisgrp = findmefollow_get($extdisplay, 1);
+	$grpliststr = isset($thisgrp['grplist']) ? $thisgrp['grplist'] : '';
+	$grplist = explode("-", $grpliststr);
+	$strategy    = isset($thisgrp['strategy'])    ? $thisgrp['strategy']    : '';
+	$grppre      = isset($thisgrp['grppre'])      ? $thisgrp['grppre']      : '';
+	$grptime     = isset($thisgrp['grptime'])     ? $thisgrp['grptime']     : '';
+	$annmsg_id   = isset($thisgrp['annmsg_id'])      ? $thisgrp['annmsg_id']      : '';
+	$dring       = isset($thisgrp['dring'])       ? $thisgrp['dring']       : '';
+	$remotealert_id = isset($thisgrp['remotealert_id']) ? $thisgrp['remotealert_id'] : '';
+	$needsconf   = isset($thisgrp['needsconf'])   ? $thisgrp['needsconf']   : '';
+	$toolate_id  = isset($thisgrp['toolate_id'])     ? $thisgrp['toolate_id']     : '';
+	$ringing     = isset($thisgrp['ringing'])     ? $thisgrp['ringing']     : '';
+	$pre_ring    = isset($thisgrp['pre_ring'])    ? $thisgrp['pre_ring']    : '';
+	$ddial       = isset($thisgrp['ddial'])       ? $thisgrp['ddial']       : '';
+	$changecid   = isset($thisgrp['changecid'])   ? $thisgrp['changecid']   : 'default';
+	$fixedcid    = isset($thisgrp['fixedcid'])    ? $thisgrp['fixedcid']    : '';
+	$goto = isset($thisgrp['postdest'])?$thisgrp['postdest']:((isset($thisgrp['voicemail']) && $thisgrp['voicemail'] != 'novm')?"ext-local,vmu$extdisplay,1":'');
+	unset($grpliststr);
+	unset($thisgrp);
+	if (isset($amp_conf["AMPEXTENSIONS"]) && ($amp_conf["AMPEXTENSIONS"] == "deviceanduser")) {
+		$editURL = '?display=users&extdisplay='.$extdisplay;
+		$EXTorUSER = _("User");
+	}else{
+		$editURL = '?display=extensions&extdisplay='.$extdisplay;
+		$EXTorUSER = _("Extension");
+	}
+}
+//Ring Strategy Help
+$rshelp =    '<b>' . _("ringallv2"). 		'</b>: ' . _("ring Extension for duration set in Initial Ring Time, and then, while continuing call to extension, ring Follow-Me List for duration set in Ring Time.")
+			.'<br>' 
+			.'<b>' . _("ringall"). 			'</b>: ' . _("ring Extension for duration set in Initial Ring Time, and then terminate call to Extension and ring Follow-Me List for duration set in Ring Time.")
+			.'<br>' 
+			.'<b>' . _("hunt"). 			'</b>: ' . _("take turns ringing each available extension")
+			.'<br>' 
+			.'<b>' . _("memoryhunt").		'</b>: ' . _("ring first extension in the list, then ring the 1st and 2nd extension, then ring 1st 2nd and 3rd extension in the list.... etc.")
+			.'<br>' 
+			.'<b>' . _("*-prim"). 			'</b>: ' . _("these modes act as described above. However, if the primary extension (first in list) is occupied, the other extensions will not be rung. If the primary is FreePBX DND, it won't be rung. If the primary is FreePBX CF unconditional, then all will be rung")
+			.'<br>' 
+			.'<b>' . _("firstavailable").	'</b>: ' . _("ring only the first available channel")
+			.'<br>' 
+			.'<b>' . _("firstnotonphone"). 	'</b>: ' . _("ring only the first channel which is not off hook - ignore CW")
+			.'<br>';
+//Ring Strategy Select Options
+$default = (isset($strategy) ? $strategy : 'ringall');
+$items = array('ringallv2','ringallv2-prim','ringall','ringall-prim','hunt','hunt-prim','memoryhunt','memoryhunt-prim','firstavailable','firstnotonphone');
+foreach ($items as $item) {
+	$rsrows .= '<option value="'.$item.'" '.($default == $item ? 'SELECTED' : '').'>'._($item).'</option>';
+}
+//For Quick Select
+$results = core_users_list();
+foreach($results as $result){
+	$qsagentlist .= "<option value='".$result[0]."'>".$result[0]." (".$result[1].")</option>\n";
+}
+$glrows = count($grplist)+1;
+$glrows = ($glrows < 4) ? 4 : (($glrows > 20) ? 20 : $glrows);
+if(function_exists('recordings_list')) {
+	$announcementhtml = '
+		<!--Announcement-->
+		<div class="element-container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-3">
+								<label class="control-label" for="annmsg_id">'._("Announcement").'</label>
+								<i class="fa fa-question-circle fpbx-help-icon" data-for="annmsg_id"></i>
+							</div>
+							<div class="col-md-9">
+								<select name="annmsg_id" id="annmsg_id" class="form-control">';
+								$tresults = recordings_list();
+								$default = (isset($annmsg_id) ? $annmsg_id : '');
+								$announcementhtml .= '<option value="">'._("None")."</option>";
+								if (isset($tresults[0])) {
+									foreach ($tresults as $tresult) {
+										$announcementhtml .= '<option value="'.$tresult['id'].'"'.($tresult['id'] == $default ? ' SELECTED' : '').'>'.$tresult['displayname']."</option>\n";
+									}
+								}
+	$announcementhtml .='	</select>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<span id="annmsg_id-help" class="help-block fpbx-help-block">'. _("Message to be played to the caller before dialing this group.<br><br>To add additional recordings please use the \"System Recordings\" MENU above").'</span>
+				</div>
+			</div>
+		</div>
+		<!--END Announcement-->
+	';
+	$remoteahtml = '
+		<!--Remote Announce-->
+		<div class="element-container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-3">
+								<label class="control-label" for="remotealert_id">'._("Remote Announce").'</label>
+								<i class="fa fa-question-circle fpbx-help-icon" data-for="remotealert_id"></i>
+							</div>
+							<div class="col-md-9">
+								<select name="remotealert_id" id="remotealert_id" class="form-control">';
+								$tresults = recordings_list();
+								$default = (isset($remotealert_id) ? $remotealert_id : '');
+								$remoteahtml .= '<option value="">'._("None")."</option>";
+								if (isset($tresults[0])) {
+									foreach ($tresults as $tresult) {
+										$remoteahtml .= '<option value="'.$tresult['id'].'"'.($tresult['id'] == $default ? ' SELECTED' : '').'>'.$tresult['displayname']."</option>\n";
+									}
+								}
+	$remoteahtml .='			</select>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<span id="remotealert_id-help" class="help-block fpbx-help-block">'. _("Message to be played to the person RECEIVING the call, if 'Confirm Calls' is enabled.<br><br>To add additional recordings use the \"System Recordings\" MENU above").'</span>
+				</div>
+			</div>
+		</div>
+		<!--END Remote Announce-->
+	';
+	$toolatehtml = '
+		<!--Too-Late Announce-->
+		<div class="element-container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-3">
+								<label class="control-label" for="toolate_id">'._("Too-Late Announce").'</label>
+								<i class="fa fa-question-circle fpbx-help-icon" data-for="toolate_id"></i>
+							</div>
+							<div class="col-md-9">
+								<select name="toolate_id" id="toolate_id" class="form-control">';
+								$tresults = recordings_list();
+								$default = (isset($toolate_id) ? $toolate_id : '');
+								$toolatehtml .= '<option value="">'._("Default")."</option>";
+								if (isset($tresults[0])) {
+									foreach ($tresults as $tresult) {
+										$toolatehtml .= '<option value="'.$tresult['id'].'"'.($tresult['id'] == $default ? ' SELECTED' : '').'>'.$tresult['displayname']."</option>\n";
+									}
+								}
+	$toolatehtml .='			</select>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<span id="toolate_id-help" class="help-block fpbx-help-block">'. _("Message to be played to the person RECEIVING the call, if the call has already been accepted before they push 1.<br><br>To add additional recordings use the \"System Recordings\" MENU above").'</span>
+				</div>
+			</div>
+		</div>
+		<!--END Too-late Announce-->
+	';
+}else{
+	$default = (isset($annmsg_id) ? $annmsg_id : '');
+	$announcementhtml = '<input type="hidden" name="annmsg_id" value="'.$default.'">';
+}
+if(function_exists('music_list')) {
+	$ringhtml='
+	<!--Play Music On Hold-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="ringing">'._("Play Music On Hold").'</label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="ringing"></i>
+						</div>
+						<div class="col-md-9">
+							<select name="ringing" id="ringing" class="form-control">';
+							$cur = (isset($ringing) ? $ringing : 'Ring');
+							$tresults = \music_list();
+							$ringhtml .= '<option value="Ring">'._("Ring").'</option>'; 
+							if (isset($tresults[0])) {
+							foreach ($tresults as $tresult) {
+							    ( $tresult == 'none' ? $ttext = _("none") : $ttext = $tresult );
+							    ( $tresult == 'default' ? $ttext = _("default") : $ttext = $tresult );
+								$ringhtml .= '<option value="'.$tresult.'"'.($tresult == $cur ? ' SELECTED' : '').'>'._($ttext)."</option>\n";
+							}
+						}
+										
+	$ringhtml .= '			</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="ringing-help" class="help-block fpbx-help-block">'._("If you select a Music on Hold class to play, instead of 'Ring', they will hear that instead of Ringing while they are waiting for someone to pick up.").'</span>
+			</div>
+		</div>
+	</div>
+	<!--END Music on Hold Class-->
+	';
+}
+$default = (isset($changecid) ? $changecid : 'default');
+$ccidrows .= '<option value="default" '.($default == 'default' ? 'SELECTED' : '').'>'._("Default").'</option>';
+$ccidrows .= '<option value="fixed" '.($default == 'fixed' ? 'SELECTED' : '').'>'._("Fixed CID Value").'</option>';
+$ccidrows .= '<option value="extern" '.($default == 'extern' ? 'SELECTED' : '').'>'._("Outside Calls Fixed CID Value").'</option>';
+$ccidrows .= '<option value="did" '.($default == 'did' ? 'SELECTED' : '').'>'._("Use Dialed Number").'</option>';
+$ccidrows .= '<option value="forcedid" '.($default == 'forcedid' ? 'SELECTED' : '').'>'._("Force Dialed Number").'</option>';
+$fixedcid_disabled = ($default != 'fixed' && $default != 'extern') ? 'disabled = "disabled"':'';
+//Goto...
+if (empty($goto)) {
+	$goto = "from-did-direct,$extdisplay,1";
+}
+
+?>
+<form class="fpbx-submit" name="editGRP" action="" method="post" onsubmit="return checkGRP(editGRP);">
+<input type="hidden" name="display" value="findmefollow">
+<input type="hidden" name="action" value="<?php echo (($extdisplay != "") ? 'edtGRP' : 'addGRP'); ?>">
+<input type="hidden" name="view" value="form">
+<!--Group Number-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="account"><?php echo _("Group Number") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="account"></i>
+					</div>
+					<div class="col-md-9">
+						<input type="text" class="form-control" id="account" name="account" value="<?php  echo $extdisplay; ?>" <?php echo ($extdisplay != ''?'readonly':'')?>>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="account-help" class="help-block fpbx-help-block"><?php echo _("The number users will dial to ring extensions in this Followme group")?></span>
+		</div>
+	</div>
+</div>
+<!--END Group Number-->
+<!--Enable Followme-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="ddialw"><?php echo _("Enable Followme") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="ddialw"></i>
+					</div>
+					<div class="col-md-9 radioset">
+						<input type="checkbox" name="ddial" id="ddial" value="CHECKED" <?php echo $ddial ?>/>
+						<label for="ddial"><?php echo _("Disabled")?></label>
+						<input type="hidden" name="ddial_value" id="ddial_value" value="<?php  echo $ddial; ?>">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="ddialw-help" class="help-block fpbx-help-block"><?php echo _('By default (not checked) any call to this extension will go to this Follow-Me instead, including directory calls by name from IVRs. If checked, calls will go only to the extension.<BR>However, destinations that specify FollowMe will come here.<BR>Checking this box is often used in conjunction with VmX Locater, where you want a call to ring the extension, and then only if the caller chooses to find you do you want it to come here.')?></span>
+		</div>
+	</div>
+</div>
+<!--END Enable Followme-->
+<!--Initial Ring Time-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="pre_ring"><?php echo _("Initial Ring Time") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="pre_ring"></i>
+					</div>
+					<div class="col-md-9">
+						<input type="number" min="0" max="60" class="form-control" id="pre_ring" name="pre_ring" value="<?php echo (isset($pre_ring) ? $pre_ring : 0) ?>">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="pre_ring-help" class="help-block fpbx-help-block"><?php echo _("This is the number of seconds to ring the primary extension prior to proceeding to the follow-me list. The extension can also be included in the follow-me list. A 0 setting will bypass this.")?></span>
+		</div>
+	</div>
+</div>
+<!--END Initial Ring Time-->
+<!--Ring Strategy-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="strategy"><?php echo _("Ring Strategy") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="strategy"></i>
+					</div>
+					<div class="col-md-9">
+						<select class="form-control" id="strategy" name="strategy">
+							<?php echo $rsrows ?>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="strategy-help" class="help-block fpbx-help-block"><?php echo $rshelp ?></span>
+		</div>
+	</div>
+</div>
+<!--END Ring Strategy-->
+<!--Ring Time (max 60 sec)-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="grptime"><?php echo _("Ring Time (max 60 sec)") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="grptime"></i>
+					</div>
+					<div class="col-md-9">
+						<input type="number" min="0" max="60" class="form-control" id="grptime" name="grptime" value="<?php  echo $grptime?$grptime:20 ?>">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="grptime-help" class="help-block fpbx-help-block"><?php echo _("Time in seconds that the phones will ring. For all hunt style ring strategies, this is the time for each iteration of phone(s) that are rung")?></span>
+		</div>
+	</div>
+</div>
+<!--END Ring Time (max 60 sec)-->
+<!--Follow-Me List-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="grplist"><?php echo _("Follow-Me List") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="grplist"></i>
+					</div>
+					<div class="col-md-9">
+						<div class="input-group">
+							<textarea id="grplist" class="form-control" cols="15" rows="<?php echo $glrows?>" name="grplist"><?php echo implode("\n",$grplist);?></textarea>
+							<span class="input-group-addon">
+								<label for="qsagents1"><strong><?php echo("Agent Quick Select")?></strong></label>
+								<select id="qsagents1" class="form-control" data-for="grplist">
+									<option SELECTED>
+									<?php echo $qsagentlist ?>
+								</select>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="grplist-help" class="help-block fpbx-help-block"><?php echo _("List extensions to ring, one per line, or use the Extension Quick Pick below.<br><br>You can include an extension on a remote system, or an external number by suffixing a number with a pound (#).  ex:  2448089# would dial 2448089 on the appropriate trunk (see Outbound Routing).")?></span>
+		</div>
+	</div>
+</div>
+<!--END Follow-Me List-->
+<?php echo $announcementhtml?>
+<?php echo $ringhtml ?>
+<!--CID Name Prefix-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="grppre"><?php echo _("CID Name Prefix") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="grppre"></i>
+					</div>
+					<div class="col-md-9">
+						<input type="text" class="form-control" id="grppre" name="grppre" value="<?php  echo $grppre ?>">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="grppre-help" class="help-block fpbx-help-block"><?php echo _('You can optionally prefix the CallerID name when ringing extensions in this group. ie: If you prefix with "Sales:", a call from John Doe would display as "Sales:John Doe" on the extensions that ring.')?></span>
+		</div>
+	</div>
+</div>
+<!--END CID Name Prefix-->
+<!--Alert Info-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="dring"><?php echo _("Alert Info") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="dring"></i>
+					</div>
+					<div class="col-md-9">
+						<input type="text" class="form-control" id="dring" name="dring" value="<?php echo ($dring)?$dring:'' ?>">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="dring-help" class="help-block fpbx-help-block"><?php echo _("ALERT_INFO can be used for distinctive ring with SIP devices.")?></span>
+		</div>
+	</div>
+</div>
+<!--END Alert Info-->
+<!--Confirm Calls-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="needsconfw"><?php echo _("Confirm Calls") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="needsconfw"></i>
+					</div>
+					<div class="col-md-9 radioset">
+						<input type="checkbox" name="needsconf" id="needsconf" value="CHECKED" <?php echo $needsconf ?>>
+						<label for="needsconf"><?php echo _("Enabled");?></label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="needsconfw-help" class="help-block fpbx-help-block"><?php echo _('Enable this if you\'re calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through. This feature only works with the ringall ring strategy')?></span>
+		</div>
+	</div>
+</div>
+<!--END Confirm Calls-->
+<?php echo $remoteahtml ?>
+<?php echo $toolatehtml ?>
+<!--Change External CID Configuration-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="changecid"><?php echo _("Change External CID Configuration") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="changecid"></i>
+					</div>
+					<div class="col-md-9">
+						<select name="changecid" id="changecid" class="form-control">
+							<?php echo $ccidrows ?>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="changecid-help" class="help-block fpbx-help-block"><?php echo $ccidhelp?></span>
+		</div>
+	</div>
+</div>
+<!--END Change External CID Configuration-->
+<!--Fixed CID Value-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="fixedcid"><?php echo _("Fixed CID Value") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="fixedcid"></i>
+					</div>
+					<div class="col-md-9">
+						<input type="text" class="form-control" id="fixedcid" name="fixedcid" value="<?php echo $fixedcid ?>" <?php echo $fixedcid_disabled ?>>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="fixedcid-help" class="help-block fpbx-help-block"><?php echo _("Fixed value to replace the CID with used with some of the modes above. Should be in a format of digits only with an option of E164 format using a leading '+'.")?></span>
+		</div>
+	</div>
+</div>
+<!--END Fixed CID Value-->
+<!--Destination if no answer-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="goto0"><?php echo _("Destination if no answer") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="goto0"></i>
+					</div>
+					<div class="col-md-9">
+						<?php echo drawselects($goto,0);?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="goto0-help" class="help-block fpbx-help-block"><?php echo _("Where to send callers if there is no answer.")?></span>
+		</div>
+	</div>
+</div>
+<!--END Destination if no answer-->
+</form>
+<br/>
+<br/>

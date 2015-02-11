@@ -1,4 +1,5 @@
 <?php
+namespace FreePBX\modules;
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //	License for all code of this FreePBX module can be found in the license file inside the module directory
 //	Copyright 2013 Schmooze Com Inc.
@@ -387,7 +388,7 @@ function findmefollow_list($get_all=false) {
 	global $db;
 	$sql = "SELECT grpnum FROM findmefollow ORDER BY CAST(grpnum as UNSIGNED)";
 	$results = $db->getCol($sql);
-	if(DB::IsError($results)) {
+	if(\DB::IsError($results)) {
 		$results = null;
 	}
 	if (isset($results)) {
@@ -414,7 +415,7 @@ function findmefollow_allusers() {
         global $db;
         $sql = "SELECT extension,name FROM users ORDER BY extension";
         $results = $db->getAll($sql);
-        if(DB::IsError($results)) {
+        if(\DB::IsError($results)) {
                 $results = null;
         }
         foreach($results as $result){

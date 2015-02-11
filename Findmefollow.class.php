@@ -1,9 +1,10 @@
 <?php
+namespace FreePBX\modules;
 // vim: set ai ts=4 sw=4 ft=php:
 //	License for all code of this FreePBX module can be found in the license file inside the module directory
 //	Copyright 2013 Schmooze Com Inc.
 //
-class Findmefollow implements BMO {
+class Findmefollow implements \BMO {
 
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
@@ -15,6 +16,111 @@ class Findmefollow implements BMO {
 	}
 
 	public function doConfigPageInit($page) {
+		$dispnum = 'findmefollow'; //used for switch on config.php
+		$request = $_REQUEST;
+		isset($request['action'])?$action = $request['action']:$action='';
+		//the extension we are currently displaying
+		isset($request['extdisplay'])?$extdisplay=$request['extdisplay']:$extdisplay='';
+		isset($request['account'])?$account = $request['account']:$account='';
+		isset($request['grptime'])?$grptime = $request['grptime']:$grptime=$amp_conf['FOLLOWME_TIME'];
+		isset($request['grppre'])?$grppre = $request['grppre']:$grppre='';
+		isset($request['strategy'])?$strategy = $request['strategy']:$strategy=$amp_conf['FOLLOWME_RG_STRATEGY'];
+		isset($request['annmsg_id'])?$annmsg_id = $request['annmsg_id']:$annmsg_id='';
+		isset($request['dring'])?$dring = $request['dring']:$dring='';
+		isset($request['needsconf'])?$needsconf = $request['needsconf']:$needsconf='';
+		isset($request['remotealert_id'])?$remotealert_id = $request['remotealert_id']:$remotealert_id='';
+		isset($request['toolate_id'])?$toolate_id = $request['toolate_id']:$toolate_id='';
+		isset($request['ringing'])?$ringing = $request['ringing']:$ringing='';
+		isset($request['pre_ring'])?$pre_ring = $request['pre_ring']:$pre_ring=$amp_conf['FOLLOWME_PRERING'];
+		isset($request['changecid'])?$changecid = $request['changecid']:$changecid='default';
+		isset($request['fixedcid'])?$fixedcid = $request['fixedcid']:$fixedcid='';
+
+		if (isset($request['ddial'])) {
+			$ddial =	$request['ddial'];
+		}	else {
+			$ddial == isset($request['ddial_value']) ? $request['ddial_value'] : ($amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '');
+		}
+
+		if (isset($request['goto0']) && isset($request[$request['goto0']."0"])) {
+			$goto = $request[$request['goto0']."0"];
+		} else {
+			$goto = "ext-local,$extdisplay,dest";
+		}
+
+		if (isset($request["grplist"])) {
+			$grplist = explode("\n",$request["grplist"]);
+
+			if (!$grplist) {
+				$grplist = null;
+			}
+
+			foreach (array_keys($grplist) as $key) {
+				//trim it
+				$grplist[$key] = trim($grplist[$key]);
+
+				// remove invalid chars
+				$grplist[$key] = preg_replace("/[^0-9#*+]/", "", $grplist[$key]);
+
+				if ($grplist[$key] == ltrim($extdisplay,'GRP-').'#')
+					$grplist[$key] = rtrim($grplist[$key],'#');
+
+				// remove blanks
+				if ($grplist[$key] == "") unset($grplist[$key]);
+			}
+
+			// check for duplicates, and re-sequence
+			$grplist = array_values(array_unique($grplist));
+		}
+
+		// do if we are submitting a form
+		if(isset($request['action'])){
+			//check if the extension is within range for this user
+			if (isset($account) && !checkRange($account)){
+				echo "<script>javascript:alert('". _("Warning! Extension")." ".$account." "._("is not allowed for your account").".');</script>";
+			} else {
+				//add group
+				if ($action == 'addGRP') {
+					findmefollow_add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid);
+
+					needreload();
+					redirect_standard();
+				}
+
+				//del group
+				if ($action == 'delGRP') {
+					findmefollow_del($account);
+					needreload();
+					redirect_standard();
+				}
+
+				//edit group - just delete and then re-add the extension
+				if ($action == 'edtGRP') {
+					findmefollow_del($account);
+					findmefollow_add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid);
+
+					needreload();
+					redirect_standard('extdisplay', 'view');
+				}
+				//Grid Toggle
+				if($action == 'toggleFM'){
+					if($request['state'] == 'enable'){
+						$state = true;
+					}
+					if($request['state'] == 'disable'){
+						$state = false;
+					}
+					if(!isset($state) || !isset($extdisplay)){
+					header('Content-Type: application/json');
+					echo json_encode(array('toggle' => 'invalid'));
+					return;
+					}
+					$this->setDDial($extdisplay,$state);
+					header('Content-Type: application/json');
+					echo json_encode(array('toggle' => 'received'));
+					return;
+				}
+			}
+		}
 
 	}
 
@@ -421,4 +527,29 @@ class Findmefollow implements BMO {
 			$this->FreePBX->astman->database_deltree("AMPUSER/".$grpnum."/followme");
 		}
 	}
+	public function getActionBar($request){
+		switch($request['display']){
+			case 'findmefollow':
+				$buttons = array(
+					'submit' => array(
+						'name' => 'submit',
+						'id' => 'submit',
+						'value' => _('Submit')
+					),
+					'reset' => array(
+						'name' => 'reset',
+						'id' => 'reset',
+						'value' => _('Reset')
+					)
+    			);
+    		break;
+    	}
+    	if (empty($request['extdisplay'])) {
+    		unset($buttons);
+    	}
+    	if($request['view'] != 'form'){
+    		unset($buttons);
+    	}
+    	return $buttons;
+    } 
 }
