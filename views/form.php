@@ -28,13 +28,6 @@ if ($extdisplay != "") {
 	$goto = isset($thisgrp['postdest'])?$thisgrp['postdest']:((isset($thisgrp['voicemail']) && $thisgrp['voicemail'] != 'novm')?"ext-local,vmu$extdisplay,1":'');
 	unset($grpliststr);
 	unset($thisgrp);
-	if (isset($amp_conf["AMPEXTENSIONS"]) && ($amp_conf["AMPEXTENSIONS"] == "deviceanduser")) {
-		$editURL = '?display=users&extdisplay='.$extdisplay;
-		$EXTorUSER = _("User");
-	}else{
-		$editURL = '?display=extensions&extdisplay='.$extdisplay;
-		$EXTorUSER = _("Extension");
-	}
 }
 //Ring Strategy Help
 $rshelp =    '<b>' . _("ringallv2"). 		'</b>: ' . _("ring Extension for duration set in Initial Ring Time, and then, while continuing call to extension, ring Follow-Me List for duration set in Ring Time.")
@@ -540,5 +533,3 @@ if (empty($goto)) {
 </div>
 <!--END Destination if no answer-->
 </form>
-<br/>
-<br/>
