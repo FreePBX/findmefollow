@@ -442,8 +442,10 @@ if (empty($goto)) {
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="needsconfw"></i>
 					</div>
 					<div class="col-md-9 radioset">
-						<input type="checkbox" name="needsconf" id="needsconf" value="CHECKED" <?php echo $needsconf ?>>
-						<label for="needsconf"><?php echo _("Enabled");?></label>
+						<input type="radio" name="needsconf" id="needsconfyes" value="CHECKED" <?php echo ($needsconf == "CHECKED"?"CHECKED":"") ?>>
+						<label for="needsconfyes"><?php echo _("Yes");?></label>
+						<input type="radio" name="needsconf" id="needsconfno" <?php echo ($needsconf == "CHECKED"?"":"CHECKED") ?>>
+						<label for="needsconfno"><?php echo _("No");?></label>
 					</div>
 				</div>
 			</div>
