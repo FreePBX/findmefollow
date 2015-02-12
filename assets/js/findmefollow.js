@@ -38,6 +38,18 @@ $(document).ready(function(){
     }
 	});
 });
+
+$("[id^='fmtoggle']").change(function(){
+	var fmstate = "";
+	var exten = $(this).data('for');
+	if($(this).val() == "CHECKED"){
+		fmstate = "disable";
+	}else{
+		fmstate = "enable";
+	}
+	$.get("config.php?display=findmefollow&action=toggleFM&extdisplay="+exten+"&state="+fmstate);
+});
+
 //Below are functions moved here from page.findmefollow.php
 
 function insertExten() {
@@ -95,13 +107,3 @@ function checkGRP(theForm) {
 
 	return true;
 }
-$("[id^='fmtoggle']").change(function(){
-	var fmstate = "";
-	var exten = $(this).data('for');
-	if($(this).is(':checked')){
-		fmstate = "disable";
-	}else{
-		fmstate = "enable";
-	}
-	$.get("config.php?display=findmefollow&action=toggleFM&extdisplay="+exten+"&state="+fmstate);
-});

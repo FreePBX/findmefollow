@@ -10,8 +10,11 @@ foreach($fmlist as $fm){
 	$fmrows .= '<td><a href="/admin/config.php?display=findmefollow&view=form&extdisplay=GRP-'.urlencode($fm).'"><i class="fa fa-edit"></i>&nbsp;'.$fm.'</a></td>';
 	$fmrows .= '<td>';
 	$fmrows .= '<span class="radioset">';
-	$fmrows .= '<input type="checkbox" id="fmtoggle'.$fm.'" data-for="'.$fm.'" '.$thisg['ddial'].'>';
-	$fmrows .= '<label for="fmtoggle'.$fm.'">'._("Disabled").'</label>';
+	$fmrows .= '<input type="radio" name="fmtoggle'.$fm.'" id="fmtoggle'.$fm.'yes" data-for="'.$fm.'" '.($thisg['ddial'] == 'CHECKED'?'':'CHECKED').'>';
+	$fmrows .= '<label for="fmtoggle'.$fm.'yes">'._("Yes").'</label>';
+	$fmrows .= '<input type="radio" name="fmtoggle'.$fm.'" id="fmtoggle'.$fm.'no" data-for="'.$fm.'" '.($thisg['ddial'] == 'CHECKED'?'CHECKED':'' ).' value="CHECKED">';
+	$fmrows .= '<label for="fmtoggle'.$fm.'no">'._("No").'</label>';
+	$fmrows .= '</span>';
 }
 ?>
 
@@ -19,7 +22,7 @@ foreach($fmlist as $fm){
 <thead>
 	<tr>
 		<th><?php echo _("Followme Extension")?></th>
-		<th><?php echo _("Status")?></th>
+		<th><?php echo _("Enabled")?></th>
 	</tr>	
 </thead>
 <tbody>
