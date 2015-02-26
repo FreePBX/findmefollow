@@ -52,7 +52,7 @@ msgstr "通告："
 
 #: findmefollow.i18n.php:4
 msgid "Applications"
-msgstr ""
+msgstr "应用"
 
 #: page.findmefollow.php:196
 msgid ""
@@ -705,8 +705,7 @@ msgstr ""
 #~ msgid ""
 #~ "ring primary extension for initial ring time followed by all additional "
 #~ "extensions until one answers"
-#~ msgstr ""
-#~ "首先使主分机响铃，超过初试振铃时间后，所有的附加分机响铃，直到其中一个接听"
+#~ msgstr "首先使主分机响铃，超过初试振铃时间后，所有的附加分机响铃，直到其中一个接听"
 
 #~ msgid "ring all available channels until one answers (default)"
 #~ msgstr "全部可用频道都响铃直到其中一个接听（默认设置）"
