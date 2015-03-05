@@ -3,10 +3,16 @@
 //
 
 //Agent Quick Select
-$("[id^='qsagents']").change(function(){
+$("[id^='qsagents']").on('change',function(){
 	var taelm = $(this).data('for');
-	console.log($('#'+taelm));
-	$('#'+taelm).append($(this).val()+"\n");
+	var cval = $('#'+taelm).val();
+	if(cval.length === 0){
+		$('#'+taelm).val($(this).val());
+		$(this).children('option[value="'+$(this).val()+'"]').remove();
+	}else{
+		$('#'+taelm).val(cval+"\n"+$(this).val());
+		$(this).children('option[value="'+$(this).val()+'"]').remove();
+	}
 });
 //FixedCID
 $("#changecid").change(function(){
