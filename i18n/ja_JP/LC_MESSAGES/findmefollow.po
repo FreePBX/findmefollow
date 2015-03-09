@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-20 19:33-0500\n"
+"POT-Creation-Date: 2015-03-09 12:40-0400\n"
 "PO-Revision-Date: 2014-02-21 03:21+0200\n"
 "Last-Translator: Kenichi Fukaumi <k.fukaumi@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/findmefollow/"
@@ -49,43 +49,35 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.8\n"
 
-#: page.findmefollow.php:280
+#: functions.inc.php:749
 msgid "(pick extension)"
 msgstr "(内線を選択)"
 
-#: page.findmefollow.php:226
+#: functions.inc.php:700 views/form.php:40
 msgid "*-prim"
 msgstr "*-prim"
 
-#: page.findmefollow.php:182
-msgid "Add Follow Me"
-msgstr "フォローミーを追加"
+#: views/form.php:429
+msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
+msgstr ""
 
-#: functions.inc.php:572 functions.inc.php:576
-msgid "Add Follow Me Settings"
-msgstr "フォローミー設定を追加する"
-
-#: page.findmefollow.php:346
+#: functions.inc.php:820 views/form.php:417
 msgid "Alert Info"
 msgstr "アラート情報"
 
-#: page.findmefollow.php:402
+#: functions.inc.php:959
 msgid "Always transmit the Fixed CID Value below."
 msgstr "常に以下の固定のCID値を渡す。"
 
-#: ucp/views/settings.php:20
+#: functions.inc.php:772 ucp/views/settings.php:20 views/form.php:68
 msgid "Announcement"
 msgstr ""
 
-#: page.findmefollow.php:293 page.findmefollow.php:311
-msgid "Announcement:"
-msgstr "アナウンス："
-
-#: findmefollow.i18n.php:4
+#: findmefollow.i18n.php:6 findmefollow.i18n.php:12
 msgid "Applications"
 msgstr "アプリケーション"
 
-#: page.findmefollow.php:196
+#: functions.inc.php:658 views/form.php:272
 msgid ""
 "By default (not checked) any call to this extension will go to this Follow-"
 "Me instead, including directory calls by name from IVRs. If checked, calls "
@@ -101,11 +93,11 @@ msgstr ""
 "は、内線に着信させたいVmXロケータ―と一緒によく使用され、それは発信者があなた"
 "を発見することを選択し、あなたがそれに応じたい場合のみ使用されます。"
 
-#: page.findmefollow.php:341
+#: functions.inc.php:809 views/form.php:393
 msgid "CID Name Prefix"
 msgstr "CID名プリフィックス"
 
-#: page.findmefollow.php:350
+#: functions.inc.php:843
 msgid "Call Confirmation Configuration"
 msgstr "コール確認設定"
 
@@ -113,7 +105,7 @@ msgstr "コール確認設定"
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "アスタリスクマネージャーに接続できません。"
 
-#: page.findmefollow.php:396
+#: functions.inc.php:936 views/form.php:470
 msgid "Change External CID Configuration"
 msgstr "外部CID設定変更"
 
@@ -121,75 +113,53 @@ msgstr "外部CID設定変更"
 msgid "Checking if recordings need migration.."
 msgstr "録音の移行が必要かチェック中.."
 
-#: page.findmefollow.php:120
-msgid "Choose a user/extension:"
-msgstr "ユーザー/内線を選択してください："
-
-#: page.findmefollow.php:274
+#: functions.inc.php:760
 msgid "Choose an extension to append to the end of the extension list above."
 msgstr "上記内線リストの最後に追加する内線を選択してください。"
 
-#: page.findmefollow.php:353
+#: functions.inc.php:866 views/form.php:441
 msgid "Confirm Calls"
 msgstr "コールを確認"
 
-#: findmefollow.i18n.php:8
+#: findmefollow.i18n.php:14
 msgid "Create Follow Me at Extension Creation Time"
 msgstr "内線作成時にフォローミーを作成する"
 
-#: page.findmefollow.php:367 page.findmefollow.php:384
-#: page.findmefollow.php:401 page.findmefollow.php:413
+#: functions.inc.php:888 functions.inc.php:958 functions.inc.php:971
+#: views/form.php:145 views/form.php:210
 msgid "Default"
 msgstr "デフォルト"
 
-#: findmefollow.i18n.php:22
+#: findmefollow.i18n.php:28
 msgid "Default Follow Me Initial Ring Time"
 msgstr "フォローミーのデフォルト初期呼出時間"
 
-#: findmefollow.i18n.php:26
+#: findmefollow.i18n.php:32
 msgid "Default Follow Me Ring Strategy"
 msgstr "デフォルトのフォローミールール"
 
-#: findmefollow.i18n.php:18
+#: findmefollow.i18n.php:24
 msgid "Default Follow Me Ring Time"
 msgstr "フォローミーのデフォルト呼び出し時間"
 
-#: page.findmefollow.php:156
-msgid "Delete Entries"
-msgstr "エントリーを削除"
-
-#: page.findmefollow.php:429
+#: views/form.php:520
 msgid "Destination if no answer"
 msgstr "応答なし時の宛先"
 
-#: page.findmefollow.php:196
-msgid "Disable"
-msgstr "無効"
+#: functions.inc.php:1016
+msgid "Destinations"
+msgstr ""
 
-#: findmefollow.i18n.php:14
+#: findmefollow.i18n.php:20
 msgid "Disable Follow Me Upon Creation"
 msgstr "作成時にフォローミーを無効にする。"
 
-#: page.findmefollow.php:173
-#, php-format
-msgid "Edit %s"
-msgstr "%sを編集"
-
-#: page.findmefollow.php:173
-#, php-format
-msgid "Edit %s %s"
-msgstr "%s %s を編集"
-
-#: page.findmefollow.php:182
-msgid "Edit Follow Me"
-msgstr "フォローミーを編集"
-
-#: functions.inc.php:569
-msgid "Edit Follow Me Settings"
-msgstr "フォローミー設定を編集する"
-
 #: ucp/views/settings.php:4
 msgid "Enable"
+msgstr ""
+
+#: views/form.php:257
+msgid "Enable Followme"
 msgstr ""
 
 #: ucp/views/settings.php:56
@@ -200,7 +170,15 @@ msgid ""
 "through."
 msgstr ""
 
-#: page.findmefollow.php:353
+#: views/form.php:456
+msgid ""
+"Enable this if you're calling external numbers that need confirmation - eg, "
+"a mobile phone may go to voicemail which will pick up the call. Enabling "
+"this requires the remote side push 1 on their phone before the call is put "
+"through. This feature only works with the ringall ring strategy"
+msgstr ""
+
+#: functions.inc.php:867
 msgid ""
 "Enable this if you're calling external numbers that need confirmation - eg, "
 "a mobile phone may go to voicemail which will pick up the call. Enabling "
@@ -213,15 +191,19 @@ msgstr ""
 "うに要求するようになります。この機能はリングオール/リングオール-メイン 計画で"
 "のみ動作します。"
 
-#: page.findmefollow.php:170
+#: functions.inc.php:657 views/fmgrid.php:25
+msgid "Enabled"
+msgstr ""
+
+#: views/bootnav.php:7
 msgid "Extension"
 msgstr "内線"
 
-#: page.findmefollow.php:272
+#: functions.inc.php:759
 msgid "Extension Quick Pick"
 msgstr "内線クイックピックアップ"
 
-#: ucp/Findmefollow.class.php:35
+#: functions.inc.php:603 ucp/Findmefollow.class.php:35
 msgid "Find Me/Follow Me"
 msgstr ""
 
@@ -233,12 +215,18 @@ msgstr ""
 msgid "Findme Follow Toggle"
 msgstr "ファインドミーフォロー切り替え"
 
-#: page.findmefollow.php:402 page.findmefollow.php:414
-#: page.findmefollow.php:425
+#: functions.inc.php:959 functions.inc.php:975 functions.inc.php:999
+#: views/form.php:211 views/form.php:496
 msgid "Fixed CID Value"
 msgstr "固定のCID値"
 
-#: page.findmefollow.php:425
+#: functions.inc.php:1006
+msgid ""
+"Fixed CID Value should be in a format of digits only with an option of E164 "
+"format using a leading \"+\""
+msgstr ""
+
+#: functions.inc.php:1000
 msgid ""
 "Fixed value to replace the CID with used with some of the modes above. "
 "Should be in a format of digits only with an option of E164 format using a "
@@ -248,8 +236,14 @@ msgstr ""
 "頭に \"+\"がついたE164フォーマットオプションと数字のみのフォーマットである必"
 "要があります。"
 
-#: findmefollow.i18n.php:3 findmefollow.i18n.php:6 page.findmefollow.php:120
-#: page.findmefollow.php:123 page.findmefollow.php:159
+#: views/form.php:508
+msgid ""
+"Fixed value to replace the CID with used with some of the modes above. "
+"Should be in a format of digits only with an option of E164 format using a "
+"leading '+'."
+msgstr ""
+
+#: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
 msgid "Follow Me"
 msgstr "フォローミー"
 
@@ -257,38 +251,54 @@ msgstr "フォローミー"
 msgid "Follow Me List"
 msgstr ""
 
-#: findmefollow.i18n.php:10
+#: findmefollow.i18n.php:16
 msgid "Follow Me Module"
 msgstr "フォローミーモジュール"
 
-#: functions.inc.php:625
+#: functions.inc.php:1165
 #, php-format
 msgid "Follow Me: %s"
 msgstr "フォローミー: %s"
 
-#: page.findmefollow.php:257
+#: functions.inc.php:737 views/form.php:358
 msgid "Follow-Me List"
 msgstr "フォローミーリスト"
 
-#: functions.inc.php:678
+#: functions.inc.php:1218
 #, php-format
 msgid "Follow-Me User: %s"
 msgstr "フォローミーユーザー: %s"
 
-#: functions.inc.php:654
+#: functions.inc.php:1194
 #, php-format
 msgid "Follow-Me: %s (%s)"
 msgstr "フォローミー: %s (%s)"
 
-#: page.findmefollow.php:405 page.findmefollow.php:417
+#: views/fmgrid.php:24
+msgid "Followme Extension"
+msgstr ""
+
+#: views/nogo.php:2
+msgid "Followme List"
+msgstr ""
+
+#: functions.inc.php:962 functions.inc.php:987 views/form.php:214
 msgid "Force Dialed Number"
 msgstr "強制的にダイヤルされた番号を使用する"
 
-#: functions.inc.php:34
+#: functions.inc.php:38
 msgid "Force Follow Me"
 msgstr "強制的にフォローミーを行う"
 
-#: page.findmefollow.php:322
+#: functions.inc.php:633
+msgid "General Settings"
+msgstr ""
+
+#: views/form.php:233
+msgid "Group Number"
+msgstr ""
+
+#: functions.inc.php:798 views/form.php:202
 msgid ""
 "If you select a Music on Hold class to play, instead of 'Ring', they will "
 "hear that instead of Ringing while they are waiting for someone to pick up."
@@ -297,11 +307,11 @@ msgstr ""
 "取るのを待っている間、リング音の代わりに保留音クラスが聞こえるようになりま"
 "す。"
 
-#: page.findmefollow.php:202
-msgid "Initial Ring Time:"
-msgstr "最初のリング時間："
+#: functions.inc.php:686 views/form.php:284
+msgid "Initial Ring Time"
+msgstr ""
 
-#: page.findmefollow.php:482
+#: assets/js/findmefollow.js:80
 msgid ""
 "Invalid CID Number. Must be in a format of digits only with an option of "
 "E164 format using a leading \"+\""
@@ -309,11 +319,15 @@ msgstr ""
 "無効な発信者番号。先頭に \"+\"がついたE164フォーマットオプションと数字のみの"
 "フォーマットでなければいけません。"
 
-#: page.findmefollow.php:479
+#: assets/js/findmefollow.js:77
 msgid "Invalid time specified"
 msgstr "無効な時間が指定されました"
 
-#: page.findmefollow.php:257
+#: views/bootnav.php:11
+msgid "List Followme Groups"
+msgstr ""
+
+#: functions.inc.php:738 views/form.php:379
 msgid ""
 "List extensions to ring, one per line, or use the Extension Quick Pick below."
 "<br><br>You can include an extension on a remote system, or an external "
@@ -337,7 +351,13 @@ msgstr ""
 msgid "Message to be played to the caller before dialing this group."
 msgstr ""
 
-#: page.findmefollow.php:293
+#: views/form.php:89
+msgid ""
+"Message to be played to the caller before dialing this group.<br><br>To add "
+"additional recordings please use the \"System Recordings\" MENU above"
+msgstr ""
+
+#: functions.inc.php:773
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
 "additional recordings please use the \"System Recordings\" MENU to the left"
@@ -345,22 +365,20 @@ msgstr ""
 "このグループにダイヤルする前に発信者に再生されるメッセージ。<br><br>追加で録"
 "音をする場合はメニュー左側にある\"システム録音\"を使用してください"
 
-#: page.findmefollow.php:311
-msgid ""
-"Message to be played to the caller before dialing this group.<br><br>You "
-"must install and enable the \"Systems Recordings\" Module to edit this option"
-msgstr ""
-"このグループにダイヤルする前に発信者に再生されるメッセージ。<br><br>このオプ"
-"ションを編集するには\"システム録音\"モジュールをインストールし有効にする必要"
-"があります"
-
 #: ucp/views/settings.php:66
 msgid ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
 "enabled."
 msgstr ""
 
-#: page.findmefollow.php:361
+#: views/form.php:124
+msgid ""
+"Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
+"enabled.<br><br>To add additional recordings use the \"System Recordings\" "
+"MENU above"
+msgstr ""
+
+#: functions.inc.php:893
 msgid ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
 "enabled.<br><br>To add additional recordings use the \"System Recordings\" "
@@ -376,7 +394,14 @@ msgid ""
 "already been accepted before they push 1."
 msgstr ""
 
-#: page.findmefollow.php:378
+#: views/form.php:159
+msgid ""
+"Message to be played to the person RECEIVING the call, if the call has "
+"already been accepted before they push 1.<br><br>To add additional "
+"recordings use the \"System Recordings\" MENU above"
+msgstr ""
+
+#: functions.inc.php:905
 msgid ""
 "Message to be played to the person RECEIVING the call, if the call has "
 "already been accepted before they push 1.<br><br>To add additional "
@@ -386,29 +411,47 @@ msgstr ""
 "生するメッセージです。<br><br>録音を追加するには、メニュー左側の\"システム録"
 "音\"を使用してください"
 
-#: page.findmefollow.php:399
+#: views/nogo.php:1
+msgid "Method not supported"
+msgstr ""
+
+#: functions.inc.php:965
 msgid "Mode"
 msgstr "モード"
 
-#: findmefollow.i18n.php:5
+#: findmefollow.i18n.php:8
 msgid ""
 "Much like a ring group, but works on individual extensions. When someone "
 "calls the extension, it can be setup to ring for a number of seconds before "
 "trying to ring other extensions and/or external numbers, or to ring all at "
-"once, or in other various \\'hunt\\' configurations. Most commonly used to "
-"ring someone\\'s cell phone if they don\\'t answer their extension."
+"once, or in other various 'hunt' configurations. Most commonly used to ring "
+"someone's cell phone if they don't answer their extension."
+msgstr ""
+"着信グループに非常に似ていますが、個人の内線で機能します。誰かが内線を呼び出"
+"した時に、他の内線や外線を呼び出そうとする前に、もしくは一斉着信する前に、ま"
+"たは他の様々な'ハント'設定を実行する前に第二の番号を着信させることができま"
+"す。最も一般的には、かれらが内線に応答しない場合、誰かの携帯電話を鳴らすとき"
+"などに使用されます。"
+
+#: functions.inc.php:667 functions.inc.php:876 views/fmgrid.php:16
+#: views/form.php:264 views/form.php:448
+msgid "No"
 msgstr ""
 
-#: page.findmefollow.php:299 ucp/views/settings.php:22
-#: ucp/views/settings.php:61 ucp/views/settings.php:71
+#: functions.inc.php:1040
+msgid "No Answer"
+msgstr ""
+
+#: functions.inc.php:589 ucp/views/settings.php:22 ucp/views/settings.php:61
+#: ucp/views/settings.php:71 views/form.php:75 views/form.php:110
 msgid "None"
 msgstr "なし"
 
-#: functions.inc.php:18
+#: functions.inc.php:18 functions.inc.php:22
 msgid "Normal Extension Behavior"
 msgstr "通常の内線動作"
 
-#: page.findmefollow.php:481
+#: assets/js/findmefollow.js:79
 msgid ""
 "Only ringall, ringallv2, hunt and the respective -prim versions are "
 "supported when confirmation is checked"
@@ -416,27 +459,34 @@ msgstr ""
 "'確認'がチェックされている場合は、リングオール、リングオールv2、ハントと各 *-"
 "primバージョンのみがサポートされます"
 
-#: page.findmefollow.php:403 page.findmefollow.php:415
+#: functions.inc.php:1041
+msgid ""
+"Optional destination call is routed to when the call is not answered on an "
+"otherwise idle phone. If the phone is in use and the call is simply ignored, "
+"then the busy destination will be used."
+msgstr ""
+
+#: functions.inc.php:960 functions.inc.php:979 views/form.php:212
 msgid "Outside Calls Fixed CID Value"
 msgstr "外部コールの固定CID値"
 
-#: page.findmefollow.php:322
-msgid "Play Music On Hold?"
-msgstr "保留中に音楽を鳴らす?"
+#: functions.inc.php:797 views/form.php:178
+msgid "Play Music On Hold"
+msgstr ""
 
-#: page.findmefollow.php:478
+#: assets/js/findmefollow.js:76
 msgid "Please enter an extension list."
 msgstr "内線リストを入力してください。"
 
-#: ucp/views/settings.php:59
+#: functions.inc.php:892 ucp/views/settings.php:59 views/form.php:103
 msgid "Remote Announce"
 msgstr ""
 
-#: page.findmefollow.php:361
-msgid "Remote Announce:"
-msgstr "リモートアナウンス："
+#: Findmefollow.class.php:542
+msgid "Reset"
+msgstr ""
 
-#: page.findmefollow.php:328
+#: functions.inc.php:785 views/form.php:185
 msgid "Ring"
 msgstr "リング"
 
@@ -449,11 +499,15 @@ msgstr ""
 msgid "Ring Followme List For"
 msgstr ""
 
-#: page.findmefollow.php:220
-msgid "Ring Strategy:"
-msgstr "リングルール:"
+#: functions.inc.php:713 views/form.php:308
+msgid "Ring Strategy"
+msgstr ""
 
-#: page.findmefollow.php:247
+#: functions.inc.php:725
+msgid "Ring Time"
+msgstr ""
+
+#: views/form.php:334
 msgid "Ring Time (max 60 sec)"
 msgstr "リングタイム (最大60秒)"
 
@@ -461,11 +515,11 @@ msgstr "リングタイム (最大60秒)"
 msgid "Seconds"
 msgstr ""
 
-#: page.findmefollow.php:440
-msgid "Submit Changes"
-msgstr "変更を適用"
+#: Findmefollow.class.php:537
+msgid "Submit"
+msgstr ""
 
-#: findmefollow.i18n.php:24
+#: findmefollow.i18n.php:30
 msgid ""
 "The default Initial Ring Time for a Follow Me set upon creation and used if "
 "auto-created with a new extension."
@@ -473,7 +527,7 @@ msgstr ""
 "内線を新規作成時に自動作成された場合に作成され、設定、使用されるフォローミー"
 "のデフォルトの初期呼出時間。"
 
-#: findmefollow.i18n.php:28
+#: findmefollow.i18n.php:34
 msgid ""
 "The default Ring Strategy selected for a Follow Me set upon creation and "
 "used if auto-created with an extension."
@@ -481,7 +535,7 @@ msgstr ""
 "作成時に設定する、フォローミーのデフォルトのリングルール。新規内線と同時に作"
 "成された場合は、このルールを使用します。"
 
-#: findmefollow.i18n.php:20
+#: findmefollow.i18n.php:26
 msgid ""
 "The default Ring Time for a Follow Me set upon creation and used if auto-"
 "created with a new extension."
@@ -489,15 +543,15 @@ msgstr ""
 "内線を新規作成時に自動作成された場合に作成され、設定、使用されるフォローミー"
 "のデフォルトの呼び出し時間。"
 
-#: page.findmefollow.php:190
-msgid "The number users will dial to ring extensions in this ring group"
-msgstr "このリンググループに所属する内線を鳴らすためのダイヤル番号"
+#: views/form.php:245
+msgid "The number users will dial to ring extensions in this Followme group"
+msgstr ""
 
-#: findmefollow.i18n.php:16
+#: findmefollow.i18n.php:22
 msgid "This is the default value for the Follow Me "
 msgstr "フォローミーのデフォルト値です。"
 
-#: page.findmefollow.php:203 ucp/views/settings.php:36
+#: functions.inc.php:687 ucp/views/settings.php:36 views/form.php:296
 msgid ""
 "This is the number of seconds to ring the primary extension prior to "
 "proceeding to the follow-me list. The extension can also be included in the "
@@ -511,7 +565,7 @@ msgstr ""
 msgid "Time in seconds that the phones will ring"
 msgstr ""
 
-#: page.findmefollow.php:249
+#: functions.inc.php:726 views/form.php:346
 msgid ""
 "Time in seconds that the phones will ring. For all hunt style ring "
 "strategies, this is the time for each iteration of phone(s) that are rung"
@@ -519,19 +573,15 @@ msgstr ""
 "電話が鳴る秒数。全てのハント形式のリングルールにとって、それぞれの電話が反復"
 "して鳴る時間です"
 
-#: page.findmefollow.php:480
+#: assets/js/findmefollow.js:78
 msgid "Time must be between 1 and 60 seconds"
 msgstr "時間は1秒～60秒でなければいけません。"
 
-#: ucp/views/settings.php:69
+#: functions.inc.php:904 ucp/views/settings.php:69 views/form.php:138
 msgid "Too-Late Announce"
 msgstr ""
 
-#: page.findmefollow.php:378
-msgid "Too-Late Announce:"
-msgstr "時間超過アナウンス："
-
-#: page.findmefollow.php:403
+#: functions.inc.php:960
 msgid ""
 "Transmit the Fixed CID Value below on calls that come in from outside only. "
 "Internal extension to extension calls will continue to operate in default "
@@ -540,7 +590,7 @@ msgstr ""
 "外線から着信したコールのみ以下の固定の発信者番号値を転送します。内部の内線間"
 "通話では引き続きデフォルトモードで動作します。"
 
-#: page.findmefollow.php:405
+#: functions.inc.php:962
 msgid ""
 "Transmit the number that was dialed as the CID for calls coming from "
 "outside. Internal extension to extension calls will continue to operate in "
@@ -552,7 +602,7 @@ msgstr ""
 "ト上でDID番号が必要となります。これは外部の発信者番号をブロックするトランクで"
 "も転送されます。"
 
-#: page.findmefollow.php:404
+#: functions.inc.php:961
 msgid ""
 "Transmit the number that was dialed as the CID for calls coming from "
 "outside. Internal extension to extension calls will continue to operate in "
@@ -564,7 +614,7 @@ msgstr ""
 "ダイヤルイン番号が必要となります。海外の発信者番号をブロックするトランクでは"
 "これもブロックされます。"
 
-#: page.findmefollow.php:401
+#: functions.inc.php:958
 msgid "Transmits the Callers CID if allowed by the trunk."
 msgstr "トランクによって許可されている場合に発信者番号を転送します。"
 
@@ -572,19 +622,19 @@ msgstr "トランクによって許可されている場合に発信者番号を
 msgid "Use Confirmation"
 msgstr ""
 
-#: page.findmefollow.php:404 page.findmefollow.php:416
+#: functions.inc.php:961 functions.inc.php:983 views/form.php:213
 msgid "Use Dialed Number"
 msgstr "ダイヤルされた番号を使用"
 
-#: page.findmefollow.php:166
+#: views/bootnav.php:4
 msgid "User"
 msgstr "ユーザー"
 
-#: page.findmefollow.php:71
+#: Findmefollow.class.php:79
 msgid "Warning! Extension"
 msgstr "警告! 内線"
 
-#: findmefollow.i18n.php:12
+#: findmefollow.i18n.php:18
 msgid ""
 "When creating a new user or extension, setting this to true will "
 "automatically create a new Follow Me for that user using the default "
@@ -600,7 +650,16 @@ msgid ""
 "to the extension."
 msgstr ""
 
-#: page.findmefollow.php:346
+#: views/form.php:532
+msgid "Where to send callers if there is no answer."
+msgstr ""
+
+#: functions.inc.php:663 functions.inc.php:872 views/fmgrid.php:14
+#: views/form.php:262 views/form.php:446
+msgid "Yes"
+msgstr ""
+
+#: functions.inc.php:821
 msgid ""
 "You can optionally include an Alert Info which can create distinctive rings "
 "on SIP phones."
@@ -608,7 +667,7 @@ msgstr ""
 "必要に応じて、SIP電話機上でアラート情報を含めて独特の着信を作成することができ"
 "ます。"
 
-#: page.findmefollow.php:341
+#: functions.inc.php:810
 msgid ""
 "You can optionally prefix the Caller ID name when ringing extensions in this "
 "group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
@@ -617,6 +676,13 @@ msgstr ""
 "このグループ内の内線が着信しｓた際に、オプションで発信者番号にプリフィックス"
 "を付けることができます。例:もし\"営業:\"というプリフィックスをつければ、\"森"
 "圭介\"からのコールは着信した内線電話に\"営業:森圭介\"と表示されます。"
+
+#: views/form.php:405
+msgid ""
+"You can optionally prefix the CallerID name when ringing extensions in this "
+"group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
+"as \"Sales:John Doe\" on the extensions that ring."
+msgstr ""
 
 #: install.php:155
 msgid "adding annmsg_id field.."
@@ -634,9 +700,9 @@ msgstr "toolate_idフィールドを追加中.."
 msgid "already migrated"
 msgstr "移行済み"
 
-#: page.findmefollow.php:123
-msgid "deleted"
-msgstr "削除されました"
+#: views/form.php:189
+msgid "default"
+msgstr ""
 
 #: install.php:265
 msgid "dropping annmsg field.."
@@ -656,27 +722,23 @@ msgstr "toolateフィールドをドロップ中.."
 msgid "fatal error"
 msgstr "致命的なエラー"
 
-#: page.findmefollow.php:227
+#: functions.inc.php:701 views/form.php:42
 msgid "firstavailable"
 msgstr "利用可能な最初"
 
-#: page.findmefollow.php:228
+#: functions.inc.php:702 views/form.php:44
 msgid "firstnotonphone"
 msgstr "電話中でない最初のもの"
 
-#: page.findmefollow.php:190
-msgid "group number"
-msgstr "グループ番号"
-
-#: page.findmefollow.php:224
+#: functions.inc.php:698 views/form.php:36
 msgid "hunt"
 msgstr "ハント"
 
-#: page.findmefollow.php:71
+#: Findmefollow.class.php:79
 msgid "is not allowed for your account"
 msgstr "はあなたのアカウントに許可されていません"
 
-#: page.findmefollow.php:225
+#: functions.inc.php:699 views/form.php:38
 msgid "memoryhunt"
 msgstr "メモリーハント"
 
@@ -713,25 +775,29 @@ msgstr "remotealertフィールドが無い???"
 msgid "no toolate field???"
 msgstr "toolateフィールドが無い???"
 
+#: views/form.php:188
+msgid "none"
+msgstr ""
+
 #: install.php:162 install.php:171 install.php:180 install.php:271
 #: install.php:279 install.php:287
 msgid "ok"
 msgstr "ok"
 
-#: page.findmefollow.php:223
+#: functions.inc.php:697 views/form.php:34
 msgid ""
 "ring Extension for duration set in Initial Ring Time, and then terminate "
 "call to Extension and ring Follow-Me List for duration set in Ring Time."
 msgstr ""
 
-#: page.findmefollow.php:222
+#: functions.inc.php:696 views/form.php:32
 msgid ""
 "ring Extension for duration set in Initial Ring Time, and then, while "
 "continuing call to extension, ring Follow-Me List for duration set in Ring "
 "Time."
 msgstr ""
 
-#: page.findmefollow.php:225
+#: functions.inc.php:699 views/form.php:38
 msgid ""
 "ring first extension in the list, then ring the 1st and 2nd extension, then "
 "ring 1st 2nd and 3rd extension in the list.... etc."
@@ -739,29 +805,29 @@ msgstr ""
 "最初にリスト中の1番目の内線を鳴らします、次に一番目と二番目の内線を鳴らしま"
 "す、次に一番目、二番目、三番目の内線を鳴らします....。"
 
-#: page.findmefollow.php:227
+#: functions.inc.php:701 views/form.php:42
 msgid "ring only the first available channel"
 msgstr "利用可能な最初のチャネルのみ鳴ります"
 
-#: page.findmefollow.php:228
+#: functions.inc.php:702 views/form.php:44
 msgid "ring only the first channel which is not off hook - ignore CW"
 msgstr ""
 "オフフック状態でない最初のチャネルのみ鳴らします。 - コールウェイテイングは無"
 "視されます"
 
-#: page.findmefollow.php:223
+#: functions.inc.php:697 views/form.php:34
 msgid "ringall"
 msgstr "リングオール"
 
-#: page.findmefollow.php:222
+#: functions.inc.php:696 views/form.php:32
 msgid "ringallv2"
 msgstr "リングオールv2"
 
-#: page.findmefollow.php:224
+#: functions.inc.php:698 views/form.php:36
 msgid "take turns ringing each available extension"
 msgstr "利用可能な内線を順番に着信させます。"
 
-#: page.findmefollow.php:226
+#: functions.inc.php:700 views/form.php:40
 msgid ""
 "these modes act as described above. However, if the primary extension (first "
 "in list) is occupied, the other extensions will not be rung. If the primary "
@@ -773,19 +839,71 @@ msgstr ""
 "not disturb)の場合は鳴りません。もしメインがFreePBX 無条件転送の場合、全てが"
 "鳴ります。"
 
+#~ msgid "Add Follow Me"
+#~ msgstr "フォローミーを追加"
+
+#~ msgid "Add Follow Me Settings"
+#~ msgstr "フォローミー設定を追加する"
+
+#~ msgid "Announcement:"
+#~ msgstr "アナウンス："
+
+#~ msgid "Choose a user/extension:"
+#~ msgstr "ユーザー/内線を選択してください："
+
+#~ msgid "Delete Entries"
+#~ msgstr "エントリーを削除"
+
+#~ msgid "Disable"
+#~ msgstr "無効"
+
+#~ msgid "Edit %s"
+#~ msgstr "%sを編集"
+
+#~ msgid "Edit %s %s"
+#~ msgstr "%s %s を編集"
+
+#~ msgid "Edit Follow Me"
+#~ msgstr "フォローミーを編集"
+
+#~ msgid "Edit Follow Me Settings"
+#~ msgstr "フォローミー設定を編集する"
+
+#~ msgid "Initial Ring Time:"
+#~ msgstr "最初のリング時間："
+
 #~ msgid ""
-#~ "Much like a ring group, but works on individual extensions. When someone "
-#~ "calls the extension, it can be setup to ring for a number of seconds "
-#~ "before trying to ring other extensions and/or external numbers, or to "
-#~ "ring all at once, or in other various 'hunt' configurations. Most "
-#~ "commonly used to ring someone's cell phone if they don't answer their "
-#~ "extension."
+#~ "Message to be played to the caller before dialing this group.<br><br>You "
+#~ "must install and enable the \"Systems Recordings\" Module to edit this "
+#~ "option"
 #~ msgstr ""
-#~ "着信グループに非常に似ていますが、個人の内線で機能します。誰かが内線を呼び"
-#~ "出した時に、他の内線や外線を呼び出そうとする前に、もしくは一斉着信する前"
-#~ "に、または他の様々な'ハント'設定を実行する前に第二の番号を着信させることが"
-#~ "できます。最も一般的には、かれらが内線に応答しない場合、誰かの携帯電話を鳴"
-#~ "らすときなどに使用されます。"
+#~ "このグループにダイヤルする前に発信者に再生されるメッセージ。<br><br>このオ"
+#~ "プションを編集するには\"システム録音\"モジュールをインストールし有効にする"
+#~ "必要があります"
+
+#~ msgid "Play Music On Hold?"
+#~ msgstr "保留中に音楽を鳴らす?"
+
+#~ msgid "Remote Announce:"
+#~ msgstr "リモートアナウンス："
+
+#~ msgid "Ring Strategy:"
+#~ msgstr "リングルール:"
+
+#~ msgid "Submit Changes"
+#~ msgstr "変更を適用"
+
+#~ msgid "The number users will dial to ring extensions in this ring group"
+#~ msgstr "このリンググループに所属する内線を鳴らすためのダイヤル番号"
+
+#~ msgid "Too-Late Announce:"
+#~ msgstr "時間超過アナウンス："
+
+#~ msgid "deleted"
+#~ msgstr "削除されました"
+
+#~ msgid "group number"
+#~ msgstr "グループ番号"
 
 #~ msgid ""
 #~ "ring primary extension for initial ring time followed by all additional "
