@@ -7,165 +7,58 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"POT-Creation-Date: 2015-02-20 19:33-0500\n"
 "PO-Revision-Date: 2014-11-18 13:42+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
-"Language-Team: Bulgarian "
-"<http://git.freepbx.org/projects/freepbx/findmefollow/bg_BG/>\n"
-"Language: bg_BG\n"
+"Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/"
+"findmefollow/bg_BG/>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: bg_BG\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 "X-Poedit-Language: Bulgarian\n"
 "X-Poedit-Country: BULGARIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-msgid "Follow Me"
-msgstr "Следвай Ме"
+#: page.findmefollow.php:280
+msgid "(pick extension)"
+msgstr "(избери вътрешна линия)"
 
-msgid "Applications"
-msgstr "Приложения"
+#: page.findmefollow.php:226
+msgid "*-prim"
+msgstr "*-основна"
 
-msgid ""
-"Much like a ring group, but works on individual extensions. When someone "
-"calls the extension, it can be setup to ring for a number of seconds before "
-"trying to ring other extensions and/or external numbers, or to ring all at "
-"once, or in other various 'hunt' configurations. Most commonly used to ring "
-"someone's cell phone if they don't answer their extension."
-msgstr ""
-"Като група на звънене, но работи за индивидуални вътрешни линии. Когато се "
-"получи обаждане за вътрешната линия, може да се настрои да звъни за даден "
-"брой секунди преди да се опита да звъни на други вътрешни линии и/или външни "
-"номера, или да звънят всички заедно, или в някакво настроено преследване. "
-"Най-често се използва за прехвърляне на обажданията към мобилен телефон ако "
-"вътрешния номер не отговаря."
-
-msgid "Force Follow Me"
-msgstr "Принудително Следвай Ме"
-
-msgid "Edit Follow Me Settings"
-msgstr "Редактирай Настройки на Следвай Ме"
-
-msgid "Add Follow Me Settings"
-msgstr "Добави Настройки на Следвай Ме"
-
-#, php-format
-msgid "Follow-Me: %s (%s)"
-msgstr "Следвай Ме: %s (%s)"
-
-#, php-format
-msgid "Follow-Me User: %s"
-msgstr "Следвай Ме: %s"
-
-msgid "Findme Follow Toggle"
-msgstr "Превключи Следвай Ме"
-
-msgid "Cannot connect to Asterisk Manager with "
-msgstr "Не мога да се свържа с Asterisk Manager с "
-
-msgid "Checking if recordings need migration.."
-msgstr "Проверка дали записите имат нужда от преместване.."
-
-msgid "migrating"
-msgstr "преместване"
-
-msgid "adding annmsg_id field.."
-msgstr "добавяне на annmsg_id поле.."
-
-msgid "fatal error"
-msgstr "фатална грешка"
-
-msgid "ok"
-msgstr "ok"
-
-msgid "adding remotealert_id field.."
-msgstr "добавяне на remotealert_id поле.."
-
-msgid "adding toolate_id field.."
-msgstr "добавяне на toolate_id поле.."
-
-msgid "migrate annmsg to ids.."
-msgstr "преместване към id на annmsg.."
-
-#, php-format
-msgid "migrated %s entries"
-msgstr "преместени %s въвеждания"
-
-msgid "migrate remotealert to ids.."
-msgstr "преместване към id на remotealert.."
-
-msgid "migrate toolate to  ids.."
-msgstr "преместване към id на toolate.."
-
-msgid "dropping annmsg field.."
-msgstr "премахване на поле annmsg.."
-
-msgid "no annmsg field???"
-msgstr "няма annmsg поле???"
-
-msgid "dropping remotealert field.."
-msgstr "премахване на поле remotealert.."
-
-msgid "no remotealert field???"
-msgstr "няма remotealert поле???"
-
-msgid "dropping toolate field.."
-msgstr "премахване на поле toolate.."
-
-msgid "no toolate field???"
-msgstr "няма toolate поле???"
-
-msgid "already migrated"
-msgstr "вече са преместени"
-
-msgid "Warning! Extension"
-msgstr "Внимание! Вътрешна Линия"
-
-msgid "is not allowed for your account"
-msgstr "не е разрешена за вашия акаунт"
-
-msgid "Choose a user/extension:"
-msgstr "Изберете потребител/вътрешна линия:"
-
-msgid "deleted"
-msgstr "изтрит"
-
-msgid "Delete Entries"
-msgstr "Изтрий Въвеждането"
-
-msgid "User"
-msgstr "Потребител"
-
-msgid "Extension"
-msgstr "Вътрешна Линия"
-
-#, php-format
-msgid "Edit %s"
-msgstr "Редактирай %s"
-
-#, php-format
-msgid "Edit %s %s"
-msgstr "Редактирай %s %s"
-
-msgid "Edit Follow Me"
-msgstr "Редактирай Следвай Ме"
-
+#: page.findmefollow.php:182
 msgid "Add Follow Me"
 msgstr "Добави Следвай Ме"
 
-msgid "group number"
-msgstr "номера на групата"
+#: functions.inc.php:572 functions.inc.php:576
+msgid "Add Follow Me Settings"
+msgstr "Добави Настройки на Следвай Ме"
 
-msgid "The number users will dial to ring extensions in this ring group"
+#: page.findmefollow.php:346
+msgid "Alert Info"
+msgstr "Информация за Сигнал"
+
+#: page.findmefollow.php:402
+msgid "Always transmit the Fixed CID Value below."
+msgstr "Винаги предава Фиксиран CID определен по-долу."
+
+#: ucp/views/settings.php:20
+msgid "Announcement"
 msgstr ""
-"Номерът който потребителите ще избират за звънене на вътрешните линии в тази "
-"група"
 
-msgid "Disable"
-msgstr "Забрани"
+#: page.findmefollow.php:293 page.findmefollow.php:311
+msgid "Announcement:"
+msgstr "Съобщение:"
 
+#: findmefollow.i18n.php:4
+msgid "Applications"
+msgstr "Приложения"
+
+#: page.findmefollow.php:196
 msgid ""
 "By default (not checked) any call to this extension will go to this Follow-"
 "Me instead, including directory calls by name from IVRs. If checked, calls "
@@ -182,93 +75,218 @@ msgstr ""
 "VmX Намери Ме, при което искате обаждането да звъни на вътрешната линия, "
 "след което само ако обаждащият се избере да ви намери ще се прехвърли тук."
 
-msgid "Initial Ring Time:"
-msgstr "Първоначално Време на Звънене:"
+#: page.findmefollow.php:341
+msgid "CID Name Prefix"
+msgstr "Префикс на CID Име"
 
-msgid ""
-"This is the number of seconds to ring the primary extension prior to "
-"proceeding to the follow-me list. The extension can also be included in the "
-"follow-me list. A 0 setting will bypass this."
+#: page.findmefollow.php:350
+msgid "Call Confirmation Configuration"
+msgstr "Настройки на Потвърждаване на Обажданията"
+
+#: install.php:130 uninstall.php:30
+msgid "Cannot connect to Asterisk Manager with "
+msgstr "Не мога да се свържа с Asterisk Manager с "
+
+#: page.findmefollow.php:396
+msgid "Change External CID Configuration"
+msgstr "Настройки за Промяна на Външен CID"
+
+#: install.php:148
+msgid "Checking if recordings need migration.."
+msgstr "Проверка дали записите имат нужда от преместване.."
+
+#: page.findmefollow.php:120
+msgid "Choose a user/extension:"
+msgstr "Изберете потребител/вътрешна линия:"
+
+#: page.findmefollow.php:274
+msgid "Choose an extension to append to the end of the extension list above."
+msgstr "Изберете вътрешна линия за поставяне в края на списъка по-горе."
+
+#: page.findmefollow.php:353
+msgid "Confirm Calls"
+msgstr "Потвърди Обажданията"
+
+#: findmefollow.i18n.php:8
+msgid "Create Follow Me at Extension Creation Time"
 msgstr ""
-"Колко секунди да звъни основната вътрешна линия преди да продължи към "
-"следвай ме списъка. Вътрешната линия може също да се добави в следвай ме "
-"списъка. Установяването на 0 ще прескочи това."
 
-msgid "Ring Strategy:"
-msgstr "Стратегия на Звънене:"
+#: page.findmefollow.php:367 page.findmefollow.php:384
+#: page.findmefollow.php:401 page.findmefollow.php:413
+msgid "Default"
+msgstr "По-Подразбиране"
 
-msgid "ringallv2"
-msgstr "звъни на всички версия 2"
-
-msgid ""
-"ring primary extension for initial ring time followed by all additional "
-"extensions until one answers"
+#: findmefollow.i18n.php:22
+msgid "Default Follow Me Initial Ring Time"
 msgstr ""
-"Звъни първоначално на основната вътрешна линия последвано от звънене на "
-"всички достъпни канали докато отговорят"
 
-msgid "ringall"
-msgstr "звъни на всички"
-
-msgid "ring all available channels until one answers (default)"
-msgstr "Звъни на всички достъпни канали докато отговорят (по-подразбиране)"
-
-msgid "hunt"
-msgstr "преследване"
-
-msgid "take turns ringing each available extension"
-msgstr "Върти звъненето по всички достъпни вътрешни линии"
-
-msgid "memoryhunt"
-msgstr "преследване с запомняне"
-
-msgid ""
-"ring first extension in the list, then ring the 1st and 2nd extension, then "
-"ring 1st 2nd and 3rd extension in the list.... etc."
+#: findmefollow.i18n.php:26
+msgid "Default Follow Me Ring Strategy"
 msgstr ""
-"Звъни на първата свободна вътрешна линия от списъка, след това на 1-та и 2-"
-"та, след това на 1-та, 2-та и 3-та вътрешна линия в списъка... и т.н."
 
-msgid "*-prim"
-msgstr "*-основна"
-
-msgid ""
-"these modes act as described above. However, if the primary extension (first "
-"in list) is occupied, the other extensions will not be rung. If the primary "
-"is FreePBX DND, it won't be rung. If the primary is FreePBX CF "
-"unconditional, then all will be rung"
+#: findmefollow.i18n.php:18
+msgid "Default Follow Me Ring Time"
 msgstr ""
-"Този режим е като описания по-горе. Само че ако основната вътрешна линия "
-"(първата в списъка) е заета, другите вътрешни линии няма да звънят. Ако "
-"основната е FreePBX DND, няма да звъни. Ако основната е безусловен FreePBX "
-"CF, тогава всички ще звънят"
 
-msgid "firstavailable"
-msgstr "първия свободен"
+#: page.findmefollow.php:156
+msgid "Delete Entries"
+msgstr "Изтрий Въвеждането"
 
-msgid "ring only the first available channel"
-msgstr "звъни само на първия свободен канал"
+#: page.findmefollow.php:429
+msgid "Destination if no answer"
+msgstr "Направление ако не е отговорено"
 
-msgid "firstnotonphone"
-msgstr "първия не на телефона"
+#: page.findmefollow.php:196
+msgid "Disable"
+msgstr "Забрани"
 
-msgid "ring only the first channel which is not off hook - ignore CW"
-msgstr "звъни само на първия канал който не е отворен - игнорира CW"
-
-msgid "Ring Time (max 60 sec)"
-msgstr "Време на Звънене (max 60 секунди)"
-
-msgid ""
-"Time in seconds that the phones will ring. For all hunt style ring "
-"strategies, this is the time for each iteration of phone(s) that are rung"
+#: findmefollow.i18n.php:14
+msgid "Disable Follow Me Upon Creation"
 msgstr ""
-"Времето в секунди за което телефона ще звъни. За всички типове преследване "
-"за стратегии на звънене, това е времето за всяко повторение на телефона(ите) "
-"които звънят"
 
+#: page.findmefollow.php:173
+#, php-format
+msgid "Edit %s"
+msgstr "Редактирай %s"
+
+#: page.findmefollow.php:173
+#, php-format
+msgid "Edit %s %s"
+msgstr "Редактирай %s %s"
+
+#: page.findmefollow.php:182
+msgid "Edit Follow Me"
+msgstr "Редактирай Следвай Ме"
+
+#: functions.inc.php:569
+msgid "Edit Follow Me Settings"
+msgstr "Редактирай Настройки на Следвай Ме"
+
+#: ucp/views/settings.php:4
+msgid "Enable"
+msgstr ""
+
+#: ucp/views/settings.php:56
+msgid ""
+"Enable this if you're calling external numbers that need confirmation - eg, "
+"a mobile phone may go to voicemail which will pick up the call. Enabling "
+"this requires the remote side push 1 on their phone before the call is put "
+"through."
+msgstr ""
+
+#: page.findmefollow.php:353
+msgid ""
+"Enable this if you're calling external numbers that need confirmation - eg, "
+"a mobile phone may go to voicemail which will pick up the call. Enabling "
+"this requires the remote side push 1 on their phone before the call is put "
+"through. This feature only works with the ringall/ringall-prim  ring strategy"
+msgstr ""
+"Разрешете ако ви се обаждат външни номера които се нуждаят от потвърждение - "
+"например мобилен телефон може да отиде към гласовата поща която да отговори "
+"на обаждането. Разрешаването изисква от отсрещната страна да наберат 1 преди "
+"обаждането да се достави. Тази услуга работи само със звъни-на-всички/звъни-"
+"на-всички-основна стратегия"
+
+#: page.findmefollow.php:170
+msgid "Extension"
+msgstr "Вътрешна Линия"
+
+#: page.findmefollow.php:272
+msgid "Extension Quick Pick"
+msgstr "Бързо Избиране на Вътрешни Линии"
+
+#: ucp/Findmefollow.class.php:35
+msgid "Find Me/Follow Me"
+msgstr ""
+
+#: ucp/Findmefollow.class.php:85
+msgid "Find Me/Follow Me Has Been Updated!"
+msgstr ""
+
+#: install.php:5
+msgid "Findme Follow Toggle"
+msgstr "Превключи Следвай Ме"
+
+#: page.findmefollow.php:402 page.findmefollow.php:414
+#: page.findmefollow.php:425
+msgid "Fixed CID Value"
+msgstr "Фиксиран CID"
+
+#: page.findmefollow.php:425
+msgid ""
+"Fixed value to replace the CID with used with some of the modes above. "
+"Should be in a format of digits only with an option of E164 format using a "
+"leading \"+\"."
+msgstr ""
+"Фиксирана стойност за замяна на CID с използването на някой от режимите по-"
+"горе. Трябва да е само от цифри с възможност за E164 формат с използване на "
+"водещ \"+\"."
+
+#: findmefollow.i18n.php:3 findmefollow.i18n.php:6 page.findmefollow.php:120
+#: page.findmefollow.php:123 page.findmefollow.php:159
+msgid "Follow Me"
+msgstr "Следвай Ме"
+
+#: ucp/views/settings.php:15
+msgid "Follow Me List"
+msgstr ""
+
+#: findmefollow.i18n.php:10
+msgid "Follow Me Module"
+msgstr ""
+
+#: functions.inc.php:625
+#, php-format
+msgid "Follow Me: %s"
+msgstr ""
+
+#: page.findmefollow.php:257
 msgid "Follow-Me List"
 msgstr "Следвай Ме Списък"
 
+#: functions.inc.php:678
+#, php-format
+msgid "Follow-Me User: %s"
+msgstr "Следвай Ме: %s"
+
+#: functions.inc.php:654
+#, php-format
+msgid "Follow-Me: %s (%s)"
+msgstr "Следвай Ме: %s (%s)"
+
+#: page.findmefollow.php:405 page.findmefollow.php:417
+msgid "Force Dialed Number"
+msgstr "Принудително Използвай Избрания Номер"
+
+#: functions.inc.php:34
+msgid "Force Follow Me"
+msgstr "Принудително Следвай Ме"
+
+#: page.findmefollow.php:322
+msgid ""
+"If you select a Music on Hold class to play, instead of 'Ring', they will "
+"hear that instead of Ringing while they are waiting for someone to pick up."
+msgstr ""
+"Ако изберете категория на Музика При Задържане за възпроизвеждане вместо "
+"Звънене, те ще чуват това вместо Звънене докато чакат някой да оговори."
+
+#: page.findmefollow.php:202
+msgid "Initial Ring Time:"
+msgstr "Първоначално Време на Звънене:"
+
+#: page.findmefollow.php:482
+msgid ""
+"Invalid CID Number. Must be in a format of digits only with an option of "
+"E164 format using a leading \"+\""
+msgstr ""
+"Неправилен CID Номер. Трябва да е само от цифри с възможност за E164 формат "
+"с използване на водещ \\\"+\\\""
+
+#: page.findmefollow.php:479
+msgid "Invalid time specified"
+msgstr "Неправилно въведено време"
+
+#: page.findmefollow.php:257
 msgid ""
 "List extensions to ring, one per line, or use the Extension Quick Pick below."
 "<br><br>You can include an extension on a remote system, or an external "
@@ -281,18 +299,18 @@ msgstr ""
 "добавяне на наставка '#'. Например:  2448089# ще избира 2448089 от "
 "съответната външна линия (виж Изходящи Маршрути)."
 
-msgid "Extension Quick Pick"
-msgstr "Бързо Избиране на Вътрешни Линии"
+#: ucp/views/settings.php:17
+msgid ""
+"List extensions to ring, one per line. You can include an extension on a "
+"remote system, or an external number by suffixing a number with a pound "
+"(#).  ex:  2448089# would dial 2448089."
+msgstr ""
 
-msgid "Choose an extension to append to the end of the extension list above."
-msgstr "Изберете вътрешна линия за поставяне в края на списъка по-горе."
+#: ucp/views/settings.php:27
+msgid "Message to be played to the caller before dialing this group."
+msgstr ""
 
-msgid "(pick extension)"
-msgstr "(избери вътрешна линия)"
-
-msgid "Announcement:"
-msgstr "Съобщение:"
-
+#: page.findmefollow.php:293
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
 "additional recordings please use the \"System Recordings\" MENU to the left"
@@ -301,9 +319,7 @@ msgstr ""
 "групата.<br><br>За да добавите допълнителни записи, моля използвайте Меню "
 "\"Системни Записи\" отляво"
 
-msgid "None"
-msgstr "Няма"
-
+#: page.findmefollow.php:311
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>You "
 "must install and enable the \"Systems Recordings\" Module to edit this option"
@@ -312,62 +328,13 @@ msgstr ""
 "групата.<br><br>Трябва да сте инсталирали и разрешили Модул \"Системни Записи"
 "\" за да редактирате тази опция"
 
-msgid "Play Music On Hold?"
-msgstr "Пускане на Музика при Задържане?"
-
+#: ucp/views/settings.php:66
 msgid ""
-"If you select a Music on Hold class to play, instead of 'Ring', they will "
-"hear that instead of Ringing while they are waiting for someone to pick up."
+"Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
+"enabled."
 msgstr ""
-"Ако изберете категория на Музика При Задържане за възпроизвеждане вместо "
-"Звънене, те ще чуват това вместо Звънене докато чакат някой да оговори."
 
-msgid "Ring"
-msgstr "Звънене"
-
-msgid "CID Name Prefix"
-msgstr "Префикс на CID Име"
-
-msgid ""
-"You can optionally prefix the Caller ID name when ringing extensions in this "
-"group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
-"as \"Sales:John Doe\" on the extensions that ring."
-msgstr ""
-"Можете да добавите префикс на Caller ID името когато звъните на вътрешните "
-"линии в тази група. Например: Префикс \"Продажби:\", обаждането от Иван "
-"Иванов ще се показва \"Продажби:Иван Иванов\" на вътрешните линии които "
-"звънят."
-
-msgid "Alert Info"
-msgstr "Информация за Сигнал"
-
-msgid ""
-"You can optionally include an Alert Info which can create distinctive rings "
-"on SIP phones."
-msgstr ""
-"ALERT_INFO може да се използва за различно звънене при някои SIP устройства."
-
-msgid "Call Confirmation Configuration"
-msgstr "Настройки на Потвърждаване на Обажданията"
-
-msgid "Confirm Calls"
-msgstr "Потвърди Обажданията"
-
-msgid ""
-"Enable this if you're calling external numbers that need confirmation - eg, "
-"a mobile phone may go to voicemail which will pick up the call. Enabling "
-"this requires the remote side push 1 on their phone before the call is put "
-"through. This feature only works with the ringall/ringall-prim  ring strategy"
-msgstr ""
-"Разрешете ако ви се обаждат външни номера които се нуждаят от потвърждение - "
-"например мобилен телефон може да отиде към гласовата поща която да отговори "
-"на обаждането. Разрешаването изисква от отсрещната страна да наберат 1 преди "
-"обаждането да се достави. Тази услуга работи само със "
-"звъни-на-всички/звъни-на-всички-основна стратегия"
-
-msgid "Remote Announce:"
-msgstr "Кратко Съобщение:"
-
+#: page.findmefollow.php:361
 msgid ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
 "enabled.<br><br>To add additional recordings use the \"System Recordings\" "
@@ -377,12 +344,13 @@ msgstr ""
 "Обажданията е маркирано.<br><br>За да добавите допълнителни записи, моля "
 "използвайте Меню \"Системни Записи\""
 
-msgid "Default"
-msgstr "По-Подразбиране"
+#: ucp/views/settings.php:76
+msgid ""
+"Message to be played to the person RECEIVING the call, if the call has "
+"already been accepted before they push 1."
+msgstr ""
 
-msgid "Too-Late Announce:"
-msgstr "Много-Късно Съобщение:"
-
+#: page.findmefollow.php:378
 msgid ""
 "Message to be played to the person RECEIVING the call, if the call has "
 "already been accepted before they push 1.<br><br>To add additional "
@@ -392,24 +360,149 @@ msgstr ""
 "вече е било прието преди те да натиснат 1.<br><br>За да добавите "
 "допълнителни записи, моля използвайте Меню \"Системни Записи\""
 
-msgid "Change External CID Configuration"
-msgstr "Настройки за Промяна на Външен CID"
-
+#: page.findmefollow.php:399
 msgid "Mode"
 msgstr "Режим"
 
-msgid "Transmits the Callers CID if allowed by the trunk."
-msgstr "Предава CID на обаждащия се ако се поддържа от външната линия."
+#: findmefollow.i18n.php:5
+msgid ""
+"Much like a ring group, but works on individual extensions. When someone "
+"calls the extension, it can be setup to ring for a number of seconds before "
+"trying to ring other extensions and/or external numbers, or to ring all at "
+"once, or in other various \\'hunt\\' configurations. Most commonly used to "
+"ring someone\\'s cell phone if they don\\'t answer their extension."
+msgstr ""
 
-msgid "Fixed CID Value"
-msgstr "Фиксиран CID"
+#: page.findmefollow.php:299 ucp/views/settings.php:22
+#: ucp/views/settings.php:61 ucp/views/settings.php:71
+msgid "None"
+msgstr "Няма"
 
-msgid "Always transmit the Fixed CID Value below."
-msgstr "Винаги предава Фиксиран CID определен по-долу."
+#: functions.inc.php:18
+msgid "Normal Extension Behavior"
+msgstr ""
 
+#: page.findmefollow.php:481
+msgid ""
+"Only ringall, ringallv2, hunt and the respective -prim versions are "
+"supported when confirmation is checked"
+msgstr ""
+"Само ringall, ringallv2, hunt и съответните -основна версии се поддържат "
+"когато е маркирано потвърждението"
+
+#: page.findmefollow.php:403 page.findmefollow.php:415
 msgid "Outside Calls Fixed CID Value"
 msgstr "Фиксиран CID за Изходящи Разговори"
 
+#: page.findmefollow.php:322
+msgid "Play Music On Hold?"
+msgstr "Пускане на Музика при Задържане?"
+
+#: page.findmefollow.php:478
+msgid "Please enter an extension list."
+msgstr "Моля въведете списъка с вътрешни линии."
+
+#: ucp/views/settings.php:59
+msgid "Remote Announce"
+msgstr ""
+
+#: page.findmefollow.php:361
+msgid "Remote Announce:"
+msgstr "Кратко Съобщение:"
+
+#: page.findmefollow.php:328
+msgid "Ring"
+msgstr "Звънене"
+
+#: ucp/views/settings.php:30
+#, php-format
+msgid "Ring %s First For"
+msgstr ""
+
+#: ucp/views/settings.php:39
+msgid "Ring Followme List For"
+msgstr ""
+
+#: page.findmefollow.php:220
+msgid "Ring Strategy:"
+msgstr "Стратегия на Звънене:"
+
+#: page.findmefollow.php:247
+msgid "Ring Time (max 60 sec)"
+msgstr "Време на Звънене (max 60 секунди)"
+
+#: ucp/views/settings.php:33 ucp/views/settings.php:42
+msgid "Seconds"
+msgstr ""
+
+#: page.findmefollow.php:440
+msgid "Submit Changes"
+msgstr "Приеми Промените"
+
+#: findmefollow.i18n.php:24
+msgid ""
+"The default Initial Ring Time for a Follow Me set upon creation and used if "
+"auto-created with a new extension."
+msgstr ""
+
+#: findmefollow.i18n.php:28
+msgid ""
+"The default Ring Strategy selected for a Follow Me set upon creation and "
+"used if auto-created with an extension."
+msgstr ""
+
+#: findmefollow.i18n.php:20
+msgid ""
+"The default Ring Time for a Follow Me set upon creation and used if auto-"
+"created with a new extension."
+msgstr ""
+
+#: page.findmefollow.php:190
+msgid "The number users will dial to ring extensions in this ring group"
+msgstr ""
+"Номерът който потребителите ще избират за звънене на вътрешните линии в тази "
+"група"
+
+#: findmefollow.i18n.php:16
+msgid "This is the default value for the Follow Me "
+msgstr ""
+
+#: page.findmefollow.php:203 ucp/views/settings.php:36
+msgid ""
+"This is the number of seconds to ring the primary extension prior to "
+"proceeding to the follow-me list. The extension can also be included in the "
+"follow-me list. A 0 setting will bypass this."
+msgstr ""
+"Колко секунди да звъни основната вътрешна линия преди да продължи към "
+"следвай ме списъка. Вътрешната линия може също да се добави в следвай ме "
+"списъка. Установяването на 0 ще прескочи това."
+
+#: ucp/views/settings.php:45
+msgid "Time in seconds that the phones will ring"
+msgstr ""
+
+#: page.findmefollow.php:249
+msgid ""
+"Time in seconds that the phones will ring. For all hunt style ring "
+"strategies, this is the time for each iteration of phone(s) that are rung"
+msgstr ""
+"Времето в секунди за което телефона ще звъни. За всички типове преследване "
+"за стратегии на звънене, това е времето за всяко повторение на телефона(ите) "
+"които звънят"
+
+#: page.findmefollow.php:480
+msgid "Time must be between 1 and 60 seconds"
+msgstr "Трябва да е между 1 и 60 секунди"
+
+#: ucp/views/settings.php:69
+msgid "Too-Late Announce"
+msgstr ""
+
+#: page.findmefollow.php:378
+msgid "Too-Late Announce:"
+msgstr "Много-Късно Съобщение:"
+
+#: page.findmefollow.php:403
 msgid ""
 "Transmit the Fixed CID Value below on calls that come in from outside only. "
 "Internal extension to extension calls will continue to operate in default "
@@ -418,23 +511,7 @@ msgstr ""
 "Предава Фиксиран CID определен по-долу само за входящи външни обаждания. "
 "Вътрешните обаждания ще продължат да се извършват в режима по-подразбиране."
 
-msgid "Use Dialed Number"
-msgstr "Използвай Избрания Номер"
-
-msgid ""
-"Transmit the number that was dialed as the CID for calls coming from "
-"outside. Internal extension to extension calls will continue to operate in "
-"default mode. There must be a DID on the inbound route for this. This will "
-"be BLOCKED on trunks that block foreign CallerID"
-msgstr ""
-"Предава набрания номер като CID за входящи външни обаждания. Вътрешните "
-"обаждания ще продължат да се извършват в режима по-подразбиране. Трябва да "
-"има DID на входящ маршрут за това.Ще бъде БЛОКИРАН за външни линии които "
-"блокират външен CallerID"
-
-msgid "Force Dialed Number"
-msgstr "Принудително Използвай Избрания Номер"
-
+#: page.findmefollow.php:405
 msgid ""
 "Transmit the number that was dialed as the CID for calls coming from "
 "outside. Internal extension to extension calls will continue to operate in "
@@ -446,43 +523,247 @@ msgstr ""
 "има DID на входящ маршрут за това.Ще се ПРЕДАДЕ за външни линии които "
 "блокират външен CallerID"
 
+#: page.findmefollow.php:404
 msgid ""
-"Fixed value to replace the CID with used with some of the modes above. "
-"Should be in a format of digits only with an option of E164 format using a "
-"leading \"+\"."
+"Transmit the number that was dialed as the CID for calls coming from "
+"outside. Internal extension to extension calls will continue to operate in "
+"default mode. There must be a DID on the inbound route for this. This will "
+"be BLOCKED on trunks that block foreign CallerID"
 msgstr ""
-"Фиксирана стойност за замяна на CID с използването на някой от режимите по-"
-"горе. Трябва да е само от цифри с възможност за E164 формат с използване на "
-"водещ \"+\"."
+"Предава набрания номер като CID за входящи външни обаждания. Вътрешните "
+"обаждания ще продължат да се извършват в режима по-подразбиране. Трябва да "
+"има DID на входящ маршрут за това.Ще бъде БЛОКИРАН за външни линии които "
+"блокират външен CallerID"
 
-msgid "Destination if no answer"
-msgstr "Направление ако не е отговорено"
+#: page.findmefollow.php:401
+msgid "Transmits the Callers CID if allowed by the trunk."
+msgstr "Предава CID на обаждащия се ако се поддържа от външната линия."
 
-msgid "Submit Changes"
-msgstr "Приеми Промените"
+#: ucp/views/settings.php:48
+msgid "Use Confirmation"
+msgstr ""
 
-msgid "Please enter an extension list."
-msgstr "Моля въведете списъка с вътрешни линии."
+#: page.findmefollow.php:404 page.findmefollow.php:416
+msgid "Use Dialed Number"
+msgstr "Използвай Избрания Номер"
 
-msgid "Invalid time specified"
-msgstr "Неправилно въведено време"
+#: page.findmefollow.php:166
+msgid "User"
+msgstr "Потребител"
 
-msgid "Time must be between 1 and 60 seconds"
-msgstr "Трябва да е между 1 и 60 секунди"
+#: page.findmefollow.php:71
+msgid "Warning! Extension"
+msgstr "Внимание! Вътрешна Линия"
 
+#: findmefollow.i18n.php:12
 msgid ""
-"Only ringall, ringallv2, hunt and the respective -prim versions are "
-"supported when confirmation is checked"
+"When creating a new user or extension, setting this to true will "
+"automatically create a new Follow Me for that user using the default "
+"settings listed below"
 msgstr ""
-"Само ringall, ringallv2, hunt и съответните -основна версии се поддържат "
-"когато е маркирано потвърждението"
 
+#: ucp/views/settings.php:12
 msgid ""
-"Invalid CID Number. Must be in a format of digits only with an option of "
-"E164 format using a leading \"+\""
+"When enabled any call to this extension will go to this Follow-Me instead, "
+"including directory calls by name from IVRs. If disabled, calls will go only "
+"to the extension."
 msgstr ""
-"Неправилен CID Номер. Трябва да е само от цифри с възможност за E164 формат "
-"с използване на водещ \\\"+\\\""
+
+#: page.findmefollow.php:346
+msgid ""
+"You can optionally include an Alert Info which can create distinctive rings "
+"on SIP phones."
+msgstr ""
+"ALERT_INFO може да се използва за различно звънене при някои SIP устройства."
+
+#: page.findmefollow.php:341
+msgid ""
+"You can optionally prefix the Caller ID name when ringing extensions in this "
+"group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
+"as \"Sales:John Doe\" on the extensions that ring."
+msgstr ""
+"Можете да добавите префикс на Caller ID името когато звъните на вътрешните "
+"линии в тази група. Например: Префикс \"Продажби:\", обаждането от Иван "
+"Иванов ще се показва \"Продажби:Иван Иванов\" на вътрешните линии които "
+"звънят."
+
+#: install.php:155
+msgid "adding annmsg_id field.."
+msgstr "добавяне на annmsg_id поле.."
+
+#: install.php:164
+msgid "adding remotealert_id field.."
+msgstr "добавяне на remotealert_id поле.."
+
+#: install.php:173
+msgid "adding toolate_id field.."
+msgstr "добавяне на toolate_id поле.."
+
+#: install.php:291
+msgid "already migrated"
+msgstr "вече са преместени"
+
+#: page.findmefollow.php:123
+msgid "deleted"
+msgstr "изтрит"
+
+#: install.php:265
+msgid "dropping annmsg field.."
+msgstr "премахване на поле annmsg.."
+
+#: install.php:273
+msgid "dropping remotealert field.."
+msgstr "премахване на поле remotealert.."
+
+#: install.php:281
+msgid "dropping toolate field.."
+msgstr "премахване на поле toolate.."
+
+#: install.php:159 install.php:168 install.php:177 install.php:189
+#: install.php:205 install.php:215 install.php:231 install.php:241
+#: install.php:257
+msgid "fatal error"
+msgstr "фатална грешка"
+
+#: page.findmefollow.php:227
+msgid "firstavailable"
+msgstr "първия свободен"
+
+#: page.findmefollow.php:228
+msgid "firstnotonphone"
+msgstr "първия не на телефона"
+
+#: page.findmefollow.php:190
+msgid "group number"
+msgstr "номера на групата"
+
+#: page.findmefollow.php:224
+msgid "hunt"
+msgstr "преследване"
+
+#: page.findmefollow.php:71
+msgid "is not allowed for your account"
+msgstr "не е разрешена за вашия акаунт"
+
+#: page.findmefollow.php:225
+msgid "memoryhunt"
+msgstr "преследване с запомняне"
+
+#: install.php:185
+msgid "migrate annmsg to ids.."
+msgstr "преместване към id на annmsg.."
+
+#: install.php:211
+msgid "migrate remotealert to ids.."
+msgstr "преместване към id на remotealert.."
+
+#: install.php:237
+msgid "migrate toolate to  ids.."
+msgstr "преместване към id на toolate.."
+
+#: install.php:209 install.php:235 install.php:261
+#, php-format
+msgid "migrated %s entries"
+msgstr "преместени %s въвеждания"
+
+#: install.php:154
+msgid "migrating"
+msgstr "преместване"
+
+#: install.php:269
+msgid "no annmsg field???"
+msgstr "няма annmsg поле???"
+
+#: install.php:277
+msgid "no remotealert field???"
+msgstr "няма remotealert поле???"
+
+#: install.php:285
+msgid "no toolate field???"
+msgstr "няма toolate поле???"
+
+#: install.php:162 install.php:171 install.php:180 install.php:271
+#: install.php:279 install.php:287
+msgid "ok"
+msgstr "ok"
+
+#: page.findmefollow.php:223
+msgid ""
+"ring Extension for duration set in Initial Ring Time, and then terminate "
+"call to Extension and ring Follow-Me List for duration set in Ring Time."
+msgstr ""
+
+#: page.findmefollow.php:222
+msgid ""
+"ring Extension for duration set in Initial Ring Time, and then, while "
+"continuing call to extension, ring Follow-Me List for duration set in Ring "
+"Time."
+msgstr ""
+
+#: page.findmefollow.php:225
+msgid ""
+"ring first extension in the list, then ring the 1st and 2nd extension, then "
+"ring 1st 2nd and 3rd extension in the list.... etc."
+msgstr ""
+"Звъни на първата свободна вътрешна линия от списъка, след това на 1-та и 2-"
+"та, след това на 1-та, 2-та и 3-та вътрешна линия в списъка... и т.н."
+
+#: page.findmefollow.php:227
+msgid "ring only the first available channel"
+msgstr "звъни само на първия свободен канал"
+
+#: page.findmefollow.php:228
+msgid "ring only the first channel which is not off hook - ignore CW"
+msgstr "звъни само на първия канал който не е отворен - игнорира CW"
+
+#: page.findmefollow.php:223
+msgid "ringall"
+msgstr "звъни на всички"
+
+#: page.findmefollow.php:222
+msgid "ringallv2"
+msgstr "звъни на всички версия 2"
+
+#: page.findmefollow.php:224
+msgid "take turns ringing each available extension"
+msgstr "Върти звъненето по всички достъпни вътрешни линии"
+
+#: page.findmefollow.php:226
+msgid ""
+"these modes act as described above. However, if the primary extension (first "
+"in list) is occupied, the other extensions will not be rung. If the primary "
+"is FreePBX DND, it won't be rung. If the primary is FreePBX CF "
+"unconditional, then all will be rung"
+msgstr ""
+"Този режим е като описания по-горе. Само че ако основната вътрешна линия "
+"(първата в списъка) е заета, другите вътрешни линии няма да звънят. Ако "
+"основната е FreePBX DND, няма да звъни. Ако основната е безусловен FreePBX "
+"CF, тогава всички ще звънят"
+
+#~ msgid ""
+#~ "Much like a ring group, but works on individual extensions. When someone "
+#~ "calls the extension, it can be setup to ring for a number of seconds "
+#~ "before trying to ring other extensions and/or external numbers, or to "
+#~ "ring all at once, or in other various 'hunt' configurations. Most "
+#~ "commonly used to ring someone's cell phone if they don't answer their "
+#~ "extension."
+#~ msgstr ""
+#~ "Като група на звънене, но работи за индивидуални вътрешни линии. Когато "
+#~ "се получи обаждане за вътрешната линия, може да се настрои да звъни за "
+#~ "даден брой секунди преди да се опита да звъни на други вътрешни линии и/"
+#~ "или външни номера, или да звънят всички заедно, или в някакво настроено "
+#~ "преследване. Най-често се използва за прехвърляне на обажданията към "
+#~ "мобилен телефон ако вътрешния номер не отговаря."
+
+#~ msgid ""
+#~ "ring primary extension for initial ring time followed by all additional "
+#~ "extensions until one answers"
+#~ msgstr ""
+#~ "Звъни първоначално на основната вътрешна линия последвано от звънене на "
+#~ "всички достъпни канали докато отговорят"
+
+#~ msgid "ring all available channels until one answers (default)"
+#~ msgstr "Звъни на всички достъпни канали докато отговорят (по-подразбиране)"
 
 #~ msgid "Invalid Group Number specified"
 #~ msgstr "Неправилно определен Номер на Група."
