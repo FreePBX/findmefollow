@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 19:33-0500\n"
-"PO-Revision-Date: 2015-04-23 00:04+0200\n"
+"PO-Revision-Date: 2015-04-25 00:33+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/findmefollow/fr_FR/>\n"
@@ -424,7 +424,7 @@ msgstr ""
 
 #: page.findmefollow.php:403 page.findmefollow.php:415
 msgid "Outside Calls Fixed CID Value"
-msgstr ""
+msgstr "Appels externes valeur CID fixe"
 
 #: page.findmefollow.php:322
 msgid "Play Music On Hold?"
@@ -484,12 +484,18 @@ msgid ""
 "The default Ring Strategy selected for a Follow Me set upon creation and "
 "used if auto-created with an extension."
 msgstr ""
+"La Stratégie de sonnerie par défaut sélectionnée pour un suivez-moi mis à la "
+"création et utilisé si il se crée automatiquement avec la création d'un "
+"poste."
 
 #: findmefollow.i18n.php:20
 msgid ""
 "The default Ring Time for a Follow Me set upon creation and used if auto-"
 "created with a new extension."
 msgstr ""
+"Le temps de sonnerie par défaut sélectionnée pour un suivez-moi mis à la "
+"création et utilisé si il se crée automatiquement avec la création d'un "
+"poste."
 
 #: page.findmefollow.php:190
 msgid "The number users will dial to ring extensions in this ring group"
@@ -499,7 +505,7 @@ msgstr ""
 
 #: findmefollow.i18n.php:16
 msgid "This is the default value for the Follow Me "
-msgstr ""
+msgstr "C'est la valeur par défaut pour le suivez-moi "
 
 #: page.findmefollow.php:203 ucp/views/settings.php:36
 msgid ""
@@ -542,6 +548,9 @@ msgid ""
 "Internal extension to extension calls will continue to operate in default "
 "mode."
 msgstr ""
+"Transmettre la valeur CID fixe ci-dessous sur les appels qui viennent de "
+"l'extérieur seulement. Les appels poste à poste continueront à fonctionner "
+"en mode par défaut ."
 
 #: page.findmefollow.php:405
 msgid ""
@@ -550,6 +559,11 @@ msgid ""
 "default mode. There must be a DID on the inbound route for this. This WILL "
 "be transmitted on trunks that block foreign CallerID"
 msgstr ""
+"Transmettre le numéro composé comme identifiant de l'appelant pour les "
+"appels provenant de l'extérieur . Les appels poste à poste continueront de "
+"fonctionner en mode par défaut . Il doit y avoir un DID sur la route  "
+"entrante pour ce ceci. Ceci sera transmis sur les liens qui bloquent "
+"l'identifiant de l'appelant"
 
 #: page.findmefollow.php:404
 msgid ""
@@ -558,10 +572,15 @@ msgid ""
 "default mode. There must be a DID on the inbound route for this. This will "
 "be BLOCKED on trunks that block foreign CallerID"
 msgstr ""
+"Transmettre le numéro composé comme identifiant de l'appelant pour les "
+"appels provenant de l'extérieur . Les appels poste à poste continueront de "
+"fonctionner en mode par défaut . Il doit y avoir un DID sur la route  "
+"entrante pour ce ceci. Ceci bloquera la transmission sur les liens qui "
+"bloquent l'identifiant de l'appelant"
 
 #: page.findmefollow.php:401
 msgid "Transmits the Callers CID if allowed by the trunk."
-msgstr ""
+msgstr "Transmettre l'identifiant de l'appelants si permis par le lien."
 
 #: ucp/views/settings.php:48
 msgid "Use Confirmation"
@@ -569,7 +588,7 @@ msgstr "Utiliser la confirmation"
 
 #: page.findmefollow.php:404 page.findmefollow.php:416
 msgid "Use Dialed Number"
-msgstr ""
+msgstr "Utilisé le numéro composé"
 
 #: page.findmefollow.php:166
 msgid "User"
@@ -585,6 +604,9 @@ msgid ""
 "automatically create a new Follow Me for that user using the default "
 "settings listed below"
 msgstr ""
+"Lorsque vous créez un nouvel utilisateur ou le poste, la définition de cette "
+"option à vrai va créer automatiquement un nouveau suivez-moi pour cet "
+"utilisateur en utilisant les paramètres par défaut répertoriés ci-dessous"
 
 #: ucp/views/settings.php:12
 msgid ""
@@ -592,6 +614,9 @@ msgid ""
 "including directory calls by name from IVRs. If disabled, calls will go only "
 "to the extension."
 msgstr ""
+"Lorsque l'option est activé tout appel à ce poste va aller à ce suivez-moi à "
+"la place, y compris les appels vers le répertoire par nom de la messagerie "
+"automatisée. Si elle est désactivée, les appels vont seulement au poste."
 
 #: page.findmefollow.php:346
 msgid ""
@@ -717,6 +742,9 @@ msgid ""
 "ring Extension for duration set in Initial Ring Time, and then terminate "
 "call to Extension and ring Follow-Me List for duration set in Ring Time."
 msgstr ""
+"Faire sonner le poste pour la durée définie dans la durée de sonnerie "
+"initiale, puis mettre fin à l'appel vers le poste et faire sonner la liste "
+"de suivez-moi pour durée définie dans la durée de sonnerie."
 
 #: page.findmefollow.php:222
 msgid ""
@@ -724,6 +752,9 @@ msgid ""
 "continuing call to extension, ring Follow-Me List for duration set in Ring "
 "Time."
 msgstr ""
+"Faire sonner le poste pour la durée définie dans la durée de sonnerie "
+"initiale, puis tout en continuant l'appel au poste faire sonner la liste de "
+"numéro du suivez-moi pour durée définie dans la durée de sonnerie ."
 
 #: page.findmefollow.php:225
 msgid ""
