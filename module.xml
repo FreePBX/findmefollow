@@ -54,6 +54,12 @@
 	<supported>
 		<version>13.0</version>
 	</supported>
+	<hooks>
+		<bulkhandler namespace="FreePBX\modules" class="Bulkhandler">
+			<method namespace="FreePBX\modules" class="Findmefollow" callingMethod="import">bulkhandlerImport</method>
+			<method namespace="FreePBX\modules" class="Findmefollow" callingMethod="export">bulkhandlerExport</method>
+		</bulkhandler>
+	</hooks>
 	<location>release/2.11/findmefollow-2.11.0.3.tgz</location>
 	<md5sum>eb10d338f7206c288e52b240ccf4b850</md5sum>
 </module>

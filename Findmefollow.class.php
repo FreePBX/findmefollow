@@ -193,7 +193,7 @@ class Findmefollow implements \BMO {
 		$sql = "SELECT extension FROM users WHERE extension = ?";
 		$sth = $this->db->prepare($sql);
 		$sth->execute(array($exten));
-		$result = $sth->fetch(PDO::FETCH_ASSOC);
+		$result = $sth->fetch(\PDO::FETCH_ASSOC);
 
 		if (!is_array($result)) {
 			return $exten.'#';
@@ -322,95 +322,113 @@ class Findmefollow implements \BMO {
 		return 1;
 	}
 
+	function listAll() {
+		return findmefollow_list();
+	}
+
 	function addSettingById($grpnum,$setting,$value='') {
+		return $this->addSettingsById($grpnum, array($setting => $value));
+	}
+
+	function addSettingsById($grpnum,$settings) {
 		$valid = array('strategy','grptime','grppre','grplist','annmsg_id','postdest','dring','needsconf','remotealert_id','toolate_id','ringing','pre_ring','ddial','changecid','fixedcid');
-		if(!in_array($setting,$valid)) {
+
+		$settings = array_intersect_key($settings, array_flip($valid));
+
+		if (count($settings) == 0) {
 			return false;
 		}
-		$sql = "INSERT INTO findmefollow (grpnum,$setting) VALUES (:grpnum,:value) ON DUPLICATE KEY UPDATE $setting = :value";
-		$sth = $this->db->prepare($sql);
 
-		switch($setting) {
-			case 'strategy':
-				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
-			break;
-			case 'grptime':
-				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
-				$this->setListRingTime($grpnum,$value);
-			break;
-			case 'grppre':
-				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
-			break;
-			case 'grplist':
-				$this->setList($grpnum,$value);
-				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => implode("-",$value)));
-			break;
-			case 'annmsg_id':
-				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
-			break;
-			case 'postdest':
-				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
-			break;
-			case 'dring':
-				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
-			break;
-			case 'needsconf':
-				$val = ($value) ? 'CHECKED' : '';
-				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $val));
-				$val = ($value) ? 'ENABLED' : 'DISABLED';
-				$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/grpconf",$val);
-			break;
-			case 'remotealert_id':
-				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
-			break;
-			case 'toolate_id':
-				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
-			break;
-			case 'ringing':
-				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
-			break;
-			case 'pre_ring':
-				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
-				$this->setPreRingTime($grpnum,$value);
-			break;
-			case 'ddial':
-				//(DIRECT is enabled, EXTENSION is disabled)
-				$ddialstate = ($value) ? 'NOT_INUSE' : 'BUSY';
-				$val = ($value) ? 'EXTENSION' : 'DIRECT';
-				$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/ddial",$val);
-				if ($this->FreePBX->Config->get_conf_setting('USEDEVSTATE')) {
-					$devices = $this->FreePBX->astman->database_get("AMPUSER", $grpnum . "/device");
-					$device_arr = explode('&', $devices);
-					foreach ($device_arr as $device) {
-						$this->FreePBX->astman->set_global($this->FreePBX->Config->get_conf_setting('AST_FUNC_DEVICE_STATE') . "(Custom:FOLLOWME$device)", $ddialstate);
+		$ret = true;
+
+		foreach ($settings as $setting => $value) {
+			//TODO This should just be one query.
+			$sql = "INSERT INTO findmefollow (grpnum,$setting) VALUES (:grpnum,:value) ON DUPLICATE KEY UPDATE $setting = :value";
+			$sth = $this->db->prepare($sql);
+
+			switch($setting) {
+				case 'strategy':
+					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+				break;
+				case 'grptime':
+					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$this->setListRingTime($grpnum,$value);
+				break;
+				case 'grppre':
+					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+				break;
+				case 'grplist':
+					$this->setList($grpnum,$value);
+					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => implode("-",$value)));
+				break;
+				case 'annmsg_id':
+					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+				break;
+				case 'postdest':
+					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+				break;
+				case 'dring':
+					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+				break;
+				case 'needsconf':
+					$val = ($value) ? 'CHECKED' : '';
+					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $val));
+					$val = ($value) ? 'ENABLED' : 'DISABLED';
+					$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/grpconf",$val);
+				break;
+				case 'remotealert_id':
+					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+				break;
+				case 'toolate_id':
+					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+				break;
+				case 'ringing':
+					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+				break;
+				case 'pre_ring':
+					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$this->setPreRingTime($grpnum,$value);
+				break;
+				case 'ddial':
+					//(DIRECT is enabled, EXTENSION is disabled)
+					$ddialstate = ($value) ? 'NOT_INUSE' : 'BUSY';
+					$val = ($value) ? 'EXTENSION' : 'DIRECT';
+					$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/ddial",$val);
+					if ($this->FreePBX->Config->get_conf_setting('USEDEVSTATE')) {
+						$devices = $this->FreePBX->astman->database_get("AMPUSER", $grpnum . "/device");
+						$device_arr = explode('&', $devices);
+						foreach ($device_arr as $device) {
+							$this->FreePBX->astman->set_global($this->FreePBX->Config->get_conf_setting('AST_FUNC_DEVICE_STATE') . "(Custom:FOLLOWME$device)", $ddialstate);
+						}
 					}
-				}
-				if(!$value) {
-					$sql = "INSERT INTO findmefollow (grpnum,grptime,grplist) VALUES (:grpnum,20,:grpnum)";
-					$sth = $this->db->prepare($sql);
-					//wrapped into a try/catch incase the find me is already defined, then we won't do the additional steps.
-					try {
-						$sth->execute(array(':grpnum' => $grpnum));
-						//these are the additional steps
-						$this->setListRingTime($grpnum,20);
-						$this->setList($grpnum,array($grpnum));
-					} catch(\Exception $e) {}
-				}
-			break;
-			case 'changecid':
-				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
-				$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/changecid",$value);
-			break;
-			case 'fixedcid':
-				$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
-				$value = preg_replace("/[^0-9\+]/" ,"", trim($value));
-				$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/fixedcid",$value);
-			break;
-			default:
-				return false;
-			break;
+					if(!$value) {
+						$sql = "INSERT INTO findmefollow (grpnum,grptime,grplist) VALUES (:grpnum,20,:grpnum)";
+						$sth = $this->db->prepare($sql);
+						//wrapped into a try/catch incase the find me is already defined, then we won't do the additional steps.
+						try {
+							$sth->execute(array(':grpnum' => $grpnum));
+							//these are the additional steps
+							$this->setListRingTime($grpnum,20);
+							$this->setList($grpnum,array($grpnum));
+						} catch(\Exception $e) {}
+					}
+				break;
+				case 'changecid':
+					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/changecid",$value);
+				break;
+				case 'fixedcid':
+					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$value = preg_replace("/[^0-9\+]/" ,"", trim($value));
+					$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/fixedcid",$value);
+				break;
+				default:
+					$ret = false;
+				break;
+			}
 		}
-		return true;
+
+		return $ret;
 	}
 
 	function getSettingsById($grpnum, $check_astdb=0) {
@@ -541,15 +559,80 @@ class Findmefollow implements \BMO {
 						'id' => 'reset',
 						'value' => _('Reset')
 					)
-    			);
-    		break;
-    	}
-    	if (empty($request['extdisplay'])) {
-    		unset($buttons);
-    	}
-    	if($request['view'] != 'form'){
-    		unset($buttons);
-    	}
-    	return $buttons;
-    } 
+	    			);
+    			break;
+	    	}
+    		if (empty($request['extdisplay'])) {
+    			unset($buttons);
+    		}
+    		if($request['view'] != 'form'){
+    			unset($buttons);
+    		}
+    		return $buttons;
+	}
+
+	public function bulkhandlerImport($type, $rawData) {
+		$ret = NULL;
+
+		switch ($type) {
+		case 'extensions':
+			foreach ($rawData as $data) {
+				$extension = $data['extension'];
+
+				foreach ($data as $key => $value) {
+					if (substr($key, 0, 13) == 'findmefollow_') {
+						$settingname = substr($key, 13);
+						switch ($settingname) {
+						case 'grplist':
+							$settings[$settingname] = explode('-', $value);
+							break;
+						default:
+							$settings[$settingname] = $value;
+							break;
+						}
+					}
+				}
+
+				if (count($settings) > 0) {
+					$this->addSettingsById($extension, $settings);
+				}
+			}
+
+			$ret = array(
+				'status' => true,
+			);
+
+			break;
+		}
+
+		return $ret;
+	}
+
+	public function bulkhandlerExport($type) {
+		$data = NULL;
+
+		switch ($type) {
+		case 'extensions':
+			$extensions = $this->listAll();
+
+			foreach ($extensions as $extension) {
+				$settings = $this->getSettingsById($extension);
+
+				$psettings = array();
+				foreach ($settings as $key => $value) {
+					if ($key == 'grpnum') {
+						continue;
+					}
+
+					$psettings['findmefollow_' . $key] = $value;
+				}
+
+				$data[$extension] = $psettings;
+			}
+
+			break;
+		}
+
+		return $data;
+	}
 }
