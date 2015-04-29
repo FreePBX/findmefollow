@@ -558,24 +558,23 @@ function findmefollow_users_configpageload() {
 
 	$fmfm = findmefollow_get($extdisplay, 1);
 	if(empty($fmfm)) {
+		$fmfm = array(
+			"ddial" => "CHECKED",
+			"strategy" => $amp_conf['FOLLOWME_RG_STRATEGY'],
+			"grptime" => $amp_conf['FOLLOWME_TIME'],
+			"pre_ring" => $amp_conf['FOLLOWME_PRERING']
+		);
 		$action			= isset($_REQUEST['action'])		? $_REQUEST['action']			: null;
 		$extdisplay		= isset($_REQUEST['extdisplay'])	? $_REQUEST['extdisplay']		: null;
 		$extension		= isset($_REQUEST['extension'])		? $_REQUEST['extension']		: null;
 		$tech_hardware	= isset($_REQUEST['tech_hardware'])	? $_REQUEST['tech_hardware']	: null;
 		if ($tech_hardware != null || $pagename == 'users') {
-			if (!$amp_conf['FOLLOWME_AUTO_CREATE'] || !$amp_conf['FOLLOWME_DISABLED']) {
-				$fmfm['ddial'] = "CHECKED";
-				$fmfm['strategy'] = $amp_conf['FOLLOWME_RG_STRATEGY'];
-				$fmfm['grptime'] = $amp_conf['FOLLOWME_TIME'];
-				$fmfm['pre_ring'] = $amp_conf['FOLLOWME_PRERING'];
-				$fmfm['grplist'] = $extdisplay;
+			if (!$amp_conf['FOLLOWME_DISABLED'] && $amp_conf['FOLLOWME_AUTO_CREATE']) {
+				$fmfm['ddial'] = "";
 			}
 		} elseif ($action == "add") {
 		} elseif ($extdisplay != '') {
 			$fmfm['ddial'] = "CHECKED";
-			$fmfm['strategy'] = 'ringallv2';
-			$fmfm['grptime'] = 20;
-			$fmfm['pre_ring'] = 0;
 			$fmfm['grplist'] = $extdisplay;
 			$fmfm['postdest'] = "ext-local,$extdisplay,dest";
 		}
@@ -611,6 +610,14 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 	global $display;
 	$js = "
 	var dval = $('#fmfm_ddial0').prop('checked') ? false : true;
+	if(!dval && $('#fmfm_grplist').val().trim().length === 0) {
+		if($('#extension').val().trim().length === 0) {
+			$('#fmfm_ddial1').prop('checked', true);
+			warnInvalid($('#extension'),'".sprintf(_("Please enter a valid %s number"),($display == "extensions" ? _("extension") : _("device")))."');
+			return false;
+		}
+		$('#fmfm_grplist').val($('#extension').val()+'\\n');
+	}
 	$('.fpbx-fmfm').prop('disabled',dval);
 	if(!$('html').hasClass('firsttypeofselector')) {
 		$('.radioset').buttonset('refresh');
@@ -1097,12 +1104,16 @@ function findmefollow_users_configprocess() {
 			if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
 				if(!empty($settings)) {
 					if($settings['ddial'] != "CHECKED") {
-						findmefollow_update($extdisplay,$settings);
-					} elseif($amp_conf['FOLLOWME_AUTO_CREATE']) {
-						$ddial = $amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '';
-						findmefollow_add($extdisplay, $amp_conf['FOLLOWME_RG_STRATEGY'], $amp_conf['FOLLOWME_TIME'],
-						$extdisplay, "", "", "", "", "", "", "","", $amp_conf['FOLLOWME_PRERING'], $ddial,'default','');
+						$settings['grplist'] = (trim($settings['grplist']) == "") ? $extdisplay : $settings['grplist'];
+						findmefollow_add($extdisplay, $settings['strategy'], $settings['grptime'],
+						$settings['grplist'], $settings['postdest'], $settings['grppre'], $settings['annmsg_id'], $settings['dring'],
+						$settings['needsconf'], $settings['remotealert_id'], $settings['toolate_id'], $settings['ringing'], $settings['pre_ring'],
+						"", $settings['changecid'], $settings['fixedcid']);
 					}
+				} elseif($amp_conf['FOLLOWME_AUTO_CREATE']) {
+					$ddial = $amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '';
+					findmefollow_add($extdisplay, $amp_conf['FOLLOWME_RG_STRATEGY'], $amp_conf['FOLLOWME_TIME'],
+					$extdisplay, "", "", "", "", "", "", "","", $amp_conf['FOLLOWME_PRERING'], $ddial,'default','');
 				}
 			}
 		break;
