@@ -571,6 +571,23 @@ class Findmefollow implements \BMO {
     		return $buttons;
 	}
 
+	public function bulkhandlerGetHeaders($type) {
+		switch ($type) {
+		case 'extensions':
+			$headers = array(
+				'findmefollow_enabled' => array(
+					'description' => _('Follow Me Enabled'),
+				),
+				'findmefollow_grplist' => array(
+					'description' => _('Follow Me List'),
+				),
+			);
+
+			return $headers;
+			break;
+		}
+	}
+
 	public function bulkhandlerImport($type, $rawData) {
 		$ret = NULL;
 
@@ -585,6 +602,9 @@ class Findmefollow implements \BMO {
 						switch ($settingname) {
 						case 'grplist':
 							$settings[$settingname] = explode('-', $value);
+							break;
+						case 'enabled':
+							$settings['ddial'] = $value;
 							break;
 						default:
 							$settings[$settingname] = $value;
@@ -616,15 +636,20 @@ class Findmefollow implements \BMO {
 			$extensions = $this->listAll();
 
 			foreach ($extensions as $extension) {
-				$settings = $this->getSettingsById($extension);
+				$settings = $this->getSettingsById($extension, true);
 
 				$psettings = array();
 				foreach ($settings as $key => $value) {
-					if ($key == 'grpnum') {
-						continue;
+					switch ($key) {
+					case 'grpnum':
+						break;
+					case 'ddial':
+						$psettings['findmefollow_' . 'enabled'] = $value ? '1' : '0';
+						break;
+					default:
+						$psettings['findmefollow_' . $key] = $value;
+						break;
 					}
-
-					$psettings['findmefollow_' . $key] = $value;
 				}
 
 				$data[$extension] = $psettings;

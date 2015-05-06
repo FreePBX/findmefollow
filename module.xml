@@ -56,6 +56,7 @@
 	</supported>
 	<hooks>
 		<bulkhandler namespace="FreePBX\modules" class="Bulkhandler">
+			<method namespace="FreePBX\modules" class="Findmefollow" callingMethod="getHeaders">bulkhandlerGetHeaders</method>
 			<method namespace="FreePBX\modules" class="Findmefollow" callingMethod="import">bulkhandlerImport</method>
 			<method namespace="FreePBX\modules" class="Findmefollow" callingMethod="export">bulkhandlerExport</method>
 		</bulkhandler>
