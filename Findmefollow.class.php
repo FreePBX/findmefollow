@@ -323,7 +323,8 @@ class Findmefollow implements \BMO {
 	}
 
 	function listAll() {
-		return findmefollow_list();
+		$list = findmefollow_list();
+		return !empty($list) ? $list : array();
 	}
 
 	function addSettingById($grpnum,$setting,$value='') {
