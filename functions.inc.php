@@ -384,7 +384,6 @@ function findmefollow_full_list() {
 }
 
 function findmefollow_list($get_all=false) {
-
 	global $db;
 	$sql = "SELECT grpnum FROM findmefollow ORDER BY CAST(grpnum as UNSIGNED)";
 	$results = $db->getCol($sql);
