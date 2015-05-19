@@ -8,12 +8,16 @@ msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 19:33-0500\n"
-"PO-Revision-Date: 2009-01-31 11:58+0800\n"
-"Last-Translator: 周征晟 <zhougongjizhe@163.com>\n"
-"Language-Team: EdwardBadBoy <zhougongjizhe@163.com>\n"
+"PO-Revision-Date: 2015-05-18 21:33+0200\n"
+"Last-Translator: james <zhulizhong@gmail.com>\n"
+"Language-Team: Simplified Chinese "
+"<http://weblate.freepbx.org/projects/freepbx/findmefollow/zh_CN/>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.2-dev\n"
 "X-Poedit-Language: Chinese\n"
 "X-Poedit-Country: CHINA\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -28,11 +32,11 @@ msgstr "依从主分机（策略名-prim）"
 
 #: page.findmefollow.php:182
 msgid "Add Follow Me"
-msgstr "添加“跟我来”"
+msgstr "添加“分机随行”"
 
 #: functions.inc.php:572 functions.inc.php:576
 msgid "Add Follow Me Settings"
-msgstr "添加“跟我来”相关设置"
+msgstr "添加“分机随行”相关设置"
 
 #: page.findmefollow.php:346
 msgid "Alert Info"
@@ -40,7 +44,7 @@ msgstr "警告信息"
 
 #: page.findmefollow.php:402
 msgid "Always transmit the Fixed CID Value below."
-msgstr ""
+msgstr "总是传输以下固定CID"
 
 #: ucp/views/settings.php:20
 msgid "Announcement"
@@ -594,7 +598,7 @@ msgstr "首个可用频道"
 
 #: page.findmefollow.php:228
 msgid "firstnotonphone"
-msgstr "首个未离钩频道"
+msgstr "第一个无通话"
 
 #: page.findmefollow.php:190
 msgid "group number"
@@ -673,11 +677,11 @@ msgstr ""
 
 #: page.findmefollow.php:227
 msgid "ring only the first available channel"
-msgstr "只在第一个可用的频道响铃"
+msgstr "只在第一个可用的通道响铃"
 
 #: page.findmefollow.php:228
 msgid "ring only the first channel which is not off hook - ignore CW"
-msgstr "只在第一个不是离钩状态下的频道响铃——忽略呼叫等待"
+msgstr "只在第一个不是摘机状态下的通道响铃——忽略呼叫等待"
 
 #: page.findmefollow.php:223
 msgid "ringall"
