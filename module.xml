@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>13.0.1alpha1</version>
+	<version>13.0.1alpha2</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*13.0.1alpha2* Support bulk handler
 		*13.0.1alpha1* Visual Changes
 		*12.0.8* FREEPBX-8272 UCP Deletes Follow Me Entries
 		*12.0.7* Follow Me auto hash on external number
