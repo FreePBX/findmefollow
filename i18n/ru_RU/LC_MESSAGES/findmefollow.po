@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 19:33-0500\n"
-"PO-Revision-Date: 2015-05-01 13:02+0200\n"
+"PO-Revision-Date: 2015-05-31 00:03+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian "
 "<http://weblate.freepbx.org/projects/freepbx/findmefollow/ru_RU/>\n"
@@ -379,14 +379,19 @@ msgid "Mode"
 msgstr "Режим"
 
 #: findmefollow.i18n.php:5
-#, fuzzy
 msgid ""
 "Much like a ring group, but works on individual extensions. When someone "
 "calls the extension, it can be setup to ring for a number of seconds before "
 "trying to ring other extensions and/or external numbers, or to ring all at "
 "once, or in other various \\'hunt\\' configurations. Most commonly used to "
 "ring someone\\'s cell phone if they don\\'t answer their extension."
-msgstr "Так же как группа вызова, но  работает как отдельные номера."
+msgstr ""
+"Так же как группа вызова, но  работает как отдельные номера. Когда кто-то "
+"вызывает номер, это может быть настроено звонить на определенное количество "
+"секунд, прежде чем пытаться звонить на другие номера и/или внешние номера, "
+"или позвонить сразу, или в других различных \"поисковых\" конфигурациях. "
+"Наиболее часто используется для звонков на сотовый телефон, если кто-то не "
+"ответил на свой внутренний номер."
 
 #: page.findmefollow.php:299 ucp/views/settings.php:22
 #: ucp/views/settings.php:61 ucp/views/settings.php:71
@@ -723,6 +728,9 @@ msgid ""
 "ring Extension for duration set in Initial Ring Time, and then terminate "
 "call to Extension and ring Follow-Me List for duration set in Ring Time."
 msgstr ""
+"продолжительность звонка устанавливается в начальное время звонка, а затем "
+"прекращается вызов внутреннего номера и вызывается Следуйте Сюда по "
+"продолжительности , установленной во времени звонка."
 
 #: page.findmefollow.php:222
 msgid ""
@@ -730,6 +738,9 @@ msgid ""
 "continuing call to extension, ring Follow-Me List for duration set in Ring "
 "Time."
 msgstr ""
+"продолжительность звонка устанавливается в начальное время звонка, затем, "
+"когда продолжается вызов внутреннего номера, вызывается список Следуйте Сюда "
+"по продолжительности, заданной во времени звонка."
 
 #: page.findmefollow.php:225
 msgid ""
