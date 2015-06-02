@@ -8,22 +8,24 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-21 16:20-0400\n"
+"POT-Creation-Date: 2015-06-01 23:43-0400\n"
 "PO-Revision-Date: 2015-05-01 13:02+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
-"Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/findmefollow/ru_RU/>\n"
+"Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
+"findmefollow/ru_RU/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru_RU\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: functions.inc.php:756
+#: functions.inc.php:758
 msgid "(pick extension)"
 msgstr "внутренний номер"
 
-#: functions.inc.php:707 views/form.php:40
+#: functions.inc.php:709 views/form.php:40
 msgid "*-prim"
 msgstr "*-прим"
 
@@ -31,27 +33,40 @@ msgstr "*-прим"
 msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
 msgstr ""
 
-#: functions.inc.php:827 views/form.php:417
+#: functions.inc.php:829 views/form.php:417
 msgid "Alert Info"
 msgstr "Дополнительная информация"
 
-#: functions.inc.php:966
+#: functions.inc.php:968
 msgid "Always transmit the Fixed CID Value below."
 msgstr "Всегда передавать фиксированное значение Caller ID указанное ниже."
 
-#: functions.inc.php:779 ucp/views/settings.php:20 views/form.php:68
+#: functions.inc.php:781 ucp/views/settings.php:20 views/form.php:68
 msgid "Announcement"
 msgstr "Приветствие"
 
-#: functions.inc.php:665 views/form.php:272
-msgid "By default (not checked) any call to this extension will go to this Follow-Me instead, including directory calls by name from IVRs. If checked, calls will go only to the extension.<BR>However, destinations that specify FollowMe will come here.<BR>Checking this box is often used in conjunction with VmX Locater, where you want a call to ring the extension, and then only if the caller chooses to find you do you want it to come here."
-msgstr "По умолчанию (не отмечено) все звонки поступают в модуль 'Следуйте сюда', включая звонки с поиском по имени в Интерактивных меню. Но если отмечено, звонок поступает прямо на указаный номер.<br>В любом случае, назначение, указанное в 'Следуйте сюда' будет исполняться. Использование этой опции часто оправдано вместе с VmX Локатором, где можно просто направить звонок на внутренний номер, пользователь которого может непосредственно сам указать, хочет ли он, штобы поступающие звонки находили его везде, или нет."
+#: functions.inc.php:667 views/form.php:272
+msgid ""
+"By default (not checked) any call to this extension will go to this Follow-"
+"Me instead, including directory calls by name from IVRs. If checked, calls "
+"will go only to the extension.<BR>However, destinations that specify "
+"FollowMe will come here.<BR>Checking this box is often used in conjunction "
+"with VmX Locater, where you want a call to ring the extension, and then only "
+"if the caller chooses to find you do you want it to come here."
+msgstr ""
+"По умолчанию (не отмечено) все звонки поступают в модуль 'Следуйте сюда', "
+"включая звонки с поиском по имени в Интерактивных меню. Но если отмечено, "
+"звонок поступает прямо на указаный номер.<br>В любом случае, назначение, "
+"указанное в 'Следуйте сюда' будет исполняться. Использование этой опции "
+"часто оправдано вместе с VmX Локатором, где можно просто направить звонок на "
+"внутренний номер, пользователь которого может непосредственно сам указать, "
+"хочет ли он, штобы поступающие звонки находили его везде, или нет."
 
-#: functions.inc.php:816 views/form.php:393
+#: functions.inc.php:818 views/form.php:393
 msgid "CID Name Prefix"
 msgstr "Префикс ИД имени"
 
-#: functions.inc.php:850
+#: functions.inc.php:852
 msgid "Call Confirmation Configuration"
 msgstr "Конфигурация подтверждения звонка"
 
@@ -59,7 +74,7 @@ msgstr "Конфигурация подтверждения звонка"
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "Невозможно соединится с Asterisk Manager как "
 
-#: functions.inc.php:943 views/form.php:470
+#: functions.inc.php:945 views/form.php:470
 msgid "Change External CID Configuration"
 msgstr "Изменять конфигурацию внешнего Caller ID"
 
@@ -67,15 +82,15 @@ msgstr "Изменять конфигурацию внешнего Caller ID"
 msgid "Checking if recordings need migration.."
 msgstr "Проверка нуждаются ли записи в перемещении.."
 
-#: functions.inc.php:767
+#: functions.inc.php:769
 msgid "Choose an extension to append to the end of the extension list above."
 msgstr "Выберите номера для добавления в конец списка выше"
 
-#: functions.inc.php:873 views/form.php:441
+#: functions.inc.php:875 views/form.php:441
 msgid "Confirm Calls"
 msgstr "Подтверждать вызовы"
 
-#: functions.inc.php:895 functions.inc.php:965 functions.inc.php:978
+#: functions.inc.php:897 functions.inc.php:967 functions.inc.php:980
 #: views/form.php:145 views/form.php:210
 msgid "Default"
 msgstr "По умолчанию"
@@ -84,7 +99,7 @@ msgstr "По умолчанию"
 msgid "Destination if no answer"
 msgstr "Назначение если нет ответа"
 
-#: functions.inc.php:1023
+#: functions.inc.php:1025
 msgid "Destinations"
 msgstr ""
 
@@ -97,18 +112,38 @@ msgid "Enable Followme"
 msgstr ""
 
 #: ucp/views/settings.php:56
-msgid "Enable this if you're calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through."
-msgstr "Используйте это, если звонок идёт на внешний номер, который нуждается в подтверждении. Например, мобильный телефон может включить головую почту, которая перехватит этот вызов. Нажатием на 1 можно заблокировать такие действия."
+msgid ""
+"Enable this if you're calling external numbers that need confirmation - eg, "
+"a mobile phone may go to voicemail which will pick up the call. Enabling "
+"this requires the remote side push 1 on their phone before the call is put "
+"through."
+msgstr ""
+"Используйте это, если звонок идёт на внешний номер, который нуждается в "
+"подтверждении. Например, мобильный телефон может включить головую почту, "
+"которая перехватит этот вызов. Нажатием на 1 можно заблокировать такие "
+"действия."
 
 #: views/form.php:456
-msgid "Enable this if you're calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through. This feature only works with the ringall ring strategy"
+msgid ""
+"Enable this if you're calling external numbers that need confirmation - eg, "
+"a mobile phone may go to voicemail which will pick up the call. Enabling "
+"this requires the remote side push 1 on their phone before the call is put "
+"through. This feature only works with the ringall ring strategy"
 msgstr ""
 
-#: functions.inc.php:874
-msgid "Enable this if you're calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through. This feature only works with the ringall/ringall-prim  ring strategy"
-msgstr "Используйте это, если звонок идёт на внешний номер, который нуждается в подтверждении. Например, мобильный телефон может включить головую почту, которая перехватит этот вызов. Нажатием на 1 можно заблокировать такие действия. Опция действительна только при стратегии вызова звонят-все"
+#: functions.inc.php:876
+msgid ""
+"Enable this if you're calling external numbers that need confirmation - eg, "
+"a mobile phone may go to voicemail which will pick up the call. Enabling "
+"this requires the remote side push 1 on their phone before the call is put "
+"through. This feature only works with the ringall/ringall-prim  ring strategy"
+msgstr ""
+"Используйте это, если звонок идёт на внешний номер, который нуждается в "
+"подтверждении. Например, мобильный телефон может включить головую почту, "
+"которая перехватит этот вызов. Нажатием на 1 можно заблокировать такие "
+"действия. Опция действительна только при стратегии вызова звонят-все"
 
-#: functions.inc.php:664 views/fmgrid.php:25
+#: functions.inc.php:666 views/fmgrid.php:25
 msgid "Enabled"
 msgstr ""
 
@@ -116,11 +151,11 @@ msgstr ""
 msgid "Extension"
 msgstr "Внутренний номер"
 
-#: functions.inc.php:766
+#: functions.inc.php:768
 msgid "Extension Quick Pick"
 msgstr "Выбрать номера"
 
-#: functions.inc.php:602 ucp/Findmefollow.class.php:35
+#: functions.inc.php:604 ucp/Findmefollow.class.php:35
 msgid "Find Me/Follow Me"
 msgstr "Найти меня/Следуйте сюда"
 
@@ -132,21 +167,32 @@ msgstr "Найти меня/Следуйте сюда был обновлен!"
 msgid "Findme Follow Toggle"
 msgstr "Переключение Найти меня тут"
 
-#: functions.inc.php:966 functions.inc.php:982 functions.inc.php:1006
+#: functions.inc.php:968 functions.inc.php:984 functions.inc.php:1008
 #: views/form.php:211 views/form.php:496
 msgid "Fixed CID Value"
 msgstr "Фиксированное значение Caller ID"
 
-#: functions.inc.php:1013
-msgid "Fixed CID Value should be in a format of digits only with an option of E164 format using a leading \"+\""
+#: functions.inc.php:1015
+msgid ""
+"Fixed CID Value should be in a format of digits only with an option of E164 "
+"format using a leading \"+\""
 msgstr ""
 
-#: functions.inc.php:1007
-msgid "Fixed value to replace the CID with used with some of the modes above. Should be in a format of digits only with an option of E164 format using a leading \"+\"."
-msgstr "Фиксированное значение для замены Caller ID в зависимости от одного из режимов выше. Должен быть только в цифровом формате, или опционально - в формате Е164 с использованием \"+\" впереди номера."
+#: functions.inc.php:1009
+msgid ""
+"Fixed value to replace the CID with used with some of the modes above. "
+"Should be in a format of digits only with an option of E164 format using a "
+"leading \"+\"."
+msgstr ""
+"Фиксированное значение для замены Caller ID в зависимости от одного из "
+"режимов выше. Должен быть только в цифровом формате, или опционально - в "
+"формате Е164 с использованием \"+\" впереди номера."
 
 #: views/form.php:508
-msgid "Fixed value to replace the CID with used with some of the modes above. Should be in a format of digits only with an option of E164 format using a leading '+'."
+msgid ""
+"Fixed value to replace the CID with used with some of the modes above. "
+"Should be in a format of digits only with an option of E164 format using a "
+"leading '+'."
 msgstr ""
 
 #: page.findmefollow.php:11
@@ -161,21 +207,21 @@ msgstr ""
 msgid "Follow Me List"
 msgstr "Список Следуйте сюда"
 
-#: functions.inc.php:1176
+#: functions.inc.php:1178
 #, php-format
 msgid "Follow Me: %s"
 msgstr "Следуйте сюда: %s"
 
-#: functions.inc.php:744 views/form.php:358
+#: functions.inc.php:746 views/form.php:358
 msgid "Follow-Me List"
 msgstr "Список"
 
-#: functions.inc.php:1229
+#: functions.inc.php:1231
 #, php-format
 msgid "Follow-Me User: %s"
 msgstr "Пользователь Следуйте сюда: %s"
 
-#: functions.inc.php:1205
+#: functions.inc.php:1207
 #, php-format
 msgid "Follow-Me: %s (%s)"
 msgstr "Следуйте сюда: %s (%s)"
@@ -188,7 +234,7 @@ msgstr ""
 msgid "Followme List"
 msgstr ""
 
-#: functions.inc.php:969 functions.inc.php:994 views/form.php:214
+#: functions.inc.php:971 functions.inc.php:996 views/form.php:214
 msgid "Force Dialed Number"
 msgstr "Форсировать набранный номер"
 
@@ -196,7 +242,7 @@ msgstr "Форсировать набранный номер"
 msgid "Force Follow Me"
 msgstr "Принудительно Следуйте сюда"
 
-#: functions.inc.php:640
+#: functions.inc.php:642
 msgid "General Settings"
 msgstr ""
 
@@ -204,17 +250,25 @@ msgstr ""
 msgid "Group Number"
 msgstr ""
 
-#: functions.inc.php:805 views/form.php:202
-msgid "If you select a Music on Hold class to play, instead of 'Ring', they will hear that instead of Ringing while they are waiting for someone to pick up."
-msgstr "Если выбран класс Музыки в ожидании вместо простого сигнала вызова, то позвонивший будет слушать музыку, пока кто-то не поднимет трубку."
+#: functions.inc.php:807 views/form.php:202
+msgid ""
+"If you select a Music on Hold class to play, instead of 'Ring', they will "
+"hear that instead of Ringing while they are waiting for someone to pick up."
+msgstr ""
+"Если выбран класс Музыки в ожидании вместо простого сигнала вызова, то "
+"позвонивший будет слушать музыку, пока кто-то не поднимет трубку."
 
-#: functions.inc.php:693 views/form.php:284
+#: functions.inc.php:695 views/form.php:284
 msgid "Initial Ring Time"
 msgstr ""
 
 #: assets/js/findmefollow.js:80
-msgid "Invalid CID Number. Must be in a format of digits only with an option of E164 format using a leading \"+\""
-msgstr "Неверный формат Caller ID. Должен быть указан только цифрами, или, опционально, в полном Е164 формате с использованием \"+\" впереди номера"
+msgid ""
+"Invalid CID Number. Must be in a format of digits only with an option of "
+"E164 format using a leading \"+\""
+msgstr ""
+"Неверный формат Caller ID. Должен быть указан только цифрами, или, "
+"опционально, в полном Е164 формате с использованием \"+\" впереди номера"
 
 #: assets/js/findmefollow.js:77
 msgid "Invalid time specified"
@@ -224,68 +278,120 @@ msgstr "Неверно указано время"
 msgid "List Followme Groups"
 msgstr ""
 
-#: functions.inc.php:745 views/form.php:379
-msgid "List extensions to ring, one per line, or use the Extension Quick Pick below.<br><br>You can include an extension on a remote system, or an external number by suffixing a number with a pound (#).  ex:  2448089# would dial 2448089 on the appropriate trunk (see Outbound Routing)."
-msgstr "Лист номеров, по одному в строке, или воспользуйтесь Выбором из меню ниже чтобы добавить в список <br><br>Можно включать номера из других удалённых систем, или внешние номера, с использованием знака # в качестве суффикса. Например: 2448089# наберёт номер 2448089 на любом внешнем транке, попадающем в правила Исходящей маршрутизации.<br><br>Задействуются только фактические внутренние номера. Если хотите использовать при этом посторонние каналы (чтобы звонить на follow-me или в другие группы вызова, или очереди, просто ставьте знак # в конце номера. Но будте осторожны! Это рекурсия, и система может задушиться."
+#: functions.inc.php:747 views/form.php:379
+msgid ""
+"List extensions to ring, one per line, or use the Extension Quick Pick below."
+"<br><br>You can include an extension on a remote system, or an external "
+"number by suffixing a number with a pound (#).  ex:  2448089# would dial "
+"2448089 on the appropriate trunk (see Outbound Routing)."
+msgstr ""
+"Лист номеров, по одному в строке, или воспользуйтесь Выбором из меню ниже "
+"чтобы добавить в список <br><br>Можно включать номера из других удалённых "
+"систем, или внешние номера, с использованием знака # в качестве суффикса. "
+"Например: 2448089# наберёт номер 2448089 на любом внешнем транке, попадающем "
+"в правила Исходящей маршрутизации.<br><br>Задействуются только фактические "
+"внутренние номера. Если хотите использовать при этом посторонние каналы "
+"(чтобы звонить на follow-me или в другие группы вызова, или очереди, просто "
+"ставьте знак # в конце номера. Но будте осторожны! Это рекурсия, и система "
+"может задушиться."
 
 #: ucp/views/settings.php:17
-msgid "List extensions to ring, one per line. You can include an extension on a remote system, or an external number by suffixing a number with a pound (#).  ex:  2448089# would dial 2448089."
-msgstr "Список номеров для звонка, один в строке. Вы можете добавлять номера на другой системе или внешние номера с помощью добавления суффикса к номеру знаком решетки (#). Например: 2448089# наберется как 2448089."
+msgid ""
+"List extensions to ring, one per line. You can include an extension on a "
+"remote system, or an external number by suffixing a number with a pound "
+"(#).  ex:  2448089# would dial 2448089."
+msgstr ""
+"Список номеров для звонка, один в строке. Вы можете добавлять номера на "
+"другой системе или внешние номера с помощью добавления суффикса к номеру "
+"знаком решетки (#). Например: 2448089# наберется как 2448089."
 
 #: ucp/views/settings.php:27
 msgid "Message to be played to the caller before dialing this group."
 msgstr "Сообщение, воспроизводимое абоненту перед звонком в эту группу."
 
 #: views/form.php:89
-msgid "Message to be played to the caller before dialing this group.<br><br>To add additional recordings please use the \"System Recordings\" MENU above"
+msgid ""
+"Message to be played to the caller before dialing this group.<br><br>To add "
+"additional recordings please use the \"System Recordings\" MENU above"
 msgstr ""
 
-#: functions.inc.php:780
-msgid "Message to be played to the caller before dialing this group.<br><br>To add additional recordings please use the \"System Recordings\" MENU to the left"
-msgstr "Сообщение, которое воспроизводится позвонившему прежде, чем звонок перйдёт в группу.<br><br>Для создания такого сообщения используйте раздел меню Запись сообщений."
+#: functions.inc.php:782
+msgid ""
+"Message to be played to the caller before dialing this group.<br><br>To add "
+"additional recordings please use the \"System Recordings\" MENU to the left"
+msgstr ""
+"Сообщение, которое воспроизводится позвонившему прежде, чем звонок перйдёт в "
+"группу.<br><br>Для создания такого сообщения используйте раздел меню Запись "
+"сообщений."
 
 #: ucp/views/settings.php:66
-msgid "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is enabled."
-msgstr "Сообщение, воспроизводимое лицу, принимающему звонок, если включено 'Подтверждение вызова'."
+msgid ""
+"Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
+"enabled."
+msgstr ""
+"Сообщение, воспроизводимое лицу, принимающему звонок, если включено "
+"'Подтверждение вызова'."
 
 #: views/form.php:124
-msgid "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is enabled.<br><br>To add additional recordings use the \"System Recordings\" MENU above"
+msgid ""
+"Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
+"enabled.<br><br>To add additional recordings use the \"System Recordings\" "
+"MENU above"
 msgstr ""
 
-#: functions.inc.php:900
-msgid "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is enabled.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left"
-msgstr "Сообщение, которое будет воспроизведено для адресата звонка, если задействована опция Подтверждение вызова.<br><br>Добавить запись можно в секции Запись сообщений в меню слева."
+#: functions.inc.php:902
+msgid ""
+"Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
+"enabled.<br><br>To add additional recordings use the \"System Recordings\" "
+"MENU to the left"
+msgstr ""
+"Сообщение, которое будет воспроизведено для адресата звонка, если "
+"задействована опция Подтверждение вызова.<br><br>Добавить запись можно в "
+"секции Запись сообщений в меню слева."
 
 #: ucp/views/settings.php:76
-msgid "Message to be played to the person RECEIVING the call, if the call has already been accepted before they push 1."
-msgstr "Сообщение, воспроизводимое лицу, принимающему звонок, если вызов уже был принят прежде, чем он нажал 1."
+msgid ""
+"Message to be played to the person RECEIVING the call, if the call has "
+"already been accepted before they push 1."
+msgstr ""
+"Сообщение, воспроизводимое лицу, принимающему звонок, если вызов уже был "
+"принят прежде, чем он нажал 1."
 
 #: views/form.php:159
-msgid "Message to be played to the person RECEIVING the call, if the call has already been accepted before they push 1.<br><br>To add additional recordings use the \"System Recordings\" MENU above"
+msgid ""
+"Message to be played to the person RECEIVING the call, if the call has "
+"already been accepted before they push 1.<br><br>To add additional "
+"recordings use the \"System Recordings\" MENU above"
 msgstr ""
 
-#: functions.inc.php:912
-msgid "Message to be played to the person RECEIVING the call, if the call has already been accepted before they push 1.<br><br>To add additional recordings use the \"System Recordings\" MENU to the left"
-msgstr "Сообщение воспроизводится для принявшего этот звонок, если звонок уже принят прежде чем он успел нажать 1.<br><br>Для создания такого сообщения используйте раздел меню Запись сообщений."
+#: functions.inc.php:914
+msgid ""
+"Message to be played to the person RECEIVING the call, if the call has "
+"already been accepted before they push 1.<br><br>To add additional "
+"recordings use the \"System Recordings\" MENU to the left"
+msgstr ""
+"Сообщение воспроизводится для принявшего этот звонок, если звонок уже принят "
+"прежде чем он успел нажать 1.<br><br>Для создания такого сообщения "
+"используйте раздел меню Запись сообщений."
 
 #: views/nogo.php:1
 msgid "Method not supported"
 msgstr ""
 
-#: functions.inc.php:972
+#: functions.inc.php:974
 msgid "Mode"
 msgstr "Режим"
 
-#: functions.inc.php:674 functions.inc.php:883 views/fmgrid.php:16
+#: functions.inc.php:676 functions.inc.php:885 views/fmgrid.php:16
 #: views/form.php:264 views/form.php:448
 msgid "No"
 msgstr ""
 
-#: functions.inc.php:1047
+#: functions.inc.php:1049
 msgid "No Answer"
 msgstr ""
 
-#: functions.inc.php:588 ucp/views/settings.php:22 ucp/views/settings.php:61
+#: functions.inc.php:590 ucp/views/settings.php:22 ucp/views/settings.php:61
 #: ucp/views/settings.php:71 views/form.php:75 views/form.php:110
 msgid "None"
 msgstr "Нет"
@@ -295,22 +401,29 @@ msgid "Normal Extension Behavior"
 msgstr "Обычное поведение внутреннего номера"
 
 #: assets/js/findmefollow.js:79
-msgid "Only ringall, ringallv2, hunt and the respective -prim versions are supported when confirmation is checked"
-msgstr "Поддерживаются только сценарии звонят-все, звонят-все-v2, серийное-искание, и сответствующие -prim варианты когда изменения приняты."
+msgid ""
+"Only ringall, ringallv2, hunt and the respective -prim versions are "
+"supported when confirmation is checked"
+msgstr ""
+"Поддерживаются только сценарии звонят-все, звонят-все-v2, серийное-искание, "
+"и сответствующие -prim варианты когда изменения приняты."
 
-#: functions.inc.php:1048
-msgid "Optional destination call is routed to when the call is not answered on an otherwise idle phone. If the phone is in use and the call is simply ignored, then the busy destination will be used."
+#: functions.inc.php:1050
+msgid ""
+"Optional destination call is routed to when the call is not answered on an "
+"otherwise idle phone. If the phone is in use and the call is simply ignored, "
+"then the busy destination will be used."
 msgstr ""
 
-#: functions.inc.php:967 functions.inc.php:986 views/form.php:212
+#: functions.inc.php:969 functions.inc.php:988 views/form.php:212
 msgid "Outside Calls Fixed CID Value"
 msgstr "Значение Caller ID для внешних звонков"
 
-#: functions.inc.php:804 views/form.php:178
+#: functions.inc.php:806 views/form.php:178
 msgid "Play Music On Hold"
 msgstr ""
 
-#: functions.inc.php:616
+#: functions.inc.php:618
 #, php-format
 msgid "Please enter a valid %s number"
 msgstr ""
@@ -319,7 +432,7 @@ msgstr ""
 msgid "Please enter an extension list."
 msgstr "список номеров"
 
-#: functions.inc.php:899 ucp/views/settings.php:59 views/form.php:103
+#: functions.inc.php:901 ucp/views/settings.php:59 views/form.php:103
 msgid "Remote Announce"
 msgstr "Удаленное приветствие"
 
@@ -327,7 +440,7 @@ msgstr "Удаленное приветствие"
 msgid "Reset"
 msgstr ""
 
-#: functions.inc.php:792 views/form.php:185
+#: functions.inc.php:794 views/form.php:185
 msgid "Ring"
 msgstr "Звонок"
 
@@ -340,11 +453,11 @@ msgstr "Звонить сначала на %s"
 msgid "Ring Followme List For"
 msgstr "Список звонков для Следуйте сюда"
 
-#: functions.inc.php:720 views/form.php:308
+#: functions.inc.php:722 views/form.php:308
 msgid "Ring Strategy"
 msgstr ""
 
-#: functions.inc.php:732
+#: functions.inc.php:734
 msgid "Ring Time"
 msgstr ""
 
@@ -364,39 +477,73 @@ msgstr ""
 msgid "The number users will dial to ring extensions in this Followme group"
 msgstr ""
 
-#: functions.inc.php:694 ucp/views/settings.php:36 views/form.php:296
-msgid "This is the number of seconds to ring the primary extension prior to proceeding to the follow-me list. The extension can also be included in the follow-me list. A 0 setting will bypass this."
-msgstr "Время в секундах, в течение которого звонок отрабатывает на первом назначении (внутреннем номере), после чего следует по направлению, заданному указанием Следуйте сюда. Значение 0 будет пропускать первый шаг."
+#: functions.inc.php:696 ucp/views/settings.php:36 views/form.php:296
+msgid ""
+"This is the number of seconds to ring the primary extension prior to "
+"proceeding to the follow-me list. The extension can also be included in the "
+"follow-me list. A 0 setting will bypass this."
+msgstr ""
+"Время в секундах, в течение которого звонок отрабатывает на первом "
+"назначении (внутреннем номере), после чего следует по направлению, заданному "
+"указанием Следуйте сюда. Значение 0 будет пропускать первый шаг."
 
 #: ucp/views/settings.php:45
 msgid "Time in seconds that the phones will ring"
 msgstr "Время в секундах, что телефоны будут звонить"
 
-#: functions.inc.php:733 views/form.php:346
-msgid "Time in seconds that the phones will ring. For all hunt style ring strategies, this is the time for each iteration of phone(s) that are rung"
-msgstr "Время в секундах, в течение которого телефоны будут звонить. Для всех видов стратегий серийного искания это время звонка повторяется для всех телефонов, которые включены в серию."
+#: functions.inc.php:735 views/form.php:346
+msgid ""
+"Time in seconds that the phones will ring. For all hunt style ring "
+"strategies, this is the time for each iteration of phone(s) that are rung"
+msgstr ""
+"Время в секундах, в течение которого телефоны будут звонить. Для всех видов "
+"стратегий серийного искания это время звонка повторяется для всех телефонов, "
+"которые включены в серию."
 
 #: assets/js/findmefollow.js:78
 msgid "Time must be between 1 and 60 seconds"
 msgstr "Время должно быть указано от 1 до 60 секунд"
 
-#: functions.inc.php:911 ucp/views/settings.php:69 views/form.php:138
+#: functions.inc.php:913 ucp/views/settings.php:69 views/form.php:138
 msgid "Too-Late Announce"
 msgstr "Приветствие для Слишком поздно"
 
-#: functions.inc.php:967
-msgid "Transmit the Fixed CID Value below on calls that come in from outside only. Internal extension to extension calls will continue to operate in default mode."
-msgstr "Передавать фиксированное значение Caller ID указанное ниже только в случае исходящих внешних звонков. Внутренние соединения не будут использовать этот Caller ID."
-
 #: functions.inc.php:969
-msgid "Transmit the number that was dialed as the CID for calls coming from outside. Internal extension to extension calls will continue to operate in default mode. There must be a DID on the inbound route for this. This WILL be transmitted on trunks that block foreign CallerID"
-msgstr "Передаёт номер, который был набран как назначение (DID) в качестве Номера ИД, для звонков пришедших снаружи. Внутренние соединения будут передавать Caller ID в обычном режиме. Для этого предполагается входящий маршрут по DID. Он будет передаваться через транк, где провайдеры блокируют чужие Caller ID."
+msgid ""
+"Transmit the Fixed CID Value below on calls that come in from outside only. "
+"Internal extension to extension calls will continue to operate in default "
+"mode."
+msgstr ""
+"Передавать фиксированное значение Caller ID указанное ниже только в случае "
+"исходящих внешних звонков. Внутренние соединения не будут использовать этот "
+"Caller ID."
 
-#: functions.inc.php:968
-msgid "Transmit the number that was dialed as the CID for calls coming from outside. Internal extension to extension calls will continue to operate in default mode. There must be a DID on the inbound route for this. This will be BLOCKED on trunks that block foreign CallerID"
-msgstr "Передавать набранный Caller ID для перенаправленных звонков, пришедших снаружи. Внутренние соединения будут передавать Caller ID в обычном режиме. Для этого предполагается входящий маршрут по DID. Он будет блокироваться на транке, где провайдеры блокируют чужие Caller ID."
+#: functions.inc.php:971
+msgid ""
+"Transmit the number that was dialed as the CID for calls coming from "
+"outside. Internal extension to extension calls will continue to operate in "
+"default mode. There must be a DID on the inbound route for this. This WILL "
+"be transmitted on trunks that block foreign CallerID"
+msgstr ""
+"Передаёт номер, который был набран как назначение (DID) в качестве Номера "
+"ИД, для звонков пришедших снаружи. Внутренние соединения будут передавать "
+"Caller ID в обычном режиме. Для этого предполагается входящий маршрут по "
+"DID. Он будет передаваться через транк, где провайдеры блокируют чужие "
+"Caller ID."
 
-#: functions.inc.php:965
+#: functions.inc.php:970
+msgid ""
+"Transmit the number that was dialed as the CID for calls coming from "
+"outside. Internal extension to extension calls will continue to operate in "
+"default mode. There must be a DID on the inbound route for this. This will "
+"be BLOCKED on trunks that block foreign CallerID"
+msgstr ""
+"Передавать набранный Caller ID для перенаправленных звонков, пришедших "
+"снаружи. Внутренние соединения будут передавать Caller ID в обычном режиме. "
+"Для этого предполагается входящий маршрут по DID. Он будет блокироваться на "
+"транке, где провайдеры блокируют чужие Caller ID."
+
+#: functions.inc.php:967
 msgid "Transmits the Callers CID if allowed by the trunk."
 msgstr "Передавать Caller ID если позволяет транк."
 
@@ -404,7 +551,7 @@ msgstr "Передавать Caller ID если позволяет транк."
 msgid "Use Confirmation"
 msgstr "Использовать подтверждение"
 
-#: functions.inc.php:968 functions.inc.php:990 views/form.php:213
+#: functions.inc.php:970 functions.inc.php:992 views/form.php:213
 msgid "Use Dialed Number"
 msgstr "Использовать набранный номер"
 
@@ -417,28 +564,49 @@ msgid "Warning! Extension"
 msgstr "Внимание! Внутренний номер"
 
 #: ucp/views/settings.php:12
-msgid "When enabled any call to this extension will go to this Follow-Me instead, including directory calls by name from IVRs. If disabled, calls will go only to the extension."
-msgstr "При включении, любой вызов этого номера пойдет на Следуйте сюда, включая каталоги звонков по имени из IVR'ок. Если отключено, звонки будут идти только по номеру."
+msgid ""
+"When enabled any call to this extension will go to this Follow-Me instead, "
+"including directory calls by name from IVRs. If disabled, calls will go only "
+"to the extension."
+msgstr ""
+"При включении, любой вызов этого номера пойдет на Следуйте сюда, включая "
+"каталоги звонков по имени из IVR'ок. Если отключено, звонки будут идти "
+"только по номеру."
 
 #: views/form.php:532
 msgid "Where to send callers if there is no answer."
 msgstr ""
 
-#: functions.inc.php:670 functions.inc.php:879 views/fmgrid.php:14
+#: functions.inc.php:672 functions.inc.php:881 views/fmgrid.php:14
 #: views/form.php:262 views/form.php:446
 msgid "Yes"
 msgstr ""
 
-#: functions.inc.php:828
-msgid "You can optionally include an Alert Info which can create distinctive rings on SIP phones."
-msgstr "Дополнительная информация ALERT_INFO может быть использования для распознавания адресата чтобы присвоить различный тип звонков на SIP устройствах."
+#: functions.inc.php:830
+msgid ""
+"You can optionally include an Alert Info which can create distinctive rings "
+"on SIP phones."
+msgstr ""
+"Дополнительная информация ALERT_INFO может быть использования для "
+"распознавания адресата чтобы присвоить различный тип звонков на SIP "
+"устройствах."
 
-#: functions.inc.php:817
-msgid "You can optionally prefix the Caller ID name when ringing extensions in this group. ie: If you prefix with \"Sales:\", a call from John Doe would display as \"Sales:John Doe\" on the extensions that ring."
-msgstr "Опционально, можно использовать какой-то префикс для звонка в эту группу. Например, если это группа \"Sales:\", то, установив такой префикс для этой группы, можно видеть, если звонит John Doe, то мы увидим на дисплее Sales:John Doe."
+#: functions.inc.php:819
+msgid ""
+"You can optionally prefix the Caller ID name when ringing extensions in this "
+"group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
+"as \"Sales:John Doe\" on the extensions that ring."
+msgstr ""
+"Опционально, можно использовать какой-то префикс для звонка в эту группу. "
+"Например, если это группа \"Sales:\", то, установив такой префикс для этой "
+"группы, можно видеть, если звонит John Doe, то мы увидим на дисплее Sales:"
+"John Doe."
 
 #: views/form.php:405
-msgid "You can optionally prefix the CallerID name when ringing extensions in this group. ie: If you prefix with \"Sales:\", a call from John Doe would display as \"Sales:John Doe\" on the extensions that ring."
+msgid ""
+"You can optionally prefix the CallerID name when ringing extensions in this "
+"group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
+"as \"Sales:John Doe\" on the extensions that ring."
 msgstr ""
 
 #: install.php:155
@@ -461,7 +629,7 @@ msgstr "уже перемещено"
 msgid "default"
 msgstr ""
 
-#: functions.inc.php:616
+#: functions.inc.php:618
 msgid "device"
 msgstr ""
 
@@ -477,7 +645,7 @@ msgstr "сбрасывается значение поля remotealert"
 msgid "dropping toolate field.."
 msgstr "сбрасывается значение поля toolate.."
 
-#: functions.inc.php:616
+#: functions.inc.php:618
 msgid "extension"
 msgstr ""
 
@@ -487,15 +655,15 @@ msgstr ""
 msgid "fatal error"
 msgstr "неустранимая ошибка"
 
-#: functions.inc.php:708 views/form.php:42
+#: functions.inc.php:710 views/form.php:42
 msgid "firstavailable"
 msgstr "первый-доступный"
 
-#: functions.inc.php:709 views/form.php:44
+#: functions.inc.php:711 views/form.php:44
 msgid "firstnotonphone"
 msgstr "первый-на-телефоне"
 
-#: functions.inc.php:705 views/form.php:36
+#: functions.inc.php:707 views/form.php:36
 msgid "hunt"
 msgstr "серийное-искание"
 
@@ -503,7 +671,7 @@ msgstr "серийное-искание"
 msgid "is not allowed for your account"
 msgstr "не разрешен к использованию в вашем аккаунте"
 
-#: functions.inc.php:706 views/form.php:38
+#: functions.inc.php:708 views/form.php:38
 msgid "memoryhunt"
 msgstr "прогресс-серийное-искание"
 
@@ -549,45 +717,82 @@ msgstr ""
 msgid "ok"
 msgstr "ok"
 
-#: page.findmefollow.php:223
-msgid "ring Extension for duration set in Initial Ring Time, and then terminate call to Extension and ring Follow-Me List for duration set in Ring Time."
-msgstr "продолжительность звонка устанавливается в начальное время звонка, а затем прекращается вызов внутреннего номера и вызывается Следуйте Сюда по продолжительности , установленной во времени звонка."
+#: functions.inc.php:706 views/form.php:34
+msgid ""
+"ring Extension for duration set in Initial Ring Time, and then terminate "
+"call to Extension and ring Follow-Me List for duration set in Ring Time."
+msgstr ""
+"продолжительность звонка устанавливается в начальное время звонка, а затем "
+"прекращается вызов внутреннего номера и вызывается Следуйте Сюда по "
+"продолжительности , установленной во времени звонка."
 
-#: page.findmefollow.php:222
-msgid "ring Extension for duration set in Initial Ring Time, and then, while continuing call to extension, ring Follow-Me List for duration set in Ring Time."
-msgstr "продолжительность звонка устанавливается в начальное время звонка, затем, когда продолжается вызов внутреннего номера, вызывается список Следуйте Сюда по продолжительности, заданной во времени звонка."
+#: functions.inc.php:705 views/form.php:32
+msgid ""
+"ring Extension for duration set in Initial Ring Time, and then, while "
+"continuing call to extension, ring Follow-Me List for duration set in Ring "
+"Time."
+msgstr ""
+"продолжительность звонка устанавливается в начальное время звонка, затем, "
+"когда продолжается вызов внутреннего номера, вызывается список Следуйте Сюда "
+"по продолжительности, заданной во времени звонка."
 
-#: functions.inc.php:706 views/form.php:38
-msgid "ring first extension in the list, then ring the 1st and 2nd extension, then ring 1st 2nd and 3rd extension in the list.... etc."
-msgstr "Звонит первый внутренний номер в списке, затем первый и второй, затем первый, второй и третий в списке, и так далее."
+#: functions.inc.php:708 views/form.php:38
+msgid ""
+"ring first extension in the list, then ring the 1st and 2nd extension, then "
+"ring 1st 2nd and 3rd extension in the list.... etc."
+msgstr ""
+"Звонит первый внутренний номер в списке, затем первый и второй, затем "
+"первый, второй и третий в списке, и так далее."
 
-#: functions.inc.php:708 views/form.php:42
+#: functions.inc.php:710 views/form.php:42
 msgid "ring only the first available channel"
 msgstr "звонит первый доступный канал"
 
-#: functions.inc.php:709 views/form.php:44
+#: functions.inc.php:711 views/form.php:44
 msgid "ring only the first channel which is not off hook - ignore CW"
-msgstr "звонит первый телефон, у которого не снята трубка - форвардинг игнорируется"
+msgstr ""
+"звонит первый телефон, у которого не снята трубка - форвардинг игнорируется"
 
-#: functions.inc.php:704 views/form.php:34
+#: functions.inc.php:706 views/form.php:34
 msgid "ringall"
 msgstr "звонят-все"
 
-#: functions.inc.php:703 views/form.php:32
+#: functions.inc.php:705 views/form.php:32
 msgid "ringallv2"
 msgstr "1-звонят-все"
 
-#: functions.inc.php:705 views/form.php:36
+#: functions.inc.php:707 views/form.php:36
 msgid "take turns ringing each available extension"
 msgstr "звонок поступает на любой доступный из номеров по списку"
 
-#: functions.inc.php:707 views/form.php:40
-msgid "these modes act as described above. However, if the primary extension (first in list) is occupied, the other extensions will not be rung. If the primary is FreePBX DND, it won't be rung. If the primary is FreePBX CF unconditional, then all will be rung"
-msgstr "Этот режим работает так же, как вышеописанные, за исключением того, что если первый внутренний номер из списка занят, следующие по списку не будут звонить. Также зависит от установок 'Не беспокоить' и 'Перенаправление' на первом внутреннем номере списка. Если DND, то поиск в группе на этом заканчивается. Если CF (перенаправление) не перенаправит, то поиск в группе продолжится"
+#: functions.inc.php:709 views/form.php:40
+msgid ""
+"these modes act as described above. However, if the primary extension (first "
+"in list) is occupied, the other extensions will not be rung. If the primary "
+"is FreePBX DND, it won't be rung. If the primary is FreePBX CF "
+"unconditional, then all will be rung"
+msgstr ""
+"Этот режим работает так же, как вышеописанные, за исключением того, что если "
+"первый внутренний номер из списка занят, следующие по списку не будут "
+"звонить. Также зависит от установок 'Не беспокоить' и 'Перенаправление' на "
+"первом внутреннем номере списка. Если DND, то поиск в группе на этом "
+"заканчивается. Если CF (перенаправление) не перенаправит, то поиск в группе "
+"продолжится"
 
-#: findmefollow.i18n.php:5
-msgid "Much like a ring group, but works on individual extensions. When someone calls the extension, it can be setup to ring for a number of seconds before trying to ring other extensions and/or external numbers, or to ring all at once, or in other various \\'hunt\\' configurations. Most commonly used to ring someone\\'s cell phone if they don\\'t answer their extension."
-msgstr "Так же как группа вызова, но  работает как отдельные номера. Когда кто-то вызывает номер, это может быть настроено звонить на определенное количество секунд, прежде чем пытаться звонить на другие номера и/или внешние номера, или позвонить сразу, или в других различных \"поисковых\" конфигурациях. Наиболее часто используется для звонков на сотовый телефон, если кто-то не ответил на свой внутренний номер."
+#~ msgid ""
+#~ "Much like a ring group, but works on individual extensions. When someone "
+#~ "calls the extension, it can be setup to ring for a number of seconds "
+#~ "before trying to ring other extensions and/or external numbers, or to "
+#~ "ring all at once, or in other various \\'hunt\\' configurations. Most "
+#~ "commonly used to ring someone\\'s cell phone if they don\\'t answer their "
+#~ "extension."
+#~ msgstr ""
+#~ "Так же как группа вызова, но  работает как отдельные номера. Когда кто-то "
+#~ "вызывает номер, это может быть настроено звонить на определенное "
+#~ "количество секунд, прежде чем пытаться звонить на другие номера и/или "
+#~ "внешние номера, или позвонить сразу, или в других различных \"поисковых\" "
+#~ "конфигурациях. Наиболее часто используется для звонков на сотовый "
+#~ "телефон, если кто-то не ответил на свой внутренний номер."
 
 #~ msgid "Add Follow Me"
 #~ msgstr "Добавить указание Следуйте сюда"
@@ -623,7 +828,9 @@ msgstr "Так же как группа вызова, но  работает к�
 #~ msgstr "Не использовать"
 
 #~ msgid "Disable Follow Me Upon Creation"
-#~ msgstr "Отключить создание Следуйте сюда при создании пользователя/внутреннего номера"
+#~ msgstr ""
+#~ "Отключить создание Следуйте сюда при создании пользователя/внутреннего "
+#~ "номера"
 
 #~ msgid "Edit %s"
 #~ msgstr "Редактировать %s"
@@ -646,11 +853,31 @@ msgstr "Так же как группа вызова, но  работает к�
 #~ msgid "Initial Ring Time:"
 #~ msgstr "Начальное время звонка:"
 
-#~ msgid "Message to be played to the caller before dialing this group.<br><br>You must install and enable the \"Systems Recordings\" Module to edit this option"
-#~ msgstr "Сообщение, которое воспроизводится позвонившему прежде, чем звонок перйдёт в группу.<br><br>Необходимо инсталлировать модуль Запись сообщений чтобы менять что-либо в этой опции."
+#~ msgid ""
+#~ "Message to be played to the caller before dialing this group.<br><br>You "
+#~ "must install and enable the \"Systems Recordings\" Module to edit this "
+#~ "option"
+#~ msgstr ""
+#~ "Сообщение, которое воспроизводится позвонившему прежде, чем звонок "
+#~ "перйдёт в группу.<br><br>Необходимо инсталлировать модуль Запись "
+#~ "сообщений чтобы менять что-либо в этой опции."
 
-#~ msgid "Much like a ring group, but works on individual extensions. When someone calls the extension, it can be setup to ring for a number of seconds before trying to ring other extensions and/or external numbers, or to ring all at once, or in other various 'hunt' configurations. Most commonly used to ring someone's cell phone if they don't answer their extension."
-#~ msgstr "Работает так же, как мини ринг-группа, но только индивидуально для каждого внутреннего номера. Если поступит вызов на какой-либо внутренний номер, то после указанного времени, в течение которого будет вызываться этот номер непосредственно, будет предпринята попытка вызова следующего по списку внутреннего или внешнего номера. Или, как вариант, будут звонить-все, или будут предприняты другие сценарии, например - серийное искание. Наиболее частое применение - для перенаправления вызова на мобильный телефон, если этот номер не отвечает."
+#~ msgid ""
+#~ "Much like a ring group, but works on individual extensions. When someone "
+#~ "calls the extension, it can be setup to ring for a number of seconds "
+#~ "before trying to ring other extensions and/or external numbers, or to "
+#~ "ring all at once, or in other various 'hunt' configurations. Most "
+#~ "commonly used to ring someone's cell phone if they don't answer their "
+#~ "extension."
+#~ msgstr ""
+#~ "Работает так же, как мини ринг-группа, но только индивидуально для "
+#~ "каждого внутреннего номера. Если поступит вызов на какой-либо внутренний "
+#~ "номер, то после указанного времени, в течение которого будет вызываться "
+#~ "этот номер непосредственно, будет предпринята попытка вызова следующего "
+#~ "по списку внутреннего или внешнего номера. Или, как вариант, будут "
+#~ "звонить-все, или будут предприняты другие сценарии, например - серийное "
+#~ "искание. Наиболее частое применение - для перенаправления вызова на "
+#~ "мобильный телефон, если этот номер не отвечает."
 
 #~ msgid "Play Music On Hold?"
 #~ msgstr "Музыку в ожидании?"
@@ -664,14 +891,27 @@ msgstr "Так же как группа вызова, но  работает к�
 #~ msgid "Submit Changes"
 #~ msgstr "Применить изменения"
 
-#~ msgid "The default Initial Ring Time for a Follow Me set upon creation and used if auto-created with a new extension."
-#~ msgstr "Установка времени начального звонка для Следуйте сюда, используется если создается автоматически при создании нового внутреннего номера."
+#~ msgid ""
+#~ "The default Initial Ring Time for a Follow Me set upon creation and used "
+#~ "if auto-created with a new extension."
+#~ msgstr ""
+#~ "Установка времени начального звонка для Следуйте сюда, используется если "
+#~ "создается автоматически при создании нового внутреннего номера."
 
-#~ msgid "The default Ring Strategy selected for a Follow Me set upon creation and used if auto-created with an extension."
-#~ msgstr "Эта стратегия звонка по умолчанию выбирается для Следуйте сюда во время создания и используется если Следуйте сюда создается автоматически с внутренним номером."
+#~ msgid ""
+#~ "The default Ring Strategy selected for a Follow Me set upon creation and "
+#~ "used if auto-created with an extension."
+#~ msgstr ""
+#~ "Эта стратегия звонка по умолчанию выбирается для Следуйте сюда во время "
+#~ "создания и используется если Следуйте сюда создается автоматически с "
+#~ "внутренним номером."
 
-#~ msgid "The default Ring Time for a Follow Me set upon creation and used if auto-created with a new extension."
-#~ msgstr "Установка времени звонка по умолчанию для Следуйте сюда, используется если создается автоматически при создании нового внутреннего номера."
+#~ msgid ""
+#~ "The default Ring Time for a Follow Me set upon creation and used if auto-"
+#~ "created with a new extension."
+#~ msgstr ""
+#~ "Установка времени звонка по умолчанию для Следуйте сюда, используется "
+#~ "если создается автоматически при создании нового внутреннего номера."
 
 #~ msgid "The number users will dial to ring extensions in this ring group"
 #~ msgstr "Номер, на который можно позвонить сразу во всю группу вызова"
@@ -682,8 +922,15 @@ msgstr "Так же как группа вызова, но  работает к�
 #~ msgid "Too-Late Announce:"
 #~ msgstr "Сообщение Уже-поздно"
 
-#~ msgid "When creating a new user or extension, setting this to true will automatically create a new Follow Me for that user using the default settings listed below"
-#~ msgstr "При создании нового пользователя или внутреннего номера, установка этого значения в true автоматически создаст новое Следуйте сюда для этого пользователя/внутреннего номера используя стандартные настройки перечисленные ниже"
+#~ msgid ""
+#~ "When creating a new user or extension, setting this to true will "
+#~ "automatically create a new Follow Me for that user using the default "
+#~ "settings listed below"
+#~ msgstr ""
+#~ "При создании нового пользователя или внутреннего номера, установка этого "
+#~ "значения в true автоматически создаст новое Следуйте сюда для этого "
+#~ "пользователя/внутреннего номера используя стандартные настройки "
+#~ "перечисленные ниже"
 
 #~ msgid "deleted"
 #~ msgstr "удалено"
@@ -692,7 +939,12 @@ msgstr "Так же как группа вызова, но  работает к�
 #~ msgstr "групповой номер"
 
 #~ msgid "ring all available channels until one answers (default)"
-#~ msgstr "звонят все доступные номера из списка, пока кто либо один не ответит."
+#~ msgstr ""
+#~ "звонят все доступные номера из списка, пока кто либо один не ответит."
 
-#~ msgid "ring primary extension for initial ring time followed by all additional extensions until one answers"
-#~ msgstr "звенит первый внутренний номер втечение указанного времени (выше), затем все внутренние номера из списка, пока кто либо один не ответит"
+#~ msgid ""
+#~ "ring primary extension for initial ring time followed by all additional "
+#~ "extensions until one answers"
+#~ msgstr ""
+#~ "звенит первый внутренний номер втечение указанного времени (выше), затем "
+#~ "все внутренние номера из списка, пока кто либо один не ответит"
