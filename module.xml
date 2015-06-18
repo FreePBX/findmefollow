@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>13.0.1alpha3</version>
+	<version>13.0.1alpha4</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*13.0.1alpha4* Add Spanish prompts
 		*13.0.1alpha3* Fixes to looping
 		*13.0.1alpha2* Support bulk handler
 		*13.0.1alpha1* Visual Changes
