@@ -30,27 +30,29 @@ if ($extdisplay != "") {
 }
 //Ring Strategy Help
 $rshelp =    '<b>' . _("ringallv2"). 		'</b>: ' . _("ring Extension for duration set in Initial Ring Time, and then, while continuing call to extension, ring Follow-Me List for duration set in Ring Time.")
-			.'<br>' 
+			.'<br>'
 			.'<b>' . _("ringall"). 			'</b>: ' . _("ring Extension for duration set in Initial Ring Time, and then terminate call to Extension and ring Follow-Me List for duration set in Ring Time.")
-			.'<br>' 
+			.'<br>'
 			.'<b>' . _("hunt"). 			'</b>: ' . _("take turns ringing each available extension")
-			.'<br>' 
+			.'<br>'
 			.'<b>' . _("memoryhunt").		'</b>: ' . _("ring first extension in the list, then ring the 1st and 2nd extension, then ring 1st 2nd and 3rd extension in the list.... etc.")
-			.'<br>' 
+			.'<br>'
 			.'<b>' . _("*-prim"). 			'</b>: ' . _("these modes act as described above. However, if the primary extension (first in list) is occupied, the other extensions will not be rung. If the primary is FreePBX DND, it won't be rung. If the primary is FreePBX CF unconditional, then all will be rung")
-			.'<br>' 
+			.'<br>'
 			.'<b>' . _("firstavailable").	'</b>: ' . _("ring only the first available channel")
-			.'<br>' 
+			.'<br>'
 			.'<b>' . _("firstnotonphone"). 	'</b>: ' . _("ring only the first channel which is not off hook - ignore CW")
 			.'<br>';
 //Ring Strategy Select Options
 $default = (isset($strategy) ? $strategy : 'ringall');
 $items = array('ringallv2','ringallv2-prim','ringall','ringall-prim','hunt','hunt-prim','memoryhunt','memoryhunt-prim','firstavailable','firstnotonphone');
+$rsrows = '';
 foreach ($items as $item) {
 	$rsrows .= '<option value="'.$item.'" '.($default == $item ? 'SELECTED' : '').'>'._($item).'</option>';
 }
 //For Quick Select
 $results = core_users_list();
+$qsagentlist = '';
 foreach($results as $result){
 	$qsagentlist .= "<option value='".$result[0]."'>".$result[0]." (".$result[1].")</option>\n";
 }
@@ -182,7 +184,7 @@ if(function_exists('music_list')) {
 							<select name="ringing" id="ringing" class="form-control">';
 							$cur = (isset($ringing) ? $ringing : 'Ring');
 							$tresults = \music_list();
-							$ringhtml .= '<option value="Ring">'._("Ring").'</option>'; 
+							$ringhtml .= '<option value="Ring">'._("Ring").'</option>';
 							if (isset($tresults[0])) {
 							foreach ($tresults as $tresult) {
 							    ( $tresult == 'none' ? $ttext = _("none") : $ttext = $tresult );
@@ -190,7 +192,7 @@ if(function_exists('music_list')) {
 								$ringhtml .= '<option value="'.$tresult.'"'.($tresult == $cur ? ' SELECTED' : '').'>'._($ttext)."</option>\n";
 							}
 						}
-										
+
 	$ringhtml .= '			</select>
 						</div>
 					</div>
@@ -207,7 +209,7 @@ if(function_exists('music_list')) {
 	';
 }
 $default = (isset($changecid) ? $changecid : 'default');
-$ccidrows .= '<option value="default" '.($default == 'default' ? 'SELECTED' : '').'>'._("Default").'</option>';
+$ccidrows = '<option value="default" '.($default == 'default' ? 'SELECTED' : '').'>'._("Default").'</option>';
 $ccidrows .= '<option value="fixed" '.($default == 'fixed' ? 'SELECTED' : '').'>'._("Fixed CID Value").'</option>';
 $ccidrows .= '<option value="extern" '.($default == 'extern' ? 'SELECTED' : '').'>'._("Outside Calls Fixed CID Value").'</option>';
 $ccidrows .= '<option value="did" '.($default == 'did' ? 'SELECTED' : '').'>'._("Use Dialed Number").'</option>';
@@ -360,11 +362,10 @@ if (empty($goto)) {
 					</div>
 					<div class="col-md-9">
 						<div class="input-group">
-							<textarea id="grplist" class="form-control" cols="15" rows="<?php echo $glrows?>" name="grplist"><?php echo implode("\n",$grplist);?></textarea>
+							<textarea id="grplist" class="form-control" rows="<?php echo $glrows?>" name="grplist"><?php echo implode(PHP_EOL,$grplist);?></textarea>
 							<span class="input-group-addon">
-								<label for="qsagents1"><strong><?php echo("Agent Quick Select")?></strong></label>
-								<select id="qsagents1" class="form-control" data-for="grplist">
-									<option SELECTED>
+								<select id="qsagents1" class="form-control" data-for="grplist" style="width:170px;">
+									<option SELECTED value=""><?php echo("Agent Quick Select")?>
 									<?php echo $qsagentlist ?>
 								</select>
 							</span>

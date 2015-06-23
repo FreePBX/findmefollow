@@ -16,6 +16,7 @@ class Findmefollow implements \BMO {
 	}
 
 	public function doConfigPageInit($page) {
+		global $amp_conf;
 		$dispnum = 'findmefollow'; //used for switch on config.php
 		$request = $_REQUEST;
 		isset($request['action'])?$action = $request['action']:$action='';
@@ -38,7 +39,7 @@ class Findmefollow implements \BMO {
 		if (isset($request['ddial'])) {
 			$ddial =	$request['ddial'];
 		}	else {
-			$ddial == isset($request['ddial_value']) ? $request['ddial_value'] : ($amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '');
+			$ddial = isset($request['ddial_value']) ? $request['ddial_value'] : ($amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '');
 		}
 
 		if (isset($request['goto0']) && isset($request[$request['goto0']."0"])) {
