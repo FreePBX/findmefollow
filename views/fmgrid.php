@@ -4,6 +4,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //	Copyright 2015 Sangoma Technologies.
 //
 $fmlist = findmefollow_list();
+$fmlist = is_array($fmlist)?$fmlist:array();
 foreach($fmlist as $fm){
 	$thisg = findmefollow_get($fm,1);
 	$fmrows .= '<tr>';
@@ -18,12 +19,12 @@ foreach($fmlist as $fm){
 }
 ?>
 
-<table class="table table-striped">
+<table data-show-columns="true" data-toggle="table" data-pagination="true" data-search="true" class="table table-striped">
 <thead>
 	<tr>
-		<th><?php echo _("Followme Extension")?></th>
+		<th data-sortable="true"><?php echo _("Followme Extension")?></th>
 		<th><?php echo _("Enabled")?></th>
-	</tr>	
+	</tr>
 </thead>
 <tbody>
 	<?php echo $fmrows ?>
