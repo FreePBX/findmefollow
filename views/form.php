@@ -461,6 +461,20 @@ if (empty($goto)) {
 <!--END Confirm Calls-->
 <?php echo $remoteahtml ?>
 <?php echo $toolatehtml ?>
+<?php
+$ccidhelp = _("Mode").':'
+			.'<br>'
+			.'<b>'. _("Default") 						.'</b>: '. _("Transmits the Callers CID if allowed by the trunk.")
+			.'<br>'
+			.'<b>'. _("Fixed CID Value") 				.'</b>: '. _("Always transmit the Fixed CID Value below.")
+			.'<br>'
+			.'<b>'. _("Outside Calls Fixed CID Value") 	.'</b>: '. _("Transmit the Fixed CID Value below on calls that come in from outside only. Internal extension to extension calls will continue to operate in default mode.")
+			.'<br>'
+			.'<b>'. _("Use Dialed Number")				.'</b>: '. _("Transmit the number that was dialed as the CID for calls coming from outside. Internal extension to extension calls will continue to operate in default mode. There must be a DID on the inbound route for this. This will be BLOCKED on trunks that block foreign CallerID")
+			.'<br>'
+			.'<b>'. _("Force Dialed Number")			.'</b>: '. _("Transmit the number that was dialed as the CID for calls coming from outside. Internal extension to extension calls will continue to operate in default mode. There must be a DID on the inbound route for this. This WILL be transmitted on trunks that block foreign CallerID")
+			.'<br>';
+?>
 <!--Change External CID Configuration-->
 <div class="element-container">
 	<div class="row">
