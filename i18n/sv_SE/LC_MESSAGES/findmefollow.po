@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX findmefollow\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 23:43-0400\n"
+"POT-Creation-Date: 2015-06-23 18:21-0400\n"
 "PO-Revision-Date: 2008-11-08 18:39+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -25,23 +25,23 @@ msgstr "(välj anknytning)"
 msgid "*-prim"
 msgstr "*-prim"
 
-#: views/form.php:429
+#: views/form.php:430
 msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
 msgstr ""
 
-#: functions.inc.php:829 views/form.php:417
+#: functions.inc.php:829 views/form.php:418
 msgid "Alert Info"
 msgstr "Alertinfo"
 
-#: functions.inc.php:968
+#: functions.inc.php:968 views/form.php:469
 msgid "Always transmit the Fixed CID Value below."
 msgstr ""
 
-#: functions.inc.php:781 ucp/views/settings.php:20 views/form.php:68
+#: functions.inc.php:781 ucp/views/settings.php:20 views/form.php:70
 msgid "Announcement"
 msgstr ""
 
-#: functions.inc.php:667 views/form.php:272
+#: functions.inc.php:667 views/form.php:274
 msgid ""
 "By default (not checked) any call to this extension will go to this Follow-"
 "Me instead, including directory calls by name from IVRs. If checked, calls "
@@ -57,7 +57,7 @@ msgstr ""
 "vill att samtalet ska ringa denna anknytning, och endast om uppringaren "
 "väljer att hitta dig kommer den hit."
 
-#: functions.inc.php:818 views/form.php:393
+#: functions.inc.php:818 views/form.php:394
 msgid "CID Name Prefix"
 msgstr "Prefix för nummerpresentation"
 
@@ -69,7 +69,7 @@ msgstr ""
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "Kan inte koppla upp mot Asterisk hanterare"
 
-#: functions.inc.php:945 views/form.php:470
+#: functions.inc.php:945 views/form.php:485
 msgid "Change External CID Configuration"
 msgstr ""
 
@@ -81,16 +81,16 @@ msgstr "Kontrollerar om inspelningar behöver migreras.."
 msgid "Choose an extension to append to the end of the extension list above."
 msgstr "Välj en anknytning att lägga till sist i listan."
 
-#: functions.inc.php:875 views/form.php:441
+#: functions.inc.php:875 views/form.php:442
 msgid "Confirm Calls"
 msgstr "Bekräfta samtal"
 
 #: functions.inc.php:897 functions.inc.php:967 functions.inc.php:980
-#: views/form.php:145 views/form.php:210
+#: views/form.php:147 views/form.php:212 views/form.php:467
 msgid "Default"
 msgstr "Standard"
 
-#: views/form.php:520
+#: views/form.php:535
 msgid "Destination if no answer"
 msgstr "Destination vid inget svar"
 
@@ -102,7 +102,7 @@ msgstr ""
 msgid "Enable"
 msgstr ""
 
-#: views/form.php:257
+#: views/form.php:259
 msgid "Enable Followme"
 msgstr ""
 
@@ -114,7 +114,7 @@ msgid ""
 "through."
 msgstr ""
 
-#: views/form.php:456
+#: views/form.php:457
 msgid ""
 "Enable this if you're calling external numbers that need confirmation - eg, "
 "a mobile phone may go to voicemail which will pick up the call. Enabling "
@@ -135,7 +135,7 @@ msgstr ""
 "att den uppringda trycker siffran 1 innan samtalet kopplas upp. Denna "
 "funktion fungerar bara med ringall/ringall-prim strategierna."
 
-#: functions.inc.php:666 views/fmgrid.php:25
+#: functions.inc.php:666 views/fmgrid.php:26
 msgid "Enabled"
 msgstr ""
 
@@ -160,7 +160,7 @@ msgid "Findme Follow Toggle"
 msgstr "Ställ om Följ-mig"
 
 #: functions.inc.php:968 functions.inc.php:984 functions.inc.php:1008
-#: views/form.php:211 views/form.php:496
+#: views/form.php:213 views/form.php:469 views/form.php:511
 msgid "Fixed CID Value"
 msgstr ""
 
@@ -177,7 +177,7 @@ msgid ""
 "leading \"+\"."
 msgstr ""
 
-#: views/form.php:508
+#: views/form.php:523
 msgid ""
 "Fixed value to replace the CID with used with some of the modes above. "
 "Should be in a format of digits only with an option of E164 format using a "
@@ -188,11 +188,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "Följ-mig"
 
-#: Findmefollow.class.php:580
+#: Findmefollow.class.php:581
 msgid "Follow Me Enabled"
 msgstr ""
 
-#: Findmefollow.class.php:583 ucp/views/settings.php:15
+#: Findmefollow.class.php:584 ucp/views/settings.php:15
 msgid "Follow Me List"
 msgstr ""
 
@@ -201,7 +201,7 @@ msgstr ""
 msgid "Follow Me: %s"
 msgstr ""
 
-#: functions.inc.php:746 views/form.php:358
+#: functions.inc.php:746 views/form.php:360
 msgid "Follow-Me List"
 msgstr "Följ-mig lista"
 
@@ -215,7 +215,7 @@ msgstr "Följ-mig användare %s"
 msgid "Follow-Me: %s (%s)"
 msgstr "Följ-mig: %s (%s)"
 
-#: views/fmgrid.php:24
+#: views/fmgrid.php:25
 msgid "Followme Extension"
 msgstr ""
 
@@ -223,7 +223,8 @@ msgstr ""
 msgid "Followme List"
 msgstr ""
 
-#: functions.inc.php:971 functions.inc.php:996 views/form.php:214
+#: functions.inc.php:971 functions.inc.php:996 views/form.php:216
+#: views/form.php:475
 msgid "Force Dialed Number"
 msgstr ""
 
@@ -235,11 +236,11 @@ msgstr ""
 msgid "General Settings"
 msgstr ""
 
-#: views/form.php:233
+#: views/form.php:235
 msgid "Group Number"
 msgstr ""
 
-#: functions.inc.php:807 views/form.php:202
+#: functions.inc.php:807 views/form.php:204
 msgid ""
 "If you select a Music on Hold class to play, instead of 'Ring', they will "
 "hear that instead of Ringing while they are waiting for someone to pick up."
@@ -247,7 +248,7 @@ msgstr ""
 "Om du valt Pausmusik i stället för 'Ring' kommer uppringaren att höra musik "
 "i stället för ringljud under tiden de väntar på att samtalet ska besvaras."
 
-#: functions.inc.php:695 views/form.php:284
+#: functions.inc.php:695 views/form.php:286
 msgid "Initial Ring Time"
 msgstr ""
 
@@ -265,7 +266,7 @@ msgstr "Ogiltig tid angiven"
 msgid "List Followme Groups"
 msgstr ""
 
-#: functions.inc.php:747 views/form.php:379
+#: functions.inc.php:747 views/form.php:380
 msgid ""
 "List extensions to ring, one per line, or use the Extension Quick Pick below."
 "<br><br>You can include an extension on a remote system, or an external "
@@ -288,7 +289,7 @@ msgstr ""
 msgid "Message to be played to the caller before dialing this group."
 msgstr ""
 
-#: views/form.php:89
+#: views/form.php:91
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
 "additional recordings please use the \"System Recordings\" MENU above"
@@ -309,7 +310,7 @@ msgid ""
 "enabled."
 msgstr ""
 
-#: views/form.php:124
+#: views/form.php:126
 msgid ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
 "enabled.<br><br>To add additional recordings use the \"System Recordings\" "
@@ -332,7 +333,7 @@ msgid ""
 "already been accepted before they push 1."
 msgstr ""
 
-#: views/form.php:159
+#: views/form.php:161
 msgid ""
 "Message to be played to the person RECEIVING the call, if the call has "
 "already been accepted before they push 1.<br><br>To add additional "
@@ -353,12 +354,12 @@ msgstr ""
 msgid "Method not supported"
 msgstr ""
 
-#: functions.inc.php:974
+#: functions.inc.php:974 views/form.php:465
 msgid "Mode"
 msgstr ""
 
-#: functions.inc.php:676 functions.inc.php:885 views/fmgrid.php:16
-#: views/form.php:264 views/form.php:448
+#: functions.inc.php:676 functions.inc.php:885 views/fmgrid.php:17
+#: views/form.php:266 views/form.php:449
 msgid "No"
 msgstr ""
 
@@ -367,7 +368,7 @@ msgid "No Answer"
 msgstr ""
 
 #: functions.inc.php:590 ucp/views/settings.php:22 ucp/views/settings.php:61
-#: ucp/views/settings.php:71 views/form.php:75 views/form.php:110
+#: ucp/views/settings.php:71 views/form.php:77 views/form.php:112
 msgid "None"
 msgstr "Inget"
 
@@ -390,11 +391,12 @@ msgid ""
 "then the busy destination will be used."
 msgstr ""
 
-#: functions.inc.php:969 functions.inc.php:988 views/form.php:212
+#: functions.inc.php:969 functions.inc.php:988 views/form.php:214
+#: views/form.php:471
 msgid "Outside Calls Fixed CID Value"
 msgstr ""
 
-#: functions.inc.php:806 views/form.php:178
+#: functions.inc.php:806 views/form.php:180
 msgid "Play Music On Hold"
 msgstr ""
 
@@ -407,15 +409,15 @@ msgstr ""
 msgid "Please enter an extension list."
 msgstr "Skriv in en anknytningslista"
 
-#: functions.inc.php:901 ucp/views/settings.php:59 views/form.php:103
+#: functions.inc.php:901 ucp/views/settings.php:59 views/form.php:105
 msgid "Remote Announce"
 msgstr ""
 
-#: Findmefollow.class.php:561
+#: Findmefollow.class.php:562
 msgid "Reset"
 msgstr ""
 
-#: functions.inc.php:794 views/form.php:185
+#: functions.inc.php:794 views/form.php:187
 msgid "Ring"
 msgstr "Ring"
 
@@ -428,7 +430,7 @@ msgstr ""
 msgid "Ring Followme List For"
 msgstr ""
 
-#: functions.inc.php:722 views/form.php:308
+#: functions.inc.php:722 views/form.php:310
 msgid "Ring Strategy"
 msgstr ""
 
@@ -436,7 +438,7 @@ msgstr ""
 msgid "Ring Time"
 msgstr ""
 
-#: views/form.php:334
+#: views/form.php:336
 msgid "Ring Time (max 60 sec)"
 msgstr "Ringtid (max 60 sek)"
 
@@ -444,15 +446,15 @@ msgstr "Ringtid (max 60 sek)"
 msgid "Seconds"
 msgstr ""
 
-#: Findmefollow.class.php:556
+#: Findmefollow.class.php:557
 msgid "Submit"
 msgstr ""
 
-#: views/form.php:245
+#: views/form.php:247
 msgid "The number users will dial to ring extensions in this Followme group"
 msgstr ""
 
-#: functions.inc.php:696 ucp/views/settings.php:36 views/form.php:296
+#: functions.inc.php:696 ucp/views/settings.php:36 views/form.php:298
 msgid ""
 "This is the number of seconds to ring the primary extension prior to "
 "proceeding to the follow-me list. The extension can also be included in the "
@@ -466,7 +468,7 @@ msgstr ""
 msgid "Time in seconds that the phones will ring"
 msgstr ""
 
-#: functions.inc.php:735 views/form.php:346
+#: functions.inc.php:735 views/form.php:348
 msgid ""
 "Time in seconds that the phones will ring. For all hunt style ring "
 "strategies, this is the time for each iteration of phone(s) that are rung"
@@ -478,18 +480,18 @@ msgstr ""
 msgid "Time must be between 1 and 60 seconds"
 msgstr "Tiden måste vara mellan 1 till 60 sekunder"
 
-#: functions.inc.php:913 ucp/views/settings.php:69 views/form.php:138
+#: functions.inc.php:913 ucp/views/settings.php:69 views/form.php:140
 msgid "Too-Late Announce"
 msgstr ""
 
-#: functions.inc.php:969
+#: functions.inc.php:969 views/form.php:471
 msgid ""
 "Transmit the Fixed CID Value below on calls that come in from outside only. "
 "Internal extension to extension calls will continue to operate in default "
 "mode."
 msgstr ""
 
-#: functions.inc.php:971
+#: functions.inc.php:971 views/form.php:475
 msgid ""
 "Transmit the number that was dialed as the CID for calls coming from "
 "outside. Internal extension to extension calls will continue to operate in "
@@ -497,7 +499,7 @@ msgid ""
 "be transmitted on trunks that block foreign CallerID"
 msgstr ""
 
-#: functions.inc.php:970
+#: functions.inc.php:970 views/form.php:473
 msgid ""
 "Transmit the number that was dialed as the CID for calls coming from "
 "outside. Internal extension to extension calls will continue to operate in "
@@ -505,7 +507,7 @@ msgid ""
 "be BLOCKED on trunks that block foreign CallerID"
 msgstr ""
 
-#: functions.inc.php:967
+#: functions.inc.php:967 views/form.php:467
 msgid "Transmits the Callers CID if allowed by the trunk."
 msgstr ""
 
@@ -513,7 +515,8 @@ msgstr ""
 msgid "Use Confirmation"
 msgstr ""
 
-#: functions.inc.php:970 functions.inc.php:992 views/form.php:213
+#: functions.inc.php:970 functions.inc.php:992 views/form.php:215
+#: views/form.php:473
 msgid "Use Dialed Number"
 msgstr ""
 
@@ -521,7 +524,7 @@ msgstr ""
 msgid "User"
 msgstr "Användare"
 
-#: Findmefollow.class.php:79
+#: Findmefollow.class.php:80
 msgid "Warning! Extension"
 msgstr "Varning! Anknytning"
 
@@ -532,12 +535,12 @@ msgid ""
 "to the extension."
 msgstr ""
 
-#: views/form.php:532
+#: views/form.php:547
 msgid "Where to send callers if there is no answer."
 msgstr ""
 
-#: functions.inc.php:672 functions.inc.php:881 views/fmgrid.php:14
-#: views/form.php:262 views/form.php:446
+#: functions.inc.php:672 functions.inc.php:881 views/fmgrid.php:15
+#: views/form.php:264 views/form.php:447
 msgid "Yes"
 msgstr ""
 
@@ -560,7 +563,7 @@ msgstr ""
 "att för ett samtal från 040123456 att stå \"Support:040123456\" på alla "
 "uppringda anknytningars textfönster."
 
-#: views/form.php:405
+#: views/form.php:406
 msgid ""
 "You can optionally prefix the CallerID name when ringing extensions in this "
 "group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
@@ -583,7 +586,7 @@ msgstr "lägger till fältet toolate_id"
 msgid "already migrated"
 msgstr "redan migrerad"
 
-#: views/form.php:189
+#: views/form.php:191
 msgid "default"
 msgstr ""
 
@@ -625,7 +628,7 @@ msgstr "första-inte-upptagen"
 msgid "hunt"
 msgstr "hunt"
 
-#: Findmefollow.class.php:79
+#: Findmefollow.class.php:80
 msgid "is not allowed for your account"
 msgstr "är inte tillåtet för din anknytning"
 
@@ -666,7 +669,7 @@ msgstr "inget remotealert fält???"
 msgid "no toolate field???"
 msgstr "inget toolate fält???"
 
-#: views/form.php:188
+#: views/form.php:190
 msgid "none"
 msgstr ""
 

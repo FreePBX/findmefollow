@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 23:43-0400\n"
+"POT-Creation-Date: 2015-06-23 18:21-0400\n"
 "PO-Revision-Date: 2014-02-21 03:21+0200\n"
 "Last-Translator: Kenichi Fukaumi <k.fukaumi@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/findmefollow/"
@@ -57,23 +57,23 @@ msgstr "(内線を選択)"
 msgid "*-prim"
 msgstr "*-prim"
 
-#: views/form.php:429
+#: views/form.php:430
 msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
 msgstr ""
 
-#: functions.inc.php:829 views/form.php:417
+#: functions.inc.php:829 views/form.php:418
 msgid "Alert Info"
 msgstr "アラート情報"
 
-#: functions.inc.php:968
+#: functions.inc.php:968 views/form.php:469
 msgid "Always transmit the Fixed CID Value below."
 msgstr "常に以下の固定のCID値を渡す。"
 
-#: functions.inc.php:781 ucp/views/settings.php:20 views/form.php:68
+#: functions.inc.php:781 ucp/views/settings.php:20 views/form.php:70
 msgid "Announcement"
 msgstr ""
 
-#: functions.inc.php:667 views/form.php:272
+#: functions.inc.php:667 views/form.php:274
 msgid ""
 "By default (not checked) any call to this extension will go to this Follow-"
 "Me instead, including directory calls by name from IVRs. If checked, calls "
@@ -89,7 +89,7 @@ msgstr ""
 "は、内線に着信させたいVmXロケータ―と一緒によく使用され、それは発信者があなた"
 "を発見することを選択し、あなたがそれに応じたい場合のみ使用されます。"
 
-#: functions.inc.php:818 views/form.php:393
+#: functions.inc.php:818 views/form.php:394
 msgid "CID Name Prefix"
 msgstr "CID名プリフィックス"
 
@@ -101,7 +101,7 @@ msgstr "コール確認設定"
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "アスタリスクマネージャーに接続できません。"
 
-#: functions.inc.php:945 views/form.php:470
+#: functions.inc.php:945 views/form.php:485
 msgid "Change External CID Configuration"
 msgstr "外部CID設定変更"
 
@@ -113,16 +113,16 @@ msgstr "録音の移行が必要かチェック中.."
 msgid "Choose an extension to append to the end of the extension list above."
 msgstr "上記内線リストの最後に追加する内線を選択してください。"
 
-#: functions.inc.php:875 views/form.php:441
+#: functions.inc.php:875 views/form.php:442
 msgid "Confirm Calls"
 msgstr "コールを確認"
 
 #: functions.inc.php:897 functions.inc.php:967 functions.inc.php:980
-#: views/form.php:145 views/form.php:210
+#: views/form.php:147 views/form.php:212 views/form.php:467
 msgid "Default"
 msgstr "デフォルト"
 
-#: views/form.php:520
+#: views/form.php:535
 msgid "Destination if no answer"
 msgstr "応答なし時の宛先"
 
@@ -134,7 +134,7 @@ msgstr ""
 msgid "Enable"
 msgstr ""
 
-#: views/form.php:257
+#: views/form.php:259
 msgid "Enable Followme"
 msgstr ""
 
@@ -146,7 +146,7 @@ msgid ""
 "through."
 msgstr ""
 
-#: views/form.php:456
+#: views/form.php:457
 msgid ""
 "Enable this if you're calling external numbers that need confirmation - eg, "
 "a mobile phone may go to voicemail which will pick up the call. Enabling "
@@ -167,7 +167,7 @@ msgstr ""
 "うに要求するようになります。この機能はリングオール/リングオール-メイン 計画で"
 "のみ動作します。"
 
-#: functions.inc.php:666 views/fmgrid.php:25
+#: functions.inc.php:666 views/fmgrid.php:26
 msgid "Enabled"
 msgstr ""
 
@@ -192,7 +192,7 @@ msgid "Findme Follow Toggle"
 msgstr "ファインドミーフォロー切り替え"
 
 #: functions.inc.php:968 functions.inc.php:984 functions.inc.php:1008
-#: views/form.php:211 views/form.php:496
+#: views/form.php:213 views/form.php:469 views/form.php:511
 msgid "Fixed CID Value"
 msgstr "固定のCID値"
 
@@ -212,7 +212,7 @@ msgstr ""
 "頭に \"+\"がついたE164フォーマットオプションと数字のみのフォーマットである必"
 "要があります。"
 
-#: views/form.php:508
+#: views/form.php:523
 msgid ""
 "Fixed value to replace the CID with used with some of the modes above. "
 "Should be in a format of digits only with an option of E164 format using a "
@@ -223,11 +223,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "フォローミー"
 
-#: Findmefollow.class.php:580
+#: Findmefollow.class.php:581
 msgid "Follow Me Enabled"
 msgstr ""
 
-#: Findmefollow.class.php:583 ucp/views/settings.php:15
+#: Findmefollow.class.php:584 ucp/views/settings.php:15
 msgid "Follow Me List"
 msgstr ""
 
@@ -236,7 +236,7 @@ msgstr ""
 msgid "Follow Me: %s"
 msgstr "フォローミー: %s"
 
-#: functions.inc.php:746 views/form.php:358
+#: functions.inc.php:746 views/form.php:360
 msgid "Follow-Me List"
 msgstr "フォローミーリスト"
 
@@ -250,7 +250,7 @@ msgstr "フォローミーユーザー: %s"
 msgid "Follow-Me: %s (%s)"
 msgstr "フォローミー: %s (%s)"
 
-#: views/fmgrid.php:24
+#: views/fmgrid.php:25
 msgid "Followme Extension"
 msgstr ""
 
@@ -258,7 +258,8 @@ msgstr ""
 msgid "Followme List"
 msgstr ""
 
-#: functions.inc.php:971 functions.inc.php:996 views/form.php:214
+#: functions.inc.php:971 functions.inc.php:996 views/form.php:216
+#: views/form.php:475
 msgid "Force Dialed Number"
 msgstr "強制的にダイヤルされた番号を使用する"
 
@@ -270,11 +271,11 @@ msgstr "強制的にフォローミーを行う"
 msgid "General Settings"
 msgstr ""
 
-#: views/form.php:233
+#: views/form.php:235
 msgid "Group Number"
 msgstr ""
 
-#: functions.inc.php:807 views/form.php:202
+#: functions.inc.php:807 views/form.php:204
 msgid ""
 "If you select a Music on Hold class to play, instead of 'Ring', they will "
 "hear that instead of Ringing while they are waiting for someone to pick up."
@@ -283,7 +284,7 @@ msgstr ""
 "取るのを待っている間、リング音の代わりに保留音クラスが聞こえるようになりま"
 "す。"
 
-#: functions.inc.php:695 views/form.php:284
+#: functions.inc.php:695 views/form.php:286
 msgid "Initial Ring Time"
 msgstr ""
 
@@ -303,7 +304,7 @@ msgstr "無効な時間が指定されました"
 msgid "List Followme Groups"
 msgstr ""
 
-#: functions.inc.php:747 views/form.php:379
+#: functions.inc.php:747 views/form.php:380
 msgid ""
 "List extensions to ring, one per line, or use the Extension Quick Pick below."
 "<br><br>You can include an extension on a remote system, or an external "
@@ -327,7 +328,7 @@ msgstr ""
 msgid "Message to be played to the caller before dialing this group."
 msgstr ""
 
-#: views/form.php:89
+#: views/form.php:91
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
 "additional recordings please use the \"System Recordings\" MENU above"
@@ -347,7 +348,7 @@ msgid ""
 "enabled."
 msgstr ""
 
-#: views/form.php:124
+#: views/form.php:126
 msgid ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
 "enabled.<br><br>To add additional recordings use the \"System Recordings\" "
@@ -370,7 +371,7 @@ msgid ""
 "already been accepted before they push 1."
 msgstr ""
 
-#: views/form.php:159
+#: views/form.php:161
 msgid ""
 "Message to be played to the person RECEIVING the call, if the call has "
 "already been accepted before they push 1.<br><br>To add additional "
@@ -391,12 +392,12 @@ msgstr ""
 msgid "Method not supported"
 msgstr ""
 
-#: functions.inc.php:974
+#: functions.inc.php:974 views/form.php:465
 msgid "Mode"
 msgstr "モード"
 
-#: functions.inc.php:676 functions.inc.php:885 views/fmgrid.php:16
-#: views/form.php:264 views/form.php:448
+#: functions.inc.php:676 functions.inc.php:885 views/fmgrid.php:17
+#: views/form.php:266 views/form.php:449
 msgid "No"
 msgstr ""
 
@@ -405,7 +406,7 @@ msgid "No Answer"
 msgstr ""
 
 #: functions.inc.php:590 ucp/views/settings.php:22 ucp/views/settings.php:61
-#: ucp/views/settings.php:71 views/form.php:75 views/form.php:110
+#: ucp/views/settings.php:71 views/form.php:77 views/form.php:112
 msgid "None"
 msgstr "なし"
 
@@ -428,11 +429,12 @@ msgid ""
 "then the busy destination will be used."
 msgstr ""
 
-#: functions.inc.php:969 functions.inc.php:988 views/form.php:212
+#: functions.inc.php:969 functions.inc.php:988 views/form.php:214
+#: views/form.php:471
 msgid "Outside Calls Fixed CID Value"
 msgstr "外部コールの固定CID値"
 
-#: functions.inc.php:806 views/form.php:178
+#: functions.inc.php:806 views/form.php:180
 msgid "Play Music On Hold"
 msgstr ""
 
@@ -445,15 +447,15 @@ msgstr ""
 msgid "Please enter an extension list."
 msgstr "内線リストを入力してください。"
 
-#: functions.inc.php:901 ucp/views/settings.php:59 views/form.php:103
+#: functions.inc.php:901 ucp/views/settings.php:59 views/form.php:105
 msgid "Remote Announce"
 msgstr ""
 
-#: Findmefollow.class.php:561
+#: Findmefollow.class.php:562
 msgid "Reset"
 msgstr ""
 
-#: functions.inc.php:794 views/form.php:185
+#: functions.inc.php:794 views/form.php:187
 msgid "Ring"
 msgstr "リング"
 
@@ -466,7 +468,7 @@ msgstr ""
 msgid "Ring Followme List For"
 msgstr ""
 
-#: functions.inc.php:722 views/form.php:308
+#: functions.inc.php:722 views/form.php:310
 msgid "Ring Strategy"
 msgstr ""
 
@@ -474,7 +476,7 @@ msgstr ""
 msgid "Ring Time"
 msgstr ""
 
-#: views/form.php:334
+#: views/form.php:336
 msgid "Ring Time (max 60 sec)"
 msgstr "リングタイム (最大60秒)"
 
@@ -482,15 +484,15 @@ msgstr "リングタイム (最大60秒)"
 msgid "Seconds"
 msgstr ""
 
-#: Findmefollow.class.php:556
+#: Findmefollow.class.php:557
 msgid "Submit"
 msgstr ""
 
-#: views/form.php:245
+#: views/form.php:247
 msgid "The number users will dial to ring extensions in this Followme group"
 msgstr ""
 
-#: functions.inc.php:696 ucp/views/settings.php:36 views/form.php:296
+#: functions.inc.php:696 ucp/views/settings.php:36 views/form.php:298
 msgid ""
 "This is the number of seconds to ring the primary extension prior to "
 "proceeding to the follow-me list. The extension can also be included in the "
@@ -504,7 +506,7 @@ msgstr ""
 msgid "Time in seconds that the phones will ring"
 msgstr ""
 
-#: functions.inc.php:735 views/form.php:346
+#: functions.inc.php:735 views/form.php:348
 msgid ""
 "Time in seconds that the phones will ring. For all hunt style ring "
 "strategies, this is the time for each iteration of phone(s) that are rung"
@@ -516,11 +518,11 @@ msgstr ""
 msgid "Time must be between 1 and 60 seconds"
 msgstr "時間は1秒～60秒でなければいけません。"
 
-#: functions.inc.php:913 ucp/views/settings.php:69 views/form.php:138
+#: functions.inc.php:913 ucp/views/settings.php:69 views/form.php:140
 msgid "Too-Late Announce"
 msgstr ""
 
-#: functions.inc.php:969
+#: functions.inc.php:969 views/form.php:471
 msgid ""
 "Transmit the Fixed CID Value below on calls that come in from outside only. "
 "Internal extension to extension calls will continue to operate in default "
@@ -529,7 +531,7 @@ msgstr ""
 "外線から着信したコールのみ以下の固定の発信者番号値を転送します。内部の内線間"
 "通話では引き続きデフォルトモードで動作します。"
 
-#: functions.inc.php:971
+#: functions.inc.php:971 views/form.php:475
 msgid ""
 "Transmit the number that was dialed as the CID for calls coming from "
 "outside. Internal extension to extension calls will continue to operate in "
@@ -541,7 +543,7 @@ msgstr ""
 "ト上でDID番号が必要となります。これは外部の発信者番号をブロックするトランクで"
 "も転送されます。"
 
-#: functions.inc.php:970
+#: functions.inc.php:970 views/form.php:473
 msgid ""
 "Transmit the number that was dialed as the CID for calls coming from "
 "outside. Internal extension to extension calls will continue to operate in "
@@ -553,7 +555,7 @@ msgstr ""
 "ダイヤルイン番号が必要となります。海外の発信者番号をブロックするトランクでは"
 "これもブロックされます。"
 
-#: functions.inc.php:967
+#: functions.inc.php:967 views/form.php:467
 msgid "Transmits the Callers CID if allowed by the trunk."
 msgstr "トランクによって許可されている場合に発信者番号を転送します。"
 
@@ -561,7 +563,8 @@ msgstr "トランクによって許可されている場合に発信者番号を
 msgid "Use Confirmation"
 msgstr ""
 
-#: functions.inc.php:970 functions.inc.php:992 views/form.php:213
+#: functions.inc.php:970 functions.inc.php:992 views/form.php:215
+#: views/form.php:473
 msgid "Use Dialed Number"
 msgstr "ダイヤルされた番号を使用"
 
@@ -569,7 +572,7 @@ msgstr "ダイヤルされた番号を使用"
 msgid "User"
 msgstr "ユーザー"
 
-#: Findmefollow.class.php:79
+#: Findmefollow.class.php:80
 msgid "Warning! Extension"
 msgstr "警告! 内線"
 
@@ -580,12 +583,12 @@ msgid ""
 "to the extension."
 msgstr ""
 
-#: views/form.php:532
+#: views/form.php:547
 msgid "Where to send callers if there is no answer."
 msgstr ""
 
-#: functions.inc.php:672 functions.inc.php:881 views/fmgrid.php:14
-#: views/form.php:262 views/form.php:446
+#: functions.inc.php:672 functions.inc.php:881 views/fmgrid.php:15
+#: views/form.php:264 views/form.php:447
 msgid "Yes"
 msgstr ""
 
@@ -607,7 +610,7 @@ msgstr ""
 "を付けることができます。例:もし\"営業:\"というプリフィックスをつければ、\"森"
 "圭介\"からのコールは着信した内線電話に\"営業:森圭介\"と表示されます。"
 
-#: views/form.php:405
+#: views/form.php:406
 msgid ""
 "You can optionally prefix the CallerID name when ringing extensions in this "
 "group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
@@ -630,7 +633,7 @@ msgstr "toolate_idフィールドを追加中.."
 msgid "already migrated"
 msgstr "移行済み"
 
-#: views/form.php:189
+#: views/form.php:191
 msgid "default"
 msgstr ""
 
@@ -672,7 +675,7 @@ msgstr "電話中でない最初のもの"
 msgid "hunt"
 msgstr "ハント"
 
-#: Findmefollow.class.php:79
+#: Findmefollow.class.php:80
 msgid "is not allowed for your account"
 msgstr "はあなたのアカウントに許可されていません"
 
@@ -713,7 +716,7 @@ msgstr "remotealertフィールドが無い???"
 msgid "no toolate field???"
 msgstr "toolateフィールドが無い???"
 
-#: views/form.php:188
+#: views/form.php:190
 msgid "none"
 msgstr ""
 
