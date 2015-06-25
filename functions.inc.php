@@ -183,13 +183,13 @@ function findmefollow_get_config($engine) {
 					$ext->add($contextname, $grpnum, 'skipsimple', new ext_setvar('RingGroupMethod',$strategy));
 					$ext->add($contextname, $grpnum, '', new ext_setvar('_FMGRP',$grpnum));
 
-                                        if ((isset($annmsg_id) ? $annmsg_id : '')) {
-						$annmsg = recordings_get_file($annmsg_id);
-						// should always answer before playing anything, shouldn't we ?
-						$ext->add($contextname, $grpnum, '', new ext_gotoif('$[$["${DIALSTATUS}" = "ANSWER"] | $["foo${RRNODEST}" != "foo"]]','DIALGRP'));
-						$ext->add($contextname, $grpnum, '', new ext_answer(''));
-						$ext->add($contextname, $grpnum, '', new ext_wait(1));
-						$ext->add($contextname, $grpnum, '', new ext_playback($annmsg));
+					if ((isset($annmsg_id) ? $annmsg_id : '')) {
+									$annmsg = recordings_get_file($annmsg_id);
+									// should always answer before playing anything, shouldn't we ?
+									$ext->add($contextname, $grpnum, '', new ext_gotoif('$[$["${DIALSTATUS}" = "ANSWER"] | $["foo${RRNODEST}" != "foo"]]','DIALGRP'));
+									$ext->add($contextname, $grpnum, '', new ext_answer(''));
+									$ext->add($contextname, $grpnum, '', new ext_wait(1));
+									$ext->add($contextname, $grpnum, '', new ext_playback($annmsg));
 					}
 
 					// Create the confirm target
@@ -446,7 +446,11 @@ function findmefollow_get($grpnum, $check_astdb=0) {
 
 	$results = sql("SELECT grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, voicemail FROM findmefollow INNER JOIN `users` ON `extension` = `grpnum` WHERE grpnum = '".$db->escapeSimple($grpnum)."'","getRow",DB_FETCHMODE_ASSOC);
 	if (empty($results)) {
-		return array();
+		// Defaults
+		return array( "annmsg_id" => false, "ringing" => false, "ddial" => "", "pre_ring" => 20,
+			"strategy" => false, "grptime" => 10, "grplist" => "", "grppre" => "", "dring" => "", "needsconf" => false,
+			"remotealert_id" => 0, "toolate_id" => 0, "changecid" => false, "fixedcid" => false,  "postdest" => false,
+		);
 	}
 	if (!isset($results['voicemail'])) {
 		$results['voicemail'] = sql("SELECT `voicemail` FROM `users` WHERE `extension` = '".$db->escapeSimple($grpnum)."'","getOne");
@@ -553,7 +557,7 @@ function findmefollow_users_configpageinit($dispnum) {
 	$currentcomponent->addprocessfunc('findmefollow_users_configprocess', 8);
 }
 
-function findmefollow_users_configpageload() {
+function findmefollow_users_configpageload($pagename) {
 	global $currentcomponent;
 	global $amp_conf;
 	global $extdisplay;
@@ -775,6 +779,7 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 		"onchange" => "frm_${display}_fmfmQuickPick()"
 	);
 	$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)), $category);
+
 
 	$el = array(
 		"elemname" => "fmfm_annmsg_id",
@@ -1090,7 +1095,7 @@ function findmefollow_users_configprocess() {
 		if(isset($settings['needsconf'])) {
 			$settings['needsconf'] = ($settings['needsconf'] == "enabled") ? "CHECKED" : "";
 		}
-		if(!empty($_REQUEST[$_REQUEST[$settings['goto']]."fmfm"])) {
+		if(isset($_REQUEST[$settings['goto']."fmfm"])) {
 			$settings['postdest'] = $_REQUEST[$_REQUEST[$settings['goto']]."fmfm"];
 		} else {
 			$settings['postdest'] = "ext-local,$extdisplay,dest";
@@ -1152,11 +1157,7 @@ function findmefollow_configpageinit($dispnum) {
 		$extdisplay		= isset($_REQUEST['extdisplay'])	? $_REQUEST['extdisplay']		: null;
 		$extension		= isset($_REQUEST['extension'])		? $_REQUEST['extension']		: null;
 		$tech_hardware	= isset($_REQUEST['tech_hardware'])	? $_REQUEST['tech_hardware']	: null;
-		if ($tech_hardware != null || $pagename == 'users') {
-			findmefollow_users_configpageinit($dispnum);
-		} elseif ($action == "add") {
-			findmefollow_users_configpageinit($dispnum);
-		} elseif ($extdisplay != '') {
+		if ($tech_hardware != null || $action == "add" || $extdisplay != '') {
 			findmefollow_users_configpageinit($dispnum);
 		}
 	}
