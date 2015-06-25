@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 19:33-0500\n"
-"PO-Revision-Date: 2015-05-18 21:33+0200\n"
+"PO-Revision-Date: 2015-06-25 15:37+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://weblate.freepbx.org/projects/freepbx/findmefollow/zh_CN/>\n"
@@ -48,7 +48,7 @@ msgstr "总是传输以下固定CID"
 
 #: ucp/views/settings.php:20
 msgid "Announcement"
-msgstr ""
+msgstr "播报"
 
 #: page.findmefollow.php:293 page.findmefollow.php:311
 msgid "Announcement:"
@@ -79,7 +79,7 @@ msgstr "主叫ID名的前缀"
 
 #: page.findmefollow.php:350
 msgid "Call Confirmation Configuration"
-msgstr ""
+msgstr "呼叫确认配置"
 
 #: install.php:130 uninstall.php:30
 msgid "Cannot connect to Asterisk Manager with "
