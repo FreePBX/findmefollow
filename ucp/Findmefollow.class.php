@@ -92,6 +92,8 @@ class Findmefollow extends Modules{
 
 	private function _checkExtension($extension) {
 		$user = $this->UCP->User->getUser();
-		return in_array($extension,$user['assigned']);
+		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Settings','assigned');
+		$extensions = is_array($extensions) ? $extensions : array();
+		return in_array($extension,$extensions);
 	}
 }
