@@ -253,7 +253,7 @@ msgstr ""
 
 #: functions.inc.php:34
 msgid "Force Follow Me"
-msgstr ""
+msgstr "强制使用分机随行"
 
 #: page.findmefollow.php:322
 msgid ""
