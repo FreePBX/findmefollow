@@ -562,28 +562,25 @@ function findmefollow_users_configpageload($pagename) {
 	global $amp_conf;
 	global $extdisplay;
 
-	$fmfm = findmefollow_get($extdisplay, 1);
-	if(empty($fmfm)) {
+	$action			= isset($_REQUEST['action'])		? $_REQUEST['action']			: null;
+	$extdisplay		= isset($_REQUEST['extdisplay'])	? $_REQUEST['extdisplay']		: null;
+	$extension		= isset($_REQUEST['extension'])		? $_REQUEST['extension']		: null;
+	$tech_hardware	= isset($_REQUEST['tech_hardware'])	? $_REQUEST['tech_hardware']	: null;
+	$fmfm = (isset($extdisplay) && trim($extdisplay) != '') ? findmefollow_get($extdisplay, 1) : array();
+
+	if(empty($fmfm) && (!isset($extdisplay) || trim($extdisplay) == '')) {
 		$fmfm = array(
-			"ddial" => "CHECKED",
+			"ddial" => ($amp_conf['FOLLOWME_DISABLED'] && !$amp_conf['FOLLOWME_AUTO_CREATE'] ? "CHECKED" : ""),
 			"strategy" => $amp_conf['FOLLOWME_RG_STRATEGY'],
 			"grptime" => $amp_conf['FOLLOWME_TIME'],
 			"pre_ring" => $amp_conf['FOLLOWME_PRERING']
 		);
-		$action			= isset($_REQUEST['action'])		? $_REQUEST['action']			: null;
-		$extdisplay		= isset($_REQUEST['extdisplay'])	? $_REQUEST['extdisplay']		: null;
-		$extension		= isset($_REQUEST['extension'])		? $_REQUEST['extension']		: null;
-		$tech_hardware	= isset($_REQUEST['tech_hardware'])	? $_REQUEST['tech_hardware']	: null;
-		if ($tech_hardware != null || $pagename == 'users') {
-			if (!$amp_conf['FOLLOWME_DISABLED'] && $amp_conf['FOLLOWME_AUTO_CREATE']) {
-				$fmfm['ddial'] = "";
-			}
-		} elseif ($action == "add") {
-		} elseif ($extdisplay != '') {
-			$fmfm['ddial'] = "CHECKED";
-			$fmfm['grplist'] = $extdisplay;
-			$fmfm['postdest'] = "ext-local,$extdisplay,dest";
-		}
+	} elseif(empty($fmfm) && isset($extdisplay) && trim($extdisplay) != '') {
+		$fmfm = array(
+			'ddial' => 'CHECKED',
+			'grplist' => $extdisplay,
+			'postdest' => "ext-local,".$extdisplay.",dest"
+		);
 	}
 
 	$moh = music_list();
@@ -625,9 +622,6 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 		$('#fmfm_grplist').val($('#extension').val()+'\\n');
 	}
 	$('.fpbx-fmfm').prop('disabled',dval);
-	if(!$('html').hasClass('firsttypeofselector')) {
-		$('.radioset').buttonset('refresh');
-	}
 	return true;
 	";
 	$currentcomponent->addjsfunc('fmfmEnabled(notused)', $js);
@@ -702,7 +696,8 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 		"valarray" => $sixtey,
 		"class" => "fpbx-fmfm",
 		"disable" => $fmfmdisabled,
-		"canbeempty" => false
+		"canbeempty" => false,
+		"jsvalidation" => "frm_${display}_fmfmCheckFixed()",
 	);
 	$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)), $category);
 
@@ -752,7 +747,9 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 		"currentvalue" => str_replace("-","\n",$fmfm['grplist']),
 		"canbeempty" => false,
 		"class" => "fpbx-fmfm",
-		"disable" => $fmfmdisabled
+		"disable" => $fmfmdisabled,
+		"jsvalidation" => "frm_${display}_fmfmListEmpty()",
+		"failvalidationmsg" => _('Follow-Me List can not be empty if Follow-Me is enabled'),
 	);
 	$currentcomponent->addguielem($section, new gui_textarea(array_merge($guidefaults,$el)),$category);
 
@@ -846,9 +843,6 @@ function findmefollow_draw_confirm($fmfm,&$currentcomponent,$category,$fmfmdisab
 	$js = "
 	var dval = $('#fmfm_needsconf0').prop('checked') && !$('#fmfm_needsconf0').prop('disabled') ? false : true;
 	$('.fpbx-fmfm-confirm-opts').prop('disabled',dval);
-	if(!$('html').hasClass('firsttypeofselector')) {
-		$('.radioset').buttonset('refresh');
-	}
 	return true;
 	";
 	$currentcomponent->addjsfunc('fmfmConfirmEnabled(notused)', $js);
@@ -939,6 +933,15 @@ function findmefollow_draw_cid($fmfm,&$currentcomponent,$category,$fmfmdisabled,
 	$currentcomponent->addjsfunc('fmfmCIDMode(notused)', $js);
 
 	$js = "
+	var dval = $('#fmfm_ddial0').prop('checked') ? false : true;
+	if(!dval && $('#fmfm_grplist').val().trim() === '') {
+		return true;
+	}
+	return false;
+	";
+	$currentcomponent->addjsfunc('fmfmListEmpty(notused)', $js);
+
+	$js = "
 	if(!$('#fmfm_fixedcid').prop('disabled')) {
 		var cid = $('#fmfm_fixedcid').val();
 		return !(/^\+?\d+$/.test(cid));
@@ -1025,7 +1028,7 @@ function findmefollow_draw_cid($fmfm,&$currentcomponent,$category,$fmfmdisabled,
 function findmefollow_draw_destinations($fmfm,&$currentcomponent,$category,$fmfmdisabled,$recordingslist,$moh) {
 	global $extdisplay;
 	if(empty($extdisplay)) {
-		return;
+		//return;
 	}
 	$section = _("Destinations");
 	$guidefaults = array(
@@ -1058,7 +1061,7 @@ function findmefollow_draw_destinations($fmfm,&$currentcomponent,$category,$fmfm
 		"disable" => $fmfmdisabled,
 		"index" => "fmfm",
 		"required" => true,
-		"dest" => $fmfm['postdest'],
+		"dest" => !empty($fmfm['postdest']) ? $fmfm['postdest'] : 'ext-local,,dest',
 		"nodest_msg" => "",
 		"reset" => true
 	);
@@ -1095,7 +1098,8 @@ function findmefollow_users_configprocess() {
 		if(isset($settings['needsconf'])) {
 			$settings['needsconf'] = ($settings['needsconf'] == "enabled") ? "CHECKED" : "";
 		}
-		if(isset($_REQUEST[$settings['goto']."fmfm"])) {
+
+		if(isset($_REQUEST[$_REQUEST[$settings['goto']]."fmfm"])) {
 			$settings['postdest'] = $_REQUEST[$_REQUEST[$settings['goto']]."fmfm"];
 		} else {
 			$settings['postdest'] = "ext-local,$extdisplay,dest";
@@ -1111,7 +1115,10 @@ function findmefollow_users_configprocess() {
 			if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
 				if(!empty($settings)) {
 					if($settings['ddial'] != "CHECKED") {
-						$settings['grplist'] = (trim($settings['grplist']) == "") ? $extdisplay : $settings['grplist'];
+						//check destination. make sure it is valid
+						$settings['postdest'] = ($settings['postdest'] == 'ext-local,,dest') ? 'ext-local,'.$extdisplay.',dest' : $settings['postdest'];
+						//dont let group list be empty. ever.
+						$settings['grplist'] = empty($settings['grplist']) ? array($extdisplay) : $settings['grplist'];
 						findmefollow_add($extdisplay, $settings['strategy'], $settings['grptime'],
 						$settings['grplist'], $settings['postdest'], $settings['grppre'], $settings['annmsg_id'], $settings['dring'],
 						$settings['needsconf'], $settings['remotealert_id'], $settings['toolate_id'], $settings['ringing'], $settings['pre_ring'],
@@ -1120,12 +1127,14 @@ function findmefollow_users_configprocess() {
 				} elseif($amp_conf['FOLLOWME_AUTO_CREATE']) {
 					$ddial = $amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '';
 					findmefollow_add($extdisplay, $amp_conf['FOLLOWME_RG_STRATEGY'], $amp_conf['FOLLOWME_TIME'],
-					$extdisplay, "", "", "", "", "", "", "","", $amp_conf['FOLLOWME_PRERING'], $ddial,'default','');
+					$extdisplay, 'ext-local,'.$extdisplay.',dest', "", "", "", "", "", "","", $amp_conf['FOLLOWME_PRERING'], $ddial,'default','');
 				}
 			}
 		break;
 		case "edit":
 			if(!empty($settings)) {
+				//Dont let group list be empty. Ever
+				$settings['grplist'] = empty($settings['grplist']) ? array($extdisplay) : $settings['grplist'];
 				findmefollow_update($extdisplay,$settings);
 			}
 		break;

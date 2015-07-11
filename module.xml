@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>13.0.4</version>
+	<version>13.0.5</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*13.0.5* FREEPBX-9586 fix functionality in extensions and quick create
 		*13.0.4* FREEPBX-9564 UCP goes offline after changing settings
 		*13.0.3* FREEPBX-9506 Minor display issue with Follow Me when no extensions entered
 		*13.0.2* Version bump Beta
@@ -66,6 +67,10 @@
 			<method callingMethod="import" class="Findmefollow" namespace="FreePBX\modules">bulkhandlerImport</method>
 			<method callingMethod="export" class="Findmefollow" namespace="FreePBX\modules">bulkhandlerExport</method>
 		</bulkhandler>
+		<core class="Core" namespace="FreePBX\modules">
+			<method callingMethod="getQuickCreateDisplay" class="Findmefollow" namespace="FreePBX\modules">getQuickCreateDisplay</method>
+			<method callingMethod="processQuickCreate" class="Findmefollow" namespace="FreePBX\modules">processQuickCreate</method>
+		</core>
 	</hooks>
 	<location>release/2.11/findmefollow-2.11.0.3.tgz</location>
 	<md5sum>eb10d338f7206c288e52b240ccf4b850</md5sum>

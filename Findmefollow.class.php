@@ -141,6 +141,40 @@ class Findmefollow implements \BMO {
 
 	}
 
+	public function getQuickCreateDisplay() {
+		$fm = $this->FreePBX->Config->get('FOLLOWME_AUTO_CREATE');
+		if($fm) {
+			return array();
+		}
+		return array(
+			1 => array(
+				array(
+					'html' => load_view(__DIR__.'/views/quickCreate.php',array("fmfm" => !$this->FreePBX->Config->get('FOLLOWME_DISABLED')))
+				)
+			)
+		);
+	}
+
+	/**
+	 * Quick Create hook
+	 * @param string $tech      The device tech
+	 * @param int $extension The extension number
+	 * @param array $data      The associated data
+	 */
+	public function processQuickCreate($tech, $extension, $data) {
+		if($this->FreePBX->Config->get('FOLLOWME_AUTO_CREATE')) {
+			if(!function_exists('findmefollow_add')) {
+				include __DIR__."/functions.inc.php";
+			}
+			$ddial = $this->FreePBX->Config->get('FOLLOWME_DISABLED') ? 'CHECKED' : '';
+			findmefollow_add($extdisplay, $this->FreePBX->Config->get('FOLLOWME_RG_STRATEGY'), $this->FreePBX->Config->get('FOLLOWME_TIME'),$extension, 'ext-local,'.$extension.',dest', "", "", "", "", "", "","", $this->FreePBX->Config->get('FOLLOWME_PRERING'), $ddial,'default','');
+		} elseif(!empty($data['fmfm']) && $data['fmfm'] == "yes") {
+			if(!function_exists('findmefollow_add')) {
+				include __DIR__."/functions.inc.php";
+			}
+			findmefollow_add($extension, 'ringallv2', '10', $extension, 'ext-local,'.$extension.',dest', "", "", "", "", "", "","", '20', "",'default','');
+		}
+	}
 
 	/*
 	 * Gets Follow Me Confirmation Setting
