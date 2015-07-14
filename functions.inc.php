@@ -1138,7 +1138,7 @@ function findmefollow_users_configprocess() {
 				findmefollow_update($extdisplay,$settings);
 			}
 		break;
-		case "delete":
+		case "del":
 			findmefollow_del($extdisplay);
 		break;
 	}

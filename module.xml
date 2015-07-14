@@ -48,7 +48,8 @@
 		*2.9.0.0* #4646
 	</changelog>
 	<depends>
-		<version>2.5.0alpha1</version>
+		<module>core ge 13.0.1beta1.11</module>
+		<module>framework ge 13.0.1beta3.20</module>
 		<module>recordings ge 3.3.8</module>
 	</depends>
 	<category>Applications</category>
@@ -70,6 +71,7 @@
 		<core class="Core" namespace="FreePBX\modules">
 			<method callingMethod="getQuickCreateDisplay" class="Findmefollow" namespace="FreePBX\modules">getQuickCreateDisplay</method>
 			<method callingMethod="processQuickCreate" class="Findmefollow" namespace="FreePBX\modules">processQuickCreate</method>
+			<method callingMethod="delUser" class="Findmefollow" namespace="FreePBX\modules">delUser</method>
 		</core>
 	</hooks>
 	<location>release/2.11/findmefollow-2.11.0.3.tgz</location>

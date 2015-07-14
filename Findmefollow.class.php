@@ -156,6 +156,21 @@ class Findmefollow implements \BMO {
 	}
 
 	/**
+	 * Delete user function, it's run twice because of scemantics with
+	 * old freepbx but it's harmless
+	 * @param  string $extension The extension number
+	 * @param  bool $editmode  If we are in edit mode or not
+	 */
+	public function delUser($extension, $editmode=false) {
+		if(!$editmode) {
+			if(!function_exists('findmefollow_destinations')) {
+				$this->FreePBX->Modules->loadFunctionsInc('findmefollow');
+			}
+			findmefollow_del($extension);
+		}
+	}
+
+	/**
 	 * Quick Create hook
 	 * @param string $tech      The device tech
 	 * @param int $extension The extension number
