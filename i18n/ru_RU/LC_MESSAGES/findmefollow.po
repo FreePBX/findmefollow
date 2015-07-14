@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-10 23:09-0400\n"
+"POT-Creation-Date: 2015-07-13 21:13-0400\n"
 "PO-Revision-Date: 2015-05-01 13:02+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -203,11 +203,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "Следуйте сюда"
 
-#: Findmefollow.class.php:615
+#: Findmefollow.class.php:630
 msgid "Follow Me Enabled"
 msgstr ""
 
-#: Findmefollow.class.php:618 ucp/views/settings.php:15
+#: Findmefollow.class.php:633 ucp/views/settings.php:15
 msgid "Follow Me List"
 msgstr "Список Следуйте сюда"
 
@@ -446,7 +446,7 @@ msgstr "список номеров"
 msgid "Remote Announce"
 msgstr "Удаленное приветствие"
 
-#: Findmefollow.class.php:596
+#: Findmefollow.class.php:611
 msgid "Reset"
 msgstr ""
 
@@ -479,7 +479,7 @@ msgstr "Время вызова (макс. 60 сек.)"
 msgid "Seconds"
 msgstr "Секунд"
 
-#: Findmefollow.class.php:591
+#: Findmefollow.class.php:606
 msgid "Submit"
 msgstr ""
 

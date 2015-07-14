@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>13.0.5</version>
+	<version>13.0.6</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*13.0.6* FREEPBX-9622 Database duplicate key entry error after recreating a deleted extension
 		*13.0.5* FREEPBX-9586 fix functionality in extensions and quick create
 		*13.0.4* FREEPBX-9564 UCP goes offline after changing settings
 		*13.0.3* FREEPBX-9506 Minor display issue with Follow Me when no extensions entered

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-10 23:09-0400\n"
+"POT-Creation-Date: 2015-07-13 21:13-0400\n"
 "PO-Revision-Date: 2015-03-11 21:58+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/"
@@ -201,11 +201,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "Следвай Ме"
 
-#: Findmefollow.class.php:615
+#: Findmefollow.class.php:630
 msgid "Follow Me Enabled"
 msgstr ""
 
-#: Findmefollow.class.php:618 ucp/views/settings.php:15
+#: Findmefollow.class.php:633 ucp/views/settings.php:15
 msgid "Follow Me List"
 msgstr ""
 
@@ -433,7 +433,7 @@ msgstr "Моля въведете списъка с вътрешни линии.
 msgid "Remote Announce"
 msgstr ""
 
-#: Findmefollow.class.php:596
+#: Findmefollow.class.php:611
 msgid "Reset"
 msgstr ""
 
@@ -466,7 +466,7 @@ msgstr "Време на Звънене (max 60 секунди)"
 msgid "Seconds"
 msgstr ""
 
-#: Findmefollow.class.php:591
+#: Findmefollow.class.php:606
 msgid "Submit"
 msgstr ""
 
