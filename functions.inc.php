@@ -304,6 +304,7 @@ function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre=
 	//Follow Me auto # on external number.
 	//http://code.freepbx.org/cru/FREEPBX-51#CFR-111
 	$users = findmefollow_allusers();
+	$users = is_array($users) ? $users : array();
 	foreach ($users as $user) {
 		$extens[$user[0]] = $user[1];
 	}
@@ -446,11 +447,7 @@ function findmefollow_get($grpnum, $check_astdb=0) {
 
 	$results = sql("SELECT grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, voicemail FROM findmefollow INNER JOIN `users` ON `extension` = `grpnum` WHERE grpnum = '".$db->escapeSimple($grpnum)."'","getRow",DB_FETCHMODE_ASSOC);
 	if (empty($results)) {
-		// Defaults
-		return array( "annmsg_id" => false, "ringing" => false, "ddial" => "", "pre_ring" => 20,
-			"strategy" => false, "grptime" => 10, "grplist" => "", "grppre" => "", "dring" => "", "needsconf" => false,
-			"remotealert_id" => 0, "toolate_id" => 0, "changecid" => false, "fixedcid" => false,  "postdest" => false,
-		);
+		return array();
 	}
 	if (!isset($results['voicemail'])) {
 		$results['voicemail'] = sql("SELECT `voicemail` FROM `users` WHERE `extension` = '".$db->escapeSimple($grpnum)."'","getOne");
@@ -573,13 +570,13 @@ function findmefollow_users_configpageload($pagename) {
 			"ddial" => ($amp_conf['FOLLOWME_DISABLED'] && !$amp_conf['FOLLOWME_AUTO_CREATE'] ? "CHECKED" : ""),
 			"strategy" => $amp_conf['FOLLOWME_RG_STRATEGY'],
 			"grptime" => $amp_conf['FOLLOWME_TIME'],
-			"pre_ring" => $amp_conf['FOLLOWME_PRERING']
+			"pre_ring" => $amp_conf['FOLLOWME_PRERING'],
 		);
 	} elseif(empty($fmfm) && isset($extdisplay) && trim($extdisplay) != '') {
 		$fmfm = array(
 			'ddial' => 'CHECKED',
 			'grplist' => $extdisplay,
-			'postdest' => "ext-local,".$extdisplay.",dest"
+			'postdest' => "ext-local,".$extdisplay.",dest",
 		);
 	}
 
@@ -1139,7 +1136,8 @@ function findmefollow_users_configprocess() {
 			}
 		break;
 		case "del":
-			findmefollow_del($extdisplay);
+			//Note: dont need to run this as it's run through a process hook now
+			//findmefollow_del($extdisplay);
 		break;
 	}
 }
