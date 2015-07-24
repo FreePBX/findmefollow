@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-22 19:27-0400\n"
+"POT-Creation-Date: 2015-07-24 18:03-0400\n"
 "PO-Revision-Date: 2009-04-20 14:07+0100\n"
 "Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
 "Language-Team: Français <LL@li.org>\n"
@@ -223,7 +223,7 @@ msgstr ""
 msgid "Follow Me List"
 msgstr "Liste suivez-moi"
 
-#: functions.inc.php:1186
+#: functions.inc.php:1185
 #, php-format
 msgid "Follow Me: %s"
 msgstr "Suivez-moi: %s"
@@ -236,12 +236,12 @@ msgstr "Liste Suivez-Moi"
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
 msgstr ""
 
-#: functions.inc.php:1239
+#: functions.inc.php:1238
 #, php-format
 msgid "Follow-Me User: %s"
 msgstr "Utilisateur Suivez-Moi : %s"
 
-#: functions.inc.php:1215
+#: functions.inc.php:1214
 #, php-format
 msgid "Follow-Me: %s (%s)"
 msgstr "Suivez-Moi : %s (%s)"
@@ -284,7 +284,7 @@ msgstr ""
 msgid "Initial Ring Time"
 msgstr ""
 
-#: assets/js/findmefollow.js:80
+#: assets/js/findmefollow.js:82
 msgid ""
 "Invalid CID Number. Must be in a format of digits only with an option of "
 "E164 format using a leading \"+\""
@@ -292,7 +292,7 @@ msgstr ""
 "Numéro CID invalide. Doit être dans un format de chiffres uniquement avec "
 "une option au format E164 en utilisant le \"+\" devant"
 
-#: assets/js/findmefollow.js:77
+#: assets/js/findmefollow.js:79
 msgid "Invalid time specified"
 msgstr "Temps spécifié invalide"
 
@@ -419,7 +419,7 @@ msgstr "Aucun"
 msgid "Normal Extension Behavior"
 msgstr "Comportement normal du poste"
 
-#: assets/js/findmefollow.js:79
+#: assets/js/findmefollow.js:81
 msgid ""
 "Only ringall, ringallv2, hunt and the respective -prim versions are "
 "supported when confirmation is checked"
@@ -448,7 +448,7 @@ msgstr ""
 msgid "Please enter a valid %s number"
 msgstr ""
 
-#: assets/js/findmefollow.js:76
+#: assets/js/findmefollow.js:78
 msgid "Please enter an extension list."
 msgstr "Veuillez entrer une liste d'extension"
 
@@ -520,7 +520,7 @@ msgstr ""
 "stratégies de styles de sonnerie \"Chasse\", c'est le temps pour chaque "
 "itération de téléphone qui sonne"
 
-#: assets/js/findmefollow.js:78
+#: assets/js/findmefollow.js:80
 msgid "Time must be between 1 and 60 seconds"
 msgstr "Le temps doit être compris entre 1 et 60 secondes"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-22 19:27-0400\n"
+"POT-Creation-Date: 2015-07-24 18:03-0400\n"
 "PO-Revision-Date: 2015-05-18 21:33+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -202,7 +202,7 @@ msgstr ""
 msgid "Follow Me List"
 msgstr ""
 
-#: functions.inc.php:1186
+#: functions.inc.php:1185
 #, php-format
 msgid "Follow Me: %s"
 msgstr ""
@@ -215,12 +215,12 @@ msgstr "“跟我来”列表"
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
 msgstr ""
 
-#: functions.inc.php:1239
+#: functions.inc.php:1238
 #, php-format
 msgid "Follow-Me User: %s"
 msgstr "“跟我来”用户：%s"
 
-#: functions.inc.php:1215
+#: functions.inc.php:1214
 #, php-format
 msgid "Follow-Me: %s (%s)"
 msgstr "“跟我来”列表：%s (%s)"
@@ -262,13 +262,13 @@ msgstr ""
 msgid "Initial Ring Time"
 msgstr ""
 
-#: assets/js/findmefollow.js:80
+#: assets/js/findmefollow.js:82
 msgid ""
 "Invalid CID Number. Must be in a format of digits only with an option of "
 "E164 format using a leading \"+\""
 msgstr ""
 
-#: assets/js/findmefollow.js:77
+#: assets/js/findmefollow.js:79
 msgid "Invalid time specified"
 msgstr "指定了无效的时间"
 
@@ -382,7 +382,7 @@ msgstr "无"
 msgid "Normal Extension Behavior"
 msgstr ""
 
-#: assets/js/findmefollow.js:79
+#: assets/js/findmefollow.js:81
 msgid ""
 "Only ringall, ringallv2, hunt and the respective -prim versions are "
 "supported when confirmation is checked"
@@ -410,7 +410,7 @@ msgstr ""
 msgid "Please enter a valid %s number"
 msgstr ""
 
-#: assets/js/findmefollow.js:76
+#: assets/js/findmefollow.js:78
 msgid "Please enter an extension list."
 msgstr "请输入一个分机列表。"
 
@@ -480,7 +480,7 @@ msgstr ""
 "电话响铃的秒数。对于所有的搜寻式的响铃策略，这是每次搜寻出的电话的响铃的时"
 "间。"
 
-#: assets/js/findmefollow.js:78
+#: assets/js/findmefollow.js:80
 msgid "Time must be between 1 and 60 seconds"
 msgstr "时间必须在1到60秒之间"
 

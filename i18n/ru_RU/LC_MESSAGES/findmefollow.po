@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-22 19:27-0400\n"
+"POT-Creation-Date: 2015-07-24 18:03-0400\n"
 "PO-Revision-Date: 2015-05-01 13:02+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -211,7 +211,7 @@ msgstr ""
 msgid "Follow Me List"
 msgstr "Список Следуйте сюда"
 
-#: functions.inc.php:1186
+#: functions.inc.php:1185
 #, php-format
 msgid "Follow Me: %s"
 msgstr "Следуйте сюда: %s"
@@ -224,12 +224,12 @@ msgstr "Список"
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
 msgstr ""
 
-#: functions.inc.php:1239
+#: functions.inc.php:1238
 #, php-format
 msgid "Follow-Me User: %s"
 msgstr "Пользователь Следуйте сюда: %s"
 
-#: functions.inc.php:1215
+#: functions.inc.php:1214
 #, php-format
 msgid "Follow-Me: %s (%s)"
 msgstr "Следуйте сюда: %s (%s)"
@@ -271,7 +271,7 @@ msgstr ""
 msgid "Initial Ring Time"
 msgstr ""
 
-#: assets/js/findmefollow.js:80
+#: assets/js/findmefollow.js:82
 msgid ""
 "Invalid CID Number. Must be in a format of digits only with an option of "
 "E164 format using a leading \"+\""
@@ -279,7 +279,7 @@ msgstr ""
 "Неверный формат Caller ID. Должен быть указан только цифрами, или, "
 "опционально, в полном Е164 формате с использованием \"+\" впереди номера"
 
-#: assets/js/findmefollow.js:77
+#: assets/js/findmefollow.js:79
 msgid "Invalid time specified"
 msgstr "Неверно указано время"
 
@@ -409,7 +409,7 @@ msgstr "Нет"
 msgid "Normal Extension Behavior"
 msgstr "Обычное поведение внутреннего номера"
 
-#: assets/js/findmefollow.js:79
+#: assets/js/findmefollow.js:81
 msgid ""
 "Only ringall, ringallv2, hunt and the respective -prim versions are "
 "supported when confirmation is checked"
@@ -438,7 +438,7 @@ msgstr ""
 msgid "Please enter a valid %s number"
 msgstr ""
 
-#: assets/js/findmefollow.js:76
+#: assets/js/findmefollow.js:78
 msgid "Please enter an extension list."
 msgstr "список номеров"
 
@@ -510,7 +510,7 @@ msgstr ""
 "стратегий серийного искания это время звонка повторяется для всех телефонов, "
 "которые включены в серию."
 
-#: assets/js/findmefollow.js:78
+#: assets/js/findmefollow.js:80
 msgid "Time must be between 1 and 60 seconds"
 msgstr "Время должно быть указано от 1 до 60 секунд"
 

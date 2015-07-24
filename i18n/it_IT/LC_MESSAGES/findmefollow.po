@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-22 19:27-0400\n"
+"POT-Creation-Date: 2015-07-24 18:03-0400\n"
 "PO-Revision-Date: 2008-11-10 11:52+0100\n"
 "Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
 "Language-Team: Italian\n"
@@ -200,7 +200,7 @@ msgstr ""
 msgid "Follow Me List"
 msgstr ""
 
-#: functions.inc.php:1186
+#: functions.inc.php:1185
 #, php-format
 msgid "Follow Me: %s"
 msgstr ""
@@ -213,12 +213,12 @@ msgstr "Lista Seguimi"
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
 msgstr ""
 
-#: functions.inc.php:1239
+#: functions.inc.php:1238
 #, php-format
 msgid "Follow-Me User: %s"
 msgstr "Utente Seguimi: %s"
 
-#: functions.inc.php:1215
+#: functions.inc.php:1214
 #, php-format
 msgid "Follow-Me: %s (%s)"
 msgstr "Seguimi: %s (%s)"
@@ -260,13 +260,13 @@ msgstr ""
 msgid "Initial Ring Time"
 msgstr ""
 
-#: assets/js/findmefollow.js:80
+#: assets/js/findmefollow.js:82
 msgid ""
 "Invalid CID Number. Must be in a format of digits only with an option of "
 "E164 format using a leading \"+\""
 msgstr ""
 
-#: assets/js/findmefollow.js:77
+#: assets/js/findmefollow.js:79
 msgid "Invalid time specified"
 msgstr "Tempo specificato non valido"
 
@@ -386,7 +386,7 @@ msgstr "Nessuno"
 msgid "Normal Extension Behavior"
 msgstr ""
 
-#: assets/js/findmefollow.js:79
+#: assets/js/findmefollow.js:81
 msgid ""
 "Only ringall, ringallv2, hunt and the respective -prim versions are "
 "supported when confirmation is checked"
@@ -415,7 +415,7 @@ msgstr ""
 msgid "Please enter a valid %s number"
 msgstr ""
 
-#: assets/js/findmefollow.js:76
+#: assets/js/findmefollow.js:78
 msgid "Please enter an extension list."
 msgstr "Prego immettere la lista degli interni."
 
@@ -486,7 +486,7 @@ msgstr ""
 "Il tempo in secondi che un telefono squilla. Per i gruppi di chiamata con "
 "strategia hunt, equivale allo squillo di ogni singolo interno"
 
-#: assets/js/findmefollow.js:78
+#: assets/js/findmefollow.js:80
 msgid "Time must be between 1 and 60 seconds"
 msgstr "Il tempo deve essere compreso tra 1 e 60 secondi"
 
