@@ -309,7 +309,7 @@ function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre=
 		$extens[$user[0]] = $user[1];
 	}
 
-	$list = explode("-", $grplist);
+	$list = !is_array($grplist) ? explode("-", $grplist) : $grplist;
 	foreach (array_keys($list) as $key) {
 		// remove invalid chars
 		$list[$key] = preg_replace("/[^0-9*+]/", "", $list[$key]);
@@ -1101,9 +1101,6 @@ function findmefollow_users_configprocess() {
 		} else {
 			$settings['postdest'] = "ext-local,$extdisplay,dest";
 		}
-		if(!empty($settings['grplist'])) {
-			$settings['grplist'] = explode("\n",$settings['grplist']);
-		}
 		unset($settings['quickpick']);
 	}
 
@@ -1115,7 +1112,8 @@ function findmefollow_users_configprocess() {
 						//check destination. make sure it is valid
 						$settings['postdest'] = ($settings['postdest'] == 'ext-local,,dest') ? 'ext-local,'.$extdisplay.',dest' : $settings['postdest'];
 						//dont let group list be empty. ever.
-						$settings['grplist'] = empty($settings['grplist']) ? array($extdisplay) : $settings['grplist'];
+						$settings['grplist'] = empty($settings['grplist']) ? $extdisplay : $settings['grplist'];
+						$settings['grplist'] = explode("\n",$settings['grplist']);
 						findmefollow_add($extdisplay, $settings['strategy'], $settings['grptime'],
 						$settings['grplist'], $settings['postdest'], $settings['grppre'], $settings['annmsg_id'], $settings['dring'],
 						$settings['needsconf'], $settings['remotealert_id'], $settings['toolate_id'], $settings['ringing'], $settings['pre_ring'],
@@ -1131,7 +1129,8 @@ function findmefollow_users_configprocess() {
 		case "edit":
 			if(!empty($settings)) {
 				//Dont let group list be empty. Ever
-				$settings['grplist'] = empty($settings['grplist']) ? array($extdisplay) : $settings['grplist'];
+				$settings['grplist'] = empty($settings['grplist']) ? $extdisplay : $settings['grplist'];
+				$settings['grplist'] = explode("\n",$settings['grplist']);
 				findmefollow_update($extdisplay,$settings);
 			}
 		break;
@@ -1152,7 +1151,7 @@ function findmefollow_update($grpnum,$settings) {
 		return;
 	}
 	extract($settings);
-	findmefollow_add($grpnum,$strategy,$grptime,implode("-",$grplist),$postdest,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid);
+	findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid);
 }
 
 function findmefollow_configpageinit($dispnum) {
