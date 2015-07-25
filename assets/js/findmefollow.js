@@ -44,7 +44,7 @@ $(document).ready(function(){
     }
 	});
 });
-
+$(document).ready(function(){
 $("[id^='fmtoggle']").change(function(){
 	var fmstate = "";
 	var exten = $(this).data('for');
@@ -54,6 +54,8 @@ $("[id^='fmtoggle']").change(function(){
 		fmstate = "enable";
 	}
 	$.get("config.php?display=findmefollow&action=toggleFM&extdisplay="+exten+"&state="+fmstate);
+	alert('Followme for '+exten +' '+fmstate+'d');
+});
 });
 
 //Below are functions moved here from page.findmefollow.php
