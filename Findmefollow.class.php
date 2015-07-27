@@ -182,7 +182,7 @@ class Findmefollow implements \BMO {
 				include __DIR__."/functions.inc.php";
 			}
 			$ddial = $this->FreePBX->Config->get('FOLLOWME_DISABLED') ? 'CHECKED' : '';
-			findmefollow_add($extdisplay, $this->FreePBX->Config->get('FOLLOWME_RG_STRATEGY'), $this->FreePBX->Config->get('FOLLOWME_TIME'),$extension, 'ext-local,'.$extension.',dest', "", "", "", "", "", "","", $this->FreePBX->Config->get('FOLLOWME_PRERING'), $ddial,'default','');
+			findmefollow_add($extension, $this->FreePBX->Config->get('FOLLOWME_RG_STRATEGY'), $this->FreePBX->Config->get('FOLLOWME_TIME'),$extension, 'ext-local,'.$extension.',dest', "", "", "", "", "", "","", $this->FreePBX->Config->get('FOLLOWME_PRERING'), $ddial,'default','');
 		} elseif(!empty($data['fmfm']) && $data['fmfm'] == "yes") {
 			if(!function_exists('findmefollow_add')) {
 				include __DIR__."/functions.inc.php";
