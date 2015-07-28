@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>13.0.9</version>
+	<version>13.0.10</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*13.0.10* FREEPBX-9867 set the extension destination correctly
 		*13.0.9* FREEPBX-9420 variable regression
 		*13.0.8* FREEPBX-9804 accept mixed arguments
 		*13.0.7* FREEPBX-9804 Multiple errors addressed
