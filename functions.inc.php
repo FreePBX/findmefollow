@@ -14,6 +14,9 @@ function findmefollow_destinations($index) {
 	global $followme_exten;
 	global $db;
 
+	$extdisplay = ltrim($extdisplay,'GRP-');
+	$followme_exten = $extdisplay;
+
 	if ($display == 'findmefollow' && $followme_exten != '') {
 		$extens[] = array('destination' => 'ext-local,'.$followme_exten.',dest', 'description' => _("Normal Extension Behavior"));
 		return $extens;
