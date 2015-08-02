@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-28 16:14-0700\n"
+"POT-Creation-Date: 2015-08-02 15:11-0700\n"
 "PO-Revision-Date: 2014-02-21 03:21+0200\n"
 "Last-Translator: Kenichi Fukaumi <k.fukaumi@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/findmefollow/"
@@ -134,7 +134,7 @@ msgstr ""
 msgid "Enable"
 msgstr ""
 
-#: views/quickCreate.php:7
+#: views/quickCreate.php:5
 msgid "Enable Find Me/Follow Me"
 msgstr ""
 
@@ -405,7 +405,7 @@ msgid "Mode"
 msgstr "モード"
 
 #: functions.inc.php:674 functions.inc.php:884 views/fmgrid.php:17
-#: views/form.php:266 views/form.php:449 views/quickCreate.php:15
+#: views/form.php:266 views/form.php:449 views/quickCreate.php:12
 msgid "No"
 msgstr ""
 
@@ -595,12 +595,8 @@ msgstr ""
 msgid "Where to send callers if there is no answer."
 msgstr ""
 
-#: views/quickCreate.php:24
-msgid "Whether to enable voicemail for this extension"
-msgstr ""
-
 #: functions.inc.php:670 functions.inc.php:880 views/fmgrid.php:15
-#: views/form.php:264 views/form.php:447 views/quickCreate.php:13
+#: views/form.php:264 views/form.php:447 views/quickCreate.php:10
 msgid "Yes"
 msgstr ""
 
