@@ -465,11 +465,9 @@ class Findmefollow implements \BMO {
 					}
 				break;
 				case 'changecid':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
 					$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/changecid",$value);
 				break;
 				case 'fixedcid':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
 					$value = preg_replace("/[^0-9\+]/" ,"", trim($value));
 					$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/fixedcid",$value);
 				break;
