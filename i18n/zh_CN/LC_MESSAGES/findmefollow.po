@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-02 15:11-0700\n"
+"POT-Creation-Date: 2015-08-11 17:00-0700\n"
 "PO-Revision-Date: 2015-05-18 21:33+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -194,11 +194,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "跟我来"
 
-#: Findmefollow.class.php:630
+#: Findmefollow.class.php:628
 msgid "Follow Me Enabled"
 msgstr ""
 
-#: Findmefollow.class.php:633 ucp/views/settings.php:15
+#: Findmefollow.class.php:631 ucp/views/settings.php:15
 msgid "Follow Me List"
 msgstr ""
 
@@ -418,7 +418,7 @@ msgstr "请输入一个分机列表。"
 msgid "Remote Announce"
 msgstr ""
 
-#: Findmefollow.class.php:611
+#: Findmefollow.class.php:609
 msgid "Reset"
 msgstr ""
 
@@ -451,7 +451,7 @@ msgstr "振铃时间（最多60秒）"
 msgid "Seconds"
 msgstr ""
 
-#: Findmefollow.class.php:606
+#: Findmefollow.class.php:604
 msgid "Submit"
 msgstr ""
 

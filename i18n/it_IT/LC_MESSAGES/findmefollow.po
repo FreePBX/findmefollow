@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-02 15:11-0700\n"
+"POT-Creation-Date: 2015-08-11 17:00-0700\n"
 "PO-Revision-Date: 2008-11-10 11:52+0100\n"
 "Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
 "Language-Team: Italian\n"
@@ -192,11 +192,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "Seguimi"
 
-#: Findmefollow.class.php:630
+#: Findmefollow.class.php:628
 msgid "Follow Me Enabled"
 msgstr ""
 
-#: Findmefollow.class.php:633 ucp/views/settings.php:15
+#: Findmefollow.class.php:631 ucp/views/settings.php:15
 msgid "Follow Me List"
 msgstr ""
 
@@ -423,7 +423,7 @@ msgstr "Prego immettere la lista degli interni."
 msgid "Remote Announce"
 msgstr ""
 
-#: Findmefollow.class.php:611
+#: Findmefollow.class.php:609
 msgid "Reset"
 msgstr ""
 
@@ -456,7 +456,7 @@ msgstr "Tempo di squillo (max 60 sec)"
 msgid "Seconds"
 msgstr ""
 
-#: Findmefollow.class.php:606
+#: Findmefollow.class.php:604
 msgid "Submit"
 msgstr ""
 
