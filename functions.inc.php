@@ -662,7 +662,7 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 	$el = array(
 		"elemname" => "fmfm_ddial",
 		"prompttext" => _('Enabled'),
-		"helptext" => _('By default (not checked) any call to this extension will go to this Follow-Me instead, including directory calls by name from IVRs. If checked, calls will go only to the extension.<BR>However, destinations that specify FollowMe will come here.<BR>Checking this box is often used in conjunction with VmX Locater, where you want a call to ring the extension, and then only if the caller chooses to find you do you want it to come here.'),
+		"helptext" => _('By default (Yes) any call to this extension will go to this Follow-Me instead, including directory calls by name from IVRs. If set to "No", calls will go only to the extension. Destinations that directly specify FollowMe will come here regardless. Setting this to "No" is often used in conjunction with VmX Locater, where you want a call to ring the extension, and then only if the caller chooses to find you do you want the call to go through FollowMe.'),
 		"currentvalue" => (($fmfmdisabled) ? 'disabled' : 'enabled'),
 		"valarray" => array(
 			array(
