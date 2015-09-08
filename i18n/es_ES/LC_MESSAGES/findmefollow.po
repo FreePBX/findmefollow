@@ -22,7 +22,18 @@ msgstr ""
 msgid "Announcement"
 msgstr ""
 
-#: functions.inc.php:665 views/form.php:274
+#: functions.inc.php:665
+msgid ""
+"By default (Yes) any call to this extension will go to this Follow-Me "
+"instead, including directory calls by name from IVRs. If set to \"No\", "
+"calls will go only to the extension. Destinations that directly specify "
+"FollowMe will come here regardless. Setting this to \"No\" is often used in "
+"conjunction with VmX Locater, where you want a call to ring the extension, "
+"and then only if the caller chooses to find you do you want the call to go "
+"through FollowMe."
+msgstr ""
+
+#: views/form.php:274
 msgid ""
 "By default (not checked) any call to this extension will go to this Follow-"
 "Me instead, including directory calls by name from IVRs. If checked, calls "

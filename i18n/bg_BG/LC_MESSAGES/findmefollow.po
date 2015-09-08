@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-11 17:00-0700\n"
+"POT-Creation-Date: 2015-09-08 13:08-0700\n"
 "PO-Revision-Date: 2015-03-11 21:58+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/"
@@ -46,7 +46,18 @@ msgstr "Винаги предава Фиксиран CID определен по
 msgid "Announcement"
 msgstr "Съобщение"
 
-#: functions.inc.php:665 views/form.php:274
+#: functions.inc.php:665
+msgid ""
+"By default (Yes) any call to this extension will go to this Follow-Me "
+"instead, including directory calls by name from IVRs. If set to \"No\", "
+"calls will go only to the extension. Destinations that directly specify "
+"FollowMe will come here regardless. Setting this to \"No\" is often used in "
+"conjunction with VmX Locater, where you want a call to ring the extension, "
+"and then only if the caller chooses to find you do you want the call to go "
+"through FollowMe."
+msgstr ""
+
+#: views/form.php:274
 msgid ""
 "By default (not checked) any call to this extension will go to this Follow-"
 "Me instead, including directory calls by name from IVRs. If checked, calls "
