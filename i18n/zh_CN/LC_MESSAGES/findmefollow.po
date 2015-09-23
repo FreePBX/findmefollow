@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-23 09:46-0700\n"
+"POT-Creation-Date: 2015-09-23 10:11-0700\n"
 "PO-Revision-Date: 2015-05-18 21:33+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -213,7 +213,7 @@ msgstr ""
 msgid "Follow Me List"
 msgstr ""
 
-#: functions.inc.php:1174
+#: functions.inc.php:1172
 #, php-format
 msgid "Follow Me: %s"
 msgstr ""
@@ -226,12 +226,12 @@ msgstr "“跟我来”列表"
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
 msgstr ""
 
-#: functions.inc.php:1227
+#: functions.inc.php:1225
 #, php-format
 msgid "Follow-Me User: %s"
 msgstr "“跟我来”用户：%s"
 
-#: functions.inc.php:1203
+#: functions.inc.php:1201
 #, php-format
 msgid "Follow-Me: %s (%s)"
 msgstr "“跟我来”列表：%s (%s)"
