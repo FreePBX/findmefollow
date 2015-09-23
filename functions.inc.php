@@ -1099,17 +1099,15 @@ function findmefollow_users_configprocess() {
 		case "add":
 			if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
 				if(!empty($settings)) {
-					if($settings['ddial'] != "CHECKED") {
-						//check destination. make sure it is valid
-						$settings['postdest'] = ($settings['postdest'] == 'ext-local,,dest') ? 'ext-local,'.$extdisplay.',dest' : $settings['postdest'];
-						//dont let group list be empty. ever.
-						$settings['grplist'] = empty($settings['grplist']) ? $extdisplay : $settings['grplist'];
-						$settings['grplist'] = explode("\n",$settings['grplist']);
-						findmefollow_add($extdisplay, $settings['strategy'], $settings['grptime'],
-						$settings['grplist'], $settings['postdest'], $settings['grppre'], $settings['annmsg_id'], $settings['dring'],
-						$settings['needsconf'], $settings['remotealert_id'], $settings['toolate_id'], $settings['ringing'], $settings['pre_ring'],
-						"", $settings['changecid'], $settings['fixedcid']);
-					}
+					//check destination. make sure it is valid
+					$settings['postdest'] = ($settings['postdest'] == 'ext-local,,dest') ? 'ext-local,'.$extdisplay.',dest' : $settings['postdest'];
+					//dont let group list be empty. ever.
+					$settings['grplist'] = empty($settings['grplist']) ? $extdisplay : $settings['grplist'];
+					$settings['grplist'] = explode("\n",$settings['grplist']);
+					findmefollow_add($extdisplay, $settings['strategy'], $settings['grptime'],
+					$settings['grplist'], $settings['postdest'], $settings['grppre'], $settings['annmsg_id'], $settings['dring'],
+					$settings['needsconf'], $settings['remotealert_id'], $settings['toolate_id'], $settings['ringing'], $settings['pre_ring'],
+					$settings['ddial'], $settings['changecid'], $settings['fixedcid']);
 				} elseif($amp_conf['FOLLOWME_AUTO_CREATE']) {
 					$ddial = $amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '';
 					findmefollow_add($extdisplay, $amp_conf['FOLLOWME_RG_STRATEGY'], $amp_conf['FOLLOWME_TIME'],
