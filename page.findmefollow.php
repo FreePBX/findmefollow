@@ -49,4 +49,3 @@ switch($request['view']){
 		</div>
 	</div>
 </div>
-<script type="text/javascript" src="modules/findmefollow/assets/js/findmefollow.js"></script>

@@ -577,9 +577,12 @@ function findmefollow_users_configpageload($pagename) {
 		);
 	} elseif(empty($fmfm) && isset($extdisplay) && trim($extdisplay) != '') {
 		$fmfm = array(
-			'ddial' => 'CHECKED',
+			"ddial" => ($amp_conf['FOLLOWME_DISABLED'] && !$amp_conf['FOLLOWME_AUTO_CREATE'] ? "CHECKED" : ""),
 			'grplist' => $extdisplay,
 			'postdest' => "ext-local,".$extdisplay.",dest",
+			"strategy" => $amp_conf['FOLLOWME_RG_STRATEGY'],
+			"grptime" => $amp_conf['FOLLOWME_TIME'],
+			"pre_ring" => $amp_conf['FOLLOWME_PRERING'],
 		);
 	}
 
@@ -612,16 +615,12 @@ function findmefollow_users_configpageload($pagename) {
 function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisabled,$recordingslist,$moh) {
 	global $display;
 	$js = "
-	var dval = $('#fmfm_ddial0').prop('checked') ? false : true;
-	if(!dval && $('#fmfm_grplist').val().trim().length === 0) {
-		if($('#extension').val().trim().length === 0) {
-			$('#fmfm_ddial1').prop('checked', true);
-			warnInvalid($('#extension'),'".sprintf(_("Please enter a valid %s number"),($display == "extensions" ? _("extension") : _("device")))."');
-			return false;
-		}
-		$('#fmfm_grplist').val($('#extension').val()+'\\n');
+	if($('#extension').val().trim().length === 0) {
+		$('#fmfm_ddial1').prop('checked', true);
+		warnInvalid($('#extension'),'".sprintf(_("Please enter a valid %s number"),($display == "extensions" ? _("extension") : _("device")))."');
+		return false;
 	}
-	$('.fpbx-fmfm').prop('disabled',dval);
+	$('#fmfm_grplist').val($('#extension').val()+'\\n');
 	return true;
 	";
 	$currentcomponent->addjsfunc('fmfmEnabled(notused)', $js);
@@ -695,7 +694,6 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 		"currentvalue" => $fmfm['pre_ring'],
 		"valarray" => $sixtey,
 		"class" => "fpbx-fmfm",
-		"disable" => $fmfmdisabled,
 		"canbeempty" => false,
 		"jsvalidation" => "frm_${display}_fmfmCheckFixed()",
 	);
@@ -723,7 +721,6 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 		"currentvalue" => $fmfm['strategy'],
 		"valarray" => $optlist,
 		"class" => "fpbx-fmfm",
-		"disable" => $fmfmdisabled,
 		"canbeempty" => false
 	);
 	$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)), $category);
@@ -735,7 +732,6 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 		"currentvalue" => $fmfm['grptime'],
 		"valarray" => $sixtey,
 		"class" => "fpbx-fmfm",
-		"disable" => $fmfmdisabled,
 		"canbeempty" => false
 	);
 	$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)), $category);
@@ -747,7 +743,6 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 		"currentvalue" => str_replace("-","\n",$fmfm['grplist']),
 		"canbeempty" => false,
 		"class" => "fpbx-fmfm",
-		"disable" => $fmfmdisabled,
 		"jsvalidation" => "frm_${display}_fmfmListEmpty()",
 		"failvalidationmsg" => _('Follow-Me List can not be empty if Follow-Me is enabled'),
 	);
@@ -771,7 +766,6 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 		"currentvalue" => "",
 		"valarray" => $optlist,
 		"class" => "fpbx-fmfm",
-		"disable" => $fmfmdisabled,
 		"canbeempty" => false,
 		"onchange" => "frm_${display}_fmfmQuickPick()"
 	);
@@ -785,7 +779,6 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 		"currentvalue" => $fmfm['annmsg_id'],
 		"valarray" => $recordingslist,
 		"class" => "fpbx-fmfm",
-		"disable" => $fmfmdisabled,
 		"canbeempty" => false
 	);
 	$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)), $category);
@@ -810,7 +803,6 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 		"currentvalue" => $fmfm['ringing'],
 		"valarray" => $optlist,
 		"class" => "fpbx-fmfm",
-		"disable" => $fmfmdisabled,
 		"canbeempty" => false
 	);
 	$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)), $category);
@@ -822,7 +814,6 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 		"currentvalue" => $fmfm['grppre'],
 		"canbeempty" => true,
 		"class" => "fpbx-fmfm",
-		"disable" => $fmfmdisabled
 	);
 	$currentcomponent->addguielem($section, new gui_textbox(array_merge($guidefaults,$el)),$category);
 
@@ -833,13 +824,13 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 		"currentvalue" => $fmfm['dring'],
 		"canbeempty" => true,
 		"class" => "fpbx-fmfm",
-		"disable" => $fmfmdisabled
 	);
 	$currentcomponent->addguielem($section, new gui_textbox(array_merge($guidefaults,$el)),$category);
 }
 
 function findmefollow_draw_confirm($fmfm,&$currentcomponent,$category,$fmfmdisabled,$recordingslist,$moh) {
 	global $display;
+
 	$js = "
 	var dval = $('#fmfm_needsconf0').prop('checked') && !$('#fmfm_needsconf0').prop('disabled') ? false : true;
 	$('.fpbx-fmfm-confirm-opts').prop('disabled',dval);
@@ -886,7 +877,6 @@ function findmefollow_draw_confirm($fmfm,&$currentcomponent,$category,$fmfmdisab
 		),
 		"jsonclick" => "frm_${display}_fmfmConfirmEnabled()",
 		"class" => "fpbx-fmfm",
-		"disable" => $fmfmdisabled,
 		"pairedvalues" => false
 	);
 	$currentcomponent->addguielem($section, new gui_radio(array_merge($guidefaults,$el)), $category);
@@ -1006,7 +996,6 @@ function findmefollow_draw_cid($fmfm,&$currentcomponent,$category,$fmfmdisabled,
 		),
 		"onchange" => "frm_${display}_fmfmCIDMode()",
 		"class" => "fpbx-fmfm",
-		"disable" => $fmfmdisabled,
 		"canbeempty" => false
 	);
 	$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)), $category);
@@ -1058,7 +1047,6 @@ function findmefollow_draw_destinations($fmfm,&$currentcomponent,$category,$fmfm
 		"helptext" => _('Optional destination call is routed to when the call is not answered on an otherwise idle phone. If the phone is in use and the call is simply ignored, then the busy destination will be used.'),
 		"canbeempty" => true,
 		"class" => "fpbx-fmfm",
-		"disable" => $fmfmdisabled,
 		"index" => "fmfm",
 		"required" => true,
 		"dest" => !empty($fmfm['postdest']) ? $fmfm['postdest'] : 'ext-local,,dest',
@@ -1150,8 +1138,6 @@ function findmefollow_update($grpnum,$settings) {
 		findmefollow_del($grpnum);
 		$old['grplist'] = explode("-",$old['grplist']);
 		$settings = array_merge($old,$settings);
-	} else if(empty($old) && $settings['ddial'] == "CHECKED") {
-		return;
 	}
 	extract($settings);
 	findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid);

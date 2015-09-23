@@ -1,6 +1,14 @@
 //	License for all code of this FreePBX module can be found in the license file inside the module directory
 //	Copyright 2015 Sangoma Technologies.
 //
+//
+$("input[name=needsconf]").click(function() {
+	if($("input[name=needsconf]:checked").val() == "CHECKED") {
+		$(".fmfm_remotealert_id").prop("disabled",false);
+	} else {
+		$(".fmfm_remotealert_id").prop("disabled",true);
+	}
+})
 
 //Agent Quick Select
 $("[id^='qsagents']").on('change',function(){
