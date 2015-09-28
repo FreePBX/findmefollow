@@ -19,10 +19,7 @@ class Findmefollow extends Modules{
 			"ringtime" => $settings['grptime'],
 			"prering" => $settings['pre_ring'],
 			"exten" => $settings['grpnum'],
-			"recordings" => $this->UCP->FreePBX->Recordings->getAllRecordings(),
-			"annmsg_id" => $settings['annmsg_id'],
-			"remotealert_id" => $settings['remotealert_id'],
-			"toolate_id" => $settings['toolate_id']
+			"recordings" => $this->UCP->FreePBX->Recordings->getAllRecordings()
 		);
 		for($i = 0;$i<=30;$i++) {
 			$displayvars['prering_time'][$i] = $i;

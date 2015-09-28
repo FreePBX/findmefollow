@@ -17,16 +17,6 @@
 		<span class="help-block help-hidden" data-for="grplist"><?php echo _('List extensions to ring, one per line. You can include an extension on a remote system, or an external number by suffixing a number with a pound (#).  ex:  2448089# would dial 2448089.')?></span>
 	</div>
 	<div class="form-group">
-		<label for="annmsg_id" class="help"><?php echo _('Announcement') ?> <i class="fa fa-question-circle"></i></label><br/>
-		<select name="annmsg_id" id="annmsg_id" class="form-control">
-			<option value="0"><?php echo _('None')?></option>
-			<?php foreach($recordings as $value) { ?>
-				<option value="<?php echo $value['id']?>" <?php echo ($annmsg_id == $value['id']) ? 'selected' : ''?>><?php echo $value['displayname']?></option>
-			<?php } ?>
-		</select>
-		<span class="help-block help-hidden" data-for="annmsg_id"><?php echo _('Message to be played to the caller before dialing this group.')?></span>
-	</div>
-	<div class="form-group">
 		<label for="pre_ring" class="help"><?php echo sprintf(_('Ring %s First For'),$exten) ?> <i class="fa fa-question-circle"></i></label><br/>
 		<select name="pre_ring" id="pre_ring" class="form-control">
 			<?php foreach($prering_time as $key => $value) { ?>
@@ -54,25 +44,5 @@
 			</label>
 		</div>
 		<span class="help-block help-hidden" data-for="needsconf-h"><?php echo _("Enable this if you're calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through.")?></span>
-	</div>
-	<div class="form-group">
-		<label for="remotealert_id" class="help"><?php echo _('Remote Announce') ?> <i class="fa fa-question-circle"></i></label><br/>
-		<select name="remotealert_id" id="remotealert_id" class="form-control">
-			<option value="0"><?php echo _('None')?></option>
-			<?php foreach($recordings as $value) { ?>
-				<option value="<?php echo $value['id']?>" <?php echo ($remotealert_id == $value['id']) ? 'selected' : ''?>><?php echo $value['displayname']?></option>
-			<?php } ?>
-		</select>
-		<span class="help-block help-hidden" data-for="remotealert_id"><?php echo _("Message to be played to the person RECEIVING the call, if 'Confirm Calls' is enabled.")?></span>
-	</div>
-	<div class="form-group">
-		<label for="toolate_id" class="help"><?php echo _('Too-Late Announce') ?> <i class="fa fa-question-circle"></i></label><br/>
-		<select name="toolate_id" id="toolate_id" class="form-control">
-			<option value="0"><?php echo _('None')?></option>
-			<?php foreach($recordings as $value) { ?>
-				<option value="<?php echo $value['id']?>" <?php echo ($toolate_id == $value['id']) ? 'selected' : ''?>><?php echo $value['displayname']?></option>
-			<?php } ?>
-		</select>
-		<span class="help-block help-hidden" data-for="toolate_id"><?php echo _("Message to be played to the person RECEIVING the call, if the call has already been accepted before they push 1.")?></span>
 	</div>
 </form>
