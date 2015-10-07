@@ -61,8 +61,8 @@ $("[id^='fmtoggle']").change(function(){
 	}else{
 		fmstate = "enable";
 	}
-	$.get("config.php?display=findmefollow&action=toggleFM&extdisplay="+exten+"&state="+fmstate);
-	alert('Followme for '+exten +' '+fmstate+'d');
+	$.get("ajax.php?module=findmefollow&command=toggleFM&extdisplay="+exten+"&state="+fmstate);
+	fpbxToast('Followme for '+exten +' '+fmstate+'d');
 });
 });
 

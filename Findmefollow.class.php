@@ -102,24 +102,6 @@ class Findmefollow implements \BMO {
 					needreload();
 					redirect_standard('extdisplay', 'view');
 				}
-				//Grid Toggle
-				if($action == 'toggleFM'){
-					if($request['state'] == 'enable'){
-						$state = true;
-					}
-					if($request['state'] == 'disable'){
-						$state = false;
-					}
-					if(!isset($state) || !isset($extdisplay)){
-					header('Content-Type: application/json');
-					echo json_encode(array('toggle' => 'invalid'));
-					return;
-					}
-					$this->setDDial($extdisplay,$state);
-					header('Content-Type: application/json');
-					echo json_encode(array('toggle' => 'received'));
-					return;
-				}
 			}
 		}
 
@@ -708,5 +690,36 @@ class Findmefollow implements \BMO {
 		}
 
 		return $data;
+	}
+	public function ajaxRequest($req, &$setting) {
+		switch ($req) {
+			case 'toggleFM':
+				return true;
+			break;
+			default:
+				return false;
+			break;
+		}
+	}
+	public function ajaxHandler(){
+		switch ($_REQUEST['command']) {
+			case 'toggleFM':
+				if($_REQUEST['state'] == 'enable'){
+					$state = true;
+				}
+				if($_REQUEST['state'] == 'disable'){
+					$state = false;
+				}
+				if(!isset($state) || !isset($extdisplay)){
+					return array('toggle' => 'invalid');
+				}
+				$this->setDDial($extdisplay,$state);
+				return array('toggle' => 'received');
+			break;
+
+			default:
+				return false;
+			break;
+		}
 	}
 }
