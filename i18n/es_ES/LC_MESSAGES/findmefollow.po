@@ -173,11 +173,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr ""
 
-#: Findmefollow.class.php:628
+#: Findmefollow.class.php:610
 msgid "Follow Me Enabled"
 msgstr ""
 
-#: Findmefollow.class.php:631 ucp/views/settings.php:15
+#: Findmefollow.class.php:613 ucp/views/settings.php:15
 msgid "Follow Me List"
 msgstr ""
 
@@ -368,7 +368,7 @@ msgstr ""
 msgid "Remote Announce"
 msgstr ""
 
-#: Findmefollow.class.php:609
+#: Findmefollow.class.php:591
 msgid "Reset"
 msgstr ""
 
@@ -401,7 +401,7 @@ msgstr ""
 msgid "Seconds"
 msgstr ""
 
-#: Findmefollow.class.php:604
+#: Findmefollow.class.php:586
 msgid "Submit"
 msgstr ""
 

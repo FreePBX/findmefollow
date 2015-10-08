@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-28 11:51-0700\n"
+"POT-Creation-Date: 2015-10-08 12:53-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -211,11 +211,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr ""
 
-#: Findmefollow.class.php:628
+#: Findmefollow.class.php:610
 msgid "Follow Me Enabled"
 msgstr ""
 
-#: Findmefollow.class.php:631
+#: Findmefollow.class.php:613
 #: ucp/views/settings.php:15
 msgid "Follow Me List"
 msgstr ""
@@ -424,7 +424,7 @@ msgstr ""
 msgid "Remote Announce"
 msgstr ""
 
-#: Findmefollow.class.php:609
+#: Findmefollow.class.php:591
 msgid "Reset"
 msgstr ""
 
@@ -460,7 +460,7 @@ msgstr ""
 msgid "Seconds"
 msgstr ""
 
-#: Findmefollow.class.php:604
+#: Findmefollow.class.php:586
 msgid "Submit"
 msgstr ""
 
