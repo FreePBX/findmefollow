@@ -111,19 +111,19 @@ msgstr "无人接听时的目的地"
 
 #: functions.inc.php:1022
 msgid "Destinations"
-msgstr ""
+msgstr "目的地"
 
 #: ucp/views/settings.php:4
 msgid "Enable"
-msgstr ""
+msgstr "开启"
 
 #: views/quickCreate.php:5
 msgid "Enable Find Me/Follow Me"
-msgstr ""
+msgstr "开启分机随行"
 
 #: views/form.php:259
 msgid "Enable Followme"
-msgstr ""
+msgstr "开启分机随行"
 
 #: ucp/views/settings.php:46
 msgid ""
@@ -154,7 +154,7 @@ msgstr ""
 
 #: functions.inc.php:663 views/fmgrid.php:26
 msgid "Enabled"
-msgstr ""
+msgstr "开启"
 
 #: views/bootnav.php:7
 msgid "Extension"
@@ -166,11 +166,11 @@ msgstr "快速分机选取"
 
 #: functions.inc.php:608 ucp/Findmefollow.class.php:32
 msgid "Find Me/Follow Me"
-msgstr ""
+msgstr "分机随行"
 
 #: ucp/Findmefollow.class.php:82
 msgid "Find Me/Follow Me Has Been Updated!"
-msgstr ""
+msgstr "分机随行已更新"
 
 #: install.php:5
 msgid "Findme Follow Toggle"
@@ -179,7 +179,7 @@ msgstr "切换“跟我来”"
 #: functions.inc.php:966 functions.inc.php:982 functions.inc.php:1005
 #: views/form.php:213 views/form.php:469 views/form.php:511
 msgid "Fixed CID Value"
-msgstr ""
+msgstr "固定CID值"
 
 #: functions.inc.php:1012
 msgid ""
@@ -207,7 +207,7 @@ msgstr "跟我来"
 
 #: Findmefollow.class.php:628
 msgid "Follow Me Enabled"
-msgstr ""
+msgstr "已开启分机随行"
 
 #: Findmefollow.class.php:631 ucp/views/settings.php:15
 msgid "Follow Me List"
@@ -216,7 +216,7 @@ msgstr ""
 #: functions.inc.php:1172
 #, php-format
 msgid "Follow Me: %s"
-msgstr ""
+msgstr "分机随行: %s"
 
 #: functions.inc.php:741 views/form.php:360
 msgid "Follow-Me List"
@@ -238,11 +238,11 @@ msgstr "“跟我来”列表：%s (%s)"
 
 #: views/fmgrid.php:25
 msgid "Followme Extension"
-msgstr ""
+msgstr "分机随行分机"
 
 #: views/nogo.php:2
 msgid "Followme List"
-msgstr ""
+msgstr "分机随行列表"
 
 #: functions.inc.php:969 functions.inc.php:994 views/form.php:216
 #: views/form.php:475
@@ -255,11 +255,11 @@ msgstr "强制使用分机随行"
 
 #: functions.inc.php:639
 msgid "General Settings"
-msgstr ""
+msgstr "基本设置"
 
 #: views/form.php:235
 msgid "Group Number"
-msgstr ""
+msgstr "组号码"
 
 #: functions.inc.php:802 views/form.php:204
 msgid ""
@@ -271,7 +271,7 @@ msgstr ""
 
 #: functions.inc.php:692 views/form.php:286
 msgid "Initial Ring Time"
-msgstr ""
+msgstr "初始振铃时长"
 
 #: assets/js/findmefollow.js:90
 msgid ""
@@ -285,7 +285,7 @@ msgstr "指定了无效的时间"
 
 #: views/bootnav.php:11
 msgid "List Followme Groups"
-msgstr ""
+msgstr "列出分机随行组"
 
 #: functions.inc.php:742 views/form.php:380
 msgid ""
@@ -353,7 +353,7 @@ msgstr ""
 
 #: views/nogo.php:1
 msgid "Method not supported"
-msgstr ""
+msgstr "此方法不支持"
 
 #: functions.inc.php:972 views/form.php:465
 msgid "Mode"
@@ -366,7 +366,7 @@ msgstr ""
 
 #: functions.inc.php:1046
 msgid "No Answer"
-msgstr ""
+msgstr "无应答"
 
 #: functions.inc.php:594 views/form.php:77
 msgid "None"
@@ -397,7 +397,7 @@ msgstr ""
 
 #: functions.inc.php:801 views/form.php:180
 msgid "Play Music On Hold"
-msgstr ""
+msgstr "播放音乐等待"
 
 #: functions.inc.php:620
 #, php-format
@@ -410,11 +410,11 @@ msgstr "请输入一个分机列表。"
 
 #: functions.inc.php:890 views/form.php:105
 msgid "Remote Announce"
-msgstr ""
+msgstr "远程播报"
 
 #: Findmefollow.class.php:609
 msgid "Reset"
-msgstr ""
+msgstr "重新设置"
 
 #: functions.inc.php:789 views/form.php:187
 msgid "Ring"
@@ -431,11 +431,11 @@ msgstr ""
 
 #: functions.inc.php:719 views/form.php:310
 msgid "Ring Strategy"
-msgstr ""
+msgstr "振铃策略"
 
 #: functions.inc.php:730
 msgid "Ring Time"
-msgstr ""
+msgstr "这里时长"
 
 #: views/form.php:336
 msgid "Ring Time (max 60 sec)"
@@ -582,11 +582,11 @@ msgstr "已经迁移过了"
 
 #: views/form.php:191
 msgid "default"
-msgstr ""
+msgstr "默认设置"
 
 #: functions.inc.php:620
 msgid "device"
-msgstr ""
+msgstr "设备"
 
 #: install.php:265
 msgid "dropping annmsg field.."
@@ -602,7 +602,7 @@ msgstr "正在删除toolate字段。。。"
 
 #: functions.inc.php:620
 msgid "extension"
-msgstr ""
+msgstr "分机"
 
 #: install.php:159 install.php:168 install.php:177 install.php:189
 #: install.php:205 install.php:215 install.php:231 install.php:241
