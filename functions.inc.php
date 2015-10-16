@@ -322,7 +322,7 @@ function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre=
 			continue;
 		}
 
-		if (!$extens[$list[$key]]) {
+		if (empty($extens[$list[$key]])) {
 			/* Extension not found.  Must be an external number. */
 			$list[$key].= '#';
 		}
