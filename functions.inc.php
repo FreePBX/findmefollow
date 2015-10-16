@@ -72,10 +72,10 @@ function findmefollow_get_config($engine) {
 				$device_list = core_devices_list("all", 'full', true);
 				if(!empty($device_list) && is_array($device_list)) {
 					foreach ($device_list as $device) {
-          	if ($device['tech'] == 'pjsip' || $device['tech'] == 'sip' || $device['tech'] == 'iax2') {
-					  	$ext->add($contextname, $fmf_code.$device['id'], '', new ext_goto("1",$fmf_code,"app-fmf-toggle"));
-					  	//$ext->addHint($contextname, $fmf_code.$device['id'], "Custom:FOLLOWME".$device['id']);
-          	}
+						if ($device['tech'] == 'pjsip' || $device['tech'] == 'sip' || $device['tech'] == 'iax2') {
+							$ext->add($contextname, $fmf_code.$device['id'], '', new ext_goto("1",$fmf_code,"app-fmf-toggle"));
+							//$ext->addHint($contextname, $fmf_code.$device['id'], "Custom:FOLLOWME".$device['id']);
+						}
 					}
 				}
 				$ext->addHint($contextname, "_$fmf_code".'X.', "Custom:FOLLOWME".'${EXTEN:'.strlen($fmf_code).'}');
@@ -108,9 +108,9 @@ function findmefollow_get_config($engine) {
 						$dialopts = '${DIAL_OPTIONS}';
 					} else {
 						// We need the DIAL_OPTIONS variable
-            if (!isset($sops)) {
-						  $sops = sql("SELECT value from globals where variable='DIAL_OPTIONS'", "getRow");
-            }
+						if (!isset($sops)) {
+							$sops = sql("SELECT value from globals where variable='DIAL_OPTIONS'", "getRow");
+						}
 						$dialopts = "m(${ringing})".str_replace('r', '', $sops[0]);
 					}
 
@@ -163,8 +163,8 @@ function findmefollow_get_config($engine) {
 					// recording stuff
 					$ext->add($contextname, $grpnum, '', new ext_setvar('RecordMethod','Group'));
 
-          // Note there is no cancel later as the special case of follow-me, if they say record, it should stick
-          $ext->add($contextname, $grpnum, 'checkrecord', new ext_gosub('1','s','sub-record-check',"exten,$grpnum,"));
+					// Note there is no cancel later as the special case of follow-me, if they say record, it should stick
+					$ext->add($contextname, $grpnum, 'checkrecord', new ext_gosub('1','s','sub-record-check',"exten,$grpnum,"));
 
 					// MODIFIED (PL)
 					// Add Alert Info if set but don't override and already set value (could be from ringgroup, directdid, etc.)
@@ -187,12 +187,12 @@ function findmefollow_get_config($engine) {
 					$ext->add($contextname, $grpnum, '', new ext_setvar('_FMGRP',$grpnum));
 
 					if ((isset($annmsg_id) ? $annmsg_id : '')) {
-									$annmsg = recordings_get_file($annmsg_id);
-									// should always answer before playing anything, shouldn't we ?
-									$ext->add($contextname, $grpnum, '', new ext_gotoif('$[$["${DIALSTATUS}" = "ANSWER"] | $["foo${RRNODEST}" != "foo"]]','DIALGRP'));
-									$ext->add($contextname, $grpnum, '', new ext_answer(''));
-									$ext->add($contextname, $grpnum, '', new ext_wait(1));
-									$ext->add($contextname, $grpnum, '', new ext_playback($annmsg));
+						$annmsg = recordings_get_file($annmsg_id);
+						// should always answer before playing anything, shouldn't we ?
+						$ext->add($contextname, $grpnum, '', new ext_gotoif('$[$["${DIALSTATUS}" = "ANSWER"] | $["foo${RRNODEST}" != "foo"]]','DIALGRP'));
+						$ext->add($contextname, $grpnum, '', new ext_answer(''));
+						$ext->add($contextname, $grpnum, '', new ext_wait(1));
+						$ext->add($contextname, $grpnum, '', new ext_playback($annmsg));
 					}
 
 					// Create the confirm target
@@ -249,47 +249,47 @@ function findmefollow_get_config($engine) {
 					}
 					$ext->add($contextname, $grpnum, 'nodest', new ext_noop('SKIPPING DEST, CALL CAME FROM Q/RG: ${RRNODEST}'));
 				}
+	/*
+	  ASTDB Settings:
+	  AMPUSER/nnn/followme/changecid default | did | fixed | extern
+	  AMPUSER/nnn/followme/fixedcid XXXXXXXX
 
-        /*
-          ASTDB Settings:
-          AMPUSER/nnn/followme/changecid default | did | fixed | extern
-          AMPUSER/nnn/followme/fixedcid XXXXXXXX
+	  changecid:
+	    default   - works as always, same as if not present
+	    fixed     - set to the fixedcid
+	    extern    - set to the fixedcid if the call is from the outside only
+	    did       - set to the DID that the call came in on or leave alone, treated as foreign
+	    forcedid  - set to the DID that the call came in on or leave alone, not treated as foreign
 
-          changecid:
-            default   - works as always, same as if not present
-            fixed     - set to the fixedcid
-            extern    - set to the fixedcid if the call is from the outside only
-            did       - set to the DID that the call came in on or leave alone, treated as foreign
-            forcedid  - set to the DID that the call came in on or leave alone, not treated as foreign
-
-          EXTTOCALL   - has the exten num called, hoaky if that goes away but for now use it
+	  EXTTOCALL   - has the exten num called, hoaky if that goes away but for now use it
         */
-        if (count($ringlist)) {
-          $contextname = 'sub-fmsetcid';
-          $exten = 's';
-          $ext->add($contextname, $exten, '', new ext_goto('1','s-${DB(AMPUSER/${EXTTOCALL}/followme/changecid)}'));
 
-          $exten = 's-fixed';
-			    $ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${DB(AMPUSER/${EXTTOCALL}/followme/fixedcid)})}" = "1"]', 'Set', '__TRUNKCIDOVERRIDE=${DB(AMPUSER/${EXTTOCALL}/followme/fixedcid)}'));
-			    $ext->add($contextname, $exten, '', new ext_return(''));
+				if (count($ringlist)) {
+					$contextname = 'sub-fmsetcid';
+					$exten = 's';
+					$ext->add($contextname, $exten, '', new ext_goto('1','s-${DB(AMPUSER/${EXTTOCALL}/followme/changecid)}'));
 
-          $exten = 's-extern';
-			    $ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${DB(AMPUSER/${EXTTOCALL}/followme/fixedcid)})}" == "1" & "${FROM_DID}" != ""]', 'Set', '__TRUNKCIDOVERRIDE=${DB(AMPUSER/${EXTTOCALL}/followme/fixedcid)}'));
-			    $ext->add($contextname, $exten, '', new ext_return(''));
+					$exten = 's-fixed';
+					$ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${DB(AMPUSER/${EXTTOCALL}/followme/fixedcid)})}" = "1"]', 'Set', '__TRUNKCIDOVERRIDE=${DB(AMPUSER/${EXTTOCALL}/followme/fixedcid)}'));
+					$ext->add($contextname, $exten, '', new ext_return(''));
 
-          $exten = 's-did';
-			    $ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${FROM_DID})}" = "1"]', 'Set', '__REALCALLERIDNUM=${FROM_DID}'));
-			    $ext->add($contextname, $exten, '', new ext_return(''));
+					$exten = 's-extern';
+					$ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${DB(AMPUSER/${EXTTOCALL}/followme/fixedcid)})}" == "1" & "${FROM_DID}" != ""]', 'Set', '__TRUNKCIDOVERRIDE=${DB(AMPUSER/${EXTTOCALL}/followme/fixedcid)}'));
+					$ext->add($contextname, $exten, '', new ext_return(''));
 
-          $exten = 's-forcedid';
-			    $ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${FROM_DID})}" = "1"]', 'Set', '__TRUNKCIDOVERRIDE=${FROM_DID}'));
-			    $ext->add($contextname, $exten, '', new ext_return(''));
+					$exten = 's-did';
+					$ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${FROM_DID})}" = "1"]', 'Set', '__REALCALLERIDNUM=${FROM_DID}'));
+					$ext->add($contextname, $exten, '', new ext_return(''));
 
-          $exten = '_s-.';
+					$exten = 's-forcedid';
+					$ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${FROM_DID})}" = "1"]', 'Set', '__TRUNKCIDOVERRIDE=${FROM_DID}'));
+					$ext->add($contextname, $exten, '', new ext_return(''));
+
+					$exten = '_s-.';
 					$ext->add($contextname, $exten, '', new ext_noop('Unknown value for AMPUSER/${EXTTOCALL}/followme/changecid of ${DB(AMPUSER/${EXTTOCALL}/followme/changecid)} set to "default"'));
 					$ext->add($contextname, $exten, '', new ext_setvar('DB(AMPUSER/${EXTTOCALL}/followme/changecid)', 'default'));
-			    $ext->add($contextname, $exten, '', new ext_return(''));
-        }
+					$ext->add($contextname, $exten, '', new ext_return(''));
+				}
 			}
 		break;
 	}
@@ -355,7 +355,7 @@ function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre=
 		}
 
 		$astman->database_put("AMPUSER",$grpnum."/followme/changecid",$changecid);
-	  $fixedcid = preg_replace("/[^0-9\+]/" ,"", trim($fixedcid));
+		$fixedcid = preg_replace("/[^0-9\+]/" ,"", trim($fixedcid));
 		$astman->database_put("AMPUSER",$grpnum."/followme/fixedcid",$fixedcid);
 	} else {
 		fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
@@ -466,41 +466,41 @@ function findmefollow_get($grpnum, $check_astdb=0) {
 			$astdb_grplist = $astman->database_get("AMPUSER",$grpnum."/followme/grplist");
 			$astdb_grpconf = $astman->database_get("AMPUSER",$grpnum."/followme/grpconf");
 
-      $astdb_changecid = strtolower($astman->database_get("AMPUSER",$grpnum."/followme/changecid"));
-      switch($astdb_changecid) {
-        case 'default':
-        case 'did':
-        case 'forcedid':
-        case 'fixed':
-        case 'extern':
-          break;
-        default:
-          $astdb_changecid = 'default';
-      }
-      $results['changecid'] = $astdb_changecid;
-      $fixedcid = $astman->database_get("AMPUSER",$grpnum."/followme/fixedcid");
-	    $results['fixedcid'] = preg_replace("/[^0-9\+]/" ,"", trim($fixedcid));
+			$astdb_changecid = strtolower($astman->database_get("AMPUSER",$grpnum."/followme/changecid"));
+			switch($astdb_changecid) {
+				case 'default':
+				case 'did':
+				case 'forcedid':
+				case 'fixed':
+				case 'extern':
+					break;
+				default:
+					$astdb_changecid = 'default';
+			}
+			$results['changecid'] = $astdb_changecid;
+			$fixedcid = $astman->database_get("AMPUSER",$grpnum."/followme/fixedcid");
+			$results['fixedcid'] = preg_replace("/[^0-9\+]/" ,"", trim($fixedcid));
 		} else {
 			fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
 		}
-			$astdb_ddial   = $astman->database_get("AMPUSER",$grpnum."/followme/ddial");
+		$astdb_ddial   = $astman->database_get("AMPUSER",$grpnum."/followme/ddial");
 		// If the values are different then use what is in astdb as it may have been changed.
 		// If sql returned no results for pre_ring/grptime then it's not configued so we reset
 		// the astdb defaults as well
 		//
 		$changed=0;
-    if (!isset($results['pre_ring'])) {
-      $results['pre_ring'] = $astdb_prering = $amp_conf['FOLLOWME_PRERING'];
-    }
-    if (!isset($results['grptime'])) {
-      $results['grptime'] = $astdb_grptime = $amp_conf['FOLLOWME_TIME'];
-    }
-    if (!isset($results['grplist'])) {
-      $results['grplist'] = '';
-    }
-    if (!isset($results['needsconf'])) {
-      $results['needsconf'] = '';
-    }
+		if (!isset($results['pre_ring'])) {
+			$results['pre_ring'] = $astdb_prering = $amp_conf['FOLLOWME_PRERING'];
+		}
+		if (!isset($results['grptime'])) {
+			$results['grptime'] = $astdb_grptime = $amp_conf['FOLLOWME_TIME'];
+		}
+		if (!isset($results['grplist'])) {
+			$results['grplist'] = '';
+		}
+		if (!isset($results['needsconf'])) {
+			$results['needsconf'] = '';
+		}
 		if (($astdb_prering != $results['pre_ring']) && ($astdb_prering >= 0)) {
 			$results['pre_ring'] = $astdb_prering;
 			$changed=1;
@@ -1169,9 +1169,10 @@ function findmefollow_getdestinfo($dest) {
 		if (empty($thisgrp)) {
 			return array();
 		} else {
-			return array('description' => sprintf(_("Follow Me: %s"),urlencode($grp)),
-			             'edit_url' => 'config.php?display=findmefollow&extdisplay=GRP-'.urlencode($grp),
-								  );
+			return array(
+				'description' => sprintf(_("Follow Me: %s"),urlencode($grp)),
+				'edit_url' => 'config.php?display=findmefollow&extdisplay=GRP-'.urlencode($grp),
+			);
 		}
 	} else {
 		return false;
@@ -1272,12 +1273,12 @@ function findmefollow_fmf_toggle($c) {
 	$ext->add($id, $c, '', new ext_macro('hangupcall'));
 
 	if ($amp_conf['USEDEVSTATE']) {
-	$c = 'sstate';
+		$c = 'sstate';
 		$ext->add($id, $c, '', new ext_dbget('DEVICES','AMPUSER/${AMPUSER}/device'));
 		$ext->add($id, $c, '', new ext_gotoif('$["${DEVICES}" = "" ]', 'return'));
 		$ext->add($id, $c, '', new ext_setvar('LOOPCNT', '${FIELDQTY(DEVICES,&)}'));
 		$ext->add($id, $c, '', new ext_setvar('ITER', '1'));
-    $ext->add($id, $c, 'begin', new ext_setvar($amp_conf['AST_FUNC_DEVICE_STATE'].'(Custom:FOLLOWME${CUT(DEVICES,&,${ITER})})','${STATE}'));
+		$ext->add($id, $c, 'begin', new ext_setvar($amp_conf['AST_FUNC_DEVICE_STATE'].'(Custom:FOLLOWME${CUT(DEVICES,&,${ITER})})','${STATE}'));
 		$ext->add($id, $c, '', new ext_setvar('ITER', '$[${ITER} + 1]'));
 		$ext->add($id, $c, '', new ext_gotoif('$[${ITER} <= ${LOOPCNT}]', 'begin'));
 		$ext->add($id, $c, 'return', new ext_return());
