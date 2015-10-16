@@ -186,7 +186,7 @@ function findmefollow_get_config($engine) {
 					$ext->add($contextname, $grpnum, 'skipsimple', new ext_setvar('RingGroupMethod',$strategy));
 					$ext->add($contextname, $grpnum, '', new ext_setvar('_FMGRP',$grpnum));
 
-					if ((isset($annmsg_id) ? $annmsg_id : '')) {
+					if (!empty($annmsg_id)) {
 						$annmsg = recordings_get_file($annmsg_id);
 						// should always answer before playing anything, shouldn't we ?
 						$ext->add($contextname, $grpnum, '', new ext_gotoif('$[$["${DIALSTATUS}" = "ANSWER"] | $["foo${RRNODEST}" != "foo"]]','DIALGRP'));
@@ -197,8 +197,8 @@ function findmefollow_get_config($engine) {
 
 					// Create the confirm target
 					$len=strlen($grpnum)+4;
-					$remotealert = recordings_get_file($remotealert_id);
-					$toolate = recordings_get_file($toolate_id);
+					$remotealert = empty($remotealert_id) ? '' : recordings_get_file($remotealert_id);
+					$toolate = empty($toolate_id) ? '' : recordings_get_file($toolate_id);
 					$ext->add("fmgrps", "_RG-${grpnum}.", '', new ext_nocdr(''));
 					$ext->add("fmgrps", "_RG-${grpnum}.", '', new ext_macro('dial','${DB(AMPUSER/'."$grpnum/followme/grptime)},$dialopts" . "M(confirm^${remotealert}^${toolate}^${grpnum})".',${EXTEN:'.$len.'}'));
 
