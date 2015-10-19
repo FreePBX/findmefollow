@@ -181,7 +181,7 @@ msgstr ""
 msgid "Follow Me List"
 msgstr ""
 
-#: functions.inc.php:1172
+#: functions.inc.php:1173
 #, php-format
 msgid "Follow Me: %s"
 msgstr ""
@@ -194,12 +194,12 @@ msgstr ""
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
 msgstr ""
 
-#: functions.inc.php:1225
+#: functions.inc.php:1226
 #, php-format
 msgid "Follow-Me User: %s"
 msgstr ""
 
-#: functions.inc.php:1201
+#: functions.inc.php:1202
 #, php-format
 msgid "Follow-Me: %s (%s)"
 msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-08 12:53-0700\n"
+"POT-Creation-Date: 2015-10-19 10:21-0700\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -202,7 +202,7 @@ msgstr ""
 msgid "Follow Me List"
 msgstr ""
 
-#: functions.inc.php:1172
+#: functions.inc.php:1173
 #, php-format
 msgid "Follow Me: %s"
 msgstr ""
@@ -216,12 +216,12 @@ msgstr "עקוב אחרי"
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
 msgstr ""
 
-#: functions.inc.php:1225
+#: functions.inc.php:1226
 #, php-format
 msgid "Follow-Me User: %s"
 msgstr ""
 
-#: functions.inc.php:1201
+#: functions.inc.php:1202
 #, php-format
 msgid "Follow-Me: %s (%s)"
 msgstr ""
