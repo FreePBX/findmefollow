@@ -10,7 +10,8 @@ $dispnum = 'findmefollow'; //used for switch on config.php
 
 $heading = _("Follow Me");
 
-switch($request['view']){
+$view = isset($request['view']) ? $request['view'] : '';
+switch($view){
 	case "form":
 		$cwidth = "9";
 		$bootnav ='
