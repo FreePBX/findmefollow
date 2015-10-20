@@ -260,9 +260,9 @@ if (empty($goto)) {
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="ddialw"></i>
 					</div>
 					<div class="col-md-9 radioset">
-						<input type="radio" name="ddial" id="ddialyes" <?php echo ($ddial == 'CHECKED'?'':'CHECKED')?>>
+						<input type="radio" name="ddial" id="ddialyes" value='CHECKED' <?php echo ($ddial == 'CHECKED'?'':'CHECKED')?>>
 						<label for="ddialyes"><?php echo _("Yes")?></label>
-						<input type="radio" name="ddial" id="ddialno"  <?php echo ($ddial == 'CHECKED'?'CHECKED':'' )?> value="CHECKED">
+						<input type="radio" name="ddial" id="ddialno" value='' <?php echo ($ddial == 'CHECKED'?'CHECKED':'' )?> value="CHECKED">
 						<label for="ddialno"><?php echo _("No")?></label>
 					</div>
 				</div>
@@ -445,7 +445,7 @@ if (empty($goto)) {
 					<div class="col-md-9 radioset">
 						<input type="radio" name="needsconf" id="needsconfyes" value="CHECKED" <?php echo ($needsconf == "CHECKED"?"CHECKED":"") ?>>
 						<label for="needsconfyes"><?php echo _("Yes");?></label>
-						<input type="radio" name="needsconf" id="needsconfno" <?php echo ($needsconf == "CHECKED"?"":"CHECKED") ?>>
+						<input type="radio" name="needsconf" id="needsconfno" value='' <?php echo ($needsconf == "CHECKED"?"":"CHECKED") ?>>
 						<label for="needsconfno"><?php echo _("No");?></label>
 					</div>
 				</div>
