@@ -309,6 +309,7 @@ class Findmefollow implements \BMO {
 				$this->FreePBX->astman->set_global($this->FreePBX->Config->get_conf_setting('AST_FUNC_DEVICE_STATE') . "(Custom:FOLLOWME$device)", $value_opt);
 			}
 		}
+		return $response;
 	}
 
 	/*
@@ -704,17 +705,19 @@ class Findmefollow implements \BMO {
 	public function ajaxHandler(){
 		switch ($_REQUEST['command']) {
 			case 'toggleFM':
+				$extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:'';
+				$state = '';
 				if($_REQUEST['state'] == 'enable'){
 					$state = true;
 				}
 				if($_REQUEST['state'] == 'disable'){
 					$state = false;
 				}
-				if(!isset($state) || !isset($extdisplay)){
+				if($state === '' || empty($extdisplay)){
 					return array('toggle' => 'invalid');
 				}
-				$this->setDDial($extdisplay,$state);
-				return array('toggle' => 'received');
+				$ret = $this->setDDial($extdisplay,$state);
+				return array('toggle' => 'received', 'return' => $ret );
 			break;
 
 			default:
