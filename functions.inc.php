@@ -550,11 +550,32 @@ function findmefollow_get($grpnum, $check_astdb=0) {
 	return $results;
 }
 
-function findmefollow_users_configpageinit($dispnum) {
+function findmefollow_users_configpageinit($pagename) {
 	global $currentcomponent;
 
-	$currentcomponent->addguifunc('findmefollow_users_configpageload');
-	$currentcomponent->addprocessfunc('findmefollow_users_configprocess', 8);
+	$display = isset($_REQUEST['display'])?$_REQUEST['display']:null;
+	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
+	$extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
+	$extension = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
+	$tech_hardware = isset($_REQUEST['tech_hardware'])?$_REQUEST['tech_hardware']:null;
+
+	// We only want to hook the 'extensions' pages.
+	if ($pagename != 'extensions' && $pagename != 'users')  {
+		return true;
+	}
+
+	// On a 'new' user, 'tech_hardware' is set, and there's no extension. Hook into the page.
+	if ($tech_hardware != null || $pagename == 'users') {
+		$currentcomponent->addguifunc('findmefollow_users_configpageload');
+		$currentcomponent->addprocessfunc('findmefollow_users_configprocess', 8);
+	} elseif ($action=="add") {
+		// We don't need to display anything on an 'add', but we do need to handle returned data.
+		$currentcomponent->addprocessfunc('findmefollow_users_configprocess', 8);
+	} elseif ($extdisplay != '') {
+		// We're now viewing an extension, so we need to display _and_ process.
+		$currentcomponent->addguifunc('findmefollow_users_configpageload');
+		$currentcomponent->addprocessfunc('findmefollow_users_configprocess', 8);
+	}
 }
 
 function findmefollow_users_configpageload($pagename) {
