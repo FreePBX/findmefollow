@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX findmefollow\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-19 10:21-0700\n"
+"POT-Creation-Date: 2015-10-23 10:50-0700\n"
 "PO-Revision-Date: 2008-11-08 18:39+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -154,6 +154,10 @@ msgstr ""
 msgid "Enabled"
 msgstr ""
 
+#: assets/js/findmefollow.js:72
+msgid "Error"
+msgstr ""
+
 #: views/bootnav.php:7
 msgid "Extension"
 msgstr "Anknytning"
@@ -203,11 +207,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "Följ-mig"
 
-#: Findmefollow.class.php:610
+#: Findmefollow.class.php:611
 msgid "Follow Me Enabled"
 msgstr ""
 
-#: Findmefollow.class.php:613 ucp/views/settings.php:15
+#: Findmefollow.class.php:614 ucp/views/settings.php:15
 msgid "Follow Me List"
 msgstr ""
 
@@ -271,13 +275,13 @@ msgstr ""
 msgid "Initial Ring Time"
 msgstr ""
 
-#: assets/js/findmefollow.js:90
+#: assets/js/findmefollow.js:99
 msgid ""
 "Invalid CID Number. Must be in a format of digits only with an option of "
 "E164 format using a leading \"+\""
 msgstr ""
 
-#: assets/js/findmefollow.js:87
+#: assets/js/findmefollow.js:96
 msgid "Invalid time specified"
 msgstr "Ogiltig tid angiven"
 
@@ -378,7 +382,7 @@ msgstr "Inget"
 msgid "Normal Extension Behavior"
 msgstr ""
 
-#: assets/js/findmefollow.js:89
+#: assets/js/findmefollow.js:98
 msgid ""
 "Only ringall, ringallv2, hunt and the respective -prim versions are "
 "supported when confirmation is checked"
@@ -407,7 +411,7 @@ msgstr ""
 msgid "Please enter a valid %s number"
 msgstr ""
 
-#: assets/js/findmefollow.js:86
+#: assets/js/findmefollow.js:95
 msgid "Please enter an extension list."
 msgstr "Skriv in en anknytningslista"
 
@@ -415,7 +419,11 @@ msgstr "Skriv in en anknytningslista"
 msgid "Remote Announce"
 msgstr ""
 
-#: Findmefollow.class.php:591
+#: assets/js/findmefollow.js:72
+msgid "Request not received"
+msgstr ""
+
+#: Findmefollow.class.php:592
 msgid "Reset"
 msgstr ""
 
@@ -448,7 +456,7 @@ msgstr "Ringtid (max 60 sek)"
 msgid "Seconds"
 msgstr ""
 
-#: Findmefollow.class.php:586
+#: Findmefollow.class.php:587
 msgid "Submit"
 msgstr ""
 
@@ -478,7 +486,7 @@ msgstr ""
 "Tid i sekunder som telefonen kommer att ringa. För alla hunt-strategier är "
 "detta tiden för varje runda av telefoner som rings"
 
-#: assets/js/findmefollow.js:88
+#: assets/js/findmefollow.js:97
 msgid "Time must be between 1 and 60 seconds"
 msgstr "Tiden måste vara mellan 1 till 60 sekunder"
 
@@ -529,6 +537,10 @@ msgstr "Användare"
 #: Findmefollow.class.php:80
 msgid "Warning! Extension"
 msgstr "Varning! Anknytning"
+
+#: assets/js/findmefollow.js:69
+msgid "We received and sent your request but something failed"
+msgstr ""
 
 #: ucp/views/settings.php:12
 msgid ""

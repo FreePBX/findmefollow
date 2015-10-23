@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-19 10:21-0700\n"
+"POT-Creation-Date: 2015-10-23 10:50-0700\n"
 "PO-Revision-Date: 2015-10-15 09:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -156,6 +156,10 @@ msgstr ""
 msgid "Enabled"
 msgstr "开启"
 
+#: assets/js/findmefollow.js:72
+msgid "Error"
+msgstr ""
+
 #: views/bootnav.php:7
 msgid "Extension"
 msgstr "警告！你的帐户无法使用分机"
@@ -205,11 +209,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "跟我来"
 
-#: Findmefollow.class.php:610
+#: Findmefollow.class.php:611
 msgid "Follow Me Enabled"
 msgstr "已开启分机随行"
 
-#: Findmefollow.class.php:613 ucp/views/settings.php:15
+#: Findmefollow.class.php:614 ucp/views/settings.php:15
 msgid "Follow Me List"
 msgstr ""
 
@@ -273,13 +277,13 @@ msgstr ""
 msgid "Initial Ring Time"
 msgstr "初始振铃时长"
 
-#: assets/js/findmefollow.js:90
+#: assets/js/findmefollow.js:99
 msgid ""
 "Invalid CID Number. Must be in a format of digits only with an option of "
 "E164 format using a leading \"+\""
 msgstr ""
 
-#: assets/js/findmefollow.js:87
+#: assets/js/findmefollow.js:96
 msgid "Invalid time specified"
 msgstr "指定了无效的时间"
 
@@ -376,7 +380,7 @@ msgstr "无"
 msgid "Normal Extension Behavior"
 msgstr ""
 
-#: assets/js/findmefollow.js:89
+#: assets/js/findmefollow.js:98
 msgid ""
 "Only ringall, ringallv2, hunt and the respective -prim versions are "
 "supported when confirmation is checked"
@@ -404,7 +408,7 @@ msgstr "播放音乐等待"
 msgid "Please enter a valid %s number"
 msgstr ""
 
-#: assets/js/findmefollow.js:86
+#: assets/js/findmefollow.js:95
 msgid "Please enter an extension list."
 msgstr "请输入一个分机列表。"
 
@@ -412,7 +416,11 @@ msgstr "请输入一个分机列表。"
 msgid "Remote Announce"
 msgstr "远程播报"
 
-#: Findmefollow.class.php:591
+#: assets/js/findmefollow.js:72
+msgid "Request not received"
+msgstr ""
+
+#: Findmefollow.class.php:592
 msgid "Reset"
 msgstr "重新设置"
 
@@ -445,7 +453,7 @@ msgstr "振铃时间（最多60秒）"
 msgid "Seconds"
 msgstr ""
 
-#: Findmefollow.class.php:586
+#: Findmefollow.class.php:587
 msgid "Submit"
 msgstr ""
 
@@ -474,7 +482,7 @@ msgstr ""
 "电话响铃的秒数。对于所有的搜寻式的响铃策略，这是每次搜寻出的电话的响铃的时"
 "间。"
 
-#: assets/js/findmefollow.js:88
+#: assets/js/findmefollow.js:97
 msgid "Time must be between 1 and 60 seconds"
 msgstr "时间必须在1到60秒之间"
 
@@ -525,6 +533,10 @@ msgstr "用户"
 #: Findmefollow.class.php:80
 msgid "Warning! Extension"
 msgstr "警告！你的帐户无法使用分机"
+
+#: assets/js/findmefollow.js:69
+msgid "We received and sent your request but something failed"
+msgstr ""
 
 #: ucp/views/settings.php:12
 msgid ""

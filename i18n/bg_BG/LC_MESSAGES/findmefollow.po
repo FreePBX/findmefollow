@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-19 10:21-0700\n"
+"POT-Creation-Date: 2015-10-23 10:50-0700\n"
 "PO-Revision-Date: 2015-03-11 21:58+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/"
@@ -160,6 +160,10 @@ msgstr ""
 msgid "Enabled"
 msgstr ""
 
+#: assets/js/findmefollow.js:72
+msgid "Error"
+msgstr ""
+
 #: views/bootnav.php:7
 msgid "Extension"
 msgstr "Вътрешна Линия"
@@ -212,11 +216,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "Следвай Ме"
 
-#: Findmefollow.class.php:610
+#: Findmefollow.class.php:611
 msgid "Follow Me Enabled"
 msgstr ""
 
-#: Findmefollow.class.php:613 ucp/views/settings.php:15
+#: Findmefollow.class.php:614 ucp/views/settings.php:15
 msgid "Follow Me List"
 msgstr ""
 
@@ -280,7 +284,7 @@ msgstr ""
 msgid "Initial Ring Time"
 msgstr ""
 
-#: assets/js/findmefollow.js:90
+#: assets/js/findmefollow.js:99
 msgid ""
 "Invalid CID Number. Must be in a format of digits only with an option of "
 "E164 format using a leading \"+\""
@@ -288,7 +292,7 @@ msgstr ""
 "Неправилен CID Номер. Трябва да е само от цифри с възможност за E164 формат "
 "с използване на водещ \\\"+\\\""
 
-#: assets/js/findmefollow.js:87
+#: assets/js/findmefollow.js:96
 msgid "Invalid time specified"
 msgstr "Неправилно въведено време"
 
@@ -390,7 +394,7 @@ msgstr "Няма"
 msgid "Normal Extension Behavior"
 msgstr ""
 
-#: assets/js/findmefollow.js:89
+#: assets/js/findmefollow.js:98
 msgid ""
 "Only ringall, ringallv2, hunt and the respective -prim versions are "
 "supported when confirmation is checked"
@@ -419,7 +423,7 @@ msgstr ""
 msgid "Please enter a valid %s number"
 msgstr ""
 
-#: assets/js/findmefollow.js:86
+#: assets/js/findmefollow.js:95
 msgid "Please enter an extension list."
 msgstr "Моля въведете списъка с вътрешни линии."
 
@@ -427,7 +431,11 @@ msgstr "Моля въведете списъка с вътрешни линии.
 msgid "Remote Announce"
 msgstr ""
 
-#: Findmefollow.class.php:591
+#: assets/js/findmefollow.js:72
+msgid "Request not received"
+msgstr ""
+
+#: Findmefollow.class.php:592
 msgid "Reset"
 msgstr ""
 
@@ -460,7 +468,7 @@ msgstr "Време на Звънене (max 60 секунди)"
 msgid "Seconds"
 msgstr ""
 
-#: Findmefollow.class.php:586
+#: Findmefollow.class.php:587
 msgid "Submit"
 msgstr ""
 
@@ -491,7 +499,7 @@ msgstr ""
 "за стратегии на звънене, това е времето за всяко повторение на телефона(ите) "
 "които звънят"
 
-#: assets/js/findmefollow.js:88
+#: assets/js/findmefollow.js:97
 msgid "Time must be between 1 and 60 seconds"
 msgstr "Трябва да е между 1 и 60 секунди"
 
@@ -552,6 +560,10 @@ msgstr "Потребител"
 #: Findmefollow.class.php:80
 msgid "Warning! Extension"
 msgstr "Внимание! Вътрешна Линия"
+
+#: assets/js/findmefollow.js:69
+msgid "We received and sent your request but something failed"
+msgstr ""
 
 #: ucp/views/settings.php:12
 msgid ""

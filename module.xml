@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>13.0.17</version>
+	<version>13.0.18</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*13.0.18* FREEPBX-10541 Fix variable, validate return from git to display smarter toast
 		*13.0.17* Numerous bad sql lookups
 		*13.0.16* FREEPBX-10464 move toggles to BMO AJAX internals
 		*13.0.15* FREEPBX-9372 Remove recording settings from UCP as they require a reload

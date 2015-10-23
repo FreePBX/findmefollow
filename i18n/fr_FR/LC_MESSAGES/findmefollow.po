@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-19 10:21-0700\n"
+"POT-Creation-Date: 2015-10-23 10:50-0700\n"
 "PO-Revision-Date: 2009-04-20 14:07+0100\n"
 "Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
 "Language-Team: Français <LL@li.org>\n"
@@ -174,6 +174,10 @@ msgstr ""
 msgid "Enabled"
 msgstr ""
 
+#: assets/js/findmefollow.js:72
+msgid "Error"
+msgstr ""
+
 #: views/bootnav.php:7
 msgid "Extension"
 msgstr "Extension"
@@ -226,11 +230,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "Suivez-Moi"
 
-#: Findmefollow.class.php:610
+#: Findmefollow.class.php:611
 msgid "Follow Me Enabled"
 msgstr ""
 
-#: Findmefollow.class.php:613 ucp/views/settings.php:15
+#: Findmefollow.class.php:614 ucp/views/settings.php:15
 msgid "Follow Me List"
 msgstr "Liste suivez-moi"
 
@@ -295,7 +299,7 @@ msgstr ""
 msgid "Initial Ring Time"
 msgstr ""
 
-#: assets/js/findmefollow.js:90
+#: assets/js/findmefollow.js:99
 msgid ""
 "Invalid CID Number. Must be in a format of digits only with an option of "
 "E164 format using a leading \"+\""
@@ -303,7 +307,7 @@ msgstr ""
 "Numéro CID invalide. Doit être dans un format de chiffres uniquement avec "
 "une option au format E164 en utilisant le \"+\" devant"
 
-#: assets/js/findmefollow.js:87
+#: assets/js/findmefollow.js:96
 msgid "Invalid time specified"
 msgstr "Temps spécifié invalide"
 
@@ -409,7 +413,7 @@ msgstr "Aucun"
 msgid "Normal Extension Behavior"
 msgstr "Comportement normal du poste"
 
-#: assets/js/findmefollow.js:89
+#: assets/js/findmefollow.js:98
 msgid ""
 "Only ringall, ringallv2, hunt and the respective -prim versions are "
 "supported when confirmation is checked"
@@ -438,7 +442,7 @@ msgstr ""
 msgid "Please enter a valid %s number"
 msgstr ""
 
-#: assets/js/findmefollow.js:86
+#: assets/js/findmefollow.js:95
 msgid "Please enter an extension list."
 msgstr "Veuillez entrer une liste d'extension"
 
@@ -446,7 +450,11 @@ msgstr "Veuillez entrer une liste d'extension"
 msgid "Remote Announce"
 msgstr "Annonce distante"
 
-#: Findmefollow.class.php:591
+#: assets/js/findmefollow.js:72
+msgid "Request not received"
+msgstr ""
+
+#: Findmefollow.class.php:592
 msgid "Reset"
 msgstr ""
 
@@ -479,7 +487,7 @@ msgstr "Temps de Sonnerie (max 60 secondes)"
 msgid "Seconds"
 msgstr "Secondes"
 
-#: Findmefollow.class.php:586
+#: Findmefollow.class.php:587
 msgid "Submit"
 msgstr ""
 
@@ -510,7 +518,7 @@ msgstr ""
 "stratégies de styles de sonnerie \"Chasse\", c'est le temps pour chaque "
 "itération de téléphone qui sonne"
 
-#: assets/js/findmefollow.js:88
+#: assets/js/findmefollow.js:97
 msgid "Time must be between 1 and 60 seconds"
 msgstr "Le temps doit être compris entre 1 et 60 secondes"
 
@@ -574,6 +582,10 @@ msgstr "Utilisateur"
 #: Findmefollow.class.php:80
 msgid "Warning! Extension"
 msgstr "Attention ! L'Extension"
+
+#: assets/js/findmefollow.js:69
+msgid "We received and sent your request but something failed"
+msgstr ""
 
 #: ucp/views/settings.php:12
 msgid ""
