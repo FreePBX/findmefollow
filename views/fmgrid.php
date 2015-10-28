@@ -23,7 +23,7 @@ foreach($fmlist as $fm){
 <thead>
 	<tr>
 		<th data-sortable="true"><?php echo _("Followme Extension")?></th>
-		<th><?php echo _("Enabled")?></th>
+		<th class="col-xs-3"><?php echo _("Enabled")?></th>
 	</tr>
 </thead>
 <tbody>

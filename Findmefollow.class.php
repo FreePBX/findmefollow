@@ -695,6 +695,7 @@ class Findmefollow implements \BMO {
 	public function ajaxRequest($req, &$setting) {
 		switch ($req) {
 			case 'toggleFM':
+			case 'getJSON':
 				return true;
 			break;
 			default:
@@ -719,10 +720,52 @@ class Findmefollow implements \BMO {
 				$ret = $this->setDDial($extdisplay,$state);
 				return array('toggle' => 'received', 'return' => $ret );
 			break;
+			case 'getJSON':
+				switch ($_REQUEST['jdata']) {
+					case 'grid':
+						$ret = array();
+						foreach($this->listFollowme() as $fm){
+							$ret[] = array('ext'=>$fm[0]);
+						}
+						return array_values($ret);
+					break;
+
+					default:
+						return false;
+					break;
+				}
+			break;
 
 			default:
 				return false;
 			break;
 		}
 	}
+	public function listFollowme($get_all=false){
+		$sql = "SELECT grpnum FROM findmefollow ORDER BY CAST(grpnum as UNSIGNED)";
+		$stmt = $this->db->prepare($sql);
+		$stmt->execute();
+		$results = $stmt->fetchall();
+		if (isset($results)) {
+			foreach($results as $result) {
+				if ($get_all || checkRange($result)){
+					$grps[] = $result;
+				}
+			}
+		}
+		if (isset($grps)) {
+			return $grps;
+		}
+		else {
+			return array();
+		}
+	}
+
+
+public function getRightNav($request) {
+	if(isset($request['view'])&& $request['view'] == 'form'){
+  	return load_view(__DIR__."/views/bootnav.php",array('request' => $request));
+	}
+}
+
 }

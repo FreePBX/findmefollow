@@ -39,14 +39,13 @@ switch($view){
 	<h1><?php echo $heading ?></h1>
 	<div class = "display full-border">
 		<div class="row">
-			<div class="col-sm-<?php echo $cwidth?>">
+			<div class="col-sm-12">
 				<div class="fpbx-container">
 					<div class="display full-border">
 						<?php echo $content ?>
 					</div>
 				</div>
 			</div>
-			<?php echo $bootnav?>
 		</div>
 	</div>
 </div>
