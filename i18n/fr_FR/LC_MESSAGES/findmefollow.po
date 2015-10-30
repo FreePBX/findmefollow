@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-23 11:28-0700\n"
+"POT-Creation-Date: 2015-10-29 17:25-0700\n"
 "PO-Revision-Date: 2009-04-20 14:07+0100\n"
 "Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
 "Language-Team: Français <LL@li.org>\n"
@@ -178,7 +178,7 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-#: views/bootnav.php:7
+#: views/bootnav.php:7 views/bootnav.php:18
 msgid "Extension"
 msgstr "Extension"
 
@@ -311,7 +311,7 @@ msgstr ""
 msgid "Invalid time specified"
 msgstr "Temps spécifié invalide"
 
-#: views/bootnav.php:11
+#: views/bootnav.php:12
 msgid "List Followme Groups"
 msgstr ""
 

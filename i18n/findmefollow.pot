@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-23 11:28-0700\n"
+"POT-Creation-Date: 2015-10-29 17:25-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -162,6 +162,7 @@ msgid "Error"
 msgstr ""
 
 #: views/bootnav.php:7
+#: views/bootnav.php:18
 msgid "Extension"
 msgstr ""
 
@@ -297,7 +298,7 @@ msgstr ""
 msgid "Invalid time specified"
 msgstr ""
 
-#: views/bootnav.php:11
+#: views/bootnav.php:12
 msgid "List Followme Groups"
 msgstr ""
 
