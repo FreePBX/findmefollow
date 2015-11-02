@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-23 11:28-0700\n"
+"POT-Creation-Date: 2015-10-29 17:25-0700\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -147,7 +147,7 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-#: views/bootnav.php:7
+#: views/bootnav.php:7 views/bootnav.php:18
 #, fuzzy
 msgid "Extension"
 msgstr "רשימת שלוחות"
@@ -280,7 +280,7 @@ msgstr ""
 msgid "Invalid time specified"
 msgstr ""
 
-#: views/bootnav.php:11
+#: views/bootnav.php:12
 msgid "List Followme Groups"
 msgstr ""
 

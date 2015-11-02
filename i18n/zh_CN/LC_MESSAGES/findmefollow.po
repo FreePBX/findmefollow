@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-23 11:28-0700\n"
+"POT-Creation-Date: 2015-10-29 17:25-0700\n"
 "PO-Revision-Date: 2015-10-15 09:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -160,7 +160,7 @@ msgstr "开启"
 msgid "Error"
 msgstr ""
 
-#: views/bootnav.php:7
+#: views/bootnav.php:7 views/bootnav.php:18
 msgid "Extension"
 msgstr "警告！你的帐户无法使用分机"
 
@@ -287,7 +287,7 @@ msgstr ""
 msgid "Invalid time specified"
 msgstr "指定了无效的时间"
 
-#: views/bootnav.php:11
+#: views/bootnav.php:12
 msgid "List Followme Groups"
 msgstr "列出分机随行组"
 
