@@ -641,7 +641,10 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 		warnInvalid($('#extension'),'".sprintf(_("Please enter a valid %s number"),($display == "extensions" ? _("extension") : _("device")))."');
 		return false;
 	}
-	$('#fmfm_grplist').val($('#extension').val()+'\\n');
+	var curval = $('#fmfm_grplist').val();
+	if(curval.trim().length === 0){
+		$('#fmfm_grplist').val($('#extension').val()+'\\n');
+	}
 	return true;
 	";
 	$currentcomponent->addjsfunc('fmfmEnabled(notused)', $js);
