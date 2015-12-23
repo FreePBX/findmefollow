@@ -577,8 +577,11 @@ class Findmefollow implements \BMO {
 			$this->FreePBX->astman->database_deltree("AMPUSER/".$grpnum."/followme");
 		}
 	}
-	public function getActionBar($request){
-		switch($request['display']){
+	public function getActionBar($request) {
+		if (empty($request['extdisplay']) || empty($request['view']) || $request['view'] != 'form') {
+			return null;
+		}
+		switch($request['display']) {
 			case 'findmefollow':
 				$buttons = array(
 					'submit' => array(
@@ -591,16 +594,10 @@ class Findmefollow implements \BMO {
 						'id' => 'reset',
 						'value' => _('Reset')
 					)
-	    			);
-    			break;
-	    	}
-    		if (empty($request['extdisplay'])) {
-    			unset($buttons);
-    		}
-    		if($request['view'] != 'form'){
-    			unset($buttons);
-    		}
-    		return $buttons;
+				);
+				break;
+		}
+		return $buttons;
 	}
 
 	public function bulkhandlerGetHeaders($type) {
