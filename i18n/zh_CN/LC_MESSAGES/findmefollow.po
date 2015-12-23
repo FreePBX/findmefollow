@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-08 12:06-0800\n"
+"POT-Creation-Date: 2015-12-23 12:21-0800\n"
 "PO-Revision-Date: 2015-10-15 09:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -156,7 +156,7 @@ msgstr ""
 "由语音邮箱接听。要启用这个选项，需要远端在接通前在电话上按下1。这个功能只会"
 "在 全部响铃/全部响铃并依从主分机 类的策略下起作用。"
 
-#: functions.inc.php:687 views/fmgrid.php:26
+#: functions.inc.php:687 views/fmgrid.php:27
 msgid "Enabled"
 msgstr "开启"
 
@@ -213,15 +213,15 @@ msgstr ""
 msgid "Follow Me"
 msgstr "跟我来"
 
-#: Findmefollow.class.php:611
+#: Findmefollow.class.php:608
 msgid "Follow Me Enabled"
 msgstr "已开启分机随行"
 
-#: Findmefollow.class.php:614 ucp/views/settings.php:15
+#: Findmefollow.class.php:611 ucp/views/settings.php:15
 msgid "Follow Me List"
 msgstr ""
 
-#: functions.inc.php:1197
+#: functions.inc.php:1201
 #, php-format
 msgid "Follow Me: %s"
 msgstr "分机随行: %s"
@@ -234,17 +234,17 @@ msgstr "“跟我来”列表"
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
 msgstr ""
 
-#: functions.inc.php:1250
+#: functions.inc.php:1254
 #, php-format
 msgid "Follow-Me User: %s"
 msgstr "“跟我来”用户：%s"
 
-#: functions.inc.php:1226
+#: functions.inc.php:1230
 #, php-format
 msgid "Follow-Me: %s (%s)"
 msgstr "“跟我来”列表：%s (%s)"
 
-#: views/fmgrid.php:25
+#: views/fmgrid.php:26
 msgid "Followme Extension"
 msgstr "分机随行分机"
 
@@ -376,7 +376,7 @@ msgid ""
 "someone's cell phone if they don't answer their extension."
 msgstr ""
 
-#: functions.inc.php:697 functions.inc.php:899 views/fmgrid.php:17
+#: functions.inc.php:697 functions.inc.php:899 views/fmgrid.php:18
 #: views/form.php:266 views/form.php:449 views/quickCreate.php:12
 msgid "No"
 msgstr ""
@@ -433,7 +433,7 @@ msgstr "远程播报"
 msgid "Request not received"
 msgstr ""
 
-#: Findmefollow.class.php:592
+#: Findmefollow.class.php:595
 msgid "Reset"
 msgstr "重新设置"
 
@@ -466,7 +466,7 @@ msgstr "振铃时间（最多60秒）"
 msgid "Seconds"
 msgstr ""
 
-#: Findmefollow.class.php:587
+#: Findmefollow.class.php:590
 msgid "Submit"
 msgstr ""
 
@@ -562,7 +562,7 @@ msgstr ""
 msgid "Where to send callers if there is no answer."
 msgstr ""
 
-#: functions.inc.php:693 functions.inc.php:895 views/fmgrid.php:15
+#: functions.inc.php:693 functions.inc.php:895 views/fmgrid.php:16
 #: views/form.php:264 views/form.php:447 views/quickCreate.php:10
 msgid "Yes"
 msgstr ""

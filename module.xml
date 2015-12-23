@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>13.0.22</version>
+	<version>13.0.23</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*13.0.23* FREEPBX-11167
 		*13.0.22* FREEPBX-9951 Japanese language prompts
 		*13.0.21* FREEPBX-10897
 		*13.0.20* Add slideout menu

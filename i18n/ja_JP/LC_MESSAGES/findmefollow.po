@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-08 12:06-0800\n"
+"POT-Creation-Date: 2015-12-23 12:21-0800\n"
 "PO-Revision-Date: 2014-02-21 03:21+0200\n"
 "Last-Translator: Kenichi Fukaumi <k.fukaumi@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/findmefollow/"
@@ -186,7 +186,7 @@ msgstr ""
 "うに要求するようになります。この機能はリングオール/リングオール-メイン 計画で"
 "のみ動作します。"
 
-#: functions.inc.php:687 views/fmgrid.php:26
+#: functions.inc.php:687 views/fmgrid.php:27
 msgid "Enabled"
 msgstr ""
 
@@ -246,15 +246,15 @@ msgstr ""
 msgid "Follow Me"
 msgstr "フォローミー"
 
-#: Findmefollow.class.php:611
+#: Findmefollow.class.php:608
 msgid "Follow Me Enabled"
 msgstr ""
 
-#: Findmefollow.class.php:614 ucp/views/settings.php:15
+#: Findmefollow.class.php:611 ucp/views/settings.php:15
 msgid "Follow Me List"
 msgstr ""
 
-#: functions.inc.php:1197
+#: functions.inc.php:1201
 #, php-format
 msgid "Follow Me: %s"
 msgstr "フォローミー: %s"
@@ -267,17 +267,17 @@ msgstr "フォローミーリスト"
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
 msgstr ""
 
-#: functions.inc.php:1250
+#: functions.inc.php:1254
 #, php-format
 msgid "Follow-Me User: %s"
 msgstr "フォローミーユーザー: %s"
 
-#: functions.inc.php:1226
+#: functions.inc.php:1230
 #, php-format
 msgid "Follow-Me: %s (%s)"
 msgstr "フォローミー: %s (%s)"
 
-#: views/fmgrid.php:25
+#: views/fmgrid.php:26
 msgid "Followme Extension"
 msgstr ""
 
@@ -421,7 +421,7 @@ msgstr ""
 "す。最も一般的には、かれらが内線に応答しない場合、誰かの携帯電話を鳴らすとき"
 "などに使用されます。"
 
-#: functions.inc.php:697 functions.inc.php:899 views/fmgrid.php:17
+#: functions.inc.php:697 functions.inc.php:899 views/fmgrid.php:18
 #: views/form.php:266 views/form.php:449 views/quickCreate.php:12
 msgid "No"
 msgstr ""
@@ -479,7 +479,7 @@ msgstr ""
 msgid "Request not received"
 msgstr ""
 
-#: Findmefollow.class.php:592
+#: Findmefollow.class.php:595
 msgid "Reset"
 msgstr ""
 
@@ -512,7 +512,7 @@ msgstr "リングタイム (最大60秒)"
 msgid "Seconds"
 msgstr ""
 
-#: Findmefollow.class.php:587
+#: Findmefollow.class.php:590
 msgid "Submit"
 msgstr ""
 
@@ -619,7 +619,7 @@ msgstr ""
 msgid "Where to send callers if there is no answer."
 msgstr ""
 
-#: functions.inc.php:693 functions.inc.php:895 views/fmgrid.php:15
+#: functions.inc.php:693 functions.inc.php:895 views/fmgrid.php:16
 #: views/form.php:264 views/form.php:447 views/quickCreate.php:10
 msgid "Yes"
 msgstr ""
