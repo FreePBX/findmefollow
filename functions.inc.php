@@ -1117,6 +1117,10 @@ function findmefollow_users_configprocess() {
 			$settings['postdest'] = "ext-local,$extdisplay,dest";
 		}
 		unset($settings['quickpick']);
+		
+		if (!isset($settings['fixedcid'])) {
+			$settings['fixedcid'] = '';
+		}
 	}
 
 	switch($action) {
