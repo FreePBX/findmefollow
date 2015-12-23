@@ -5,6 +5,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //
 $fmlist = findmefollow_list();
 $fmlist = is_array($fmlist)?$fmlist:array();
+$fmrows = '';
 foreach($fmlist as $fm){
 	$thisg = findmefollow_get($fm,1);
 	$fmrows .= '<tr>';
