@@ -419,7 +419,7 @@ if (empty($goto)) {
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="dring"></i>
 					</div>
 					<div class="col-md-9">
-						<input type="text" class="form-control" id="dring" name="dring" value="<?php echo ($dring)?$dring:'' ?>">
+						<?php echo FreePBX::View()->alertInfoDrawSelect("dring",(($dring)?$dring:''));?>
 					</div>
 				</div>
 			</div>
