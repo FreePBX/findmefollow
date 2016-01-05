@@ -53,7 +53,7 @@ $(document).ready(function(){
 	});
 });
 $(document).ready(function(){
-$("[id^='fmtoggle']").change(function(){
+$(document).on('change', "[id^='fmtoggle']",function(){
 	var fmstate = "";
 	var exten = $(this).data('for');
 	if($(this).val() == "CHECKED"){
