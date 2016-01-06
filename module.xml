@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>13.0.24</version>
+	<version>13.0.25</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*13.0.25* Support Alert Info in Extensions
 		*13.0.24* Support Alert Info Drop down
 		*13.0.23* FREEPBX-11167
 		*13.0.22* FREEPBX-9951 Japanese language prompts
@@ -38,7 +39,7 @@
 	</changelog>
 	<depends>
 		<module>core ge 13.0.1beta1.11</module>
-		<module>framework ge 13.0.42</module>
+		<module>framework ge 13.0.47</module>
 		<module>recordings ge 3.3.8</module>
 	</depends>
 	<category>Applications</category>
