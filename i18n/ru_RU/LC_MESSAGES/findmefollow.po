@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-23 12:21-0800\n"
+"POT-Creation-Date: 2016-01-08 17:30-0800\n"
 "PO-Revision-Date: 2015-05-01 13:02+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -223,12 +223,16 @@ msgid "Follow Me"
 msgstr "Следуйте сюда"
 
 #: Findmefollow.class.php:608
-msgid "Follow Me Enabled"
+msgid "Follow Me Enabled [Blank to disable]"
 msgstr ""
 
 #: Findmefollow.class.php:611 ucp/views/settings.php:15
 msgid "Follow Me List"
 msgstr "Список Следуйте сюда"
+
+#: Findmefollow.class.php:614
+msgid "Follow Me No Answer Destination"
+msgstr ""
 
 #: functions.inc.php:1201
 #, php-format

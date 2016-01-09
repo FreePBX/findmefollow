@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-23 12:21-0800\n"
+"POT-Creation-Date: 2016-01-08 17:30-0800\n"
 "PO-Revision-Date: 2015-10-15 09:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -214,11 +214,15 @@ msgid "Follow Me"
 msgstr "跟我来"
 
 #: Findmefollow.class.php:608
-msgid "Follow Me Enabled"
-msgstr "已开启分机随行"
+msgid "Follow Me Enabled [Blank to disable]"
+msgstr ""
 
 #: Findmefollow.class.php:611 ucp/views/settings.php:15
 msgid "Follow Me List"
+msgstr ""
+
+#: Findmefollow.class.php:614
+msgid "Follow Me No Answer Destination"
 msgstr ""
 
 #: functions.inc.php:1201
@@ -748,6 +752,9 @@ msgstr ""
 "这些模式按上述的方式工作。然而，如果主分机（列表中的第一个）占线，其他的分机"
 "就不会响铃。如果主分机是设置了免打扰，它就不会振铃。如果主分机设置了无条件转"
 "移呼叫，那么所有的分机会响铃"
+
+#~ msgid "Follow Me Enabled"
+#~ msgstr "已开启分机随行"
 
 #~ msgid "Add Follow Me"
 #~ msgstr "添加“分机随行”"
