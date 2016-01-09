@@ -605,10 +605,15 @@ class Findmefollow implements \BMO {
 		case 'extensions':
 			$headers = array(
 				'findmefollow_enabled' => array(
-					'description' => _('Follow Me Enabled'),
+					'description' => _('Follow Me Enabled [Blank to disable]')
 				),
 				'findmefollow_grplist' => array(
 					'description' => _('Follow Me List'),
+				),
+				'findmefollow_postdest' => array(
+					'description' => _('Follow Me No Answer Destination'),
+					"display" => false,
+					"type" => "destination"
 				),
 			);
 
@@ -629,20 +634,23 @@ class Findmefollow implements \BMO {
 					if (substr($key, 0, 13) == 'findmefollow_') {
 						$settingname = substr($key, 13);
 						switch ($settingname) {
-						case 'grplist':
-							$settings[$settingname] = explode('-', $value);
+							case 'grplist':
+								$settings[$settingname] = explode('-', $value);
 							break;
-						case 'enabled':
-							$settings['ddial'] = $value;
+							case 'enabled':
+								//reversy and backwards yeah. I know.
+								//ITS THE CODE FROM 7 YEARS AGO
+								//:'(
+								$settings['ddial'] = !empty($value) ? false : true;
 							break;
-						default:
-							$settings[$settingname] = $value;
+							default:
+								$settings[$settingname] = $value;
 							break;
 						}
 					}
 				}
 
-				if (count($settings) > 0) {
+				if (!empty($settings) && count($settings) > 0) {
 					$this->addSettingsById($extension, $settings);
 				}
 			}
@@ -666,21 +674,19 @@ class Findmefollow implements \BMO {
 
 			foreach ($extensions as $extension) {
 				$settings = $this->getSettingsById($extension, true);
-
 				$psettings = array();
 				foreach ($settings as $key => $value) {
 					switch ($key) {
 					case 'grpnum':
 						break;
 					case 'ddial':
-						$psettings['findmefollow_' . 'enabled'] = $value ? '1' : '0';
+						$psettings['findmefollow_' . 'enabled'] = $value ? 'yes' : '';
 						break;
 					default:
 						$psettings['findmefollow_' . $key] = $value;
 						break;
 					}
 				}
-
 				$data[$extension] = $psettings;
 			}
 
