@@ -767,7 +767,7 @@ class Findmefollow implements \BMO {
 
 public function getRightNav($request) {
 	if(isset($request['view'])&& $request['view'] == 'form'){
-  	return load_view(__DIR__."/views/bootnav.php",array('request' => $request));
+		return load_view(__DIR__."/views/bootnav.php",array('request' => $request));
 	}
 }
 

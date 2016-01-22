@@ -25,24 +25,24 @@ function findmefollow_destinations($index) {
 		$extens[] = array('destination' => 'ext-local,'.$extdisplay.',dest', 'description' => _("Normal Extension Behavior"));
 		return $extens;
 	}
-  if (($display != 'extensions' && $display != 'users') || !isset($extdisplay) || $extdisplay == '') {
+	if (($display != 'extensions' && $display != 'users') || !isset($extdisplay) || $extdisplay == '') {
 		return null;
-  }
+	}
 
-  //TODO: need to do a join with user to get the displayname also
+	//TODO: need to do a join with user to get the displayname also
 
-  //TODO: if extdisplay is set, sort such that this extension's follow-me is at the top of the list if they have one
-  //      alternatively, only put this extension's follow-me since you should not be able to force to others and you can use their extension
+	//TODO: if extdisplay is set, sort such that this extension's follow-me is at the top of the list if they have one
+	//      alternatively, only put this extension's follow-me since you should not be able to force to others and you can use their extension
 	//$results = findmefollow_list();
 	$grpnum = sql("SELECT grpnum FROM findmefollow WHERE grpnum = '".$db->escapeSimple($extdisplay)."'","getOne");
 
 	// return an associative array with destination and description
 	if ($grpnum != '') {
-    $extens[] = array('destination' => 'ext-findmefollow,FM'.$grpnum.',1', 'description' => _("Force Follow Me"));
+		$extens[] = array('destination' => 'ext-findmefollow,FM'.$grpnum.',1', 'description' => _("Force Follow Me"));
 		return $extens;
 	} else {
 		return null;
-  }
+	}
 }
 
 function findmefollow_get_config($engine) {
@@ -262,7 +262,7 @@ function findmefollow_get_config($engine) {
 	    forcedid  - set to the DID that the call came in on or leave alone, not treated as foreign
 
 	  EXTTOCALL   - has the exten num called, hoaky if that goes away but for now use it
-        */
+	 */
 
 				if (count($ringlist)) {
 					$contextname = 'sub-fmsetcid';
@@ -417,19 +417,19 @@ function findmefollow_list($get_all=false) {
 // This was pulled straight out of previous 1.x version, might need cleanup laster
 //
 function findmefollow_allusers() {
-        global $db;
-        $sql = "SELECT extension,name FROM users ORDER BY extension";
-        $results = $db->getAll($sql);
-        if(\DB::IsError($results)) {
-                $results = null;
-        }
-        foreach($results as $result){
-                if (checkRange($result[0])){
-                        $users[] = array($result[0],$result[1]);
-                }
-        }
-        if (isset($users)) sort($users);
-        return $users;
+	global $db;
+	$sql = "SELECT extension,name FROM users ORDER BY extension";
+	$results = $db->getAll($sql);
+	if(\DB::IsError($results)) {
+		$results = null;
+	}
+	foreach($results as $result){
+		if (checkRange($result[0])){
+			$users[] = array($result[0],$result[1]);
+		}
+	}
+	if (isset($users)) sort($users);
+		return $users;
 }
 
 // Only check astdb if check_astdb is not 0. For some reason, this fails if the asterisk manager code
@@ -795,7 +795,6 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 	);
 	$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)), $category);
 
-
 	$el = array(
 		"elemname" => "fmfm_annmsg_id",
 		"prompttext" => _('Announcement'),
@@ -1096,7 +1095,6 @@ function findmefollow_users_configprocess() {
 	}
 	$settings = array();
 
-
 	if(!empty($_REQUEST)) {
 		foreach($_REQUEST as $key => $value) {
 			if(preg_match("/^fmfm_(.*)/",$key,$matches)) {
@@ -1238,7 +1236,6 @@ function findmefollow_change_destination($old_dest, $new_dest) {
 	$sql = 'UPDATE findmefollow SET postdest = "' . $new_dest . '" WHERE postdest = "' . $old_dest . '"';
 	sql($sql, "query");
 }
-
 
 function findmefollow_recordings_usage($recording_id) {
 	global $active_modules;
