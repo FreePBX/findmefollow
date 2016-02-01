@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-08 17:30-0800\n"
-"PO-Revision-Date: 2016-02-01 03:19+0200\n"
+"PO-Revision-Date: 2016-02-01 05:36+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/findmefollow/fr_FR/>\n"
@@ -103,7 +103,7 @@ msgstr "Impossible de se connecter à Asterisk Manager avec "
 
 #: functions.inc.php:967 views/form.php:485
 msgid "Change External CID Configuration"
-msgstr "Modifier la configuration CID externe"
+msgstr "Modifier la configuration de l'ID appelant externe"
 
 #: install.php:148
 msgid "Checking if recordings need migration.."
@@ -111,9 +111,7 @@ msgstr "Contrôle si les enregistrements ont besoin d'être migrés..."
 
 #: functions.inc.php:789
 msgid "Choose an extension to append to the end of the extension list above."
-msgstr ""
-"Choisissez une extension à placer à la fin de la liste d'extensions ci-"
-"dessous."
+msgstr "Choisissez un poste à placer à la fin de la liste de postes ci-dessous."
 
 #: functions.inc.php:889 views/form.php:442
 msgid "Confirm Calls"
@@ -130,7 +128,7 @@ msgstr "Destination si pas de réponse"
 
 #: functions.inc.php:1046
 msgid "Destinations"
-msgstr ""
+msgstr "Destinations"
 
 #: ucp/views/settings.php:4
 msgid "Enable"
@@ -138,7 +136,7 @@ msgstr "Activer"
 
 #: views/quickCreate.php:5
 msgid "Enable Find Me/Follow Me"
-msgstr ""
+msgstr "Activer Trouvez-moi/Suivez-moi"
 
 #: views/form.php:259
 msgid "Enable Followme"
@@ -164,6 +162,12 @@ msgid ""
 "this requires the remote side push 1 on their phone before the call is put "
 "through. This feature only works with the ringall ring strategy"
 msgstr ""
+"Activez cette fonctionnalité si vous appelez des numéros extérieurs qui "
+"demandent confirmation - ex : un téléphone portable ira peut-être vers la "
+"messagerie vocale qui prendra l'appel. Activer ceci requiert qu'on appuye "
+"sur 1 de l'autre côté sur les téléphones avant que l'appel ne soit transmis. "
+"Cette fonctionnalité ne fonctionne qu'avec les stratégies de sonnerie Sonner "
+"Partout/Sonner Partout-prim"
 
 #: functions.inc.php:890
 msgid ""
