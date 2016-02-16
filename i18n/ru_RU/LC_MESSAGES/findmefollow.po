@@ -32,6 +32,8 @@ msgstr "*-прим"
 #: views/form.php:430
 msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
 msgstr ""
+"ALERT_INFO может быть использован  с SIP-устройством  для особенной мелодии "
+"звонка "
 
 #: functions.inc.php:846 views/form.php:418
 msgid "Alert Info"
@@ -59,6 +61,8 @@ msgid ""
 "and then only if the caller chooses to find you do you want the call to go "
 "through FollowMe."
 msgstr ""
+"По умолчанию (Да) любые вызовы на этот внутренний номер пойдут на указанный "
+"для него СледуйтеСюда-номер,включая "
 
 #: views/form.php:274
 msgid ""
@@ -116,7 +120,7 @@ msgstr "Назначение если нет ответа"
 
 #: functions.inc.php:1046
 msgid "Destinations"
-msgstr ""
+msgstr "Назначения"
 
 #: ucp/views/settings.php:4
 msgid "Enable"
@@ -124,11 +128,11 @@ msgstr "Включить"
 
 #: views/quickCreate.php:5
 msgid "Enable Find Me/Follow Me"
-msgstr ""
+msgstr "Включить НайдиМеня/СледуйтеСюда"
 
 #: views/form.php:259
 msgid "Enable Followme"
-msgstr ""
+msgstr "Включить СледуйтеСюда"
 
 #: ucp/views/settings.php:46
 msgid ""
@@ -149,6 +153,11 @@ msgid ""
 "this requires the remote side push 1 on their phone before the call is put "
 "through. This feature only works with the ringall ring strategy"
 msgstr ""
+"Включить это если  вызов идёт на внешние номера,когда нужно подтверждение- "
+"например когда мобильный телефон может быть переадресован на номер голосовой "
+"почты. Включение этой опции требует,чтобы  на удалённой стороне нажали \"1\" "
+"прежде чем вызов пойдёт далее.Эта возможность работает только если стратегия "
+"звонка в группе вызова установлена в значение \"Звонят все\""
 
 #: functions.inc.php:890
 msgid ""
@@ -164,11 +173,11 @@ msgstr ""
 
 #: functions.inc.php:687 views/fmgrid.php:27
 msgid "Enabled"
-msgstr ""
+msgstr "Включено"
 
 #: assets/js/findmefollow.js:72
 msgid "Error"
-msgstr ""
+msgstr "Ошибка"
 
 #: views/bootnav.php:7 views/bootnav.php:18
 msgid "Extension"
@@ -200,6 +209,8 @@ msgid ""
 "Fixed CID Value should be in a format of digits only with an option of E164 "
 "format using a leading \"+\""
 msgstr ""
+"фиксированное значение CID должно быть в числовом формате с опцией "
+"стандарта  Е164 с использованием  знака \"+\" в начале."
 
 #: functions.inc.php:1030
 msgid ""
@@ -217,6 +228,9 @@ msgid ""
 "Should be in a format of digits only with an option of E164 format using a "
 "leading '+'."
 msgstr ""
+"Фикcированное значение для замены CID  в некоторых режимах. Должно быть  в "
+"числовом формате с опцией стандарта  Е164 с использованием  знака \"+\" в "
+"начале."
 
 #: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
 msgid "Follow Me"
@@ -246,6 +260,7 @@ msgstr "Список"
 #: functions.inc.php:771
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
 msgstr ""
+"Список \"СледуйтеСюда\" не может быть пустым если \"СледуйтеСюда\" включено"
 
 #: functions.inc.php:1254
 #, php-format
@@ -259,11 +274,11 @@ msgstr "Следуйте сюда: %s (%s)"
 
 #: views/fmgrid.php:26
 msgid "Followme Extension"
-msgstr ""
+msgstr "Внутренний номер для \"СледуйтеСюда\""
 
 #: views/nogo.php:2
 msgid "Followme List"
-msgstr ""
+msgstr "Список \"СледуйтеСюда\""
 
 #: functions.inc.php:993 functions.inc.php:1018 views/form.php:216
 #: views/form.php:475
@@ -276,11 +291,11 @@ msgstr "Принудительно Следуйте сюда"
 
 #: functions.inc.php:663
 msgid "General Settings"
-msgstr ""
+msgstr "Общие настройки"
 
 #: views/form.php:235
 msgid "Group Number"
-msgstr ""
+msgstr "Номер группы"
 
 #: functions.inc.php:826 views/form.php:204
 msgid ""
@@ -292,7 +307,7 @@ msgstr ""
 
 #: functions.inc.php:716 views/form.php:286
 msgid "Initial Ring Time"
-msgstr ""
+msgstr "Начальное время звонка"
 
 #: assets/js/findmefollow.js:99
 msgid ""
@@ -308,7 +323,7 @@ msgstr "Неверно указано время"
 
 #: views/bootnav.php:12
 msgid "List Followme Groups"
-msgstr ""
+msgstr "Список групп \"СледуйтеСюда\""
 
 #: functions.inc.php:766 views/form.php:380
 msgid ""
@@ -342,6 +357,9 @@ msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
 "additional recordings please use the \"System Recordings\" MENU above"
 msgstr ""
+"Сообщение может быть воспроизведено вызывающей стороне перед набором номера "
+"этой группы.<br><br>Для добавления дополнительных записей пожалуйста "
+"используйте пункт меню  \"Системные записи\"."
 
 #: functions.inc.php:802
 msgid ""
@@ -358,6 +376,9 @@ msgid ""
 "enabled.<br><br>To add additional recordings use the \"System Recordings\" "
 "MENU above"
 msgstr ""
+"Воспроизводимое сообщение персоне,ПРИНИМАЮЩЕЙ звонок, если 'Подтвердить "
+"вызовы' включено.<br><br> Для добавления дополнительных записей пожалуйста "
+"используйте пункт меню  \"Системные записи\"."
 
 #: functions.inc.php:915
 msgid ""
@@ -375,6 +396,9 @@ msgid ""
 "already been accepted before they push 1.<br><br>To add additional "
 "recordings use the \"System Recordings\" MENU above"
 msgstr ""
+"Воспроизводимое сообщение персоне,ПРИНИМАЮЩЕЙ звонок, если  вызов уже принят "
+"перед нажатием 1.<br><br> Для добавления дополнительных записей пожалуйста "
+"используйте пункт меню  \"Системные записи\"."
 
 #: functions.inc.php:927
 msgid ""
@@ -388,7 +412,7 @@ msgstr ""
 
 #: views/nogo.php:1
 msgid "Method not supported"
-msgstr ""
+msgstr "Метод не поддерживается"
 
 #: functions.inc.php:996 views/form.php:465
 msgid "Mode"
@@ -414,11 +438,11 @@ msgstr ""
 #: functions.inc.php:697 functions.inc.php:899 views/fmgrid.php:18
 #: views/form.php:266 views/form.php:449 views/quickCreate.php:12
 msgid "No"
-msgstr ""
+msgstr "Нет"
 
 #: functions.inc.php:1070
 msgid "No Answer"
-msgstr ""
+msgstr "Нет ответа"
 
 #: functions.inc.php:615 views/form.php:77
 msgid "None"
@@ -442,6 +466,9 @@ msgid ""
 "otherwise idle phone. If the phone is in use and the call is simply ignored, "
 "then the busy destination will be used."
 msgstr ""
+"Выборочное назначение,на которое направляется вызов когда на него нет ответа "
+"при ином простое телефона.Если телефон используется  и вызов игнорируется , "
+"то вызов будет перенаправлен на назначение, используемое  при занятости."
 
 #: functions.inc.php:991 functions.inc.php:1010 views/form.php:214
 #: views/form.php:471
@@ -450,12 +477,12 @@ msgstr "Значение Caller ID для внешних звонков"
 
 #: functions.inc.php:825 views/form.php:180
 msgid "Play Music On Hold"
-msgstr ""
+msgstr "Воспроизводить мелодию на удержании"
 
 #: functions.inc.php:641
 #, php-format
 msgid "Please enter a valid %s number"
-msgstr ""
+msgstr "Введите верный %s номер"
 
 #: assets/js/findmefollow.js:95
 msgid "Please enter an extension list."
@@ -467,11 +494,11 @@ msgstr "Удаленное приветствие"
 
 #: assets/js/findmefollow.js:72
 msgid "Request not received"
-msgstr ""
+msgstr "Запрос не принят"
 
 #: Findmefollow.class.php:595
 msgid "Reset"
-msgstr ""
+msgstr "Сброс"
 
 #: functions.inc.php:813 views/form.php:187
 msgid "Ring"
@@ -488,11 +515,11 @@ msgstr "Список звонков для Следуйте сюда"
 
 #: functions.inc.php:743 views/form.php:310
 msgid "Ring Strategy"
-msgstr ""
+msgstr "Стратегия обзвона"
 
 #: functions.inc.php:754
 msgid "Ring Time"
-msgstr ""
+msgstr "Время звонка"
 
 #: views/form.php:336
 msgid "Ring Time (max 60 sec)"
@@ -504,11 +531,13 @@ msgstr "Секунд"
 
 #: Findmefollow.class.php:590
 msgid "Submit"
-msgstr ""
+msgstr "Подтвердить"
 
 #: views/form.php:247
 msgid "The number users will dial to ring extensions in this Followme group"
 msgstr ""
+"Определённое количество пользователей будет набирать внутренние номера в "
+"этой группе \"СледуйтеСюда\""
 
 #: functions.inc.php:717 ucp/views/settings.php:26 views/form.php:298
 msgid ""
@@ -599,7 +628,7 @@ msgstr "Внимание! Внутренний номер"
 
 #: assets/js/findmefollow.js:69
 msgid "We received and sent your request but something failed"
-msgstr ""
+msgstr "Вы получили и передали ваш запрос, но произошла ошибка"
 
 #: ucp/views/settings.php:12
 msgid ""
@@ -613,12 +642,12 @@ msgstr ""
 
 #: views/form.php:547
 msgid "Where to send callers if there is no answer."
-msgstr ""
+msgstr "Куда отправлять вызывающих если нет ответа"
 
 #: functions.inc.php:693 functions.inc.php:895 views/fmgrid.php:16
 #: views/form.php:264 views/form.php:447 views/quickCreate.php:10
 msgid "Yes"
-msgstr ""
+msgstr "Да"
 
 #: functions.inc.php:847
 msgid ""
@@ -645,7 +674,7 @@ msgid ""
 "You can optionally prefix the CallerID name when ringing extensions in this "
 "group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
 "as \"Sales:John Doe\" on the extensions that ring."
-msgstr ""
+msgstr "Вы можете "
 
 #: install.php:155
 msgid "adding annmsg_id field.."
@@ -665,11 +694,11 @@ msgstr "уже перемещено"
 
 #: views/form.php:191
 msgid "default"
-msgstr ""
+msgstr "по умолчанию"
 
 #: functions.inc.php:641
 msgid "device"
-msgstr ""
+msgstr "устройство"
 
 #: install.php:265
 msgid "dropping annmsg field.."
@@ -685,7 +714,7 @@ msgstr "сбрасывается значение поля toolate.."
 
 #: functions.inc.php:641
 msgid "extension"
-msgstr ""
+msgstr "внутренний номер"
 
 #: install.php:159 install.php:168 install.php:177 install.php:189
 #: install.php:205 install.php:215 install.php:231 install.php:241
@@ -748,7 +777,7 @@ msgstr "нет поля toolate???"
 
 #: views/form.php:190
 msgid "none"
-msgstr ""
+msgstr "нет"
 
 #: install.php:162 install.php:171 install.php:180 install.php:271
 #: install.php:279 install.php:287
