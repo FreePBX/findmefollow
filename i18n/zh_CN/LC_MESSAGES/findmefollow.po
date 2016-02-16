@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-08 17:30-0800\n"
+"POT-Creation-Date: 2016-02-16 15:36-0800\n"
 "PO-Revision-Date: 2015-10-15 09:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -34,15 +34,15 @@ msgstr "依从主分机（策略名-prim）"
 msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
 msgstr "ALERT_INFO 用来支持SIP 设备的distinctive ring 功能。"
 
-#: functions.inc.php:846 views/form.php:418
+#: functions.inc.php:845 views/form.php:418
 msgid "Alert Info"
 msgstr "警告信息"
 
-#: functions.inc.php:990 views/form.php:469
+#: functions.inc.php:989 views/form.php:469
 msgid "Always transmit the Fixed CID Value below."
 msgstr "总是传输以下固定CID"
 
-#: functions.inc.php:801 views/form.php:70
+#: functions.inc.php:800 views/form.php:70
 msgid "Announcement"
 msgstr "播报"
 
@@ -76,11 +76,11 @@ msgstr ""
 "用。这种情况下，呼叫都会打到分机去，只有对方明确指定要找你，才会被引导到这"
 "里。"
 
-#: functions.inc.php:836 views/form.php:394
+#: functions.inc.php:835 views/form.php:394
 msgid "CID Name Prefix"
 msgstr "主叫ID名的前缀"
 
-#: functions.inc.php:866
+#: functions.inc.php:865
 msgid "Call Confirmation Configuration"
 msgstr "呼叫确认配置"
 
@@ -88,7 +88,7 @@ msgstr "呼叫确认配置"
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "无法连接到Asterisk管理器"
 
-#: functions.inc.php:967 views/form.php:485
+#: functions.inc.php:966 views/form.php:485
 msgid "Change External CID Configuration"
 msgstr "修改外部CID 设置"
 
@@ -100,22 +100,42 @@ msgstr "正在检查录音是否需要迁移。。。"
 msgid "Choose an extension to append to the end of the extension list above."
 msgstr "选择一个分机以添加到上面的分机列表的末尾。"
 
-#: functions.inc.php:889 views/form.php:442
+#: functions.inc.php:888 views/form.php:442
 msgid "Confirm Calls"
 msgstr "呼叫确认"
 
-#: functions.inc.php:910 functions.inc.php:989 functions.inc.php:1002
+#: findmefollow.i18n.php:14
+msgid "Create Follow Me at Extension Creation Time"
+msgstr ""
+
+#: functions.inc.php:909 functions.inc.php:988 functions.inc.php:1001
 #: views/form.php:112 views/form.php:147 views/form.php:212 views/form.php:467
 msgid "Default"
 msgstr "默认"
+
+#: findmefollow.i18n.php:32
+msgid "Default Follow Me Initial Ring Time"
+msgstr ""
+
+#: findmefollow.i18n.php:38
+msgid "Default Follow Me Ring Strategy"
+msgstr ""
+
+#: findmefollow.i18n.php:26
+msgid "Default Follow Me Ring Time"
+msgstr ""
 
 #: views/form.php:535
 msgid "Destination if no answer"
 msgstr "无人接听时的目的地"
 
-#: functions.inc.php:1046
+#: functions.inc.php:1045
 msgid "Destinations"
 msgstr "目的地"
+
+#: findmefollow.i18n.php:20
+msgid "Disable Follow Me Upon Creation"
+msgstr ""
 
 #: ucp/views/settings.php:4
 msgid "Enable"
@@ -145,7 +165,7 @@ msgid ""
 "through. This feature only works with the ringall ring strategy"
 msgstr ""
 
-#: functions.inc.php:890
+#: functions.inc.php:889
 msgid ""
 "Enable this if you're calling external numbers that need confirmation - eg, "
 "a mobile phone may go to voicemail which will pick up the call. Enabling "
@@ -184,18 +204,18 @@ msgstr "分机随行已更新"
 msgid "Findme Follow Toggle"
 msgstr "切换“跟我来”"
 
-#: functions.inc.php:990 functions.inc.php:1006 functions.inc.php:1029
+#: functions.inc.php:989 functions.inc.php:1005 functions.inc.php:1028
 #: views/form.php:213 views/form.php:469 views/form.php:511
 msgid "Fixed CID Value"
 msgstr "固定CID值"
 
-#: functions.inc.php:1036
+#: functions.inc.php:1035
 msgid ""
 "Fixed CID Value should be in a format of digits only with an option of E164 "
 "format using a leading \"+\""
 msgstr "Fixed CID 值应该是仅数字格式，加一个 \"+\" 支持E164格式"
 
-#: functions.inc.php:1030
+#: functions.inc.php:1029
 msgid ""
 "Fixed value to replace the CID with used with some of the modes above. "
 "Should be in a format of digits only with an option of E164 format using a "
@@ -221,11 +241,16 @@ msgstr ""
 msgid "Follow Me List"
 msgstr ""
 
+#: findmefollow.i18n.php:16 findmefollow.i18n.php:22 findmefollow.i18n.php:28
+#: findmefollow.i18n.php:34 findmefollow.i18n.php:40
+msgid "Follow Me Module"
+msgstr ""
+
 #: Findmefollow.class.php:614
 msgid "Follow Me No Answer Destination"
 msgstr ""
 
-#: functions.inc.php:1201
+#: functions.inc.php:1199
 #, php-format
 msgid "Follow Me: %s"
 msgstr "分机随行: %s"
@@ -238,12 +263,12 @@ msgstr "“跟我来”列表"
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
 msgstr ""
 
-#: functions.inc.php:1254
+#: functions.inc.php:1251
 #, php-format
 msgid "Follow-Me User: %s"
 msgstr "“跟我来”用户：%s"
 
-#: functions.inc.php:1230
+#: functions.inc.php:1228
 #, php-format
 msgid "Follow-Me: %s (%s)"
 msgstr "“跟我来”列表：%s (%s)"
@@ -256,7 +281,7 @@ msgstr "分机随行分机"
 msgid "Followme List"
 msgstr "分机随行列表"
 
-#: functions.inc.php:993 functions.inc.php:1018 views/form.php:216
+#: functions.inc.php:992 functions.inc.php:1017 views/form.php:216
 #: views/form.php:475
 msgid "Force Dialed Number"
 msgstr ""
@@ -273,7 +298,7 @@ msgstr "基本设置"
 msgid "Group Number"
 msgstr "组号码"
 
-#: functions.inc.php:826 views/form.php:204
+#: functions.inc.php:825 views/form.php:204
 msgid ""
 "If you select a Music on Hold class to play, instead of 'Ring', they will "
 "hear that instead of Ringing while they are waiting for someone to pick up."
@@ -323,7 +348,7 @@ msgid ""
 "additional recordings please use the \"System Recordings\" MENU above"
 msgstr ""
 
-#: functions.inc.php:802
+#: functions.inc.php:801
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
 "additional recordings please use the \"System Recordings\" MENU to the left"
@@ -338,7 +363,7 @@ msgid ""
 "MENU above"
 msgstr ""
 
-#: functions.inc.php:915
+#: functions.inc.php:914
 msgid ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
 "enabled.<br><br>To add additional recordings use the \"System Recordings\" "
@@ -354,7 +379,7 @@ msgid ""
 "recordings use the \"System Recordings\" MENU above"
 msgstr ""
 
-#: functions.inc.php:927
+#: functions.inc.php:926
 msgid ""
 "Message to be played to the person RECEIVING the call, if the call has "
 "already been accepted before they push 1.<br><br>To add additional "
@@ -367,7 +392,7 @@ msgstr ""
 msgid "Method not supported"
 msgstr "此方法不支持"
 
-#: functions.inc.php:996 views/form.php:465
+#: functions.inc.php:995 views/form.php:465
 msgid "Mode"
 msgstr ""
 
@@ -380,12 +405,12 @@ msgid ""
 "someone's cell phone if they don't answer their extension."
 msgstr ""
 
-#: functions.inc.php:697 functions.inc.php:899 views/fmgrid.php:18
+#: functions.inc.php:697 functions.inc.php:898 views/fmgrid.php:18
 #: views/form.php:266 views/form.php:449 views/quickCreate.php:12
 msgid "No"
 msgstr ""
 
-#: functions.inc.php:1070
+#: functions.inc.php:1069
 msgid "No Answer"
 msgstr "无应答"
 
@@ -404,19 +429,19 @@ msgid ""
 msgstr ""
 "若“确认”选项被启用，就只支持全部响铃、全部响铃2、搜寻和各自的主分机依从策略。"
 
-#: functions.inc.php:1071
+#: functions.inc.php:1070
 msgid ""
 "Optional destination call is routed to when the call is not answered on an "
 "otherwise idle phone. If the phone is in use and the call is simply ignored, "
 "then the busy destination will be used."
 msgstr ""
 
-#: functions.inc.php:991 functions.inc.php:1010 views/form.php:214
+#: functions.inc.php:990 functions.inc.php:1009 views/form.php:214
 #: views/form.php:471
 msgid "Outside Calls Fixed CID Value"
 msgstr ""
 
-#: functions.inc.php:825 views/form.php:180
+#: functions.inc.php:824 views/form.php:180
 msgid "Play Music On Hold"
 msgstr "播放音乐等待"
 
@@ -429,7 +454,7 @@ msgstr ""
 msgid "Please enter an extension list."
 msgstr "请输入一个分机列表。"
 
-#: functions.inc.php:914 views/form.php:105
+#: functions.inc.php:913 views/form.php:105
 msgid "Remote Announce"
 msgstr "远程播报"
 
@@ -441,7 +466,7 @@ msgstr ""
 msgid "Reset"
 msgstr "重新设置"
 
-#: functions.inc.php:813 views/form.php:187
+#: functions.inc.php:812 views/form.php:187
 msgid "Ring"
 msgstr "振铃"
 
@@ -474,8 +499,30 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
+#: findmefollow.i18n.php:36
+msgid ""
+"The default Initial Ring Time for a Follow Me set upon creation and used if "
+"auto-created with a new extension."
+msgstr ""
+
+#: findmefollow.i18n.php:42
+msgid ""
+"The default Ring Strategy selected for a Follow Me set upon creation and "
+"used if auto-created with an extension."
+msgstr ""
+
+#: findmefollow.i18n.php:30
+msgid ""
+"The default Ring Time for a Follow Me set upon creation and used if auto-"
+"created with a new extension."
+msgstr ""
+
 #: views/form.php:247
 msgid "The number users will dial to ring extensions in this Followme group"
+msgstr ""
+
+#: findmefollow.i18n.php:24
+msgid "This is the default value for the Follow Me "
 msgstr ""
 
 #: functions.inc.php:717 ucp/views/settings.php:26 views/form.php:298
@@ -503,18 +550,18 @@ msgstr ""
 msgid "Time must be between 1 and 60 seconds"
 msgstr "时间必须在1到60秒之间"
 
-#: functions.inc.php:926 views/form.php:140
+#: functions.inc.php:925 views/form.php:140
 msgid "Too-Late Announce"
 msgstr ""
 
-#: functions.inc.php:991 views/form.php:471
+#: functions.inc.php:990 views/form.php:471
 msgid ""
 "Transmit the Fixed CID Value below on calls that come in from outside only. "
 "Internal extension to extension calls will continue to operate in default "
 "mode."
 msgstr ""
 
-#: functions.inc.php:993 views/form.php:475
+#: functions.inc.php:992 views/form.php:475
 msgid ""
 "Transmit the number that was dialed as the CID for calls coming from "
 "outside. Internal extension to extension calls will continue to operate in "
@@ -522,7 +569,7 @@ msgid ""
 "be transmitted on trunks that block foreign CallerID"
 msgstr ""
 
-#: functions.inc.php:992 views/form.php:473
+#: functions.inc.php:991 views/form.php:473
 msgid ""
 "Transmit the number that was dialed as the CID for calls coming from "
 "outside. Internal extension to extension calls will continue to operate in "
@@ -530,7 +577,7 @@ msgid ""
 "be BLOCKED on trunks that block foreign CallerID"
 msgstr ""
 
-#: functions.inc.php:989 views/form.php:467
+#: functions.inc.php:988 views/form.php:467
 msgid "Transmits the Callers CID if allowed by the trunk."
 msgstr ""
 
@@ -538,7 +585,7 @@ msgstr ""
 msgid "Use Confirmation"
 msgstr ""
 
-#: functions.inc.php:992 functions.inc.php:1014 views/form.php:215
+#: functions.inc.php:991 functions.inc.php:1013 views/form.php:215
 #: views/form.php:473
 msgid "Use Dialed Number"
 msgstr ""
@@ -555,6 +602,13 @@ msgstr "警告！你的帐户无法使用分机"
 msgid "We received and sent your request but something failed"
 msgstr ""
 
+#: findmefollow.i18n.php:18
+msgid ""
+"When creating a new user or extension, setting this to true will "
+"automatically create a new Follow Me for that user using the default "
+"settings listed below"
+msgstr ""
+
 #: ucp/views/settings.php:12
 msgid ""
 "When enabled any call to this extension will go to this Follow-Me instead, "
@@ -566,18 +620,18 @@ msgstr ""
 msgid "Where to send callers if there is no answer."
 msgstr ""
 
-#: functions.inc.php:693 functions.inc.php:895 views/fmgrid.php:16
+#: functions.inc.php:693 functions.inc.php:894 views/fmgrid.php:16
 #: views/form.php:264 views/form.php:447 views/quickCreate.php:10
 msgid "Yes"
 msgstr ""
 
-#: functions.inc.php:847
+#: functions.inc.php:846
 msgid ""
 "You can optionally include an Alert Info which can create distinctive rings "
 "on SIP phones."
 msgstr "你可以包含一个可选的警告信息，用来为SIP电话产生独特的铃声。"
 
-#: functions.inc.php:837
+#: functions.inc.php:836
 msgid ""
 "You can optionally prefix the Caller ID name when ringing extensions in this "
 "group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
