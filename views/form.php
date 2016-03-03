@@ -260,9 +260,9 @@ if (empty($goto)) {
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="ddialw"></i>
 					</div>
 					<div class="col-md-9 radioset">
-						<input type="radio" name="ddial" id="ddialyes" value='CHECKED' <?php echo ($ddial == 'CHECKED'?'':'CHECKED')?>>
+						<input type="radio" name="ddial" id="ddialyes" value='CHECKED' <?php echo ($ddial == 'CHECKED')?'CHECKED':''?>>
 						<label for="ddialyes"><?php echo _("Yes")?></label>
-						<input type="radio" name="ddial" id="ddialno" value='' <?php echo ($ddial == 'CHECKED'?'CHECKED':'' )?> value="CHECKED">
+						<input type="radio" name="ddial" id="ddialno" value='' <?php echo ($ddial == 'CHECKED')?'':'CHECKED' ?>>
 						<label for="ddialno"><?php echo _("No")?></label>
 					</div>
 				</div>
