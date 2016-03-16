@@ -10,28 +10,29 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-16 15:36-0800\n"
-"PO-Revision-Date: 2016-01-08 17:30-0800\n"
+"PO-Revision-Date: 2016-03-16 23:20+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: functions.inc.php:778
 msgid "(pick extension)"
-msgstr ""
+msgstr "(پاسخ به داخلی)"
 
 #: functions.inc.php:730 views/form.php:40
 msgid "*-prim"
-msgstr ""
+msgstr "*-prim"
 
 #: views/form.php:430
 msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
-msgstr ""
+msgstr "اطلاعات هشدار میتواند برای تمایز زنگ وسایل SIP استفاده میشود."
 
 #: functions.inc.php:845 views/form.php:418
 msgid "Alert Info"
-msgstr ""
+msgstr "اطلاعات هشدار"
 
 #: functions.inc.php:989 views/form.php:469
 msgid "Always transmit the Fixed CID Value below."
@@ -39,11 +40,11 @@ msgstr ""
 
 #: functions.inc.php:800 views/form.php:70
 msgid "Announcement"
-msgstr ""
+msgstr "آگهی"
 
 #: findmefollow.i18n.php:6 findmefollow.i18n.php:12
 msgid "Applications"
-msgstr ""
+msgstr "درخواست"
 
 #: functions.inc.php:688
 msgid ""
@@ -68,23 +69,23 @@ msgstr ""
 
 #: functions.inc.php:835 views/form.php:394
 msgid "CID Name Prefix"
-msgstr ""
+msgstr "پیش شماره نام CID"
 
 #: functions.inc.php:865
 msgid "Call Confirmation Configuration"
-msgstr ""
+msgstr "تنظیمات قبول تماس"
 
 #: install.php:130 uninstall.php:30
 msgid "Cannot connect to Asterisk Manager with "
-msgstr ""
+msgstr "نمیتوان به مدیریت استریسک وصل شد با"
 
 #: functions.inc.php:966 views/form.php:485
 msgid "Change External CID Configuration"
-msgstr ""
+msgstr "تنظیمات تغییر CID خارجی"
 
 #: install.php:148
 msgid "Checking if recordings need migration.."
-msgstr ""
+msgstr "بررسی امکان انتقال ضبط شده ها"
 
 #: functions.inc.php:789
 msgid "Choose an extension to append to the end of the extension list above."
@@ -92,16 +93,16 @@ msgstr ""
 
 #: functions.inc.php:888 views/form.php:442
 msgid "Confirm Calls"
-msgstr ""
+msgstr "قبول تماس"
 
 #: findmefollow.i18n.php:14
 msgid "Create Follow Me at Extension Creation Time"
-msgstr ""
+msgstr "ایجاد مرا دنبال کن زمانی در داخلی"
 
 #: functions.inc.php:909 functions.inc.php:988 functions.inc.php:1001
 #: views/form.php:112 views/form.php:147 views/form.php:212 views/form.php:467
 msgid "Default"
-msgstr ""
+msgstr "پیشفرض"
 
 #: findmefollow.i18n.php:32
 msgid "Default Follow Me Initial Ring Time"
@@ -117,27 +118,27 @@ msgstr ""
 
 #: views/form.php:535
 msgid "Destination if no answer"
-msgstr ""
+msgstr "مقصد در صورت عدم دریافت پاسخ"
 
 #: functions.inc.php:1045
 msgid "Destinations"
-msgstr ""
+msgstr "مقاصد"
 
 #: findmefollow.i18n.php:20
 msgid "Disable Follow Me Upon Creation"
-msgstr ""
+msgstr "غیرفعال کردن مرا دنبال کن ساخته شده"
 
 #: ucp/views/settings.php:4
 msgid "Enable"
-msgstr ""
+msgstr "فعال کردن"
 
 #: views/quickCreate.php:5
 msgid "Enable Find Me/Follow Me"
-msgstr ""
+msgstr "فعال کردن مرا دنبال کن /مرا پیدا کن"
 
 #: views/form.php:259
 msgid "Enable Followme"
-msgstr ""
+msgstr "فعال کردن مرا دنبال کن"
 
 #: ucp/views/settings.php:46
 msgid ""
@@ -165,36 +166,36 @@ msgstr ""
 
 #: functions.inc.php:687 views/fmgrid.php:27
 msgid "Enabled"
-msgstr ""
+msgstr "فعال شد"
 
 #: assets/js/findmefollow.js:72
 msgid "Error"
-msgstr ""
+msgstr "خطا"
 
 #: views/bootnav.php:7 views/bootnav.php:18
 msgid "Extension"
-msgstr ""
+msgstr "داخلی"
 
 #: functions.inc.php:788
 msgid "Extension Quick Pick"
-msgstr ""
+msgstr "پاسخگویی سریع داخلی"
 
 #: functions.inc.php:629 ucp/Findmefollow.class.php:32
 msgid "Find Me/Follow Me"
-msgstr ""
+msgstr "مرا دنبال کن /مرا پیدا کن"
 
 #: ucp/Findmefollow.class.php:82
 msgid "Find Me/Follow Me Has Been Updated!"
-msgstr ""
+msgstr "مرا دنبال کن /مرا پیدا کن به روز رسانی شد"
 
 #: install.php:5
 msgid "Findme Follow Toggle"
-msgstr ""
+msgstr "مرا پیداو دنبال کن تغییر کرد"
 
 #: functions.inc.php:989 functions.inc.php:1005 functions.inc.php:1028
 #: views/form.php:213 views/form.php:469 views/form.php:511
 msgid "Fixed CID Value"
-msgstr ""
+msgstr "مقدار CID ثابت"
 
 #: functions.inc.php:1035
 msgid ""
@@ -218,72 +219,72 @@ msgstr ""
 
 #: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
 msgid "Follow Me"
-msgstr ""
+msgstr "مرا دنبال کن"
 
 #: Findmefollow.class.php:608
 msgid "Follow Me Enabled [Blank to disable]"
-msgstr ""
+msgstr "مرا دنبال کن فعال شد [خالی برای غیر فعال]"
 
 #: Findmefollow.class.php:611 ucp/views/settings.php:15
 msgid "Follow Me List"
-msgstr ""
+msgstr "فهرست مرا دنبال کن"
 
 #: findmefollow.i18n.php:16 findmefollow.i18n.php:22 findmefollow.i18n.php:28
 #: findmefollow.i18n.php:34 findmefollow.i18n.php:40
 msgid "Follow Me Module"
-msgstr ""
+msgstr "ماژول مرا دنبال کن"
 
 #: Findmefollow.class.php:614
 msgid "Follow Me No Answer Destination"
-msgstr ""
+msgstr "مقصد مرا دنبال کن در صورت عدم پاسخ"
 
 #: functions.inc.php:1199
 #, php-format
 msgid "Follow Me: %s"
-msgstr ""
+msgstr "مرا دنبال کن : %s"
 
 #: functions.inc.php:765 views/form.php:360
 msgid "Follow-Me List"
-msgstr ""
+msgstr "فهرست مرا دنبال کن"
 
 #: functions.inc.php:771
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
-msgstr ""
+msgstr "مرا دنبال کن درصورت فعال بودن نمیتواند خالی باشد"
 
 #: functions.inc.php:1251
 #, php-format
 msgid "Follow-Me User: %s"
-msgstr ""
+msgstr "کاربر مرا دنبال کن: %s"
 
 #: functions.inc.php:1228
 #, php-format
 msgid "Follow-Me: %s (%s)"
-msgstr ""
+msgstr "مرا دنبال کن: %s (%s)"
 
 #: views/fmgrid.php:26
 msgid "Followme Extension"
-msgstr ""
+msgstr "داخلی مرا دنبال کن"
 
 #: views/nogo.php:2
 msgid "Followme List"
-msgstr ""
+msgstr "لیست مرا دنبال کن"
 
 #: functions.inc.php:992 functions.inc.php:1017 views/form.php:216
 #: views/form.php:475
 msgid "Force Dialed Number"
-msgstr ""
+msgstr "شماره اجباری گرفته شده"
 
 #: functions.inc.php:41
 msgid "Force Follow Me"
-msgstr ""
+msgstr "اجبار مرا دنبال کن"
 
 #: functions.inc.php:663
 msgid "General Settings"
-msgstr ""
+msgstr "تنظیمات عمومی"
 
 #: views/form.php:235
 msgid "Group Number"
-msgstr ""
+msgstr "شماره گروه"
 
 #: functions.inc.php:825 views/form.php:204
 msgid ""
@@ -303,11 +304,11 @@ msgstr ""
 
 #: assets/js/findmefollow.js:96
 msgid "Invalid time specified"
-msgstr ""
+msgstr "جایگذاری زمان نادرست"
 
 #: views/bootnav.php:12
 msgid "List Followme Groups"
-msgstr ""
+msgstr "فهرست گروه های مرا دنبال کن"
 
 #: functions.inc.php:766 views/form.php:380
 msgid ""
@@ -366,11 +367,11 @@ msgstr ""
 
 #: views/nogo.php:1
 msgid "Method not supported"
-msgstr ""
+msgstr "این شیوه پشتیبانی نمیشود"
 
 #: functions.inc.php:995 views/form.php:465
 msgid "Mode"
-msgstr ""
+msgstr "حالت"
 
 #: findmefollow.i18n.php:8
 msgid ""
@@ -384,19 +385,19 @@ msgstr ""
 #: functions.inc.php:697 functions.inc.php:898 views/fmgrid.php:18
 #: views/form.php:266 views/form.php:449 views/quickCreate.php:12
 msgid "No"
-msgstr ""
+msgstr "خیر"
 
 #: functions.inc.php:1069
 msgid "No Answer"
-msgstr ""
+msgstr "بی پاسخ"
 
 #: functions.inc.php:615 views/form.php:77
 msgid "None"
-msgstr ""
+msgstr "هیچ"
 
 #: functions.inc.php:21 functions.inc.php:25
 msgid "Normal Extension Behavior"
-msgstr ""
+msgstr "رفتار معمول داخلی"
 
 #: assets/js/findmefollow.js:98
 msgid ""
@@ -414,65 +415,65 @@ msgstr ""
 #: functions.inc.php:990 functions.inc.php:1009 views/form.php:214
 #: views/form.php:471
 msgid "Outside Calls Fixed CID Value"
-msgstr ""
+msgstr "مقدار CID ثابت برای تماسهای بیرونی"
 
 #: functions.inc.php:824 views/form.php:180
 msgid "Play Music On Hold"
-msgstr ""
+msgstr "پخش موزیک در حال انتظار"
 
 #: functions.inc.php:641
 #, php-format
 msgid "Please enter a valid %s number"
-msgstr ""
+msgstr "لطفا یک شماره %s درست وارد کنید"
 
 #: assets/js/findmefollow.js:95
 msgid "Please enter an extension list."
-msgstr ""
+msgstr "لطفا یک فهرست داخلی وارد کنید"
 
 #: functions.inc.php:913 views/form.php:105
 msgid "Remote Announce"
-msgstr ""
+msgstr "اعلام راه دور"
 
 #: assets/js/findmefollow.js:72
 msgid "Request not received"
-msgstr ""
+msgstr "درخواستی دریافت نشد"
 
 #: Findmefollow.class.php:595
 msgid "Reset"
-msgstr ""
+msgstr "بازنشانی"
 
 #: functions.inc.php:812 views/form.php:187
 msgid "Ring"
-msgstr ""
+msgstr "زنگ"
 
 #: ucp/views/settings.php:20
 #, php-format
 msgid "Ring %s First For"
-msgstr ""
+msgstr "زنگ %s برای بار اول"
 
 #: ucp/views/settings.php:29
 msgid "Ring Followme List For"
-msgstr ""
+msgstr "زنگ خوردن فهرست مرا دنبال کن برای"
 
 #: functions.inc.php:743 views/form.php:310
 msgid "Ring Strategy"
-msgstr ""
+msgstr "چگونگی زنگ خوردن"
 
 #: functions.inc.php:754
 msgid "Ring Time"
-msgstr ""
+msgstr "مدت زنگ خوردن"
 
 #: views/form.php:336
 msgid "Ring Time (max 60 sec)"
-msgstr ""
+msgstr "مدت زنگ خوردن (حداکثر 60 ثانیه)"
 
 #: ucp/views/settings.php:23 ucp/views/settings.php:32
 msgid "Seconds"
-msgstr ""
+msgstr "ثانیه ها"
 
 #: Findmefollow.class.php:590
 msgid "Submit"
-msgstr ""
+msgstr "ارسال"
 
 #: findmefollow.i18n.php:36
 msgid ""
@@ -498,7 +499,7 @@ msgstr ""
 
 #: findmefollow.i18n.php:24
 msgid "This is the default value for the Follow Me "
-msgstr ""
+msgstr "این مقدار پیشفرض برای مرا دنبال کن است"
 
 #: functions.inc.php:717 ucp/views/settings.php:26 views/form.php:298
 msgid ""
@@ -509,7 +510,7 @@ msgstr ""
 
 #: ucp/views/settings.php:35
 msgid "Time in seconds that the phones will ring"
-msgstr ""
+msgstr "در مدت بر اساس ثانیه تلفن زنگ میخورد"
 
 #: functions.inc.php:755 views/form.php:348
 msgid ""
@@ -519,11 +520,11 @@ msgstr ""
 
 #: assets/js/findmefollow.js:97
 msgid "Time must be between 1 and 60 seconds"
-msgstr ""
+msgstr "مدت باید بین 1 تا 60 ثانیه باشد"
 
 #: functions.inc.php:925 views/form.php:140
 msgid "Too-Late Announce"
-msgstr ""
+msgstr "آگهی خیلی دیر"
 
 #: functions.inc.php:990 views/form.php:471
 msgid ""
@@ -554,24 +555,24 @@ msgstr ""
 
 #: ucp/views/settings.php:38
 msgid "Use Confirmation"
-msgstr ""
+msgstr "استفاده از تاییدیه"
 
 #: functions.inc.php:991 functions.inc.php:1013 views/form.php:215
 #: views/form.php:473
 msgid "Use Dialed Number"
-msgstr ""
+msgstr "استفاده از شماره گرفته شده"
 
 #: views/bootnav.php:4
 msgid "User"
-msgstr ""
+msgstr "کاربر"
 
 #: Findmefollow.class.php:80
 msgid "Warning! Extension"
-msgstr ""
+msgstr "هشدار! داخلی"
 
 #: assets/js/findmefollow.js:69
 msgid "We received and sent your request but something failed"
-msgstr ""
+msgstr "در حال دریافت و ارسال درخواست شما با شکست مواجه شدیم"
 
 #: findmefollow.i18n.php:18
 msgid ""
@@ -589,12 +590,12 @@ msgstr ""
 
 #: views/form.php:547
 msgid "Where to send callers if there is no answer."
-msgstr ""
+msgstr "جایی که تماس گیرنده درصورت عدم پاسخ به آنجا ارسال میشود"
 
 #: functions.inc.php:693 functions.inc.php:894 views/fmgrid.php:16
 #: views/form.php:264 views/form.php:447 views/quickCreate.php:10
 msgid "Yes"
-msgstr ""
+msgstr "بله"
 
 #: functions.inc.php:846
 msgid ""
@@ -618,53 +619,53 @@ msgstr ""
 
 #: install.php:155
 msgid "adding annmsg_id field.."
-msgstr ""
+msgstr "افزودن فیلد شناسه پیام.."
 
 #: install.php:164
 msgid "adding remotealert_id field.."
-msgstr ""
+msgstr "افزودن فیلد شناسه هشدار راه دور.."
 
 #: install.php:173
 msgid "adding toolate_id field.."
-msgstr ""
+msgstr "افزودن فیلد خیلی دیر.."
 
 #: install.php:291
 msgid "already migrated"
-msgstr ""
+msgstr "منتقل شده"
 
 #: views/form.php:191
 msgid "default"
-msgstr ""
+msgstr "پیشفرض"
 
 #: functions.inc.php:641
 msgid "device"
-msgstr ""
+msgstr "وسیله"
 
 #: install.php:265
 msgid "dropping annmsg field.."
-msgstr ""
+msgstr "حذف فیلد پیام.."
 
 #: install.php:273
 msgid "dropping remotealert field.."
-msgstr ""
+msgstr "حذف فیلد هشدار راه دور.."
 
 #: install.php:281
 msgid "dropping toolate field.."
-msgstr ""
+msgstr "حذف فیلد خیلی دیر.."
 
 #: functions.inc.php:641
 msgid "extension"
-msgstr ""
+msgstr "داخلی"
 
 #: install.php:159 install.php:168 install.php:177 install.php:189
 #: install.php:205 install.php:215 install.php:231 install.php:241
 #: install.php:257
 msgid "fatal error"
-msgstr ""
+msgstr "خطای سیستمی"
 
 #: functions.inc.php:731 views/form.php:42
 msgid "firstavailable"
-msgstr ""
+msgstr "اولین در دسترس"
 
 #: functions.inc.php:732 views/form.php:44
 msgid "firstnotonphone"
@@ -672,15 +673,15 @@ msgstr ""
 
 #: functions.inc.php:728 views/form.php:36
 msgid "hunt"
-msgstr ""
+msgstr "شکار"
 
 #: Findmefollow.class.php:80
 msgid "is not allowed for your account"
-msgstr ""
+msgstr "این کار به حساب شما اجازه داده نشده"
 
 #: functions.inc.php:729 views/form.php:38
 msgid "memoryhunt"
-msgstr ""
+msgstr "شکار حافظه"
 
 #: install.php:185
 msgid "migrate annmsg to ids.."
@@ -701,7 +702,7 @@ msgstr ""
 
 #: install.php:154
 msgid "migrating"
-msgstr ""
+msgstr "در حال انتقال"
 
 #: install.php:269
 msgid "no annmsg field???"
@@ -717,12 +718,12 @@ msgstr ""
 
 #: views/form.php:190
 msgid "none"
-msgstr ""
+msgstr "هیچ"
 
 #: install.php:162 install.php:171 install.php:180 install.php:271
 #: install.php:279 install.php:287
 msgid "ok"
-msgstr ""
+msgstr "تایید"
 
 #: functions.inc.php:727 views/form.php:34
 msgid ""
@@ -753,11 +754,11 @@ msgstr ""
 
 #: functions.inc.php:727 views/form.php:34
 msgid "ringall"
-msgstr ""
+msgstr "زنگ خور همه"
 
 #: functions.inc.php:726 views/form.php:32
 msgid "ringallv2"
-msgstr ""
+msgstr "زنگ خور همه نسخه 2"
 
 #: functions.inc.php:728 views/form.php:36
 msgid "take turns ringing each available extension"
