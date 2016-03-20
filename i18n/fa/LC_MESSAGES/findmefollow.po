@@ -10,13 +10,13 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-16 15:36-0800\n"
-"PO-Revision-Date: 2016-03-16 23:20+0300\n"
+"PO-Revision-Date: 2016-03-19 15:51+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fa\n"
 
 #: functions.inc.php:778
 msgid "(pick extension)"
@@ -36,7 +36,7 @@ msgstr "اطلاعات هشدار"
 
 #: functions.inc.php:989 views/form.php:469
 msgid "Always transmit the Fixed CID Value below."
-msgstr ""
+msgstr "همیشه مقدار ثابت CID زیر را منتقل کن."
 
 #: functions.inc.php:800 views/form.php:70
 msgid "Announcement"
@@ -89,7 +89,7 @@ msgstr "بررسی امکان انتقال ضبط شده ها"
 
 #: functions.inc.php:789
 msgid "Choose an extension to append to the end of the extension list above."
-msgstr ""
+msgstr "یک شماره داخلی برای اعمال به فهرست داخلی های بالا انتخاب کنید"
 
 #: functions.inc.php:888 views/form.php:442
 msgid "Confirm Calls"
@@ -106,15 +106,15 @@ msgstr "پیشفرض"
 
 #: findmefollow.i18n.php:32
 msgid "Default Follow Me Initial Ring Time"
-msgstr ""
+msgstr "پیشفرض اولیه مدت زنگ در مرا دنبال کن"
 
 #: findmefollow.i18n.php:38
 msgid "Default Follow Me Ring Strategy"
-msgstr ""
+msgstr "استراتژی زنگ پیشفرض در مرا دنبال کن"
 
 #: findmefollow.i18n.php:26
 msgid "Default Follow Me Ring Time"
-msgstr ""
+msgstr "مدت پیشفرض زنگ در مرا دنبال کن"
 
 #: views/form.php:535
 msgid "Destination if no answer"
@@ -294,13 +294,15 @@ msgstr ""
 
 #: functions.inc.php:716 views/form.php:286
 msgid "Initial Ring Time"
-msgstr ""
+msgstr "مدت زنگ اولیه"
 
 #: assets/js/findmefollow.js:99
 msgid ""
 "Invalid CID Number. Must be in a format of digits only with an option of "
 "E164 format using a leading \"+\""
 msgstr ""
+"شماره CID نامعتبر.این شماره میتواند شامل عدد و برای شماره های بین الملل شامل "
+"\"+\" باشد"
 
 #: assets/js/findmefollow.js:96
 msgid "Invalid time specified"
@@ -551,7 +553,7 @@ msgstr ""
 
 #: functions.inc.php:988 views/form.php:467
 msgid "Transmits the Callers CID if allowed by the trunk."
-msgstr ""
+msgstr "انتقال شماره تلفن تماس گیرنده در صورت مجازبودن در ترانک"
 
 #: ucp/views/settings.php:38
 msgid "Use Confirmation"
@@ -602,6 +604,8 @@ msgid ""
 "You can optionally include an Alert Info which can create distinctive rings "
 "on SIP phones."
 msgstr ""
+"شما میتوانید به دلخواه یک پیام هشدار اضافه کنید تا تمایزی برای تماسهای معمول "
+"باشد."
 
 #: functions.inc.php:836
 msgid ""
@@ -669,7 +673,7 @@ msgstr "اولین در دسترس"
 
 #: functions.inc.php:732 views/form.php:44
 msgid "firstnotonphone"
-msgstr ""
+msgstr "اولین کسی که پشت تلفن نیست"
 
 #: functions.inc.php:728 views/form.php:36
 msgid "hunt"
@@ -685,20 +689,20 @@ msgstr "شکار حافظه"
 
 #: install.php:185
 msgid "migrate annmsg to ids.."
-msgstr ""
+msgstr "mmigrate annmsg to ids.."
 
 #: install.php:211
 msgid "migrate remotealert to ids.."
-msgstr ""
+msgstr "mmigrate remotealert to ids.."
 
 #: install.php:237
 msgid "migrate toolate to  ids.."
-msgstr ""
+msgstr "mmigrate toolate to  ids.."
 
 #: install.php:209 install.php:235 install.php:261
 #, php-format
 msgid "migrated %s entries"
-msgstr ""
+msgstr "ورودی های %s منتقل شد"
 
 #: install.php:154
 msgid "migrating"
@@ -706,15 +710,15 @@ msgstr "در حال انتقال"
 
 #: install.php:269
 msgid "no annmsg field???"
-msgstr ""
+msgstr "nno annmsg field???"
 
 #: install.php:277
 msgid "no remotealert field???"
-msgstr ""
+msgstr "بدون فیلد هشدار راه دور"
 
 #: install.php:285
 msgid "no toolate field???"
-msgstr ""
+msgstr "nno toolate field???"
 
 #: views/form.php:190
 msgid "none"
@@ -730,6 +734,9 @@ msgid ""
 "ring Extension for duration set in Initial Ring Time, and then terminate "
 "call to Extension and ring Follow-Me List for duration set in Ring Time."
 msgstr ""
+"زنگ خوردن داخلی برای مدت تنظیم شده در زنگ خوردن اولیه و بعد تماس قطع شده و "
+"شماره های مشخص شده در فهرست مرا دنبال کن را برای مدت مشخص شده شماره گیری "
+"میکند."
 
 #: functions.inc.php:726 views/form.php:32
 msgid ""
@@ -746,11 +753,11 @@ msgstr ""
 
 #: functions.inc.php:731 views/form.php:42
 msgid "ring only the first available channel"
-msgstr ""
+msgstr "فقط اولین کانال در دسترس زنگ بخورد"
 
 #: functions.inc.php:732 views/form.php:44
 msgid "ring only the first channel which is not off hook - ignore CW"
-msgstr ""
+msgstr "فقط اولین کانال آزاد زنگ بخورد - لغو CW"
 
 #: functions.inc.php:727 views/form.php:34
 msgid "ringall"
@@ -762,7 +769,7 @@ msgstr "زنگ خور همه نسخه 2"
 
 #: functions.inc.php:728 views/form.php:36
 msgid "take turns ringing each available extension"
-msgstr ""
+msgstr "زنگ خوردن گردشی برای هر یک از داخلی های در دسترس"
 
 #: functions.inc.php:730 views/form.php:40
 msgid ""
