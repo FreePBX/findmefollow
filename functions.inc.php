@@ -75,13 +75,14 @@ function findmefollow_get_config($engine) {
 
 			$ringlist = findmefollow_full_list();
 			if (is_array($ringlist)) {
+				gc_collect_cycles();
+				gc_disable();
 				foreach($ringlist as $item) {
 					$grpnum = ltrim($item['0']);
 					if ($grpnum == "") {
 						continue;
 					}
 					$grp = findmefollow_get($grpnum);
-
 					$strategy = $grp['strategy'];
 					$grptime = $grp['grptime'];
 					$grplist = $grp['grplist'];
@@ -241,6 +242,8 @@ function findmefollow_get_config($engine) {
 					}
 					$ext->add($contextname, $grpnum, 'nodest', new ext_noop('SKIPPING DEST, CALL CAME FROM Q/RG: ${RRNODEST}'));
 				}
+				gc_enable();
+
 	/*
 	  ASTDB Settings:
 	  AMPUSER/nnn/followme/changecid default | did | fixed | extern
@@ -1301,4 +1304,3 @@ function findmefollow_fmf_toggle($c) {
 		$ext->add($id, $c, 'return', new ext_return());
 	}
 }
-?>
