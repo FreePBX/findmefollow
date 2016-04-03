@@ -26,6 +26,7 @@ msgid "(pick extension)"
 msgstr "(پاسخ به داخلی)"
 
 #: functions.inc.php:730 views/form.php:40
+#, fuzzy
 msgid "*-prim"
 msgstr "*-prim"
 
