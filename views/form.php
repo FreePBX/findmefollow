@@ -260,9 +260,9 @@ if (empty($goto)) {
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="ddialw"></i>
 					</div>
 					<div class="col-md-9 radioset">
-						<input type="radio" name="ddial" id="ddialyes" value='CHECKED' <?php echo ($ddial == 'CHECKED')?'CHECKED':''?>>
+						<input type="radio" name="ddial" id="ddialyes" value='' <?php echo ($ddial == 'CHECKED')?'':'CHECKED'?>>
 						<label for="ddialyes"><?php echo _("Yes")?></label>
-						<input type="radio" name="ddial" id="ddialno" value='' <?php echo ($ddial == 'CHECKED')?'':'CHECKED' ?>>
+						<input type="radio" name="ddial" id="ddialno" value='CHECKED' <?php echo ($ddial == 'CHECKED')?'CHECKED':'' ?>>
 						<label for="ddialno"><?php echo _("No")?></label>
 					</div>
 				</div>
@@ -271,7 +271,7 @@ if (empty($goto)) {
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<span id="ddialw-help" class="help-block fpbx-help-block"><?php echo _('By default (not checked) any call to this extension will go to this Follow-Me instead, including directory calls by name from IVRs. If checked, calls will go only to the extension.<BR>However, destinations that specify FollowMe will come here.<BR>Checking this box is often used in conjunction with VmX Locater, where you want a call to ring the extension, and then only if the caller chooses to find you do you want it to come here.')?></span>
+			<span id="ddialw-help" class="help-block fpbx-help-block"><?php echo _('By default (yes) any call to this extension will go to this Follow-Me instead, including directory calls by name from IVRs. If no, calls will go only to the extension.<BR>However, destinations that specify FollowMe will come here.<BR>This setting is often used in conjunction with VmX Locater, where you want a call to ring the extension, and then only if the caller chooses to find you do you want it to come here.')?></span>
 		</div>
 	</div>
 </div>
