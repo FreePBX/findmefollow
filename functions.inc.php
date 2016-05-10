@@ -1159,11 +1159,13 @@ function findmefollow_users_configprocess() {
 
 function findmefollow_update($grpnum,$settings) {
 	$old = findmefollow_get($grpnum);
+	dbug($old);
 	if(!empty($old)) {
 		findmefollow_del($grpnum);
 		$old['grplist'] = explode("-",$old['grplist']);
 		$settings = array_merge($old,$settings);
 	}
+	extract($settings);
 	findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid);
 }
 

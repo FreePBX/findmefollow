@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>13.0.30</version>
+	<version>13.0.31</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*13.0.31* Fix bug when saving
 		*13.0.30* FREEPBX-10685 Follow me list in UCP does not display # suffix when entered
 		*13.0.29* FREEPBX-11995 Make enabled button act in accordance with the labeling
 		*13.0.28* FREEPBX-11743 fix followmeform enable toggle
