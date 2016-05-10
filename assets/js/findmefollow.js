@@ -21,6 +21,8 @@ $("[id^='qsagents']").on('change',function(){
 		$('#'+taelm).val(cval+"\n"+$(this).val());
 		$(this).children('option[value="'+$(this).val()+'"]').remove();
 	}
+	var ta = document.querySelector('textarea.autosize');
+	autosize.update(ta);
 });
 //FixedCID
 $("#changecid").change(function(){

@@ -362,10 +362,10 @@ if (empty($goto)) {
 					</div>
 					<div class="col-md-9">
 						<div class="input-group">
-							<textarea id="grplist" class="form-control" rows="<?php echo $glrows?>" name="grplist"><?php echo implode(PHP_EOL,$grplist);?></textarea>
+							<textarea id="grplist" class="form-control autosize" rows="<?php echo $glrows?>" name="grplist"><?php echo implode(PHP_EOL,$grplist);?></textarea>
 							<span class="input-group-addon">
 								<select id="qsagents1" class="form-control" data-for="grplist" style="width:170px;">
-									<option SELECTED value=""><?php echo("Agent Quick Select")?></option>
+									<option SELECTED value=""><?php echo("Quick Select")?></option>
 									<?php echo $qsagentlist ?>
 								</select>
 							</span>

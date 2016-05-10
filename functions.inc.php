@@ -771,30 +771,13 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 		"jsvalidation" => "frm_${display}_fmfmListEmpty()",
 		"failvalidationmsg" => _('Follow-Me List can not be empty if Follow-Me is enabled'),
 	);
-	$currentcomponent->addguielem($section, new gui_textarea(array_merge($guidefaults,$el)),$category);
-
-	$optlist = array();
-	$optlist[] = array(
-		"value" => "",
-		"text" => _("(pick extension)")
-	);
 	foreach (core_users_list() as $result) {
-		$optlist[] = array(
+		$el['select'][] = array(
 			"value" => $result[0],
 			"text" => $result[0]." (".$result[1].")"
 		);
 	}
-	$el = array(
-		"elemname" => "fmfm_quickpick",
-		"prompttext" => _('Extension Quick Pick'),
-		"helptext" => _("Choose an extension to append to the end of the extension list above."),
-		"currentvalue" => "",
-		"valarray" => $optlist,
-		"class" => "fpbx-fmfm",
-		"canbeempty" => false,
-		"onchange" => "frm_${display}_fmfmQuickPick()"
-	);
-	$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)), $category);
+	$currentcomponent->addguielem($section, new gui_textarea_select(array_merge($guidefaults,$el)),$category);
 
 	$el = array(
 		"elemname" => "fmfm_annmsg_id",
