@@ -62,8 +62,10 @@ class Findmefollow implements \BMO {
 				// remove invalid chars
 				$grplist[$key] = preg_replace("/[^0-9#*+]/", "", $grplist[$key]);
 
-				if ($grplist[$key] == ltrim($extdisplay,'GRP-').'#')
+				//Dont allow self to be a local channel
+				if ($grplist[$key] == ltrim($extdisplay,'GRP-').'#') {
 					$grplist[$key] = rtrim($grplist[$key],'#');
+				}
 
 				// remove blanks
 				if ($grplist[$key] == "") unset($grplist[$key]);
@@ -203,7 +205,7 @@ class Findmefollow implements \BMO {
 	 */
 	function setList($exten,$follow_me_list) {
 		foreach($follow_me_list as &$value) {
-			$value = $this->lookupSetExtensionFormat($value);
+			$value = $this->lookupSetExtensionFormat($exten, $value);
 		}
 		$follow_me_list = implode("-",$follow_me_list);
 		$this->FreePBX->astman->database_put('AMPUSER', "$exten/followme/grplist", $follow_me_list);
@@ -212,22 +214,24 @@ class Findmefollow implements \BMO {
 	/**
 	 * Lookup extension format
 	 * This should be depreciated eventually
+	 * @param {int} $grp The FMFM Group
 	 * @param {int} $exten The Phone Number
 	 */
-	function lookupSetExtensionFormat($exten) {
+	function lookupSetExtensionFormat($grp, $exten) {
 		if (trim($exten) == "") {
 			return $exten;
 		};
 
+		$hadPound = preg_match("/#$/",$exten);
 		$exten = preg_replace("/[^0-9*+]/", "", $exten);
 
-		//TODO: Should be using core user function here instead of cheating.
-		$sql = "SELECT extension FROM users WHERE extension = ?";
-		$sth = $this->db->prepare($sql);
-		$sth->execute(array($exten));
-		$result = $sth->fetch(\PDO::FETCH_ASSOC);
+		//Dont allow self to be a local channel
+		if($hadPound && $exten != $grp) {
+			return $exten.'#';
+		}
 
-		if (!is_array($result)) {
+		$result = $this->FreePBX->Core->getUser($exten);
+		if (empty($result)) {
 			return $exten.'#';
 		} else {
 			return $exten;
@@ -242,7 +246,7 @@ class Findmefollow implements \BMO {
 	 */
 	function getList($exten) {
 		$response = $this->FreePBX->astman->database_get("AMPUSER","$exten/followme/grplist");
-		return preg_replace("/[^0-9*\-+]/", "", $response);
+		return preg_replace("/[^0-9#*\-+]/", "", $response);
 	}
 
 	/*
@@ -544,6 +548,7 @@ class Findmefollow implements \BMO {
 				$results['grptime'] = $astdb_grptime;
 				$changed=1;
 			}
+
 			if ((trim($astdb_grplist) != trim($results['grplist'])) && (trim($astdb_grplist) != '')) {
 				$results['grplist'] = $astdb_grplist;
 				$changed=1;

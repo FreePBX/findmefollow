@@ -310,10 +310,16 @@ function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre=
 	$list = !is_array($grplist) ? explode("-", $grplist) : $grplist;
 	foreach (array_keys($list) as $key) {
 		// remove invalid chars
+		$hadPound = preg_match("/#$/",$list[$key]);
 		$list[$key] = preg_replace("/[^0-9*+]/", "", $list[$key]);
 
 		if ($list[$key] == "") {
 			unset($list[$key]);
+			continue;
+		}
+
+		if($hadPound) {
+			$list[$key].= '#';
 			continue;
 		}
 
@@ -1158,7 +1164,6 @@ function findmefollow_update($grpnum,$settings) {
 		$old['grplist'] = explode("-",$old['grplist']);
 		$settings = array_merge($old,$settings);
 	}
-	extract($settings);
 	findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid);
 }
 
