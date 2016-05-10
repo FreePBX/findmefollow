@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-10 11:03-0700\n"
+"POT-Creation-Date: 2016-05-10 12:19-0700\n"
 "PO-Revision-Date: 2008-11-10 11:52+0100\n"
 "Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
 "Language-Team: Italian\n"
@@ -243,7 +243,7 @@ msgstr ""
 msgid "Follow Me No Answer Destination"
 msgstr ""
 
-#: functions.inc.php:1199
+#: functions.inc.php:1201
 #, php-format
 msgid "Follow Me: %s"
 msgstr ""
@@ -256,12 +256,12 @@ msgstr "Lista Seguimi"
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
 msgstr ""
 
-#: functions.inc.php:1251
+#: functions.inc.php:1253
 #, php-format
 msgid "Follow-Me User: %s"
 msgstr "Utente Seguimi: %s"
 
-#: functions.inc.php:1228
+#: functions.inc.php:1230
 #, php-format
 msgid "Follow-Me: %s (%s)"
 msgstr "Seguimi: %s (%s)"
