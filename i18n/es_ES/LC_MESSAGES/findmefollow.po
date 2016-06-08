@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-08 23:46+0200\n"
-"PO-Revision-Date: 2016-06-08 02:21+0200\n"
+"PO-Revision-Date: 2016-06-08 06:20+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/findmefollow/es_ES/>\n"
@@ -269,7 +269,7 @@ msgstr "Extensión SigueMe"
 
 #: views/nogo.php:2
 msgid "Followme List"
-msgstr ""
+msgstr "Lista SigueMe"
 
 #: functions.inc.php:990 functions.inc.php:1015 views/form.php:216
 #: views/form.php:475
@@ -282,11 +282,11 @@ msgstr "Forzar SigueMe"
 
 #: functions.inc.php:660
 msgid "General Settings"
-msgstr ""
+msgstr "Configuración General"
 
 #: views/form.php:235
 msgid "Group Number"
-msgstr ""
+msgstr "Numero de Grupo"
 
 #: functions.inc.php:823 views/form.php:204
 msgid ""
@@ -298,7 +298,7 @@ msgstr ""
 
 #: functions.inc.php:713 views/form.php:286
 msgid "Initial Ring Time"
-msgstr ""
+msgstr "Tiempo de Timbrado Inicial"
 
 #: assets/js/findmefollow.js:99
 msgid ""
@@ -314,7 +314,7 @@ msgstr "Tiempo especificado invalido"
 
 #: views/bootnav.php:12
 msgid "List Followme Groups"
-msgstr ""
+msgstr "Lista de Grupos SigueMe"
 
 #: functions.inc.php:763 views/form.php:380
 msgid ""
@@ -343,6 +343,9 @@ msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
 "additional recordings please use the \"System Recordings\" MENU above"
 msgstr ""
+"Mensaje que se transmite al llamante antes de marcar este grupo.<br><br>Para "
+"añadir grabaciones adicionales por favor utilice el menú \"Sistema de "
+"Grabaciones\" arriba"
 
 #: functions.inc.php:799
 msgid ""
@@ -359,6 +362,9 @@ msgid ""
 "enabled.<br><br>To add additional recordings use the \"System Recordings\" "
 "MENU above"
 msgstr ""
+"Mensaje que se reproduce a la persona que recibe la llamada, si 'Confirmar "
+"llamadas' está habilitada.<br>Para añadir grabaciones adicionales utilizar "
+"el menú \"Sistema de Grabaciones\" arriba"
 
 #: functions.inc.php:912
 msgid ""
@@ -376,6 +382,9 @@ msgid ""
 "already been accepted before they push 1.<br><br>To add additional "
 "recordings use the \"System Recordings\" MENU above"
 msgstr ""
+"Mensaje que se reproduce a la persona que recibe la llamada, si la llamada "
+"ya ha sido aceptado antes de que oprimir 1. <br><br> Para añadir grabaciones "
+"adicionales utilizar el menú \"Sistema de Grabaciones\" arriba"
 
 #: functions.inc.php:924
 msgid ""
@@ -389,7 +398,7 @@ msgstr ""
 
 #: views/nogo.php:1
 msgid "Method not supported"
-msgstr ""
+msgstr "Método no soportado"
 
 #: functions.inc.php:993 views/form.php:465
 msgid "Mode"
@@ -398,11 +407,11 @@ msgstr "Modo"
 #: functions.inc.php:694 functions.inc.php:896 views/fmgrid.php:17
 #: views/form.php:266 views/form.php:449 views/quickCreate.php:12
 msgid "No"
-msgstr ""
+msgstr "No"
 
 #: functions.inc.php:1067
 msgid "No Answer"
-msgstr ""
+msgstr "No Contesta"
 
 #: functions.inc.php:615 views/form.php:77
 msgid "None"
@@ -426,6 +435,10 @@ msgid ""
 "otherwise idle phone. If the phone is in use and the call is simply ignored, "
 "then the busy destination will be used."
 msgstr ""
+"Destino Opcional al que la llamada sera enrutada  cuando la llamada no es "
+"contestada en un teléfono en otro modo a inactivo. Si el teléfono está en "
+"uso y la llamada es simplemente ignorada, a continuación, se utilizará el "
+"destino ocupado."
 
 #: functions.inc.php:988 functions.inc.php:1007 views/form.php:214
 #: views/form.php:471
@@ -434,12 +447,12 @@ msgstr "Valor fijo de CID para llamadas afuera"
 
 #: functions.inc.php:822 views/form.php:180
 msgid "Play Music On Hold"
-msgstr ""
+msgstr "Reproducir Música en Espera"
 
 #: functions.inc.php:641
 #, php-format
 msgid "Please enter a valid %s number"
-msgstr ""
+msgstr "Por favor entre un numero %s valido"
 
 #: assets/js/findmefollow.js:95
 msgid "Please enter an extension list."
@@ -451,11 +464,11 @@ msgstr "Anuncio remoto"
 
 #: assets/js/findmefollow.js:72
 msgid "Request not received"
-msgstr ""
+msgstr "Solicitud no recibida"
 
 #: Findmefollow.class.php:592
 msgid "Reset"
-msgstr ""
+msgstr "Reinicio"
 
 #: functions.inc.php:810 views/form.php:187
 msgid "Ring"
@@ -472,11 +485,11 @@ msgstr "Timbrar lista  SigueMe para"
 
 #: functions.inc.php:740 views/form.php:310
 msgid "Ring Strategy"
-msgstr ""
+msgstr "Estrategia de Timbrado"
 
 #: functions.inc.php:751
 msgid "Ring Time"
-msgstr ""
+msgstr "Tiempo de Timbrado"
 
 #: views/form.php:336
 msgid "Ring Time (max 60 sec)"
@@ -488,11 +501,11 @@ msgstr "Segundos"
 
 #: Findmefollow.class.php:587
 msgid "Submit"
-msgstr ""
+msgstr "Enviar"
 
 #: views/form.php:247
 msgid "The number users will dial to ring extensions in this Followme group"
-msgstr ""
+msgstr "El numero al que los usuarios marcaran para este Grupo de SigueMe"
 
 #: functions.inc.php:714 ucp/views/settings.php:26 views/form.php:298
 msgid ""
@@ -582,7 +595,7 @@ msgstr "Advertencia! Extension"
 
 #: assets/js/findmefollow.js:69
 msgid "We received and sent your request but something failed"
-msgstr ""
+msgstr "Lo recibimos y enviamos su petición pero algo fallo"
 
 #: ucp/views/settings.php:12
 msgid ""
@@ -596,12 +609,12 @@ msgstr ""
 
 #: views/form.php:547
 msgid "Where to send callers if there is no answer."
-msgstr ""
+msgstr "Donde enviar a los Llamantes si la llamada no es contestada."
 
 #: functions.inc.php:690 functions.inc.php:892 views/fmgrid.php:15
 #: views/form.php:264 views/form.php:447 views/quickCreate.php:10
 msgid "Yes"
-msgstr ""
+msgstr "Si"
 
 #: functions.inc.php:844
 msgid ""
@@ -628,6 +641,10 @@ msgid ""
 "group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
 "as \"Sales:John Doe\" on the extensions that ring."
 msgstr ""
+"Puede prefijar opcionalmente el nombre de ID de llamada cuando suenan "
+"extensiones de este grupo. es decir: Si el prefijo con \"Ventas:\", una "
+"llamada de John Doe mostraría como \"Ventas: John Doe\" en las extensiones "
+"que suenan."
 
 #: install.php:155
 msgid "adding annmsg_id field.."
@@ -647,11 +664,11 @@ msgstr "Ya se ha migrado"
 
 #: views/form.php:191
 msgid "default"
-msgstr ""
+msgstr "por defecto"
 
 #: functions.inc.php:641
 msgid "device"
-msgstr ""
+msgstr "dispositivo"
 
 #: install.php:265
 msgid "dropping annmsg field.."
@@ -667,7 +684,7 @@ msgstr "dejando campo toolate.."
 
 #: functions.inc.php:641
 msgid "extension"
-msgstr ""
+msgstr "extensión"
 
 #: install.php:159 install.php:168 install.php:177 install.php:189
 #: install.php:205 install.php:215 install.php:231 install.php:241
@@ -730,7 +747,7 @@ msgstr "no campo toolate???"
 
 #: views/form.php:190
 msgid "none"
-msgstr ""
+msgstr "niguno"
 
 #: install.php:162 install.php:171 install.php:180 install.php:271
 #: install.php:279 install.php:287
