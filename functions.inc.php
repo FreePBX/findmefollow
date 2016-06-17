@@ -236,219 +236,45 @@ function findmefollow_get_config($engine) {
 			$ext->add($contextname, '_X.', 'nodest', new ext_noop('SKIPPING DEST, CALL CAME FROM Q/RG: ${RRNODEST}'));
 			$ext->add($contextname, '_X.', '', new ext_return());
 
-			//
-			if (false) {
-				$ringlist = findmefollow_full_list();
-				gc_collect_cycles();
-				gc_disable();
-				foreach($ringlist as $item) {
-					$grpnum = ltrim($item['0']);
-					if ($grpnum == "") {
-						continue;
-					}
-					$grp = findmefollow_get($grpnum);
-					$strategy = $grp['strategy'];
-					$grptime = $grp['grptime'];
-					$grplist = $grp['grplist'];
-					$postdest = $grp['postdest'];
-					$grppre = (isset($grp['grppre'])?$grp['grppre']:'');
-					$annmsg_id = $grp['annmsg_id'];
-					$dring = $grp['dring'];
+			/*
+				ASTDB Settings:
+				AMPUSER/nnn/followme/changecid default | did | fixed | extern
+				AMPUSER/nnn/followme/fixedcid XXXXXXXX
 
-					$needsconf = $grp['needsconf'];
-					$remotealert_id = $grp['remotealert_id'];
-					$toolate_id = $grp['toolate_id'];
-					$ringing = $grp['ringing'];
-					$pre_ring = $grp['pre_ring'];
+				changecid:
+					default   - works as always, same as if not present
+					fixed     - set to the fixedcid
+					extern    - set to the fixedcid if the call is from the outside only
+					did       - set to the DID that the call came in on or leave alone, treated as foreign
+					forcedid  - set to the DID that the call came in on or leave alone, not treated as foreign
 
-					if($ringing == 'Ring' || empty($ringing) ) {
-						$dialopts = '${DIAL_OPTIONS}';
-					} else {
-						// We need the DIAL_OPTIONS variable
-						if (!isset($sops)) {
-							$sops = sql("SELECT value from globals where variable='DIAL_OPTIONS'", "getRow");
-						}
-						$dialopts = "m(${ringing})".str_replace('r', '', $sops[0]);
-					}
+				EXTTOCALL   - has the exten num called, hoaky if that goes away but for now use it
+			*/
+			$contextname = 'sub-fmsetcid';
+			$exten = 's';
+			$ext->add($contextname, $exten, '', new ext_goto('1','s-${DB(AMPUSER/${EXTTOCALL}/followme/changecid)}'));
 
-					// Direct target to Follow-Me come here bypassing the followme/ddial conditional check
-					//
-					$ext->add($contextname, 'FM'.$grpnum, '', new ext_goto("FM$grpnum","$grpnum"));
+			$exten = 's-fixed';
+			$ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${DB(AMPUSER/${EXTTOCALL}/followme/fixedcid)})}" = "1"]', 'Set', '__TRUNKCIDOVERRIDE=${DB(AMPUSER/${EXTTOCALL}/followme/fixedcid)}'));
+			$ext->add($contextname, $exten, '', new ext_return(''));
 
-					//
-					// If the followme is configured for extension dialing to go to the the extension and not followme then
-					// go there. This is often used in VmX Locater functionality when the user does not want the followme
-					// to automatically be called but only if chosen by the caller as an alternative to going to voicemail
-					//
-					$ext->add($contextname, $grpnum, '', new ext_gotoif('$[ "${DB(AMPUSER/'.$grpnum.'/followme/ddial)}" = "EXTENSION" ]', 'ext-local,'.$grpnum.',1'));
-					$ext->add($contextname, $grpnum, 'FM'.$grpnum, new ext_macro('user-callerid'));
+			$exten = 's-extern';
+			$ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${DB(AMPUSER/${EXTTOCALL}/followme/fixedcid)})}" == "1" & "${FROM_DID}" != ""]', 'Set', '__TRUNKCIDOVERRIDE=${DB(AMPUSER/${EXTTOCALL}/followme/fixedcid)}'));
+			$ext->add($contextname, $exten, '', new ext_return(''));
 
-					$ext->add($contextname, $grpnum, '', new ext_set('DIAL_OPTIONS','${DIAL_OPTIONS}I'));
-					$ext->add($contextname, $grpnum, '', new ext_set('CONNECTEDLINE(num,i)', $grpnum));
-					$cidnameval = '${DB(AMPUSER/' . $grpnum . '/cidname)}';
-					if ($amp_conf['AST_FUNC_PRESENCE_STATE'] && $amp_conf['CONNECTEDLINE_PRESENCESTATE']) {
-						$ext->add($contextname, $grpnum, '', new ext_gosub('1', 's', 'sub-presencestate-display', $grpnum));
-						$cidnameval.= '${PRESENCESTATE_DISPLAY}';
-					}
-					$ext->add($contextname, $grpnum, '', new ext_set('CONNECTEDLINE(name)', $cidnameval));
-					$ext->add($contextname, $grpnum, '', new ext_set('FM_DIALSTATUS','${EXTENSION_STATE(' .$grpnum. '@ext-local)}'));
-					$ext->add($contextname, $grpnum, '', new ext_set('__EXTTOCALL','${EXTEN}'));
-					$ext->add($contextname, $grpnum, '', new ext_set('__PICKUPMARK','${EXTEN}'));
+			$exten = 's-did';
+			$ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${FROM_DID})}" = "1"]', 'Set', '__REALCALLERIDNUM=${FROM_DID}'));
+			$ext->add($contextname, $exten, '', new ext_return(''));
 
-					// block voicemail until phone is answered at which point a macro should be called on the answering
-					// line to clear this flag so that subsequent transfers can occur, if already set by a the caller
-					// then don't change.
-					//
-					$ext->add($contextname, $grpnum, '', new ext_macro('blkvm-setifempty'));
-					$ext->add($contextname, $grpnum, '', new ext_gotoif('$["${GOSUB_RETVAL}" = "TRUE"]', 'skipov'));
-					$ext->add($contextname, $grpnum, '', new ext_macro('blkvm-set','reset'));
-					$ext->add($contextname, $grpnum, '', new ext_setvar('__NODEST', ''));
+			$exten = 's-forcedid';
+			$ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${FROM_DID})}" = "1"]', 'Set', '__TRUNKCIDOVERRIDE=${FROM_DID}'));
+			$ext->add($contextname, $exten, '', new ext_return(''));
 
-					// Remember if NODEST was set later, but clear it in case the call is answered so that subsequent
-					// transfers work.
-					//
-					$ext->add($contextname, $grpnum, 'skipov', new ext_setvar('RRNODEST', '${NODEST}'));
-					$ext->add($contextname, $grpnum, 'skipvmblk', new ext_setvar('__NODEST', '${EXTEN}'));
+			$exten = '_s-.';
+			$ext->add($contextname, $exten, '', new ext_noop('Unknown value for AMPUSER/${EXTTOCALL}/followme/changecid of ${DB(AMPUSER/${EXTTOCALL}/followme/changecid)} set to "default"'));
+			$ext->add($contextname, $exten, '', new ext_setvar('DB(AMPUSER/${EXTTOCALL}/followme/changecid)', 'default'));
+			$ext->add($contextname, $exten, '', new ext_return(''));
 
-					$ext->add($contextname, $grpnum, '', new ext_gosubif('$[${DB_EXISTS(AMPUSER/'.$grpnum.'/followme/changecid)} = 1 & "${DB(AMPUSER/'.$grpnum.'/followme/changecid)}" != "default" & "${DB(AMPUSER/'.$grpnum.'/followme/changecid)}" != ""]', 'sub-fmsetcid,s,1'));
-
-
-					// deal with group CID prefix
-					if ($grppre != '') {
-						$ext->add($contextname, $grpnum, '', new ext_macro('prepend-cid', $grppre));
-					}
-					// recording stuff
-					$ext->add($contextname, $grpnum, '', new ext_setvar('RecordMethod','Group'));
-
-					// Note there is no cancel later as the special case of follow-me, if they say record, it should stick
-					$ext->add($contextname, $grpnum, 'checkrecord', new ext_gosub('1','s','sub-record-check',"exten,$grpnum,"));
-
-					// MODIFIED (PL)
-					// Add Alert Info if set but don't override and already set value (could be from ringgroup, directdid, etc.)
-					//
-					if ((isset($dring) ? $dring : '') != '') {
-						// If ALERTINFO is set, then skip to the next set command. This was modified to two lines because the previous
-						// IF() couldn't handle ':' as part of the string. The jump to PRIORITY+2 allows for now destination label
-						// which is needed in the 2.3 version.
-						$ext->add($contextname, $grpnum, '', new ext_gotoif('$["x${ALERT_INFO}"!="x"]','$[${PRIORITY}+2])}'));
-						$ext->add($contextname, $grpnum, '', new ext_setvar("__ALERT_INFO", str_replace(';', '\;', $dring) ));
-					}
-					// If pre_ring is set, then ring this number of seconds prior to moving on
-					if ((isset($strategy) ? substr($strategy,0,strlen('ringallv2')) : '') != 'ringallv2') {
-						$ext->add($contextname, $grpnum, '', new ext_gotoif('$[$[ "${DB(AMPUSER/'.$grpnum.'/followme/prering)}" = "0" ] | $[ "${DB(AMPUSER/'.$grpnum.'/followme/prering)}" = "" ]] ', 'skipsimple'));
-						$ext->add($contextname, $grpnum, '', new ext_macro('simple-dial',$grpnum.',${DB(AMPUSER/'."$grpnum/followme/prering)}"));
-					}
-
-					// group dial
-					$ext->add($contextname, $grpnum, 'skipsimple', new ext_setvar('RingGroupMethod',$strategy));
-					$ext->add($contextname, $grpnum, '', new ext_setvar('_FMGRP',$grpnum));
-
-					if (!empty($annmsg_id)) {
-						$annmsg = recordings_get_file($annmsg_id);
-						// should always answer before playing anything, shouldn't we ?
-						$ext->add($contextname, $grpnum, '', new ext_gotoif('$[$["${DIALSTATUS}" = "ANSWER"] | $["foo${RRNODEST}" != "foo"]]','DIALGRP'));
-						$ext->add($contextname, $grpnum, '', new ext_answer(''));
-						$ext->add($contextname, $grpnum, '', new ext_wait(1));
-						$ext->add($contextname, $grpnum, '', new ext_playback($annmsg));
-					}
-
-					// Create the confirm target
-					$len=strlen($grpnum)+4;
-					$remotealert = empty($remotealert_id) ? '' : recordings_get_file($remotealert_id);
-					$toolate = empty($toolate_id) ? '' : recordings_get_file($toolate_id);
-					$ext->add("fmgrps", "_RG-${grpnum}.", '', new ext_nocdr(''));
-					$ext->add("fmgrps", "_RG-${grpnum}.", '', new ext_macro('dial','${DB(AMPUSER/'."$grpnum/followme/grptime)},$dialopts" . "M(confirm^${remotealert}^${toolate}^${grpnum})".',${EXTEN:'.$len.'}'));
-
-					// If grpconf == ENABLED call with confirmation ELSE call normal
-					$ext->add($contextname, $grpnum, 'DIALGRP', new ext_gotoif('$[("${DB(AMPUSER/'.$grpnum.'/followme/grpconf)}"="ENABLED") | ("${FORCE_CONFIRM}"!="") ]', 'doconfirm'));
-
-					// Normal call
-					if ((isset($strategy) ? substr($strategy,0,strlen('ringallv2')) : '') != 'ringallv2') {
-						$ext->add($contextname, $grpnum, '', new ext_macro('dial','${DB(AMPUSER/'."$grpnum/followme/grptime)},$dialopts,".'${DB(AMPUSER/'."$grpnum/followme/grplist)}"));
-					} else {
-						$ext->add($contextname, $grpnum, '', new ext_macro('dial','$[ ${DB(AMPUSER/'.$grpnum.'/followme/grptime)} + ${DB(AMPUSER/'.$grpnum.'/followme/prering)} ],'.$dialopts.',${DB(AMPUSER/'.$grpnum.'/followme/grplist)}'));
-					}
-					$ext->add($contextname, $grpnum, '', new ext_goto('nextstep'));
-
-					// Call Confirm call
-					if ((isset($strategy) ? substr($strategy,0,strlen('ringallv2')) : '') != 'ringallv2') {
-						$ext->add($contextname, $grpnum, 'doconfirm', new ext_macro('dial-confirm','${DB(AMPUSER/'."$grpnum/followme/grptime)},$dialopts,".'${DB(AMPUSER/'."$grpnum/followme/grplist)},".$grpnum));
-					} else {
-						$ext->add($contextname, $grpnum, 'doconfirm', new ext_macro('dial-confirm','$[ ${DB(AMPUSER/'.$grpnum.'/followme/grptime)} + ${DB(AMPUSER/'.$grpnum.'/followme/prering)} ],'.$dialopts.',${DB(AMPUSER/'.$grpnum.'/followme/grplist)},'.$grpnum));
-					}
-
-					$ext->add($contextname, $grpnum, 'nextstep', new ext_setvar('RingGroupMethod',''));
-
-					// Did the call come from a queue or ringgroup, if so, don't go to the destination, just end and let
-					// the queue or ringgroup decide what to do next
-					//
-					$ext->add($contextname, $grpnum, '', new ext_gotoif('$["foo${RRNODEST}" != "foo"]', 'nodest'));
-					$ext->add($contextname, $grpnum, '', new ext_setvar('__NODEST', ''));
-					$ext->add($contextname, $grpnum, '', new ext_set('__PICKUPMARK',''));
-					$ext->add($contextname, $grpnum, '', new ext_macro('blkvm-clr'));
-
-					/* NOANSWER:    NOT_INUSE
-					 * CHANUNAVAIL: UNAVAILABLE, UNKNOWN, INVALID (or DIALSTATUS=CHANUNAVAIL)
-					 * BUSY:        BUSY, INUSE, RINGING, RINGINUSE, HOLDINUSE, ONHOLD
-					 */
-					$ext->add($contextname, $grpnum, '', new ext_noop_trace('FM_DIALSTATUS: ${FM_DIALSTATUS} DIALSTATUS: ${DIALSTATUS}'));
-					$ext->add($contextname, $grpnum, '', new ext_set('DIALSTATUS',
-						'${IF($["${FM_DIALSTATUS}"="NOT_INUSE"&"${DIALSTATUS}"!="CHANUNAVAIL"]?NOANSWER:'
-						. '${IF($["${DIALSTATUS}"="CHANUNAVAIL"|"${FM_DIALSTATUS}"="UNAVAILABLE"|"${FM_DIALSTATUS}"="UNKNOWN"|"${FM_DIALSTATUS}"="INVALID"]?'
-					 	. 'CHANUNAVAIL:BUSY)})}'));
-
-					// where next?
-					if ((isset($postdest) ? $postdest : '') != '') {
-						$ext->add($contextname, $grpnum, '', new ext_goto($postdest));
-					} else {
-						$ext->add($contextname, $grpnum, '', new ext_hangup(''));
-					}
-					$ext->add($contextname, $grpnum, 'nodest', new ext_noop('SKIPPING DEST, CALL CAME FROM Q/RG: ${RRNODEST}'));
-				}
-				gc_enable();
-
-	/*
-	  ASTDB Settings:
-	  AMPUSER/nnn/followme/changecid default | did | fixed | extern
-	  AMPUSER/nnn/followme/fixedcid XXXXXXXX
-
-	  changecid:
-	    default   - works as always, same as if not present
-	    fixed     - set to the fixedcid
-	    extern    - set to the fixedcid if the call is from the outside only
-	    did       - set to the DID that the call came in on or leave alone, treated as foreign
-	    forcedid  - set to the DID that the call came in on or leave alone, not treated as foreign
-
-	  EXTTOCALL   - has the exten num called, hoaky if that goes away but for now use it
-	 */
-
-				if (count($ringlist)) {
-					$contextname = 'sub-fmsetcid';
-					$exten = 's';
-					$ext->add($contextname, $exten, '', new ext_goto('1','s-${DB(AMPUSER/${EXTTOCALL}/followme/changecid)}'));
-
-					$exten = 's-fixed';
-					$ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${DB(AMPUSER/${EXTTOCALL}/followme/fixedcid)})}" = "1"]', 'Set', '__TRUNKCIDOVERRIDE=${DB(AMPUSER/${EXTTOCALL}/followme/fixedcid)}'));
-					$ext->add($contextname, $exten, '', new ext_return(''));
-
-					$exten = 's-extern';
-					$ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${DB(AMPUSER/${EXTTOCALL}/followme/fixedcid)})}" == "1" & "${FROM_DID}" != ""]', 'Set', '__TRUNKCIDOVERRIDE=${DB(AMPUSER/${EXTTOCALL}/followme/fixedcid)}'));
-					$ext->add($contextname, $exten, '', new ext_return(''));
-
-					$exten = 's-did';
-					$ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${FROM_DID})}" = "1"]', 'Set', '__REALCALLERIDNUM=${FROM_DID}'));
-					$ext->add($contextname, $exten, '', new ext_return(''));
-
-					$exten = 's-forcedid';
-					$ext->add($contextname, $exten, '', new ext_execif('$["${REGEX("^[\+]?[0-9]+$" ${FROM_DID})}" = "1"]', 'Set', '__TRUNKCIDOVERRIDE=${FROM_DID}'));
-					$ext->add($contextname, $exten, '', new ext_return(''));
-
-					$exten = '_s-.';
-					$ext->add($contextname, $exten, '', new ext_noop('Unknown value for AMPUSER/${EXTTOCALL}/followme/changecid of ${DB(AMPUSER/${EXTTOCALL}/followme/changecid)} set to "default"'));
-					$ext->add($contextname, $exten, '', new ext_setvar('DB(AMPUSER/${EXTTOCALL}/followme/changecid)', 'default'));
-					$ext->add($contextname, $exten, '', new ext_return(''));
-				}
-			}
 		break;
 	}
 }
