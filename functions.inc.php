@@ -48,6 +48,7 @@ function findmefollow_destinations($index) {
 function findmefollow_get_config($engine) {
 	global $ext;  // is this the best way to pass this?
 	global $amp_conf;
+	global $astman;
 	switch($engine) {
 		case "asterisk":
 			if ($amp_conf['USEDEVSTATE']) {
@@ -73,8 +74,170 @@ function findmefollow_get_config($engine) {
 				$ext->addHint($contextname, "_".$fmf_code.'X.', "Custom:FOLLOWME".'${EXTEN:'.strlen($fmf_code).'}');
 			}
 
-			$ringlist = findmefollow_full_list();
-			if (is_array($ringlist)) {
+
+			$groups = FreePBX::Findmefollow()->getAllFollowmes();
+			$dial_options = FreePBX::Config()->get("DIAL_OPTIONS");
+			foreach($groups as $grp) {
+				$grpnum = $grp['grpnum'];
+				$strategy = $grp['strategy'];
+				$grptime = $grp['grptime'];
+				$grplist = $grp['grplist'];
+				$postdest = $grp['postdest'];
+				$grppre = (isset($grp['grppre'])?$grp['grppre']:'');
+				$annmsg_id = $grp['annmsg_id'];
+				$dring = $grp['dring'];
+
+				$needsconf = $grp['needsconf'];
+				$remotealert_id = $grp['remotealert_id'];
+				$toolate_id = $grp['toolate_id'];
+				$ringing = $grp['ringing'];
+				$pre_ring = $grp['pre_ring'];
+
+				$astman->database_put("AMPUSER",$grpnum."/followme/grppre",isset($grppre)?$grppre:'');
+				$astman->database_put("AMPUSER",$grpnum."/followme/dring",isset($dring)?$dring:'');
+				$astman->database_put("AMPUSER",$grpnum."/followme/strategy",isset($strategy)?$strategy:'');
+				$astman->database_put("AMPUSER",$grpnum."/followme/annmsg",(!empty($annmsg_id) ? recordings_get_file($annmsg_id) : ''));
+				$astman->database_put("AMPUSER",$grpnum."/followme/remotealertmsg",(!empty($remotealert_id) ? recordings_get_file($remotealert_id) : ''));
+				$astman->database_put("AMPUSER",$grpnum."/followme/toolatemsg",(!empty($toolate_id) ? recordings_get_file($toolate_id) : ''));
+				$astman->database_put("AMPUSER",$grpnum."/followme/postdest",$postdest);
+				$astman->database_put("AMPUSER",$grpnum."/followme/ringing",$ringing);
+
+				// Create the confirm target
+				$len=strlen($grpnum)+4;
+				$remotealert = empty($remotealert_id) ? '' : recordings_get_file($remotealert_id);
+				$toolate = empty($toolate_id) ? '' : recordings_get_file($toolate_id);
+
+				//$ext->add("fmgrps", "_RG-${grpnum}.", '', new ext_nocdr(''));
+				//$ext->add("fmgrps", "_RG-${grpnum}.", '', new ext_macro('dial','${DB(AMPUSER/'."$grpnum/followme/grptime)},$dialopts" . "M(confirm^${remotealert}^${toolate}^${grpnum})".',${EXTEN:'.$len.'}'));
+			}
+
+			$sql = "SELECT LENGTH(grpnum) as len FROM findmefollow GROUP BY len";
+			$sth = FreePBX::Database()->prepare($sql);
+			$sth->execute();
+			$rows = $sth->fetchAll(\PDO::FETCH_ASSOC);
+			foreach($rows as $row) {
+				// Direct target to Follow-Me come here bypassing the followme/ddial conditional check
+				//
+				$ext->add($contextname, '_FM'.str_repeat('X',$row['len']), '', new ext_goto('FMCID','${EXTEN:2}'));
+
+				//TODO:need to check to make sure AMPUSER is valid
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_gotoif('$[ "${DB(AMPUSER/${EXTEN}/followme/ddial)}" = "EXTENSION" ]', 'ext-local,${EXTEN},1'));
+				//TODO:need to check to make sure AMPUSER is valid
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), 'FMCID', new ext_macro('user-callerid'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_set('DIAL_OPTIONS','${DIAL_OPTIONS}I'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_set('CONNECTEDLINE(num,i)', '${EXTEN}'));
+				$cidnameval = '${DB(AMPUSER/${EXTEN}/cidname)}';
+				if ($amp_conf['AST_FUNC_PRESENCE_STATE'] && $amp_conf['CONNECTEDLINE_PRESENCESTATE']) {
+					$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_gosub('1', 's', 'sub-presencestate-display', '${EXTEN}'));
+					$cidnameval.= '${PRESENCESTATE_DISPLAY}';
+				}
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_set('CONNECTEDLINE(name)', $cidnameval));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_set('FM_DIALSTATUS','${EXTENSION_STATE(${EXTEN}@ext-local)}'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_set('__EXTTOCALL','${EXTEN}'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_set('__PICKUPMARK','${EXTEN}'));
+
+				// block voicemail until phone is answered at which point a macro should be called on the answering
+				// line to clear this flag so that subsequent transfers can occur, if already set by a the caller
+				// then don't change.
+				//
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_macro('blkvm-setifempty'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_gotoif('$["${GOSUB_RETVAL}" = "TRUE"]', 'skipov'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_macro('blkvm-set','reset'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_setvar('__NODEST', ''));
+
+				// Remember if NODEST was set later, but clear it in case the call is answered so that subsequent
+				// transfers work.
+				//
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), 'skipov', new ext_setvar('RRNODEST', '${NODEST}'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), 'skipvmblk', new ext_setvar('__NODEST', '${EXTEN}'));
+
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_gosubif('$[${DB_EXISTS(AMPUSER/${EXTEN}/followme/changecid)} = 1 & "${DB(AMPUSER/${EXTEN}/followme/changecid)}" != "default" & "${DB(AMPUSER/${EXTEN}/followme/changecid)}" != ""]', 'sub-fmsetcid,s,1'));
+
+				// deal with group CID prefix
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_gotoif('$[ "${DB(AMPUSER/${EXTEN}/followme/grppre)}" = "" ]', 'skipprepend'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_macro('prepend-cid', '${DB(AMPUSER/${EXTEN}/followme/grppre)}'));
+
+				// recording stuff
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), 'skipprepend', new ext_setvar('RecordMethod','Group'));
+
+				// Note there is no cancel later as the special case of follow-me, if they say record, it should stick
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), 'checkrecord', new ext_gosub('1','s','sub-record-check','exten,${EXTEN},'));
+
+				// MODIFIED (PL)
+				// Add Alert Info if set but don't override and already set value (could be from ringgroup, directdid, etc.)
+				//
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_gotoif('$[ $["${DB(AMPUSER/${EXTEN}/followme/dring)}" = ""] | $["${ALERT_INFO}"!=""] ]', 'skipdring'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_setvar('DRING','${DB(AMPUSER/${EXTEN}/followme/dring)}'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_setvar("__ALERT_INFO", '${STRREPLACE(DRING,\\;,\\\;)}'));
+
+				// If pre_ring is set, then ring this number of seconds prior to moving on
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), 'skipdring', new ext_setvar('STRATEGY','${DB(AMPUSER/${EXTEN}/followme/strategy)}'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_gotoif('$["${CUT(STRATEGY,-,1)}"="ringallv2"]','skipsimple'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_gotoif('$[$[ "${DB(AMPUSER/${EXTEN}/followme/prering)}" = "0" ] | $[ "${DB(AMPUSER/${EXTEN}/followme/prering)}" = "" ]] ', 'skipsimple'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_macro('simple-dial','${EXTEN},${DB(AMPUSER/${EXTEN}/followme/prering)}'));
+
+				// group dial
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), 'skipsimple', new ext_setvar('RingGroupMethod','${STRATEGY}'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_setvar('_FMGRP','${EXTEN}'));
+
+				// should always answer before playing anything, shouldn't we ?
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_gotoif('$[$["${DB(AMPUSER/${EXTEN}/followme/annmsg)}" = ""] | $["${DIALSTATUS}" = "ANSWER"] | $["foo${RRNODEST}" != "foo"]]','DIALGRP'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_answer(''));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_wait(1));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_playback('${DB(AMPUSER/${EXTEN}/followme/annmsg)}'));
+
+				// Create the confirm target
+				//exten => _RG-1005.,1,Set(CDR_PROP(disable)=true)
+				//exten => _RG-1005.,n,Macro(dial,${DB(AMPUSER/1005/followme/grptime)},${DIAL_OPTIONS}M(confirm^^^1005),${EXTEN:8})
+				$ext->add("fmgrps", "_RG-".str_repeat('X',$row['len']), '', new ext_nocdr(''));
+				$ext->add("fmgrps", '_RG-'.str_repeat('X',$row['len']), '', new ext_execif('$[$["${DB(AMPUSER/${EXTEN:3}/followme/ringing)}"="Ring"] | $["${DB(AMPUSER/${EXTEN:3}/followme/ringing)}"=""]]','Set','DOPTS=${DIAL_OPTIONS}','Set','DOPTS=m(${DB(AMPUSER/${EXTEN:3}/followme/ringing)})${STRREPLACE(DIAL_OPTIONS,r)}'));
+				$ext->add("fmgrps", "_RG-".str_repeat('X',$row['len']), '', new ext_macro('dial','${DB(AMPUSER/${EXTEN:3}/followme/grptime)},${DOPTS}M(confirm^${DB(AMPUSER/${EXTEN:3}/followme/remotealertmsg)}^${DB(AMPUSER/${EXTEN:3}/followme/toolatemsg)}^${EXTEN:3}),${EXTEN:'.($row['len']+3).'}'));
+
+				// If grpconf == ENABLED call with confirmation ELSE call normal
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), 'DIALGRP', new ext_execif('$[$["${DB(AMPUSER/${EXTEN}/followme/ringing)}"="Ring"] | $["${DB(AMPUSER/${EXTEN}/followme/ringing)}"=""]]','Set','DOPTS=${DIAL_OPTIONS}','Set','DOPTS=m(${DB(AMPUSER/${EXTEN}/followme/ringing)})${STRREPLACE(DIAL_OPTIONS,r)}'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_gotoif('$[("${DB(AMPUSER/${EXTEN}/followme/grpconf)}"="ENABLED") | ("${FORCE_CONFIRM}"!="") ]', 'doconfirm'));
+
+				// Normal call
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_gotoif('$["${CUT(STRATEGY,-,1)}"="ringallv2"]','ringallv21'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_macro('dial','${DB(AMPUSER/${EXTEN}/followme/grptime)},${DOPTS},'.'${DB(AMPUSER/${EXTEN}/followme/grplist)}'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), 'ringallv21', new ext_macro('dial','$[ ${DB(AMPUSER/${EXTEN}/followme/grptime)} + ${DB(AMPUSER/${EXTEN}/followme/prering)} ],${DOPTS},${DB(AMPUSER/${EXTEN}/followme/grplist)}'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_goto('nextstep'));
+
+				// Call Confirm call
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), 'doconfirm', new ext_gotoif('$["${CUT(STRATEGY,-,1)}"="ringallv2"]','ringallv22'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_macro('dial-confirm','${DB(AMPUSER/${EXTEN}/followme/grptime)},${DOPTS},'.'${DB(AMPUSER/${EXTEN}/followme/grplist)},${EXTEN}'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), 'ringallv22', new ext_macro('dial-confirm','$[ ${DB(AMPUSER/${EXTEN}/followme/grptime)} + ${DB(AMPUSER/${EXTEN}/followme/prering)} ],${DOPTS},${DB(AMPUSER/${EXTEN}/followme/grplist)},${EXTEN}'));
+
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), 'nextstep', new ext_setvar('RingGroupMethod',''));
+
+				// Did the call come from a queue or ringgroup, if so, don't go to the destination, just end and let
+				// the queue or ringgroup decide what to do next
+				//
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_gotoif('$["foo${RRNODEST}" != "foo"]', 'nodest'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_setvar('__NODEST', ''));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_set('__PICKUPMARK',''));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_macro('blkvm-clr'));
+
+				/* NOANSWER:    NOT_INUSE
+				 * CHANUNAVAIL: UNAVAILABLE, UNKNOWN, INVALID (or DIALSTATUS=CHANUNAVAIL)
+				 * BUSY:        BUSY, INUSE, RINGING, RINGINUSE, HOLDINUSE, ONHOLD
+				 */
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_noop_trace('FM_DIALSTATUS: ${FM_DIALSTATUS} DIALSTATUS: ${DIALSTATUS}'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_set('DIALSTATUS',
+					'${IF($["${FM_DIALSTATUS}"="NOT_INUSE"&"${DIALSTATUS}"!="CHANUNAVAIL"]?NOANSWER:'
+					. '${IF($["${DIALSTATUS}"="CHANUNAVAIL"|"${FM_DIALSTATUS}"="UNAVAILABLE"|"${FM_DIALSTATUS}"="UNKNOWN"|"${FM_DIALSTATUS}"="INVALID"]?'
+					. 'CHANUNAVAIL:BUSY)})}'));
+
+				// where next?
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_gotoif('$["${DB(AMPUSER/${EXTEN}/followme/postdest)}"=""]', 'dohangup'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_goto('${DB(AMPUSER/${EXTEN}/followme/postdest)}'));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), 'dohangup', new ext_hangup(''));
+				$ext->add($contextname, '_'.str_repeat('X',$row['len']), 'nodest', new ext_noop('SKIPPING DEST, CALL CAME FROM Q/RG: ${RRNODEST}'));
+			}
+
+			//
+			if (false) {
+				$ringlist = findmefollow_full_list();
 				gc_collect_cycles();
 				gc_disable();
 				foreach($ringlist as $item) {
@@ -196,8 +359,7 @@ function findmefollow_get_config($engine) {
 					$ext->add("fmgrps", "_RG-${grpnum}.", '', new ext_macro('dial','${DB(AMPUSER/'."$grpnum/followme/grptime)},$dialopts" . "M(confirm^${remotealert}^${toolate}^${grpnum})".',${EXTEN:'.$len.'}'));
 
 					// If grpconf == ENABLED call with confirmation ELSE call normal
-					$ext->add($contextname, $grpnum, 'DIALGRP', new
-					    ext_gotoif('$[("${DB(AMPUSER/'.$grpnum.'/followme/grpconf)}"="ENABLED") | ("${FORCE_CONFIRM}"!="") ]', 'doconfirm'));
+					$ext->add($contextname, $grpnum, 'DIALGRP', new ext_gotoif('$[("${DB(AMPUSER/'.$grpnum.'/followme/grpconf)}"="ENABLED") | ("${FORCE_CONFIRM}"!="") ]', 'doconfirm'));
 
 					// Normal call
 					if ((isset($strategy) ? substr($strategy,0,strlen('ringallv2')) : '') != 'ringallv2') {
@@ -337,6 +499,7 @@ function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre=
 		$astman->database_put("AMPUSER",$grpnum."/followme/prering",isset($pre_ring)?$pre_ring:'');
 		$astman->database_put("AMPUSER",$grpnum."/followme/grptime",isset($grptime)?$grptime:'');
 		$astman->database_put("AMPUSER",$grpnum."/followme/grplist",isset($grplist)?$grplist:'');
+		$astman->database_put("AMPUSER",$grpnum."/followme/grppre",isset($grppre)?$grppre:'');
 
 		$needsconf = isset($needsconf)?$needsconf:'';
 		$confvalue = ($needsconf == 'CHECKED')?'ENABLED':'DISABLED';
@@ -1142,7 +1305,6 @@ function findmefollow_users_configprocess() {
 
 function findmefollow_update($grpnum,$settings) {
 	$old = findmefollow_get($grpnum);
-	dbug($old);
 	if(!empty($old)) {
 		findmefollow_del($grpnum);
 		$old['grplist'] = explode("-",$old['grplist']);

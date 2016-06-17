@@ -769,11 +769,19 @@ class Findmefollow implements \BMO {
 		}
 	}
 
-
-public function getRightNav($request) {
-	if(isset($request['view'])&& $request['view'] == 'form'){
-		return load_view(__DIR__."/views/bootnav.php",array('request' => $request));
+	public function getAllFollowmes() {
+		$sql = "SELECT grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, voicemail FROM findmefollow INNER JOIN `users` ON `extension` = `grpnum`";
+		$sth = $this->db->prepare($sql);
+		$sth->execute();
+		$results = $sth->fetchall(\PDO::FETCH_ASSOC);
+		return $results;
 	}
-}
+
+
+	public function getRightNav($request) {
+		if(isset($request['view'])&& $request['view'] == 'form'){
+			return load_view(__DIR__."/views/bootnav.php",array('request' => $request));
+		}
+	}
 
 }
