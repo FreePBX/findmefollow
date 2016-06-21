@@ -66,6 +66,7 @@ function findmefollow_get_config($engine) {
 			$ext->addInclude('from-internal-additional','ext-findmefollow');
 			$ext->addInclude('from-internal-additional','fmgrps');
 			$contextname = 'ext-findmefollow';
+			$grpcontextname = 'fmgrps';
 
 			// Before creating all the contexts, let's make a list of hints if needed
 			//
@@ -107,28 +108,30 @@ function findmefollow_get_config($engine) {
 				$remotealert = empty($remotealert_id) ? '' : recordings_get_file($remotealert_id);
 				$toolate = empty($toolate_id) ? '' : recordings_get_file($toolate_id);
 
-				//$ext->add("fmgrps", "_RG-${grpnum}.", '', new ext_nocdr(''));
-				//$ext->add("fmgrps", "_RG-${grpnum}.", '', new ext_macro('dial','${DB(AMPUSER/'."$grpnum/followme/grptime)},$dialopts" . "M(confirm^${remotealert}^${toolate}^${grpnum})".',${EXTEN:'.$len.'}'));
+				if($ringing == 'Ring' || empty($ringing) ) {
+					$dialopts = '${DIAL_OPTIONS}';
+				} else {
+					// We need the DIAL_OPTIONS variable
+					$dialopts = "m(${ringing})".str_replace('r', '', $dial_options);
+				}
+
+				//These two have to be here because of how they function in the dialplan.
+				//Dont try to make them dynamic, we really can't do that
+				$len=strlen($grpnum)+4;
+				$ext->add($grpcontextname, "_RG-".$grpnum.".", '', new ext_macro('dial','${DB(AMPUSER/'.$grpnum.'/followme/grptime)},' .$dialopts. 'M(confirm^${remotealert}^${toolate}^${grpnum}),${EXTEN:'.$len.'}'),1,1);
+				$ext->add($contextname, $grpnum, '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/${EXTEN}/followme/ddial)} != 1 | ${DB(AMPUSER/${EXTEN}/followme/ddial)}" = "EXTENSION" ]', 'ext-local,${EXTEN},1','followme-check,${EXTEN},1'));
 			}
 
-			$sql = "SELECT LENGTH(grpnum) as len FROM findmefollow GROUP BY len";
-			$sth = FreePBX::Database()->prepare($sql);
-			$sth->execute();
-			$rows = $sth->fetchAll(\PDO::FETCH_ASSOC);
-			foreach($rows as $row) {
-				// Direct target to Follow-Me come here bypassing the followme/ddial conditional check
-				//
-				$ext->add($contextname, '_FM'.str_repeat('X',$row['len']), '', new ext_goto('FMCID','${EXTEN:2}'));
-				$ext->add($contextname, '_'.str_repeat('X',$row['len']), '', new ext_gotoif('$[ "${DB(AMPUSER/${EXTEN}/followme/ddial)}" = "EXTENSION" ]', 'ext-local,${EXTEN},1'));
-				$ext->add($contextname, '_'.str_repeat('X',$row['len']), 'FMCID', new ext_gosubif('$[${DB_EXISTS(AMPUSER/${EXTEN}/followme/ddial)} = 1]', 'followme-sub,${EXTEN},1'));
+			$ext->add($grpcontextname, "_RG-X.", '', new ext_nocdr(''));
 
-				// Create the confirm target
-				//exten => _RG-1005.,1,Set(CDR_PROP(disable)=true)
-				//exten => _RG-1005.,n,Macro(dial,${DB(AMPUSER/1005/followme/grptime)},${DIAL_OPTIONS}M(confirm^^^1005),${EXTEN:8})
-				$ext->add("fmgrps", "_RG-".str_repeat('X',$row['len']), '', new ext_nocdr(''));
-				$ext->add("fmgrps", '_RG-'.str_repeat('X',$row['len']), '', new ext_execif('$[$["${DB(AMPUSER/${EXTEN:3}/followme/ringing)}"="Ring"] | $["${DB(AMPUSER/${EXTEN:3}/followme/ringing)}"=""]]','Set','DOPTS=${DIAL_OPTIONS}','Set','DOPTS=m(${DB(AMPUSER/${EXTEN:3}/followme/ringing)})${STRREPLACE(DIAL_OPTIONS,r)}'));
-				$ext->add("fmgrps", "_RG-".str_repeat('X',$row['len']), '', new ext_macro('dial','${DB(AMPUSER/${EXTEN:3}/followme/grptime)},${DOPTS}M(confirm^${DB(AMPUSER/${EXTEN:3}/followme/remotealertmsg)}^${DB(AMPUSER/${EXTEN:3}/followme/toolatemsg)}^${EXTEN:3}),${EXTEN:'.($row['len']+3).'}'));
-			}
+			// Direct target to Follow-Me come here bypassing the followme/ddial conditional check
+			//
+			$ext->add($contextname, '_FMX.', '', new ext_goto('FMCID','${EXTEN:2}','followme-check'));
+
+			$contextname = 'followme-check';
+			$ext->add($contextname, '_X.', 'FMCID', new ext_gosub('1','${EXTEN}','followme-sub'));
+			$ext->add($contextname, '_X.', '', new ext_noop('Should never get here'));
+			$ext->add($contextname, '_X.', '', new ext_hangup());
 
 			$contextname = 'followme-sub';
 			$ext->add($contextname, '_X.', '', new ext_macro('user-callerid'));

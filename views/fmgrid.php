@@ -9,7 +9,7 @@ $fmrows = '';
 foreach($fmlist as $fm){
 	$thisg = findmefollow_get($fm,1);
 	$fmrows .= '<tr>';
-	$fmrows .= '<td><a href="/admin/config.php?display=findmefollow&view=form&extdisplay=GRP-'.urlencode($fm).'"><i class="fa fa-edit"></i>&nbsp;'.$fm.'</a></td>';
+	$fmrows .= '<td><a href="?display=findmefollow&view=form&extdisplay=GRP-'.urlencode($fm).'"><i class="fa fa-edit"></i>&nbsp;'.$fm.'</a></td>';
 	$fmrows .= '<td>';
 	$fmrows .= '<span class="radioset">';
 	$fmrows .= '<input type="radio" name="fmtoggle'.$fm.'" id="fmtoggle'.$fm.'yes" data-for="'.$fm.'" '.($thisg['ddial'] == 'CHECKED'?'':'CHECKED').'>';
