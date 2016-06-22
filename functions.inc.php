@@ -757,7 +757,7 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 	$el = array(
 		"elemname" => "fmfm_grplist",
 		"prompttext" => _('Follow-Me List'),
-		"helptext" => _("List extensions to ring, one per line, or use the Extension Quick Pick below.<br><br>You can include an extension on a remote system, or an external number by suffixing a number with a pound (#).  ex:  2448089# would dial 2448089 on the appropriate trunk (see Outbound Routing)."),
+		"helptext" => _("List extensions to ring, one per line, or use the Extension Quick Pick below.<br><br>You can include an extension on a remote system, or an external number by suffixing a number with a pound (#).  ex:  2448089# would dial 2448089 on the appropriate trunk (see Outbound Routing).<br><br>Note: Any local extension added will skip that local extension's FindMe/FollowMe, if you wish the system to use another extension's FindMe/FollowMe prepend a # onto that extension, eg 105#"),
 		"currentvalue" => str_replace("-","\n",$fmfm['grplist']),
 		"canbeempty" => false,
 		"class" => "fpbx-fmfm",
