@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>13.0.35</version>
+	<version>13.0.36</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*13.0.36* FREEPBX-12828 Never accepts confirmation
 		*13.0.35* Add sound languages: it,fr,en_GB
 		*13.0.34* Quicken reload time. This signifcantly changes findme/followme, please check your systems!!
 		*13.0.33* FREEPBX-12493 Fix link to be relative
