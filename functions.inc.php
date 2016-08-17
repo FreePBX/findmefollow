@@ -204,6 +204,7 @@ function findmefollow_get_config($engine) {
 			// Normal call
 			$ext->add($contextname, '_X.', '', new ext_gotoif('$["${CUT(STRATEGY,-,1)}"="ringallv2"]','ringallv21'));
 			$ext->add($contextname, '_X.', '', new ext_macro('dial','${DB(AMPUSER/${EXTEN}/followme/grptime)},${DOPTS},'.'${DB(AMPUSER/${EXTEN}/followme/grplist)}'));
+			$ext->add($contextname, '_X.', '', new ext_goto('nextstep'));
 			$ext->add($contextname, '_X.', 'ringallv21', new ext_macro('dial','$[ ${DB(AMPUSER/${EXTEN}/followme/grptime)} + ${DB(AMPUSER/${EXTEN}/followme/prering)} ],${DOPTS},${DB(AMPUSER/${EXTEN}/followme/grplist)}'));
 			$ext->add($contextname, '_X.', '', new ext_goto('nextstep'));
 

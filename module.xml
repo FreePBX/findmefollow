@@ -7,6 +7,7 @@
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*13.0.37* FREEPBX-12935 dont loop twice in ringallv1
 		*13.0.36* FREEPBX-12828 Never accepts confirmation
 		*13.0.35* Add sound languages: it,fr,en_GB
 		*13.0.34* Quicken reload time. This signifcantly changes findme/followme, please check your systems!!
