@@ -211,6 +211,7 @@ function findmefollow_get_config($engine) {
 			// Call Confirm call
 			$ext->add($contextname, '_X.', 'doconfirm', new ext_gotoif('$["${CUT(STRATEGY,-,1)}"="ringallv2"]','ringallv22'));
 			$ext->add($contextname, '_X.', '', new ext_macro('dial-confirm','${DB(AMPUSER/${EXTEN}/followme/grptime)},${DOPTS},'.'${DB(AMPUSER/${EXTEN}/followme/grplist)},${EXTEN}'));
+			$ext->add($contextname, '_X.', '', new ext_goto('nextstep'));
 			$ext->add($contextname, '_X.', 'ringallv22', new ext_macro('dial-confirm','$[ ${DB(AMPUSER/${EXTEN}/followme/grptime)} + ${DB(AMPUSER/${EXTEN}/followme/prering)} ],${DOPTS},${DB(AMPUSER/${EXTEN}/followme/grplist)},${EXTEN}'));
 
 			$ext->add($contextname, '_X.', 'nextstep', new ext_setvar('RingGroupMethod',''));
