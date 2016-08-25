@@ -646,7 +646,8 @@ class Findmefollow implements \BMO {
 								//reversy and backwards yeah. I know.
 								//ITS THE CODE FROM 7 YEARS AGO
 								//:'(
-								$settings['ddial'] = !empty($value) ? false : true;
+								$value = trim($value);
+								$settings['ddial'] = (!empty($value)) ? false : true;
 							break;
 							default:
 								$settings[$settingname] = $value;
@@ -685,7 +686,7 @@ class Findmefollow implements \BMO {
 					case 'grpnum':
 						break;
 					case 'ddial':
-						$psettings['findmefollow_' . 'enabled'] = $value ? 'yes' : '';
+						$psettings['findmefollow_' . 'enabled'] = ($value) ? 'yes' : '';
 						break;
 					default:
 						$psettings['findmefollow_' . $key] = $value;
