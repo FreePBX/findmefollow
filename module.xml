@@ -74,6 +74,7 @@
 			<method callingMethod="getQuickCreateDisplay" class="Findmefollow" namespace="FreePBX\modules">getQuickCreateDisplay</method>
 			<method callingMethod="processQuickCreate" class="Findmefollow" namespace="FreePBX\modules">processQuickCreate</method>
 			<method callingMethod="delUser" class="Findmefollow" namespace="FreePBX\modules">delUser</method>
+			<method callingMethod="addUser" class="Findmefollow" namespace="FreePBX\modules">addUser</method>
 		</core>
 	</hooks>
 	<location>release/2.11/findmefollow-2.11.0.3.tgz</location>
