@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>13.0.37</version>
+	<version>13.0.37.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*13.0.37.1* FREEPBX-12688 Bulkhandler does not export / import fields correctly
 		*13.0.37* FREEPBX-12935 dont loop twice in ringallv1
 		*13.0.36* FREEPBX-12828 Never accepts confirmation
 		*13.0.35* Add sound languages: it,fr,en_GB
