@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-17 13:27-0700\n"
+"POT-Creation-Date: 2016-09-14 16:03-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -231,11 +231,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr ""
 
-#: Findmefollow.class.php:613
+#: Findmefollow.class.php:823
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr ""
 
-#: Findmefollow.class.php:616
+#: Findmefollow.class.php:826
 #: ucp/views/settings.php:15
 msgid "Follow Me List"
 msgstr ""
@@ -248,7 +248,7 @@ msgstr ""
 msgid "Follow Me Module"
 msgstr ""
 
-#: Findmefollow.class.php:619
+#: Findmefollow.class.php:829
 msgid "Follow Me No Answer Destination"
 msgstr ""
 
@@ -479,7 +479,7 @@ msgstr ""
 msgid "Request not received"
 msgstr ""
 
-#: Findmefollow.class.php:600
+#: Findmefollow.class.php:590
 msgid "Reset"
 msgstr ""
 
@@ -515,7 +515,7 @@ msgstr ""
 msgid "Seconds"
 msgstr ""
 
-#: Findmefollow.class.php:595
+#: Findmefollow.class.php:585
 msgid "Submit"
 msgstr ""
 

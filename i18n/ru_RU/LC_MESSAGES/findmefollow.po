@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-17 13:27-0700\n"
+"POT-Creation-Date: 2016-09-14 16:03-0700\n"
 "PO-Revision-Date: 2015-05-01 13:02+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -238,11 +238,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "Следуйте сюда"
 
-#: Findmefollow.class.php:613
+#: Findmefollow.class.php:823
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr ""
 
-#: Findmefollow.class.php:616 ucp/views/settings.php:15
+#: Findmefollow.class.php:826 ucp/views/settings.php:15
 msgid "Follow Me List"
 msgstr "Список Следуйте сюда"
 
@@ -251,7 +251,7 @@ msgstr "Список Следуйте сюда"
 msgid "Follow Me Module"
 msgstr "Модуль Следуйте сюда"
 
-#: Findmefollow.class.php:619
+#: Findmefollow.class.php:829
 msgid "Follow Me No Answer Destination"
 msgstr ""
 
@@ -504,7 +504,7 @@ msgstr "Удаленное приветствие"
 msgid "Request not received"
 msgstr "Запрос не принят"
 
-#: Findmefollow.class.php:600
+#: Findmefollow.class.php:590
 msgid "Reset"
 msgstr "Сброс"
 
@@ -537,7 +537,7 @@ msgstr "Время вызова (макс. 60 сек.)"
 msgid "Seconds"
 msgstr "Секунд"
 
-#: Findmefollow.class.php:595
+#: Findmefollow.class.php:585
 msgid "Submit"
 msgstr "Подтвердить"
 

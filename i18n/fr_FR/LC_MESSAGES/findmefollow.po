@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-17 13:27-0700\n"
+"POT-Creation-Date: 2016-09-14 16:03-0700\n"
 "PO-Revision-Date: 2016-02-01 05:36+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
@@ -244,11 +244,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "Suivez-Moi"
 
-#: Findmefollow.class.php:613
+#: Findmefollow.class.php:823
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr ""
 
-#: Findmefollow.class.php:616 ucp/views/settings.php:15
+#: Findmefollow.class.php:826 ucp/views/settings.php:15
 msgid "Follow Me List"
 msgstr "Liste suivez-moi"
 
@@ -257,7 +257,7 @@ msgstr "Liste suivez-moi"
 msgid "Follow Me Module"
 msgstr "Module suivez-moi"
 
-#: Findmefollow.class.php:619
+#: Findmefollow.class.php:829
 msgid "Follow Me No Answer Destination"
 msgstr ""
 
@@ -491,7 +491,7 @@ msgstr "Annonce distante"
 msgid "Request not received"
 msgstr ""
 
-#: Findmefollow.class.php:600
+#: Findmefollow.class.php:590
 msgid "Reset"
 msgstr ""
 
@@ -524,7 +524,7 @@ msgstr "Temps de Sonnerie (max 60 secondes)"
 msgid "Seconds"
 msgstr "Secondes"
 
-#: Findmefollow.class.php:595
+#: Findmefollow.class.php:585
 msgid "Submit"
 msgstr ""
 

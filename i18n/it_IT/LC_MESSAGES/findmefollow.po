@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-17 13:27-0700\n"
+"POT-Creation-Date: 2016-09-14 16:03-0700\n"
 "PO-Revision-Date: 2008-11-10 11:52+0100\n"
 "Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
 "Language-Team: Italian\n"
@@ -214,11 +214,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "Seguimi"
 
-#: Findmefollow.class.php:613
+#: Findmefollow.class.php:823
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr ""
 
-#: Findmefollow.class.php:616 ucp/views/settings.php:15
+#: Findmefollow.class.php:826 ucp/views/settings.php:15
 msgid "Follow Me List"
 msgstr ""
 
@@ -227,7 +227,7 @@ msgstr ""
 msgid "Follow Me Module"
 msgstr ""
 
-#: Findmefollow.class.php:619
+#: Findmefollow.class.php:829
 msgid "Follow Me No Answer Destination"
 msgstr ""
 
@@ -455,7 +455,7 @@ msgstr ""
 msgid "Request not received"
 msgstr ""
 
-#: Findmefollow.class.php:600
+#: Findmefollow.class.php:590
 msgid "Reset"
 msgstr ""
 
@@ -488,7 +488,7 @@ msgstr "Tempo di squillo (max 60 sec)"
 msgid "Seconds"
 msgstr ""
 
-#: Findmefollow.class.php:595
+#: Findmefollow.class.php:585
 msgid "Submit"
 msgstr ""
 
