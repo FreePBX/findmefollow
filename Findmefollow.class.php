@@ -572,16 +572,6 @@ class Findmefollow implements \BMO {
 		return $results;
 	}
 
-	function del($grpnum) {
-		$sql = "DELETE FROM findmefollow WHERE grpnum = ?";
-		$sth = $db->prepare($sql);
-		$sth->execute(array($grpnum));
-
-
-		if ($this->FreePBX->astman->Connected()) {
-			$this->FreePBX->astman->database_deltree("AMPUSER/".$grpnum."/followme");
-		}
-	}
 	public function getActionBar($request) {
 		if (empty($request['extdisplay']) || empty($request['view']) || $request['view'] != 'form') {
 			return null;
@@ -603,6 +593,226 @@ class Findmefollow implements \BMO {
 				break;
 		}
 		return $buttons;
+	}
+	function add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg_id='',$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid='default',$fixedcid='') {
+		$astman = $this->FreePBX->astman;
+		$dbh = $this->db;
+		$conf = $this->FreePBX->Config();
+		if (empty($postdest)) {
+			$postdest = "ext-local,$grpnum,dest";
+		}
+
+		//Follow Me auto # on external number.
+		//http://code.freepbx.org/cru/FREEPBX-51#CFR-111
+		$users = \findmefollow_allusers();
+		$users = is_array($users) ? $users : array();
+		foreach ($users as $user) {
+			$extens[$user[0]] = $user[1];
+		}
+
+		$list = !is_array($grplist) ? explode("-", $grplist) : $grplist;
+		foreach (array_keys($list) as $key) {
+			// remove invalid chars
+			$hadPound = preg_match("/#$/",$list[$key]);
+			$list[$key] = preg_replace("/[^0-9*+]/", "", $list[$key]);
+
+			if ($list[$key] == "") {
+				unset($list[$key]);
+				continue;
+			}
+
+			if($hadPound) {
+				$list[$key].= '#';
+				continue;
+			}
+
+			if (empty($extens[$list[$key]])) {
+				/* Extension not found.  Must be an external number. */
+				$list[$key].= '#';
+			}
+		}
+		$grplist = implode("-", $list);
+
+		$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring) VALUES (:grpnum, :strategy, :grptime, :grppre, :grplist, :annmsg_id, :postdest, :dring, :needsconf, :remotealert_id, :toolate_id, :ringing, :pre_ring)";
+		$insertarr = array(':grpnum' => $grpnum , ':strategy' => $strategy , ':grptime' => $grptime , ':grppre' => $grppre , ':grplist' => $grplist , ':annmsg_id' => $annmsg_id , ':postdest' => $postdest , ':dring' => $dring , ':needsconf' => $needsconf , ':remotealert_id' => $remotealert_id , ':toolate_id' => $toolate_id , ':ringing' => $ringing , ':pre_ring' => $pre_ring);
+		$stmt = $dbh->prepare($sql);
+		$results = $stmt->execute($insertarr);
+		if ($astman) {
+			$astman->database_put("AMPUSER",$grpnum."/followme/prering",isset($pre_ring)?$pre_ring:'');
+			$astman->database_put("AMPUSER",$grpnum."/followme/grptime",isset($grptime)?$grptime:'');
+			$astman->database_put("AMPUSER",$grpnum."/followme/grplist",isset($grplist)?$grplist:'');
+			$astman->database_put("AMPUSER",$grpnum."/followme/grppre",isset($grppre)?$grppre:'');
+
+			$needsconf = isset($needsconf)?$needsconf:'';
+			$confvalue = ($needsconf == 'CHECKED')?'ENABLED':'DISABLED';
+			$astman->database_put("AMPUSER",$grpnum."/followme/grpconf",$confvalue);
+
+			$ddial      = isset($ddial)?$ddial:'';
+			$ddialvalue = ($ddial == 'CHECKED')?'EXTENSION':'DIRECT';
+			$astman->database_put("AMPUSER",$grpnum."/followme/ddial",$ddialvalue);
+			if ($conf->get('USEDEVSTATE')) {
+				$ddialstate = ($ddial == 'CHECKED')?'NOT_INUSE':'BUSY';
+
+				$devices = $astman->database_get("AMPUSER", $grpnum . "/device");
+				$device_arr = explode('&', $devices);
+				foreach ($device_arr as $device) {
+					$astman->set_global($conf->get('AST_FUNC_DEVICE_STATE') . "(Custom:FOLLOWME$device)", $ddialstate);
+				}
+			}
+
+			$astman->database_put("AMPUSER",$grpnum."/followme/changecid",$changecid);
+			$fixedcid = preg_replace("/[^0-9\+]/" ,"", trim($fixedcid));
+			$astman->database_put("AMPUSER",$grpnum."/followme/fixedcid",$fixedcid);
+		} else {
+			\fatal("Cannot connect to Asterisk Manager with ".$conf->get("AMPMGRUSER")."/".$conf->get("AMPMGRPASS"));
+		}
+	}
+
+	public function del($grpnum) {
+		$astman = $this->FreePBX->astman;
+		$dbh = $this->db;
+		$conf = $this->FreePBX->Config();
+
+		$sql= "DELETE FROM findmefollow WHERE grpnum = :grpnum";
+		$stmt = $dbh->prepare($sql);
+		$results = $stmt->execute(array(':grpnum' => $grpnum));
+		if ($astman) {
+			$astman->database_deltree("AMPUSER/".$grpnum."/followme");
+		} else {
+			\fatal("Cannot connect to Asterisk Manager with ".$conf->get("AMPMGRUSER")."/".$conf->get("AMPMGRPASS"));
+		}
+	}
+	// Only check astdb if check_astdb is not 0. For some reason, this fails if the asterisk manager code
+	// is included (executed) by all calls to this function. This results in silently not generating the
+	// extensions_additional.conf file. page.findmefollow.php does set it to 1 which means that when running
+	// the GUI, any changes not reflected in SQL will be detected and written back to SQL so that they are
+	// in sync. Ideally, anything that changes the astdb should change SQL. (in some ways, these should both
+	// not be here but ...
+	//
+	// Need to go back and confirm at some point that the $check_astdb error is still there and deal with it.
+	// as variables like $ddial get introduced to only be in astdb, the result array will not include them
+	// if not able to get to astdb. (I suspect in 2.2 and beyond this may all be fixed).
+	//
+	public function get($grpnum, $check_astdb=0) {
+		$astman = $this->FreePBX->astman;
+		$dbh = $this->db;
+		$conf = $this->FreePBX->Config();
+		$user = $this->FreePBX->Core->getUser($grpnum);
+		$sql = 'SELECT grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, voicemail FROM findmefollow INNER JOIN `users` ON `extension` = `grpnum` WHERE grpnum = :grpnum LIMIT 1';
+		$stmt = $dbh->prepare($sql);
+		$stmt->execute(array(':grpnum'=> $grpnum));
+		$results = $stmt->fetch(\PDO::FETCH_ASSOC);
+		if (empty($results)) {
+			return array();
+		}
+		if (!isset($results['voicemail'])) {
+
+			$results['voicemail'] = isset($user['voicemail'])?$user['voicemail']:'novm';
+		}
+		if (!isset($results['strategy'])) {
+			$results['strategy'] = $conf->get('FOLLOWME_RG_STRATEGY');
+		}
+
+		if ($check_astdb) {
+			if ($astman) {
+				$astdb_prering = $astman->database_get("AMPUSER",$grpnum."/followme/prering");
+				$astdb_grptime = $astman->database_get("AMPUSER",$grpnum."/followme/grptime");
+				$astdb_grplist = $astman->database_get("AMPUSER",$grpnum."/followme/grplist");
+				$astdb_grpconf = $astman->database_get("AMPUSER",$grpnum."/followme/grpconf");
+
+				$astdb_changecid = strtolower($astman->database_get("AMPUSER",$grpnum."/followme/changecid"));
+				switch($astdb_changecid) {
+					case 'default':
+					case 'did':
+					case 'forcedid':
+					case 'fixed':
+					case 'extern':
+						break;
+					default:
+						$astdb_changecid = 'default';
+				}
+				$results['changecid'] = $astdb_changecid;
+				$fixedcid = $astman->database_get("AMPUSER",$grpnum."/followme/fixedcid");
+				$results['fixedcid'] = preg_replace("/[^0-9\+]/" ,"", trim($fixedcid));
+			} else {
+				fatal("Cannot connect to Asterisk Manager with ".$conf->get('AMPMGRUSER')."/".$conf->get('AMPMGRPASS'));
+			}
+			$astdb_ddial   = $astman->database_get("AMPUSER",$grpnum."/followme/ddial");
+			// If the values are different then use what is in astdb as it may have been changed.
+			// If sql returned no results for pre_ring/grptime then it's not configued so we reset
+			// the astdb defaults as well
+			//
+			$changed=0;
+			if (!isset($results['pre_ring'])) {
+				$results['pre_ring'] = $astdb_prering = $conf->get('FOLLOWME_PRERING');
+			}
+			if (!isset($results['grptime'])) {
+				$results['grptime'] = $astdb_grptime = $conf->get('FOLLOWME_TIME');
+			}
+			if (!isset($results['grplist'])) {
+				$results['grplist'] = '';
+			}
+			if (!isset($results['needsconf'])) {
+				$results['needsconf'] = '';
+			}
+			if (($astdb_prering != $results['pre_ring']) && ($astdb_prering >= 0)) {
+				$results['pre_ring'] = $astdb_prering;
+				$changed=1;
+			}
+			if (($astdb_grptime != $results['grptime']) && ($astdb_grptime > 0)) {
+				$results['grptime'] = $astdb_grptime;
+				$changed=1;
+			}
+			if ((trim($astdb_grplist) != trim($results['grplist'])) && (trim($astdb_grplist) != '')) {
+				$results['grplist'] = $astdb_grplist;
+				$changed=1;
+			}
+
+			if (trim($astdb_grpconf) == 'ENABLED') {
+				$confvalue = 'CHECKED';
+			} elseif (trim($astdb_grpconf) == 'DISABLED') {
+				$confvalue = '';
+			} else {
+				//Bogus value, should not get here but treat as disabled
+				$confvalue = '';
+			}
+			if ($confvalue != trim($results['needsconf'])) {
+				$results['needsconf'] = $confvalue;
+				$changed=1;
+			}
+
+			// Not in sql so no sanity check needed
+			//
+			if (trim($astdb_ddial) == 'EXTENSION') {
+				$ddial = 'CHECKED';
+			} elseif (trim($astdb_ddial) == 'DIRECT') {
+				$ddial = '';
+			} else {
+				// If here then followme must not be set so use default
+				$ddial = $conf->get('FOLLOWME_DISABLED') ? 'CHECKED' : '';
+			}
+			$results['ddial'] = $ddial;
+
+			if ($changed) {
+				$sql = "UPDATE findmefollow SET grptime = '".$results['grptime']."', grplist = '".
+					$db->escapeSimple(trim($results['grplist']))."', pre_ring = '".$results['pre_ring'].
+					"', needsconf = '".$results['needsconf']."' WHERE grpnum = '".$db->escapeSimple($grpnum)."' LIMIT 1";
+				$sql_results = sql($sql);
+			}
+		} // if check_astdb
+
+		return $results;
+	}
+
+	public function update($grpnum,$settings) {
+		$old = $this->get($grpnum);
+		if(!empty($old)) {
+			$this->del($grpnum);
+			$old['grplist'] = explode("-",$old['grplist']);
+			$settings = array_merge($old,$settings);
+		}
+		extract($settings);
+		$this->add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid);
 	}
 
 	public function bulkhandlerGetHeaders($type) {
@@ -783,6 +993,60 @@ class Findmefollow implements \BMO {
 		if(isset($request['view'])&& $request['view'] == 'form'){
 			return load_view(__DIR__."/views/bootnav.php",array('request' => $request));
 		}
+	}
+	//Core extension Hooks
+	public function addUser($extension,$post,$editmode){
+		$conf = $this->FreePBX->Config();
+		$ext = isset($post['extdisplay'])?$post['extdisplay']:null;
+		$extn = isset($post['extension'])?$post['extension']:null;
+
+		if ($ext=='') {
+			$extdisplay = $extn;
+		} else {
+			$extdisplay = $ext;
+		}
+		$settings = array();
+		foreach($post as $key => $value) {
+			if(preg_match("/^fmfm_(.*)/",$key,$matches)) {
+				$settings[$matches[1]] = $value;
+			}
+		}
+		if(!empty($settings)) {
+			$settings['ddial'] = ($settings['ddial'] == "enabled") ? "" : "CHECKED";
+			if(isset($settings['needsconf'])) {
+				$settings['needsconf'] = ($settings['needsconf'] == "enabled") ? "CHECKED" : "";
+			}
+
+			if(isset($post[$post[$settings['goto']]."fmfm"])) {
+				$settings['postdest'] = $post[$post[$settings['goto']]."fmfm"];
+			} else {
+				$settings['postdest'] = "ext-local,$extdisplay,dest";
+			}
+			unset($settings['quickpick']);
+
+			if (!isset($settings['fixedcid'])) {
+				$settings['fixedcid'] = '';
+			}
+
+			//check destination. make sure it is valid
+			$settings['postdest'] = ($settings['postdest'] == 'ext-local,,dest') ? 'ext-local,'.$extdisplay.',dest' : $settings['postdest'];
+			//dont let group list be empty. ever.
+			$settings['grplist'] = empty($settings['grplist']) ? $extdisplay : $settings['grplist'];
+			$settings['grplist'] = explode("\n",$settings['grplist']);
+			if($editmode){
+				$this->update($extdisplay, $settings);
+			}else{
+				$this->add($extdisplay, $settings['strategy'], $settings['grptime'],
+				$settings['grplist'], $settings['postdest'], $settings['grppre'], $settings['annmsg_id'], $settings['dring'],
+				$settings['needsconf'], $settings['remotealert_id'], $settings['toolate_id'], $settings['ringing'], $settings['pre_ring'],
+				$settings['ddial'], $settings['changecid'], $settings['fixedcid']);
+			}
+		} elseif($conf->get('FOLLOWME_AUTO_CREATE')) {
+			$ddial = $conf->get('FOLLOWME_DISABLED') ? 'CHECKED' : '';
+			$this->add($extdisplay, $conf->get('FOLLOWME_RG_STRATEGY'), $conf->get('FOLLOWME_TIME'),
+			$extdisplay, 'ext-local,'.$extdisplay.',dest', "", "", "", "", "", "","", $conf->get('FOLLOWME_PRERING'), $ddial,'default','');
+		}
+
 	}
 
 }
