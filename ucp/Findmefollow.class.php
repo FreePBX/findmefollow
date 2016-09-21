@@ -72,36 +72,52 @@ class Findmefollow extends Modules{
 		return $menu;
 	}
 
-	public function getWidgetList() {
-		$widgets = array(
-			"rawname" => "findmefollow",
-			"name" => _("Find Me / Follow Me"),
-			"badge" => false
-		);
-		$user = $this->UCP->User->getUser();
-		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Settings','assigned');
-		foreach($extensions as $extension) {
-			$data = $this->UCP->FreePBX->Core->getDevice($extension);
-			if(empty($data) || empty($data['description'])) {
-				$data = $this->UCP->FreePBX->Core->getUser($extension);
-				$name = $data['name'];
-			} else {
-				$name = $data['description'];
-			}
-
-			$widgets["menu"][] = array(
-				"rawname" => $extension,
-				"name" => $name,
-			);
-		}
-
-		return $widgets;
-	}
-
 	function getDisplay() {
 		$display = $this->getWidgetDisplay();
 
-		return $display;
+		return $display['html'];
+	}
+
+	public function getWidgetList() {
+		$widgetList = $this->getSimpleWidgetList();
+
+		return $widgetList;
+	}
+
+	public function getSimpleWidgetList() {
+		$widgets = array();
+
+		$user = $this->UCP->User->getUser();
+		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Settings','assigned');
+
+		if (!empty($extensions)) {
+			foreach($extensions as $extension) {
+				$data = $this->UCP->FreePBX->Core->getDevice($extension);
+				if(empty($data) || empty($data['description'])) {
+					$data = $this->UCP->FreePBX->Core->getUser($extension);
+					$name = $data['name'];
+				} else {
+					$name = $data['description'];
+				}
+
+				$widgets[] = array(
+					"rawname" => $extension,
+					"name" => $name,
+					"defaultsize" => array("height" => 1, "width" => 1)
+				);
+			}
+		}
+
+		if (empty($widgets)) {
+			return array();
+		}
+
+		return array(
+			"rawname" => "findmefollow",
+			"name" => _("Find Me / Follow Me"),
+			"badge" => false,
+			"menu" => $widgets
+		);
 	}
 
 	public function getWidgetDisplay() {
@@ -117,8 +133,11 @@ class Findmefollow extends Modules{
 			"enabled" => $settings['ddial'] ? false : true,
 		);
 
-		$html = $this->load_view(__DIR__.'/views/widget.php',$displayvars);
-		return $html;
+		$display = array(
+			'title' => _("Find Me / Follow Me"),
+			'html' => $this->load_view(__DIR__.'/views/widget.php',$displayvars)
+		);
+		return $display;
 	}
 
 	public function getWidgetSettingsDisplay() {
@@ -142,8 +161,12 @@ class Findmefollow extends Modules{
 		for($i = 0;$i<=60;$i++) {
 			$displayvars['listring_time'][$i] = $i;
 		}
-		$html = $this->load_view(__DIR__.'/views/settings.php',$displayvars);
 
-		return $html;
+		$display = array(
+			'title' => _("Find Me / Follow Me"),
+			'html' => $this->load_view(__DIR__.'/views/settings.php',$displayvars)
+		);
+
+		return $display;
 	}
 }
