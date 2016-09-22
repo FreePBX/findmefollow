@@ -100,8 +100,7 @@ class Findmefollow extends Modules{
 					$name = $data['description'];
 				}
 
-				$widgets[] = array(
-					"widget" => $extension,
+				$widgets[$extension] = array(
 					"display" => $name,
 					"defaultsize" => array("height" => 1, "width" => 1)
 				);
@@ -113,7 +112,7 @@ class Findmefollow extends Modules{
 		}
 
 		return array(
-			"category" => "findmefollow",
+			"rawname" => "findmefollow",
 			"display" => _("Find Me / Follow Me"),
 			"list" => $widgets
 		);
@@ -123,7 +122,7 @@ class Findmefollow extends Modules{
 		$sub = $_REQUEST['sub'];
 
 		if (!$this->_checkExtension($sub)) {
-			return false;
+			return array();
 		}
 
 		$settings = $this->UCP->FreePBX->Findmefollow->getSettingsById($sub, 1);
@@ -144,7 +143,7 @@ class Findmefollow extends Modules{
 		$sub = $_REQUEST['sub'];
 
 		if (!$this->_checkExtension($sub)) {
-			return false;
+			return array();
 		}
 
 		$settings = $this->UCP->FreePBX->Findmefollow->getSettingsById($sub,1);
