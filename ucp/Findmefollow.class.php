@@ -73,7 +73,9 @@ class Findmefollow extends Modules{
 	}
 
 	function getDisplay() {
-		$display = $this->getWidgetDisplay();
+		$sub = $_REQUEST['sub'];
+
+		$display = $this->getWidgetDisplay($sub);
 
 		return $display['html'];
 	}
@@ -118,16 +120,14 @@ class Findmefollow extends Modules{
 		);
 	}
 
-	public function getWidgetDisplay() {
-		$sub = $_REQUEST['sub'];
-
-		if (!$this->_checkExtension($sub)) {
+	public function getWidgetDisplay($id) {
+		if (!$this->_checkExtension($id)) {
 			return array();
 		}
 
-		$settings = $this->UCP->FreePBX->Findmefollow->getSettingsById($sub, 1);
+		$settings = $this->UCP->FreePBX->Findmefollow->getSettingsById($id, 1);
 		$displayvars = array(
-			"extension" => $sub,
+			"extension" => $id,
 			"enabled" => $settings['ddial'] ? false : true,
 		);
 
@@ -139,16 +139,14 @@ class Findmefollow extends Modules{
 		return $display;
 	}
 
-	public function getWidgetSettingsDisplay() {
-		$sub = $_REQUEST['sub'];
-
-		if (!$this->_checkExtension($sub)) {
+	public function getWidgetSettingsDisplay($id) {
+		if (!$this->_checkExtension($id)) {
 			return array();
 		}
 
-		$settings = $this->UCP->FreePBX->Findmefollow->getSettingsById($sub,1);
+		$settings = $this->UCP->FreePBX->Findmefollow->getSettingsById($id,1);
 		$displayvars = array(
-			"extension" => $sub,
+			"extension" => $id,
 			"confirm" => $settings['needsconf'],
 			"list" => explode("-",$settings['grplist']),
 			"ringtime" => $settings['grptime'],
