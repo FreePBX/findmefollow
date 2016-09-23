@@ -123,10 +123,11 @@ function findmefollow_get_config($engine) {
 				$ext->add($grpcontextname, "_RG-".$grpnum.".", '', new ext_macro('dial','${DB(AMPUSER/'.$grpnum.'/followme/grptime)},' .$dialopts. 'M(confirm^'.$remotealert.'^'.$toolate.'^'.$grpnum.'),${EXTEN:'.$len.'}'),1,1);
 				if($calendar_id !== false && $iscal){
 					$ext->add($contextname, $grpnum, '', FreePBX::Calendar()->ext_calendar_group_variable($calendar_id,$timezone,true));
+					$ext->add($contextname, $grpnum, '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/${EXTEN}/followme/ddial)} != 1 | "${DB(AMPUSER/${EXTEN}/followme/ddial)}" = "EXTENSION"]', 'ext-local,${EXTEN},1'));
+					$ext->add($contextname, $grpnum, '', new ext_gotoif('$[${CALENDAR} = 0]', 'ext-local,${EXTEN},1','followme-check,${EXTEN},1'));
 				}else{
-					$ext->add($contextname, $grpnum, '', new ext_set('CALENDAR','1'));
+					$ext->add($contextname, $grpnum, '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/${EXTEN}/followme/ddial)} != 1 | "${DB(AMPUSER/${EXTEN}/followme/ddial)}" = "EXTENSION"]', 'ext-local,${EXTEN},1','followme-check,${EXTEN},1'));
 				}
-				$ext->add($contextname, $grpnum, '', new ext_gotoif('$[$[${DB_EXISTS(AMPUSER/${EXTEN}/followme/ddial)} != 1 | "${DB(AMPUSER/${EXTEN}/followme/ddial)}" = "EXTENSION"] & "${CALENDAR}" = 1 ]', 'ext-local,${EXTEN},1','followme-check,${EXTEN},1'));
 			}
 
 			$ext->add($grpcontextname, "_RG-X.", '', new ext_nocdr(''));
