@@ -36,6 +36,7 @@ class Findmefollow implements \BMO {
 		isset($request['changecid'])?$changecid = $request['changecid']:$changecid='default';
 		isset($request['fixedcid'])?$fixedcid = $request['fixedcid']:$fixedcid='';
 		isset($request['calendar_id'])?$calendar_id = $request['calendar_id']:$calendar_id='';
+		isset($request['calendar_match'])?$calendar_match = $request['calendar_match']:$calendar_match='yes';
 		if (isset($request['ddial'])) {
 			$ddial =	$request['ddial'];
 		}	else {
@@ -83,7 +84,7 @@ class Findmefollow implements \BMO {
 			} else {
 				//add group
 				if ($action == 'addGRP') {
-					$this->add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid,$calendar_id);
+					$this->add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid,$calendar_id,$calendar_match);
 					needreload();
 				}
 
@@ -96,7 +97,7 @@ class Findmefollow implements \BMO {
 				//edit group - just delete and then re-add the extension
 				if ($action == 'edtGRP') {
 					$this->del($account);
-					$this->add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid,$calendar_id);
+					$this->add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid,$calendar_id,$calendar_match);
 					needreload();
 				}
 			}
@@ -365,7 +366,7 @@ class Findmefollow implements \BMO {
 	}
 
 	function addSettingsById($grpnum,$settings) {
-		$valid = array('strategy','grptime','grppre','grplist','annmsg_id','postdest','dring','needsconf','remotealert_id','toolate_id','ringing','pre_ring','ddial','changecid','fixedcid','calendar_id');
+		$valid = array('strategy','grptime','grppre','grplist','annmsg_id','postdest','dring','needsconf','remotealert_id','toolate_id','ringing','pre_ring','ddial','changecid','fixedcid','calendar_id','calendar_match');
 
 		$settings = array_intersect_key($settings, array_flip($valid));
 
@@ -420,6 +421,7 @@ class Findmefollow implements \BMO {
 					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
 				break;
 				case 'calendar_id':
+				case 'calendar_match':
 					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
 				break;
 				case 'pre_ring':
@@ -468,7 +470,7 @@ class Findmefollow implements \BMO {
 
 	function getSettingsById($grpnum, $check_astdb=0) {
 		$db = $this->db;
-		$sql = "SELECT grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, voicemail, calendar_id FROM findmefollow INNER JOIN `users` ON `extension` = `grpnum` WHERE grpnum = ?";
+		$sql = "SELECT grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, voicemail, calendar_id, calendar_match FROM findmefollow INNER JOIN `users` ON `extension` = `grpnum` WHERE grpnum = ?";
 		$sth = $db->prepare($sql);
 		$sth->execute(array($grpnum));
 		$results = $sth->fetch(\PDO::FETCH_ASSOC);
@@ -593,7 +595,7 @@ class Findmefollow implements \BMO {
 		}
 		return $buttons;
 	}
-	function add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg_id='',$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid='default',$fixedcid='', $calendar_id='') {
+	function add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg_id='',$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid='default',$fixedcid='', $calendar_id='', $calendar_match = 'yes') {
 		$astman = $this->FreePBX->astman;
 		$dbh = $this->db;
 		$conf = $this->FreePBX->Config();
@@ -632,8 +634,8 @@ class Findmefollow implements \BMO {
 		}
 		$grplist = implode("-", $list);
 
-		$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, calendar_id) VALUES (:grpnum, :strategy, :grptime, :grppre, :grplist, :annmsg_id, :postdest, :dring, :needsconf, :remotealert_id, :toolate_id, :ringing, :pre_ring, :calendar_id)";
-		$insertarr = array(':grpnum' => $grpnum , ':strategy' => $strategy , ':grptime' => $grptime , ':grppre' => $grppre , ':grplist' => $grplist , ':annmsg_id' => $annmsg_id , ':postdest' => $postdest , ':dring' => $dring , ':needsconf' => $needsconf , ':remotealert_id' => $remotealert_id , ':toolate_id' => $toolate_id , ':ringing' => $ringing , ':pre_ring' => $pre_ring, ':calendar_id' => $calendar_id);
+		$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, calendar_id, calendar_match) VALUES (:grpnum, :strategy, :grptime, :grppre, :grplist, :annmsg_id, :postdest, :dring, :needsconf, :remotealert_id, :toolate_id, :ringing, :pre_ring, :calendar_id, :calendar_match)";
+		$insertarr = array(':grpnum' => $grpnum , ':strategy' => $strategy , ':grptime' => $grptime , ':grppre' => $grppre , ':grplist' => $grplist , ':annmsg_id' => $annmsg_id , ':postdest' => $postdest , ':dring' => $dring , ':needsconf' => $needsconf , ':remotealert_id' => $remotealert_id , ':toolate_id' => $toolate_id , ':ringing' => $ringing , ':pre_ring' => $pre_ring, ':calendar_id' => $calendar_id, ':calendar_match' => $calendar_match);
 		$stmt = $dbh->prepare($sql);
 		$results = $stmt->execute($insertarr);
 		if ($astman) {
@@ -697,7 +699,7 @@ class Findmefollow implements \BMO {
 		$dbh = $this->db;
 		$conf = $this->FreePBX->Config();
 		$user = $this->FreePBX->Core->getUser($grpnum);
-		$sql = 'SELECT grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, voicemail, calendar_id FROM findmefollow INNER JOIN `users` ON `extension` = `grpnum` WHERE grpnum = :grpnum LIMIT 1';
+		$sql = 'SELECT grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, voicemail, calendar_id, calendar_match FROM findmefollow INNER JOIN `users` ON `extension` = `grpnum` WHERE grpnum = :grpnum LIMIT 1';
 		$stmt = $dbh->prepare($sql);
 		$stmt->execute(array(':grpnum'=> $grpnum));
 		$results = $stmt->fetch(\PDO::FETCH_ASSOC);
@@ -817,7 +819,7 @@ class Findmefollow implements \BMO {
 			$settings = array_merge($old,$settings);
 		}
 		extract($settings);
-		$this->add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid, $calendar_id);
+		$this->add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid, $calendar_id, $calendar_match);
 	}
 
 	public function bulkhandlerGetHeaders($type) {
@@ -986,7 +988,7 @@ class Findmefollow implements \BMO {
 	}
 
 	public function getAllFollowmes() {
-		$sql = "SELECT grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, voicemail, calendar_id FROM findmefollow INNER JOIN `users` ON `extension` = `grpnum`";
+		$sql = "SELECT grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, voicemail, calendar_id, calendar_match FROM findmefollow INNER JOIN `users` ON `extension` = `grpnum`";
 		$sth = $this->db->prepare($sql);
 		$sth->execute();
 		$results = $sth->fetchall(\PDO::FETCH_ASSOC);
@@ -1044,7 +1046,7 @@ class Findmefollow implements \BMO {
 				$this->add($extdisplay, $settings['strategy'], $settings['grptime'],
 				$settings['grplist'], $settings['postdest'], $settings['grppre'], $settings['annmsg_id'], $settings['dring'],
 				$settings['needsconf'], $settings['remotealert_id'], $settings['toolate_id'], $settings['ringing'], $settings['pre_ring'],
-				$settings['ddial'], $settings['changecid'], $settings['fixedcid'],$settings['calendar_id']);
+				$settings['ddial'], $settings['changecid'], $settings['fixedcid'],$settings['calendar_id'],$settings['calendar_match']);
 			}
 		} elseif($conf->get('FOLLOWME_AUTO_CREATE')) {
 			$ddial = $conf->get('FOLLOWME_DISABLED') ? 'CHECKED' : '';

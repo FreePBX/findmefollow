@@ -95,6 +95,7 @@ function findmefollow_get_config($engine) {
 				$ringing = $grp['ringing'];
 				$pre_ring = $grp['pre_ring'];
 				$calendar_id = !empty($grp['calendar_id'])?$grp['calendar_id']:false;
+				$calendar_match = !empty($grp['calendar_match'])?$grp['calendar_match']:'yes';
 
 				$astman->database_put("AMPUSER",$grpnum."/followme/grppre",isset($grppre)?$grppre:'');
 				$astman->database_put("AMPUSER",$grpnum."/followme/dring",isset($dring)?$dring:'');
@@ -124,7 +125,11 @@ function findmefollow_get_config($engine) {
 				if($calendar_id !== false && $iscal){
 					$ext->add($contextname, $grpnum, '', FreePBX::Calendar()->ext_calendar_group_variable($calendar_id,$timezone,true));
 					$ext->add($contextname, $grpnum, '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/${EXTEN}/followme/ddial)} != 1 | "${DB(AMPUSER/${EXTEN}/followme/ddial)}" = "EXTENSION"]', 'ext-local,${EXTEN},1'));
-					$ext->add($contextname, $grpnum, '', new ext_gotoif('$[${CALENDAR} = 0]', 'ext-local,${EXTEN},1','followme-check,${EXTEN},1'));
+					if($calendar_match === 'yes'){
+						$ext->add($contextname, $grpnum, '', new ext_gotoif('$[${CALENDAR} = 0]', 'ext-local,${EXTEN},1','followme-check,${EXTEN},1'));
+					}else{
+						$ext->add($contextname, $grpnum, '', new ext_gotoif('$[${CALENDAR} = 1]', 'ext-local,${EXTEN},1','followme-check,${EXTEN},1'));
+					}
 				}else{
 					$ext->add($contextname, $grpnum, '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/${EXTEN}/followme/ddial)} != 1 | "${DB(AMPUSER/${EXTEN}/followme/ddial)}" = "EXTENSION"]', 'ext-local,${EXTEN},1','followme-check,${EXTEN},1'));
 				}
@@ -292,8 +297,8 @@ function findmefollow_get_config($engine) {
 	}
 }
 
-function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg_id='',$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid='default',$fixedcid='',$calendar_id) {
-	return FreePBX::Findmefollow()->add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid,$calendar_id);
+function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg_id='',$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid='default',$fixedcid='',$calendar_id,$calendar_match='yes') {
+	return FreePBX::Findmefollow()->add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid,$calendar_id,$calendar_match);
 }
 
 function findmefollow_del($grpnum) {

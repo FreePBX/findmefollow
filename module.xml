@@ -94,6 +94,7 @@
 	    <field name="pre_ring" type="smallint" default="0"/>
 	    <field name="ringing" type="string" length="80" notnull="false"/>
 	    <field name="calendar_id" type="string" length="80" default='' notnull="false"/>
+	    <field name="calendar_match" type="string" length="4" default='yes' notnull="false"/>
 	  </table>
 	</database>
 	<location>release/2.11/findmefollow-2.11.0.3.tgz</location>
