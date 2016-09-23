@@ -2,7 +2,7 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>13.0.37.2</version>
+	<version>14.0.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -64,7 +64,7 @@
 		<findmefollow needsenginedb="yes">Follow Me</findmefollow>
 	</menuitems>
 	<supported>
-		<version>13.0</version>
+		<version>14.0</version>
 	</supported>
 	<hooks>
 		<bulkhandler class="Bulkhandler" namespace="FreePBX\modules">
@@ -78,6 +78,24 @@
 			<method callingMethod="delUser" class="Findmefollow" namespace="FreePBX\modules">delUser</method>
 		</core>
 	</hooks>
+	<database>
+	  <table name="findmefollow">
+	    <field name="grpnum" type="string" length="20" primaryKey="true"/>
+	    <field name="strategy" type="string" length="50"/>
+	    <field name="grptime" type="smallint"/>
+	    <field name="grppre" type="string" length="100" notnull="false"/>
+	    <field name="grplist" type="string" length="255"/>
+	    <field name="annmsg_id" type="integer" notnull="false"/>
+	    <field name="postdest" type="string" length="255" notnull="false"/>
+	    <field name="dring" type="string" length="255" notnull="false"/>
+	    <field name="remotealert_id" type="integer" notnull="false"/>
+	    <field name="needsconf" type="string" length="10" notnull="false"/>
+	    <field name="toolate_id" type="integer" notnull="false"/>
+	    <field name="pre_ring" type="smallint" default="0"/>
+	    <field name="ringing" type="string" length="80" notnull="false"/>
+	    <field name="calendar_id" type="string" length="80" default='' notnull="false"/>
+	  </table>
+	</database>
 	<location>release/2.11/findmefollow-2.11.0.3.tgz</location>
 	<md5sum>eb10d338f7206c288e52b240ccf4b850</md5sum>
 </module>

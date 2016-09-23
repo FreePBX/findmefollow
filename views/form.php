@@ -3,6 +3,7 @@
 //	Copyright 2015 Sangoma Technologies.
 //
 extract($request);
+$groups = (FreePBX::Modules()->checkStatus('calendar'))?FreePBX::Calendar()->listGroups():array();
 
 if ($extdisplay != "") {
 	// We need to populate grplist with the existing extension list.
@@ -24,6 +25,7 @@ if ($extdisplay != "") {
 	$ddial       = isset($thisgrp['ddial'])       ? $thisgrp['ddial']       : '';
 	$changecid   = isset($thisgrp['changecid'])   ? $thisgrp['changecid']   : 'default';
 	$fixedcid    = isset($thisgrp['fixedcid'])    ? $thisgrp['fixedcid']    : '';
+	$calendar_id    = isset($thisgrp['calendar_id'])    ? $thisgrp['calendar_id']    : '';
 	$goto = isset($thisgrp['postdest'])?$thisgrp['postdest']:((isset($thisgrp['voicemail']) && $thisgrp['voicemail'] != 'novm')?"ext-local,vmu$extdisplay,1":'');
 	unset($grpliststr);
 	unset($thisgrp);
@@ -276,6 +278,35 @@ if (empty($goto)) {
 	</div>
 </div>
 <!--END Enable Followme-->
+<!--Calendar-->
+<div class="element-container <?php echo FreePBX::Modules()->checkStatus('calendar')?'':'hidden'?>">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="calendar_id"><?php echo _("Calendar Group") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="calendar_id"></i>
+					</div>
+					<div class="col-md-9">
+						<select class="form-control" id="calendar_id" name="calendar_id">
+							<option><?php echo _("--Not Calendar Controlled--")?></option>
+							<?php foreach($groups as $id => $group) { ?>
+								<option value="<?php echo $id?>" <?php echo ($calendar_id == $id) ? "selected" : ""?>><?php echo $group['name']?></option>
+							<?php } ?>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="calendar_id-help" class="help-block fpbx-help-block"><?php echo _("If set the followme will only be active when the calendar group returns true.")?></span>
+		</div>
+	</div>
+</div>
+<!--End Calendar-->
 <!--Initial Ring Time-->
 <div class="element-container">
 	<div class="row">
