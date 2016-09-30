@@ -10,34 +10,6 @@ class Findmefollow extends Modules{
 		$this->Modules = $Modules;
 	}
 
-	public function getSettingsDisplay($ext) {
-		$settings = $this->UCP->FreePBX->Findmefollow->getSettingsById($ext,1);
-		$displayvars = array(
-			"enabled" => $settings['ddial'] ? false : true,
-			"confirm" => $settings['needsconf'],
-			"list" => explode("-",$settings['grplist']),
-			"ringtime" => $settings['grptime'],
-			"prering" => $settings['pre_ring'],
-			"exten" => $settings['grpnum'],
-			"recordings" => $this->UCP->FreePBX->Recordings->getAllRecordings()
-		);
-		for($i = 0;$i<=30;$i++) {
-			$displayvars['prering_time'][$i] = $i;
-		}
-		for($i = 0;$i<=60;$i++) {
-			$displayvars['listring_time'][$i] = $i;
-		}
-		$out = array(
-			array(
-				"title" => _('Find Me/Follow Me'),
-				"content" => $this->load_view(__DIR__.'/views/settings.php',$displayvars),
-				"size" => 6,
-				"order" => 0
-			)
-		);
-		return $out;
-	}
-
 	/**
 	 * Determine what commands are allowed
 	 *
@@ -92,5 +64,106 @@ class Findmefollow extends Modules{
 		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Settings','assigned');
 		$extensions = is_array($extensions) ? $extensions : array();
 		return in_array($extension,$extensions);
+	}
+
+	public function getMenuItems() {
+		$menu = $this->getWidgetList();
+
+		return $menu;
+	}
+
+	function getDisplay() {
+		$sub = $_REQUEST['sub'];
+
+		$display = $this->getWidgetDisplay($sub);
+
+		return $display['html'];
+	}
+
+	public function getWidgetList() {
+		$widgetList = $this->getSimpleWidgetList();
+
+		return $widgetList;
+	}
+
+	public function getSimpleWidgetList() {
+		$widgets = array();
+
+		$user = $this->UCP->User->getUser();
+		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Settings','assigned');
+
+		if (!empty($extensions)) {
+			foreach($extensions as $extension) {
+				$data = $this->UCP->FreePBX->Core->getDevice($extension);
+				if(empty($data) || empty($data['description'])) {
+					$data = $this->UCP->FreePBX->Core->getUser($extension);
+					$name = $data['name'];
+				} else {
+					$name = $data['description'];
+				}
+
+				$widgets[$extension] = array(
+					"display" => $name,
+					"defaultsize" => array("height" => 1, "width" => 1)
+				);
+			}
+		}
+
+		if (empty($widgets)) {
+			return array();
+		}
+
+		return array(
+			"rawname" => "findmefollow",
+			"display" => _("Find Me / Follow Me"),
+			"list" => $widgets
+		);
+	}
+
+	public function getWidgetDisplay($id) {
+		if (!$this->_checkExtension($id)) {
+			return array();
+		}
+
+		$settings = $this->UCP->FreePBX->Findmefollow->getSettingsById($id, 1);
+		$displayvars = array(
+			"extension" => $id,
+			"enabled" => $settings['ddial'] ? false : true,
+		);
+
+		$display = array(
+			'title' => _("Find Me / Follow Me"),
+			'html' => $this->load_view(__DIR__.'/views/widget.php',$displayvars)
+		);
+
+		return $display;
+	}
+
+	public function getWidgetSettingsDisplay($id) {
+		if (!$this->_checkExtension($id)) {
+			return array();
+		}
+
+		$settings = $this->UCP->FreePBX->Findmefollow->getSettingsById($id,1);
+		$displayvars = array(
+			"extension" => $id,
+			"confirm" => $settings['needsconf'],
+			"list" => explode("-",$settings['grplist']),
+			"ringtime" => $settings['grptime'],
+			"prering" => $settings['pre_ring']
+		);
+		for($i = 0;$i<=30;$i++) {
+			$displayvars['prering_time'][$i] = $i;
+		}
+		for($i = 0;$i<=60;$i++) {
+			$displayvars['listring_time'][$i] = $i;
+		}
+
+		$display = array(
+			'title' => _("Find Me / Follow Me"),
+			'html' => $this->load_view(__DIR__.'/views/settings.php',$displayvars)
+		);
+
+		return $display;
 	}
 }
