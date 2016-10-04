@@ -32,7 +32,7 @@ if ($extdisplay != "") {
 	unset($thisgrp);
 }
 //Ring Strategy Help
-$rshelp =    '<b>' . _("ringallv2"). 		'</b>: ' . _("ring Extension for duration set in Initial Ring Time, and then, while continuing call to extension, ring Follow-Me List for duration set in Ring Time.")
+$rshelp =    '<b>' . _("ringallv2"). 		'</b>: ' . _("ring Extension for duration set in Initial Ring Time, and then, while continuing call to extension, ring Follow-Me List for duration set in Ring Time.")."<br/>"._("If Extension is not included in Follow-Me List, the call to Extension will terminate after the Initial Ring Time, as it does with the 'ringall' strategy.")
 			.'<br>'
 			.'<b>' . _("ringall"). 			'</b>: ' . _("ring Extension for duration set in Initial Ring Time, and then terminate call to Extension and ring Follow-Me List for duration set in Ring Time.")
 			.'<br>'
@@ -385,14 +385,14 @@ if (empty($goto)) {
 	</div>
 </div>
 <!--END Ring Strategy-->
-<!--Ring Time (max 60 sec)-->
+<!--Follow-Me Ring Time (max 60 sec)-->
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="row">
 				<div class="form-group">
 					<div class="col-md-3">
-						<label class="control-label" for="grptime"><?php echo _("Ring Time (max 60 sec)") ?></label>
+						<label class="control-label" for="grptime"><?php echo _("Follow-Me")." ". _("Ring Time (max 60 sec)") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="grptime"></i>
 					</div>
 					<div class="col-md-9">
@@ -404,11 +404,11 @@ if (empty($goto)) {
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<span id="grptime-help" class="help-block fpbx-help-block"><?php echo _("Time in seconds that the phones will ring. For all hunt style ring strategies, this is the time for each iteration of phone(s) that are rung")?></span>
+			<span id="grptime-help" class="help-block fpbx-help-block"><?php echo _("Time in seconds that the phones will ring. For all hunt style ring strategies, this is the time for each iteration of phone(s) that are rung")." "._("This is in addition to the Initial Ring Time")?></span>
 		</div>
 	</div>
 </div>
-<!--END Ring Time (max 60 sec)-->
+<!--END Follow-Me Ring Time (max 60 sec)-->
 <!--Follow-Me List-->
 <div class="element-container">
 	<div class="row">
