@@ -37,4 +37,22 @@ extension = <?php echo $extension; ?>;
 		</div>
 		<span class="help-block help-hidden" data-for="needsconf-h"><?php echo _("Enable this if you're calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through.")?></span>
 	</div>
+	<div class="form-group">
+		<label for="calgrp" class="help"><?php echo _('Calendar Group')?> <i class="fa fa-question-circle"></i></label>
+		<select id="calgrp" name ="calgrp" class="form-control">
+			<?php echo $calgrpopts?>
+		</select>
+		<span class="help-block help-hidden" data-for="calgrp"><?php echo _("If set the followme will only be active when the calendar group returns true.")?></span>
+	</div>
+	<div class="form-group">
+		<label class="help" for="calmatch-h"><?php echo _('Calendar Match on Event')?> <i class="fa fa-question-circle"></i></label>
+		<div class="onoffswitch">
+			<input type="checkbox" name="calmatch" class="onoffswitch-checkbox" id="calmatch" <?php echo ($calendar_match == 'yes') ? 'checked' : ''?>>
+			<label class="onoffswitch-label" for="calmatch">
+				<div class="onoffswitch-inner"></div>
+				<div class="onoffswitch-switch"></div>
+			</label>
+		</div>
+		<span class="help-block help-hidden" data-for="calmatch-h"><?php echo _("When set to on follow me will be enabled whenever there is an event. When set to off followme will enable if the no event is present")?></span>
+	</div>
 </form>

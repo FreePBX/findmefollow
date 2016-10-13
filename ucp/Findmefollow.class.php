@@ -8,6 +8,7 @@ class Findmefollow extends Modules{
 
 	function __construct($Modules) {
 		$this->Modules = $Modules;
+		$this->user = $this->UCP->User->getUser();
 	}
 
 	/**
@@ -103,7 +104,7 @@ class Findmefollow extends Modules{
 				}
 
 				$widgets[$extension] = array(
-					"display" => $name,
+					"name" => $name,
 					"defaultsize" => array("height" => 1, "width" => 1)
 				);
 			}
@@ -115,7 +116,7 @@ class Findmefollow extends Modules{
 
 		return array(
 			"rawname" => "findmefollow",
-			"display" => _("Find Me / Follow Me"),
+			"name" => _("Find Me / Follow Me"),
 			"list" => $widgets
 		);
 	}
@@ -133,7 +134,7 @@ class Findmefollow extends Modules{
 
 		$display = array(
 			'title' => _("Find Me / Follow Me"),
-			'html' => $this->load_view(__DIR__.'/views/widget.php',$displayvars)
+			'html' => $this->load_view(__DIR__.'/views/settings.php',$displayvars)
 		);
 
 		return $display;
@@ -150,15 +151,41 @@ class Findmefollow extends Modules{
 			"confirm" => $settings['needsconf'],
 			"list" => explode("-",$settings['grplist']),
 			"ringtime" => $settings['grptime'],
-			"prering" => $settings['pre_ring']
+			"prering" => $settings['pre_ring'],
+			"calendar_id" => $settings['calendar_id'],
+			"calendar_match" => $settings['calendar_match']
 		);
+
 		for($i = 0;$i<=30;$i++) {
 			$displayvars['prering_time'][$i] = $i;
 		}
 		for($i = 0;$i<=60;$i++) {
 			$displayvars['listring_time'][$i] = $i;
 		}
+		$displavars['calendarinstalled'] = (FreePBX::Modules()->checkStatus('calendar'));
+		if($displayvars['calendarinstalled']){
+			$allgroups = FreePBX::Calendar()->listGroups();
+			$allgroups = (is_array($allgroups))?$allgroups:[];
+			$allowedgroups = $this->UCP->getCombinedSettingByID($user['id'],'Calendar','allowedgroups');
 
+			//If the group was set by the admin then add it to the users group permissions if not present.
+			if(!empty($displayvars['calendar_id']) && !in_array($displayvars['calendar_id'], $allowedgroups)){
+				$usersgroups = $this->UCP->getSettingByID($user['id'],'Calendar','allowedgroups');
+				$usersgroups = (is_array($usersgroups))?$usersgroups:[];
+				$usersgroups[] = $displayvars['calendar_id'];
+				$this->Ucp->setSettingByID($user['id'],'Calendar','allowedgroups',$usersgroups);
+				$allowedgroups = $this->UCP->getCombinedSettingByID($user['id'],'Calendar','allowedgroups');
+			}
+		}
+		//build group opts:
+		$displayvars['calgrpopts'] = '<option value = "">'._("-- NOT CALENDAR CONTROLLED --").'</option>';
+		foreach ($allgroups as $key => $value) {
+			if(!in_array($key, $allowedgroups)){
+				continue;
+			}
+			$selected = ($key === $settings['calendar_id'])?'SELECTED':'';
+			$displayvars['calgrpopts'] .= '<option value="'.$key.'" '.$selected.'>'.$value['name'].'</option>'.PHP_EOL;
+		}
 		$display = array(
 			'title' => _("Find Me / Follow Me"),
 			'html' => $this->load_view(__DIR__.'/views/settings.php',$displayvars)

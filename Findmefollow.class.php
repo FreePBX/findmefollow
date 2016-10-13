@@ -1055,5 +1055,52 @@ class Findmefollow implements \BMO {
 		}
 
 	}
+	public function ucpConfigPage($mode, $user, $action) {
+			if(empty($user)) {
+				$enabled = ($mode == 'group') ? true : null;
+			} else {
+				if($mode == 'group') {
+					$enabled = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Findmefollow','enabled');
+					$enabled = !($enabled) ? false : true;
+				} else {
+					$enabled = $this->FreePBX->Ucp->getSettingByID($user['id'],'Findmefollow','enabled');
+				}
+			}
 
+			$html = array();
+			$html[0] = array(
+				"title" => _("Follow Me"),
+				"rawname" => "findmefollow",
+				"content" => load_view(dirname(__FILE__)."/views/ucp_config.php",array("mode" => $mode, "enabled" => $enabled))
+			);
+			return $html;
+		}
+		public function ucpAddUser($id, $display, $ucpStatus, $data) {
+			$this->ucpUpdateUser($id, $display, $ucpStatus, $data);
+		}
+		public function ucpUpdateUser($id, $display, $ucpStatus, $data) {
+			if($display == 'userman' && isset($_POST['type']) && $_POST['type'] == 'user') {
+				if(isset($_POST['findmefollow_enable']) && $_POST['findmefollow_enable'] == 'yes') {
+					$this->FreePBX->Ucp->setSettingByID($id,'Findmefollow','enabled',true);
+				}elseif(isset($_POST['findmefollow_enable']) && $_POST['findmefollow_enable'] == 'no') {
+					$this->FreePBX->Ucp->setSettingByID($id,'Findmefollow','enabled',false);
+				} elseif(isset($_POST['findmefollow_enable']) && $_POST['findmefollow_enable'] == 'inherit') {
+					$this->FreePBX->Ucp->setSettingByID($id,'Findmefollow','enabled',null);
+				}
+			}
+		}
+		public function ucpDelUser($id, $display, $ucpStatus, $data) {}
+		public function ucpAddGroup($id, $display, $data) {
+			$this->ucpUpdateGroup($id,$display,$data);
+		}
+		public function ucpUpdateGroup($id,$display,$data) {
+			if($display == 'userman' && isset($_POST['type']) && $_POST['type'] == 'group') {
+				if(isset($_POST['findmefollow_enable']) && $_POST['findmefollow_enable'] == 'yes') {
+					$this->FreePBX->Ucp->setSettingByGID($id,'Findmefollow','enabled',true);
+				} else {
+					$this->FreePBX->Ucp->setSettingByGID($id,'Findmefollow','enabled',false);
+				}
+			}
+		}
+		public function ucpDelGroup($id,$display,$data) {}
 }
