@@ -2,54 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>14.0.1</version>
+	<version>14.0.1alpha1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
-		*13.0.37.2* FREEPBX-12255 Follow Me page no longer displays all extensions
-		*13.0.37.1* FREEPBX-12688 Bulkhandler does not export / import fields correctly
-		*13.0.37* FREEPBX-12935 dont loop twice in ringallv1
-		*13.0.36* FREEPBX-12828 Never accepts confirmation
-		*13.0.35* Add sound languages: it,fr,en_GB
-		*13.0.34* Quicken reload time. This signifcantly changes findme/followme, please check your systems!!
-		*13.0.33* FREEPBX-12493 Fix link to be relative
-		*13.0.32* FREEPBX-8768 add new component to allow quick picks
-		*13.0.31* Fix bug when saving
-		*13.0.30* FREEPBX-10685 Follow me list in UCP does not display # suffix when entered
-		*13.0.29* FREEPBX-11995 Make enabled button act in accordance with the labeling
-		*13.0.28* FREEPBX-11743 fix followmeform enable toggle
-		*13.0.27* FREEPBX-11215 Fix dynamic element binding
-		*13.0.26* FREEPBX-10961
-		*13.0.25* Support Alert Info in Extensions
-		*13.0.24* Support Alert Info Drop down
-		*13.0.23* FREEPBX-11167
-		*13.0.22* FREEPBX-9951 Japanese language prompts
-		*13.0.21* FREEPBX-10897
-		*13.0.20* Add slideout menu
-		*13.0.19* FREEPBX-10562 Poorly written hooks
-		*13.0.18* FREEPBX-10541 Fix variable, validate return from git to display smarter toast
-		*13.0.17* Numerous bad sql lookups
-		*13.0.16* FREEPBX-10464 move toggles to BMO AJAX internals
-		*13.0.15* FREEPBX-9372 Remove recording settings from UCP as they require a reload
-		*13.0.14* Add regardless
-		*13.0.13* FREEPBX-10314, FREEPBX-10315, FREEPBX-10316
-		*13.0.12* FREEPBX-10156 Update wording in extensions/devices
-		*13.0.11* Error on bulk handler import
-		*13.0.10.1* Minor layout changes
-		*13.0.10* FREEPBX-9867 set the extension destination correctly
-		*13.0.9* FREEPBX-9420 variable regression
-		*13.0.8* FREEPBX-9804 accept mixed arguments
-		*13.0.7* FREEPBX-9804 Multiple errors addressed
-		*13.0.6* FREEPBX-9622 Database duplicate key entry error after recreating a deleted extension
-		*13.0.5* FREEPBX-9586 fix functionality in extensions and quick create
-		*13.0.4* FREEPBX-9564 UCP goes offline after changing settings
-		*13.0.3* FREEPBX-9506 Minor display issue with Follow Me when no extensions entered
-		*13.0.2* Version bump Beta
-		*13.0.1alpha4* Add Spanish prompts
-		*13.0.1alpha3* Fixes to looping
-		*13.0.1alpha2* Support bulk handler
-		*13.0.1alpha1* Visual Changes
+		*14.0.1alpha1* Inital Changes
 	</changelog>
 	<depends>
 		<module>core ge 13.0.113.3</module>
