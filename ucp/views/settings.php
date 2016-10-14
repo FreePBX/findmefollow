@@ -1,3 +1,8 @@
+<?php
+$list = isset($list)?$list:[];
+$prering_time = isset($prering_time)?$prering_time:[];
+$listring_time = isset($listring_time)?$listring_time:[];
+?>
 <script>
 extension = <?php echo $extension; ?>;
 </script>
