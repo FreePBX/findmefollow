@@ -87,6 +87,7 @@ function findmefollow_get_config($engine) {
 				$grppre = (isset($grp['grppre'])?$grp['grppre']:'');
 				$annmsg_id = $grp['annmsg_id'];
 				$dring = $grp['dring'];
+				$rvolume = $grp['rvolume'];
 
 				$needsconf = $grp['needsconf'];
 				$remotealert_id = $grp['remotealert_id'];
@@ -96,6 +97,7 @@ function findmefollow_get_config($engine) {
 
 				$astman->database_put("AMPUSER",$grpnum."/followme/grppre",isset($grppre)?$grppre:'');
 				$astman->database_put("AMPUSER",$grpnum."/followme/dring",isset($dring)?$dring:'');
+				$astman->database_put("AMPUSER",$grpnum."/followme/rvolume",isset($rvolume)?$rvolume:'');
 				$astman->database_put("AMPUSER",$grpnum."/followme/strategy",isset($strategy)?$strategy:'');
 				$astman->database_put("AMPUSER",$grpnum."/followme/annmsg",(!empty($annmsg_id) ? recordings_get_file($annmsg_id) : ''));
 				$astman->database_put("AMPUSER",$grpnum."/followme/remotealertmsg",(!empty($remotealert_id) ? recordings_get_file($remotealert_id) : ''));
@@ -183,6 +185,7 @@ function findmefollow_get_config($engine) {
 
 			// If pre_ring is set, then ring this number of seconds prior to moving on
 			$ext->add($contextname, '_X.', 'skipdring', new ext_setvar('STRATEGY','${DB(AMPUSER/${EXTEN}/followme/strategy)}'));
+			$ext->add($contextname, '_X.', '', new ext_setvar('RVOL','${DB(AMPUSER/${EXTEN}/followme/rvolume)}'));
 			$ext->add($contextname, '_X.', '', new ext_gotoif('$["${CUT(STRATEGY,-,1)}"="ringallv2"]','skipsimple'));
 			$ext->add($contextname, '_X.', '', new ext_gotoif('$[$[ "${DB(AMPUSER/${EXTEN}/followme/prering)}" = "0" ] | $[ "${DB(AMPUSER/${EXTEN}/followme/prering)}" = "" ]] ', 'skipsimple'));
 			$ext->add($contextname, '_X.', '', new ext_macro('simple-dial','${EXTEN},${DB(AMPUSER/${EXTEN}/followme/prering)}'));
@@ -284,7 +287,7 @@ function findmefollow_get_config($engine) {
 	}
 }
 
-function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg_id='',$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid='default',$fixedcid='') {
+function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg_id='',$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid='default',$fixedcid='',$rvolume='') {
 	global $amp_conf;
 	global $astman;
 	global $db;
@@ -324,14 +327,31 @@ function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre=
 	}
 	$grplist = implode("-", $list);
 
-	$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring) VALUES ('".$db->escapeSimple($grpnum)."', '".$db->escapeSimple($strategy)."', ".$db->escapeSimple($grptime).", '".$db->escapeSimple($grppre)."', '".$db->escapeSimple($grplist)."', '".$db->escapeSimple($annmsg_id)."', '".$db->escapeSimple($postdest)."', '".$db->escapeSimple($dring)."', '$needsconf', '$remotealert_id', '$toolate_id', '$ringing', '$pre_ring')";
-	$results = sql($sql);
+	$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, rvolume) VALUES (:grpnum, :strategy, :grptime, :grppre, :grplist, :annmsg_id, :postdest, :dring, :needsconf, :remotealert_id, :toolate_id, :ringing, :pre_ring, :rvolume)";
+	$sth = FreePBX::Database()->prepare($sql);
+	$sth->execute(array(
+		":grpnum" => $grpnum,
+		":strategy" => $strategy,
+		":grptime" => $grptime,
+		":grppre" => $grppre,
+		":grplist" => $grplist,
+		":annmsg_id" => $annmsg_id,
+		":postdest" => $postdest,
+		":dring" => $dring,
+		":needsconf" => $needsconf,
+		":remotealert_id" => $remotealert_id,
+		":toolate_id" => $toolate_id,
+		":ringing" => $ringing,
+		":pre_ring" => $pre_ring,
+		":rvolume" => $rvolume
+	));
 
 	if ($astman) {
 		$astman->database_put("AMPUSER",$grpnum."/followme/prering",isset($pre_ring)?$pre_ring:'');
 		$astman->database_put("AMPUSER",$grpnum."/followme/grptime",isset($grptime)?$grptime:'');
 		$astman->database_put("AMPUSER",$grpnum."/followme/grplist",isset($grplist)?$grplist:'');
 		$astman->database_put("AMPUSER",$grpnum."/followme/grppre",isset($grppre)?$grppre:'');
+		$astman->database_put("AMPUSER",$grpnum."/followme/rvolume",isset($rvolume)?$rvolume:'');
 
 		$needsconf = isset($needsconf)?$needsconf:'';
 		$confvalue = ($needsconf == 'CHECKED')?'ENABLED':'DISABLED';
@@ -444,7 +464,7 @@ function findmefollow_get($grpnum, $check_astdb=0) {
 	global $astman;
 	global $db;
 
-	$results = sql("SELECT grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, voicemail FROM findmefollow INNER JOIN `users` ON `extension` = `grpnum` WHERE grpnum = '".$db->escapeSimple($grpnum)."'","getRow",DB_FETCHMODE_ASSOC);
+	$results = sql("SELECT grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, voicemail, rvolume FROM findmefollow INNER JOIN `users` ON `extension` = `grpnum` WHERE grpnum = '".$db->escapeSimple($grpnum)."'","getRow",DB_FETCHMODE_ASSOC);
 	if (empty($results)) {
 		return array();
 	}
@@ -496,6 +516,9 @@ function findmefollow_get($grpnum, $check_astdb=0) {
 		}
 		if (!isset($results['needsconf'])) {
 			$results['needsconf'] = '';
+		}
+		if (!isset($results['rvolume'])) {
+			$results['rvolume'] = '';
 		}
 		if (($astdb_prering != $results['pre_ring']) && ($astdb_prering >= 0)) {
 			$results['pre_ring'] = $astdb_prering;
@@ -1112,11 +1135,11 @@ function findmefollow_users_configprocess() {
 					findmefollow_add($extdisplay, $settings['strategy'], $settings['grptime'],
 					$settings['grplist'], $settings['postdest'], $settings['grppre'], $settings['annmsg_id'], $settings['dring'],
 					$settings['needsconf'], $settings['remotealert_id'], $settings['toolate_id'], $settings['ringing'], $settings['pre_ring'],
-					$settings['ddial'], $settings['changecid'], $settings['fixedcid']);
+					$settings['ddial'], $settings['changecid'], $settings['fixedcid'], $settings['rvolume']);
 				} elseif($amp_conf['FOLLOWME_AUTO_CREATE']) {
 					$ddial = $amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '';
 					findmefollow_add($extdisplay, $amp_conf['FOLLOWME_RG_STRATEGY'], $amp_conf['FOLLOWME_TIME'],
-					$extdisplay, 'ext-local,'.$extdisplay.',dest', "", "", "", "", "", "","", $amp_conf['FOLLOWME_PRERING'], $ddial,'default','');
+					$extdisplay, 'ext-local,'.$extdisplay.',dest', "", "", "", "", "", "","", $amp_conf['FOLLOWME_PRERING'], $ddial,'default','','');
 				}
 			}
 		break;
@@ -1143,7 +1166,7 @@ function findmefollow_update($grpnum,$settings) {
 		$settings = array_merge($old,$settings);
 	}
 	extract($settings);
-	findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid);
+	findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid,$rvolume);
 }
 
 function findmefollow_configpageinit($dispnum) {

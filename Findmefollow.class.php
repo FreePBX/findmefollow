@@ -35,6 +35,7 @@ class Findmefollow implements \BMO {
 		isset($request['pre_ring'])?$pre_ring = $request['pre_ring']:$pre_ring=$amp_conf['FOLLOWME_PRERING'];
 		isset($request['changecid'])?$changecid = $request['changecid']:$changecid='default';
 		isset($request['fixedcid'])?$fixedcid = $request['fixedcid']:$fixedcid='';
+		isset($request['rvolume'])?$rvolume = $request['rvolume']:$rvolume='';
 
 		if (isset($request['ddial'])) {
 			$ddial =	$request['ddial'];
@@ -83,7 +84,7 @@ class Findmefollow implements \BMO {
 			} else {
 				//add group
 				if ($action == 'addGRP') {
-					findmefollow_add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid);
+					findmefollow_add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid,$rvolume);
 
 					needreload();
 					redirect_standard();
@@ -99,7 +100,7 @@ class Findmefollow implements \BMO {
 				//edit group - just delete and then re-add the extension
 				if ($action == 'edtGRP') {
 					findmefollow_del($account);
-					findmefollow_add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid);
+					findmefollow_add($account,$strategy,$grptime,implode("-",$grplist),$goto,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid,$rvolume);
 
 					needreload();
 					redirect_standard('extdisplay', 'view');

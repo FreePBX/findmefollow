@@ -24,6 +24,7 @@ if ($extdisplay != "") {
 	$ddial       = isset($thisgrp['ddial'])       ? $thisgrp['ddial']       : '';
 	$changecid   = isset($thisgrp['changecid'])   ? $thisgrp['changecid']   : 'default';
 	$fixedcid    = isset($thisgrp['fixedcid'])    ? $thisgrp['fixedcid']    : '';
+	$rvolume     = isset($thisgrp['rvolume'])     ? $thisgrp['rvolume']     : '';
 	$goto = isset($thisgrp['postdest'])?$thisgrp['postdest']:((isset($thisgrp['voicemail']) && $thisgrp['voicemail'] != 'novm')?"ext-local,vmu$extdisplay,1":'');
 	unset($grpliststr);
 	unset($thisgrp);
@@ -432,6 +433,33 @@ if (empty($goto)) {
 	</div>
 </div>
 <!--END Alert Info-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="rvolume"><?php echo _("Ringer Volume Override") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="rvolume"></i>
+					</div>
+					<div class="col-md-9">
+						<select class="form-control" id="rvolume" name="rvolume">
+							<option value="0"><?php echo _("None")?></option>
+							<?php for($i = 1; $i <= 14; $i++) { ?>
+								<option value="<?php echo $i?>" <?php echo ($rvolume == $i) ? 'selected' : ''?>><?php echo $i?></option>
+							<?php } ?>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="rvolume-help" class="help-block fpbx-help-block"><?php echo sprintf(_("Override the ringer volume. Note: This is only valid for %s phones at this time"),"Sangoma")?></span>
+		</div>
+	</div>
+</div>
 <!--Confirm Calls-->
 <div class="element-container">
 	<div class="row">
