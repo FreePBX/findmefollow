@@ -851,6 +851,31 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 		"class" => "fpbx-fmfm",
 	);
 	$currentcomponent->addguielem($section, new gui_alertinfodrawselects(array_merge($guidefaults,$el)),$category);
+
+	$rvollist = array(
+		array(
+			"text" => _("None"),
+			"value" => ""
+		)
+	);
+
+	for($i=1;$i<=14;$i++) {
+		$rvollist[] = array(
+			"text" => $i,
+			"value" => $i
+		);
+	}
+
+	$el = array(
+		"elemname" => "fmfm_rvolume",
+		"prompttext" => _('Ringer Volume Override'),
+		"helptext" => _("Override the ringer volume. Note: This is only valid for Sangoma phones at this time"),
+		"currentvalue" => $fmfm['rvolume'],
+		"valarray" => $rvollist,
+		"class" => "fpbx-fmfm",
+		"canbeempty" => false
+	);
+	$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)), $category);
 }
 
 function findmefollow_draw_confirm($fmfm,&$currentcomponent,$category,$fmfmdisabled,$recordingslist,$moh) {
