@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-14 20:40-0700\n"
+"POT-Creation-Date: 2016-10-18 15:08-0700\n"
 "PO-Revision-Date: 2016-06-08 06:20+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -27,7 +27,7 @@ msgstr ""
 msgid "Alert Info"
 msgstr "Información Alerta"
 
-#: functions.inc.php:991 views/form.php:497
+#: functions.inc.php:1016 views/form.php:497
 msgid "Always transmit the Fixed CID Value below."
 msgstr "Siempre envíe el valor del CID fijo abajo."
 
@@ -71,7 +71,7 @@ msgstr ""
 msgid "CID Name Prefix"
 msgstr "Prefijo de Nombre del CID"
 
-#: functions.inc.php:867
+#: functions.inc.php:892
 msgid "Call Confirmation Configuration"
 msgstr "Configuración de confirmación de llamada"
 
@@ -79,11 +79,11 @@ msgstr "Configuración de confirmación de llamada"
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "No puede conectar en gestor de Asterisk con "
 
-#: functions.inc.php:968 views/form.php:513
+#: functions.inc.php:993 views/form.php:513
 msgid "Change External CID Configuration"
 msgstr "Cambiar configuración Externa de CID"
 
-#: functions.inc.php:890 views/form.php:470
+#: functions.inc.php:915 views/form.php:470
 msgid "Confirm Calls"
 msgstr "Confirmar Llamadas"
 
@@ -91,7 +91,7 @@ msgstr "Confirmar Llamadas"
 msgid "Create Follow Me at Extension Creation Time"
 msgstr ""
 
-#: functions.inc.php:911 functions.inc.php:990 functions.inc.php:1003
+#: functions.inc.php:936 functions.inc.php:1015 functions.inc.php:1028
 #: views/form.php:113 views/form.php:148 views/form.php:213 views/form.php:495
 msgid "Default"
 msgstr "Defecto"
@@ -112,7 +112,7 @@ msgstr ""
 msgid "Destination if no answer"
 msgstr "Destino si no contesta"
 
-#: functions.inc.php:1047
+#: functions.inc.php:1072
 msgid "Destinations"
 msgstr "Destinos"
 
@@ -157,7 +157,7 @@ msgstr ""
 "1 en su teléfono antes de que la llamada sea enrutada. Esta característica "
 "sólo funciona con la estrategia anillo ringall"
 
-#: functions.inc.php:891
+#: functions.inc.php:916
 msgid ""
 "Enable this if you're calling external numbers that need confirmation - eg, "
 "a mobile phone may go to voicemail which will pick up the call. Enabling "
@@ -195,12 +195,12 @@ msgstr "EncuentreMe/SigueMe ha sido actualizado!"
 msgid "Findme Follow Toggle"
 msgstr "EncuentreMe Sigueme Toggle"
 
-#: functions.inc.php:991 functions.inc.php:1007 functions.inc.php:1030
+#: functions.inc.php:1016 functions.inc.php:1032 functions.inc.php:1055
 #: views/form.php:214 views/form.php:497 views/form.php:539
 msgid "Fixed CID Value"
 msgstr "Valor Fijo CID"
 
-#: functions.inc.php:1037
+#: functions.inc.php:1062
 msgid ""
 "Fixed CID Value should be in a format of digits only with an option of E164 "
 "format using a leading \"+\""
@@ -208,7 +208,7 @@ msgstr ""
 "CID fijo debe estar en un formato de dígitos solamente con una opción E164 "
 "usando un prefijo \"+\""
 
-#: functions.inc.php:1031
+#: functions.inc.php:1056
 msgid ""
 "Fixed value to replace the CID with used with some of the modes above. "
 "Should be in a format of digits only with an option of E164 format using a "
@@ -249,7 +249,7 @@ msgstr ""
 msgid "Follow Me No Answer Destination"
 msgstr ""
 
-#: functions.inc.php:1201
+#: functions.inc.php:1226
 #, php-format
 msgid "Follow Me: %s"
 msgstr "SigueMe: %s"
@@ -262,12 +262,12 @@ msgstr "Lista Sigue-Me"
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
 msgstr "La Lista de SigueMe no puede estar vacía si SigueMe esta habilitado"
 
-#: functions.inc.php:1253
+#: functions.inc.php:1278
 #, php-format
 msgid "Follow-Me User: %s"
 msgstr "Usuario Sigue-Me: %s"
 
-#: functions.inc.php:1230
+#: functions.inc.php:1255
 #, php-format
 msgid "Follow-Me: %s (%s)"
 msgstr "Sigue-Me:%s (%s)"
@@ -280,7 +280,7 @@ msgstr "Extensión SigueMe"
 msgid "Followme List"
 msgstr "Lista SigueMe"
 
-#: functions.inc.php:994 functions.inc.php:1019 views/form.php:217
+#: functions.inc.php:1019 functions.inc.php:1044 views/form.php:217
 #: views/form.php:503
 msgid "Force Dialed Number"
 msgstr "Numero Discado Forzado"
@@ -374,7 +374,7 @@ msgstr ""
 "llamadas' está habilitada.<br>Para añadir grabaciones adicionales utilizar "
 "el menú \"Sistema de Grabaciones\" arriba"
 
-#: functions.inc.php:916
+#: functions.inc.php:941
 msgid ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
 "enabled.<br><br>To add additional recordings use the \"System Recordings\" "
@@ -394,7 +394,7 @@ msgstr ""
 "ya ha sido aceptado antes de que oprimir 1. <br><br> Para añadir grabaciones "
 "adicionales utilizar el menú \"Sistema de Grabaciones\" arriba"
 
-#: functions.inc.php:928
+#: functions.inc.php:953
 msgid ""
 "Message to be played to the person RECEIVING the call, if the call has "
 "already been accepted before they push 1.<br><br>To add additional "
@@ -408,7 +408,7 @@ msgstr ""
 msgid "Method not supported"
 msgstr "Método no soportado"
 
-#: functions.inc.php:997 views/form.php:493
+#: functions.inc.php:1022 views/form.php:493
 msgid "Mode"
 msgstr "Modo"
 
@@ -421,16 +421,17 @@ msgid ""
 "someone's cell phone if they don't answer their extension."
 msgstr ""
 
-#: functions.inc.php:716 functions.inc.php:900 views/fmgrid.php:18
+#: functions.inc.php:716 functions.inc.php:925 views/fmgrid.php:18
 #: views/form.php:267 views/form.php:477 views/quickCreate.php:12
 msgid "No"
 msgstr "No"
 
-#: functions.inc.php:1071
+#: functions.inc.php:1096
 msgid "No Answer"
 msgstr "No Contesta"
 
-#: functions.inc.php:634 views/form.php:78 views/form.php:447
+#: functions.inc.php:634 functions.inc.php:857 views/form.php:78
+#: views/form.php:447
 msgid "None"
 msgstr "Nada"
 
@@ -453,7 +454,7 @@ msgstr ""
 "Solo ringall, ringallv2, hunt y respectivamente versiones -prim son "
 "soportadas cuando confirmación ha sido escogido"
 
-#: functions.inc.php:1072
+#: functions.inc.php:1097
 msgid ""
 "Optional destination call is routed to when the call is not answered on an "
 "otherwise idle phone. If the phone is in use and the call is simply ignored, "
@@ -464,7 +465,7 @@ msgstr ""
 "uso y la llamada es simplemente ignorada, a continuación, se utilizará el "
 "destino ocupado."
 
-#: functions.inc.php:992 functions.inc.php:1011 views/form.php:215
+#: functions.inc.php:1017 functions.inc.php:1036 views/form.php:215
 #: views/form.php:499
 msgid "Outside Calls Fixed CID Value"
 msgstr "Valor fijo de CID para llamadas afuera"
@@ -474,6 +475,12 @@ msgstr "Valor fijo de CID para llamadas afuera"
 msgid ""
 "Override the ringer volume. Note: This is only valid for %s phones at this "
 "time"
+msgstr ""
+
+#: functions.inc.php:872
+msgid ""
+"Override the ringer volume. Note: This is only valid for Sangoma phones at "
+"this time"
 msgstr ""
 
 #: functions.inc.php:826 views/form.php:181
@@ -489,7 +496,7 @@ msgstr "Por favor entre un numero %s valido"
 msgid "Please enter an extension list."
 msgstr "Por favor ingrese una lista de extensiones."
 
-#: functions.inc.php:915 views/form.php:106
+#: functions.inc.php:940 views/form.php:106
 msgid "Remote Announce"
 msgstr "Anuncio remoto"
 
@@ -526,7 +533,7 @@ msgstr "Tiempo de Timbrado"
 msgid "Ring Time (max 60 sec)"
 msgstr "Tiempo de timbrado (max 60 seg)"
 
-#: views/form.php:442
+#: functions.inc.php:871 views/form.php:442
 msgid "Ringer Volume Override"
 msgstr ""
 
@@ -591,11 +598,11 @@ msgstr ""
 msgid "Time must be between 1 and 60 seconds"
 msgstr "Tiempo debe ser entre 1 y 60 segundos"
 
-#: functions.inc.php:927 views/form.php:141
+#: functions.inc.php:952 views/form.php:141
 msgid "Too-Late Announce"
 msgstr "Anuncio muy tarde"
 
-#: functions.inc.php:992 views/form.php:499
+#: functions.inc.php:1017 views/form.php:499
 msgid ""
 "Transmit the Fixed CID Value below on calls that come in from outside only. "
 "Internal extension to extension calls will continue to operate in default "
@@ -605,7 +612,7 @@ msgstr ""
 "Llamadas de extensión a extensión interna seguirán operando en el modo "
 "normal por defecto."
 
-#: functions.inc.php:994 views/form.php:503
+#: functions.inc.php:1019 views/form.php:503
 msgid ""
 "Transmit the number that was dialed as the CID for calls coming from "
 "outside. Internal extension to extension calls will continue to operate in "
@@ -617,7 +624,7 @@ msgstr ""
 "modo por defecto. Debe existir un DID en la ruta entrante para esto. Esto "
 "SERA transmitido en troncales que bloquean CallerID foráneo"
 
-#: functions.inc.php:993 views/form.php:501
+#: functions.inc.php:1018 views/form.php:501
 msgid ""
 "Transmit the number that was dialed as the CID for calls coming from "
 "outside. Internal extension to extension calls will continue to operate in "
@@ -629,7 +636,7 @@ msgstr ""
 "modo por defecto. Debe haber un DID en la ruta entrante para esto. Esto será "
 "BLOQUEADO en troncales que bloquean CallerID foráneo"
 
-#: functions.inc.php:990 views/form.php:495
+#: functions.inc.php:1015 views/form.php:495
 msgid "Transmits the Callers CID if allowed by the trunk."
 msgstr "Transmite a los llamantes el CID si esta permitido en el troncal."
 
@@ -637,7 +644,7 @@ msgstr "Transmite a los llamantes el CID si esta permitido en el troncal."
 msgid "Use Confirmation"
 msgstr "Use Confirmación"
 
-#: functions.inc.php:993 functions.inc.php:1015 views/form.php:216
+#: functions.inc.php:1018 functions.inc.php:1040 views/form.php:216
 #: views/form.php:501
 msgid "Use Dialed Number"
 msgstr "Use Numero Discado"
@@ -675,7 +682,7 @@ msgstr ""
 msgid "Where to send callers if there is no answer."
 msgstr "Donde enviar a los Llamantes si la llamada no es contestada."
 
-#: functions.inc.php:712 functions.inc.php:896 views/fmgrid.php:16
+#: functions.inc.php:712 functions.inc.php:921 views/fmgrid.php:16
 #: views/form.php:265 views/form.php:475 views/quickCreate.php:10
 msgid "Yes"
 msgstr "Si"
