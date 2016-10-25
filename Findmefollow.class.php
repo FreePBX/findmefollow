@@ -353,7 +353,7 @@ class Findmefollow implements \BMO {
 
 		$follow_me_confirm = ($follow_me_confirm)?'CHECKED':'';
 		$sql = 'UPDATE findmefollow SET grptime = :grptime, grplist = :grplist, pre_ring = :pre_ring, needsconf = :needsconf WHERE grpnum = :grpnum LIMIT 1';
-		$prarams = array(
+		$params = array(
 				':grptime' => $follow_me_listring_time,
 				':grplist' => trim($follow_me_list),
 				':pre_ring' => $follow_me_prering_time,
