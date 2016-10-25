@@ -5,11 +5,92 @@ if (false) {
 _("Findme Follow Toggle");
 }
 
-global $db;
-global $amp_conf;
-global $astman;
+$table = \FreePBX::Database()->migrate("findmefollow");
+$cols = array (
+  'grpnum' =>
+  array (
+    'type' => 'string',
+    'length' => '20',
+    'primaryKey' => true,
+  ),
+  'strategy' =>
+  array (
+    'type' => 'string',
+    'length' => '50',
+  ),
+  'grptime' =>
+  array (
+    'type' => 'smallint',
+  ),
+  'grppre' =>
+  array (
+    'type' => 'string',
+    'length' => '100',
+    'notnull' => false,
+  ),
+  'grplist' =>
+  array (
+    'type' => 'string',
+    'length' => '255',
+  ),
+  'annmsg_id' =>
+  array (
+    'type' => 'integer',
+    'notnull' => false,
+  ),
+  'postdest' =>
+  array (
+    'type' => 'string',
+    'length' => '255',
+    'notnull' => false,
+  ),
+  'dring' =>
+  array (
+    'type' => 'string',
+    'length' => '255',
+    'notnull' => false,
+  ),
+	'rvolume' =>
+	array (
+		'type' => 'string',
+		'length' => '2',
+		'notnull' => true,
+		'default' => ''
+	),
+  'remotealert_id' =>
+  array (
+    'type' => 'integer',
+    'notnull' => false,
+  ),
+  'needsconf' =>
+  array (
+    'type' => 'string',
+    'length' => '10',
+    'notnull' => false,
+  ),
+  'toolate_id' =>
+  array (
+    'type' => 'integer',
+    'notnull' => false,
+  ),
+  'pre_ring' =>
+  array (
+    'type' => 'smallint',
+    'default' => '0',
+  ),
+  'ringing' =>
+  array (
+    'type' => 'string',
+    'length' => '80',
+    'notnull' => false,
+  ),
+);
 
 
+$indexes = array (
+);
+$table->modify($cols, $indexes);
+unset($table);
 
 $fcc = new featurecode('findmefollow', 'fmf_toggle');
 $fcc->setDescription('Findme Follow Toggle');
