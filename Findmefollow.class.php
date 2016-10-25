@@ -205,10 +205,16 @@ class Findmefollow implements \BMO {
 	 * @param $follow_me_list Follow Me List
 	 */
 	function setList($exten,$follow_me_list) {
-		foreach($follow_me_list as &$value) {
+
+		$clean_follow_me_list = array();
+		foreach($follow_me_list as $value) {
 			$value = $this->lookupSetExtensionFormat($exten, $value);
+			if ($value) {
+				array_push($clean_follow_me_list, $value);
+			}
 		}
-		$follow_me_list = implode("-",$follow_me_list);
+
+		$follow_me_list = implode("-", $clean_follow_me_list);
 		$this->FreePBX->astman->database_put('AMPUSER', "$exten/followme/grplist", $follow_me_list);
 	}
 
@@ -219,12 +225,14 @@ class Findmefollow implements \BMO {
 	 * @param {int} $exten The Phone Number
 	 */
 	function lookupSetExtensionFormat($grp, $exten) {
-		if (trim($exten) == "") {
-			return $exten;
-		};
 
 		$hadPound = preg_match("/#$/",$exten);
 		$exten = preg_replace("/[^0-9*+]/", "", $exten);
+
+		// Rem: This was moved from above to catch also cases of lines containing only bogus stuf
+		if (trim($exten) == "") {
+			return null;
+		};
 
 		//Dont allow self to be a local channel
 		if($hadPound && $exten != $grp) {
