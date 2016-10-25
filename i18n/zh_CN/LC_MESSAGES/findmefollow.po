@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-18 15:08-0700\n"
+"POT-Creation-Date: 2016-10-25 09:40-0700\n"
 "PO-Revision-Date: 2015-10-15 09:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -212,11 +212,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "跟我来"
 
-#: Findmefollow.class.php:824
+#: Findmefollow.class.php:832
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr ""
 
-#: Findmefollow.class.php:827 ucp/views/settings.php:15
+#: Findmefollow.class.php:835 ucp/views/settings.php:15
 msgid "Follow Me List"
 msgstr ""
 
@@ -225,7 +225,7 @@ msgstr ""
 msgid "Follow Me Module"
 msgstr ""
 
-#: Findmefollow.class.php:830
+#: Findmefollow.class.php:838
 msgid "Follow Me No Answer Destination"
 msgstr ""
 
@@ -462,7 +462,7 @@ msgstr "远程播报"
 msgid "Request not received"
 msgstr ""
 
-#: Findmefollow.class.php:591
+#: Findmefollow.class.php:599
 msgid "Reset"
 msgstr "重新设置"
 
@@ -499,7 +499,7 @@ msgstr ""
 msgid "Seconds"
 msgstr ""
 
-#: Findmefollow.class.php:586
+#: Findmefollow.class.php:594
 msgid "Submit"
 msgstr ""
 

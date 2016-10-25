@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-18 15:08-0700\n"
+"POT-Creation-Date: 2016-10-25 09:40-0700\n"
 "PO-Revision-Date: 2016-06-08 06:20+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -232,11 +232,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "SigueMe"
 
-#: Findmefollow.class.php:824
+#: Findmefollow.class.php:832
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr ""
 
-#: Findmefollow.class.php:827 ucp/views/settings.php:15
+#: Findmefollow.class.php:835 ucp/views/settings.php:15
 msgid "Follow Me List"
 msgstr "Lista SigueMe"
 
@@ -245,7 +245,7 @@ msgstr "Lista SigueMe"
 msgid "Follow Me Module"
 msgstr ""
 
-#: Findmefollow.class.php:830
+#: Findmefollow.class.php:838
 msgid "Follow Me No Answer Destination"
 msgstr ""
 
@@ -504,7 +504,7 @@ msgstr "Anuncio remoto"
 msgid "Request not received"
 msgstr "Solicitud no recibida"
 
-#: Findmefollow.class.php:591
+#: Findmefollow.class.php:599
 msgid "Reset"
 msgstr "Reinicio"
 
@@ -541,7 +541,7 @@ msgstr ""
 msgid "Seconds"
 msgstr "Segundos"
 
-#: Findmefollow.class.php:586
+#: Findmefollow.class.php:594
 msgid "Submit"
 msgstr "Enviar"
 
