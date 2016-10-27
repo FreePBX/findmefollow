@@ -87,7 +87,7 @@ function findmefollow_get_config($engine) {
 				$grppre = (isset($grp['grppre'])?$grp['grppre']:'');
 				$annmsg_id = $grp['annmsg_id'];
 				$dring = $grp['dring'];
-				$rvolume = $grp['rvolume'];
+				$rvolume = (isset($grp['rvolume'])?$grp['rvolume']:'');
 
 				$needsconf = $grp['needsconf'];
 				$remotealert_id = $grp['remotealert_id'];
