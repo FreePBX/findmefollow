@@ -25,6 +25,26 @@ var FindmefollowC = UCPMC.extend({
 			});
 			$('.masonry-container').packery();
 		});
+	},
+	displayWidget: function(widget_id,dashboard_id) {
+		console.log(["normal:show",widget_id,dashboard_id]);
+	},
+	displayWidgetSettings: function(widget_id,dashboard_id) {
+		console.log(["normal:settings:show",widget_id,dashboard_id]);
+	},
+	displaySmallWidget: function(widget_id) {
+		console.log(["small:show",widget_id]);
+	},
+	displaySmallWidgetSettings: function(widget_id) {
+		console.log(["small:settings:show",widget_id]);
+	},
+	deleteWidget: function(widget_id,dashboard_id) {
+		console.log(["normal:delete",widget_id,dashboard_id]);
+	},
+	deleteSmallWidget: function(widget_id) {
+		console.log(["small:delete",widget_id]);
+	},
+	showDashboard: function(dashboard_id) {
+		console.log(["dashboard",dashboard_id]);
 	}
 });
-var Findmefollow = new FindmefollowC();

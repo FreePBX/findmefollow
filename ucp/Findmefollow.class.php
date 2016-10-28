@@ -104,7 +104,8 @@ class Findmefollow extends Modules{
 
 				$widgets[$extension] = array(
 					"display" => $name,
-					"defaultsize" => array("height" => 1, "width" => 1)
+					"hasSettings" => true,
+					"defaultsize" => array("height" => 1, "width" => 3)
 				);
 			}
 		}
@@ -116,6 +117,7 @@ class Findmefollow extends Modules{
 		return array(
 			"rawname" => "findmefollow",
 			"display" => _("Find Me / Follow Me"),
+			"icon" => "fa fa-binoculars",
 			"list" => $widgets
 		);
 	}
