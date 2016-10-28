@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX findmefollow\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-25 22:13+0000\n"
+"POT-Creation-Date: 2016-10-28 05:19+0000\n"
 "PO-Revision-Date: 2008-11-08 18:39+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -83,7 +83,7 @@ msgstr ""
 msgid "Call Confirmation Configuration"
 msgstr ""
 
-#: install.php:121 uninstall.php:30
+#: install.php:34 uninstall.php:30
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "Kan inte koppla upp mot Asterisk hanterare"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-25 22:13+0000\n"
+"POT-Creation-Date: 2016-10-28 05:19+0000\n"
 "PO-Revision-Date: 2016-07-17 10:16+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -100,7 +100,7 @@ msgstr ""
 msgid "Call Confirmation Configuration"
 msgstr "تنظیمات قبول تماس"
 
-#: install.php:121 uninstall.php:30
+#: install.php:34 uninstall.php:30
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "نمیتوان به مدیریت استریسک وصل شد با"
 
