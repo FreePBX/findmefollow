@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-28 05:19+0000\n"
+"POT-Creation-Date: 2016-10-31 04:27+0000\n"
 "PO-Revision-Date: 2014-02-21 03:21+0200\n"
 "Last-Translator: Kenichi Fukaumi <k.fukaumi@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/findmefollow/"
@@ -212,8 +212,8 @@ msgstr ""
 msgid "Extension"
 msgstr "内線"
 
-#: ucp/Findmefollow.class.php:118 ucp/Findmefollow.class.php:135
-#: ucp/Findmefollow.class.php:163
+#: ucp/Findmefollow.class.php:119 ucp/Findmefollow.class.php:137
+#: ucp/Findmefollow.class.php:165
 msgid "Find Me / Follow Me"
 msgstr ""
 

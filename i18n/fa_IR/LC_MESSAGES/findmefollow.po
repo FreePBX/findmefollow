@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-28 05:19+0000\n"
+"POT-Creation-Date: 2016-10-31 04:27+0000\n"
 "PO-Revision-Date: 2016-07-17 10:16+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -205,8 +205,8 @@ msgstr "خطا"
 msgid "Extension"
 msgstr "داخلی"
 
-#: ucp/Findmefollow.class.php:118 ucp/Findmefollow.class.php:135
-#: ucp/Findmefollow.class.php:163
+#: ucp/Findmefollow.class.php:119 ucp/Findmefollow.class.php:137
+#: ucp/Findmefollow.class.php:165
 msgid "Find Me / Follow Me"
 msgstr ""
 

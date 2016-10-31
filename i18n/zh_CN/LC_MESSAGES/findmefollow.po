@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-28 05:19+0000\n"
+"POT-Creation-Date: 2016-10-31 04:27+0000\n"
 "PO-Revision-Date: 2015-10-15 09:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -183,8 +183,8 @@ msgstr ""
 msgid "Extension"
 msgstr "警告！你的帐户无法使用分机"
 
-#: ucp/Findmefollow.class.php:118 ucp/Findmefollow.class.php:135
-#: ucp/Findmefollow.class.php:163
+#: ucp/Findmefollow.class.php:119 ucp/Findmefollow.class.php:137
+#: ucp/Findmefollow.class.php:165
 msgid "Find Me / Follow Me"
 msgstr ""
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-28 05:19+0000\n"
+"POT-Creation-Date: 2016-10-31 04:27+0000\n"
 "PO-Revision-Date: 2015-05-01 13:02+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -197,8 +197,8 @@ msgstr "Ошибка"
 msgid "Extension"
 msgstr "Внутренний номер"
 
-#: ucp/Findmefollow.class.php:118 ucp/Findmefollow.class.php:135
-#: ucp/Findmefollow.class.php:163
+#: ucp/Findmefollow.class.php:119 ucp/Findmefollow.class.php:137
+#: ucp/Findmefollow.class.php:165
 msgid "Find Me / Follow Me"
 msgstr ""
 

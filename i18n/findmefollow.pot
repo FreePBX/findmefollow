@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-28 05:19+0000\n"
+"POT-Creation-Date: 2016-10-31 04:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -192,9 +192,9 @@ msgstr ""
 msgid "Extension"
 msgstr ""
 
-#: ucp/Findmefollow.class.php:118
-#: ucp/Findmefollow.class.php:135
-#: ucp/Findmefollow.class.php:163
+#: ucp/Findmefollow.class.php:119
+#: ucp/Findmefollow.class.php:137
+#: ucp/Findmefollow.class.php:165
 msgid "Find Me / Follow Me"
 msgstr ""
 
