@@ -644,7 +644,7 @@ class Findmefollow implements \BMO {
 		$grplist = implode("-", $list);
 
 		$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, calendar_id, calendar_match, rvolume) VALUES (:grpnum, :strategy, :grptime, :grppre, :grplist, :annmsg_id, :postdest, :dring, :needsconf, :remotealert_id, :toolate_id, :ringing, :pre_ring, :calendar_id, :calendar_match, :rvolume)";
-		$insertarr = array(':grpnum' => $grpnum , ':strategy' => $strategy , ':grptime' => $grptime , ':grppre' => $grppre , ':grplist' => $grplist , ':annmsg_id' => $annmsg_id , ':postdest' => $postdest , ':dring' => $dring , ':needsconf' => $needsconf , ':remotealert_id' => $remotealert_id , ':toolate_id' => $toolate_id , ':ringing' => $ringing , ':pre_ring' => $pre_ring, ':calendar_id' => $calendar_id, ':calendar_match' => $calendar_match);
+		$insertarr = array(':grpnum' => $grpnum , ':strategy' => $strategy , ':grptime' => $grptime , ':grppre' => $grppre , ':grplist' => $grplist , ':annmsg_id' => $annmsg_id , ':postdest' => $postdest , ':dring' => $dring , ':needsconf' => $needsconf , ':remotealert_id' => $remotealert_id , ':toolate_id' => $toolate_id , ':ringing' => $ringing , ':pre_ring' => $pre_ring, ':calendar_id' => $calendar_id, ':calendar_match' => $calendar_match, ':rvolume' => $rvolume);
 		$stmt = $dbh->prepare($sql);
 		$results = $stmt->execute($insertarr);
 		if ($astman) {
