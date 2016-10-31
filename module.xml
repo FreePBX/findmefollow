@@ -2,12 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>14.0.1.1</version>
+	<version>14.0.1.2</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
-		*14.0.1.1* Update installer for new database definitions
+		*14.0.1.2* Update installer for new database definitions
 		*14.0.1* Merge from 13
 		*14.0.1alpha1* Inital Changes
 	</changelog>
@@ -48,6 +48,7 @@
 	    <field name="annmsg_id" type="integer" notnull="false"/>
 	    <field name="postdest" type="string" length="255" notnull="false"/>
 	    <field name="dring" type="string" length="255" notnull="false"/>
+	    <field name="rvolume" type="string" length="2" notnull="false"/>
 	    <field name="remotealert_id" type="integer" notnull="false"/>
 	    <field name="needsconf" type="string" length="10" notnull="false"/>
 	    <field name="toolate_id" type="integer" notnull="false"/>
