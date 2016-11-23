@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-25 09:40-0700\n"
-"PO-Revision-Date: 2016-11-22 22:23+0200\n"
+"PO-Revision-Date: 2016-11-23 13:46+0200\n"
 "Last-Translator: Pascal <pascal.noyel@ipexia.com>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/findmefollow/fr_FR/>\n"
@@ -84,7 +84,7 @@ msgstr "Préfixe de Nom CID"
 
 #: functions.inc.php:892
 msgid "Call Confirmation Configuration"
-msgstr "Configuration de la confirmation d'appel"
+msgstr "Configuration de la Confirmation d'Appel"
 
 #: uninstall.php:30
 msgid "Cannot connect to Asterisk Manager with "
@@ -92,7 +92,7 @@ msgstr "Impossible de se connecter à Asterisk Manager avec "
 
 #: functions.inc.php:993 views/form.php:513
 msgid "Change External CID Configuration"
-msgstr "Modifier la configuration de l'ID appelant externe"
+msgstr "Modifier la configuration de l'ID de appelant externe"
 
 #: functions.inc.php:915 views/form.php:470
 msgid "Confirm Calls"
@@ -109,15 +109,15 @@ msgstr "Par Défaut"
 
 #: findmefollow.i18n.php:32
 msgid "Default Follow Me Initial Ring Time"
-msgstr "Durée de la sonnerie initiale par défaut pour le suivez-moi"
+msgstr "Durée de la sonnerie initiale par défaut pour le Suivez-Moi"
 
 #: findmefollow.i18n.php:38
 msgid "Default Follow Me Ring Strategy"
-msgstr "Stratégie de sonnerie par défaut pour le suivez-moi"
+msgstr "Stratégie de sonnerie par défaut pour le Suivez-Moi"
 
 #: findmefollow.i18n.php:26
 msgid "Default Follow Me Ring Time"
-msgstr "Durée de la sonnerie par défaut pour le suivez-moi"
+msgstr "Durée de la sonnerie par défaut pour le Suivez-Moi"
 
 #: views/form.php:563
 msgid "Destination if no answer"
@@ -129,7 +129,7 @@ msgstr "Destinations"
 
 #: findmefollow.i18n.php:20
 msgid "Disable Follow Me Upon Creation"
-msgstr "Désactiver le suivez-moi lors de la création"
+msgstr "Désactiver le Suivez-Moi lors de la création"
 
 #: ucp/views/settings.php:4
 msgid "Enable"
@@ -137,11 +137,11 @@ msgstr "Activer"
 
 #: views/quickCreate.php:5
 msgid "Enable Find Me/Follow Me"
-msgstr "Activer Trouvez-moi/Suivez-moi"
+msgstr "Suivez-Moi"
 
 #: views/form.php:260
 msgid "Enable Followme"
-msgstr "Activer Suivez-moi"
+msgstr "Activer Suivez-Moi"
 
 #: ucp/views/settings.php:46
 msgid ""
@@ -198,11 +198,11 @@ msgstr "Poste"
 
 #: functions.inc.php:648 ucp/Findmefollow.class.php:32
 msgid "Find Me/Follow Me"
-msgstr "Trouvez-moi/Suivez-moi"
+msgstr "Suivez-Moi"
 
 #: ucp/Findmefollow.class.php:82
 msgid "Find Me/Follow Me Has Been Updated!"
-msgstr "Trouvez-moi/Suivez-moi a été modifié !"
+msgstr "Suivez-Moi a été modifié !"
 
 #: install.php:5
 msgid "Findme Follow Toggle"
@@ -246,16 +246,16 @@ msgstr "Suivez-Moi"
 
 #: Findmefollow.class.php:832
 msgid "Follow Me Enabled [Blank to disable]"
-msgstr "Suivez-moi activé [Vide pour désactiver]"
+msgstr "Suivez-Moi activé [Vide pour désactiver]"
 
 #: Findmefollow.class.php:835 ucp/views/settings.php:15
 msgid "Follow Me List"
-msgstr "Liste suivez-moi"
+msgstr "Liste des numéros (interne et externe) pour le Suivez-Moi"
 
 #: findmefollow.i18n.php:16 findmefollow.i18n.php:22 findmefollow.i18n.php:28
 #: findmefollow.i18n.php:34 findmefollow.i18n.php:40
 msgid "Follow Me Module"
-msgstr "Module suivez-moi"
+msgstr "Module Suivez-Moi"
 
 #: Findmefollow.class.php:838
 msgid "Follow Me No Answer Destination"
@@ -264,11 +264,11 @@ msgstr "Suivez-Moi destination sur non réponse"
 #: functions.inc.php:1226
 #, php-format
 msgid "Follow Me: %s"
-msgstr "Suivez-moi: %s"
+msgstr "Suivez-Moi: %s"
 
 #: functions.inc.php:784 views/form.php:361
 msgid "Follow-Me List"
-msgstr "Liste Suivez-Moi"
+msgstr "Liste des numéros (interne et externe) du Suivez-Moi"
 
 #: functions.inc.php:790
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
@@ -279,7 +279,7 @@ msgstr ""
 #: functions.inc.php:1278
 #, php-format
 msgid "Follow-Me User: %s"
-msgstr "Utilisateur Suivez-Moi : %s"
+msgstr "Utilisateur de Suivez-Moi : %s"
 
 #: functions.inc.php:1255
 #, php-format
@@ -288,7 +288,7 @@ msgstr "Suivez-Moi : %s (%s)"
 
 #: views/fmgrid.php:26
 msgid "Followme Extension"
-msgstr "Extension du Suivez-Moi"
+msgstr "Poste du Suivez-Moi"
 
 #: views/nogo.php:2
 msgid "Followme List"
@@ -305,7 +305,7 @@ msgstr "Force le suivez-moi"
 
 #: functions.inc.php:682
 msgid "General Settings"
-msgstr "Paramètres généraux"
+msgstr "Paramètres Généraux"
 
 #: views/form.php:236
 msgid "Group Number"
@@ -322,7 +322,7 @@ msgstr ""
 
 #: functions.inc.php:735 views/form.php:287
 msgid "Initial Ring Time"
-msgstr "Temporisation de sonnerie initial"
+msgstr "Temporisation de sonnerie initiale"
 
 #: assets/js/findmefollow.js:101
 msgid ""
@@ -465,7 +465,7 @@ msgid ""
 "Only ringall, ringallv2, hunt and the respective -prim versions are "
 "supported when confirmation is checked"
 msgstr ""
-"Sonner Partout, Sonner\tPartout v2, Chasse et les versions -prim respectives "
+"Sonner Partout, Sonner Partout v2, Chasse et les versions -prim respectives "
 "uniquement sont supportés lorsque confirmation est coché"
 
 #: functions.inc.php:1097
@@ -495,7 +495,7 @@ msgstr ""
 
 #: functions.inc.php:826 views/form.php:181
 msgid "Play Music On Hold"
-msgstr "Diffuse la Musique d'attente"
+msgstr "Diffuse la Musique d'Attente"
 
 #: functions.inc.php:660
 #, php-format
@@ -504,7 +504,7 @@ msgstr "Merci de rentrer un numéro valide %s"
 
 #: assets/js/findmefollow.js:97
 msgid "Please enter an extension list."
-msgstr "Veuillez entrer une liste d'extension"
+msgstr "Veuillez entrer une liste d'extensions"
 
 #: functions.inc.php:940 views/form.php:106
 msgid "Remote Announce"
@@ -525,11 +525,11 @@ msgstr "Sonner"
 #: ucp/views/settings.php:20
 #, php-format
 msgid "Ring %s First For"
-msgstr "Sonner %s en premier pour"
+msgstr "Fait sonner le poste interne %s en premier pendant"
 
 #: ucp/views/settings.php:29
 msgid "Ring Followme List For"
-msgstr "Sonner la liste de suivez-moi pour"
+msgstr "Fait sonner la \"Liste Suivez-Moi\" pendant"
 
 #: functions.inc.php:762 views/form.php:311
 msgid "Ring Strategy"
@@ -589,7 +589,7 @@ msgstr ""
 
 #: findmefollow.i18n.php:24
 msgid "This is the default value for the Follow Me "
-msgstr "C'est la valeur par défaut pour le suivez-moi "
+msgstr "Valeur par défaut du Suivez-Moi "
 
 #: functions.inc.php:736 ucp/views/settings.php:26 views/form.php:299
 msgid ""
@@ -603,7 +603,7 @@ msgstr ""
 
 #: ucp/views/settings.php:35
 msgid "Time in seconds that the phones will ring"
-msgstr "Temps en secondes que les téléphones sonnent"
+msgstr "Temps en secondes pendant lequel les téléphones sonnent"
 
 #: functions.inc.php:774 views/form.php:349
 msgid ""
@@ -616,11 +616,11 @@ msgstr ""
 
 #: assets/js/findmefollow.js:99
 msgid "Time must be between 1 and 60 seconds"
-msgstr "Le temps doit être compris entre 1 et 60 secondes"
+msgstr "La durée doit être comprise entre 1 et 60 secondes"
 
 #: functions.inc.php:952 views/form.php:141
 msgid "Too-Late Announce"
-msgstr "Annonce trop tard"
+msgstr "Annonce Trop-Tard"
 
 #: functions.inc.php:1017 views/form.php:499
 msgid ""
@@ -660,16 +660,16 @@ msgstr ""
 
 #: functions.inc.php:1015 views/form.php:495
 msgid "Transmits the Callers CID if allowed by the trunk."
-msgstr "Transmettre l'identifiant de l'appelants si permis par le lien."
+msgstr "Transmettre l'identifiant des appelants si permis par le lien."
 
 #: ucp/views/settings.php:38
 msgid "Use Confirmation"
-msgstr "Utiliser la confirmation"
+msgstr "Utiliser l'option de Confirmation"
 
 #: functions.inc.php:1018 functions.inc.php:1040 views/form.php:216
 #: views/form.php:501
 msgid "Use Dialed Number"
-msgstr "Utilisé le numéro composé"
+msgstr "Utiliser le Numéro-Composé"
 
 #: views/bootnav.php:4
 msgid "User"
@@ -744,7 +744,7 @@ msgstr "Défaut"
 
 #: functions.inc.php:660
 msgid "device"
-msgstr "Terminal"
+msgstr "terminal téléphonique"
 
 #: functions.inc.php:660
 msgid "extension"
