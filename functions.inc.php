@@ -89,7 +89,7 @@ function findmefollow_get_config($engine) {
 				$dring = $grp['dring'];
 				$user = FreePBX::Userman()->getUserByDefaultExtension('grpnum');
 				$timezone = (isset($user['timezone']) && !empty($user['timezone']))?$user['timezone']:null;
-				$rvolume = $grp['rvolume'];
+				$rvolume = (isset($grp['rvolume'])?$grp['rvolume']:'');
 				$needsconf = $grp['needsconf'];
 				$remotealert_id = $grp['remotealert_id'];
 				$toolate_id = $grp['toolate_id'];

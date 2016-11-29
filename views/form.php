@@ -33,7 +33,8 @@ if ($extdisplay != "") {
 	unset($thisgrp);
 }
 //Ring Strategy Help
-$rshelp =    '<b>' . _("ringallv2"). 		'</b>: ' . _("ring Extension for duration set in Initial Ring Time, and then, while continuing call to extension, ring Follow-Me List for duration set in Ring Time.")."<br/>"._("If Extension is not included in Follow-Me List, the call to Extension will terminate after the Initial Ring Time, as it does with the 'ringall' strategy.")
+
+$rshelp =    '<b>' . _("ringallv2"). 		'</b>: ' . _("ring Extension for duration set in Initial Ring Time, and then, while continuing call to extension (only if extension is in the Group List), ring Follow-Me List for duration set in Ring Time.")
 			.'<br>'
 			.'<b>' . _("ringall"). 			'</b>: ' . _("ring Extension for duration set in Initial Ring Time, and then terminate call to Extension and ring Follow-Me List for duration set in Ring Time.")
 			.'<br>'
