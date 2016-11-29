@@ -16,7 +16,7 @@ $sql = "SELECT * FROM findmefollow";
 $stmt = FreePBX::Database()->prepare($sql);
 $stmt->execute();
 $userresults = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-
+global $astman;
 //add details to astdb
 if ($astman) {
 	foreach($userresults as $usr) {
