@@ -105,7 +105,8 @@ class Findmefollow extends Modules{
 				$widgets[$extension] = array(
 					"display" => $name,
 					"hasSettings" => true,
-					"defaultsize" => array("height" => 2, "width" => 1)
+					"defaultsize" => array("height" => 2, "width" => 1),
+					"minsize" => array("height" => 2, "width" => 1)
 				);
 			}
 		}
