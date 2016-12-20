@@ -10,37 +10,40 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-25 09:40-0700\n"
-"PO-Revision-Date: 2016-10-25 09:40-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2016-12-20 02:31+0200\n"
+"Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://weblate.freepbx.org/projects/freepbx/findmefollow/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: functions.inc.php:749 views/form.php:41
 msgid "*-prim"
-msgstr ""
+msgstr "*-prim"
 
 #: views/form.php:431
 msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
-msgstr ""
+msgstr "ALERT_INFO pode ser usado como toque diferenciado com dispositivos SIP."
 
 #: functions.inc.php:847 views/form.php:419
 msgid "Alert Info"
-msgstr ""
+msgstr "Informação de Alerta"
 
 #: functions.inc.php:1016 views/form.php:497
 msgid "Always transmit the Fixed CID Value below."
-msgstr ""
+msgstr "Transmitir sempre o Valor de CID Fixo abaixo."
 
 #: functions.inc.php:802 views/form.php:71
 msgid "Announcement"
-msgstr ""
+msgstr "Anúncio"
 
 #: findmefollow.i18n.php:6 findmefollow.i18n.php:12
 msgid "Applications"
-msgstr ""
+msgstr "Aplicações"
 
 #: functions.inc.php:707
 msgid ""
@@ -52,6 +55,13 @@ msgid ""
 "and then only if the caller chooses to find you do you want the call to go "
 "through FollowMe."
 msgstr ""
+"Por padrão (Sim) qualquer chamada para este ramal irá para este Siga-Me, "
+"incluindo chamadas por nome no diretório de URAs. Se configurado como \"Não\""
+", as chamadas só irão para o ramal. Os destinos que especificam diretamente "
+"o Siga-Me virão aqui independentemente. Definir isso como \"Não\" é "
+"freqüentemente usado em conjunto com o VmX Locater, onde você deseja que uma "
+"chamada toque no ramal e, em seguida, somente se o usuário chamador escolher "
+"achar que você quer que a chamada passe pelo Siga-Me."
 
 #: views/form.php:275
 msgid ""
@@ -62,71 +72,78 @@ msgid ""
 "where you want a call to ring the extension, and then only if the caller "
 "chooses to find you do you want it to come here."
 msgstr ""
+"Por padrão (sim) qualquer chamada para este ramal irá para este Siga-Me, "
+"incluindo chamadas por nome de diretório de URAs. Se não, as chamadas irão "
+"apenas para o ramal. <BR> No entanto, os destinos que especifiquem o Siga-"
+"Me, virão aqui. <BR> Esta definição é frequentemente utilizada em conjunto "
+"com o VmX Locater, onde pretende que uma chamada toque no ramal e, em "
+"seguida, somente se o usuário chamador escolher encontrar você, e você "
+"querer que ele venha aqui."
 
 #: functions.inc.php:837 views/form.php:395
 msgid "CID Name Prefix"
-msgstr ""
+msgstr "Prefixo do Nome CID"
 
 #: functions.inc.php:892
 msgid "Call Confirmation Configuration"
-msgstr ""
+msgstr "Configuração de Confirmação de Chamada"
 
 #: uninstall.php:30
 msgid "Cannot connect to Asterisk Manager with "
-msgstr ""
+msgstr "Não é possível conectar ao Gerenciador Asterisk com "
 
 #: functions.inc.php:993 views/form.php:513
 msgid "Change External CID Configuration"
-msgstr ""
+msgstr "Alterar a Configuração Externa do CID"
 
 #: functions.inc.php:915 views/form.php:470
 msgid "Confirm Calls"
-msgstr ""
+msgstr "Confirmar Chamadas"
 
 #: findmefollow.i18n.php:14
 msgid "Create Follow Me at Extension Creation Time"
-msgstr ""
+msgstr "Criar Siga-me no Tempo de Criação do Ramal"
 
 #: functions.inc.php:936 functions.inc.php:1015 functions.inc.php:1028
 #: views/form.php:113 views/form.php:148 views/form.php:213 views/form.php:495
 msgid "Default"
-msgstr ""
+msgstr "Padrão"
 
 #: findmefollow.i18n.php:32
 msgid "Default Follow Me Initial Ring Time"
-msgstr ""
+msgstr "Tempo Padrão do Toque Padrão de Siga-Me"
 
 #: findmefollow.i18n.php:38
 msgid "Default Follow Me Ring Strategy"
-msgstr ""
+msgstr "Padrão de Estratégia de Toque do Siga-Me"
 
 #: findmefollow.i18n.php:26
 msgid "Default Follow Me Ring Time"
-msgstr ""
+msgstr "Padrão de Tempo de Toque do Siga-Me"
 
 #: views/form.php:563
 msgid "Destination if no answer"
-msgstr ""
+msgstr "Destino se não houver resposta"
 
 #: functions.inc.php:1072
 msgid "Destinations"
-msgstr ""
+msgstr "Destinos"
 
 #: findmefollow.i18n.php:20
 msgid "Disable Follow Me Upon Creation"
-msgstr ""
+msgstr "Desativar Siga-me no Momento da Criação"
 
 #: ucp/views/settings.php:4
 msgid "Enable"
-msgstr ""
+msgstr "Habilitar"
 
 #: views/quickCreate.php:5
 msgid "Enable Find Me/Follow Me"
-msgstr ""
+msgstr "Habilitar Localizar-Me/Siga-Me"
 
 #: views/form.php:260
 msgid "Enable Followme"
-msgstr ""
+msgstr "Habilitar Siga-Me"
 
 #: ucp/views/settings.php:46
 msgid ""
@@ -135,6 +152,10 @@ msgid ""
 "this requires the remote side push 1 on their phone before the call is put "
 "through."
 msgstr ""
+"Habilitar isso se você estiver chamando números externos que precisam de "
+"confirmação - por exemplo, um telefone celular pode ir para correio de voz "
+"que vai receber a chamada. Habilitar isso requer que o lado remoto pressione "
+"1 antes de atender a chamada."
 
 #: views/form.php:485
 msgid ""
