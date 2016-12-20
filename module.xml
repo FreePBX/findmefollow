@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>13.0.38.2</version>
+	<version>13.0.38.3</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*13.0.38.3* Forum reported issue with get method and invalid data
 		*13.0.38.2* FREEPBX-13399 Missing sanity check for FindmeFollowme on UCP
 		*13.0.38.1* FREEPBX-13387 ring volume override feature breaks extension submission
 		*13.0.38* FREEPBX-13364 Ability to set ringer volumes

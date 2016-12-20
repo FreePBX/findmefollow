@@ -465,9 +465,10 @@ function findmefollow_get($grpnum, $check_astdb=0) {
 	global $db;
 
 	$results = sql("SELECT grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, voicemail, rvolume FROM findmefollow INNER JOIN `users` ON `extension` = `grpnum` WHERE grpnum = '".$db->escapeSimple($grpnum)."'","getRow",DB_FETCHMODE_ASSOC);
-	if (empty($results)) {
+	if (\DB::IsError($results) || empty($results)) {
 		return array();
 	}
+
 	if (!isset($results['voicemail'])) {
 		$results['voicemail'] = sql("SELECT `voicemail` FROM `users` WHERE `extension` = '".$db->escapeSimple($grpnum)."'","getOne");
 	}
