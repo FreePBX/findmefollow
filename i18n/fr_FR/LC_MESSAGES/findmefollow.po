@@ -19,19 +19,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-25 09:40-0700\n"
+"POT-Creation-Date: 2016-12-20 13:20-0800\n"
 "PO-Revision-Date: 2016-11-23 13:46+0200\n"
 "Last-Translator: Pascal <pascal.noyel@ipexia.com>\n"
-"Language-Team: French "
-"<http://weblate.freepbx.org/projects/freepbx/findmefollow/fr_FR/>\n"
-"Language: fr_FR\n"
+"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
+"findmefollow/fr_FR/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: functions.inc.php:749 views/form.php:41
+#: functions.inc.php:750 views/form.php:41
 msgid "*-prim"
 msgstr "*-prim"
 
@@ -41,15 +41,15 @@ msgstr ""
 "ALERT_INFO peut-être utilisé pour des sonneries distinctes avec des "
 "dispositifs SIP."
 
-#: functions.inc.php:847 views/form.php:419
+#: functions.inc.php:848 views/form.php:419
 msgid "Alert Info"
 msgstr "Info d'Alerte"
 
-#: functions.inc.php:1016 views/form.php:497
+#: functions.inc.php:1017 views/form.php:497
 msgid "Always transmit the Fixed CID Value below."
 msgstr "Toujours transmettre la valeur CID fixe ci-dessous."
 
-#: functions.inc.php:802 views/form.php:71
+#: functions.inc.php:803 views/form.php:71
 msgid "Announcement"
 msgstr "Annonce"
 
@@ -57,7 +57,7 @@ msgstr "Annonce"
 msgid "Applications"
 msgstr "Applications"
 
-#: functions.inc.php:707
+#: functions.inc.php:708
 msgid ""
 "By default (Yes) any call to this extension will go to this Follow-Me "
 "instead, including directory calls by name from IVRs. If set to \"No\", "
@@ -78,11 +78,11 @@ msgid ""
 "chooses to find you do you want it to come here."
 msgstr ""
 
-#: functions.inc.php:837 views/form.php:395
+#: functions.inc.php:838 views/form.php:395
 msgid "CID Name Prefix"
 msgstr "Préfixe de Nom CID"
 
-#: functions.inc.php:892
+#: functions.inc.php:893
 msgid "Call Confirmation Configuration"
 msgstr "Configuration de la Confirmation d'Appel"
 
@@ -90,11 +90,11 @@ msgstr "Configuration de la Confirmation d'Appel"
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "Impossible de se connecter à Asterisk Manager avec "
 
-#: functions.inc.php:993 views/form.php:513
+#: functions.inc.php:994 views/form.php:513
 msgid "Change External CID Configuration"
 msgstr "Modifier la configuration de l'ID de appelant externe"
 
-#: functions.inc.php:915 views/form.php:470
+#: functions.inc.php:916 views/form.php:470
 msgid "Confirm Calls"
 msgstr "Confirmer les Appels"
 
@@ -102,7 +102,7 @@ msgstr "Confirmer les Appels"
 msgid "Create Follow Me at Extension Creation Time"
 msgstr "Créer suivez-moi au poste à la création"
 
-#: functions.inc.php:936 functions.inc.php:1015 functions.inc.php:1028
+#: functions.inc.php:937 functions.inc.php:1016 functions.inc.php:1029
 #: views/form.php:113 views/form.php:148 views/form.php:213 views/form.php:495
 msgid "Default"
 msgstr "Par Défaut"
@@ -123,7 +123,7 @@ msgstr "Durée de la sonnerie par défaut pour le Suivez-Moi"
 msgid "Destination if no answer"
 msgstr "Destination si pas de réponse"
 
-#: functions.inc.php:1072
+#: functions.inc.php:1073
 msgid "Destinations"
 msgstr "Destinations"
 
@@ -170,7 +170,7 @@ msgstr ""
 "Cette fonctionnalité ne fonctionne qu'avec les stratégies de sonnerie Sonner "
 "Partout/Sonner Partout-prim"
 
-#: functions.inc.php:916
+#: functions.inc.php:917
 msgid ""
 "Enable this if you're calling external numbers that need confirmation - eg, "
 "a mobile phone may go to voicemail which will pick up the call. Enabling "
@@ -184,7 +184,7 @@ msgstr ""
 "Cette fonctionnalité ne fonctionne qu'avec les stratégies de sonnerie Sonner "
 "Partout/Sonner Partout-prim"
 
-#: functions.inc.php:706 views/fmgrid.php:27
+#: functions.inc.php:707 views/fmgrid.php:27
 msgid "Enabled"
 msgstr "Activé"
 
@@ -196,7 +196,7 @@ msgstr "Erreur"
 msgid "Extension"
 msgstr "Poste"
 
-#: functions.inc.php:648 ucp/Findmefollow.class.php:32
+#: functions.inc.php:649 ucp/Findmefollow.class.php:32
 msgid "Find Me/Follow Me"
 msgstr "Suivez-Moi"
 
@@ -208,12 +208,12 @@ msgstr "Suivez-Moi a été modifié !"
 msgid "Findme Follow Toggle"
 msgstr "Activer/Désactiver Suivez-Moi"
 
-#: functions.inc.php:1016 functions.inc.php:1032 functions.inc.php:1055
+#: functions.inc.php:1017 functions.inc.php:1033 functions.inc.php:1056
 #: views/form.php:214 views/form.php:497 views/form.php:539
 msgid "Fixed CID Value"
 msgstr "Valeur CID fixe"
 
-#: functions.inc.php:1062
+#: functions.inc.php:1063
 msgid ""
 "Fixed CID Value should be in a format of digits only with an option of E164 "
 "format using a leading \"+\""
@@ -221,7 +221,7 @@ msgstr ""
 "La valeur fixe de la valeur du CID devrait être au format numérique, "
 "uniquement avec une option du format E164 utilisant en préfix le \"+\""
 
-#: functions.inc.php:1056
+#: functions.inc.php:1057
 msgid ""
 "Fixed value to replace the CID with used with some of the modes above. "
 "Should be in a format of digits only with an option of E164 format using a "
@@ -261,27 +261,27 @@ msgstr "Module Suivez-Moi"
 msgid "Follow Me No Answer Destination"
 msgstr "Suivez-Moi destination sur non réponse"
 
-#: functions.inc.php:1226
+#: functions.inc.php:1227
 #, php-format
 msgid "Follow Me: %s"
 msgstr "Suivez-Moi: %s"
 
-#: functions.inc.php:784 views/form.php:361
+#: functions.inc.php:785 views/form.php:361
 msgid "Follow-Me List"
 msgstr "Liste des numéros (interne et externe) du Suivez-Moi"
 
-#: functions.inc.php:790
+#: functions.inc.php:791
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
 msgstr ""
 "La liste du Suivez-Moi ne peut pas être vide si la fonction Suivez-Moi est "
 "activée"
 
-#: functions.inc.php:1278
+#: functions.inc.php:1279
 #, php-format
 msgid "Follow-Me User: %s"
 msgstr "Utilisateur de Suivez-Moi : %s"
 
-#: functions.inc.php:1255
+#: functions.inc.php:1256
 #, php-format
 msgid "Follow-Me: %s (%s)"
 msgstr "Suivez-Moi : %s (%s)"
@@ -294,7 +294,7 @@ msgstr "Poste du Suivez-Moi"
 msgid "Followme List"
 msgstr "Liste du Suivez-Moi"
 
-#: functions.inc.php:1019 functions.inc.php:1044 views/form.php:217
+#: functions.inc.php:1020 functions.inc.php:1045 views/form.php:217
 #: views/form.php:503
 msgid "Force Dialed Number"
 msgstr "Forcer le numéro composé"
@@ -303,7 +303,7 @@ msgstr "Forcer le numéro composé"
 msgid "Force Follow Me"
 msgstr "Force le suivez-moi"
 
-#: functions.inc.php:682
+#: functions.inc.php:683
 msgid "General Settings"
 msgstr "Paramètres Généraux"
 
@@ -311,7 +311,7 @@ msgstr "Paramètres Généraux"
 msgid "Group Number"
 msgstr "Numéro de groupe"
 
-#: functions.inc.php:827 views/form.php:205
+#: functions.inc.php:828 views/form.php:205
 msgid ""
 "If you select a Music on Hold class to play, instead of 'Ring', they will "
 "hear that instead of Ringing while they are waiting for someone to pick up."
@@ -320,7 +320,7 @@ msgstr ""
 "'Sonner', ils entendront cela à la place de la Sonnerie pendant qu'ils "
 "attendent que quelqu'un ne leur réponde."
 
-#: functions.inc.php:735 views/form.php:287
+#: functions.inc.php:736 views/form.php:287
 msgid "Initial Ring Time"
 msgstr "Temporisation de sonnerie initiale"
 
@@ -340,7 +340,7 @@ msgstr "Temps spécifié invalide"
 msgid "List Followme Groups"
 msgstr "Liste des groupes de Suivez-Moi"
 
-#: functions.inc.php:785 views/form.php:381
+#: functions.inc.php:786 views/form.php:381
 msgid ""
 "List extensions to ring, one per line, or use the Extension Quick Pick below."
 "<br><br>You can include an extension on a remote system, or an external "
@@ -370,7 +370,7 @@ msgstr ""
 "groupe.<br><br> Pour ajouter des enregistrement, merci d'utiliser le menu au "
 "dessus \"Enregistrement Systèmes\""
 
-#: functions.inc.php:803
+#: functions.inc.php:804
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
 "additional recordings please use the \"System Recordings\" MENU to the left"
@@ -386,7 +386,7 @@ msgid ""
 "MENU above"
 msgstr ""
 
-#: functions.inc.php:941
+#: functions.inc.php:942
 msgid ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
 "enabled.<br><br>To add additional recordings use the \"System Recordings\" "
@@ -403,7 +403,7 @@ msgid ""
 "recordings use the \"System Recordings\" MENU above"
 msgstr ""
 
-#: functions.inc.php:953
+#: functions.inc.php:954
 msgid ""
 "Message to be played to the person RECEIVING the call, if the call has "
 "already been accepted before they push 1.<br><br>To add additional "
@@ -418,7 +418,7 @@ msgstr ""
 msgid "Method not supported"
 msgstr "Méthode non supportée"
 
-#: functions.inc.php:1022 views/form.php:493
+#: functions.inc.php:1023 views/form.php:493
 msgid "Mode"
 msgstr "Mode"
 
@@ -431,16 +431,16 @@ msgid ""
 "someone's cell phone if they don't answer their extension."
 msgstr ""
 
-#: functions.inc.php:716 functions.inc.php:925 views/fmgrid.php:18
+#: functions.inc.php:717 functions.inc.php:926 views/fmgrid.php:18
 #: views/form.php:267 views/form.php:477 views/quickCreate.php:12
 msgid "No"
 msgstr "Non"
 
-#: functions.inc.php:1096
+#: functions.inc.php:1097
 msgid "No Answer"
 msgstr "Pas de réponse"
 
-#: functions.inc.php:634 functions.inc.php:857 views/form.php:78
+#: functions.inc.php:635 functions.inc.php:858 views/form.php:78
 #: views/form.php:447
 msgid "None"
 msgstr "Aucun"
@@ -468,14 +468,14 @@ msgstr ""
 "Sonner Partout, Sonner Partout v2, Chasse et les versions -prim respectives "
 "uniquement sont supportés lorsque confirmation est coché"
 
-#: functions.inc.php:1097
+#: functions.inc.php:1098
 msgid ""
 "Optional destination call is routed to when the call is not answered on an "
 "otherwise idle phone. If the phone is in use and the call is simply ignored, "
 "then the busy destination will be used."
 msgstr ""
 
-#: functions.inc.php:1017 functions.inc.php:1036 views/form.php:215
+#: functions.inc.php:1018 functions.inc.php:1037 views/form.php:215
 #: views/form.php:499
 msgid "Outside Calls Fixed CID Value"
 msgstr "Appels externes valeur CID fixe"
@@ -487,17 +487,17 @@ msgid ""
 "time"
 msgstr ""
 
-#: functions.inc.php:872
+#: functions.inc.php:873
 msgid ""
 "Override the ringer volume. Note: This is only valid for Sangoma phones at "
 "this time"
 msgstr ""
 
-#: functions.inc.php:826 views/form.php:181
+#: functions.inc.php:827 views/form.php:181
 msgid "Play Music On Hold"
 msgstr "Diffuse la Musique d'Attente"
 
-#: functions.inc.php:660
+#: functions.inc.php:661
 #, php-format
 msgid "Please enter a valid %s number"
 msgstr "Merci de rentrer un numéro valide %s"
@@ -506,7 +506,7 @@ msgstr "Merci de rentrer un numéro valide %s"
 msgid "Please enter an extension list."
 msgstr "Veuillez entrer une liste d'extensions"
 
-#: functions.inc.php:940 views/form.php:106
+#: functions.inc.php:941 views/form.php:106
 msgid "Remote Announce"
 msgstr "Annonce distante"
 
@@ -518,7 +518,7 @@ msgstr "Demande non reçue"
 msgid "Reset"
 msgstr "Remise à Zero"
 
-#: functions.inc.php:814 views/form.php:188
+#: functions.inc.php:815 views/form.php:188
 msgid "Ring"
 msgstr "Sonner"
 
@@ -531,11 +531,11 @@ msgstr "Fait sonner le poste interne %s en premier pendant"
 msgid "Ring Followme List For"
 msgstr "Fait sonner la \"Liste Suivez-Moi\" pendant"
 
-#: functions.inc.php:762 views/form.php:311
+#: functions.inc.php:763 views/form.php:311
 msgid "Ring Strategy"
 msgstr "Stratégie de sonnerie"
 
-#: functions.inc.php:773
+#: functions.inc.php:774
 msgid "Ring Time"
 msgstr "Temps de sonnerie"
 
@@ -543,7 +543,7 @@ msgstr "Temps de sonnerie"
 msgid "Ring Time (max 60 sec)"
 msgstr "Temps de Sonnerie (max 60 secondes)"
 
-#: functions.inc.php:871 views/form.php:442
+#: functions.inc.php:872 views/form.php:442
 msgid "Ringer Volume Override"
 msgstr "Réécrit le Volume de sonnerie"
 
@@ -591,7 +591,7 @@ msgstr ""
 msgid "This is the default value for the Follow Me "
 msgstr "Valeur par défaut du Suivez-Moi "
 
-#: functions.inc.php:736 ucp/views/settings.php:26 views/form.php:299
+#: functions.inc.php:737 ucp/views/settings.php:26 views/form.php:299
 msgid ""
 "This is the number of seconds to ring the primary extension prior to "
 "proceeding to the follow-me list. The extension can also be included in the "
@@ -605,7 +605,7 @@ msgstr ""
 msgid "Time in seconds that the phones will ring"
 msgstr "Temps en secondes pendant lequel les téléphones sonnent"
 
-#: functions.inc.php:774 views/form.php:349
+#: functions.inc.php:775 views/form.php:349
 msgid ""
 "Time in seconds that the phones will ring. For all hunt style ring "
 "strategies, this is the time for each iteration of phone(s) that are rung"
@@ -618,11 +618,11 @@ msgstr ""
 msgid "Time must be between 1 and 60 seconds"
 msgstr "La durée doit être comprise entre 1 et 60 secondes"
 
-#: functions.inc.php:952 views/form.php:141
+#: functions.inc.php:953 views/form.php:141
 msgid "Too-Late Announce"
 msgstr "Annonce Trop-Tard"
 
-#: functions.inc.php:1017 views/form.php:499
+#: functions.inc.php:1018 views/form.php:499
 msgid ""
 "Transmit the Fixed CID Value below on calls that come in from outside only. "
 "Internal extension to extension calls will continue to operate in default "
@@ -632,7 +632,7 @@ msgstr ""
 "l'extérieur seulement. Les appels poste à poste continueront à fonctionner "
 "en mode par défaut ."
 
-#: functions.inc.php:1019 views/form.php:503
+#: functions.inc.php:1020 views/form.php:503
 msgid ""
 "Transmit the number that was dialed as the CID for calls coming from "
 "outside. Internal extension to extension calls will continue to operate in "
@@ -645,7 +645,7 @@ msgstr ""
 "entrante pour ce ceci. Ceci sera transmis sur les liens qui bloquent "
 "l'identifiant de l'appelant"
 
-#: functions.inc.php:1018 views/form.php:501
+#: functions.inc.php:1019 views/form.php:501
 msgid ""
 "Transmit the number that was dialed as the CID for calls coming from "
 "outside. Internal extension to extension calls will continue to operate in "
@@ -658,7 +658,7 @@ msgstr ""
 "entrante pour ce ceci. Ceci bloquera la transmission sur les liens qui "
 "bloquent l'identifiant de l'appelant"
 
-#: functions.inc.php:1015 views/form.php:495
+#: functions.inc.php:1016 views/form.php:495
 msgid "Transmits the Callers CID if allowed by the trunk."
 msgstr "Transmettre l'identifiant des appelants si permis par le lien."
 
@@ -666,7 +666,7 @@ msgstr "Transmettre l'identifiant des appelants si permis par le lien."
 msgid "Use Confirmation"
 msgstr "Utiliser l'option de Confirmation"
 
-#: functions.inc.php:1018 functions.inc.php:1040 views/form.php:216
+#: functions.inc.php:1019 functions.inc.php:1041 views/form.php:216
 #: views/form.php:501
 msgid "Use Dialed Number"
 msgstr "Utiliser le Numéro-Composé"
@@ -707,12 +707,12 @@ msgstr ""
 msgid "Where to send callers if there is no answer."
 msgstr "Destination des appels sur non réponse."
 
-#: functions.inc.php:712 functions.inc.php:921 views/fmgrid.php:16
+#: functions.inc.php:713 functions.inc.php:922 views/fmgrid.php:16
 #: views/form.php:265 views/form.php:475 views/quickCreate.php:10
 msgid "Yes"
 msgstr "Oui"
 
-#: functions.inc.php:848
+#: functions.inc.php:849
 msgid ""
 "You can optionally include an Alert Info which can create distinctive rings "
 "on SIP phones."
@@ -720,7 +720,7 @@ msgstr ""
 "Vous pouvez optionnellement inclure une Info d'Alerte qui peut créer des "
 "sonneries différentes sur les téléphones SIP"
 
-#: functions.inc.php:838
+#: functions.inc.php:839
 msgid ""
 "You can optionally prefix the Caller ID name when ringing extensions in this "
 "group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
@@ -742,23 +742,23 @@ msgstr ""
 msgid "default"
 msgstr "Défaut"
 
-#: functions.inc.php:660
+#: functions.inc.php:661
 msgid "device"
 msgstr "terminal téléphonique"
 
-#: functions.inc.php:660
+#: functions.inc.php:661
 msgid "extension"
 msgstr "extension"
 
-#: functions.inc.php:750 views/form.php:43
+#: functions.inc.php:751 views/form.php:43
 msgid "firstavailable"
 msgstr "Premier Disponible"
 
-#: functions.inc.php:751 views/form.php:45
+#: functions.inc.php:752 views/form.php:45
 msgid "firstnotonphone"
 msgstr "Premier pas au téléphone"
 
-#: functions.inc.php:747 views/form.php:37
+#: functions.inc.php:748 views/form.php:37
 msgid "hunt"
 msgstr "Chasse"
 
@@ -766,7 +766,7 @@ msgstr "Chasse"
 msgid "is not allowed for your account"
 msgstr "n'est pas autorisée pour votre compte"
 
-#: functions.inc.php:748 views/form.php:39
+#: functions.inc.php:749 views/form.php:39
 msgid "memoryhunt"
 msgstr "Chasse avec mémoire"
 
@@ -774,7 +774,7 @@ msgstr "Chasse avec mémoire"
 msgid "none"
 msgstr "aucun"
 
-#: functions.inc.php:746 views/form.php:35
+#: functions.inc.php:747 views/form.php:35
 msgid ""
 "ring Extension for duration set in Initial Ring Time, and then terminate "
 "call to Extension and ring Follow-Me List for duration set in Ring Time."
@@ -783,7 +783,14 @@ msgstr ""
 "initiale, puis mettre fin à l'appel vers le poste et faire sonner la liste "
 "de suivez-moi pour durée définie dans la durée de sonnerie."
 
-#: functions.inc.php:745 views/form.php:33
+#: views/form.php:33
+msgid ""
+"ring Extension for duration set in Initial Ring Time, and then, while "
+"continuing call to extension (only if extension is in the Group List), ring "
+"Follow-Me List for duration set in Ring Time."
+msgstr ""
+
+#: functions.inc.php:746
 msgid ""
 "ring Extension for duration set in Initial Ring Time, and then, while "
 "continuing call to extension, ring Follow-Me List for duration set in Ring "
@@ -793,7 +800,7 @@ msgstr ""
 "initiale, puis tout en continuant l'appel au poste faire sonner la liste de "
 "numéro du suivez-moi pour durée définie dans la durée de sonnerie ."
 
-#: functions.inc.php:748 views/form.php:39
+#: functions.inc.php:749 views/form.php:39
 msgid ""
 "ring first extension in the list, then ring the 1st and 2nd extension, then "
 "ring 1st 2nd and 3rd extension in the list.... etc."
@@ -801,29 +808,29 @@ msgstr ""
 "fait sonner la première extension dans la liste, puis fait sonner la 1e et "
 "la 2e extension, puis 1e, 2e et 3e extension de la liste, etc..."
 
-#: functions.inc.php:750 views/form.php:43
+#: functions.inc.php:751 views/form.php:43
 msgid "ring only the first available channel"
 msgstr "fait sonner uniquement le premier canal disponible"
 
-#: functions.inc.php:751 views/form.php:45
+#: functions.inc.php:752 views/form.php:45
 msgid "ring only the first channel which is not off hook - ignore CW"
 msgstr ""
 "fait sonner uniquement le premier canal qui n'est pas au téléphone - ignore "
 "les alertes d'appel "
 
-#: functions.inc.php:746 views/form.php:35
+#: functions.inc.php:747 views/form.php:35
 msgid "ringall"
 msgstr "Sonner Partout"
 
-#: functions.inc.php:745 views/form.php:33
+#: functions.inc.php:746 views/form.php:33
 msgid "ringallv2"
 msgstr "Sonner Partout v2"
 
-#: functions.inc.php:747 views/form.php:37
+#: functions.inc.php:748 views/form.php:37
 msgid "take turns ringing each available extension"
 msgstr "Fait sonner tour à tour chaque extension disponible"
 
-#: functions.inc.php:749 views/form.php:41
+#: functions.inc.php:750 views/form.php:41
 msgid ""
 "these modes act as described above. However, if the primary extension (first "
 "in list) is occupied, the other extensions will not be rung. If the primary "
