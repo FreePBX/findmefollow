@@ -3,7 +3,7 @@ var FindmefollowC = UCPMC.extend({
 	},
 	displayWidget: function(widget_id,dashboard_id) {
 		var self = this;
-		$("div[data-id='"+widget_id+"'] input[type='checkbox']").change(function() {
+		$("div[data-id='"+widget_id+"'] .widget-settings-content input[type='checkbox']").change(function() {
 			var extension = $("div[data-id='"+widget_id+"']").data("widget_type_id");
 			self.saveSettings(extension, {key: $(this).prop('name'), value: $(this).is(':checked')});
 		});
@@ -14,9 +14,10 @@ var FindmefollowC = UCPMC.extend({
 	},
 	displayWidgetSettings: function(widget_id,dashboard_id) {
 		var self = this;
+		var extension = $("div[data-id='"+widget_id+"']").data("widget_type_id");
+
 		$("#widget_settings .widget-settings-content textarea").blur(function() {
-			var extension = $("div[data-id='"+widget_id+"']").data("widget_type_id");
-			self.saveSettings(extension, {key: $(this).prop('name'), value: $(this).is(':checked')}, function(data){
+			self.saveSettings(extension, {key: $(this).prop('name'), value: $(this).val()}, function(data){
 				if (data.status) {
 					$("#widget_settings .message").addClass("alert-success");
 					$("#widget_settings .message").text(_("Your settings have been saved"));
@@ -31,7 +32,6 @@ var FindmefollowC = UCPMC.extend({
 			});
 		});
 		$("#widget_settings .widget-settings-content select").change(function() {
-			var extension = $("div[data-id='"+widget_id+"']").data("widget_type_id");
 			self.saveSettings(extension, {key: $(this).prop('name'), value: $(this).is(':checked')}, function(data){
 				if (data.status) {
 					$("#widget_settings .message").addClass("alert-success");
@@ -47,7 +47,6 @@ var FindmefollowC = UCPMC.extend({
 			});
 		});
 		$("#widget_settings .widget-settings-content input[type='checkbox']").change(function() {
-			var extension = $("div[data-id='"+widget_id+"']").data("widget_type_id");
 			self.saveSettings(extension, {key: $(this).prop('name'), value: $(this).is(':checked')}, function(data){
 				if (data.status) {
 					$("#widget_settings .message").addClass("alert-success");
@@ -65,7 +64,7 @@ var FindmefollowC = UCPMC.extend({
 	},
 	displaySimpleWidget: function(widget_type_id) {
 		var self = this;
-		$("#menu_findmefollow input[type='checkbox']").change(function() {
+		$(".widget-extra-menu[data-module=findmefollow] input[type='checkbox']").change(function() {
 			var extension = widget_type_id,
 					checked = $(this).is(':checked');
 			self.saveSettings(extension, {key: $(this).prop('name'), value: checked}, function(data){
@@ -80,7 +79,7 @@ var FindmefollowC = UCPMC.extend({
 		});
 	},
 	displaySimpleWidgetSettings: function(widget_id) {
-		//console.log(["small:settings:show",widget_id]);
+		this.displayWidgetSettings(widget_id);
 	},
 	deleteWidget: function(widget_id,dashboard_id) {
 		//console.log(["normal:delete",widget_id,dashboard_id]);

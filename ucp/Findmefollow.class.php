@@ -66,20 +66,6 @@ class Findmefollow extends Modules{
 		return in_array($extension,$extensions);
 	}
 
-	public function getMenuItems() {
-		$menu = $this->getWidgetList();
-
-		return $menu;
-	}
-
-	function getDisplay() {
-		$sub = $_REQUEST['sub'];
-
-		$display = $this->getWidgetDisplay($sub);
-
-		return $display['html'];
-	}
-
 	public function getWidgetList() {
 		$widgetList = $this->getSimpleWidgetList();
 
@@ -140,6 +126,10 @@ class Findmefollow extends Modules{
 		);
 
 		return $display;
+	}
+
+	public function getSimpleWidgetSettingsDisplay($id) {
+		return getWidgetSettingsDisplay($id);
 	}
 
 	public function getWidgetSettingsDisplay($id) {
