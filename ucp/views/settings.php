@@ -25,9 +25,7 @@
 	</div>
 	<div class="form-group">
 		<label class="help" for="needsconf-h"><?php echo _('Use Confirmation')?> <i class="fa fa-question-circle"></i></label>
-		<div class="onoffswitch">
-			<input type="checkbox" name="needsconf" data-size="small" data-toggle="toggle" class="onoffswitch-checkbox" id="needsconf" <?php echo ($confirm) ? 'checked' : ''?>>
-		</div>
+		<input type="checkbox" name="needsconf" data-size="small" data-toggle="toggle" id="needsconf" <?php echo ($confirm) ? 'checked' : ''?>>
 		<span class="help-block help-hidden" data-for="needsconf-h"><?php echo _("Enable this if you're calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through.")?></span>
 	</div>
 </form>

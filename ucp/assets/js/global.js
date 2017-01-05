@@ -2,15 +2,16 @@ var FindmefollowC = UCPMC.extend({
 	init: function(){
 	},
 	displayWidget: function(widget_id,dashboard_id) {
+		console.log(widget_id);
 		var self = this;
-		$("div[data-id='"+widget_id+"'] .widget-settings-content input[type='checkbox']").change(function() {
+		$("div[data-id='"+widget_id+"'] .widget-content input[type='checkbox']").change(function() {
 			var extension = $("div[data-id='"+widget_id+"']").data("widget_type_id");
 			self.saveSettings(extension, {key: $(this).prop('name'), value: $(this).is(':checked')});
 		});
 	},
 	saveSettings: function(extension, data, callback) {
 		data.ext = extension;
-		$.post( "index.php?quietmode=1&module=findmefollow&command=settings", data, callback);
+		$.post( "ajax.php?module=findmefollow&command=settings", data, callback);
 	},
 	displayWidgetSettings: function(widget_id,dashboard_id) {
 		var self = this;
