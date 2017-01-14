@@ -10,17 +10,20 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-20 13:20-0800\n"
-"PO-Revision-Date: 2016-12-20 13:20-0800\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2017-01-13 18:59+0200\n"
+"Last-Translator: Sven <spiderrs4@web.de>\n"
+"Language-Team: German "
+"<http://weblate.freepbx.org/projects/freepbx/findmefollow/de_DE/>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: functions.inc.php:750 views/form.php:41
 msgid "*-prim"
-msgstr ""
+msgstr "*-prim"
 
 #: views/form.php:431
 msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
@@ -28,7 +31,7 @@ msgstr ""
 
 #: functions.inc.php:848 views/form.php:419
 msgid "Alert Info"
-msgstr ""
+msgstr "Alarm Info"
 
 #: functions.inc.php:1017 views/form.php:497
 msgid "Always transmit the Fixed CID Value below."
@@ -36,11 +39,11 @@ msgstr ""
 
 #: functions.inc.php:803 views/form.php:71
 msgid "Announcement"
-msgstr ""
+msgstr "Ansage"
 
 #: findmefollow.i18n.php:6 findmefollow.i18n.php:12
 msgid "Applications"
-msgstr ""
+msgstr "Anwendungen"
 
 #: functions.inc.php:708
 msgid ""
@@ -65,11 +68,11 @@ msgstr ""
 
 #: functions.inc.php:838 views/form.php:395
 msgid "CID Name Prefix"
-msgstr ""
+msgstr "CID Namenspräfix"
 
 #: functions.inc.php:893
 msgid "Call Confirmation Configuration"
-msgstr ""
+msgstr "Anruf Konfigurationsbestätigung"
 
 #: uninstall.php:30
 msgid "Cannot connect to Asterisk Manager with "
@@ -81,7 +84,7 @@ msgstr ""
 
 #: functions.inc.php:916 views/form.php:470
 msgid "Confirm Calls"
-msgstr ""
+msgstr "Anrufe bestätigen"
 
 #: findmefollow.i18n.php:14
 msgid "Create Follow Me at Extension Creation Time"
@@ -90,27 +93,27 @@ msgstr ""
 #: functions.inc.php:937 functions.inc.php:1016 functions.inc.php:1029
 #: views/form.php:113 views/form.php:148 views/form.php:213 views/form.php:495
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
 #: findmefollow.i18n.php:32
 msgid "Default Follow Me Initial Ring Time"
-msgstr ""
+msgstr "Standard Folge mir Anfangsklingeldauer"
 
 #: findmefollow.i18n.php:38
 msgid "Default Follow Me Ring Strategy"
-msgstr ""
+msgstr "Standard Folge mir Klingelstrategie"
 
 #: findmefollow.i18n.php:26
 msgid "Default Follow Me Ring Time"
-msgstr ""
+msgstr "Standard Folge mir Klingeldauer"
 
 #: views/form.php:563
 msgid "Destination if no answer"
-msgstr ""
+msgstr "Ziel bei keine Antwort"
 
 #: functions.inc.php:1073
 msgid "Destinations"
-msgstr ""
+msgstr "Ziele"
 
 #: findmefollow.i18n.php:20
 msgid "Disable Follow Me Upon Creation"
@@ -118,15 +121,15 @@ msgstr ""
 
 #: ucp/views/settings.php:4
 msgid "Enable"
-msgstr ""
+msgstr "Aktivieren"
 
 #: views/quickCreate.php:5
 msgid "Enable Find Me/Follow Me"
-msgstr ""
+msgstr "Aktiviere Finde mich/Folge mir"
 
 #: views/form.php:260
 msgid "Enable Followme"
-msgstr ""
+msgstr "Aktiviere Folge mir"
 
 #: ucp/views/settings.php:46
 msgid ""
@@ -154,27 +157,27 @@ msgstr ""
 
 #: functions.inc.php:707 views/fmgrid.php:27
 msgid "Enabled"
-msgstr ""
+msgstr "Aktiviert"
 
 #: assets/js/findmefollow.js:74
 msgid "Error"
-msgstr ""
+msgstr "Fehler"
 
 #: views/bootnav.php:7 views/bootnav.php:18
 msgid "Extension"
-msgstr ""
+msgstr "Nebenstelle"
 
 #: functions.inc.php:649 ucp/Findmefollow.class.php:32
 msgid "Find Me/Follow Me"
-msgstr ""
+msgstr "Finde mich/Folge mir"
 
 #: ucp/Findmefollow.class.php:82
 msgid "Find Me/Follow Me Has Been Updated!"
-msgstr ""
+msgstr "Finde mich/Folge mir wurde aktualisiert!"
 
 #: install.php:5
 msgid "Findme Follow Toggle"
-msgstr ""
+msgstr "Finde mich Folge mir Umschalten"
 
 #: functions.inc.php:1017 functions.inc.php:1033 functions.inc.php:1056
 #: views/form.php:214 views/form.php:497 views/form.php:539
@@ -203,55 +206,55 @@ msgstr ""
 
 #: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
 msgid "Follow Me"
-msgstr ""
+msgstr "Folge mir"
 
 #: Findmefollow.class.php:832
 msgid "Follow Me Enabled [Blank to disable]"
-msgstr ""
+msgstr "Folge mir aktivieren (Leer lassen zum deaktivieren)"
 
 #: Findmefollow.class.php:835 ucp/views/settings.php:15
 msgid "Follow Me List"
-msgstr ""
+msgstr "Folge mir Liste"
 
 #: findmefollow.i18n.php:16 findmefollow.i18n.php:22 findmefollow.i18n.php:28
 #: findmefollow.i18n.php:34 findmefollow.i18n.php:40
 msgid "Follow Me Module"
-msgstr ""
+msgstr "Folge mir Modul"
 
 #: Findmefollow.class.php:838
 msgid "Follow Me No Answer Destination"
-msgstr ""
+msgstr "Folge mir Ziel bei keine Antwort"
 
 #: functions.inc.php:1227
 #, php-format
 msgid "Follow Me: %s"
-msgstr ""
+msgstr "Folge mir: %s"
 
 #: functions.inc.php:785 views/form.php:361
 msgid "Follow-Me List"
-msgstr ""
+msgstr "Folge mir Liste"
 
 #: functions.inc.php:791
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
-msgstr ""
+msgstr "Folge mir Liste darf nicht leer sein, wenn Folge mir aktiviert ist."
 
 #: functions.inc.php:1279
 #, php-format
 msgid "Follow-Me User: %s"
-msgstr ""
+msgstr "Folge-mir Benutzer: %s"
 
 #: functions.inc.php:1256
 #, php-format
 msgid "Follow-Me: %s (%s)"
-msgstr ""
+msgstr "Folge-mir: %s (%s)"
 
 #: views/fmgrid.php:26
 msgid "Followme Extension"
-msgstr ""
+msgstr "Folge mir Nebenstelle"
 
 #: views/nogo.php:2
 msgid "Followme List"
-msgstr ""
+msgstr "Folge mir Liste"
 
 #: functions.inc.php:1020 functions.inc.php:1045 views/form.php:217
 #: views/form.php:503
@@ -260,15 +263,15 @@ msgstr ""
 
 #: functions.inc.php:41
 msgid "Force Follow Me"
-msgstr ""
+msgstr "Folge mir erzwingen"
 
 #: functions.inc.php:683
 msgid "General Settings"
-msgstr ""
+msgstr "Allgemeine Einstellungen"
 
 #: views/form.php:236
 msgid "Group Number"
-msgstr ""
+msgstr "Gruppennummer"
 
 #: functions.inc.php:828 views/form.php:205
 msgid ""
@@ -278,7 +281,7 @@ msgstr ""
 
 #: functions.inc.php:736 views/form.php:287
 msgid "Initial Ring Time"
-msgstr ""
+msgstr "Anfangsklingeldauer"
 
 #: assets/js/findmefollow.js:101
 msgid ""
@@ -288,11 +291,11 @@ msgstr ""
 
 #: assets/js/findmefollow.js:98
 msgid "Invalid time specified"
-msgstr ""
+msgstr "Ungültige Zeitangabe"
 
 #: views/bootnav.php:12
 msgid "List Followme Groups"
-msgstr ""
+msgstr "Folge mir Gruppen auflisten"
 
 #: functions.inc.php:786 views/form.php:381
 msgid ""
