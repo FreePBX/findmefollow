@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-20 13:20-0800\n"
-"PO-Revision-Date: 2017-01-13 18:59+0200\n"
+"PO-Revision-Date: 2017-01-13 19:27+0200\n"
 "Last-Translator: Sven <spiderrs4@web.de>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/findmefollow/de_DE/>\n"
@@ -361,7 +361,7 @@ msgstr ""
 
 #: functions.inc.php:1023 views/form.php:493
 msgid "Mode"
-msgstr ""
+msgstr "Modus"
 
 #: findmefollow.i18n.php:8
 msgid ""
@@ -375,16 +375,16 @@ msgstr ""
 #: functions.inc.php:717 functions.inc.php:926 views/fmgrid.php:18
 #: views/form.php:267 views/form.php:477 views/quickCreate.php:12
 msgid "No"
-msgstr ""
+msgstr "Nein"
 
 #: functions.inc.php:1097
 msgid "No Answer"
-msgstr ""
+msgstr "Keine Antwort"
 
 #: functions.inc.php:635 functions.inc.php:858 views/form.php:78
 #: views/form.php:447
 msgid "None"
-msgstr ""
+msgstr "keine"
 
 #: functions.inc.php:21 functions.inc.php:25
 msgid "Normal Extension Behavior"
@@ -430,12 +430,12 @@ msgstr ""
 
 #: functions.inc.php:827 views/form.php:181
 msgid "Play Music On Hold"
-msgstr ""
+msgstr "Musik bei Halten"
 
 #: functions.inc.php:661
 #, php-format
 msgid "Please enter a valid %s number"
-msgstr ""
+msgstr "Bitte geben Sie eine gültige %s Nummer ein"
 
 #: assets/js/findmefollow.js:97
 msgid "Please enter an extension list."
@@ -451,7 +451,7 @@ msgstr ""
 
 #: Findmefollow.class.php:599
 msgid "Reset"
-msgstr ""
+msgstr "Zurücksetzen"
 
 #: functions.inc.php:815 views/form.php:188
 msgid "Ring"
@@ -468,15 +468,15 @@ msgstr ""
 
 #: functions.inc.php:763 views/form.php:311
 msgid "Ring Strategy"
-msgstr ""
+msgstr "Klingelstrategie"
 
 #: functions.inc.php:774
 msgid "Ring Time"
-msgstr ""
+msgstr "Klingeldauer"
 
 #: views/form.php:337
 msgid "Ring Time (max 60 sec)"
-msgstr ""
+msgstr "Klingeldauer (max. 60 Sek)"
 
 #: functions.inc.php:872 views/form.php:442
 msgid "Ringer Volume Override"
@@ -484,11 +484,11 @@ msgstr ""
 
 #: ucp/views/settings.php:23 ucp/views/settings.php:32
 msgid "Seconds"
-msgstr ""
+msgstr "Sekunden"
 
 #: Findmefollow.class.php:594
 msgid "Submit"
-msgstr ""
+msgstr "Bestätigen"
 
 #: findmefollow.i18n.php:36
 msgid ""
@@ -514,7 +514,7 @@ msgstr ""
 
 #: findmefollow.i18n.php:24
 msgid "This is the default value for the Follow Me "
-msgstr ""
+msgstr "Dies ist der Standardwert für \"Folge mir\" "
 
 #: functions.inc.php:737 ucp/views/settings.php:26 views/form.php:299
 msgid ""
@@ -525,7 +525,7 @@ msgstr ""
 
 #: ucp/views/settings.php:35
 msgid "Time in seconds that the phones will ring"
-msgstr ""
+msgstr "Zeit in Sekunden, die die Telefone klingeln."
 
 #: functions.inc.php:775 views/form.php:349
 msgid ""
@@ -535,7 +535,7 @@ msgstr ""
 
 #: assets/js/findmefollow.js:99
 msgid "Time must be between 1 and 60 seconds"
-msgstr ""
+msgstr "Die Zeit muss zwischen 1 und 60 Sekunden liegen."
 
 #: functions.inc.php:953 views/form.php:141
 msgid "Too-Late Announce"
@@ -570,7 +570,7 @@ msgstr ""
 
 #: ucp/views/settings.php:38
 msgid "Use Confirmation"
-msgstr ""
+msgstr "Bestätigen"
 
 #: functions.inc.php:1019 functions.inc.php:1041 views/form.php:216
 #: views/form.php:501
@@ -579,11 +579,11 @@ msgstr ""
 
 #: views/bootnav.php:4
 msgid "User"
-msgstr ""
+msgstr "Benutzer"
 
 #: Findmefollow.class.php:83
 msgid "Warning! Extension"
-msgstr ""
+msgstr "Achtung! Nebenstelle"
 
 #: assets/js/findmefollow.js:71
 msgid "We received and sent your request but something failed"
@@ -610,7 +610,7 @@ msgstr ""
 #: functions.inc.php:713 functions.inc.php:922 views/fmgrid.php:16
 #: views/form.php:265 views/form.php:475 views/quickCreate.php:10
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: functions.inc.php:849
 msgid ""
@@ -634,15 +634,15 @@ msgstr ""
 
 #: views/form.php:192
 msgid "default"
-msgstr ""
+msgstr "Standard"
 
 #: functions.inc.php:661
 msgid "device"
-msgstr ""
+msgstr "Gerät"
 
 #: functions.inc.php:661
 msgid "extension"
-msgstr ""
+msgstr "Nebenstelle"
 
 #: functions.inc.php:751 views/form.php:43
 msgid "firstavailable"
@@ -658,7 +658,7 @@ msgstr ""
 
 #: Findmefollow.class.php:83
 msgid "is not allowed for your account"
-msgstr ""
+msgstr "Ist für Ihr Konto nicht erlaubt."
 
 #: functions.inc.php:749 views/form.php:39
 msgid "memoryhunt"
@@ -666,7 +666,7 @@ msgstr ""
 
 #: views/form.php:191
 msgid "none"
-msgstr ""
+msgstr "keine"
 
 #: functions.inc.php:747 views/form.php:35
 msgid ""
@@ -696,23 +696,25 @@ msgstr ""
 
 #: functions.inc.php:751 views/form.php:43
 msgid "ring only the first available channel"
-msgstr ""
+msgstr "Es Klingelt nur der erste verfügbare Kanal."
 
 #: functions.inc.php:752 views/form.php:45
 msgid "ring only the first channel which is not off hook - ignore CW"
 msgstr ""
+"Es Klingelt nur der erste verfügbare Kanal der nicht abgehoben ist - "
+"ignoriert Anklopfen."
 
 #: functions.inc.php:747 views/form.php:35
 msgid "ringall"
-msgstr ""
+msgstr "ringall"
 
 #: functions.inc.php:746 views/form.php:33
 msgid "ringallv2"
-msgstr ""
+msgstr "ringallv2"
 
 #: functions.inc.php:748 views/form.php:37
 msgid "take turns ringing each available extension"
-msgstr ""
+msgstr "Lässt abwechselnd jede verfügbare Nebenstelle klingeln."
 
 #: functions.inc.php:750 views/form.php:41
 msgid ""
