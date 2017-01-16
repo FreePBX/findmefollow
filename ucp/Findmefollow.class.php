@@ -129,7 +129,7 @@ class Findmefollow extends Modules{
 	}
 
 	public function getSimpleWidgetSettingsDisplay($id) {
-		return getWidgetSettingsDisplay($id);
+		return $this->getWidgetSettingsDisplay($id);
 	}
 
 	public function getWidgetSettingsDisplay($id) {
