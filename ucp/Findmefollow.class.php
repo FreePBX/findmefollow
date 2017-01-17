@@ -10,6 +10,19 @@ class Findmefollow extends Modules{
 		$this->Modules = $Modules;
 	}
 
+	function poll($data) {
+		$states = array();
+		foreach($data as $ext) {
+			if(!$this->_checkExtension($ext)) {
+				continue;
+			}
+			$settings = $this->UCP->FreePBX->Findmefollow->getSettingsById($ext, 1);
+			$states[$ext] = $settings['ddial'] ? false : true;
+		}
+
+		return array("states" => $states);
+	}
+
 	/**
 	 * Determine what commands are allowed
 	 *
@@ -90,6 +103,7 @@ class Findmefollow extends Modules{
 
 				$widgets[$extension] = array(
 					"display" => $name,
+					"description" => sprintf(_("Find Me/Follow Me for %s"),$name),
 					"hasSettings" => true,
 					"defaultsize" => array("height" => 2, "width" => 1),
 					"minsize" => array("height" => 2, "width" => 1)

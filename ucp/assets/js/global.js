@@ -1,17 +1,55 @@
 var FindmefollowC = UCPMC.extend({
 	init: function(){
+		this.stopPropagation = {};
+	},
+	prepoll: function() {
+		var exts = [];
+		$(".grid-stack-item[data-rawname=findmefollow]").each(function() {
+			exts.push($(this).data("widget_type_id"));
+		});
+		return exts;
+	},
+	poll: function(data) {
+		var self = this;
+		var change = function(extension, state, el) {
+			if(!el.length) {
+				return;
+			}
+			var current = el.is(":checked");
+			if(state && !current) {
+				self.stopPropagation[extension] = true;
+				el.bootstrapToggle('on');
+				self.stopPropagation[extension] = false;
+			} else if(!state && current) {
+				self.stopPropagation[extension] = true;
+				el.bootstrapToggle('off');
+				self.stopPropagation[extension] = false;
+			}
+		};
+		$.each(data.states, function(ext,state) {
+			change(ext, state, $(".grid-stack-item[data-rawname=findmefollow][data-widget_type_id='"+ext+"'] input[name='ddial']"));
+			change(ext, state, $(".widget-extra-menu[data-module='findmefollow'][data-widget_type_id='"+ext+"'] input[name='ddial']"));
+		});
 	},
 	displayWidget: function(widget_id,dashboard_id) {
-		console.log(widget_id);
 		var self = this;
 		$("div[data-id='"+widget_id+"'] .widget-content input[type='checkbox']").change(function() {
+			if(typeof self.stopPropagation[extension] !== "undefined" && self.stopPropagation[extension]) {
+				return;
+			}
 			var extension = $("div[data-id='"+widget_id+"']").data("widget_type_id");
 			self.saveSettings(extension, {key: $(this).prop('name'), value: $(this).is(':checked')});
 		});
 	},
 	saveSettings: function(extension, data, callback) {
+		var self = this;
 		data.ext = extension;
-		$.post( "ajax.php?module=findmefollow&command=settings", data, callback);
+		self.stopPropagation[extension] = true;
+		data.module = "findmefollow";
+		data.command = "settings";
+		$.post( UCP.ajaxUrl, data, callback).always(function() {
+			self.stopPropagation[extension] = false;
+		});
 	},
 	displayWidgetSettings: function(widget_id,dashboard_id) {
 		var self = this;
@@ -68,13 +106,18 @@ var FindmefollowC = UCPMC.extend({
 		$(".widget-extra-menu[data-module=findmefollow] input[type='checkbox']").change(function() {
 			var extension = widget_type_id,
 					checked = $(this).is(':checked');
+			if(typeof self.stopPropagation[extension] !== "undefined" && self.stopPropagation[extension]) {
+				return;
+			}
 			self.saveSettings(extension, {key: $(this).prop('name'), value: checked}, function(data){
 				if (data.status) {
 					//update elements on the current dashboard if there are any
 					var el = $(".grid-stack-item[data-rawname='findmefollow'][data-widget_type_id='"+extension+"'] input[name='ddial']");
-					el.prop("checked",checked);
-					el.bootstrapToggle('destroy');
-					el.bootstrapToggle();
+					if(checked) {
+						el.bootstrapToggle('on');
+					} else {
+						el.bootstrapToggle('off');
+					}
 				}
 			});
 		});
