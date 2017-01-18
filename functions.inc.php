@@ -332,7 +332,7 @@ function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre=
 	if ($remotealert_id == '') {
 		$remotealert_id = NULL;
 	}
-	if ($remotealert_id == '') {
+	if ($toolate_id == '') {
 		$toolate_id = NULL;
 	}
 

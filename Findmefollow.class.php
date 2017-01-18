@@ -648,7 +648,7 @@ class Findmefollow implements \BMO {
 		if ($remotealert_id == '') {
 			$remotealert_id = NULL;
 		}
-		if ($remotealert_id == '') {
+		if ($toolate_id == '') {
 			$toolate_id = NULL;
 		}
 
