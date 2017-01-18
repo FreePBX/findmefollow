@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-20 13:20-0800\n"
+"POT-Creation-Date: 2017-01-18 14:26-0800\n"
 "PO-Revision-Date: 2015-10-15 09:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -22,7 +22,7 @@ msgstr ""
 "X-Poedit-Country: CHINA\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: functions.inc.php:750 views/form.php:41
+#: functions.inc.php:759 views/form.php:41
 msgid "*-prim"
 msgstr "依从主分机（策略名-prim）"
 
@@ -30,15 +30,15 @@ msgstr "依从主分机（策略名-prim）"
 msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
 msgstr "ALERT_INFO 用来支持SIP 设备的distinctive ring 功能。"
 
-#: functions.inc.php:848 views/form.php:419
+#: functions.inc.php:857 views/form.php:419
 msgid "Alert Info"
 msgstr "警告信息"
 
-#: functions.inc.php:1017 views/form.php:497
+#: functions.inc.php:1026 views/form.php:497
 msgid "Always transmit the Fixed CID Value below."
 msgstr "总是传输以下固定CID"
 
-#: functions.inc.php:803 views/form.php:71
+#: functions.inc.php:812 views/form.php:71
 msgid "Announcement"
 msgstr "播报"
 
@@ -46,7 +46,7 @@ msgstr "播报"
 msgid "Applications"
 msgstr "应用"
 
-#: functions.inc.php:708
+#: functions.inc.php:717
 msgid ""
 "By default (Yes) any call to this extension will go to this Follow-Me "
 "instead, including directory calls by name from IVRs. If set to \"No\", "
@@ -67,11 +67,11 @@ msgid ""
 "chooses to find you do you want it to come here."
 msgstr ""
 
-#: functions.inc.php:838 views/form.php:395
+#: functions.inc.php:847 views/form.php:395
 msgid "CID Name Prefix"
 msgstr "主叫ID名的前缀"
 
-#: functions.inc.php:893
+#: functions.inc.php:902
 msgid "Call Confirmation Configuration"
 msgstr "呼叫确认配置"
 
@@ -79,11 +79,11 @@ msgstr "呼叫确认配置"
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "无法连接到Asterisk管理器"
 
-#: functions.inc.php:994 views/form.php:513
+#: functions.inc.php:1003 views/form.php:513
 msgid "Change External CID Configuration"
 msgstr "修改外部CID 设置"
 
-#: functions.inc.php:916 views/form.php:470
+#: functions.inc.php:925 views/form.php:470
 msgid "Confirm Calls"
 msgstr "呼叫确认"
 
@@ -91,7 +91,7 @@ msgstr "呼叫确认"
 msgid "Create Follow Me at Extension Creation Time"
 msgstr ""
 
-#: functions.inc.php:937 functions.inc.php:1016 functions.inc.php:1029
+#: functions.inc.php:946 functions.inc.php:1025 functions.inc.php:1038
 #: views/form.php:113 views/form.php:148 views/form.php:213 views/form.php:495
 msgid "Default"
 msgstr "默认"
@@ -112,7 +112,7 @@ msgstr ""
 msgid "Destination if no answer"
 msgstr "无人接听时的目的地"
 
-#: functions.inc.php:1073
+#: functions.inc.php:1082
 msgid "Destinations"
 msgstr "目的地"
 
@@ -148,7 +148,7 @@ msgid ""
 "through. This feature only works with the ringall ring strategy"
 msgstr ""
 
-#: functions.inc.php:917
+#: functions.inc.php:926
 msgid ""
 "Enable this if you're calling external numbers that need confirmation - eg, "
 "a mobile phone may go to voicemail which will pick up the call. Enabling "
@@ -159,7 +159,7 @@ msgstr ""
 "由语音邮箱接听。要启用这个选项，需要远端在接通前在电话上按下1。这个功能只会"
 "在 全部响铃/全部响铃并依从主分机 类的策略下起作用。"
 
-#: functions.inc.php:707 views/fmgrid.php:27
+#: functions.inc.php:716 views/fmgrid.php:27
 msgid "Enabled"
 msgstr "开启"
 
@@ -171,7 +171,7 @@ msgstr ""
 msgid "Extension"
 msgstr "警告！你的帐户无法使用分机"
 
-#: functions.inc.php:649 ucp/Findmefollow.class.php:32
+#: functions.inc.php:658 ucp/Findmefollow.class.php:32
 msgid "Find Me/Follow Me"
 msgstr "分机随行"
 
@@ -183,18 +183,18 @@ msgstr "分机随行已更新"
 msgid "Findme Follow Toggle"
 msgstr "切换“跟我来”"
 
-#: functions.inc.php:1017 functions.inc.php:1033 functions.inc.php:1056
+#: functions.inc.php:1026 functions.inc.php:1042 functions.inc.php:1065
 #: views/form.php:214 views/form.php:497 views/form.php:539
 msgid "Fixed CID Value"
 msgstr "固定CID值"
 
-#: functions.inc.php:1063
+#: functions.inc.php:1072
 msgid ""
 "Fixed CID Value should be in a format of digits only with an option of E164 "
 "format using a leading \"+\""
 msgstr "Fixed CID 值应该是仅数字格式，加一个 \"+\" 支持E164格式"
 
-#: functions.inc.php:1057
+#: functions.inc.php:1066
 msgid ""
 "Fixed value to replace the CID with used with some of the modes above. "
 "Should be in a format of digits only with an option of E164 format using a "
@@ -212,11 +212,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "跟我来"
 
-#: Findmefollow.class.php:832
+#: Findmefollow.class.php:842
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr ""
 
-#: Findmefollow.class.php:835 ucp/views/settings.php:15
+#: Findmefollow.class.php:845 ucp/views/settings.php:15
 msgid "Follow Me List"
 msgstr ""
 
@@ -225,29 +225,29 @@ msgstr ""
 msgid "Follow Me Module"
 msgstr ""
 
-#: Findmefollow.class.php:838
+#: Findmefollow.class.php:848
 msgid "Follow Me No Answer Destination"
 msgstr ""
 
-#: functions.inc.php:1227
+#: functions.inc.php:1236
 #, php-format
 msgid "Follow Me: %s"
 msgstr "分机随行: %s"
 
-#: functions.inc.php:785 views/form.php:361
+#: functions.inc.php:794 views/form.php:361
 msgid "Follow-Me List"
 msgstr "“跟我来”列表"
 
-#: functions.inc.php:791
+#: functions.inc.php:800
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
 msgstr ""
 
-#: functions.inc.php:1279
+#: functions.inc.php:1288
 #, php-format
 msgid "Follow-Me User: %s"
 msgstr "“跟我来”用户：%s"
 
-#: functions.inc.php:1256
+#: functions.inc.php:1265
 #, php-format
 msgid "Follow-Me: %s (%s)"
 msgstr "“跟我来”列表：%s (%s)"
@@ -260,7 +260,7 @@ msgstr "分机随行分机"
 msgid "Followme List"
 msgstr "分机随行列表"
 
-#: functions.inc.php:1020 functions.inc.php:1045 views/form.php:217
+#: functions.inc.php:1029 functions.inc.php:1054 views/form.php:217
 #: views/form.php:503
 msgid "Force Dialed Number"
 msgstr ""
@@ -269,7 +269,7 @@ msgstr ""
 msgid "Force Follow Me"
 msgstr "强制使用分机随行"
 
-#: functions.inc.php:683
+#: functions.inc.php:692
 msgid "General Settings"
 msgstr "基本设置"
 
@@ -277,7 +277,7 @@ msgstr "基本设置"
 msgid "Group Number"
 msgstr "组号码"
 
-#: functions.inc.php:828 views/form.php:205
+#: functions.inc.php:837 views/form.php:205
 msgid ""
 "If you select a Music on Hold class to play, instead of 'Ring', they will "
 "hear that instead of Ringing while they are waiting for someone to pick up."
@@ -285,7 +285,7 @@ msgstr ""
 "如果你选择了一个等待音乐类别，而不是“振铃”，呼叫者在等待接听的时候会听到音"
 "乐。"
 
-#: functions.inc.php:736 views/form.php:287
+#: functions.inc.php:745 views/form.php:287
 msgid "Initial Ring Time"
 msgstr "初始振铃时长"
 
@@ -303,7 +303,7 @@ msgstr "指定了无效的时间"
 msgid "List Followme Groups"
 msgstr "列出分机随行组"
 
-#: functions.inc.php:786 views/form.php:381
+#: functions.inc.php:795 views/form.php:381
 msgid ""
 "List extensions to ring, one per line, or use the Extension Quick Pick below."
 "<br><br>You can include an extension on a remote system, or an external "
@@ -327,7 +327,7 @@ msgid ""
 "additional recordings please use the \"System Recordings\" MENU above"
 msgstr ""
 
-#: functions.inc.php:804
+#: functions.inc.php:813
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
 "additional recordings please use the \"System Recordings\" MENU to the left"
@@ -342,7 +342,7 @@ msgid ""
 "MENU above"
 msgstr ""
 
-#: functions.inc.php:942
+#: functions.inc.php:951
 msgid ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
 "enabled.<br><br>To add additional recordings use the \"System Recordings\" "
@@ -358,7 +358,7 @@ msgid ""
 "recordings use the \"System Recordings\" MENU above"
 msgstr ""
 
-#: functions.inc.php:954
+#: functions.inc.php:963
 msgid ""
 "Message to be played to the person RECEIVING the call, if the call has "
 "already been accepted before they push 1.<br><br>To add additional "
@@ -371,7 +371,7 @@ msgstr ""
 msgid "Method not supported"
 msgstr "此方法不支持"
 
-#: functions.inc.php:1023 views/form.php:493
+#: functions.inc.php:1032 views/form.php:493
 msgid "Mode"
 msgstr ""
 
@@ -384,16 +384,16 @@ msgid ""
 "someone's cell phone if they don't answer their extension."
 msgstr ""
 
-#: functions.inc.php:717 functions.inc.php:926 views/fmgrid.php:18
+#: functions.inc.php:726 functions.inc.php:935 views/fmgrid.php:18
 #: views/form.php:267 views/form.php:477 views/quickCreate.php:12
 msgid "No"
 msgstr ""
 
-#: functions.inc.php:1097
+#: functions.inc.php:1106
 msgid "No Answer"
 msgstr "无应答"
 
-#: functions.inc.php:635 functions.inc.php:858 views/form.php:78
+#: functions.inc.php:644 functions.inc.php:867 views/form.php:78
 #: views/form.php:447
 msgid "None"
 msgstr "无"
@@ -416,14 +416,14 @@ msgid ""
 msgstr ""
 "若“确认”选项被启用，就只支持全部响铃、全部响铃2、搜寻和各自的主分机依从策略。"
 
-#: functions.inc.php:1098
+#: functions.inc.php:1107
 msgid ""
 "Optional destination call is routed to when the call is not answered on an "
 "otherwise idle phone. If the phone is in use and the call is simply ignored, "
 "then the busy destination will be used."
 msgstr ""
 
-#: functions.inc.php:1018 functions.inc.php:1037 views/form.php:215
+#: functions.inc.php:1027 functions.inc.php:1046 views/form.php:215
 #: views/form.php:499
 msgid "Outside Calls Fixed CID Value"
 msgstr ""
@@ -435,17 +435,17 @@ msgid ""
 "time"
 msgstr ""
 
-#: functions.inc.php:873
+#: functions.inc.php:882
 msgid ""
 "Override the ringer volume. Note: This is only valid for Sangoma phones at "
 "this time"
 msgstr ""
 
-#: functions.inc.php:827 views/form.php:181
+#: functions.inc.php:836 views/form.php:181
 msgid "Play Music On Hold"
 msgstr "播放音乐等待"
 
-#: functions.inc.php:661
+#: functions.inc.php:670
 #, php-format
 msgid "Please enter a valid %s number"
 msgstr ""
@@ -454,7 +454,7 @@ msgstr ""
 msgid "Please enter an extension list."
 msgstr "请输入一个分机列表。"
 
-#: functions.inc.php:941 views/form.php:106
+#: functions.inc.php:950 views/form.php:106
 msgid "Remote Announce"
 msgstr "远程播报"
 
@@ -466,7 +466,7 @@ msgstr ""
 msgid "Reset"
 msgstr "重新设置"
 
-#: functions.inc.php:815 views/form.php:188
+#: functions.inc.php:824 views/form.php:188
 msgid "Ring"
 msgstr "振铃"
 
@@ -479,11 +479,11 @@ msgstr ""
 msgid "Ring Followme List For"
 msgstr ""
 
-#: functions.inc.php:763 views/form.php:311
+#: functions.inc.php:772 views/form.php:311
 msgid "Ring Strategy"
 msgstr "振铃策略"
 
-#: functions.inc.php:774
+#: functions.inc.php:783
 msgid "Ring Time"
 msgstr "这里时长"
 
@@ -491,7 +491,7 @@ msgstr "这里时长"
 msgid "Ring Time (max 60 sec)"
 msgstr "振铃时间（最多60秒）"
 
-#: functions.inc.php:872 views/form.php:442
+#: functions.inc.php:881 views/form.php:442
 msgid "Ringer Volume Override"
 msgstr ""
 
@@ -529,7 +529,7 @@ msgstr ""
 msgid "This is the default value for the Follow Me "
 msgstr ""
 
-#: functions.inc.php:737 ucp/views/settings.php:26 views/form.php:299
+#: functions.inc.php:746 ucp/views/settings.php:26 views/form.php:299
 msgid ""
 "This is the number of seconds to ring the primary extension prior to "
 "proceeding to the follow-me list. The extension can also be included in the "
@@ -542,7 +542,7 @@ msgstr ""
 msgid "Time in seconds that the phones will ring"
 msgstr ""
 
-#: functions.inc.php:775 views/form.php:349
+#: functions.inc.php:784 views/form.php:349
 msgid ""
 "Time in seconds that the phones will ring. For all hunt style ring "
 "strategies, this is the time for each iteration of phone(s) that are rung"
@@ -554,18 +554,18 @@ msgstr ""
 msgid "Time must be between 1 and 60 seconds"
 msgstr "时间必须在1到60秒之间"
 
-#: functions.inc.php:953 views/form.php:141
+#: functions.inc.php:962 views/form.php:141
 msgid "Too-Late Announce"
 msgstr ""
 
-#: functions.inc.php:1018 views/form.php:499
+#: functions.inc.php:1027 views/form.php:499
 msgid ""
 "Transmit the Fixed CID Value below on calls that come in from outside only. "
 "Internal extension to extension calls will continue to operate in default "
 "mode."
 msgstr ""
 
-#: functions.inc.php:1020 views/form.php:503
+#: functions.inc.php:1029 views/form.php:503
 msgid ""
 "Transmit the number that was dialed as the CID for calls coming from "
 "outside. Internal extension to extension calls will continue to operate in "
@@ -573,7 +573,7 @@ msgid ""
 "be transmitted on trunks that block foreign CallerID"
 msgstr ""
 
-#: functions.inc.php:1019 views/form.php:501
+#: functions.inc.php:1028 views/form.php:501
 msgid ""
 "Transmit the number that was dialed as the CID for calls coming from "
 "outside. Internal extension to extension calls will continue to operate in "
@@ -581,7 +581,7 @@ msgid ""
 "be BLOCKED on trunks that block foreign CallerID"
 msgstr ""
 
-#: functions.inc.php:1016 views/form.php:495
+#: functions.inc.php:1025 views/form.php:495
 msgid "Transmits the Callers CID if allowed by the trunk."
 msgstr ""
 
@@ -589,7 +589,7 @@ msgstr ""
 msgid "Use Confirmation"
 msgstr ""
 
-#: functions.inc.php:1019 functions.inc.php:1041 views/form.php:216
+#: functions.inc.php:1028 functions.inc.php:1050 views/form.php:216
 #: views/form.php:501
 msgid "Use Dialed Number"
 msgstr ""
@@ -624,18 +624,18 @@ msgstr ""
 msgid "Where to send callers if there is no answer."
 msgstr ""
 
-#: functions.inc.php:713 functions.inc.php:922 views/fmgrid.php:16
+#: functions.inc.php:722 functions.inc.php:931 views/fmgrid.php:16
 #: views/form.php:265 views/form.php:475 views/quickCreate.php:10
 msgid "Yes"
 msgstr ""
 
-#: functions.inc.php:849
+#: functions.inc.php:858
 msgid ""
 "You can optionally include an Alert Info which can create distinctive rings "
 "on SIP phones."
 msgstr "你可以包含一个可选的警告信息，用来为SIP电话产生独特的铃声。"
 
-#: functions.inc.php:839
+#: functions.inc.php:848
 msgid ""
 "You can optionally prefix the Caller ID name when ringing extensions in this "
 "group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
@@ -655,23 +655,23 @@ msgstr ""
 msgid "default"
 msgstr "默认设置"
 
-#: functions.inc.php:661
+#: functions.inc.php:670
 msgid "device"
 msgstr "设备"
 
-#: functions.inc.php:661
+#: functions.inc.php:670
 msgid "extension"
 msgstr "分机"
 
-#: functions.inc.php:751 views/form.php:43
+#: functions.inc.php:760 views/form.php:43
 msgid "firstavailable"
 msgstr "首个可用频道"
 
-#: functions.inc.php:752 views/form.php:45
+#: functions.inc.php:761 views/form.php:45
 msgid "firstnotonphone"
 msgstr "第一个无通话"
 
-#: functions.inc.php:748 views/form.php:37
+#: functions.inc.php:757 views/form.php:37
 msgid "hunt"
 msgstr "搜寻"
 
@@ -679,7 +679,7 @@ msgstr "搜寻"
 msgid "is not allowed for your account"
 msgstr " "
 
-#: functions.inc.php:749 views/form.php:39
+#: functions.inc.php:758 views/form.php:39
 msgid "memoryhunt"
 msgstr "记忆性搜寻"
 
@@ -687,7 +687,7 @@ msgstr "记忆性搜寻"
 msgid "none"
 msgstr ""
 
-#: functions.inc.php:747 views/form.php:35
+#: functions.inc.php:756 views/form.php:35
 msgid ""
 "ring Extension for duration set in Initial Ring Time, and then terminate "
 "call to Extension and ring Follow-Me List for duration set in Ring Time."
@@ -700,14 +700,14 @@ msgid ""
 "Follow-Me List for duration set in Ring Time."
 msgstr ""
 
-#: functions.inc.php:746
+#: functions.inc.php:755
 msgid ""
 "ring Extension for duration set in Initial Ring Time, and then, while "
 "continuing call to extension, ring Follow-Me List for duration set in Ring "
 "Time."
 msgstr ""
 
-#: functions.inc.php:749 views/form.php:39
+#: functions.inc.php:758 views/form.php:39
 msgid ""
 "ring first extension in the list, then ring the 1st and 2nd extension, then "
 "ring 1st 2nd and 3rd extension in the list.... etc."
@@ -715,27 +715,27 @@ msgstr ""
 "首先使列表中第一个分机响铃，然后是第一个和第二个响，接着是第一、二、三个"
 "响。。。以次类推。"
 
-#: functions.inc.php:751 views/form.php:43
+#: functions.inc.php:760 views/form.php:43
 msgid "ring only the first available channel"
 msgstr "只在第一个可用的通道响铃"
 
-#: functions.inc.php:752 views/form.php:45
+#: functions.inc.php:761 views/form.php:45
 msgid "ring only the first channel which is not off hook - ignore CW"
 msgstr "只在第一个不是摘机状态下的通道响铃——忽略呼叫等待"
 
-#: functions.inc.php:747 views/form.php:35
+#: functions.inc.php:756 views/form.php:35
 msgid "ringall"
 msgstr "全部响铃"
 
-#: functions.inc.php:746 views/form.php:33
+#: functions.inc.php:755 views/form.php:33
 msgid "ringallv2"
 msgstr "全部响铃2"
 
-#: functions.inc.php:748 views/form.php:37
+#: functions.inc.php:757 views/form.php:37
 msgid "take turns ringing each available extension"
 msgstr "在可用的分机上轮流响铃"
 
-#: functions.inc.php:750 views/form.php:41
+#: functions.inc.php:759 views/form.php:41
 msgid ""
 "these modes act as described above. However, if the primary extension (first "
 "in list) is occupied, the other extensions will not be rung. If the primary "
