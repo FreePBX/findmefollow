@@ -603,7 +603,7 @@ class Findmefollow implements \BMO {
 		}
 		return $buttons;
 	}
-	function add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg_id='',$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid='default',$fixedcid='') {
+	function add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg_id=NULL,$dring,$needsconf,$remotealert_id=NULL,$toolate_id=NULL,$ringing,$pre_ring,$ddial,$changecid='default',$fixedcid='') {
 		$astman = $this->FreePBX->astman;
 		$dbh = $this->db;
 		$conf = $this->FreePBX->Config();
@@ -641,6 +641,16 @@ class Findmefollow implements \BMO {
 			}
 		}
 		$grplist = implode("-", $list);
+		
+		if ($annmsg_id == '') {
+			$annmsg_id = NULL;
+		}
+		if ($remotealert_id == '') {
+			$remotealert_id = NULL;
+		}
+		if ($toolate_id == '') {
+			$toolate_id = NULL;
+		}
 
 		$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring) VALUES (:grpnum, :strategy, :grptime, :grppre, :grplist, :annmsg_id, :postdest, :dring, :needsconf, :remotealert_id, :toolate_id, :ringing, :pre_ring)";
 		$insertarr = array(':grpnum' => $grpnum , ':strategy' => $strategy , ':grptime' => $grptime , ':grppre' => $grppre , ':grplist' => $grplist , ':annmsg_id' => $annmsg_id , ':postdest' => $postdest , ':dring' => $dring , ':needsconf' => $needsconf , ':remotealert_id' => $remotealert_id , ':toolate_id' => $toolate_id , ':ringing' => $ringing , ':pre_ring' => $pre_ring);

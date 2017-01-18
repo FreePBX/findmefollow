@@ -287,7 +287,7 @@ function findmefollow_get_config($engine) {
 	}
 }
 
-function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg_id='',$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid='default',$fixedcid='',$rvolume='') {
+function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg_id=NULL,$dring,$needsconf,$remotealert_id=NULL,$toolate_id=NULL,$ringing,$pre_ring,$ddial,$changecid='default',$fixedcid='',$rvolume='') {
 	global $amp_conf;
 	global $astman;
 	global $db;
@@ -326,6 +326,15 @@ function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre=
 		}
 	}
 	$grplist = implode("-", $list);
+	if ($annmsg_id == '') {
+		$annmsg_id = NULL;
+	}
+	if ($remotealert_id == '') {
+		$remotealert_id = NULL;
+	}
+	if ($toolate_id == '') {
+		$toolate_id = NULL;
+	}
 
 	$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, rvolume) VALUES (:grpnum, :strategy, :grptime, :grppre, :grplist, :annmsg_id, :postdest, :dring, :needsconf, :remotealert_id, :toolate_id, :ringing, :pre_ring, :rvolume)";
 	$sth = FreePBX::Database()->prepare($sql);
