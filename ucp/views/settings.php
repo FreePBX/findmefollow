@@ -7,7 +7,7 @@
 	</div>
 	<div class="form-group">
 		<label for="pre_ring" class="help"><?php echo sprintf(_('Ring %s First For'),$extension) ?> <i class="fa fa-question-circle"></i></label><br/>
-		<select name="pre_ring" id="pre_ring" class="form-control">
+		<select name="pre_ring" id="pre_ring" class="form-control" data-toggle="select">
 			<?php foreach($prering_time as $key => $value) { ?>
 				<option value="<?php echo $key?>" <?php echo ($prering == $key) ? 'selected' : ''?>><?php echo $value?> <?php echo _('Seconds')?></option>
 			<?php } ?>
@@ -16,7 +16,7 @@
 	</div>
 	<div class="form-group">
 		<label for="grptime" class="help"><?php echo _('Ring Followme List For') ?> <i class="fa fa-question-circle"></i></label><br/>
-		<select name="grptime" id="grptime" class="form-control">
+		<select name="grptime" id="grptime" class="form-control" data-toggle="select">
 			<?php foreach($listring_time as $key => $value) { ?>
 				<option value="<?php echo $key?>" <?php echo ($ringtime == $key) ? 'selected' : ''?>><?php echo $value?> <?php echo _('Seconds')?></option>
 			<?php } ?>

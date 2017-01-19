@@ -11,43 +11,41 @@ var FindmefollowC = UCPMC.extend({
 	},
 	poll: function(data) {
 		var self = this;
-		var change = function(extension, state, el) {
-			if(!el.length) {
-				return;
-			}
-			var current = el.is(":checked");
-			if(state && !current) {
-				self.stopPropagation[extension] = true;
-				el.bootstrapToggle('on');
-				self.stopPropagation[extension] = false;
-			} else if(!state && current) {
-				self.stopPropagation[extension] = true;
-				el.bootstrapToggle('off');
-				self.stopPropagation[extension] = false;
-			}
-		};
 		$.each(data.states, function(ext,state) {
-			change(ext, state, $(".grid-stack-item[data-rawname=findmefollow][data-widget_type_id='"+ext+"'] input[name='ddial']"));
-			change(ext, state, $(".widget-extra-menu[data-module='findmefollow'][data-widget_type_id='"+ext+"'] input[name='ddial']"));
+			if(typeof self.stopPropagation[ext] !== "undefined" && self.stopPropagation[ext]) {
+				return true;
+			}
+			var widget = $(".grid-stack-item[data-rawname=findmefollow][data-widget_type_id='"+ext+"']:visible input[name='ddial']"),
+				sidebar = $(".widget-extra-menu[data-module='findmefollow'][data-widget_type_id='"+ext+"']:visible input[name='ddial']"),
+				sstate = state ? "on" : "off";
+			if(widget.length && (widget.is(":checked") !== state)) {
+				widget.bootstrapToggle(sstate);
+			} else if(sidebar.length && (sidebar.is(":checked") !== state)) {
+				sidebar.bootstrapToggle(sstate);
+			}
 		});
 	},
 	displayWidget: function(widget_id,dashboard_id) {
 		var self = this;
-		$("div[data-id='"+widget_id+"'] .widget-content input[type='checkbox']").change(function() {
-			if(typeof self.stopPropagation[extension] !== "undefined" && self.stopPropagation[extension]) {
-				return;
+		$(".grid-stack-item[data-id='"+widget_id+"'][data-rawname=findmefollow] .widget-content input[name='ddial']").change(function() {
+			var extension = $(".grid-stack-item[data-id='"+widget_id+"'][data-rawname=findmefollow]").data("widget_type_id"),
+				el = $(".widget-extra-menu[data-module='findmefollow'][data-widget_type_id='"+extension+"']:visible input[name='ddial']"),
+				checked = $(this).is(':checked'),
+				name = $(this).prop('name');
+			if(el.length && el.is(":checked") !== checked) {
+				var state = checked ? "on" : "off";
+				el.bootstrapToggle(state);
 			}
-			var extension = $("div[data-id='"+widget_id+"']").data("widget_type_id");
-			self.saveSettings(extension, {key: $(this).prop('name'), value: $(this).is(':checked')});
+			self.saveSettings(extension, {key: name, value: checked});
 		});
 	},
 	saveSettings: function(extension, data, callback) {
 		var self = this;
 		data.ext = extension;
-		self.stopPropagation[extension] = true;
 		data.module = "findmefollow";
 		data.command = "settings";
-		$.post( UCP.ajaxUrl, data, callback).always(function() {
+		this.stopPropagation[extension] = true;
+		$.post(UCP.ajaxUrl, data, callback).always(function() {
 			self.stopPropagation[extension] = false;
 		});
 	},
@@ -56,82 +54,34 @@ var FindmefollowC = UCPMC.extend({
 		var extension = $("div[data-id='"+widget_id+"']").data("widget_type_id");
 
 		$("#widget_settings .widget-settings-content textarea").blur(function() {
-			self.saveSettings(extension, {key: $(this).prop('name'), value: $(this).val()}, function(data){
-				if (data.status) {
-					$("#widget_settings .message").addClass("alert-success");
-					$("#widget_settings .message").text(_("Your settings have been saved"));
-					$("#widget_settings .message").fadeIn( "slow", function() {
-						setTimeout(function() { $("#widget_settings .message").fadeOut("slow"); }, 2000);
-					});
-				} else {
-					$("#widget_settings .message").addClass("alert-error");
-					$("#widget_settings .message").text(data.message);
-					return false;
-				}
-			});
+			self.saveSettings(extension, {key: $(this).prop('name'), value: $(this).val()});
 		});
 		$("#widget_settings .widget-settings-content select").change(function() {
-			self.saveSettings(extension, {key: $(this).prop('name'), value: $(this).is(':checked')}, function(data){
-				if (data.status) {
-					$("#widget_settings .message").addClass("alert-success");
-					$("#widget_settings .message").text(_("Your settings have been saved"));
-					$("#widget_settings .message").fadeIn( "slow", function() {
-						setTimeout(function() { $("#widget_settings .message").fadeOut("slow"); }, 2000);
-					});
-				} else {
-					$("#widget_settings .message").addClass("alert-error");
-					$("#widget_settings .message").text(data.message);
-					return false;
-				}
-			});
+			self.saveSettings(extension, {key: $(this).prop('name'), value: $(this).is(':checked')});
 		});
 		$("#widget_settings .widget-settings-content input[type='checkbox']").change(function() {
-			self.saveSettings(extension, {key: $(this).prop('name'), value: $(this).is(':checked')}, function(data){
-				if (data.status) {
-					$("#widget_settings .message").addClass("alert-success");
-					$("#widget_settings .message").text(_("Your settings have been saved"));
-					$("#widget_settings .message").fadeIn( "slow", function() {
-						setTimeout(function() { $("#widget_settings .message").fadeOut("slow"); }, 2000);
-					});
-				} else {
-					$("#widget_settings .message").addClass("alert-error");
-					$("#widget_settings .message").text(data.message);
-					return false;
-				}
-			});
+			self.saveSettings(extension, {key: $(this).prop('name'), value: $(this).is(':checked')});
 		});
 	},
 	displaySimpleWidget: function(widget_type_id) {
 		var self = this;
-		$(".widget-extra-menu[data-module=findmefollow] input[type='checkbox']").change(function() {
+		$(".widget-extra-menu[data-module=findmefollow] input[name='ddial']").change(function() {
 			var extension = widget_type_id,
-					checked = $(this).is(':checked');
-			if(typeof self.stopPropagation[extension] !== "undefined" && self.stopPropagation[extension]) {
-				return;
-			}
-			self.saveSettings(extension, {key: $(this).prop('name'), value: checked}, function(data){
-				if (data.status) {
-					//update elements on the current dashboard if there are any
-					var el = $(".grid-stack-item[data-rawname='findmefollow'][data-widget_type_id='"+extension+"'] input[name='ddial']");
-					if(checked) {
-						el.bootstrapToggle('on');
-					} else {
-						el.bootstrapToggle('off');
-					}
+				checked = $(this).is(':checked'),
+				name = $(this).prop('name'),
+				el = $(".grid-stack-item[data-rawname=findmefollow][data-widget_type_id='"+extension+"']:visible input[name='ddial']");
+
+			if(el.length) {
+				if(el.is(":checked") !== checked) {
+					var state = checked ? "on" : "off";
+					el.bootstrapToggle(state);
 				}
-			});
+			} else {
+				self.saveSettings(extension, {key: name, value: checked});
+			}
 		});
 	},
 	displaySimpleWidgetSettings: function(widget_id) {
 		this.displayWidgetSettings(widget_id);
-	},
-	deleteWidget: function(widget_id,dashboard_id) {
-		//console.log(["normal:delete",widget_id,dashboard_id]);
-	},
-	deleteSimpleWidget: function(widget_id) {
-		//console.log(["small:delete",widget_id]);
-	},
-	showDashboard: function(dashboard_id) {
-		//console.log(["dashboard",dashboard_id]);
 	}
 });
