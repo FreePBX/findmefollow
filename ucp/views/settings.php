@@ -24,7 +24,7 @@
 		<span class="help-block help-hidden" data-for="grptime"><?php echo _('Time in seconds that the phones will ring')?></span>
 	</div>
 	<div class="form-group">
-		<label class="help" for="needsconf-h"><?php echo _('Use Confirmation')?> <i class="fa fa-question-circle"></i></label>
+		<label class="help" for="needsconf-h"><?php echo _('Use Confirmation')?> <i class="fa fa-question-circle"></i></label><br/>
 		<input type="checkbox" name="needsconf" data-size="small" data-toggle="toggle" id="needsconf" <?php echo ($confirm) ? 'checked' : ''?>>
 		<span class="help-block help-hidden" data-for="needsconf-h"><?php echo _("Enable this if you're calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through.")?></span>
 	</div>
