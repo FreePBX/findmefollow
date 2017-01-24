@@ -641,7 +641,7 @@ class Findmefollow implements \BMO {
 			}
 		}
 		$grplist = implode("-", $list);
-		
+
 		if ($annmsg_id == '') {
 			$annmsg_id = NULL;
 		}
@@ -915,7 +915,10 @@ class Findmefollow implements \BMO {
 					case 'grpnum':
 						break;
 					case 'ddial':
-						$psettings['findmefollow_' . 'enabled'] = ($value) ? 'yes' : '';
+						//reversy and backwards yeah. I know.
+						//ITS THE CODE FROM 7 YEARS AGO
+						//:'(
+						$psettings['findmefollow_' . 'enabled'] = (!empty($value)) ? '' : 'yes';
 						break;
 					default:
 						$psettings['findmefollow_' . $key] = $value;
