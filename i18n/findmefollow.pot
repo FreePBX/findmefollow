@@ -3,13 +3,13 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for findmefollow
-# Copyright (C) 2008-2017 Sangoma, Inc.
+# Copyright (C) 2008-2017 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-18 14:26-0800\n"
+"POT-Creation-Date: 2017-01-31 16:59-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,7 +42,6 @@ msgid "Announcement"
 msgstr ""
 
 #: findmefollow.i18n.php:6
-#: findmefollow.i18n.php:12
 msgid "Applications"
 msgstr ""
 
@@ -90,7 +89,7 @@ msgstr ""
 msgid "Confirm Calls"
 msgstr ""
 
-#: findmefollow.i18n.php:14
+#: findmefollow.i18n.php:12
 msgid "Create Follow Me at Extension Creation Time"
 msgstr ""
 
@@ -104,15 +103,15 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: findmefollow.i18n.php:32
+#: findmefollow.i18n.php:26
 msgid "Default Follow Me Initial Ring Time"
 msgstr ""
 
-#: findmefollow.i18n.php:38
+#: findmefollow.i18n.php:30
 msgid "Default Follow Me Ring Strategy"
 msgstr ""
 
-#: findmefollow.i18n.php:26
+#: findmefollow.i18n.php:22
 msgid "Default Follow Me Ring Time"
 msgstr ""
 
@@ -124,7 +123,7 @@ msgstr ""
 msgid "Destinations"
 msgstr ""
 
-#: findmefollow.i18n.php:20
+#: findmefollow.i18n.php:18
 msgid "Disable Follow Me Upon Creation"
 msgstr ""
 
@@ -187,6 +186,7 @@ msgstr ""
 msgid "Find Me/Follow Me Has Been Updated!"
 msgstr ""
 
+#: findmefollow.i18n.php:34
 #: install.php:5
 msgid "Findme Follow Toggle"
 msgstr ""
@@ -235,11 +235,7 @@ msgstr ""
 msgid "Follow Me List"
 msgstr ""
 
-#: findmefollow.i18n.php:16
-#: findmefollow.i18n.php:22
-#: findmefollow.i18n.php:28
-#: findmefollow.i18n.php:34
-#: findmefollow.i18n.php:40
+#: findmefollow.i18n.php:14
 msgid "Follow Me Module"
 msgstr ""
 
@@ -534,19 +530,19 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: findmefollow.i18n.php:36
+#: findmefollow.i18n.php:28
 msgid ""
 "The default Initial Ring Time for a Follow Me set upon creation and used if "
 "auto-created with a new extension."
 msgstr ""
 
-#: findmefollow.i18n.php:42
+#: findmefollow.i18n.php:32
 msgid ""
 "The default Ring Strategy selected for a Follow Me set upon creation and "
 "used if auto-created with an extension."
 msgstr ""
 
-#: findmefollow.i18n.php:30
+#: findmefollow.i18n.php:24
 msgid ""
 "The default Ring Time for a Follow Me set upon creation and used if auto-"
 "created with a new extension."
@@ -556,7 +552,7 @@ msgstr ""
 msgid "The number users will dial to ring extensions in this Followme group"
 msgstr ""
 
-#: findmefollow.i18n.php:24
+#: findmefollow.i18n.php:20
 msgid "This is the default value for the Follow Me "
 msgstr ""
 
@@ -643,7 +639,7 @@ msgstr ""
 msgid "We received and sent your request but something failed"
 msgstr ""
 
-#: findmefollow.i18n.php:18
+#: findmefollow.i18n.php:16
 msgid ""
 "When creating a new user or extension, setting this to true will "
 "automatically create a new Follow Me for that user using the default "

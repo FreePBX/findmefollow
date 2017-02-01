@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-18 14:26-0800\n"
+"POT-Creation-Date: 2017-01-31 16:59-0800\n"
 "PO-Revision-Date: 2015-05-01 13:02+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -43,7 +43,7 @@ msgstr "Всегда передавать фиксированное значе�
 msgid "Announcement"
 msgstr "Приветствие"
 
-#: findmefollow.i18n.php:6 findmefollow.i18n.php:12
+#: findmefollow.i18n.php:6
 msgid "Applications"
 msgstr "Приложения"
 
@@ -90,7 +90,7 @@ msgstr "Изменять конфигурацию внешнего Caller ID"
 msgid "Confirm Calls"
 msgstr "Подтверждать вызовы"
 
-#: findmefollow.i18n.php:14
+#: findmefollow.i18n.php:12
 msgid "Create Follow Me at Extension Creation Time"
 msgstr "Создать Следуйте сюда во время создания внутреннего номера"
 
@@ -99,15 +99,15 @@ msgstr "Создать Следуйте сюда во время создани�
 msgid "Default"
 msgstr "По умолчанию"
 
-#: findmefollow.i18n.php:32
+#: findmefollow.i18n.php:26
 msgid "Default Follow Me Initial Ring Time"
 msgstr "Начальное время звонка по умолчанию для Следуйте сюда"
 
-#: findmefollow.i18n.php:38
+#: findmefollow.i18n.php:30
 msgid "Default Follow Me Ring Strategy"
 msgstr "Стратегия звонка Следуйте сюда по умолчанию"
 
-#: findmefollow.i18n.php:26
+#: findmefollow.i18n.php:22
 msgid "Default Follow Me Ring Time"
 msgstr "Время звонка 'Следуйте сюда' по умолчанию"
 
@@ -119,7 +119,7 @@ msgstr "Назначение если нет ответа"
 msgid "Destinations"
 msgstr "Назначения"
 
-#: findmefollow.i18n.php:20
+#: findmefollow.i18n.php:18
 msgid "Disable Follow Me Upon Creation"
 msgstr ""
 "Отключить создание Следуйте сюда при создании пользователя/внутреннего номера"
@@ -193,7 +193,7 @@ msgstr "Найти меня/Следуйте сюда"
 msgid "Find Me/Follow Me Has Been Updated!"
 msgstr "Найти меня/Следуйте сюда был обновлен!"
 
-#: install.php:5
+#: findmefollow.i18n.php:34 install.php:5
 msgid "Findme Follow Toggle"
 msgstr "Переключение Найти меня тут"
 
@@ -242,8 +242,7 @@ msgstr ""
 msgid "Follow Me List"
 msgstr "Список Следуйте сюда"
 
-#: findmefollow.i18n.php:16 findmefollow.i18n.php:22 findmefollow.i18n.php:28
-#: findmefollow.i18n.php:34 findmefollow.i18n.php:40
+#: findmefollow.i18n.php:14
 msgid "Follow Me Module"
 msgstr "Модуль Следуйте сюда"
 
@@ -555,7 +554,7 @@ msgstr "Секунд"
 msgid "Submit"
 msgstr "Подтвердить"
 
-#: findmefollow.i18n.php:36
+#: findmefollow.i18n.php:28
 msgid ""
 "The default Initial Ring Time for a Follow Me set upon creation and used if "
 "auto-created with a new extension."
@@ -563,7 +562,7 @@ msgstr ""
 "Установка времени начального звонка для Следуйте сюда, используется если "
 "создается автоматически при создании нового внутреннего номера."
 
-#: findmefollow.i18n.php:42
+#: findmefollow.i18n.php:32
 msgid ""
 "The default Ring Strategy selected for a Follow Me set upon creation and "
 "used if auto-created with an extension."
@@ -572,7 +571,7 @@ msgstr ""
 "создания и используется если Следуйте сюда создается автоматически с "
 "внутренним номером."
 
-#: findmefollow.i18n.php:30
+#: findmefollow.i18n.php:24
 msgid ""
 "The default Ring Time for a Follow Me set upon creation and used if auto-"
 "created with a new extension."
@@ -586,7 +585,7 @@ msgstr ""
 "Определённое количество пользователей будет набирать внутренние номера в "
 "этой группе \"СледуйтеСюда\""
 
-#: findmefollow.i18n.php:24
+#: findmefollow.i18n.php:20
 msgid "This is the default value for the Follow Me "
 msgstr "Это значение по умолчанию для Следуйте сюда "
 
@@ -681,7 +680,7 @@ msgstr "Внимание! Внутренний номер"
 msgid "We received and sent your request but something failed"
 msgstr "Вы получили и передали ваш запрос, но произошла ошибка"
 
-#: findmefollow.i18n.php:18
+#: findmefollow.i18n.php:16
 msgid ""
 "When creating a new user or extension, setting this to true will "
 "automatically create a new Follow Me for that user using the default "

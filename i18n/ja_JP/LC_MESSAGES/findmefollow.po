@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-18 14:26-0800\n"
+"POT-Creation-Date: 2017-01-31 16:59-0800\n"
 "PO-Revision-Date: 2014-02-21 03:21+0200\n"
 "Last-Translator: Kenichi Fukaumi <k.fukaumi@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/findmefollow/"
@@ -69,7 +69,7 @@ msgstr "常に以下の固定のCID値を渡す。"
 msgid "Announcement"
 msgstr ""
 
-#: findmefollow.i18n.php:6 findmefollow.i18n.php:12
+#: findmefollow.i18n.php:6
 msgid "Applications"
 msgstr "アプリケーション"
 
@@ -114,7 +114,7 @@ msgstr "外部CID設定変更"
 msgid "Confirm Calls"
 msgstr "コールを確認"
 
-#: findmefollow.i18n.php:14
+#: findmefollow.i18n.php:12
 msgid "Create Follow Me at Extension Creation Time"
 msgstr "内線作成時にフォローミーを作成する"
 
@@ -123,15 +123,15 @@ msgstr "内線作成時にフォローミーを作成する"
 msgid "Default"
 msgstr "デフォルト"
 
-#: findmefollow.i18n.php:32
+#: findmefollow.i18n.php:26
 msgid "Default Follow Me Initial Ring Time"
 msgstr "フォローミーのデフォルト初期呼出時間"
 
-#: findmefollow.i18n.php:38
+#: findmefollow.i18n.php:30
 msgid "Default Follow Me Ring Strategy"
 msgstr "デフォルトのフォローミールール"
 
-#: findmefollow.i18n.php:26
+#: findmefollow.i18n.php:22
 msgid "Default Follow Me Ring Time"
 msgstr "フォローミーのデフォルト呼び出し時間"
 
@@ -143,7 +143,7 @@ msgstr "応答なし時の宛先"
 msgid "Destinations"
 msgstr ""
 
-#: findmefollow.i18n.php:20
+#: findmefollow.i18n.php:18
 msgid "Disable Follow Me Upon Creation"
 msgstr "作成時にフォローミーを無効にする。"
 
@@ -208,7 +208,7 @@ msgstr ""
 msgid "Find Me/Follow Me Has Been Updated!"
 msgstr ""
 
-#: install.php:5
+#: findmefollow.i18n.php:34 install.php:5
 msgid "Findme Follow Toggle"
 msgstr "ファインドミーフォロー切り替え"
 
@@ -252,8 +252,7 @@ msgstr ""
 msgid "Follow Me List"
 msgstr ""
 
-#: findmefollow.i18n.php:16 findmefollow.i18n.php:22 findmefollow.i18n.php:28
-#: findmefollow.i18n.php:34 findmefollow.i18n.php:40
+#: findmefollow.i18n.php:14
 msgid "Follow Me Module"
 msgstr "フォローミーモジュール"
 
@@ -546,7 +545,7 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: findmefollow.i18n.php:36
+#: findmefollow.i18n.php:28
 msgid ""
 "The default Initial Ring Time for a Follow Me set upon creation and used if "
 "auto-created with a new extension."
@@ -554,7 +553,7 @@ msgstr ""
 "内線を新規作成時に自動作成された場合に作成され、設定、使用されるフォローミー"
 "のデフォルトの初期呼出時間。"
 
-#: findmefollow.i18n.php:42
+#: findmefollow.i18n.php:32
 msgid ""
 "The default Ring Strategy selected for a Follow Me set upon creation and "
 "used if auto-created with an extension."
@@ -562,7 +561,7 @@ msgstr ""
 "作成時に設定する、フォローミーのデフォルトのリングルール。新規内線と同時に作"
 "成された場合は、このルールを使用します。"
 
-#: findmefollow.i18n.php:30
+#: findmefollow.i18n.php:24
 msgid ""
 "The default Ring Time for a Follow Me set upon creation and used if auto-"
 "created with a new extension."
@@ -574,7 +573,7 @@ msgstr ""
 msgid "The number users will dial to ring extensions in this Followme group"
 msgstr ""
 
-#: findmefollow.i18n.php:24
+#: findmefollow.i18n.php:20
 msgid "This is the default value for the Follow Me "
 msgstr "フォローミーのデフォルト値です。"
 
@@ -666,7 +665,7 @@ msgstr "警告! 内線"
 msgid "We received and sent your request but something failed"
 msgstr ""
 
-#: findmefollow.i18n.php:18
+#: findmefollow.i18n.php:16
 msgid ""
 "When creating a new user or extension, setting this to true will "
 "automatically create a new Follow Me for that user using the default "

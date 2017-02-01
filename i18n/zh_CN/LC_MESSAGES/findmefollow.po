@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-18 14:26-0800\n"
+"POT-Creation-Date: 2017-01-31 16:59-0800\n"
 "PO-Revision-Date: 2015-10-15 09:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -42,7 +42,7 @@ msgstr "总是传输以下固定CID"
 msgid "Announcement"
 msgstr "播报"
 
-#: findmefollow.i18n.php:6 findmefollow.i18n.php:12
+#: findmefollow.i18n.php:6
 msgid "Applications"
 msgstr "应用"
 
@@ -87,7 +87,7 @@ msgstr "修改外部CID 设置"
 msgid "Confirm Calls"
 msgstr "呼叫确认"
 
-#: findmefollow.i18n.php:14
+#: findmefollow.i18n.php:12
 msgid "Create Follow Me at Extension Creation Time"
 msgstr ""
 
@@ -96,15 +96,15 @@ msgstr ""
 msgid "Default"
 msgstr "默认"
 
-#: findmefollow.i18n.php:32
+#: findmefollow.i18n.php:26
 msgid "Default Follow Me Initial Ring Time"
 msgstr ""
 
-#: findmefollow.i18n.php:38
+#: findmefollow.i18n.php:30
 msgid "Default Follow Me Ring Strategy"
 msgstr ""
 
-#: findmefollow.i18n.php:26
+#: findmefollow.i18n.php:22
 msgid "Default Follow Me Ring Time"
 msgstr ""
 
@@ -116,7 +116,7 @@ msgstr "无人接听时的目的地"
 msgid "Destinations"
 msgstr "目的地"
 
-#: findmefollow.i18n.php:20
+#: findmefollow.i18n.php:18
 msgid "Disable Follow Me Upon Creation"
 msgstr ""
 
@@ -179,7 +179,7 @@ msgstr "分机随行"
 msgid "Find Me/Follow Me Has Been Updated!"
 msgstr "分机随行已更新"
 
-#: install.php:5
+#: findmefollow.i18n.php:34 install.php:5
 msgid "Findme Follow Toggle"
 msgstr "切换“跟我来”"
 
@@ -220,8 +220,7 @@ msgstr ""
 msgid "Follow Me List"
 msgstr ""
 
-#: findmefollow.i18n.php:16 findmefollow.i18n.php:22 findmefollow.i18n.php:28
-#: findmefollow.i18n.php:34 findmefollow.i18n.php:40
+#: findmefollow.i18n.php:14
 msgid "Follow Me Module"
 msgstr ""
 
@@ -503,19 +502,19 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: findmefollow.i18n.php:36
+#: findmefollow.i18n.php:28
 msgid ""
 "The default Initial Ring Time for a Follow Me set upon creation and used if "
 "auto-created with a new extension."
 msgstr ""
 
-#: findmefollow.i18n.php:42
+#: findmefollow.i18n.php:32
 msgid ""
 "The default Ring Strategy selected for a Follow Me set upon creation and "
 "used if auto-created with an extension."
 msgstr ""
 
-#: findmefollow.i18n.php:30
+#: findmefollow.i18n.php:24
 msgid ""
 "The default Ring Time for a Follow Me set upon creation and used if auto-"
 "created with a new extension."
@@ -525,7 +524,7 @@ msgstr ""
 msgid "The number users will dial to ring extensions in this Followme group"
 msgstr ""
 
-#: findmefollow.i18n.php:24
+#: findmefollow.i18n.php:20
 msgid "This is the default value for the Follow Me "
 msgstr ""
 
@@ -606,7 +605,7 @@ msgstr "警告！你的帐户无法使用分机"
 msgid "We received and sent your request but something failed"
 msgstr ""
 
-#: findmefollow.i18n.php:18
+#: findmefollow.i18n.php:16
 msgid ""
 "When creating a new user or extension, setting this to true will "
 "automatically create a new Follow Me for that user using the default "
