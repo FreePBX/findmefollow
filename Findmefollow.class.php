@@ -635,6 +635,7 @@ class Findmefollow implements \BMO {
 			$final[$key] = isset($data[$key]) ? $data[$key] : $val;
 		}
 		extract($final);
+
 		$astman = $this->FreePBX->astman;
 		$dbh = $this->db;
 		$conf = $this->FreePBX->Config();
@@ -673,8 +674,15 @@ class Findmefollow implements \BMO {
 		if($annmsg_id == ''){
 			$annmsg_id = NULL;
 		}
+		if ($remotealert_id == '') {
+			$remotealert_id = NULL;
+		}
+		if ($toolate_id == '') {
+			$toolate_id = NULL;
+		}
 		$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, calendar_enable, calendar_id, calendar_group_id, calendar_match, rvolume) VALUES (:grpnum, :strategy, :grptime, :grppre, :grplist, :annmsg_id, :postdest, :dring, :needsconf, :remotealert_id, :toolate_id, :ringing, :pre_ring, :calendar_enable, :calendar_id, :calendar_group_id, :calendar_match, :rvolume)";
 		$insertarr = array(':grpnum' => $grpnum , ':strategy' => $strategy , ':grptime' => $grptime , ':grppre' => $grppre , ':grplist' => $grplist , ':annmsg_id' => $annmsg_id , ':postdest' => $postdest , ':dring' => $dring , ':needsconf' => $needsconf , ':remotealert_id' => $remotealert_id , ':toolate_id' => $toolate_id , ':ringing' => $ringing , ':pre_ring' => $pre_ring, ':calendar_enable' => $calendar_enable, ':calendar_group_id' => $calendar_group_id, ':calendar_id' => $calendar_id, ':calendar_match' => $calendar_match, ':rvolume' => $rvolume);
+
 		$stmt = $dbh->prepare($sql);
 		$results = $stmt->execute($insertarr);
 		if ($astman) {
@@ -946,7 +954,10 @@ class Findmefollow implements \BMO {
 					case 'grpnum':
 						break;
 					case 'ddial':
-						$psettings['findmefollow_' . 'enabled'] = ($value) ? 'yes' : '';
+						//reversy and backwards yeah. I know.
+						//ITS THE CODE FROM 7 YEARS AGO
+						//:'(
+						$psettings['findmefollow_' . 'enabled'] = (!empty($value)) ? '' : 'yes';
 						break;
 					default:
 						$psettings['findmefollow_' . $key] = $value;

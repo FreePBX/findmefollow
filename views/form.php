@@ -10,7 +10,7 @@ if ($extdisplay != "") {
 	// We need to populate grplist with the existing extension list.
 	$extdisplay = ltrim($extdisplay,'GRP-');
 	$followme_exten = $extdisplay;
-	$thisgrp = findmefollow_get($extdisplay, 1);
+	$thisgrp = FreePBX::Findmefollow()->get($extdisplay, 1);
 	$grpliststr = isset($thisgrp['grplist']) ? $thisgrp['grplist'] : '';
 	$grplist = explode("-", $grpliststr);
 	$strategy    = isset($thisgrp['strategy'])    ? $thisgrp['strategy']    : '';

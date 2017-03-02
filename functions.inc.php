@@ -363,21 +363,6 @@ function findmefollow_allusers() {
 		return $users;
 }
 
-// Only check astdb if check_astdb is not 0. For some reason, this fails if the asterisk manager code
-// is included (executed) by all calls to this function. This results in silently not generating the
-// extensions_additional.conf file. page.findmefollow.php does set it to 1 which means that when running
-// the GUI, any changes not reflected in SQL will be detected and written back to SQL so that they are
-// in sync. Ideally, anything that changes the astdb should change SQL. (in some ways, these should both
-// not be here but ...
-//
-// Need to go back and confirm at some point that the $check_astdb error is still there and deal with it.
-// as variables like $ddial get introduced to only be in astdb, the result array will not include them
-// if not able to get to astdb. (I suspect in 2.2 and beyond this may all be fixed).
-//
-function findmefollow_get($grpnum, $check_astdb=0) {
-	return FreePBX::Findmefollow()->get($grpnum, $check_astdb);
-}
-
 function findmefollow_users_configpageinit($pagename) {
 	global $currentcomponent;
 
@@ -415,7 +400,7 @@ function findmefollow_users_configpageload($pagename) {
 	$extdisplay		= isset($_REQUEST['extdisplay'])	? $_REQUEST['extdisplay']		: null;
 	$extension		= isset($_REQUEST['extension'])		? $_REQUEST['extension']		: null;
 	$tech_hardware	= isset($_REQUEST['tech_hardware'])	? $_REQUEST['tech_hardware']	: null;
-	$fmfm = (isset($extdisplay) && trim($extdisplay) != '') ? findmefollow_get($extdisplay, 1) : array();
+	$fmfm = (isset($extdisplay) && trim($extdisplay) != '') ? FreePBX::Findmefollow()->get($extdisplay, 1) : array();
 
 	if(empty($fmfm) && (!isset($extdisplay) || trim($extdisplay) == '')) {
 		$fmfm = array(
@@ -1125,7 +1110,7 @@ function findmefollow_getdestinfo($dest) {
 	if (substr(trim($dest),0,17) == 'ext-findmefollow,' || substr(trim($dest),0,10) == 'ext-local,' && substr(trim($dest),-4) == 'dest') {
 		$grp = explode(',',$dest);
 		$grp = ltrim($grp[1],'FM');
-		$thisgrp = findmefollow_get($grp);
+		$thisgrp = FreePBX::Findmefollow()->get($grp);
 		if (empty($thisgrp)) {
 			return array();
 		} else {
