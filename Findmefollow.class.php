@@ -156,7 +156,7 @@ class Findmefollow implements \BMO {
 			if(!function_exists('findmefollow_destinations')) {
 				$this->FreePBX->Modules->loadFunctionsInc('findmefollow');
 			}
-			findmefollow_del($extension);
+			$this->del($extension);
 		}
 	}
 
