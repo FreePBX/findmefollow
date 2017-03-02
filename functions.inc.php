@@ -87,15 +87,17 @@ function findmefollow_get_config($engine) {
 				$grppre = (isset($grp['grppre'])?$grp['grppre']:'');
 				$annmsg_id = $grp['annmsg_id'];
 				$dring = $grp['dring'];
-				$user = FreePBX::Userman()->getUserByDefaultExtension('grpnum');
-				$timezone = (isset($user['timezone']) && !empty($user['timezone']))?$user['timezone']:null;
+				$user = FreePBX::Userman()->getUserByDefaultExtension($grpnum);
+				$timezone = (isset($user['timezone']) && !empty($user['timezone']))?$user['timezone']:FreePBX::View()->getTimezone();
 				$rvolume = (isset($grp['rvolume'])?$grp['rvolume']:'');
 				$needsconf = $grp['needsconf'];
 				$remotealert_id = $grp['remotealert_id'];
 				$toolate_id = $grp['toolate_id'];
 				$ringing = $grp['ringing'];
 				$pre_ring = $grp['pre_ring'];
+				$calendar_enable = !empty($grp['calendar_enable']) ?true:false;
 				$calendar_id = !empty($grp['calendar_id'])?$grp['calendar_id']:false;
+				$calendar_group_id = !empty($grp['calendar_group_id'])?$grp['calendar_group_id']:false;
 				$calendar_match = !empty($grp['calendar_match'])?$grp['calendar_match']:'yes';
 
 				$astman->database_put("AMPUSER",$grpnum."/followme/grppre",isset($grppre)?$grppre:'');
@@ -124,8 +126,13 @@ function findmefollow_get_config($engine) {
 				//Dont try to make them dynamic, we really can't do that
 				$len=strlen($grpnum)+4;
 				$ext->add($grpcontextname, "_RG-".$grpnum.".", '', new ext_macro('dial','${DB(AMPUSER/'.$grpnum.'/followme/grptime)},' .$dialopts. 'M(confirm^'.$remotealert.'^'.$toolate.'^'.$grpnum.'),${EXTEN:'.$len.'}'),1,1);
-				if($calendar_id !== false && $iscal){
-					$ext->add($contextname, $grpnum, '', FreePBX::Calendar()->ext_calendar_group_variable($calendar_id,$timezone,true));
+				if($calendar_enable && $iscal && (!empty($calendar_id) || !empty($calendar_group_id))){
+					if(!empty($calendar_group_id)) {
+						$ext->add($contextname, $grpnum, '', FreePBX::Calendar()->ext_calendar_group_variable($calendar_group_id,$timezone,true));
+					} else {
+						$ext->add($contextname, $grpnum, '', FreePBX::Calendar()->ext_calendar_variable($calendar_id,$timezone,true));
+					}
+
 					$ext->add($contextname, $grpnum, '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/${EXTEN}/followme/ddial)} != 1 | "${DB(AMPUSER/${EXTEN}/followme/ddial)}" = "EXTENSION"]', 'ext-local,${EXTEN},1'));
 					if($calendar_match === 'yes'){
 						$ext->add($contextname, $grpnum, '', new ext_gotoif('$[${CALENDAR} = 0]', 'ext-local,${EXTEN},1','followme-check,${EXTEN},1'));
@@ -298,14 +305,6 @@ function findmefollow_get_config($engine) {
 
 		break;
 	}
-}
-
-function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg_id='',$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid='default',$fixedcid='',$calendar_id='',$calendar_match='yes',$rvolume='') {
-	return FreePBX::Findmefollow()->add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid,$calendar_id,$calendar_match,$rvolume);
-}
-
-function findmefollow_del($grpnum) {
-	return FreePBX::Findmefollow()->del($grpnum);
 }
 
 function findmefollow_full_list() {
@@ -532,6 +531,123 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 		"pairedvalues" => false
 	);
 	$currentcomponent->addguielem($section, new gui_radio(array_merge($guidefaults,$el)), $category);
+
+	if(FreePBX::Modules()->checkStatus('calendar')) {
+		$el = array(
+			"elemname" => "fmfm_calendar_enable",
+			"prompttext" => _('Enable Calendar Matching'),
+			"helptext" => _('Link this Follow Me to a Calendar or Calendar group to automatically Enable/Disable based on a schedule'),
+			"currentvalue" => $fmfm['calendar_enable'],
+			"valarray" => array(
+				array(
+					"value" => "1",
+					"text" => _("Yes")
+				),
+				array(
+					"value" => "0",
+					"text" => _("No")
+				)
+			),
+			"jsonclick" => "frm_${display}_fmfmCalChange(this)",
+			"class" => "",
+			"disable" => "",
+			"pairedvalues" => false
+		);
+		$currentcomponent->addguielem($section, new gui_radio(array_merge($guidefaults,$el)), $category);
+
+		$calendars = FreePBX::Calendar()->listCalendars();
+		$selects = array(
+			array(
+				"text" => _("--Not Calendar Controlled--"),
+				"value" => ""
+			)
+		);
+		foreach($calendars as $id => $cal) {
+			$selects[] = array(
+				"text" => $cal['name'],
+				"value" => $id
+			);
+		}
+		$el = array(
+			"elemname" => "fmfm_calendar_id",
+			"prompttext" => _('Calendar'),
+			"helptext" => _("If set the followme will only be active when the calendar has an event."),
+			"currentvalue" => $fmfm['calendar_id'],
+			"valarray" => $selects,
+			"class" => "calendar-element",
+			"canbeempty" => false,
+			"jsvalidation" => "",
+			"disable" => !$fmfm['calendar_enable'],
+			"onchange" => "frm_${display}_fmfmCalSelect(this)"
+		);
+		$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)), $category);
+
+		$groups = FreePBX::Calendar()->listGroups();
+		$selects = array(
+			array(
+				"text" => _("--Not Calendar Group Controlled--"),
+				"value" => ""
+			)
+		);
+		foreach($groups as $id => $gr) {
+			$selects[] = array(
+				"text" => $gr['name'],
+				"value" => $id
+			);
+		}
+		$el = array(
+			"elemname" => "fmfm_calendar_group_id",
+			"prompttext" => _('Calendar Group'),
+			"helptext" => _("If set the followme will only be active when the calendar group has an event."),
+			"currentvalue" => $fmfm['calendar_group_id'],
+			"valarray" => $selects,
+			"class" => "calendar-element",
+			"canbeempty" => false,
+			"jsvalidation" => "",
+			"disable" => !$fmfm['calendar_enable'],
+			"onchange" => "frm_${display}_fmfmCalSelect(this)"
+		);
+		$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)), $category);
+
+		$el = array(
+			"elemname" => "fmfm_calendar_match",
+			"prompttext" => _('Calendar Match Inverse'),
+			"helptext" => _('When set to yes follow me will match (be enabled) whenever there is an event. When set to no followme will match (be enabled) whenever no event is present'),
+			"currentvalue" => $fmfm['calendar_match'],
+			"valarray" => array(
+				array(
+					"value" => "yes",
+					"text" => _("Yes")
+				),
+				array(
+					"value" => "no",
+					"text" => _("No")
+				)
+			),
+			"jsonclick" => "",
+			"class" => "calendar-element",
+			"disable" => !$fmfm['calendar_enable'],
+			"pairedvalues" => false
+		);
+		$currentcomponent->addguielem($section, new gui_radio(array_merge($guidefaults,$el)), $category);
+
+		$js = "
+			if($('#fmfm_calendar_id').val() !== '' && $('#fmfm_calendar_group_id').val() !== '') {
+				$(self).val('');
+				warnInvalid($(self),'"._("You can not set both a group and a calendar")."');
+			}
+		";
+		$currentcomponent->addjsfunc('fmfmCalSelect(self)', $js);
+
+		$js = "
+			if($(self).val() == '1') {
+				$('.calendar-element').prop('disabled',false);
+			} else {
+				$('.calendar-element').prop('disabled',true);
+			}
+		";
+		$currentcomponent->addjsfunc('fmfmCalChange(self)', $js);
+	}
 
 	$sixtey = array();
 	for ($i=0; $i <= 60; $i++) {
@@ -967,14 +1083,10 @@ function findmefollow_users_configprocess() {
 					//dont let group list be empty. ever.
 					$settings['grplist'] = empty($settings['grplist']) ? $extdisplay : $settings['grplist'];
 					$settings['grplist'] = explode("\n",$settings['grplist']);
-					findmefollow_add($extdisplay, $settings['strategy'], $settings['grptime'],
-					$settings['grplist'], $settings['postdest'], $settings['grppre'], $settings['annmsg_id'], $settings['dring'],
-					$settings['needsconf'], $settings['remotealert_id'], $settings['toolate_id'], $settings['ringing'], $settings['pre_ring'],
-					$settings['ddial'], $settings['changecid'], $settings['fixedcid'], $settings['rvolume']);
+
+					FreePBX::Findmefollow()->add($extdisplay,$settings);
 				} elseif($amp_conf['FOLLOWME_AUTO_CREATE']) {
-					$ddial = $amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '';
-					findmefollow_add($extdisplay, $amp_conf['FOLLOWME_RG_STRATEGY'], $amp_conf['FOLLOWME_TIME'],
-					$extdisplay, 'ext-local,'.$extdisplay.',dest', "", "", "", "", "", "","", $amp_conf['FOLLOWME_PRERING'], $ddial,'default','','');
+					FreePBX::Findmefollow()->add($extdisplay);
 				}
 			}
 		break;
@@ -983,25 +1095,10 @@ function findmefollow_users_configprocess() {
 				//Dont let group list be empty. Ever
 				$settings['grplist'] = empty($settings['grplist']) ? $extdisplay : $settings['grplist'];
 				$settings['grplist'] = explode("\n",$settings['grplist']);
-				findmefollow_update($extdisplay,$settings);
+				FreePBX::Findmefollow()->update($extdisplay,$settings);
 			}
 		break;
-		case "del":
-			//Note: dont need to run this as it's run through a process hook now
-			//findmefollow_del($extdisplay);
-		break;
 	}
-}
-
-function findmefollow_update($grpnum,$settings) {
-	$old = findmefollow_get($grpnum);
-	if(!empty($old)) {
-		findmefollow_del($grpnum);
-		$old['grplist'] = explode("-",$old['grplist']);
-		$settings = array_merge($old,$settings);
-	}
-	extract($settings);
-	findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid,$rvolume);
 }
 
 function findmefollow_configpageinit($dispnum) {

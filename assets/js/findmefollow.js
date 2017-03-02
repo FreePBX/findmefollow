@@ -55,25 +55,38 @@ $(document).ready(function(){
 	});
 });
 $(document).ready(function(){
-$(document).on('change', "[id^='fmtoggle']",function(){
-	var fmstate = "";
-	var exten = $(this).data('for');
-	if($(this).val() == "CHECKED"){
-		fmstate = "disable";
-	}else{
-		fmstate = "enable";
-	}
-	$.get("ajax.php?module=findmefollow&command=toggleFM&extdisplay="+exten+"&state="+fmstate, function(data, status){
-		if(data.toggle == 'received'){
-			if(data.return){
-				fpbxToast('Followme '+fmstate+'d',exten,'success');
-			}else{
-				fpbxToast(_('We received and sent your request but something failed'),exten,'warning');
-			}
+	$(document).on('change', "[id^='fmtoggle']",function(){
+		var fmstate = "";
+		var exten = $(this).data('for');
+		if($(this).val() == "CHECKED"){
+			fmstate = "disable";
 		}else{
-			fpbxToast(_('Request not received'),_('Error'),'error');
+			fmstate = "enable";
+		}
+		$.get("ajax.php?module=findmefollow&command=toggleFM&extdisplay="+exten+"&state="+fmstate, function(data, status){
+			if(data.toggle == 'received'){
+				if(data.return){
+					fpbxToast('Followme '+fmstate+'d',exten,'success');
+				}else{
+					fpbxToast(_('We received and sent your request but something failed'),exten,'warning');
+				}
+			}else{
+				fpbxToast(_('Request not received'),_('Error'),'error');
+			}
+		});
+	});
+	$("input[name=calendar_enable]").change(function(){
+		if($(this).val() == "1") {
+			$(".calendar").removeClass("hidden");
+		} else {
+			$(".calendar").addClass("hidden");
 		}
 	});
+	$("#calendar_id, #calendar_group_id").change(function() {
+		if($("#calendar_id").val() !== "" && $("#calendar_group_id").val() !== "") {
+			$(this).val("");
+			warnInvalid($(this),_("You cant set both a group and a calendar"));
+		}
 	});
 });
 

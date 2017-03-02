@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>14.0.1.3</version>
+	<version>14.0.1.4</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*14.0.1.4* Calendar fixes
 		*14.0.1.3* Astman during install
 		*14.0.1.2* Update installer for new database definitions
 		*14.0.1* Merge from 13
@@ -55,7 +56,9 @@
 	    <field name="toolate_id" type="integer" notnull="false"/>
 	    <field name="pre_ring" type="smallint" default="0"/>
 	    <field name="ringing" type="string" length="80" notnull="false"/>
+			<field name="calendar_enable" type="boolean" default="0" notnull="false"/>
 	    <field name="calendar_id" type="string" length="80" default='' notnull="false"/>
+			<field name="calendar_group_id" type="string" length="80" default='' notnull="false"/>
 	    <field name="calendar_match" type="string" length="4" default='yes' notnull="false"/>
 	  </table>
 	</database>

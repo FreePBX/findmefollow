@@ -4,6 +4,7 @@
 //
 extract($request);
 $groups = (FreePBX::Modules()->checkStatus('calendar'))?FreePBX::Calendar()->listGroups():array();
+$calendars = (FreePBX::Modules()->checkStatus('calendar'))?FreePBX::Calendar()->listCalendars():array();
 
 if ($extdisplay != "") {
 	// We need to populate grplist with the existing extension list.
@@ -25,7 +26,9 @@ if ($extdisplay != "") {
 	$ddial       = isset($thisgrp['ddial'])       ? $thisgrp['ddial']       : '';
 	$changecid   = isset($thisgrp['changecid'])   ? $thisgrp['changecid']   : 'default';
 	$fixedcid    = isset($thisgrp['fixedcid'])    ? $thisgrp['fixedcid']    : '';
+	$calendar_enable    = isset($thisgrp['calendar_enable'])    ? $thisgrp['calendar_enable']    : '0';
 	$calendar_id    = isset($thisgrp['calendar_id'])    ? $thisgrp['calendar_id']    : '';
+	$calendar_group_id    = isset($thisgrp['calendar_group_id'])    ? $thisgrp['calendar_group_id']    : '';
 	$calendar_match    = isset($thisgrp['calendar_match'])    ? $thisgrp['calendar_match']    : 'yes';
 	$rvolume     = isset($thisgrp['rvolume'])     ? $thisgrp['rvolume']     : '';
 	$goto = isset($thisgrp['postdest'])?$thisgrp['postdest']:((isset($thisgrp['voicemail']) && $thisgrp['voicemail'] != 'novm')?"ext-local,vmu$extdisplay,1":'');
@@ -281,19 +284,73 @@ if (empty($goto)) {
 	</div>
 </div>
 <!--END Enable Followme-->
-<!--Calendar-->
 <div class="element-container <?php echo FreePBX::Modules()->checkStatus('calendar')?'':'hidden'?>">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="form-group">
+          <div class="col-md-3">
+            <label class="control-label" for="calendar_enable"><?php echo _("Enable Calendar Matching") ?></label>
+            <i class="fa fa-question-circle fpbx-help-icon" data-for="calendar_enable"></i>
+          </div>
+          <div class="col-md-9 radioset">
+            <input type="radio" name="calendar_enable" id="calendar_enableyes" value="1" <?php echo ($calendar_enable == "1")?"CHECKED":"" ?>>
+            <label for="calendar_enableyes"><?php echo _("Yes");?></label>
+            <input type="radio" name="calendar_enable" id="calendar_enableno" value = "0" <?php echo ($calendar_enable == "0")?"CHECKED":"" ?>>
+            <label for="calendar_enableno"><?php echo _("No");?></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <span id="calendar_enable-help" class="help-block fpbx-help-block"><?php echo _("Link this Follow Me to a Calendar or Calendar group to automatically Enable/Disable based on a schedule")?></span>
+    </div>
+  </div>
+</div>
+<!--Calendar-->
+<div class="element-container calendar <?php echo FreePBX::Modules()->checkStatus('calendar') && $calendar_enable ?'':'hidden'?>">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="row">
 				<div class="form-group">
 					<div class="col-md-3">
-						<label class="control-label" for="calendar_id"><?php echo _("Calendar Group") ?></label>
+						<label class="control-label" for="calendar_id"><?php echo _("Calendar") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="calendar_id"></i>
 					</div>
 					<div class="col-md-9">
 						<select class="form-control" id="calendar_id" name="calendar_id">
-							<option><?php echo _("--Not Calendar Controlled--")?></option>
+							<option value=""><?php echo _("--Not Calendar Controlled--")?></option>
+							<?php foreach($calendars as $id => $calendar) { ?>
+								<option value="<?php echo $id?>" <?php echo ($calendar_id == $id) ? "selected" : ""?>><?php echo $calendar['name']?></option>
+							<?php } ?>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="calendar_id-help" class="help-block fpbx-help-block"><?php echo _("If set the followme will only be active when the calendar has an event.")?></span>
+		</div>
+	</div>
+</div>
+<!--End Calendar-->
+<!--Calendar-->
+<div class="element-container calendar <?php echo FreePBX::Modules()->checkStatus('calendar') && $calendar_enable ?'':'hidden'?>">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="calendar_group_id"><?php echo _("Calendar Group") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="calendar_group_id"></i>
+					</div>
+					<div class="col-md-9">
+						<select class="form-control" id="calendar_group_id" name="calendar_group_id">
+							<option value=""><?php echo _("--Not Calendar Group Controlled--")?></option>
 							<?php foreach($groups as $id => $group) { ?>
 								<option value="<?php echo $id?>" <?php echo ($calendar_id == $id) ? "selected" : ""?>><?php echo $group['name']?></option>
 							<?php } ?>
@@ -305,19 +362,19 @@ if (empty($goto)) {
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<span id="calendar_id-help" class="help-block fpbx-help-block"><?php echo _("If set the followme will only be active when the calendar group returns true.")?></span>
+			<span id="calendar_group_id-help" class="help-block fpbx-help-block"><?php echo _("If set the followme will only be active when the calendar group has an event.")?></span>
 		</div>
 	</div>
 </div>
 <!--End Calendar-->
 <!--Calendar Match on Event-->
-<div class="element-container">
+<div class="element-container calendar <?php echo FreePBX::Modules()->checkStatus('calendar') && $calendar_enable ?'':'hidden'?>">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="row">
 				<div class="form-group">
 					<div class="col-md-3">
-						<label class="control-label" for="calendar_match"><?php echo _("Calendar Match on Event") ?></label>
+						<label class="control-label" for="calendar_match"><?php echo _("Calendar Match Inverse") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="calendar_match"></i>
 					</div>
 					<div class="col-md-9 radioset">
@@ -332,7 +389,7 @@ if (empty($goto)) {
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<span id="calendar_match-help" class="help-block fpbx-help-block"><?php echo _("When set to yes follow me will be enabled whenever there is an event. When set to no followme will enable if the no event is present")?></span>
+			<span id="calendar_match-help" class="help-block fpbx-help-block"><?php echo _("When set to yes follow me will match (be enabled) whenever there is an event. When set to no followme will match (be enabled) whenever no event is present")?></span>
 		</div>
 	</div>
 </div>
