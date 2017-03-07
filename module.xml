@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>13.0.38.6</version>
+	<version>13.0.38.7</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*13.0.38.7* FREEPBX-14200 Setting Ring Volume Override setting for Follow Me is ignored
 		*13.0.38.6* FREEPBX-13242 Fix bulkhandler export where enabled was inverted
 		*13.0.38.5* FREEPBX-12748 inserting '' instead of 0 or NULL
 		*13.0.38.3* Forum reported issue with get method and invalid data
