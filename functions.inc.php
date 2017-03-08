@@ -205,7 +205,7 @@ function findmefollow_get_config($engine) {
 
 			// If pre_ring is set, then ring this number of seconds prior to moving on
 			$ext->add($contextname, '_X.', 'skipdring', new ext_setvar('STRATEGY','${DB(AMPUSER/${EXTEN}/followme/strategy)}'));
-			$ext->add($contextname, '_X.', '', new ext_setvar('RVOL','${DB(AMPUSER/${EXTEN}/followme/rvolume)}'));
+			$ext->add($contextname, '_X.', '', new ext_setvar('__RVOL','${DB(AMPUSER/${EXTEN}/followme/rvolume)}'));
 			$ext->add($contextname, '_X.', '', new ext_gotoif('$["${CUT(STRATEGY,-,1)}"="ringallv2"]','skipsimple'));
 			$ext->add($contextname, '_X.', '', new ext_gotoif('$[$[ "${DB(AMPUSER/${EXTEN}/followme/prering)}" = "0" ] | $[ "${DB(AMPUSER/${EXTEN}/followme/prering)}" = "" ]] ', 'skipsimple'));
 			$ext->add($contextname, '_X.', '', new ext_macro('simple-dial','${EXTEN},${DB(AMPUSER/${EXTEN}/followme/prering)}'));
