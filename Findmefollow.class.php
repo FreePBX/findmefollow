@@ -886,7 +886,7 @@ class Findmefollow implements \BMO {
 				}
 
 				if (!empty($settings) && count($settings) > 0) {
-					$this->addSettingsById($extension, $settings);
+					$this->addSettingRow($extension, $settings);
 				}
 			}
 
@@ -896,6 +896,143 @@ class Findmefollow implements \BMO {
 
 			break;
 		}
+
+		return $ret;
+	}
+
+	function addSettingRow($grpnum,$settings) {
+		$valid = array('strategy','grptime','grppre','grplist','annmsg_id','postdest','dring','needsconf','remotealert_id','toolate_id','ringing','pre_ring','ddial','changecid','fixedcid');
+
+		$settings = array_intersect_key($settings, array_flip($valid));
+
+		if (count($settings) == 0) {
+			return false;
+		}
+
+		$ret = true;
+
+		$sql = "SELECT COUNT(*) = 0 as is_new FROM findmefollow WHERE grpnum = :grpnum";
+		$sth = $this->db->prepare($sql);
+		$sth->bindParam(":grpnum", $grpnum);
+		$sth->execute();
+		$is_new = $sth->fetch();
+		$is_new = (bool) $is_new['is_new'];
+
+		if ($is_new)
+			$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest,
+						dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring)
+					VALUES (:grpnum, :strategy, :grptime, :grppre, :grplist, :annmsg_id, :postdest,
+						:dring, :needsconf, :remotealert_id, :toolate_id, :ringing, :pre_ring);";
+		else
+			$sql = "UPDATE findmefollow SET strategy = :strategy, grptime = :grptime, grppre = :grppre, grplist = :grplist, annmsg_id = :annmsg_id,
+						postdest = :postdest, dring = :dring, needsconf = :needsconf, remotealert_id = :remotealert_id,
+						toolate_id = :toolate_id, ringing = :ringing, pre_ring = :pre_ring
+					WHERE grpnum = :grpnum";
+
+		$sth = $this->db->prepare($sql);
+		$set_keys = array();
+		$grptime_not_null = false;
+		foreach ($settings as $setting => $value) {
+			switch($setting) {
+				case 'strategy':
+					$set_keys[$setting] = $value;
+				break;
+				case 'grptime':
+					$this->setListRingTime($grpnum,$value);
+					$set_keys[$setting] = $value;
+					if (trim($value) != '')
+						$grptime_not_null = true;
+				break;
+				case 'grppre':
+					$set_keys[$setting] = $value;
+				break;
+				case 'grplist':
+					$grplist = implode("-", $value);
+					$this->setList($grpnum,$value);
+					$set_keys[$setting] = $grplist;
+				break;
+				break;
+				case 'annmsg_id':
+					$set_keys[$setting] = (int) $value;
+				break;
+				case 'postdest':
+					$set_keys[$setting] = $value;
+				break;
+				case 'dring':
+					$set_keys[$setting] = $value;
+				break;
+				case 'needsconf':
+					$val = ($value) ? 'CHECKED' : '';
+					$val = ($value) ? 'ENABLED' : 'DISABLED';
+					$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/grpconf",$val);
+					$set_keys[$setting] = $value;
+				break;
+				case 'remotealert_id':
+					$set_keys[$setting] = (int) $value;
+				break;
+				case 'toolate_id':
+					$set_keys[$setting] = (int) $value;
+				break;
+				case 'ringing':
+					$set_keys[$setting] = $value;
+				break;
+				case 'pre_ring':
+					$this->setPreRingTime($grpnum,$value);
+					$set_keys[$setting] = $value;
+				break;
+				case 'ddial':
+					//(DIRECT is enabled, EXTENSION is disabled)
+					$ddialstate = ($value) ? 'NOT_INUSE' : 'BUSY';
+					$val = ($value) ? 'EXTENSION' : 'DIRECT';
+					$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/ddial",$val);
+					if ($this->FreePBX->Config->get_conf_setting('USEDEVSTATE')) {
+						$devices = $this->FreePBX->astman->database_get("AMPUSER", $grpnum . "/device");
+						$device_arr = explode('&', $devices);
+						foreach ($device_arr as $device) {
+							$this->FreePBX->astman->set_global($this->FreePBX->Config->get_conf_setting('AST_FUNC_DEVICE_STATE') . "(Custom:FOLLOWME$device)", $ddialstate);
+						}
+					}
+					if(!$value) {
+						$sql = "INSERT INTO findmefollow (grpnum,grptime,grplist) VALUES (:grpnum,20,:grpnum)";
+						$sth2 = $this->db->prepare($sql);
+						//wrapped into a try/catch incase the find me is already defined, then we won't do the additional steps.
+						try {
+							$sth2->execute(array(':grpnum' => $grpnum));
+							//these are the additional steps
+							$this->setListRingTime($grpnum,20);
+							$this->setList($grpnum,array($grpnum));
+						} catch(\Exception $e) {}
+					}
+				break;
+				case 'changecid':
+					$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/changecid",$value);
+				break;
+				case 'fixedcid':
+					$value = preg_replace("/[^0-9\+]/" ,"", trim($value));
+					$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/fixedcid",$value);
+				break;
+				default:
+					$ret = false;
+				break;
+			}
+		}
+
+		$except = array('ddial', 'changecid', 'fixedcid');
+		foreach($valid as $key)
+		{
+			if (!in_array($key, $except) && !isset($set_keys[$key]))
+			{
+				$set_keys[$key] = null;
+			}
+		}
+		$set_keys['grpnum'] = $grpnum;
+
+		$parameters = array();
+		foreach($set_keys as $key => $value)
+			$parameters[':'.$key] = $value;
+
+		if ($grptime_not_null)
+			$sth->execute($parameters);
 
 		return $ret;
 	}
