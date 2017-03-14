@@ -388,53 +388,74 @@ class Findmefollow implements \BMO {
 
 		$ret = true;
 
-		foreach ($settings as $setting => $value) {
-			//TODO This should just be one query.
-			$sql = "INSERT INTO findmefollow (grpnum,$setting) VALUES (:grpnum,:value) ON DUPLICATE KEY UPDATE $setting = :value";
-			$sth = $this->db->prepare($sql);
+		$sql = "SELECT COUNT(*) = 0 as is_new FROM findmefollow WHERE grpnum = :grpnum";
+		$sth = $this->db->prepare($sql);
+		$sth->bindParam(":grpnum", $grpnum);
+		$sth->execute();
+		$is_new = $sth->fetch();
+		$is_new = (bool) $is_new['is_new'];
 
+		if ($is_new)
+			$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest,
+						dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring)
+					VALUES (:grpnum, :strategy, :grptime, :grppre, :grplist, :annmsg_id, :postdest,
+						:dring, :needsconf, :remotealert_id, :toolate_id, :ringing, :pre_ring);";
+		else
+			$sql = "UPDATE findmefollow SET strategy = :strategy, grptime = :grptime, grppre = :grppre, grplist = :grplist, annmsg_id = :annmsg_id,
+						postdest = :postdest, dring = :dring, needsconf = :needsconf, remotealert_id = :remotealert_id,
+						toolate_id = :toolate_id, ringing = :ringing, pre_ring = :pre_ring
+					WHERE grpnum = :grpnum";
+
+		$sth = $this->db->prepare($sql);
+		$set_keys = array();
+		$grptime_not_null = false;
+		foreach ($settings as $setting => $value) {
 			switch($setting) {
 				case 'strategy':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$set_keys[$setting] = $value;
 				break;
 				case 'grptime':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
 					$this->setListRingTime($grpnum,$value);
+					$set_keys[$setting] = $value;
+					if (trim($value) != '')
+						$grptime_not_null = true;
 				break;
 				case 'grppre':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$set_keys[$setting] = $value;
 				break;
 				case 'grplist':
+					$grplist = implode("-", $value);
 					$this->setList($grpnum,$value);
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => implode("-",$value)));
+					$set_keys[$setting] = $grplist;
+				break;
 				break;
 				case 'annmsg_id':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$set_keys[$setting] = $value;
 				break;
 				case 'postdest':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$set_keys[$setting] = $value;
 				break;
 				case 'dring':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$set_keys[$setting] = $value;
 				break;
 				case 'needsconf':
 					$val = ($value) ? 'CHECKED' : '';
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $val));
 					$val = ($value) ? 'ENABLED' : 'DISABLED';
 					$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/grpconf",$val);
+					$set_keys[$setting] = $value;
 				break;
 				case 'remotealert_id':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$set_keys[$setting] = $value;
 				break;
 				case 'toolate_id':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$set_keys[$setting] = $value;
 				break;
 				case 'ringing':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$set_keys[$setting] = $value;
 				break;
 				case 'pre_ring':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
 					$this->setPreRingTime($grpnum,$value);
+					$set_keys[$setting] = $value;
 				break;
 				case 'ddial':
 					//(DIRECT is enabled, EXTENSION is disabled)
@@ -450,10 +471,10 @@ class Findmefollow implements \BMO {
 					}
 					if(!$value) {
 						$sql = "INSERT INTO findmefollow (grpnum,grptime,grplist) VALUES (:grpnum,20,:grpnum)";
-						$sth = $this->db->prepare($sql);
+						$sth2 = $this->db->prepare($sql);
 						//wrapped into a try/catch incase the find me is already defined, then we won't do the additional steps.
 						try {
-							$sth->execute(array(':grpnum' => $grpnum));
+							$sth2->execute(array(':grpnum' => $grpnum));
 							//these are the additional steps
 							$this->setListRingTime($grpnum,20);
 							$this->setList($grpnum,array($grpnum));
@@ -472,6 +493,23 @@ class Findmefollow implements \BMO {
 				break;
 			}
 		}
+
+		$except = array('ddial', 'changecid', 'fixedcid');
+		foreach($valid as $key)
+		{
+			if (!in_array($key, $except) && !isset($set_keys[$key]))
+			{
+				$set_keys[$key] = null;
+			}
+		}
+		$set_keys['grpnum'] = $grpnum;
+
+		$parameters = array();
+		foreach($set_keys as $key => $value)
+			$parameters[':'.$key] = $value;
+
+		if ($grptime_not_null)
+			$sth->execute($parameters);
 
 		return $ret;
 	}
