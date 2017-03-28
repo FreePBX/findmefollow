@@ -63,10 +63,10 @@ var FindmefollowC = UCPMC.extend({
 			self.saveSettings(extension, {key: $(this).prop('name'), value: $(this).is(':checked')});
 		});
 	},
-	displaySimpleWidget: function(widget_type_id) {
+	displaySimpleWidget: function(widget_id) {
 		var self = this;
-		$(".widget-extra-menu[data-module=findmefollow] input[name='ddial']").change(function() {
-			var extension = widget_type_id,
+		$(".widget-extra-menu[data-id='"+widget_id+"'] input[name='ddial']").change(function() {
+			var extension = $(".widget-extra-menu[data-id='"+widget_id+"']").data("widget_type_id"),
 				checked = $(this).is(':checked'),
 				name = $(this).prop('name'),
 				el = $(".grid-stack-item[data-rawname=findmefollow][data-widget_type_id='"+extension+"']:visible input[name='ddial']");
