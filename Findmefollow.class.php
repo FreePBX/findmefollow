@@ -168,7 +168,7 @@ class Findmefollow implements \BMO {
 	 */
 	public function processQuickCreate($tech, $extension, $data) {
 		if($this->FreePBX->Config->get('FOLLOWME_AUTO_CREATE') || (!empty($data['fmfm']) && $data['fmfm'] == "yes")) {
-			$this->add($extension);
+			$this->add($extension,$data);
 		}
 	}
 
