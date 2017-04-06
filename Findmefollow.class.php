@@ -388,52 +388,63 @@ class Findmefollow implements \BMO {
 
 		$ret = true;
 
-		foreach ($settings as $setting => $value) {
-			//TODO This should just be one query.
-			$sql = "INSERT INTO findmefollow (grpnum,$setting) VALUES (:grpnum,:value) ON DUPLICATE KEY UPDATE $setting = :value";
-			$sth = $this->db->prepare($sql);
+		$sql = "SELECT COUNT(*) FROM findmefollow WHERE grpnum = :grpnum";
+		$sth = $this->db->prepare($sql);
+		$is_new = $sth->bind_param(":grpnum", $grpnum);
+		if ($is_new)
+			$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest,
+						dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring)
+					VALUES (:grpnum, :strategy, :grptime, :grppre, :grplist, :annmsg_id, :postdest,
+						:dring, :needsconf, :remotealert_id, :toolate_id, :ringing, :pre_ring);";
+		else
+			$sql = "UPDATE findmefollow SET strategy = :strategy, grptime = :grptime, grppre = :grppre, annmsg_id = :andmsg_id,
+						postdest = :postdest, dring = :dring, needsconf = :needsconf, remotealert_id = :remotealert_id,
+						toolate_id = :toolate_id, ringing = :rining, pre_ring = :pre_ring
+					WHERE grpnum = :grpnumi";
+		$sth = $this->db->prepare(sql);
 
+		foreach ($settings as $setting => $value) {
 			switch($setting) {
 				case 'strategy':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$sth->bind_param(":$setting", $value);
 				break;
 				case 'grptime':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$sth->bind_param(":$setting", $value);
 					$this->setListRingTime($grpnum,$value);
 				break;
 				case 'grppre':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$sth->bind_param(":$setting", $value);
 				break;
 				case 'grplist':
 					$this->setList($grpnum,$value);
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => implode("-",$value)));
+					$sth->bind_param(":$setting", $value);
 				break;
 				case 'annmsg_id':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$sth->bind_param(":$setting", $value);
 				break;
 				case 'postdest':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$sth->bind_param(":$setting", $value);
 				break;
 				case 'dring':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$sth->bind_param(":$setting", $value);
 				break;
 				case 'needsconf':
 					$val = ($value) ? 'CHECKED' : '';
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $val));
+					$sth->bind_param(":$setting", $value);
 					$val = ($value) ? 'ENABLED' : 'DISABLED';
 					$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/grpconf",$val);
 				break;
 				case 'remotealert_id':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$sth->bind_param(":$setting", $value);
 				break;
 				case 'toolate_id':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$sth->bind_param(":$setting", $value);
 				break;
 				case 'ringing':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$sth->bind_param(":$setting", $value);
 				break;
 				case 'pre_ring':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$sth->bind_param(":$setting", $value);
 					$this->setPreRingTime($grpnum,$value);
 				break;
 				case 'ddial':
@@ -472,6 +483,8 @@ class Findmefollow implements \BMO {
 				break;
 			}
 		}
+
+		$sth->execute();
 
 		return $ret;
 	}
