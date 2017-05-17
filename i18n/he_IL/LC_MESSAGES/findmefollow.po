@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-01 16:56-0800\n"
+"POT-Creation-Date: 2017-05-17 09:15-0700\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -236,11 +236,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "עקוב אחרי"
 
-#: Findmefollow.class.php:881
+#: Findmefollow.class.php:882
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr ""
 
-#: Findmefollow.class.php:884 ucp/views/settings.php:4
+#: Findmefollow.class.php:885 ucp/views/settings.php:4
 msgid "Follow Me List"
 msgstr ""
 
@@ -248,7 +248,7 @@ msgstr ""
 msgid "Follow Me Module"
 msgstr ""
 
-#: Findmefollow.class.php:887
+#: Findmefollow.class.php:888
 msgid "Follow Me No Answer Destination"
 msgstr ""
 

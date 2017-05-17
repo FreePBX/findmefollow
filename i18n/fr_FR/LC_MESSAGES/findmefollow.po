@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-17 10:51-0700\n"
+"POT-Creation-Date: 2017-05-17 09:15-0700\n"
 "PO-Revision-Date: 2016-11-23 13:46+0200\n"
 "Last-Translator: Pascal <pascal.noyel@ipexia.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
@@ -275,11 +275,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "Suivez-Moi"
 
-#: Findmefollow.class.php:881
+#: Findmefollow.class.php:882
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr "Suivez-Moi activé [Vide pour désactiver]"
 
-#: Findmefollow.class.php:884 ucp/views/settings.php:4
+#: Findmefollow.class.php:885 ucp/views/settings.php:4
 msgid "Follow Me List"
 msgstr "Liste des numéros (interne et externe) pour le Suivez-Moi"
 
@@ -287,7 +287,7 @@ msgstr "Liste des numéros (interne et externe) pour le Suivez-Moi"
 msgid "Follow Me Module"
 msgstr "Module Suivez-Moi"
 
-#: Findmefollow.class.php:887
+#: Findmefollow.class.php:888
 msgid "Follow Me No Answer Destination"
 msgstr "Suivez-Moi destination sur non réponse"
 

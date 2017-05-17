@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-17 10:51-0700\n"
+"POT-Creation-Date: 2017-05-17 09:15-0700\n"
 "PO-Revision-Date: 2014-02-21 03:21+0200\n"
 "Last-Translator: Kenichi Fukaumi <k.fukaumi@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/findmefollow/"
@@ -275,11 +275,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "フォローミー"
 
-#: Findmefollow.class.php:881
+#: Findmefollow.class.php:882
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr ""
 
-#: Findmefollow.class.php:884 ucp/views/settings.php:4
+#: Findmefollow.class.php:885 ucp/views/settings.php:4
 msgid "Follow Me List"
 msgstr ""
 
@@ -287,7 +287,7 @@ msgstr ""
 msgid "Follow Me Module"
 msgstr "フォローミーモジュール"
 
-#: Findmefollow.class.php:887
+#: Findmefollow.class.php:888
 msgid "Follow Me No Answer Destination"
 msgstr ""
 
