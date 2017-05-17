@@ -561,7 +561,7 @@ if (empty($goto)) {
 					</div>
 					<div class="col-md-9">
 						<select class="form-control" id="rvolume" name="rvolume">
-							<option value="0"><?php echo _("None")?></option>
+							<option value=""><?php echo _("None")?></option>
 							<?php for($i = 1; $i <= 14; $i++) { ?>
 								<option value="<?php echo $i?>" <?php echo ($rvolume == $i) ? 'selected' : ''?>><?php echo $i?></option>
 							<?php } ?>
