@@ -651,7 +651,8 @@ class Findmefollow implements \BMO {
 		$list = !is_array($grplist) ? explode("-", $grplist) : $grplist;
 		foreach (array_keys($list) as $key) {
 			// remove invalid chars
-			$hadPound = preg_match("/#$/",$list[$key]);
+			//FREEPBX-14788 -Issue in Find Me follow me list under Extensions.
+			$hadPound = preg_match("/#$/",trim($list[$key]));// trim -> if there is a blank space  pref_match retruns 0 ;
 			$list[$key] = preg_replace("/[^0-9*+]/", "", $list[$key]);
 
 			if ($list[$key] == "") {
