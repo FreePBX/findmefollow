@@ -223,7 +223,7 @@ function findmefollow_get_config($engine) {
 			// If grpconf == ENABLED call with confirmation ELSE call normal
 			$ext->add($contextname, '_X.', 'DIALGRP', new ext_execif('$[$["${DB(AMPUSER/${EXTEN}/followme/ringing)}"="Ring"] | $["${DB(AMPUSER/${EXTEN}/followme/ringing)}"=""]]','Set','DOPTS=${DIAL_OPTIONS}','Set','DOPTS=m(${DB(AMPUSER/${EXTEN}/followme/ringing)})${STRREPLACE(DIAL_OPTIONS,r)}'));
 			//FREEPBX 14945 Call Confirm Announcement under Virtual Queue module is broken.
-			 $ext->add($contextname, '_X.', '', new ext_set('__ALT_CONFIRM_MSG', '${IF($[${LEN(${VQ_CONFIRMMSG})}>1]?${IF($["${VQ_CONFIRMMSG}"!="0"]?${VQ_CONFIRMMSG}: )}:)}'));
+			 $ext->add($contextname, '_X.', '', new ext_set('__ALT_CONFIRM_MSG', '${IF($["${ALT_CONFIRM_MSG}"!=""]?${ALT_CONFIRM_MSG}:${VQ_CONFIRMMSG})}'));
 			$ext->add($contextname, '_X.', '', new ext_gotoif('$[("${DB(AMPUSER/${EXTEN}/followme/grpconf)}"="ENABLED") | ("${FORCE_CONFIRM}"!="") | ($[${LEN(${VQ_CONFIRMMSG})}>1])])', 'doconfirm'));
 
 			// Normal call
