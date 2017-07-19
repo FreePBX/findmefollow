@@ -10,37 +10,41 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-31 16:59-0800\n"
-"PO-Revision-Date: 2017-01-31 16:59-0800\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2017-07-19 17:16+0200\n"
+"Last-Translator: PETER <ftek@ymail.com>\n"
+"Language-Team: Vietnamese "
+"<http://weblate.freepbx.org/projects/freepbx/findmefollow/vi/>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: functions.inc.php:759 views/form.php:41
 msgid "*-prim"
-msgstr ""
+msgstr "*-prim"
 
 #: views/form.php:431
 msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
 msgstr ""
+"ALERT_INFO không thể được sử dụng để phân biệt chuông với các thiết bị SIP."
 
 #: functions.inc.php:857 views/form.php:419
 msgid "Alert Info"
-msgstr ""
+msgstr "Thông tin cảnh báo"
 
 #: functions.inc.php:1026 views/form.php:497
 msgid "Always transmit the Fixed CID Value below."
-msgstr ""
+msgstr "Luôn truyền gía trị CID cố định dưới đây."
 
 #: functions.inc.php:812 views/form.php:71
 msgid "Announcement"
-msgstr ""
+msgstr "Thông báo"
 
 #: findmefollow.i18n.php:6
 msgid "Applications"
-msgstr ""
+msgstr "Các ứng dụng"
 
 #: functions.inc.php:717
 msgid ""
@@ -52,6 +56,13 @@ msgid ""
 "and then only if the caller chooses to find you do you want the call to go "
 "through FollowMe."
 msgstr ""
+"Mặc định Yes, bất cứ cuộc gọi nào thay vì tới máy nhánh này đều sẽ đi tới "
+"Follow Me, bao gồm các cuộc gọi theo tên danh mục từ IVR. Nếu cài là \"No\" "
+"thì các cuộc gọi sẽ chỉ đi tới máy nhánh. Bất kể điểm đích nào chỉ định trực "
+"tiếp FollowMe sẽ đến đây. Cài đặt \"No\" thường được sử dụng kết hợp với bộ "
+"định vị VmX, nơi bạn muốn cuộc gọi đổ chuông máy nhánh và sau đó chỉ nếu khi "
+"người gọi chọn để tìm kiếm bạn, bạn có muốn muốn cuôc gọi này đi qua Follow "
+"Me không."
 
 #: views/form.php:275
 msgid ""
@@ -62,35 +73,41 @@ msgid ""
 "where you want a call to ring the extension, and then only if the caller "
 "chooses to find you do you want it to come here."
 msgstr ""
+"Mặc định Yes, bất cứ cuộc gọi nào thay vì tới máy nhánh này đều sẽ đi tới "
+"Follow Me, bao gồm các cuộc gọi theo tên danh mục từ IVR. Nếu cài là \"No\" "
+"thì các cuộc gọi sẽ chỉ đi tới máy nhánh. Bất kể điểm đích nào chỉ định trực "
+"tiếp FollowMe sẽ đến đây. Cài đặt \"No\" thường được sử dụng kết hợp với bộ "
+"định vị VmX, nơi bạn muốn cuộc gọi đổ chuông máy nhánh và sau đó chỉ nếu khi "
+"người gọi chọn để tìm kiếm bạn, bạn có muốn cuôc gọi này đến đây không."
 
 #: functions.inc.php:847 views/form.php:395
 msgid "CID Name Prefix"
-msgstr ""
+msgstr "Tiền tố của Tên CID"
 
 #: functions.inc.php:902
 msgid "Call Confirmation Configuration"
-msgstr ""
+msgstr "Cấu hình xác nhận cuộc gọi"
 
 #: uninstall.php:30
 msgid "Cannot connect to Asterisk Manager with "
-msgstr ""
+msgstr "Không thể kết nối Trình quản lý Asterisk với "
 
 #: functions.inc.php:1003 views/form.php:513
 msgid "Change External CID Configuration"
-msgstr ""
+msgstr "Thay đổi cấu hình CID nội bộ"
 
 #: functions.inc.php:925 views/form.php:470
 msgid "Confirm Calls"
-msgstr ""
+msgstr "Xác nhận cuộc gọi"
 
 #: findmefollow.i18n.php:12
 msgid "Create Follow Me at Extension Creation Time"
-msgstr ""
+msgstr "Tạo Follow Me tại Extension Creation Time"
 
 #: functions.inc.php:946 functions.inc.php:1025 functions.inc.php:1038
 #: views/form.php:113 views/form.php:148 views/form.php:213 views/form.php:495
 msgid "Default"
-msgstr ""
+msgstr "Mặc định"
 
 #: findmefollow.i18n.php:26
 msgid "Default Follow Me Initial Ring Time"
