@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-31 16:59-0800\n"
-"PO-Revision-Date: 2017-07-19 17:16+0200\n"
+"PO-Revision-Date: 2017-07-19 21:59+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/findmefollow/vi/>\n"
@@ -115,19 +115,19 @@ msgstr ""
 
 #: findmefollow.i18n.php:30
 msgid "Default Follow Me Ring Strategy"
-msgstr ""
+msgstr "Mặc định chiến lược đổ chuông của Follow Me"
 
 #: findmefollow.i18n.php:22
 msgid "Default Follow Me Ring Time"
-msgstr ""
+msgstr "Mặc định Thời gian đổ chuông cuả Follow Me"
 
 #: views/form.php:563
 msgid "Destination if no answer"
-msgstr ""
+msgstr "Điểm đích nếu không trả lời"
 
 #: functions.inc.php:1082
 msgid "Destinations"
-msgstr ""
+msgstr "Các điểm đích"
 
 #: findmefollow.i18n.php:18
 msgid "Disable Follow Me Upon Creation"
@@ -135,15 +135,15 @@ msgstr ""
 
 #: ucp/views/settings.php:4
 msgid "Enable"
-msgstr ""
+msgstr "Kích hoạt"
 
 #: views/quickCreate.php:5
 msgid "Enable Find Me/Follow Me"
-msgstr ""
+msgstr "Kích hoạt Find Me/Follow Me"
 
 #: views/form.php:260
 msgid "Enable Followme"
-msgstr ""
+msgstr "Kích hoạt Followme"
 
 #: ucp/views/settings.php:46
 msgid ""
@@ -171,38 +171,40 @@ msgstr ""
 
 #: functions.inc.php:716 views/fmgrid.php:27
 msgid "Enabled"
-msgstr ""
+msgstr "Đã kích hoạt"
 
 #: assets/js/findmefollow.js:74
 msgid "Error"
-msgstr ""
+msgstr "Lỗi"
 
 #: views/bootnav.php:7 views/bootnav.php:18
 msgid "Extension"
-msgstr ""
+msgstr "Máy nhánh"
 
 #: functions.inc.php:658 ucp/Findmefollow.class.php:32
 msgid "Find Me/Follow Me"
-msgstr ""
+msgstr "Find Me/Follow Me"
 
 #: ucp/Findmefollow.class.php:82
 msgid "Find Me/Follow Me Has Been Updated!"
-msgstr ""
+msgstr "Find Me/Follow Me vừa được cập nhật!"
 
 #: findmefollow.i18n.php:34 install.php:5
 msgid "Findme Follow Toggle"
-msgstr ""
+msgstr "Chuyển đổi Findme Follow"
 
 #: functions.inc.php:1026 functions.inc.php:1042 functions.inc.php:1065
 #: views/form.php:214 views/form.php:497 views/form.php:539
 msgid "Fixed CID Value"
-msgstr ""
+msgstr "Gía trị CID cố định"
 
 #: functions.inc.php:1072
 msgid ""
 "Fixed CID Value should be in a format of digits only with an option of E164 "
 "format using a leading \"+\""
 msgstr ""
+"Gía trị CID cố định phải được định dạng bằng chữ số chỉ với tùy chọn định "
+"dạng E164 với bắt đầu bằng '+\""
 
 #: functions.inc.php:1066
 msgid ""
@@ -210,6 +212,9 @@ msgid ""
 "Should be in a format of digits only with an option of E164 format using a "
 "leading \"+\"."
 msgstr ""
+"Gía trị cố định để thay thế CID bằng cách sử dụng cùng với một số chế độ "
+"trên. Gía trị cần được định dạng chữ số chỉ với tùy chọn định dạng E164 với "
+"bắt đầu bằng \"+\"."
 
 #: views/form.php:551
 msgid ""
@@ -217,22 +222,25 @@ msgid ""
 "Should be in a format of digits only with an option of E164 format using a "
 "leading '+'."
 msgstr ""
+"Gía trị cố định để thay thế CID bằng cách sử dụng cùng với một số chế độ "
+"trên. Gía trị cần được định dạng chữ số chỉ với tùy chọn định dạng E164 với "
+"bắt đầu bằng \"+\"."
 
 #: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
 msgid "Follow Me"
-msgstr ""
+msgstr "Tính năng Follow Me"
 
 #: Findmefollow.class.php:842
 msgid "Follow Me Enabled [Blank to disable]"
-msgstr ""
+msgstr "Follow Me đã được kích hoạt [Đê trống nếu muốn vô hiệu hóa]"
 
 #: Findmefollow.class.php:845 ucp/views/settings.php:15
 msgid "Follow Me List"
-msgstr ""
+msgstr "Danh sách Follow Me"
 
 #: findmefollow.i18n.php:14
 msgid "Follow Me Module"
-msgstr ""
+msgstr "Mô đun Follow Me"
 
 #: Findmefollow.class.php:848
 msgid "Follow Me No Answer Destination"
@@ -241,56 +249,58 @@ msgstr ""
 #: functions.inc.php:1236
 #, php-format
 msgid "Follow Me: %s"
-msgstr ""
+msgstr "Follow Me: %s"
 
 #: functions.inc.php:794 views/form.php:361
 msgid "Follow-Me List"
-msgstr ""
+msgstr "Danh sách Follow-Me"
 
 #: functions.inc.php:800
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
-msgstr ""
+msgstr "Danh sách Follow-Me không được để trống nếu kích hoạt Follow-Me"
 
 #: functions.inc.php:1288
 #, php-format
 msgid "Follow-Me User: %s"
-msgstr ""
+msgstr "Người dùng Follow-Me: %s"
 
 #: functions.inc.php:1265
 #, php-format
 msgid "Follow-Me: %s (%s)"
-msgstr ""
+msgstr "Follow-Me: %s (%s)"
 
 #: views/fmgrid.php:26
 msgid "Followme Extension"
-msgstr ""
+msgstr "Máy nhánh Followme"
 
 #: views/nogo.php:2
 msgid "Followme List"
-msgstr ""
+msgstr "Danh sách Followme"
 
 #: functions.inc.php:1029 functions.inc.php:1054 views/form.php:217
 #: views/form.php:503
 msgid "Force Dialed Number"
-msgstr ""
+msgstr "Bắt buộc số đã quay"
 
 #: functions.inc.php:41
 msgid "Force Follow Me"
-msgstr ""
+msgstr "Bắt buộc Follow Me"
 
 #: functions.inc.php:692
 msgid "General Settings"
-msgstr ""
+msgstr "Cài đặt chung"
 
 #: views/form.php:236
 msgid "Group Number"
-msgstr ""
+msgstr "Số nhóm"
 
 #: functions.inc.php:837 views/form.php:205
 msgid ""
 "If you select a Music on Hold class to play, instead of 'Ring', they will "
 "hear that instead of Ringing while they are waiting for someone to pick up."
 msgstr ""
+"Nếu bạn chọn một lớp nhạc chờ để phát thay vì chọn đổ chuông, thì họ sẽ nghe "
+"thấy tiếng nhạc chứ không phải tiếng chuông trong khi đợi ai đó nhấc máy."
 
 #: functions.inc.php:745 views/form.php:287
 msgid "Initial Ring Time"
@@ -301,14 +311,16 @@ msgid ""
 "Invalid CID Number. Must be in a format of digits only with an option of "
 "E164 format using a leading \"+\""
 msgstr ""
+"Số CID không hợp lệ. Số phải được định dạng là chữ số chỉ với tùy chọn định "
+"dạng D164 bắt đầu bằng \"+\""
 
 #: assets/js/findmefollow.js:98
 msgid "Invalid time specified"
-msgstr ""
+msgstr "Thời gian không hợp lệ được xác định"
 
 #: views/bootnav.php:12
 msgid "List Followme Groups"
-msgstr ""
+msgstr "Danh sách Nhóm Followme"
 
 #: functions.inc.php:795 views/form.php:381
 msgid ""
@@ -327,18 +339,27 @@ msgid ""
 "remote system, or an external number by suffixing a number with a pound "
 "(#).  ex:  2448089# would dial 2448089."
 msgstr ""
+"Danh sách máy nhánh sẽ đổ chuông, một máy trên một hàng. Bạn có thể thêm một "
+"máy nhánh trên một hệ thống từ xa, hoặc một số nội bộ bằng cách thêm đằng "
+"sau sô đó dấu (#). Ví dụ 2448089# sẽ quay số cho 2448089."
 
 #: views/form.php:92
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
 "additional recordings please use the \"System Recordings\" MENU above"
 msgstr ""
+"Một tin nhắn sẽ được phát tới người gọi trước khi họ quay số nhóm này. "
+"<br><br> Để thêm các ghi âm bổ sung vui lòng sử dụng MENU \"System "
+"Recordings\" ở trên"
 
 #: functions.inc.php:813
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
 "additional recordings please use the \"System Recordings\" MENU to the left"
 msgstr ""
+"Một tin nhắn sẽ được phát tới người gọi trước khi họ quay số nhóm này. "
+"<br><br> Để thêm các ghi âm bổ sung vui lòng sử dụng MENU \"System "
+"Recordings\" ở phía bên trái"
 
 #: views/form.php:127
 msgid ""
@@ -346,6 +367,9 @@ msgid ""
 "enabled.<br><br>To add additional recordings use the \"System Recordings\" "
 "MENU above"
 msgstr ""
+"Một tin nhắn sẽ được phát tới người đang NHẬN cuộc gọi khi 'Confirm Calls' "
+"được bật . <br><br> Để thêm các ghi âm bổ sung hãy sử dụng MENU \"System "
+"Recordings\" ở trên"
 
 #: functions.inc.php:951
 msgid ""
@@ -353,6 +377,9 @@ msgid ""
 "enabled.<br><br>To add additional recordings use the \"System Recordings\" "
 "MENU to the left"
 msgstr ""
+"Một tin nhắn sẽ được phát tới người đang NHẬN cuộc gọi khi 'Confirm Calls' "
+"được bật . <br><br> Để thêm các ghi âm bổ sung hãy sử dụng MENU \"System "
+"Recordings\" ở bên trái"
 
 #: views/form.php:162
 msgid ""
@@ -360,6 +387,9 @@ msgid ""
 "already been accepted before they push 1.<br><br>To add additional "
 "recordings use the \"System Recordings\" MENU above"
 msgstr ""
+"Một tin nhắn sẽ được phát tới người đang NHẬN cuộc gọi nếu cuộc gọi đã được "
+"chấp nhận trước khi nhấn phím 1 . <br><br> Để thêm các ghi âm bổ sung hãy sử "
+"dụng MENU \"System Recordings\" ở trên"
 
 #: functions.inc.php:963
 msgid ""
@@ -367,14 +397,17 @@ msgid ""
 "already been accepted before they push 1.<br><br>To add additional "
 "recordings use the \"System Recordings\" MENU to the left"
 msgstr ""
+"Một tin nhắn sẽ được phát tới người đang NHẬN cuộc gọi nếu cuộc gọi đã được "
+"chấp nhận trước khi nhấn phím 1 . <br><br> Để thêm các ghi âm bổ sung hãy sử "
+"dụng MENU \"System Recordings\" ở phía bên trái"
 
 #: views/nogo.php:1
 msgid "Method not supported"
-msgstr ""
+msgstr "Phương thức không được hỗ trợ"
 
 #: functions.inc.php:1032 views/form.php:493
 msgid "Mode"
-msgstr ""
+msgstr "Chế độ"
 
 #: findmefollow.i18n.php:8
 msgid ""
@@ -388,20 +421,20 @@ msgstr ""
 #: functions.inc.php:726 functions.inc.php:935 views/fmgrid.php:18
 #: views/form.php:267 views/form.php:477 views/quickCreate.php:12
 msgid "No"
-msgstr ""
+msgstr "Không"
 
 #: functions.inc.php:1106
 msgid "No Answer"
-msgstr ""
+msgstr "Không trả lời"
 
 #: functions.inc.php:644 functions.inc.php:867 views/form.php:78
 #: views/form.php:447
 msgid "None"
-msgstr ""
+msgstr "Không có"
 
 #: functions.inc.php:21 functions.inc.php:25
 msgid "Normal Extension Behavior"
-msgstr ""
+msgstr "Trạng thái bình thường của máy nhánh"
 
 #: ucp/views/settings.php:17
 msgid ""
@@ -415,6 +448,8 @@ msgid ""
 "Only ringall, ringallv2, hunt and the respective -prim versions are "
 "supported when confirmation is checked"
 msgstr ""
+"chỉ ringall, ringallv2, hunt và các phiên bản prim tương ứng mới được hỗ trợ "
+"khi bị kiểm tra xác nhận"
 
 #: functions.inc.php:1107
 msgid ""
@@ -422,11 +457,14 @@ msgid ""
 "otherwise idle phone. If the phone is in use and the call is simply ignored, "
 "then the busy destination will be used."
 msgstr ""
+"Cuộc gọi có điểm đích tùy chịn được định tuyến khi cuộc gọi không được trả "
+"lời trên một điện thoại đang rỗi. Nếu điện thoại đang được sử dụng và cuộc "
+"gọi bị bỏ qua, thì sau đó điểm đích bận sẽ được sử dụng."
 
 #: functions.inc.php:1027 functions.inc.php:1046 views/form.php:215
 #: views/form.php:499
 msgid "Outside Calls Fixed CID Value"
-msgstr ""
+msgstr "Gía trị CID cố định của các cuộc gọi bên ngoài"
 
 #: views/form.php:459
 #, php-format
@@ -434,16 +472,20 @@ msgid ""
 "Override the ringer volume. Note: This is only valid for %s phones at this "
 "time"
 msgstr ""
+"Ghi đè âm lượng chuông. Lưu ý: Điều này chỉ hợp lệ cho điện thoại %s tại "
+"thời điểm này"
 
 #: functions.inc.php:882
 msgid ""
 "Override the ringer volume. Note: This is only valid for Sangoma phones at "
 "this time"
 msgstr ""
+"Ghi đè âm lượng chuông. Lưu ý: Điều này chỉ hợp lệ cho điện thoại Sangoma "
+"tại thời điểm này"
 
 #: functions.inc.php:836 views/form.php:181
 msgid "Play Music On Hold"
-msgstr ""
+msgstr "Phát nhạc chờ"
 
 #: functions.inc.php:670
 #, php-format
