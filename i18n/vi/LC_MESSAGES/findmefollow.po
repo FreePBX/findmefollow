@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-31 16:59-0800\n"
-"PO-Revision-Date: 2017-07-21 15:23+0200\n"
+"PO-Revision-Date: 2017-07-21 17:23+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/findmefollow/vi/>\n"
@@ -318,7 +318,7 @@ msgstr ""
 
 #: functions.inc.php:745 views/form.php:287
 msgid "Initial Ring Time"
-msgstr ""
+msgstr "Thời gian đổ chuông ban đầu"
 
 #: assets/js/findmefollow.js:101
 msgid ""
@@ -346,6 +346,13 @@ msgid ""
 "you wish the system to use another extension's FindMe/FollowMe append a # "
 "onto that extension, eg 105#"
 msgstr ""
+"Danh sách máy nhánh sẽ đổ chuông, một máy trên một hàng.<br><br> Bạn có thể "
+"thêm một máy nhánh trên một hệ thống từ xa, hoặc một số nội bộ bằng cách "
+"thêm đằng sau số đó dấu (#). Ví dụ 2448089# sẽ quay số cho 2448089 trên "
+"trung kế thích hợp ( xem phần Outbound Routing).<br><br> Lưu ý: Bất kỳ máy "
+"nhánh tại chỗ nào được thêm vào đều sẽ bỏ qua chức năng FindMe/FollowMe của "
+"nó, nếu bạn muốn hệ thống sử dụng tính năng FindMe/FollowMe  của một máy "
+"nhánh khác thì hãy thêm vào vào sau máy nhánh đó dấu #, ví dụ 105#"
 
 #: ucp/views/settings.php:17
 msgid ""
@@ -431,6 +438,12 @@ msgid ""
 "once, or in other various 'hunt' configurations. Most commonly used to ring "
 "someone's cell phone if they don't answer their extension."
 msgstr ""
+"giống như một ring group, nhưng lại làm việc trên các máy nhánh cá nhấn. Khi "
+"ai đó gọi vào máy nhánh, nó cỏ thẻ được thiết lập đẻ đổ chuông trong khoảng "
+"ít giây trước khi đổ chuông các máy nhánh khác và/hoặc các số máy nội bộ, "
+"hoặc đổ chuông tất cả các máy trong cùng một lúc, hoặc trong các cấu hình "
+"'hunt'. Thông thường hầu hết nó được sử dụng để đổ chuông điện thoại di động "
+"của ai đó nếu họ không muốn trả lời máy nhánh của họ."
 
 #: functions.inc.php:726 functions.inc.php:935 views/fmgrid.php:18
 #: views/form.php:267 views/form.php:477 views/quickCreate.php:12
@@ -456,6 +469,10 @@ msgid ""
 "FollowMe, if you wish the system to use another extension's FindMe/FollowMe "
 "append a # onto that extension, eg 105#"
 msgstr ""
+"Lưu ý: Bất kỳ máy nhánh tại chỗ nào được thêm vào đều sẽ bỏ qua chức năng "
+"FindMe/FollowMe của nó, nếu bạn muốn hệ thống sử dụng tính năng FindMe/"
+"FollowMe  của một máy nhánh khác thì hãy thêm vào vào sau máy nhánh đó dấu #"
+", ví dụ 105#"
 
 #: assets/js/findmefollow.js:100
 msgid ""
@@ -504,60 +521,60 @@ msgstr "Phát nhạc chờ"
 #: functions.inc.php:670
 #, php-format
 msgid "Please enter a valid %s number"
-msgstr ""
+msgstr "Vui lòng nhập số %s hợp lệ"
 
 #: assets/js/findmefollow.js:97
 msgid "Please enter an extension list."
-msgstr ""
+msgstr "Vui lòng nhập một danh sách máy nhánh."
 
 #: functions.inc.php:950 views/form.php:106
 msgid "Remote Announce"
-msgstr ""
+msgstr "Thông báo từ xa"
 
 #: assets/js/findmefollow.js:74
 msgid "Request not received"
-msgstr ""
+msgstr "Không nhận được yêu cầu"
 
 #: Findmefollow.class.php:599
 msgid "Reset"
-msgstr ""
+msgstr "Cài đặt lại"
 
 #: functions.inc.php:824 views/form.php:188
 msgid "Ring"
-msgstr ""
+msgstr "Đổ chuông"
 
 #: ucp/views/settings.php:20
 #, php-format
 msgid "Ring %s First For"
-msgstr ""
+msgstr "Đổ chuông %s đầu tiên cho"
 
 #: ucp/views/settings.php:29
 msgid "Ring Followme List For"
-msgstr ""
+msgstr "Đổ chuông danh sách Followme cho"
 
 #: functions.inc.php:772 views/form.php:311
 msgid "Ring Strategy"
-msgstr ""
+msgstr "Chiến lược đổ chuông"
 
 #: functions.inc.php:783
 msgid "Ring Time"
-msgstr ""
+msgstr "Thời gian đổ chuông"
 
 #: views/form.php:337
 msgid "Ring Time (max 60 sec)"
-msgstr ""
+msgstr "Thời gian đổ chuông ( tối đa 60 giây)"
 
 #: functions.inc.php:881 views/form.php:442
 msgid "Ringer Volume Override"
-msgstr ""
+msgstr "Ghi đè âm lượng chuông"
 
 #: ucp/views/settings.php:23 ucp/views/settings.php:32
 msgid "Seconds"
-msgstr ""
+msgstr "Giây"
 
 #: Findmefollow.class.php:594
 msgid "Submit"
-msgstr ""
+msgstr "Gửi đi"
 
 #: findmefollow.i18n.php:28
 msgid ""
@@ -580,10 +597,11 @@ msgstr ""
 #: views/form.php:248
 msgid "The number users will dial to ring extensions in this Followme group"
 msgstr ""
+"Số mà người dùng sẽ quay để đổ chuông các máy nhánh trong Nhóm Followme này"
 
 #: findmefollow.i18n.php:20
 msgid "This is the default value for the Follow Me "
-msgstr ""
+msgstr "Đây là giá trị mặc định cho Follow Me "
 
 #: functions.inc.php:746 ucp/views/settings.php:26 views/form.php:299
 msgid ""
@@ -591,24 +609,29 @@ msgid ""
 "proceeding to the follow-me list. The extension can also be included in the "
 "follow-me list. A 0 setting will bypass this."
 msgstr ""
+"Đây là số giây để đổ chuông máy nhánh chính trước khi tiếp tục đổ chuông các "
+"máy nhánh tiếp theo. Máy nhánh có thể cũng được bao gồm trong danh sách "
+"follow-me. Cài đặt bằng 0 sẽ bỏ qua điều này."
 
 #: ucp/views/settings.php:35
 msgid "Time in seconds that the phones will ring"
-msgstr ""
+msgstr "Thời gian bằng giây mà các điện thoại sẽ đổ chuông"
 
 #: functions.inc.php:784 views/form.php:349
 msgid ""
 "Time in seconds that the phones will ring. For all hunt style ring "
 "strategies, this is the time for each iteration of phone(s) that are rung"
 msgstr ""
+"Thời gian bằng giâu mà các điện thoại sẽ đổ chuông. Đối với tất cả các chiến "
+"lược đổ chuông kiểu hunt, đây sẽ là thời gian cho mỗi lần đổ chuông lặp lại"
 
 #: assets/js/findmefollow.js:99
 msgid "Time must be between 1 and 60 seconds"
-msgstr ""
+msgstr "Thời gian phải trong khoảng giữa 1-60 giây"
 
 #: functions.inc.php:962 views/form.php:141
 msgid "Too-Late Announce"
-msgstr ""
+msgstr "Thông báo quá muộn"
 
 #: functions.inc.php:1027 views/form.php:499
 msgid ""
@@ -616,6 +639,9 @@ msgid ""
 "Internal extension to extension calls will continue to operate in default "
 "mode."
 msgstr ""
+"Truyền các giá trị CID cố định dưới đây chỉ trên các cuộc gọi đến từ bên "
+"ngoài. Các máy nhánh nội bộ đến các cuộc gọi nội bộ sẽ tiếp tục hoạt động "
+"trên chế độ mặc định."
 
 #: functions.inc.php:1029 views/form.php:503
 msgid ""
@@ -624,6 +650,10 @@ msgid ""
 "default mode. There must be a DID on the inbound route for this. This WILL "
 "be transmitted on trunks that block foreign CallerID"
 msgstr ""
+"Truyền các giá trị CID cố định dưới đây chỉ trên các cuộc gọi đến từ bên "
+"ngoài. Các máy nhánh nội bộ đến các cuộc gọi nội bộ sẽ tiếp tục hoạt động "
+"trên chế độ mặc định. Việc này cần phải có một DID trn tuyến gọi ra. DID này "
+"sẽ được truyền trên các trung kế đã khóa các CallerID nước ngoài"
 
 #: functions.inc.php:1028 views/form.php:501
 msgid ""
@@ -632,31 +662,36 @@ msgid ""
 "default mode. There must be a DID on the inbound route for this. This will "
 "be BLOCKED on trunks that block foreign CallerID"
 msgstr ""
+"Truyền các giá trị CID cố định dưới đây chỉ trên các cuộc gọi đến từ bên "
+"ngoài. Các máy nhánh nội bộ đến các cuộc gọi nội bộ sẽ tiếp tục hoạt động "
+"trên chế độ mặc định. Việc này cần phải có một DID trn tuyến gọi ra. DID này "
+"sẽ được truyền trên các trung kế đã khóa các CallerID nước ngoài"
 
 #: functions.inc.php:1025 views/form.php:495
 msgid "Transmits the Callers CID if allowed by the trunk."
-msgstr ""
+msgstr "Truyền Caller ID nếu các trung kế cho phép."
 
 #: ucp/views/settings.php:38
 msgid "Use Confirmation"
-msgstr ""
+msgstr "Sử dụng Confirmation"
 
 #: functions.inc.php:1028 functions.inc.php:1050 views/form.php:216
 #: views/form.php:501
 msgid "Use Dialed Number"
-msgstr ""
+msgstr "Sử dụng số đã quay"
 
 #: views/bootnav.php:4
 msgid "User"
-msgstr ""
+msgstr "Người dùng"
 
 #: Findmefollow.class.php:83
 msgid "Warning! Extension"
-msgstr ""
+msgstr "Cảnh báo! Máy nhánh"
 
 #: assets/js/findmefollow.js:71
 msgid "We received and sent your request but something failed"
 msgstr ""
+"Chúng tôi đã nhận và đã gửi yêu cầu của bạn nhưng có một số không thành công"
 
 #: findmefollow.i18n.php:16
 msgid ""
@@ -664,6 +699,9 @@ msgid ""
 "automatically create a new Follow Me for that user using the default "
 "settings listed below"
 msgstr ""
+"Khi tạo một người dùng hay máy nhánh mới, cài đặt người dùng/ máy nhánh này "
+"về true sẽ tự động tạo một Follow M mới cho người đang sử dụng các cài đặt "
+"mặc định được liệt kê dưới đây"
 
 #: ucp/views/settings.php:12
 msgid ""
@@ -671,21 +709,26 @@ msgid ""
 "including directory calls by name from IVRs. If disabled, calls will go only "
 "to the extension."
 msgstr ""
+"Khi đã kích hoạt bất kỳ cuộc gọi nào thay vì tới máy nhánh này sẽ đi tới "
+"Follow Me, bao gồm các danh mục cuộc gọi bằng tên từ IVR. Nếu bị vô hiệu, "
+"các cuộc gọi sẽ chỉ đến máy nhánh."
 
 #: views/form.php:575
 msgid "Where to send callers if there is no answer."
-msgstr ""
+msgstr "Nơi để gửi người gọi nếu không có trả lời."
 
 #: functions.inc.php:722 functions.inc.php:931 views/fmgrid.php:16
 #: views/form.php:265 views/form.php:475 views/quickCreate.php:10
 msgid "Yes"
-msgstr ""
+msgstr "Có"
 
 #: functions.inc.php:858
 msgid ""
 "You can optionally include an Alert Info which can create distinctive rings "
 "on SIP phones."
 msgstr ""
+"Bạn có thể thêm vào một Alert Info và nó có thể tạo những chuông riêng biệt "
+"trên các điện thoại SIP."
 
 #: functions.inc.php:848
 msgid ""
@@ -693,6 +736,10 @@ msgid ""
 "group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
 "as \"Sales:John Doe\" on the extensions that ring."
 msgstr ""
+"Bạn có thể thêm tiền tố vào trước tên Caller ID  khi bạn đổ chuông các máy "
+"nhánh trong nhóm này. Ví dụ nếu bạn muốn thêm vào từ \"Sales:\" cho một cuộc "
+"gọi từ John Doe thì trên các máy nhánh đang đổ chuông sẽ hiển thị là  \""
+"Sales:John Doe\"."
 
 #: views/form.php:407
 msgid ""
@@ -700,48 +747,56 @@ msgid ""
 "group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
 "as \"Sales:John Doe\" on the extensions that ring."
 msgstr ""
+"Bạn có thể thêm tiền tố vào trước tên Caller ID  khi bạn đổ chuông các máy "
+"nhánh trong nhóm này. Ví dụ nếu bạn muốn thêm vào từ \"Sales:\" cho một cuộc "
+"gọi từ John Doe thì trên các máy nhánh đang đổ chuông sẽ hiển thị là  \""
+"Sales:John Doe\"."
 
 #: views/form.php:192
 msgid "default"
-msgstr ""
+msgstr "Mặc định"
 
 #: functions.inc.php:670
 msgid "device"
-msgstr ""
+msgstr "thiết bị"
 
 #: functions.inc.php:670
 msgid "extension"
-msgstr ""
+msgstr "máy nhánh"
 
 #: functions.inc.php:760 views/form.php:43
 msgid "firstavailable"
-msgstr ""
+msgstr "firstavailable ( khả dụng đầu tiên)"
 
 #: functions.inc.php:761 views/form.php:45
 msgid "firstnotonphone"
-msgstr ""
+msgstr "firstnotonphone ( notophone đầu tiên)"
 
 #: functions.inc.php:757 views/form.php:37
 msgid "hunt"
-msgstr ""
+msgstr "hunt ( kiểu hunt)"
 
 #: Findmefollow.class.php:83
 msgid "is not allowed for your account"
-msgstr ""
+msgstr "Tài khoản của bạn không được cho phép"
 
 #: functions.inc.php:758 views/form.php:39
 msgid "memoryhunt"
-msgstr ""
+msgstr "Bộ nhớ hunt"
 
 #: views/form.php:191
 msgid "none"
-msgstr ""
+msgstr "Không có"
 
 #: functions.inc.php:756 views/form.php:35
 msgid ""
 "ring Extension for duration set in Initial Ring Time, and then terminate "
 "call to Extension and ring Follow-Me List for duration set in Ring Time."
 msgstr ""
+"Đổ chuông máy nhánh trong khoảng thời gian được cài đặt trong Initial Ring "
+"Time ( Thời gian đổ chuông ban đầu), và sau đó kết nối cuộc gọi tới Máy "
+"nhánh và đổ chuông danh sách Follow-Me trong khoảng thời gian được cài trong "
+"Ring Time ( Thời gian đổ chuông)."
 
 #: views/form.php:33
 msgid ""
