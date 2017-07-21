@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-31 16:59-0800\n"
-"PO-Revision-Date: 2017-07-19 21:59+0200\n"
+"PO-Revision-Date: 2017-07-21 15:23+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/findmefollow/vi/>\n"
@@ -111,7 +111,7 @@ msgstr "Mặc định"
 
 #: findmefollow.i18n.php:26
 msgid "Default Follow Me Initial Ring Time"
-msgstr ""
+msgstr "Mặc định Thời gian đổ chuông ban đầu của Follow Me"
 
 #: findmefollow.i18n.php:30
 msgid "Default Follow Me Ring Strategy"
@@ -131,7 +131,7 @@ msgstr "Các điểm đích"
 
 #: findmefollow.i18n.php:18
 msgid "Disable Follow Me Upon Creation"
-msgstr ""
+msgstr "Vô hiệu Follow Me Upon Creation"
 
 #: ucp/views/settings.php:4
 msgid "Enable"
@@ -152,6 +152,10 @@ msgid ""
 "this requires the remote side push 1 on their phone before the call is put "
 "through."
 msgstr ""
+"Kích hoạt chức năng này nếu bạn đang gọi đên các máy nhánh nội bộ mà cần có "
+"sự xác nhận- ví dụ, một điện thoại di động có thể đi tới thư thoại mà thư "
+"thoại này sẽ nhận cuộc gọi. Việc kích hoạt này yêu cầu đầu dây phía bên kia "
+"nhấn phím 1 trước khi cuộc gọi được kết nối."
 
 #: views/form.php:485
 msgid ""
@@ -160,6 +164,11 @@ msgid ""
 "this requires the remote side push 1 on their phone before the call is put "
 "through. This feature only works with the ringall ring strategy"
 msgstr ""
+"Kích hoạt chức năng này nếu bạn đang gọi đên các máy nhánh nội bộ mà cần có "
+"sự xác nhận- ví dụ, một điện thoại di động có thể đi tới thư thoại mà thư "
+"thoại này sẽ nhận cuộc gọi. Việc kích hoạt này yêu cầu đầu dây phía bên kia "
+"nhấn phím 1 trước khi cuộc gọi được kết nối. Tính năng này chỉ hoạt động với "
+"chiến lược đổ chuông ringall"
 
 #: functions.inc.php:926
 msgid ""
@@ -168,6 +177,11 @@ msgid ""
 "this requires the remote side push 1 on their phone before the call is put "
 "through. This feature only works with the ringall/ringall-prim  ring strategy"
 msgstr ""
+"Kích hoạt chức năng này nếu bạn đang gọi đên các máy nhánh nội bộ mà cần có "
+"sự xác nhận- ví dụ, một điện thoại di động có thể đi tới thư thoại mà thư "
+"thoại này sẽ nhận cuộc gọi. Việc kích hoạt này yêu cầu đầu dây phía bên kia "
+"nhấn phím 1 trước khi cuộc gọi được kết nối. Tính năng này chỉ hoạt động với "
+"chiến lược đổ chuông ringall/ ringall-prim"
 
 #: functions.inc.php:716 views/fmgrid.php:27
 msgid "Enabled"
@@ -244,7 +258,7 @@ msgstr "Mô đun Follow Me"
 
 #: Findmefollow.class.php:848
 msgid "Follow Me No Answer Destination"
-msgstr ""
+msgstr "Điểm đích không trả lời Follow Me"
 
 #: functions.inc.php:1236
 #, php-format
