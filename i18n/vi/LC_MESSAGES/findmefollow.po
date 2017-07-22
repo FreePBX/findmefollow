@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-31 16:59-0800\n"
-"PO-Revision-Date: 2017-07-21 17:23+0200\n"
+"PO-Revision-Date: 2017-07-21 20:53+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/findmefollow/vi/>\n"
@@ -794,7 +794,7 @@ msgid ""
 "call to Extension and ring Follow-Me List for duration set in Ring Time."
 msgstr ""
 "Đổ chuông máy nhánh trong khoảng thời gian được cài đặt trong Initial Ring "
-"Time ( Thời gian đổ chuông ban đầu), và sau đó kết nối cuộc gọi tới Máy "
+"Time ( Thời gian đổ chuông ban đầu), và sau đó kết thúc cuộc gọi tới Máy "
 "nhánh và đổ chuông danh sách Follow-Me trong khoảng thời gian được cài trong "
 "Ring Time ( Thời gian đổ chuông)."
 
@@ -804,6 +804,11 @@ msgid ""
 "continuing call to extension (only if extension is in the Group List), ring "
 "Follow-Me List for duration set in Ring Time."
 msgstr ""
+"Đổ chuông máy nhánh trong khoảng thời gian được cài đặt trong Initial Ring "
+"Time ( Thời gian đổ chuông ban đầu), và sau đó tiếp tục cuộc gọi tới Máy "
+"nhánh ( Chỉ khi máy nhánh đó thuộc danh sách Nhóm), và đổ chuông danh sách "
+"Follow-Me trong khoảng thời gian được cài trong Ring Time ( Thời gian đổ "
+"chuông)."
 
 #: functions.inc.php:755
 msgid ""
@@ -811,28 +816,35 @@ msgid ""
 "continuing call to extension, ring Follow-Me List for duration set in Ring "
 "Time."
 msgstr ""
+"Đổ chuông máy nhánh trong khoảng thời gian được cài đặt trong Initial Ring "
+"Time ( Thời gian đổ chuông ban đầu), trong khi tiếp tục cuộc gọi tới Máy "
+"nhánh và đổ chuông danh sách Follow-Me trong khoảng thời gian được cài tại "
+"Ring Time ( Thời gian đổ chuông)."
 
 #: functions.inc.php:758 views/form.php:39
 msgid ""
 "ring first extension in the list, then ring the 1st and 2nd extension, then "
 "ring 1st 2nd and 3rd extension in the list.... etc."
 msgstr ""
+"Đổ chuông máy nhánh đầu tiên trong danh sách, sau đó đổ chuông máy nhánh đầu "
+"tiên và thứ hai, tiếp theo là máy đầu tiên, thứ hai và thứ ba trong danh "
+"sách,..."
 
 #: functions.inc.php:760 views/form.php:43
 msgid "ring only the first available channel"
-msgstr ""
+msgstr "Chỉ đổ chuông kênh sẵn có đầu tiên"
 
 #: functions.inc.php:761 views/form.php:45
 msgid "ring only the first channel which is not off hook - ignore CW"
-msgstr ""
+msgstr "Chỉ đổ chuông kênh đầu tiên không off hook- bỏ qua CW"
 
 #: functions.inc.php:756 views/form.php:35
 msgid "ringall"
-msgstr ""
+msgstr "ringall ( Rung tất cả)"
 
 #: functions.inc.php:755 views/form.php:33
 msgid "ringallv2"
-msgstr ""
+msgstr "ringallv2"
 
 #: functions.inc.php:757 views/form.php:37
 msgid "take turns ringing each available extension"
