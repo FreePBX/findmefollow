@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-31 16:59-0800\n"
-"PO-Revision-Date: 2017-07-21 20:53+0200\n"
+"PO-Revision-Date: 2017-07-25 15:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/findmefollow/vi/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: functions.inc.php:759 views/form.php:41
 msgid "*-prim"
-msgstr "*-prim"
+msgstr "*-prim (Thuật toán prim )"
 
 #: views/form.php:431
 msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
@@ -115,7 +115,7 @@ msgstr "Mặc định Thời gian đổ chuông ban đầu của Follow Me"
 
 #: findmefollow.i18n.php:30
 msgid "Default Follow Me Ring Strategy"
-msgstr "Mặc định chiến lược đổ chuông của Follow Me"
+msgstr "Mặc định phương thức đổ chuông của Follow Me"
 
 #: findmefollow.i18n.php:22
 msgid "Default Follow Me Ring Time"
@@ -168,7 +168,7 @@ msgstr ""
 "sự xác nhận- ví dụ, một điện thoại di động có thể đi tới thư thoại mà thư "
 "thoại này sẽ nhận cuộc gọi. Việc kích hoạt này yêu cầu đầu dây phía bên kia "
 "nhấn phím 1 trước khi cuộc gọi được kết nối. Tính năng này chỉ hoạt động với "
-"chiến lược đổ chuông ringall"
+"phương thức đổ chuông ringall"
 
 #: functions.inc.php:926
 msgid ""
@@ -181,7 +181,7 @@ msgstr ""
 "sự xác nhận- ví dụ, một điện thoại di động có thể đi tới thư thoại mà thư "
 "thoại này sẽ nhận cuộc gọi. Việc kích hoạt này yêu cầu đầu dây phía bên kia "
 "nhấn phím 1 trước khi cuộc gọi được kết nối. Tính năng này chỉ hoạt động với "
-"chiến lược đổ chuông ringall/ ringall-prim"
+"phương thức đổ chuông ringall/ ringall-prim"
 
 #: functions.inc.php:716 views/fmgrid.php:27
 msgid "Enabled"
@@ -197,7 +197,7 @@ msgstr "Máy nhánh"
 
 #: functions.inc.php:658 ucp/Findmefollow.class.php:32
 msgid "Find Me/Follow Me"
-msgstr "Find Me/Follow Me"
+msgstr "Tính năng Find Me/Follow Me"
 
 #: ucp/Findmefollow.class.php:82
 msgid "Find Me/Follow Me Has Been Updated!"
@@ -263,7 +263,7 @@ msgstr "Điểm đích không trả lời Follow Me"
 #: functions.inc.php:1236
 #, php-format
 msgid "Follow Me: %s"
-msgstr "Follow Me: %s"
+msgstr "Tính năng Follow Me: %s"
 
 #: functions.inc.php:794 views/form.php:361
 msgid "Follow-Me List"
@@ -281,7 +281,7 @@ msgstr "Người dùng Follow-Me: %s"
 #: functions.inc.php:1265
 #, php-format
 msgid "Follow-Me: %s (%s)"
-msgstr "Follow-Me: %s (%s)"
+msgstr "Tính năng Follow-Me: %s (%s)"
 
 #: views/fmgrid.php:26
 msgid "Followme Extension"
@@ -554,7 +554,7 @@ msgstr "Đổ chuông danh sách Followme cho"
 
 #: functions.inc.php:772 views/form.php:311
 msgid "Ring Strategy"
-msgstr "Chiến lược đổ chuông"
+msgstr "Phương thức đổ chuông"
 
 #: functions.inc.php:783
 msgid "Ring Time"
@@ -581,18 +581,24 @@ msgid ""
 "The default Initial Ring Time for a Follow Me set upon creation and used if "
 "auto-created with a new extension."
 msgstr ""
+"Thời gian đổ chuông mặc định của chức năng Follow Me được thiết lập khi một "
+"máy nhánh mới được tạo theo phương thức auto-created."
 
 #: findmefollow.i18n.php:32
 msgid ""
 "The default Ring Strategy selected for a Follow Me set upon creation and "
 "used if auto-created with an extension."
 msgstr ""
+"Phương thức gọi mặc định của chức năng Follow Me được thiết lập khi một máy "
+"nhánh mới được tạo theo phương thức auto-created."
 
 #: findmefollow.i18n.php:24
 msgid ""
 "The default Ring Time for a Follow Me set upon creation and used if auto-"
 "created with a new extension."
 msgstr ""
+"Thời gian đổ chuông  mặc định của chức năng Follow Me được thiết lập khi một "
+"máy nhánh mới được tạo theo phương thức auto-created."
 
 #: views/form.php:248
 msgid "The number users will dial to ring extensions in this Followme group"
@@ -615,15 +621,16 @@ msgstr ""
 
 #: ucp/views/settings.php:35
 msgid "Time in seconds that the phones will ring"
-msgstr "Thời gian bằng giây mà các điện thoại sẽ đổ chuông"
+msgstr "Thời gian tính bằng giây mà các điện thoại sẽ đổ chuông"
 
 #: functions.inc.php:784 views/form.php:349
 msgid ""
 "Time in seconds that the phones will ring. For all hunt style ring "
 "strategies, this is the time for each iteration of phone(s) that are rung"
 msgstr ""
-"Thời gian bằng giâu mà các điện thoại sẽ đổ chuông. Đối với tất cả các chiến "
-"lược đổ chuông kiểu hunt, đây sẽ là thời gian cho mỗi lần đổ chuông lặp lại"
+"Thời gian bằng giây mà các điện thoại sẽ đổ chuông. Đối với tất cả các "
+"phương thức đổ chuông kiểu hunt, đây sẽ là thời gian cho mỗi lần đổ chuông "
+"lặp lại"
 
 #: assets/js/findmefollow.js:99
 msgid "Time must be between 1 and 60 seconds"
@@ -848,7 +855,7 @@ msgstr "ringallv2"
 
 #: functions.inc.php:757 views/form.php:37
 msgid "take turns ringing each available extension"
-msgstr ""
+msgstr "Thay phiên đổ chuông từng máy nhánh khả dụng"
 
 #: functions.inc.php:759 views/form.php:41
 msgid ""
@@ -857,3 +864,8 @@ msgid ""
 "is FreePBX DND, it won't be rung. If the primary is FreePBX CF "
 "unconditional, then all will be rung"
 msgstr ""
+"Các chế độ này hoạt động như mô tả ở trên. Tuy nhiên nếu các máy nhánh chính "
+"( nằm đầu tiên trong danh sách) được chiếm dụng, các máy nhánh khác sẽ không "
+"đổ chuông. Nếu máy nhánh chính ở chế độ FreePBX DND, nó sẽ không đổ chuông. "
+"Nếu máy nhánh chính ở chế độ FreePBX CF Unconditional ( FreePBX Chuyến tiếp "
+"cuộc gọi vô điều kiện) thì nó sẽ đổ chuông"
