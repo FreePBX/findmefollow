@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-31 16:59-0800\n"
-"PO-Revision-Date: 2017-07-31 05:43+0200\n"
+"PO-Revision-Date: 2017-07-31 06:48+0800\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://weblate.freepbx.org/projects/freepbx/findmefollow/zh_CN/>\n"
@@ -555,7 +555,7 @@ msgstr "时间必须在1到60秒之间"
 
 #: functions.inc.php:962 views/form.php:141
 msgid "Too-Late Announce"
-msgstr ""
+msgstr "播报太晚"
 
 #: functions.inc.php:1027 views/form.php:499
 msgid ""
@@ -586,12 +586,12 @@ msgstr ""
 
 #: ucp/views/settings.php:38
 msgid "Use Confirmation"
-msgstr ""
+msgstr "使用确认"
 
 #: functions.inc.php:1028 functions.inc.php:1050 views/form.php:216
 #: views/form.php:501
 msgid "Use Dialed Number"
-msgstr ""
+msgstr "使用已拨打的号码"
 
 #: views/bootnav.php:4
 msgid "User"
@@ -626,7 +626,7 @@ msgstr ""
 #: functions.inc.php:722 functions.inc.php:931 views/fmgrid.php:16
 #: views/form.php:265 views/form.php:475 views/quickCreate.php:10
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 #: functions.inc.php:858
 msgid ""
