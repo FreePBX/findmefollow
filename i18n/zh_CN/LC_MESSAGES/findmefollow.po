@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-31 16:59-0800\n"
-"PO-Revision-Date: 2017-07-31 06:48+0800\n"
+"PO-Revision-Date: 2017-07-31 06:58+0800\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://weblate.freepbx.org/projects/freepbx/findmefollow/zh_CN/>\n"
@@ -89,7 +89,7 @@ msgstr "呼叫确认"
 
 #: findmefollow.i18n.php:12
 msgid "Create Follow Me at Extension Creation Time"
-msgstr ""
+msgstr "创建分机时就创建分机随行"
 
 #: functions.inc.php:946 functions.inc.php:1025 functions.inc.php:1038
 #: views/form.php:113 views/form.php:148 views/form.php:213 views/form.php:495
@@ -98,15 +98,15 @@ msgstr "默认"
 
 #: findmefollow.i18n.php:26
 msgid "Default Follow Me Initial Ring Time"
-msgstr ""
+msgstr "默认分机随行初始振铃时长"
 
 #: findmefollow.i18n.php:30
 msgid "Default Follow Me Ring Strategy"
-msgstr ""
+msgstr "默认分机随行振铃策略"
 
 #: findmefollow.i18n.php:22
 msgid "Default Follow Me Ring Time"
-msgstr ""
+msgstr "默认分机随行振铃时间"
 
 #: views/form.php:563
 msgid "Destination if no answer"
@@ -118,7 +118,7 @@ msgstr "目的地"
 
 #: findmefollow.i18n.php:18
 msgid "Disable Follow Me Upon Creation"
-msgstr ""
+msgstr "关闭创建分机随行"
 
 #: ucp/views/settings.php:4
 msgid "Enable"
@@ -214,19 +214,19 @@ msgstr "跟我来"
 
 #: Findmefollow.class.php:842
 msgid "Follow Me Enabled [Blank to disable]"
-msgstr ""
+msgstr "开启分机随行[空白为不开启]"
 
 #: Findmefollow.class.php:845 ucp/views/settings.php:15
 msgid "Follow Me List"
-msgstr ""
+msgstr "分机随行列表"
 
 #: findmefollow.i18n.php:14
 msgid "Follow Me Module"
-msgstr ""
+msgstr "分机随行模块"
 
 #: Findmefollow.class.php:848
 msgid "Follow Me No Answer Destination"
-msgstr ""
+msgstr "分机随行无目的地应答"
 
 #: functions.inc.php:1236
 #, php-format
@@ -262,7 +262,7 @@ msgstr "分机随行列表"
 #: functions.inc.php:1029 functions.inc.php:1054 views/form.php:217
 #: views/form.php:503
 msgid "Force Dialed Number"
-msgstr ""
+msgstr "强制使用已拨号码"
 
 #: functions.inc.php:41
 msgid "Force Follow Me"
@@ -582,7 +582,7 @@ msgstr ""
 
 #: functions.inc.php:1025 views/form.php:495
 msgid "Transmits the Callers CID if allowed by the trunk."
-msgstr ""
+msgstr "如果中继允许透传 呼叫方CID，则发送CID。"
 
 #: ucp/views/settings.php:38
 msgid "Use Confirmation"
@@ -684,7 +684,7 @@ msgstr "记忆性搜寻"
 
 #: views/form.php:191
 msgid "none"
-msgstr ""
+msgstr "无"
 
 #: functions.inc.php:756 views/form.php:35
 msgid ""
