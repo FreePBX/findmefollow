@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>13.0.38.10</version>
+	<version>13.0.38.11</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*13.0.38.11* FREEPBX-15429 
 		*13.0.38.9* FREEPBX-14721 Enabling FMFM to external DIDs can add Alert-Info header(s) that interfere with SIP provider
 		*13.0.38.8* Make importing work using BulkHandler CSV
 		*13.0.38.7* FREEPBX-14200 Setting Ring Volume Override setting for Follow Me is ignored
