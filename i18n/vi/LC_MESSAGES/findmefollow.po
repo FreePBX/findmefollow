@@ -1,0 +1,871 @@
+# This file is part of FreePBX.
+#
+# For licensing information, please see the file named LICENSE located in the module directory
+#
+# FreePBX language template for findmefollow
+# Copyright (C) 2008-2017 Sangoma Technologies, Inc.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-31 16:59-0800\n"
+"PO-Revision-Date: 2017-07-25 15:27+0200\n"
+"Last-Translator: PETER <ftek@ymail.com>\n"
+"Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
+"findmefollow/vi/>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: vi\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.4\n"
+
+#: functions.inc.php:759 views/form.php:41
+msgid "*-prim"
+msgstr "*-prim (Thuật toán prim )"
+
+#: views/form.php:431
+msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
+msgstr ""
+"ALERT_INFO không thể được sử dụng để phân biệt chuông với các thiết bị SIP."
+
+#: functions.inc.php:857 views/form.php:419
+msgid "Alert Info"
+msgstr "Thông tin cảnh báo"
+
+#: functions.inc.php:1026 views/form.php:497
+msgid "Always transmit the Fixed CID Value below."
+msgstr "Luôn truyền gía trị CID cố định dưới đây."
+
+#: functions.inc.php:812 views/form.php:71
+msgid "Announcement"
+msgstr "Thông báo"
+
+#: findmefollow.i18n.php:6
+msgid "Applications"
+msgstr "Các ứng dụng"
+
+#: functions.inc.php:717
+msgid ""
+"By default (Yes) any call to this extension will go to this Follow-Me "
+"instead, including directory calls by name from IVRs. If set to \"No\", "
+"calls will go only to the extension. Destinations that directly specify "
+"FollowMe will come here regardless. Setting this to \"No\" is often used in "
+"conjunction with VmX Locater, where you want a call to ring the extension, "
+"and then only if the caller chooses to find you do you want the call to go "
+"through FollowMe."
+msgstr ""
+"Mặc định Yes, bất cứ cuộc gọi nào thay vì tới máy nhánh này đều sẽ đi tới "
+"Follow Me, bao gồm các cuộc gọi theo tên danh mục từ IVR. Nếu cài là \"No\" "
+"thì các cuộc gọi sẽ chỉ đi tới máy nhánh. Bất kể điểm đích nào chỉ định trực "
+"tiếp FollowMe sẽ đến đây. Cài đặt \"No\" thường được sử dụng kết hợp với bộ "
+"định vị VmX, nơi bạn muốn cuộc gọi đổ chuông máy nhánh và sau đó chỉ nếu khi "
+"người gọi chọn để tìm kiếm bạn, bạn có muốn muốn cuôc gọi này đi qua Follow "
+"Me không."
+
+#: views/form.php:275
+msgid ""
+"By default (yes) any call to this extension will go to this Follow-Me "
+"instead, including directory calls by name from IVRs. If no, calls will go "
+"only to the extension.<BR>However, destinations that specify FollowMe will "
+"come here.<BR>This setting is often used in conjunction with VmX Locater, "
+"where you want a call to ring the extension, and then only if the caller "
+"chooses to find you do you want it to come here."
+msgstr ""
+"Mặc định Yes, bất cứ cuộc gọi nào thay vì tới máy nhánh này đều sẽ đi tới "
+"Follow Me, bao gồm các cuộc gọi theo tên danh mục từ IVR. Nếu cài là \"No\" "
+"thì các cuộc gọi sẽ chỉ đi tới máy nhánh. Bất kể điểm đích nào chỉ định trực "
+"tiếp FollowMe sẽ đến đây. Cài đặt \"No\" thường được sử dụng kết hợp với bộ "
+"định vị VmX, nơi bạn muốn cuộc gọi đổ chuông máy nhánh và sau đó chỉ nếu khi "
+"người gọi chọn để tìm kiếm bạn, bạn có muốn cuôc gọi này đến đây không."
+
+#: functions.inc.php:847 views/form.php:395
+msgid "CID Name Prefix"
+msgstr "Tiền tố của Tên CID"
+
+#: functions.inc.php:902
+msgid "Call Confirmation Configuration"
+msgstr "Cấu hình xác nhận cuộc gọi"
+
+#: uninstall.php:30
+msgid "Cannot connect to Asterisk Manager with "
+msgstr "Không thể kết nối Trình quản lý Asterisk với "
+
+#: functions.inc.php:1003 views/form.php:513
+msgid "Change External CID Configuration"
+msgstr "Thay đổi cấu hình CID nội bộ"
+
+#: functions.inc.php:925 views/form.php:470
+msgid "Confirm Calls"
+msgstr "Xác nhận cuộc gọi"
+
+#: findmefollow.i18n.php:12
+msgid "Create Follow Me at Extension Creation Time"
+msgstr "Tạo Follow Me tại Extension Creation Time"
+
+#: functions.inc.php:946 functions.inc.php:1025 functions.inc.php:1038
+#: views/form.php:113 views/form.php:148 views/form.php:213 views/form.php:495
+msgid "Default"
+msgstr "Mặc định"
+
+#: findmefollow.i18n.php:26
+msgid "Default Follow Me Initial Ring Time"
+msgstr "Mặc định Thời gian đổ chuông ban đầu của Follow Me"
+
+#: findmefollow.i18n.php:30
+msgid "Default Follow Me Ring Strategy"
+msgstr "Mặc định phương thức đổ chuông của Follow Me"
+
+#: findmefollow.i18n.php:22
+msgid "Default Follow Me Ring Time"
+msgstr "Mặc định Thời gian đổ chuông cuả Follow Me"
+
+#: views/form.php:563
+msgid "Destination if no answer"
+msgstr "Điểm đích nếu không trả lời"
+
+#: functions.inc.php:1082
+msgid "Destinations"
+msgstr "Các điểm đích"
+
+#: findmefollow.i18n.php:18
+msgid "Disable Follow Me Upon Creation"
+msgstr "Vô hiệu Follow Me Upon Creation"
+
+#: ucp/views/settings.php:4
+msgid "Enable"
+msgstr "Kích hoạt"
+
+#: views/quickCreate.php:5
+msgid "Enable Find Me/Follow Me"
+msgstr "Kích hoạt Find Me/Follow Me"
+
+#: views/form.php:260
+msgid "Enable Followme"
+msgstr "Kích hoạt Followme"
+
+#: ucp/views/settings.php:46
+msgid ""
+"Enable this if you're calling external numbers that need confirmation - eg, "
+"a mobile phone may go to voicemail which will pick up the call. Enabling "
+"this requires the remote side push 1 on their phone before the call is put "
+"through."
+msgstr ""
+"Kích hoạt chức năng này nếu bạn đang gọi đên các máy nhánh nội bộ mà cần có "
+"sự xác nhận- ví dụ, một điện thoại di động có thể đi tới thư thoại mà thư "
+"thoại này sẽ nhận cuộc gọi. Việc kích hoạt này yêu cầu đầu dây phía bên kia "
+"nhấn phím 1 trước khi cuộc gọi được kết nối."
+
+#: views/form.php:485
+msgid ""
+"Enable this if you're calling external numbers that need confirmation - eg, "
+"a mobile phone may go to voicemail which will pick up the call. Enabling "
+"this requires the remote side push 1 on their phone before the call is put "
+"through. This feature only works with the ringall ring strategy"
+msgstr ""
+"Kích hoạt chức năng này nếu bạn đang gọi đên các máy nhánh nội bộ mà cần có "
+"sự xác nhận- ví dụ, một điện thoại di động có thể đi tới thư thoại mà thư "
+"thoại này sẽ nhận cuộc gọi. Việc kích hoạt này yêu cầu đầu dây phía bên kia "
+"nhấn phím 1 trước khi cuộc gọi được kết nối. Tính năng này chỉ hoạt động với "
+"phương thức đổ chuông ringall"
+
+#: functions.inc.php:926
+msgid ""
+"Enable this if you're calling external numbers that need confirmation - eg, "
+"a mobile phone may go to voicemail which will pick up the call. Enabling "
+"this requires the remote side push 1 on their phone before the call is put "
+"through. This feature only works with the ringall/ringall-prim  ring strategy"
+msgstr ""
+"Kích hoạt chức năng này nếu bạn đang gọi đên các máy nhánh nội bộ mà cần có "
+"sự xác nhận- ví dụ, một điện thoại di động có thể đi tới thư thoại mà thư "
+"thoại này sẽ nhận cuộc gọi. Việc kích hoạt này yêu cầu đầu dây phía bên kia "
+"nhấn phím 1 trước khi cuộc gọi được kết nối. Tính năng này chỉ hoạt động với "
+"phương thức đổ chuông ringall/ ringall-prim"
+
+#: functions.inc.php:716 views/fmgrid.php:27
+msgid "Enabled"
+msgstr "Đã kích hoạt"
+
+#: assets/js/findmefollow.js:74
+msgid "Error"
+msgstr "Lỗi"
+
+#: views/bootnav.php:7 views/bootnav.php:18
+msgid "Extension"
+msgstr "Máy nhánh"
+
+#: functions.inc.php:658 ucp/Findmefollow.class.php:32
+msgid "Find Me/Follow Me"
+msgstr "Tính năng Find Me/Follow Me"
+
+#: ucp/Findmefollow.class.php:82
+msgid "Find Me/Follow Me Has Been Updated!"
+msgstr "Find Me/Follow Me vừa được cập nhật!"
+
+#: findmefollow.i18n.php:34 install.php:5
+msgid "Findme Follow Toggle"
+msgstr "Chuyển đổi Findme Follow"
+
+#: functions.inc.php:1026 functions.inc.php:1042 functions.inc.php:1065
+#: views/form.php:214 views/form.php:497 views/form.php:539
+msgid "Fixed CID Value"
+msgstr "Gía trị CID cố định"
+
+#: functions.inc.php:1072
+msgid ""
+"Fixed CID Value should be in a format of digits only with an option of E164 "
+"format using a leading \"+\""
+msgstr ""
+"Gía trị CID cố định phải được định dạng bằng chữ số chỉ với tùy chọn định "
+"dạng E164 với bắt đầu bằng '+\""
+
+#: functions.inc.php:1066
+msgid ""
+"Fixed value to replace the CID with used with some of the modes above. "
+"Should be in a format of digits only with an option of E164 format using a "
+"leading \"+\"."
+msgstr ""
+"Gía trị cố định để thay thế CID bằng cách sử dụng cùng với một số chế độ "
+"trên. Gía trị cần được định dạng chữ số chỉ với tùy chọn định dạng E164 với "
+"bắt đầu bằng \"+\"."
+
+#: views/form.php:551
+msgid ""
+"Fixed value to replace the CID with used with some of the modes above. "
+"Should be in a format of digits only with an option of E164 format using a "
+"leading '+'."
+msgstr ""
+"Gía trị cố định để thay thế CID bằng cách sử dụng cùng với một số chế độ "
+"trên. Gía trị cần được định dạng chữ số chỉ với tùy chọn định dạng E164 với "
+"bắt đầu bằng \"+\"."
+
+#: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
+msgid "Follow Me"
+msgstr "Tính năng Follow Me"
+
+#: Findmefollow.class.php:842
+msgid "Follow Me Enabled [Blank to disable]"
+msgstr "Follow Me đã được kích hoạt [Đê trống nếu muốn vô hiệu hóa]"
+
+#: Findmefollow.class.php:845 ucp/views/settings.php:15
+msgid "Follow Me List"
+msgstr "Danh sách Follow Me"
+
+#: findmefollow.i18n.php:14
+msgid "Follow Me Module"
+msgstr "Mô đun Follow Me"
+
+#: Findmefollow.class.php:848
+msgid "Follow Me No Answer Destination"
+msgstr "Điểm đích không trả lời Follow Me"
+
+#: functions.inc.php:1236
+#, php-format
+msgid "Follow Me: %s"
+msgstr "Tính năng Follow Me: %s"
+
+#: functions.inc.php:794 views/form.php:361
+msgid "Follow-Me List"
+msgstr "Danh sách Follow-Me"
+
+#: functions.inc.php:800
+msgid "Follow-Me List can not be empty if Follow-Me is enabled"
+msgstr "Danh sách Follow-Me không được để trống nếu kích hoạt Follow-Me"
+
+#: functions.inc.php:1288
+#, php-format
+msgid "Follow-Me User: %s"
+msgstr "Người dùng Follow-Me: %s"
+
+#: functions.inc.php:1265
+#, php-format
+msgid "Follow-Me: %s (%s)"
+msgstr "Tính năng Follow-Me: %s (%s)"
+
+#: views/fmgrid.php:26
+msgid "Followme Extension"
+msgstr "Máy nhánh Followme"
+
+#: views/nogo.php:2
+msgid "Followme List"
+msgstr "Danh sách Followme"
+
+#: functions.inc.php:1029 functions.inc.php:1054 views/form.php:217
+#: views/form.php:503
+msgid "Force Dialed Number"
+msgstr "Bắt buộc số đã quay"
+
+#: functions.inc.php:41
+msgid "Force Follow Me"
+msgstr "Bắt buộc Follow Me"
+
+#: functions.inc.php:692
+msgid "General Settings"
+msgstr "Cài đặt chung"
+
+#: views/form.php:236
+msgid "Group Number"
+msgstr "Số nhóm"
+
+#: functions.inc.php:837 views/form.php:205
+msgid ""
+"If you select a Music on Hold class to play, instead of 'Ring', they will "
+"hear that instead of Ringing while they are waiting for someone to pick up."
+msgstr ""
+"Nếu bạn chọn một lớp nhạc chờ để phát thay vì chọn đổ chuông, thì họ sẽ nghe "
+"thấy tiếng nhạc chứ không phải tiếng chuông trong khi đợi ai đó nhấc máy."
+
+#: functions.inc.php:745 views/form.php:287
+msgid "Initial Ring Time"
+msgstr "Thời gian đổ chuông ban đầu"
+
+#: assets/js/findmefollow.js:101
+msgid ""
+"Invalid CID Number. Must be in a format of digits only with an option of "
+"E164 format using a leading \"+\""
+msgstr ""
+"Số CID không hợp lệ. Số phải được định dạng là chữ số chỉ với tùy chọn định "
+"dạng D164 bắt đầu bằng \"+\""
+
+#: assets/js/findmefollow.js:98
+msgid "Invalid time specified"
+msgstr "Thời gian không hợp lệ được xác định"
+
+#: views/bootnav.php:12
+msgid "List Followme Groups"
+msgstr "Danh sách Nhóm Followme"
+
+#: functions.inc.php:795 views/form.php:381
+msgid ""
+"List extensions to ring, one per line, or use the Extension Quick Pick below."
+"<br><br>You can include an extension on a remote system, or an external "
+"number by suffixing a number with a pound (#).  ex:  2448089# would dial "
+"2448089 on the appropriate trunk (see Outbound Routing).<br><br>Note: Any "
+"local extension added will skip that local extension's FindMe/FollowMe, if "
+"you wish the system to use another extension's FindMe/FollowMe append a # "
+"onto that extension, eg 105#"
+msgstr ""
+"Danh sách máy nhánh sẽ đổ chuông, một máy trên một hàng.<br><br> Bạn có thể "
+"thêm một máy nhánh trên một hệ thống từ xa, hoặc một số nội bộ bằng cách "
+"thêm đằng sau số đó dấu (#). Ví dụ 2448089# sẽ quay số cho 2448089 trên "
+"trung kế thích hợp ( xem phần Outbound Routing).<br><br> Lưu ý: Bất kỳ máy "
+"nhánh tại chỗ nào được thêm vào đều sẽ bỏ qua chức năng FindMe/FollowMe của "
+"nó, nếu bạn muốn hệ thống sử dụng tính năng FindMe/FollowMe  của một máy "
+"nhánh khác thì hãy thêm vào vào sau máy nhánh đó dấu #, ví dụ 105#"
+
+#: ucp/views/settings.php:17
+msgid ""
+"List extensions to ring, one per line. You can include an extension on a "
+"remote system, or an external number by suffixing a number with a pound "
+"(#).  ex:  2448089# would dial 2448089."
+msgstr ""
+"Danh sách máy nhánh sẽ đổ chuông, một máy trên một hàng. Bạn có thể thêm một "
+"máy nhánh trên một hệ thống từ xa, hoặc một số nội bộ bằng cách thêm đằng "
+"sau sô đó dấu (#). Ví dụ 2448089# sẽ quay số cho 2448089."
+
+#: views/form.php:92
+msgid ""
+"Message to be played to the caller before dialing this group.<br><br>To add "
+"additional recordings please use the \"System Recordings\" MENU above"
+msgstr ""
+"Một tin nhắn sẽ được phát tới người gọi trước khi họ quay số nhóm này. "
+"<br><br> Để thêm các ghi âm bổ sung vui lòng sử dụng MENU \"System Recordings"
+"\" ở trên"
+
+#: functions.inc.php:813
+msgid ""
+"Message to be played to the caller before dialing this group.<br><br>To add "
+"additional recordings please use the \"System Recordings\" MENU to the left"
+msgstr ""
+"Một tin nhắn sẽ được phát tới người gọi trước khi họ quay số nhóm này. "
+"<br><br> Để thêm các ghi âm bổ sung vui lòng sử dụng MENU \"System Recordings"
+"\" ở phía bên trái"
+
+#: views/form.php:127
+msgid ""
+"Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
+"enabled.<br><br>To add additional recordings use the \"System Recordings\" "
+"MENU above"
+msgstr ""
+"Một tin nhắn sẽ được phát tới người đang NHẬN cuộc gọi khi 'Confirm Calls' "
+"được bật . <br><br> Để thêm các ghi âm bổ sung hãy sử dụng MENU \"System "
+"Recordings\" ở trên"
+
+#: functions.inc.php:951
+msgid ""
+"Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
+"enabled.<br><br>To add additional recordings use the \"System Recordings\" "
+"MENU to the left"
+msgstr ""
+"Một tin nhắn sẽ được phát tới người đang NHẬN cuộc gọi khi 'Confirm Calls' "
+"được bật . <br><br> Để thêm các ghi âm bổ sung hãy sử dụng MENU \"System "
+"Recordings\" ở bên trái"
+
+#: views/form.php:162
+msgid ""
+"Message to be played to the person RECEIVING the call, if the call has "
+"already been accepted before they push 1.<br><br>To add additional "
+"recordings use the \"System Recordings\" MENU above"
+msgstr ""
+"Một tin nhắn sẽ được phát tới người đang NHẬN cuộc gọi nếu cuộc gọi đã được "
+"chấp nhận trước khi nhấn phím 1 . <br><br> Để thêm các ghi âm bổ sung hãy sử "
+"dụng MENU \"System Recordings\" ở trên"
+
+#: functions.inc.php:963
+msgid ""
+"Message to be played to the person RECEIVING the call, if the call has "
+"already been accepted before they push 1.<br><br>To add additional "
+"recordings use the \"System Recordings\" MENU to the left"
+msgstr ""
+"Một tin nhắn sẽ được phát tới người đang NHẬN cuộc gọi nếu cuộc gọi đã được "
+"chấp nhận trước khi nhấn phím 1 . <br><br> Để thêm các ghi âm bổ sung hãy sử "
+"dụng MENU \"System Recordings\" ở phía bên trái"
+
+#: views/nogo.php:1
+msgid "Method not supported"
+msgstr "Phương thức không được hỗ trợ"
+
+#: functions.inc.php:1032 views/form.php:493
+msgid "Mode"
+msgstr "Chế độ"
+
+#: findmefollow.i18n.php:8
+msgid ""
+"Much like a ring group, but works on individual extensions. When someone "
+"calls the extension, it can be setup to ring for a number of seconds before "
+"trying to ring other extensions and/or external numbers, or to ring all at "
+"once, or in other various 'hunt' configurations. Most commonly used to ring "
+"someone's cell phone if they don't answer their extension."
+msgstr ""
+"giống như một ring group, nhưng lại làm việc trên các máy nhánh cá nhấn. Khi "
+"ai đó gọi vào máy nhánh, nó cỏ thẻ được thiết lập đẻ đổ chuông trong khoảng "
+"ít giây trước khi đổ chuông các máy nhánh khác và/hoặc các số máy nội bộ, "
+"hoặc đổ chuông tất cả các máy trong cùng một lúc, hoặc trong các cấu hình "
+"'hunt'. Thông thường hầu hết nó được sử dụng để đổ chuông điện thoại di động "
+"của ai đó nếu họ không muốn trả lời máy nhánh của họ."
+
+#: functions.inc.php:726 functions.inc.php:935 views/fmgrid.php:18
+#: views/form.php:267 views/form.php:477 views/quickCreate.php:12
+msgid "No"
+msgstr "Không"
+
+#: functions.inc.php:1106
+msgid "No Answer"
+msgstr "Không trả lời"
+
+#: functions.inc.php:644 functions.inc.php:867 views/form.php:78
+#: views/form.php:447
+msgid "None"
+msgstr "Không có"
+
+#: functions.inc.php:21 functions.inc.php:25
+msgid "Normal Extension Behavior"
+msgstr "Trạng thái bình thường của máy nhánh"
+
+#: ucp/views/settings.php:17
+msgid ""
+"Note: Any local extension added will skip that local extension's FindMe/"
+"FollowMe, if you wish the system to use another extension's FindMe/FollowMe "
+"append a # onto that extension, eg 105#"
+msgstr ""
+"Lưu ý: Bất kỳ máy nhánh tại chỗ nào được thêm vào đều sẽ bỏ qua chức năng "
+"FindMe/FollowMe của nó, nếu bạn muốn hệ thống sử dụng tính năng FindMe/"
+"FollowMe  của một máy nhánh khác thì hãy thêm vào vào sau máy nhánh đó dấu "
+"#, ví dụ 105#"
+
+#: assets/js/findmefollow.js:100
+msgid ""
+"Only ringall, ringallv2, hunt and the respective -prim versions are "
+"supported when confirmation is checked"
+msgstr ""
+"chỉ ringall, ringallv2, hunt và các phiên bản prim tương ứng mới được hỗ trợ "
+"khi bị kiểm tra xác nhận"
+
+#: functions.inc.php:1107
+msgid ""
+"Optional destination call is routed to when the call is not answered on an "
+"otherwise idle phone. If the phone is in use and the call is simply ignored, "
+"then the busy destination will be used."
+msgstr ""
+"Cuộc gọi có điểm đích tùy chịn được định tuyến khi cuộc gọi không được trả "
+"lời trên một điện thoại đang rỗi. Nếu điện thoại đang được sử dụng và cuộc "
+"gọi bị bỏ qua, thì sau đó điểm đích bận sẽ được sử dụng."
+
+#: functions.inc.php:1027 functions.inc.php:1046 views/form.php:215
+#: views/form.php:499
+msgid "Outside Calls Fixed CID Value"
+msgstr "Gía trị CID cố định của các cuộc gọi bên ngoài"
+
+#: views/form.php:459
+#, php-format
+msgid ""
+"Override the ringer volume. Note: This is only valid for %s phones at this "
+"time"
+msgstr ""
+"Ghi đè âm lượng chuông. Lưu ý: Điều này chỉ hợp lệ cho điện thoại %s tại "
+"thời điểm này"
+
+#: functions.inc.php:882
+msgid ""
+"Override the ringer volume. Note: This is only valid for Sangoma phones at "
+"this time"
+msgstr ""
+"Ghi đè âm lượng chuông. Lưu ý: Điều này chỉ hợp lệ cho điện thoại Sangoma "
+"tại thời điểm này"
+
+#: functions.inc.php:836 views/form.php:181
+msgid "Play Music On Hold"
+msgstr "Phát nhạc chờ"
+
+#: functions.inc.php:670
+#, php-format
+msgid "Please enter a valid %s number"
+msgstr "Vui lòng nhập số %s hợp lệ"
+
+#: assets/js/findmefollow.js:97
+msgid "Please enter an extension list."
+msgstr "Vui lòng nhập một danh sách máy nhánh."
+
+#: functions.inc.php:950 views/form.php:106
+msgid "Remote Announce"
+msgstr "Thông báo từ xa"
+
+#: assets/js/findmefollow.js:74
+msgid "Request not received"
+msgstr "Không nhận được yêu cầu"
+
+#: Findmefollow.class.php:599
+msgid "Reset"
+msgstr "Cài đặt lại"
+
+#: functions.inc.php:824 views/form.php:188
+msgid "Ring"
+msgstr "Đổ chuông"
+
+#: ucp/views/settings.php:20
+#, php-format
+msgid "Ring %s First For"
+msgstr "Đổ chuông %s đầu tiên cho"
+
+#: ucp/views/settings.php:29
+msgid "Ring Followme List For"
+msgstr "Đổ chuông danh sách Followme cho"
+
+#: functions.inc.php:772 views/form.php:311
+msgid "Ring Strategy"
+msgstr "Phương thức đổ chuông"
+
+#: functions.inc.php:783
+msgid "Ring Time"
+msgstr "Thời gian đổ chuông"
+
+#: views/form.php:337
+msgid "Ring Time (max 60 sec)"
+msgstr "Thời gian đổ chuông ( tối đa 60 giây)"
+
+#: functions.inc.php:881 views/form.php:442
+msgid "Ringer Volume Override"
+msgstr "Ghi đè âm lượng chuông"
+
+#: ucp/views/settings.php:23 ucp/views/settings.php:32
+msgid "Seconds"
+msgstr "Giây"
+
+#: Findmefollow.class.php:594
+msgid "Submit"
+msgstr "Gửi đi"
+
+#: findmefollow.i18n.php:28
+msgid ""
+"The default Initial Ring Time for a Follow Me set upon creation and used if "
+"auto-created with a new extension."
+msgstr ""
+"Thời gian đổ chuông mặc định của chức năng Follow Me được thiết lập khi một "
+"máy nhánh mới được tạo theo phương thức auto-created."
+
+#: findmefollow.i18n.php:32
+msgid ""
+"The default Ring Strategy selected for a Follow Me set upon creation and "
+"used if auto-created with an extension."
+msgstr ""
+"Phương thức gọi mặc định của chức năng Follow Me được thiết lập khi một máy "
+"nhánh mới được tạo theo phương thức auto-created."
+
+#: findmefollow.i18n.php:24
+msgid ""
+"The default Ring Time for a Follow Me set upon creation and used if auto-"
+"created with a new extension."
+msgstr ""
+"Thời gian đổ chuông  mặc định của chức năng Follow Me được thiết lập khi một "
+"máy nhánh mới được tạo theo phương thức auto-created."
+
+#: views/form.php:248
+msgid "The number users will dial to ring extensions in this Followme group"
+msgstr ""
+"Số mà người dùng sẽ quay để đổ chuông các máy nhánh trong Nhóm Followme này"
+
+#: findmefollow.i18n.php:20
+msgid "This is the default value for the Follow Me "
+msgstr "Đây là giá trị mặc định cho Follow Me "
+
+#: functions.inc.php:746 ucp/views/settings.php:26 views/form.php:299
+msgid ""
+"This is the number of seconds to ring the primary extension prior to "
+"proceeding to the follow-me list. The extension can also be included in the "
+"follow-me list. A 0 setting will bypass this."
+msgstr ""
+"Đây là số giây để đổ chuông máy nhánh chính trước khi tiếp tục đổ chuông các "
+"máy nhánh tiếp theo. Máy nhánh có thể cũng được bao gồm trong danh sách "
+"follow-me. Cài đặt bằng 0 sẽ bỏ qua điều này."
+
+#: ucp/views/settings.php:35
+msgid "Time in seconds that the phones will ring"
+msgstr "Thời gian tính bằng giây mà các điện thoại sẽ đổ chuông"
+
+#: functions.inc.php:784 views/form.php:349
+msgid ""
+"Time in seconds that the phones will ring. For all hunt style ring "
+"strategies, this is the time for each iteration of phone(s) that are rung"
+msgstr ""
+"Thời gian bằng giây mà các điện thoại sẽ đổ chuông. Đối với tất cả các "
+"phương thức đổ chuông kiểu hunt, đây sẽ là thời gian cho mỗi lần đổ chuông "
+"lặp lại"
+
+#: assets/js/findmefollow.js:99
+msgid "Time must be between 1 and 60 seconds"
+msgstr "Thời gian phải trong khoảng giữa 1-60 giây"
+
+#: functions.inc.php:962 views/form.php:141
+msgid "Too-Late Announce"
+msgstr "Thông báo quá muộn"
+
+#: functions.inc.php:1027 views/form.php:499
+msgid ""
+"Transmit the Fixed CID Value below on calls that come in from outside only. "
+"Internal extension to extension calls will continue to operate in default "
+"mode."
+msgstr ""
+"Truyền các giá trị CID cố định dưới đây chỉ trên các cuộc gọi đến từ bên "
+"ngoài. Các máy nhánh nội bộ đến các cuộc gọi nội bộ sẽ tiếp tục hoạt động "
+"trên chế độ mặc định."
+
+#: functions.inc.php:1029 views/form.php:503
+msgid ""
+"Transmit the number that was dialed as the CID for calls coming from "
+"outside. Internal extension to extension calls will continue to operate in "
+"default mode. There must be a DID on the inbound route for this. This WILL "
+"be transmitted on trunks that block foreign CallerID"
+msgstr ""
+"Truyền các giá trị CID cố định dưới đây chỉ trên các cuộc gọi đến từ bên "
+"ngoài. Các máy nhánh nội bộ đến các cuộc gọi nội bộ sẽ tiếp tục hoạt động "
+"trên chế độ mặc định. Việc này cần phải có một DID trn tuyến gọi ra. DID này "
+"sẽ được truyền trên các trung kế đã khóa các CallerID nước ngoài"
+
+#: functions.inc.php:1028 views/form.php:501
+msgid ""
+"Transmit the number that was dialed as the CID for calls coming from "
+"outside. Internal extension to extension calls will continue to operate in "
+"default mode. There must be a DID on the inbound route for this. This will "
+"be BLOCKED on trunks that block foreign CallerID"
+msgstr ""
+"Truyền các giá trị CID cố định dưới đây chỉ trên các cuộc gọi đến từ bên "
+"ngoài. Các máy nhánh nội bộ đến các cuộc gọi nội bộ sẽ tiếp tục hoạt động "
+"trên chế độ mặc định. Việc này cần phải có một DID trn tuyến gọi ra. DID này "
+"sẽ được truyền trên các trung kế đã khóa các CallerID nước ngoài"
+
+#: functions.inc.php:1025 views/form.php:495
+msgid "Transmits the Callers CID if allowed by the trunk."
+msgstr "Truyền Caller ID nếu các trung kế cho phép."
+
+#: ucp/views/settings.php:38
+msgid "Use Confirmation"
+msgstr "Sử dụng Confirmation"
+
+#: functions.inc.php:1028 functions.inc.php:1050 views/form.php:216
+#: views/form.php:501
+msgid "Use Dialed Number"
+msgstr "Sử dụng số đã quay"
+
+#: views/bootnav.php:4
+msgid "User"
+msgstr "Người dùng"
+
+#: Findmefollow.class.php:83
+msgid "Warning! Extension"
+msgstr "Cảnh báo! Máy nhánh"
+
+#: assets/js/findmefollow.js:71
+msgid "We received and sent your request but something failed"
+msgstr ""
+"Chúng tôi đã nhận và đã gửi yêu cầu của bạn nhưng có một số không thành công"
+
+#: findmefollow.i18n.php:16
+msgid ""
+"When creating a new user or extension, setting this to true will "
+"automatically create a new Follow Me for that user using the default "
+"settings listed below"
+msgstr ""
+"Khi tạo một người dùng hay máy nhánh mới, cài đặt người dùng/ máy nhánh này "
+"về true sẽ tự động tạo một Follow M mới cho người đang sử dụng các cài đặt "
+"mặc định được liệt kê dưới đây"
+
+#: ucp/views/settings.php:12
+msgid ""
+"When enabled any call to this extension will go to this Follow-Me instead, "
+"including directory calls by name from IVRs. If disabled, calls will go only "
+"to the extension."
+msgstr ""
+"Khi đã kích hoạt bất kỳ cuộc gọi nào thay vì tới máy nhánh này sẽ đi tới "
+"Follow Me, bao gồm các danh mục cuộc gọi bằng tên từ IVR. Nếu bị vô hiệu, "
+"các cuộc gọi sẽ chỉ đến máy nhánh."
+
+#: views/form.php:575
+msgid "Where to send callers if there is no answer."
+msgstr "Nơi để gửi người gọi nếu không có trả lời."
+
+#: functions.inc.php:722 functions.inc.php:931 views/fmgrid.php:16
+#: views/form.php:265 views/form.php:475 views/quickCreate.php:10
+msgid "Yes"
+msgstr "Có"
+
+#: functions.inc.php:858
+msgid ""
+"You can optionally include an Alert Info which can create distinctive rings "
+"on SIP phones."
+msgstr ""
+"Bạn có thể thêm vào một Alert Info và nó có thể tạo những chuông riêng biệt "
+"trên các điện thoại SIP."
+
+#: functions.inc.php:848
+msgid ""
+"You can optionally prefix the Caller ID name when ringing extensions in this "
+"group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
+"as \"Sales:John Doe\" on the extensions that ring."
+msgstr ""
+"Bạn có thể thêm tiền tố vào trước tên Caller ID  khi bạn đổ chuông các máy "
+"nhánh trong nhóm này. Ví dụ nếu bạn muốn thêm vào từ \"Sales:\" cho một cuộc "
+"gọi từ John Doe thì trên các máy nhánh đang đổ chuông sẽ hiển thị là  "
+"\"Sales:John Doe\"."
+
+#: views/form.php:407
+msgid ""
+"You can optionally prefix the CallerID name when ringing extensions in this "
+"group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
+"as \"Sales:John Doe\" on the extensions that ring."
+msgstr ""
+"Bạn có thể thêm tiền tố vào trước tên Caller ID  khi bạn đổ chuông các máy "
+"nhánh trong nhóm này. Ví dụ nếu bạn muốn thêm vào từ \"Sales:\" cho một cuộc "
+"gọi từ John Doe thì trên các máy nhánh đang đổ chuông sẽ hiển thị là  "
+"\"Sales:John Doe\"."
+
+#: views/form.php:192
+msgid "default"
+msgstr "Mặc định"
+
+#: functions.inc.php:670
+msgid "device"
+msgstr "thiết bị"
+
+#: functions.inc.php:670
+msgid "extension"
+msgstr "máy nhánh"
+
+#: functions.inc.php:760 views/form.php:43
+msgid "firstavailable"
+msgstr "firstavailable ( khả dụng đầu tiên)"
+
+#: functions.inc.php:761 views/form.php:45
+msgid "firstnotonphone"
+msgstr "firstnotonphone ( notophone đầu tiên)"
+
+#: functions.inc.php:757 views/form.php:37
+msgid "hunt"
+msgstr "hunt ( kiểu hunt)"
+
+#: Findmefollow.class.php:83
+msgid "is not allowed for your account"
+msgstr "Tài khoản của bạn không được cho phép"
+
+#: functions.inc.php:758 views/form.php:39
+msgid "memoryhunt"
+msgstr "Bộ nhớ hunt"
+
+#: views/form.php:191
+msgid "none"
+msgstr "Không có"
+
+#: functions.inc.php:756 views/form.php:35
+msgid ""
+"ring Extension for duration set in Initial Ring Time, and then terminate "
+"call to Extension and ring Follow-Me List for duration set in Ring Time."
+msgstr ""
+"Đổ chuông máy nhánh trong khoảng thời gian được cài đặt trong Initial Ring "
+"Time ( Thời gian đổ chuông ban đầu), và sau đó kết thúc cuộc gọi tới Máy "
+"nhánh và đổ chuông danh sách Follow-Me trong khoảng thời gian được cài trong "
+"Ring Time ( Thời gian đổ chuông)."
+
+#: views/form.php:33
+msgid ""
+"ring Extension for duration set in Initial Ring Time, and then, while "
+"continuing call to extension (only if extension is in the Group List), ring "
+"Follow-Me List for duration set in Ring Time."
+msgstr ""
+"Đổ chuông máy nhánh trong khoảng thời gian được cài đặt trong Initial Ring "
+"Time ( Thời gian đổ chuông ban đầu), và sau đó tiếp tục cuộc gọi tới Máy "
+"nhánh ( Chỉ khi máy nhánh đó thuộc danh sách Nhóm), và đổ chuông danh sách "
+"Follow-Me trong khoảng thời gian được cài trong Ring Time ( Thời gian đổ "
+"chuông)."
+
+#: functions.inc.php:755
+msgid ""
+"ring Extension for duration set in Initial Ring Time, and then, while "
+"continuing call to extension, ring Follow-Me List for duration set in Ring "
+"Time."
+msgstr ""
+"Đổ chuông máy nhánh trong khoảng thời gian được cài đặt trong Initial Ring "
+"Time ( Thời gian đổ chuông ban đầu), trong khi tiếp tục cuộc gọi tới Máy "
+"nhánh và đổ chuông danh sách Follow-Me trong khoảng thời gian được cài tại "
+"Ring Time ( Thời gian đổ chuông)."
+
+#: functions.inc.php:758 views/form.php:39
+msgid ""
+"ring first extension in the list, then ring the 1st and 2nd extension, then "
+"ring 1st 2nd and 3rd extension in the list.... etc."
+msgstr ""
+"Đổ chuông máy nhánh đầu tiên trong danh sách, sau đó đổ chuông máy nhánh đầu "
+"tiên và thứ hai, tiếp theo là máy đầu tiên, thứ hai và thứ ba trong danh "
+"sách,..."
+
+#: functions.inc.php:760 views/form.php:43
+msgid "ring only the first available channel"
+msgstr "Chỉ đổ chuông kênh sẵn có đầu tiên"
+
+#: functions.inc.php:761 views/form.php:45
+msgid "ring only the first channel which is not off hook - ignore CW"
+msgstr "Chỉ đổ chuông kênh đầu tiên không off hook- bỏ qua CW"
+
+#: functions.inc.php:756 views/form.php:35
+msgid "ringall"
+msgstr "ringall ( Rung tất cả)"
+
+#: functions.inc.php:755 views/form.php:33
+msgid "ringallv2"
+msgstr "ringallv2"
+
+#: functions.inc.php:757 views/form.php:37
+msgid "take turns ringing each available extension"
+msgstr "Thay phiên đổ chuông từng máy nhánh khả dụng"
+
+#: functions.inc.php:759 views/form.php:41
+msgid ""
+"these modes act as described above. However, if the primary extension (first "
+"in list) is occupied, the other extensions will not be rung. If the primary "
+"is FreePBX DND, it won't be rung. If the primary is FreePBX CF "
+"unconditional, then all will be rung"
+msgstr ""
+"Các chế độ này hoạt động như mô tả ở trên. Tuy nhiên nếu các máy nhánh chính "
+"( nằm đầu tiên trong danh sách) được chiếm dụng, các máy nhánh khác sẽ không "
+"đổ chuông. Nếu máy nhánh chính ở chế độ FreePBX DND, nó sẽ không đổ chuông. "
+"Nếu máy nhánh chính ở chế độ FreePBX CF Unconditional ( FreePBX Chuyến tiếp "
+"cuộc gọi vô điều kiện) thì nó sẽ đổ chuông"

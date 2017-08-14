@@ -962,7 +962,7 @@ class Findmefollow implements \BMO {
 		$is_new = (bool) $is_new['is_new'];
 
 		if ($is_new)
-			$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest,
+			$sql = "REPLACE INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest,
 						dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring)
 					VALUES (:grpnum, :strategy, :grptime, :grppre, :grplist, :annmsg_id, :postdest,
 						:dring, :needsconf, :remotealert_id, :toolate_id, :ringing, :pre_ring);";
