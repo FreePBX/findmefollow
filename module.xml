@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>14.0.1.13</version>
+	<version>14.0.1.14</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*14.0.1.14* FREEPBX-15429
 		*14.0.1.13* FREEPBX-15254 extension quick create - whoops when selecting Yes to enable follow-me
 		*14.0.1.12* FREEPBX-14945 Call Confirm Announcement under Virtual Queue module is broken
 		*14.0.1.11* FREEPBX-15173 Catch Exceptions on reload
