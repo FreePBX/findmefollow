@@ -1250,5 +1250,121 @@ class Findmefollow implements \BMO {
 		}
 
 	}
+	//UCP hooks
+	public function ucpConfigPage($mode, $user, $action) {
+		 if(isset($_REQUEST['action'])) {
+		     switch($_REQUEST['action']) {
+				case 'showgroup':
+					$mode = "group";
+					$fmr = $this->FreePBX->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|Findmefollow','fmr');
+					$enabled = $this->FreePBX->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|Findmefollow','enable');
+					$fmassigned = $this->FreePBX->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|Findmefollow','assigned');
+				break;
+				case 'showuser':
+					$mode = "user";
+					$fmr = $this->FreePBX->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Findmefollow','fmr');
+					$enabled = $this->FreePBX->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Findmefollow','enable');
+					$fmassigned = $this->FreePBX->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Findmefollow','assigned');
+				break;
+				case 'addgroup':
+					$mode = "group";
+					$fmr = "disable";
+					$enabled = true;
+				break;
+				case 'adduser':
+				     $mode = "user";
+				     $fmr = "disable";
+					 $enabled = true;
+                break;
+			 }
+		 }
+
+		 $fmassigned = !empty($fmassigned) ? $fmassigned : array();
+		 $ausers = array();
+		 $action = $_REQUEST['action'];
+		 if($action == "showgroup" || $action == "addgroup") {
+             $ausers['self'] = _("User Primary Extension");
+		}
+
+		 if($action == "addgroup") {
+		     $fmassigned = array('self');
+	     }
+
+		 foreach(core_users_list() as $list) {
+		     $cul[$list[0]] = array(
+		               "name" => $list[1],
+		              "vmcontext" => $list[2]
+			           );
+		     $ausers[$list[0]] = $list[1] . " &#60;".$list[0]."&#62;";
+	     }
+
+		$html = array();
+		$html[0] = array(
+		            "title" => _("FindmeFollow"),
+		           "rawname" => "findmefollow",
+		           "content" => load_view(dirname(__FILE__)."/views/ucp_config.php",array("enabled" => $enabled, "fmr" => $fmr, "mode" => $mode,"ausers" => $ausers, "fmassigned" => $fmassigned))
+					);
+       return $html;
+	}
+
+	public function ucpAddGroup($id, $display, $data) {
+	    $this->ucpUpdateGroup($id,$display,$data);
+	}
+
+	public function ucpUpdateGroup($id,$display,$data) {
+		if($display == 'userman' && isset($_POST['type']) && $_POST['type'] == 'group') {
+	            if(isset($_POST['findmefollow_enable']) && $_POST['findmefollow_enable'] == 'yes') {
+		                $this->FreePBX->Ucp->setSettingByGID($id,'findmefollow','enable',$_POST['findmefollow_enable']);
+	            } else {
+		                $this->FreePBX->Ucp->setSettingByGID($id,'findmefollow','enable',$_POST['findmefollow_enable']);
+				}
+				if(isset($_POST['fmr']) && $_POST['fmr'] == 'enable') {
+                        $this->FreePBX->Ucp->setSettingByGID($id,'findmefollow','fmr','enable');
+                } else {
+                     $this->FreePBX->Ucp->setSettingByGID($id,'findmefollow','fmr','disable');
+				}
+				if(!empty($_POST['followme_ext'])) {
+	                $this->FreePBX->Ucp->setSettingByGID($id,'Findmefollow','assigned',$_POST['followme_ext']);
+	            } else {
+	                $this->FreePBX->Ucp->setSettingByGID($id,'Findmefollow','assigned',array('self'));
+	            }
+
+       }
+	}
+
+	public function ucpDelGroup($id,$display,$data) {
+	}
+
+	public function ucpDelUser($id, $display, $ucpStatus, $data) {
+
+	}
+
+	public function ucpAddUser($id, $display, $ucpStatus, $data) {
+	     $this->ucpUpdateUser($id, $display, $ucpStatus, $data);
+	}
+
+	public function ucpUpdateUser($id, $display, $data) {
+		if(isset($_POST['findmefollow_enable']) && $_POST['findmefollow_enable'] == 'yes') {
+	          $this->FreePBX->Ucp->setSettingByID($id,'findmefollow','enable',$_POST['findmefollow_enable']);
+	    } elseif(isset($_POST['findmefollow_enable']) && $_POST['findmefollow_enable'] == 'no') {
+	          $this->FreePBX->Ucp->setSettingByID($id,'findmefollow','enable',$_POST['findmefollow_enable']);
+		}else{
+			 $this->FreePBX->Ucp->setSettingByID($id,'findmefollow','enable','');
+		}
+
+		if(isset($_POST['fmr']) && $_POST['fmr'] == 'enable') {
+	        $this->FreePBX->Ucp->setSettingByID($id,'findmefollow','fmr','enable');
+        } elseif(isset($_POST['fmr']) && $_POST['fmr'] == 'disable') {
+            $this->FreePBX->Ucp->setSettingByID($id,'findmefollow','fmr','disable');
+		}else{
+			 $this->FreePBX->Ucp->setSettingByID($id,'findmefollow','fmr','');
+		}
+
+		if(!empty($_POST['followme_ext'])) {
+              $this->FreePBX->Ucp->setSettingByID($id,'Findmefollow','assigned',$_POST['followme_ext']);
+        } else {
+               $this->FreePBX->Ucp->setSettingByID($id,'Findmefollow','assigned',null);
+        }
+	}
 
 }

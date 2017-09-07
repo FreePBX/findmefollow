@@ -74,7 +74,7 @@ class Findmefollow extends Modules{
 
 	private function _checkExtension($extension) {
 		$user = $this->UCP->User->getUser();
-		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Settings','assigned');
+		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Findmefollow','assigned');
 		$extensions = is_array($extensions) ? $extensions : array();
 		return in_array($extension,$extensions);
 	}
@@ -89,7 +89,11 @@ class Findmefollow extends Modules{
 		$widgets = array();
 
 		$user = $this->UCP->User->getUser();
-		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Settings','assigned');
+		$enable = $this->UCP->getCombinedSettingByID($user['id'],'Findmefollow','enable');
+		if($enable == 'no')
+		{ return array();
+		}
+		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Findmefollow','assigned');
 
 		if (!empty($extensions)) {
 			foreach($extensions as $extension) {
@@ -127,7 +131,6 @@ class Findmefollow extends Modules{
 		if (!$this->_checkExtension($id)) {
 			return array();
 		}
-
 		$settings = $this->UCP->FreePBX->Findmefollow->getSettingsById($id, 1);
 		$displayvars = array(
 			"extension" => $id,
@@ -151,12 +154,18 @@ class Findmefollow extends Modules{
 			return array();
 		}
 
+		$user = $this->UCP->User->getUser();
+		$fmr = $this->UCP->getCombinedSettingByID($user['id'],'Findmefollow','fmr');
+		// need to get the group settings
+
 		$settings = $this->UCP->FreePBX->Findmefollow->getSettingsById($id,1);
 		$displayvars = array(
 			"extension" => $id,
 			"confirm" => $settings['needsconf'],
 			"list" => explode("-",$settings['grplist']),
 			"ringtime" => $settings['grptime'],
+			"fmr" => $fmr,
+			"strategy" => $settings['strategy'],
 			"prering" => $settings['pre_ring']
 		);
 		for($i = 0;$i<=30;$i++) {
