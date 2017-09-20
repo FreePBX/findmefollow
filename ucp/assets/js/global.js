@@ -57,7 +57,7 @@ var FindmefollowC = UCPMC.extend({
 			self.saveSettings(extension, {key: $(this).prop('name'), value: $(this).val()});
 		});
 		$("#widget_settings .widget-settings-content select").change(function() {
-			self.saveSettings(extension, {key: $(this).prop('name'), value: $(this).is(':checked')});
+			self.saveSettings(extension, {key: $(this).prop('name'), value: $(this).val()});
 		});
 		$("#widget_settings .widget-settings-content input[type='checkbox']").change(function() {
 			self.saveSettings(extension, {key: $(this).prop('name'), value: $(this).is(':checked')});

@@ -50,6 +50,15 @@
 			<method callingMethod="processQuickCreate" class="Findmefollow" namespace="FreePBX\modules">processQuickCreate</method>
 			<method callingMethod="delUser" class="Findmefollow" namespace="FreePBX\modules">delUser</method>
 		</core>
+                <ucp class="Ucp">
+			<method namespace="FreePBX\modules" callingMethod="constructModuleConfigPages" class="Findmefollow" >ucpConfigPage</method>
+			<method namespace="FreePBX\modules" callingMethod="addUser" class="Findmefollow">ucpAddUser</method>
+			<method namespace="FreePBX\modules" callingMethod="updateUser" class="Findmefollow">ucpUpdateUser</method>
+			<method namespace="FreePBX\modules" callingMethod="delUser" class="Findmefollow">ucpDelUser</method>
+			<method namespace="FreePBX\modules" callingMethod="addGroup" class="Findmefollow">ucpAddGroup</method>
+			<method namespace="FreePBX\modules" callingMethod="updateGroup" class="Findmefollow">ucpUpdateGroup</method>
+			<method namespace="FreePBX\modules" callingMethod="delGroup" class="Findmefollow">ucpDelGroup</method>
+		</ucp>
 	</hooks>
 	<database>
 	  <table name="findmefollow">
