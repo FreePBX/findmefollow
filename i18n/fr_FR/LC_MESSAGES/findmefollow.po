@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-31 16:59-0800\n"
-"PO-Revision-Date: 2017-12-01 23:34+0200\n"
+"PO-Revision-Date: 2017-12-01 23:37+0200\n"
 "Last-Translator: CATTAN Jérémie <jeremie@famillecattan.com>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/findmefollow/fr_FR/>\n"
@@ -544,7 +544,7 @@ msgstr "Merci de rentrer un numéro valide %s"
 
 #: assets/js/findmefollow.js:97
 msgid "Please enter an extension list."
-msgstr "Veuillez entrer une liste d'extensions"
+msgstr "Veuillez entrer une liste d'extensions."
 
 #: functions.inc.php:950 views/form.php:106
 msgid "Remote Announce"
@@ -758,7 +758,7 @@ msgid ""
 "on SIP phones."
 msgstr ""
 "Vous pouvez optionnellement inclure une Info d'Alerte qui peut créer des "
-"sonneries différentes sur les téléphones SIP"
+"sonneries différentes sur les téléphones SIP."
 
 #: functions.inc.php:848
 msgid ""
@@ -864,7 +864,7 @@ msgstr "fait sonner uniquement le premier canal disponible"
 msgid "ring only the first channel which is not off hook - ignore CW"
 msgstr ""
 "fait sonner uniquement le premier canal qui n'est pas au téléphone - ignore "
-"les alertes d'appel "
+"les alertes d'appel"
 
 #: functions.inc.php:756 views/form.php:35
 msgid "ringall"
