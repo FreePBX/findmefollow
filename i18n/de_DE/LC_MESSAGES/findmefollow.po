@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-31 16:59-0800\n"
-"PO-Revision-Date: 2017-01-13 19:27+0200\n"
-"Last-Translator: Sven <spiderrs4@web.de>\n"
-"Language-Team: German <http://weblate.freepbx.org/projects/freepbx/"
-"findmefollow/de_DE/>\n"
+"PO-Revision-Date: 2017-12-18 17:30+0200\n"
+"Last-Translator: Nils <Nils@heckenkamp.info>\n"
+"Language-Team: German "
+"<http://weblate.freepbx.org/projects/freepbx/findmefollow/de_DE/>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -378,7 +378,7 @@ msgstr "Nein"
 
 #: functions.inc.php:1106
 msgid "No Answer"
-msgstr "Keine Antwort"
+msgstr "Verpasste Anrufe"
 
 #: functions.inc.php:644 functions.inc.php:867 views/form.php:78
 #: views/form.php:447
@@ -657,7 +657,7 @@ msgstr ""
 
 #: Findmefollow.class.php:83
 msgid "is not allowed for your account"
-msgstr "Ist für Ihr Konto nicht erlaubt."
+msgstr "ist nicht für Ihr Konto erlaubt"
 
 #: functions.inc.php:758 views/form.php:39
 msgid "memoryhunt"
