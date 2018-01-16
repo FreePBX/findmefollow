@@ -352,7 +352,7 @@ if (empty($goto)) {
 						<select class="form-control" id="calendar_group_id" name="calendar_group_id">
 							<option value=""><?php echo _("--Not Calendar Group Controlled--")?></option>
 							<?php foreach($groups as $id => $group) { ?>
-								<option value="<?php echo $id?>" <?php echo ($calendar_id == $id) ? "selected" : ""?>><?php echo $group['name']?></option>
+								<option value="<?php echo $id?>" <?php echo ($calendar_group_id == $id) ? "selected" : ""?>><?php echo $group['name']?></option>
 							<?php } ?>
 						</select>
 					</div>
