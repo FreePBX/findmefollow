@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-05 09:36-0700\n"
+"POT-Creation-Date: 2017-09-19 17:56-0700\n"
 "PO-Revision-Date: 2014-02-21 03:21+0200\n"
 "Last-Translator: Kenichi Fukaumi <k.fukaumi@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/findmefollow/"
@@ -49,7 +49,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.8\n"
 
-#: functions.inc.php:688 views/form.php:48
+#: functions.inc.php:688 ucp/views/settings.php:10 views/form.php:48
 msgid "*-prim"
 msgstr "*-prim"
 
@@ -68,6 +68,10 @@ msgstr ""
 #: functions.inc.php:786 views/form.php:536
 msgid "Alert Info"
 msgstr "アラート情報"
+
+#: views/ucp_config.php:39
+msgid "Allowed Extensions"
+msgstr ""
 
 #: functions.inc.php:955 views/form.php:614
 msgid "Always transmit the Fixed CID Value below."
@@ -167,12 +171,20 @@ msgstr "応答なし時の宛先"
 msgid "Destinations"
 msgstr ""
 
+#: views/ucp_config.php:74
+msgid "Disable"
+msgstr "無効"
+
 #: findmefollow.i18n.php:18
 msgid "Disable Follow Me Upon Creation"
 msgstr "作成時にフォローミーを無効にする。"
 
 #: ucp/views/widget.php:2
 msgid "Disabled"
+msgstr ""
+
+#: views/ucp_config.php:72
+msgid "Enable"
 msgstr ""
 
 #: functions.inc.php:551 views/form.php:293
@@ -183,11 +195,19 @@ msgstr ""
 msgid "Enable Find Me/Follow Me"
 msgstr ""
 
+#: views/ucp_config.php:7
+msgid "Enable Findme Follow"
+msgstr ""
+
 #: views/form.php:267
 msgid "Enable Followme"
 msgstr ""
 
-#: ucp/views/settings.php:29
+#: views/ucp_config.php:28
+msgid "Enable the Findmefollow access in UCP for this user"
+msgstr ""
+
+#: ucp/views/settings.php:62
 msgid ""
 "Enable this if you're calling external numbers that need confirmation - eg, "
 "a mobile phone may go to voicemail which will pick up the call. Enabling "
@@ -236,7 +256,7 @@ msgstr ""
 msgid "Find Me/Follow Me Has Been Updated!"
 msgstr ""
 
-#: ucp/Findmefollow.class.php:106
+#: ucp/Findmefollow.class.php:110
 #, php-format
 msgid "Find Me/Follow Me for %s"
 msgstr ""
@@ -244,6 +264,10 @@ msgstr ""
 #: findmefollow.i18n.php:34 install.php:5
 msgid "Findme Follow Toggle"
 msgstr "ファインドミーフォロー切り替え"
+
+#: Findmefollow.class.php:1303
+msgid "FindmeFollow"
+msgstr ""
 
 #: functions.inc.php:955 functions.inc.php:971 functions.inc.php:994
 #: views/form.php:221 views/form.php:614 views/form.php:656
@@ -274,8 +298,8 @@ msgid ""
 msgstr ""
 
 #: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
-#: ucp/Findmefollow.class.php:120 ucp/Findmefollow.class.php:138
-#: ucp/Findmefollow.class.php:170
+#: ucp/Findmefollow.class.php:124 ucp/Findmefollow.class.php:141
+#: ucp/Findmefollow.class.php:179
 msgid "Follow Me"
 msgstr "フォローミー"
 
@@ -283,7 +307,7 @@ msgstr "フォローミー"
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr ""
 
-#: Findmefollow.class.php:888 ucp/views/settings.php:4
+#: Findmefollow.class.php:888 ucp/views/settings.php:27
 msgid "Follow Me List"
 msgstr ""
 
@@ -330,6 +354,10 @@ msgstr ""
 msgid "Followme List"
 msgstr ""
 
+#: views/ucp_config.php:67
+msgid "Followme Ring Strategy Settings"
+msgstr ""
+
 #: functions.inc.php:958 functions.inc.php:983 views/form.php:224
 #: views/form.php:620
 msgid "Force Dialed Number"
@@ -364,6 +392,10 @@ msgstr ""
 "もし'リング'の代わりに保留音クラスを再生するように選択した場合、誰かが電話を"
 "取るのを待っている間、リング音の代わりに保留音クラスが聞こえるようになりま"
 "す。"
+
+#: views/ucp_config.php:18 views/ucp_config.php:77
+msgid "Inherit"
+msgstr ""
 
 #: functions.inc.php:674 views/form.php:404
 msgid "Initial Ring Time"
@@ -402,7 +434,7 @@ msgid ""
 "onto that extension, eg 105#"
 msgstr ""
 
-#: ucp/views/settings.php:6
+#: ucp/views/settings.php:29
 msgid ""
 "List extensions to ring, one per line. You can include an extension on a "
 "remote system, or an external number by suffixing a number with a pound "
@@ -482,7 +514,7 @@ msgstr ""
 #: functions.inc.php:538 functions.inc.php:561 functions.inc.php:637
 #: functions.inc.php:864 views/fmgrid.php:18 views/form.php:274
 #: views/form.php:300 views/form.php:384 views/form.php:594
-#: views/quickCreate.php:12
+#: views/quickCreate.php:12 views/ucp_config.php:15
 msgid "No"
 msgstr ""
 
@@ -499,7 +531,7 @@ msgstr "なし"
 msgid "Normal Extension Behavior"
 msgstr "通常の内線動作"
 
-#: ucp/views/settings.php:6
+#: ucp/views/settings.php:29
 msgid ""
 "Note: Any local extension added will skip that local extension's FindMe/"
 "FollowMe, if you wish the system to use another extension's FindMe/FollowMe "
@@ -568,16 +600,16 @@ msgstr ""
 msgid "Ring"
 msgstr "リング"
 
-#: ucp/views/settings.php:9
+#: ucp/views/settings.php:42
 #, php-format
 msgid "Ring %s First For"
 msgstr ""
 
-#: ucp/views/settings.php:18
+#: ucp/views/settings.php:51
 msgid "Ring Followme List For"
 msgstr ""
 
-#: functions.inc.php:701 views/form.php:428
+#: functions.inc.php:701 ucp/views/settings.php:34 views/form.php:428
 msgid "Ring Strategy"
 msgstr ""
 
@@ -593,7 +625,7 @@ msgstr "リングタイム (最大60秒)"
 msgid "Ringer Volume Override"
 msgstr ""
 
-#: ucp/views/settings.php:12 ucp/views/settings.php:21
+#: ucp/views/settings.php:45 ucp/views/settings.php:54
 msgid "Seconds"
 msgstr ""
 
@@ -629,6 +661,12 @@ msgstr ""
 msgid "The number users will dial to ring extensions in this Followme group"
 msgstr ""
 
+#: views/ucp_config.php:55
+msgid ""
+"These are the assigned and active extensions which will show up for this "
+"user to control and edit in UCP"
+msgstr ""
+
 #: views/form.php:466
 msgid "This is in addition to the Initial Ring Time"
 msgstr ""
@@ -637,7 +675,7 @@ msgstr ""
 msgid "This is the default value for the Follow Me "
 msgstr "フォローミーのデフォルト値です。"
 
-#: functions.inc.php:675 ucp/views/settings.php:15 views/form.php:416
+#: functions.inc.php:675 ucp/views/settings.php:48 views/form.php:416
 msgid ""
 "This is the number of seconds to ring the primary extension prior to "
 "proceeding to the follow-me list. The extension can also be included in the "
@@ -647,7 +685,7 @@ msgstr ""
 "ローミーリスト内にこの内線を含めることもできます。0を設定するとこれは回避され"
 "ます。"
 
-#: ucp/views/settings.php:24
+#: ucp/views/settings.php:57
 msgid "Time in seconds that the phones will ring"
 msgstr ""
 
@@ -704,7 +742,7 @@ msgstr ""
 msgid "Transmits the Callers CID if allowed by the trunk."
 msgstr "トランクによって許可されている場合に発信者番号を転送します。"
 
-#: ucp/views/settings.php:27
+#: ucp/views/settings.php:60
 msgid "Use Confirmation"
 msgstr ""
 
@@ -716,6 +754,14 @@ msgstr "ダイヤルされた番号を使用"
 #: views/bootnav.php:4
 msgid "User"
 msgstr "ユーザー"
+
+#: Findmefollow.class.php:1286
+msgid "User Primary Extension"
+msgstr ""
+
+#: views/ucp_config.php:87
+msgid "User will have the Option to select followme ring Strategy in UCP"
+msgstr ""
 
 #: Findmefollow.class.php:93
 msgid "Warning! Extension"
@@ -748,7 +794,7 @@ msgstr ""
 #: functions.inc.php:534 functions.inc.php:557 functions.inc.php:633
 #: functions.inc.php:860 views/fmgrid.php:16 views/form.php:272
 #: views/form.php:298 views/form.php:382 views/form.php:592
-#: views/quickCreate.php:10
+#: views/quickCreate.php:10 views/ucp_config.php:13
 msgid "Yes"
 msgstr ""
 
@@ -805,15 +851,15 @@ msgstr ""
 msgid "extension"
 msgstr ""
 
-#: functions.inc.php:689 views/form.php:50
+#: functions.inc.php:689 ucp/views/settings.php:12 views/form.php:50
 msgid "firstavailable"
 msgstr "利用可能な最初"
 
-#: functions.inc.php:690 views/form.php:52
+#: functions.inc.php:690 ucp/views/settings.php:14 views/form.php:52
 msgid "firstnotonphone"
 msgstr "電話中でない最初のもの"
 
-#: functions.inc.php:686 views/form.php:44
+#: functions.inc.php:686 ucp/views/settings.php:6 views/form.php:44
 msgid "hunt"
 msgstr "ハント"
 
@@ -821,7 +867,7 @@ msgstr "ハント"
 msgid "is not allowed for your account"
 msgstr "はあなたのアカウントに許可されていません"
 
-#: functions.inc.php:687 views/form.php:46
+#: functions.inc.php:687 ucp/views/settings.php:8 views/form.php:46
 msgid "memoryhunt"
 msgstr "メモリーハント"
 
@@ -829,13 +875,13 @@ msgstr "メモリーハント"
 msgid "none"
 msgstr ""
 
-#: functions.inc.php:685 views/form.php:42
+#: functions.inc.php:685 ucp/views/settings.php:4 views/form.php:42
 msgid ""
 "ring Extension for duration set in Initial Ring Time, and then terminate "
 "call to Extension and ring Follow-Me List for duration set in Ring Time."
 msgstr ""
 
-#: views/form.php:40
+#: ucp/views/settings.php:2 views/form.php:40
 msgid ""
 "ring Extension for duration set in Initial Ring Time, and then, while "
 "continuing call to extension (only if extension is in the Group List), ring "
@@ -849,7 +895,7 @@ msgid ""
 "Time."
 msgstr ""
 
-#: functions.inc.php:687 views/form.php:46
+#: functions.inc.php:687 ucp/views/settings.php:8 views/form.php:46
 msgid ""
 "ring first extension in the list, then ring the 1st and 2nd extension, then "
 "ring 1st 2nd and 3rd extension in the list.... etc."
@@ -857,29 +903,29 @@ msgstr ""
 "最初にリスト中の1番目の内線を鳴らします、次に一番目と二番目の内線を鳴らしま"
 "す、次に一番目、二番目、三番目の内線を鳴らします....。"
 
-#: functions.inc.php:689 views/form.php:50
+#: functions.inc.php:689 ucp/views/settings.php:12 views/form.php:50
 msgid "ring only the first available channel"
 msgstr "利用可能な最初のチャネルのみ鳴ります"
 
-#: functions.inc.php:690 views/form.php:52
+#: functions.inc.php:690 ucp/views/settings.php:14 views/form.php:52
 msgid "ring only the first channel which is not off hook - ignore CW"
 msgstr ""
 "オフフック状態でない最初のチャネルのみ鳴らします。 - コールウェイテイングは無"
 "視されます"
 
-#: functions.inc.php:685 views/form.php:42
+#: functions.inc.php:685 ucp/views/settings.php:4 views/form.php:42
 msgid "ringall"
 msgstr "リングオール"
 
-#: functions.inc.php:684 views/form.php:40
+#: functions.inc.php:684 ucp/views/settings.php:2 views/form.php:40
 msgid "ringallv2"
 msgstr "リングオールv2"
 
-#: functions.inc.php:686 views/form.php:44
+#: functions.inc.php:686 ucp/views/settings.php:6 views/form.php:44
 msgid "take turns ringing each available extension"
 msgstr "利用可能な内線を順番に着信させます。"
 
-#: functions.inc.php:688 views/form.php:48
+#: functions.inc.php:688 ucp/views/settings.php:10 views/form.php:48
 msgid ""
 "these modes act as described above. However, if the primary extension (first "
 "in list) is occupied, the other extensions will not be rung. If the primary "
@@ -932,9 +978,6 @@ msgstr ""
 
 #~ msgid "Delete Entries"
 #~ msgstr "エントリーを削除"
-
-#~ msgid "Disable"
-#~ msgstr "無効"
 
 #~ msgid "Edit %s"
 #~ msgstr "%sを編集"

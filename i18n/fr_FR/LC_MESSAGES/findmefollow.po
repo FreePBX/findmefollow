@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-05 09:36-0700\n"
+"POT-Creation-Date: 2017-09-19 17:56-0700\n"
 "PO-Revision-Date: 2016-11-23 13:46+0200\n"
 "Last-Translator: Pascal <pascal.noyel@ipexia.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
@@ -31,7 +31,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: functions.inc.php:688 views/form.php:48
+#: functions.inc.php:688 ucp/views/settings.php:10 views/form.php:48
 msgid "*-prim"
 msgstr "*-prim"
 
@@ -52,6 +52,10 @@ msgstr ""
 #: functions.inc.php:786 views/form.php:536
 msgid "Alert Info"
 msgstr "Info d'Alerte"
+
+#: views/ucp_config.php:39
+msgid "Allowed Extensions"
+msgstr ""
 
 #: functions.inc.php:955 views/form.php:614
 msgid "Always transmit the Fixed CID Value below."
@@ -151,6 +155,10 @@ msgstr "Destination si pas de réponse"
 msgid "Destinations"
 msgstr "Destinations"
 
+#: views/ucp_config.php:74
+msgid "Disable"
+msgstr "Désactiver"
+
 #: findmefollow.i18n.php:18
 msgid "Disable Follow Me Upon Creation"
 msgstr "Désactiver le Suivez-Moi lors de la création"
@@ -158,6 +166,10 @@ msgstr "Désactiver le Suivez-Moi lors de la création"
 #: ucp/views/widget.php:2
 msgid "Disabled"
 msgstr ""
+
+#: views/ucp_config.php:72
+msgid "Enable"
+msgstr "Activer"
 
 #: functions.inc.php:551 views/form.php:293
 msgid "Enable Calendar Matching"
@@ -167,11 +179,19 @@ msgstr ""
 msgid "Enable Find Me/Follow Me"
 msgstr "Suivez-Moi"
 
+#: views/ucp_config.php:7
+msgid "Enable Findme Follow"
+msgstr ""
+
 #: views/form.php:267
 msgid "Enable Followme"
 msgstr "Activer Suivez-Moi"
 
-#: ucp/views/settings.php:29
+#: views/ucp_config.php:28
+msgid "Enable the Findmefollow access in UCP for this user"
+msgstr ""
+
+#: ucp/views/settings.php:62
 msgid ""
 "Enable this if you're calling external numbers that need confirmation - eg, "
 "a mobile phone may go to voicemail which will pick up the call. Enabling "
@@ -232,7 +252,7 @@ msgstr "Suivez-Moi"
 msgid "Find Me/Follow Me Has Been Updated!"
 msgstr "Suivez-Moi a été modifié !"
 
-#: ucp/Findmefollow.class.php:106
+#: ucp/Findmefollow.class.php:110
 #, php-format
 msgid "Find Me/Follow Me for %s"
 msgstr ""
@@ -240,6 +260,10 @@ msgstr ""
 #: findmefollow.i18n.php:34 install.php:5
 msgid "Findme Follow Toggle"
 msgstr "Activer/Désactiver Suivez-Moi"
+
+#: Findmefollow.class.php:1303
+msgid "FindmeFollow"
+msgstr ""
 
 #: functions.inc.php:955 functions.inc.php:971 functions.inc.php:994
 #: views/form.php:221 views/form.php:614 views/form.php:656
@@ -274,8 +298,8 @@ msgstr ""
 "uniquement avec une option du format E164 utilisant en préfix le \"+\"."
 
 #: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
-#: ucp/Findmefollow.class.php:120 ucp/Findmefollow.class.php:138
-#: ucp/Findmefollow.class.php:170
+#: ucp/Findmefollow.class.php:124 ucp/Findmefollow.class.php:141
+#: ucp/Findmefollow.class.php:179
 msgid "Follow Me"
 msgstr "Suivez-Moi"
 
@@ -283,7 +307,7 @@ msgstr "Suivez-Moi"
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr "Suivez-Moi activé [Vide pour désactiver]"
 
-#: Findmefollow.class.php:888 ucp/views/settings.php:4
+#: Findmefollow.class.php:888 ucp/views/settings.php:27
 msgid "Follow Me List"
 msgstr "Liste des numéros (interne et externe) pour le Suivez-Moi"
 
@@ -332,6 +356,10 @@ msgstr "Poste du Suivez-Moi"
 msgid "Followme List"
 msgstr "Liste du Suivez-Moi"
 
+#: views/ucp_config.php:67
+msgid "Followme Ring Strategy Settings"
+msgstr ""
+
 #: functions.inc.php:958 functions.inc.php:983 views/form.php:224
 #: views/form.php:620
 msgid "Force Dialed Number"
@@ -366,6 +394,10 @@ msgstr ""
 "Si vous sélectionnez une classe de Musique d'Attente à jouer, à la place de "
 "'Sonner', ils entendront cela à la place de la Sonnerie pendant qu'ils "
 "attendent que quelqu'un ne leur réponde."
+
+#: views/ucp_config.php:18 views/ucp_config.php:77
+msgid "Inherit"
+msgstr ""
 
 #: functions.inc.php:674 views/form.php:404
 msgid "Initial Ring Time"
@@ -404,7 +436,7 @@ msgid ""
 "onto that extension, eg 105#"
 msgstr ""
 
-#: ucp/views/settings.php:6
+#: ucp/views/settings.php:29
 msgid ""
 "List extensions to ring, one per line. You can include an extension on a "
 "remote system, or an external number by suffixing a number with a pound "
@@ -487,7 +519,7 @@ msgstr ""
 #: functions.inc.php:538 functions.inc.php:561 functions.inc.php:637
 #: functions.inc.php:864 views/fmgrid.php:18 views/form.php:274
 #: views/form.php:300 views/form.php:384 views/form.php:594
-#: views/quickCreate.php:12
+#: views/quickCreate.php:12 views/ucp_config.php:15
 msgid "No"
 msgstr "Non"
 
@@ -504,7 +536,7 @@ msgstr "Aucun"
 msgid "Normal Extension Behavior"
 msgstr "Comportement normal du poste"
 
-#: ucp/views/settings.php:6
+#: ucp/views/settings.php:29
 msgid ""
 "Note: Any local extension added will skip that local extension's FindMe/"
 "FollowMe, if you wish the system to use another extension's FindMe/FollowMe "
@@ -577,16 +609,16 @@ msgstr "Remise à Zero"
 msgid "Ring"
 msgstr "Sonner"
 
-#: ucp/views/settings.php:9
+#: ucp/views/settings.php:42
 #, php-format
 msgid "Ring %s First For"
 msgstr "Fait sonner le poste interne %s en premier pendant"
 
-#: ucp/views/settings.php:18
+#: ucp/views/settings.php:51
 msgid "Ring Followme List For"
 msgstr "Fait sonner la \"Liste Suivez-Moi\" pendant"
 
-#: functions.inc.php:701 views/form.php:428
+#: functions.inc.php:701 ucp/views/settings.php:34 views/form.php:428
 msgid "Ring Strategy"
 msgstr "Stratégie de sonnerie"
 
@@ -602,7 +634,7 @@ msgstr "Temps de Sonnerie (max 60 secondes)"
 msgid "Ringer Volume Override"
 msgstr "Réécrit le Volume de sonnerie"
 
-#: ucp/views/settings.php:12 ucp/views/settings.php:21
+#: ucp/views/settings.php:45 ucp/views/settings.php:54
 msgid "Seconds"
 msgstr "Secondes"
 
@@ -642,6 +674,12 @@ msgstr ""
 "Numéro que les utilisateurs vont composer pour faire sonner les extensions "
 "dans ce groupe Suivez-Moi"
 
+#: views/ucp_config.php:55
+msgid ""
+"These are the assigned and active extensions which will show up for this "
+"user to control and edit in UCP"
+msgstr ""
+
 #: views/form.php:466
 msgid "This is in addition to the Initial Ring Time"
 msgstr ""
@@ -650,7 +688,7 @@ msgstr ""
 msgid "This is the default value for the Follow Me "
 msgstr "Valeur par défaut du Suivez-Moi "
 
-#: functions.inc.php:675 ucp/views/settings.php:15 views/form.php:416
+#: functions.inc.php:675 ucp/views/settings.php:48 views/form.php:416
 msgid ""
 "This is the number of seconds to ring the primary extension prior to "
 "proceeding to the follow-me list. The extension can also be included in the "
@@ -660,7 +698,7 @@ msgstr ""
 "passer à la liste Suivez-Moi. L'extension peut aussi être incluse dans la "
 "liste Suivez-Moi. Un paramètre 0 ignorera ceci."
 
-#: ucp/views/settings.php:24
+#: ucp/views/settings.php:57
 msgid "Time in seconds that the phones will ring"
 msgstr "Temps en secondes pendant lequel les téléphones sonnent"
 
@@ -721,7 +759,7 @@ msgstr ""
 msgid "Transmits the Callers CID if allowed by the trunk."
 msgstr "Transmettre l'identifiant des appelants si permis par le lien."
 
-#: ucp/views/settings.php:27
+#: ucp/views/settings.php:60
 msgid "Use Confirmation"
 msgstr "Utiliser l'option de Confirmation"
 
@@ -733,6 +771,14 @@ msgstr "Utiliser le Numéro-Composé"
 #: views/bootnav.php:4
 msgid "User"
 msgstr "Utilisateur"
+
+#: Findmefollow.class.php:1286
+msgid "User Primary Extension"
+msgstr ""
+
+#: views/ucp_config.php:87
+msgid "User will have the Option to select followme ring Strategy in UCP"
+msgstr ""
 
 #: Findmefollow.class.php:93
 msgid "Warning! Extension"
@@ -766,7 +812,7 @@ msgstr "Destination des appels sur non réponse."
 #: functions.inc.php:534 functions.inc.php:557 functions.inc.php:633
 #: functions.inc.php:860 views/fmgrid.php:16 views/form.php:272
 #: views/form.php:298 views/form.php:382 views/form.php:592
-#: views/quickCreate.php:10
+#: views/quickCreate.php:10 views/ucp_config.php:13
 msgid "Yes"
 msgstr "Oui"
 
@@ -824,15 +870,15 @@ msgstr "terminal téléphonique"
 msgid "extension"
 msgstr "extension"
 
-#: functions.inc.php:689 views/form.php:50
+#: functions.inc.php:689 ucp/views/settings.php:12 views/form.php:50
 msgid "firstavailable"
 msgstr "Premier Disponible"
 
-#: functions.inc.php:690 views/form.php:52
+#: functions.inc.php:690 ucp/views/settings.php:14 views/form.php:52
 msgid "firstnotonphone"
 msgstr "Premier pas au téléphone"
 
-#: functions.inc.php:686 views/form.php:44
+#: functions.inc.php:686 ucp/views/settings.php:6 views/form.php:44
 msgid "hunt"
 msgstr "Chasse"
 
@@ -840,7 +886,7 @@ msgstr "Chasse"
 msgid "is not allowed for your account"
 msgstr "n'est pas autorisée pour votre compte"
 
-#: functions.inc.php:687 views/form.php:46
+#: functions.inc.php:687 ucp/views/settings.php:8 views/form.php:46
 msgid "memoryhunt"
 msgstr "Chasse avec mémoire"
 
@@ -848,7 +894,7 @@ msgstr "Chasse avec mémoire"
 msgid "none"
 msgstr "aucun"
 
-#: functions.inc.php:685 views/form.php:42
+#: functions.inc.php:685 ucp/views/settings.php:4 views/form.php:42
 msgid ""
 "ring Extension for duration set in Initial Ring Time, and then terminate "
 "call to Extension and ring Follow-Me List for duration set in Ring Time."
@@ -857,7 +903,7 @@ msgstr ""
 "initiale, puis mettre fin à l'appel vers le poste et faire sonner la liste "
 "de suivez-moi pour durée définie dans la durée de sonnerie."
 
-#: views/form.php:40
+#: ucp/views/settings.php:2 views/form.php:40
 msgid ""
 "ring Extension for duration set in Initial Ring Time, and then, while "
 "continuing call to extension (only if extension is in the Group List), ring "
@@ -874,7 +920,7 @@ msgstr ""
 "initiale, puis tout en continuant l'appel au poste faire sonner la liste de "
 "numéro du suivez-moi pour durée définie dans la durée de sonnerie ."
 
-#: functions.inc.php:687 views/form.php:46
+#: functions.inc.php:687 ucp/views/settings.php:8 views/form.php:46
 msgid ""
 "ring first extension in the list, then ring the 1st and 2nd extension, then "
 "ring 1st 2nd and 3rd extension in the list.... etc."
@@ -882,29 +928,29 @@ msgstr ""
 "fait sonner la première extension dans la liste, puis fait sonner la 1e et "
 "la 2e extension, puis 1e, 2e et 3e extension de la liste, etc..."
 
-#: functions.inc.php:689 views/form.php:50
+#: functions.inc.php:689 ucp/views/settings.php:12 views/form.php:50
 msgid "ring only the first available channel"
 msgstr "fait sonner uniquement le premier canal disponible"
 
-#: functions.inc.php:690 views/form.php:52
+#: functions.inc.php:690 ucp/views/settings.php:14 views/form.php:52
 msgid "ring only the first channel which is not off hook - ignore CW"
 msgstr ""
 "fait sonner uniquement le premier canal qui n'est pas au téléphone - ignore "
 "les alertes d'appel "
 
-#: functions.inc.php:685 views/form.php:42
+#: functions.inc.php:685 ucp/views/settings.php:4 views/form.php:42
 msgid "ringall"
 msgstr "Sonner Partout"
 
-#: functions.inc.php:684 views/form.php:40
+#: functions.inc.php:684 ucp/views/settings.php:2 views/form.php:40
 msgid "ringallv2"
 msgstr "Sonner Partout v2"
 
-#: functions.inc.php:686 views/form.php:44
+#: functions.inc.php:686 ucp/views/settings.php:6 views/form.php:44
 msgid "take turns ringing each available extension"
 msgstr "Fait sonner tour à tour chaque extension disponible"
 
-#: functions.inc.php:688 views/form.php:48
+#: functions.inc.php:688 ucp/views/settings.php:10 views/form.php:48
 msgid ""
 "these modes act as described above. However, if the primary extension (first "
 "in list) is occupied, the other extensions will not be rung. If the primary "
@@ -915,9 +961,6 @@ msgstr ""
 "primaire (1e dans la liste) est occupée, les autres extensions ne sonneront "
 "pas. Si la primaire est FreePBX Ne pas Déranger, elle ne sonnera pas. Si la "
 "primaire est FreePBX Transfert d'Appel inconditionnel, alors toutes sonneront"
-
-#~ msgid "Enable"
-#~ msgstr "Activer"
 
 #~ msgid ""
 #~ "When enabled any call to this extension will go to this Follow-Me "
@@ -1070,9 +1113,6 @@ msgstr ""
 
 #~ msgid "Delete Entries"
 #~ msgstr "Supprimer Entrées"
-
-#~ msgid "Disable"
-#~ msgstr "Désactiver"
 
 #~ msgid "Edit %s"
 #~ msgstr "Editer %s"

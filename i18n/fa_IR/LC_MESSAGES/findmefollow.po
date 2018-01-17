@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-05 09:36-0700\n"
+"POT-Creation-Date: 2017-09-19 17:56-0700\n"
 "PO-Revision-Date: 2016-07-17 10:16+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: functions.inc.php:688 views/form.php:48
+#: functions.inc.php:688 ucp/views/settings.php:10 views/form.php:48
 #, fuzzy
 msgid "*-prim"
 msgstr "*-prim"
@@ -41,6 +41,10 @@ msgstr "اطلاعات هشدار میتواند برای تمایز زنگ وس
 #: functions.inc.php:786 views/form.php:536
 msgid "Alert Info"
 msgstr "اطلاعات هشدار"
+
+#: views/ucp_config.php:39
+msgid "Allowed Extensions"
+msgstr ""
 
 #: functions.inc.php:955 views/form.php:614
 msgid "Always transmit the Fixed CID Value below."
@@ -153,6 +157,10 @@ msgstr "مقصد در صورت عدم دریافت پاسخ"
 msgid "Destinations"
 msgstr "مقاصد"
 
+#: views/ucp_config.php:74
+msgid "Disable"
+msgstr ""
+
 #: findmefollow.i18n.php:18
 msgid "Disable Follow Me Upon Creation"
 msgstr "غیرفعال کردن مرا دنبال کن ساخته شده"
@@ -160,6 +168,10 @@ msgstr "غیرفعال کردن مرا دنبال کن ساخته شده"
 #: ucp/views/widget.php:2
 msgid "Disabled"
 msgstr ""
+
+#: views/ucp_config.php:72
+msgid "Enable"
+msgstr "فعال کردن"
 
 #: functions.inc.php:551 views/form.php:293
 msgid "Enable Calendar Matching"
@@ -169,11 +181,19 @@ msgstr ""
 msgid "Enable Find Me/Follow Me"
 msgstr "فعال کردن مرا دنبال کن /مرا پیدا کن"
 
+#: views/ucp_config.php:7
+msgid "Enable Findme Follow"
+msgstr ""
+
 #: views/form.php:267
 msgid "Enable Followme"
 msgstr "فعال کردن مرا دنبال کن"
 
-#: ucp/views/settings.php:29
+#: views/ucp_config.php:28
+msgid "Enable the Findmefollow access in UCP for this user"
+msgstr ""
+
+#: ucp/views/settings.php:62
 msgid ""
 "Enable this if you're calling external numbers that need confirmation - eg, "
 "a mobile phone may go to voicemail which will pick up the call. Enabling "
@@ -229,7 +249,7 @@ msgstr "مرا دنبال کن /مرا پیدا کن"
 msgid "Find Me/Follow Me Has Been Updated!"
 msgstr "مرا دنبال کن /مرا پیدا کن به روز رسانی شد!"
 
-#: ucp/Findmefollow.class.php:106
+#: ucp/Findmefollow.class.php:110
 #, php-format
 msgid "Find Me/Follow Me for %s"
 msgstr ""
@@ -237,6 +257,10 @@ msgstr ""
 #: findmefollow.i18n.php:34 install.php:5
 msgid "Findme Follow Toggle"
 msgstr "مرا پیداو دنبال کن تغییر کرد"
+
+#: Findmefollow.class.php:1303
+msgid "FindmeFollow"
+msgstr ""
 
 #: functions.inc.php:955 functions.inc.php:971 functions.inc.php:994
 #: views/form.php:221 views/form.php:614 views/form.php:656
@@ -272,8 +296,8 @@ msgstr ""
 "leading '+'."
 
 #: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
-#: ucp/Findmefollow.class.php:120 ucp/Findmefollow.class.php:138
-#: ucp/Findmefollow.class.php:170
+#: ucp/Findmefollow.class.php:124 ucp/Findmefollow.class.php:141
+#: ucp/Findmefollow.class.php:179
 msgid "Follow Me"
 msgstr "مرا دنبال کن"
 
@@ -281,7 +305,7 @@ msgstr "مرا دنبال کن"
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr "مرا دنبال کن فعال شد [خالی برای غیر فعال]"
 
-#: Findmefollow.class.php:888 ucp/views/settings.php:4
+#: Findmefollow.class.php:888 ucp/views/settings.php:27
 msgid "Follow Me List"
 msgstr "فهرست مرا دنبال کن"
 
@@ -328,6 +352,10 @@ msgstr "داخلی مرا دنبال کن"
 msgid "Followme List"
 msgstr "لیست مرا دنبال کن"
 
+#: views/ucp_config.php:67
+msgid "Followme Ring Strategy Settings"
+msgstr ""
+
 #: functions.inc.php:958 functions.inc.php:983 views/form.php:224
 #: views/form.php:620
 msgid "Force Dialed Number"
@@ -361,6 +389,10 @@ msgid ""
 msgstr ""
 "اگر شما آهنگ انتظار را انتخاب کرده باشید، به جای 'زنگ'، آن ها تا وقتی کسی "
 "گوشی را بردارد آهنگ را میشنوند."
+
+#: views/ucp_config.php:18 views/ucp_config.php:77
+msgid "Inherit"
+msgstr ""
 
 #: functions.inc.php:674 views/form.php:404
 msgid "Initial Ring Time"
@@ -405,7 +437,7 @@ msgstr ""
 "skip that local extension's FindMe/FollowMe, if you wish the system to use "
 "another extension's FindMe/FollowMe append a # onto that extension, eg 105#"
 
-#: ucp/views/settings.php:6
+#: ucp/views/settings.php:29
 msgid ""
 "List extensions to ring, one per line. You can include an extension on a "
 "remote system, or an external number by suffixing a number with a pound "
@@ -496,7 +528,7 @@ msgstr ""
 #: functions.inc.php:538 functions.inc.php:561 functions.inc.php:637
 #: functions.inc.php:864 views/fmgrid.php:18 views/form.php:274
 #: views/form.php:300 views/form.php:384 views/form.php:594
-#: views/quickCreate.php:12
+#: views/quickCreate.php:12 views/ucp_config.php:15
 msgid "No"
 msgstr "خیر"
 
@@ -513,7 +545,7 @@ msgstr "هیچ"
 msgid "Normal Extension Behavior"
 msgstr "رفتار معمول داخلی"
 
-#: ucp/views/settings.php:6
+#: ucp/views/settings.php:29
 msgid ""
 "Note: Any local extension added will skip that local extension's FindMe/"
 "FollowMe, if you wish the system to use another extension's FindMe/FollowMe "
@@ -588,16 +620,16 @@ msgstr "بازنشانی"
 msgid "Ring"
 msgstr "زنگ"
 
-#: ucp/views/settings.php:9
+#: ucp/views/settings.php:42
 #, php-format
 msgid "Ring %s First For"
 msgstr "زنگ %s برای بار اول"
 
-#: ucp/views/settings.php:18
+#: ucp/views/settings.php:51
 msgid "Ring Followme List For"
 msgstr "زنگ خوردن فهرست مرا دنبال کن برای"
 
-#: functions.inc.php:701 views/form.php:428
+#: functions.inc.php:701 ucp/views/settings.php:34 views/form.php:428
 msgid "Ring Strategy"
 msgstr "چگونگی زنگ خوردن"
 
@@ -613,7 +645,7 @@ msgstr "مدت زنگ خوردن (حداکثر 60 ثانیه)"
 msgid "Ringer Volume Override"
 msgstr ""
 
-#: ucp/views/settings.php:12 ucp/views/settings.php:21
+#: ucp/views/settings.php:45 ucp/views/settings.php:54
 msgid "Seconds"
 msgstr "ثانیه ها"
 
@@ -649,6 +681,12 @@ msgstr ""
 msgid "The number users will dial to ring extensions in this Followme group"
 msgstr "The number users will dial to ring extensions in  this Followme group"
 
+#: views/ucp_config.php:55
+msgid ""
+"These are the assigned and active extensions which will show up for this "
+"user to control and edit in UCP"
+msgstr ""
+
 #: views/form.php:466
 msgid "This is in addition to the Initial Ring Time"
 msgstr ""
@@ -657,7 +695,7 @@ msgstr ""
 msgid "This is the default value for the Follow Me "
 msgstr "این مقدار پیشفرض برای مرا دنبال کن است "
 
-#: functions.inc.php:675 ucp/views/settings.php:15 views/form.php:416
+#: functions.inc.php:675 ucp/views/settings.php:48 views/form.php:416
 msgid ""
 "This is the number of seconds to ring the primary extension prior to "
 "proceeding to the follow-me list. The extension can also be included in the "
@@ -667,7 +705,7 @@ msgstr ""
 "proceeding  to the follow-me list. The extension can also be included in the "
 "follow-me list. A 0 setting will bypass this."
 
-#: ucp/views/settings.php:24
+#: ucp/views/settings.php:57
 msgid "Time in seconds that the phones will ring"
 msgstr "در مدت بر اساس ثانیه تلفن زنگ میخورد"
 
@@ -725,7 +763,7 @@ msgstr ""
 msgid "Transmits the Callers CID if allowed by the trunk."
 msgstr "انتقال شماره تلفن تماس گیرنده در صورت مجازبودن در ترانک."
 
-#: ucp/views/settings.php:27
+#: ucp/views/settings.php:60
 msgid "Use Confirmation"
 msgstr "استفاده از تاییدیه"
 
@@ -737,6 +775,14 @@ msgstr "استفاده از شماره گرفته شده"
 #: views/bootnav.php:4
 msgid "User"
 msgstr "کاربر"
+
+#: Findmefollow.class.php:1286
+msgid "User Primary Extension"
+msgstr ""
+
+#: views/ucp_config.php:87
+msgid "User will have the Option to select followme ring Strategy in UCP"
+msgstr ""
 
 #: Findmefollow.class.php:93
 msgid "Warning! Extension"
@@ -770,7 +816,7 @@ msgstr "جایی که تماس گیرنده درصورت عدم پاسخ به آ
 #: functions.inc.php:534 functions.inc.php:557 functions.inc.php:633
 #: functions.inc.php:860 views/fmgrid.php:16 views/form.php:272
 #: views/form.php:298 views/form.php:382 views/form.php:592
-#: views/quickCreate.php:10
+#: views/quickCreate.php:10 views/ucp_config.php:13
 msgid "Yes"
 msgstr "بله"
 
@@ -830,15 +876,15 @@ msgstr "وسیله"
 msgid "extension"
 msgstr "داخلی"
 
-#: functions.inc.php:689 views/form.php:50
+#: functions.inc.php:689 ucp/views/settings.php:12 views/form.php:50
 msgid "firstavailable"
 msgstr "اولین در دسترس"
 
-#: functions.inc.php:690 views/form.php:52
+#: functions.inc.php:690 ucp/views/settings.php:14 views/form.php:52
 msgid "firstnotonphone"
 msgstr "اولین کسی که پشت تلفن نیست"
 
-#: functions.inc.php:686 views/form.php:44
+#: functions.inc.php:686 ucp/views/settings.php:6 views/form.php:44
 msgid "hunt"
 msgstr "شکار"
 
@@ -846,7 +892,7 @@ msgstr "شکار"
 msgid "is not allowed for your account"
 msgstr "این کار به حساب شما اجازه داده نشده"
 
-#: functions.inc.php:687 views/form.php:46
+#: functions.inc.php:687 ucp/views/settings.php:8 views/form.php:46
 msgid "memoryhunt"
 msgstr "شکار حافظه"
 
@@ -854,7 +900,7 @@ msgstr "شکار حافظه"
 msgid "none"
 msgstr "هیچ"
 
-#: functions.inc.php:685 views/form.php:42
+#: functions.inc.php:685 ucp/views/settings.php:4 views/form.php:42
 msgid ""
 "ring Extension for duration set in Initial Ring Time, and then terminate "
 "call to Extension and ring Follow-Me List for duration set in Ring Time."
@@ -863,7 +909,7 @@ msgstr ""
 "شماره های مشخص شده در فهرست مرا دنبال کن را برای مدت مشخص شده شماره گیری "
 "میکند."
 
-#: views/form.php:40
+#: ucp/views/settings.php:2 views/form.php:40
 msgid ""
 "ring Extension for duration set in Initial Ring Time, and then, while "
 "continuing call to extension (only if extension is in the Group List), ring "
@@ -880,7 +926,7 @@ msgstr ""
 "continuing call  to extension, ring Follow-Me List for duration set in Ring "
 "Time."
 
-#: functions.inc.php:687 views/form.php:46
+#: functions.inc.php:687 ucp/views/settings.php:8 views/form.php:46
 msgid ""
 "ring first extension in the list, then ring the 1st and 2nd extension, then "
 "ring 1st 2nd and 3rd extension in the list.... etc."
@@ -888,27 +934,27 @@ msgstr ""
 "ring first extension in the list, then ring the 1st and 2nd extension, then "
 "ring 1st 2nd and 3rd extension in the  list.... etc."
 
-#: functions.inc.php:689 views/form.php:50
+#: functions.inc.php:689 ucp/views/settings.php:12 views/form.php:50
 msgid "ring only the first available channel"
 msgstr "فقط اولین کانال در دسترس زنگ بخورد"
 
-#: functions.inc.php:690 views/form.php:52
+#: functions.inc.php:690 ucp/views/settings.php:14 views/form.php:52
 msgid "ring only the first channel which is not off hook - ignore CW"
 msgstr "فقط اولین کانال آزاد زنگ بخورد - لغو CW"
 
-#: functions.inc.php:685 views/form.php:42
+#: functions.inc.php:685 ucp/views/settings.php:4 views/form.php:42
 msgid "ringall"
 msgstr "زنگ خور همه"
 
-#: functions.inc.php:684 views/form.php:40
+#: functions.inc.php:684 ucp/views/settings.php:2 views/form.php:40
 msgid "ringallv2"
 msgstr "زنگ خور همه نسخه 2"
 
-#: functions.inc.php:686 views/form.php:44
+#: functions.inc.php:686 ucp/views/settings.php:6 views/form.php:44
 msgid "take turns ringing each available extension"
 msgstr "زنگ خوردن گردشی برای هر یک از داخلی های در دسترس"
 
-#: functions.inc.php:688 views/form.php:48
+#: functions.inc.php:688 ucp/views/settings.php:10 views/form.php:48
 msgid ""
 "these modes act as described above. However, if the primary extension (first "
 "in list) is occupied, the other extensions will not be rung. If the primary "
@@ -919,9 +965,6 @@ msgstr ""
 "in list) is occupied, the other extensions will not be  rung. If the primary "
 "is FreePBX DND, it won't be rung. If the primary is FreePBX CF "
 "unconditional, then all will be rung"
-
-#~ msgid "Enable"
-#~ msgstr "فعال کردن"
 
 #~ msgid ""
 #~ "When enabled any call to this extension will go to this Follow-Me "

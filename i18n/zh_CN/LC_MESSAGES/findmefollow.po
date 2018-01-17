@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-05 09:36-0700\n"
+"POT-Creation-Date: 2017-09-19 17:56-0700\n"
 "PO-Revision-Date: 2015-10-15 09:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -22,7 +22,7 @@ msgstr ""
 "X-Poedit-Country: CHINA\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: functions.inc.php:688 views/form.php:48
+#: functions.inc.php:688 ucp/views/settings.php:10 views/form.php:48
 msgid "*-prim"
 msgstr "依从主分机（策略名-prim）"
 
@@ -41,6 +41,10 @@ msgstr "ALERT_INFO 用来支持SIP 设备的distinctive ring 功能。"
 #: functions.inc.php:786 views/form.php:536
 msgid "Alert Info"
 msgstr "警告信息"
+
+#: views/ucp_config.php:39
+msgid "Allowed Extensions"
+msgstr ""
 
 #: functions.inc.php:955 views/form.php:614
 msgid "Always transmit the Fixed CID Value below."
@@ -140,6 +144,10 @@ msgstr "无人接听时的目的地"
 msgid "Destinations"
 msgstr "目的地"
 
+#: views/ucp_config.php:74
+msgid "Disable"
+msgstr "禁用"
+
 #: findmefollow.i18n.php:18
 msgid "Disable Follow Me Upon Creation"
 msgstr ""
@@ -147,6 +155,10 @@ msgstr ""
 #: ucp/views/widget.php:2
 msgid "Disabled"
 msgstr ""
+
+#: views/ucp_config.php:72
+msgid "Enable"
+msgstr "开启"
 
 #: functions.inc.php:551 views/form.php:293
 msgid "Enable Calendar Matching"
@@ -156,11 +168,19 @@ msgstr ""
 msgid "Enable Find Me/Follow Me"
 msgstr "开启分机随行"
 
+#: views/ucp_config.php:7
+msgid "Enable Findme Follow"
+msgstr ""
+
 #: views/form.php:267
 msgid "Enable Followme"
 msgstr "开启分机随行"
 
-#: ucp/views/settings.php:29
+#: views/ucp_config.php:28
+msgid "Enable the Findmefollow access in UCP for this user"
+msgstr ""
+
+#: ucp/views/settings.php:62
 msgid ""
 "Enable this if you're calling external numbers that need confirmation - eg, "
 "a mobile phone may go to voicemail which will pick up the call. Enabling "
@@ -207,7 +227,7 @@ msgstr "分机随行"
 msgid "Find Me/Follow Me Has Been Updated!"
 msgstr "分机随行已更新"
 
-#: ucp/Findmefollow.class.php:106
+#: ucp/Findmefollow.class.php:110
 #, php-format
 msgid "Find Me/Follow Me for %s"
 msgstr ""
@@ -215,6 +235,10 @@ msgstr ""
 #: findmefollow.i18n.php:34 install.php:5
 msgid "Findme Follow Toggle"
 msgstr "切换“跟我来”"
+
+#: Findmefollow.class.php:1303
+msgid "FindmeFollow"
+msgstr ""
 
 #: functions.inc.php:955 functions.inc.php:971 functions.inc.php:994
 #: views/form.php:221 views/form.php:614 views/form.php:656
@@ -242,8 +266,8 @@ msgid ""
 msgstr ""
 
 #: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
-#: ucp/Findmefollow.class.php:120 ucp/Findmefollow.class.php:138
-#: ucp/Findmefollow.class.php:170
+#: ucp/Findmefollow.class.php:124 ucp/Findmefollow.class.php:141
+#: ucp/Findmefollow.class.php:179
 msgid "Follow Me"
 msgstr "跟我来"
 
@@ -251,7 +275,7 @@ msgstr "跟我来"
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr ""
 
-#: Findmefollow.class.php:888 ucp/views/settings.php:4
+#: Findmefollow.class.php:888 ucp/views/settings.php:27
 msgid "Follow Me List"
 msgstr ""
 
@@ -298,6 +322,10 @@ msgstr "分机随行分机"
 msgid "Followme List"
 msgstr "分机随行列表"
 
+#: views/ucp_config.php:67
+msgid "Followme Ring Strategy Settings"
+msgstr ""
+
 #: functions.inc.php:958 functions.inc.php:983 views/form.php:224
 #: views/form.php:620
 msgid "Force Dialed Number"
@@ -331,6 +359,10 @@ msgid ""
 msgstr ""
 "如果你选择了一个等待音乐类别，而不是“振铃”，呼叫者在等待接听的时候会听到音"
 "乐。"
+
+#: views/ucp_config.php:18 views/ucp_config.php:77
+msgid "Inherit"
+msgstr ""
 
 #: functions.inc.php:674 views/form.php:404
 msgid "Initial Ring Time"
@@ -367,7 +399,7 @@ msgid ""
 "onto that extension, eg 105#"
 msgstr ""
 
-#: ucp/views/settings.php:6
+#: ucp/views/settings.php:29
 msgid ""
 "List extensions to ring, one per line. You can include an extension on a "
 "remote system, or an external number by suffixing a number with a pound "
@@ -440,7 +472,7 @@ msgstr ""
 #: functions.inc.php:538 functions.inc.php:561 functions.inc.php:637
 #: functions.inc.php:864 views/fmgrid.php:18 views/form.php:274
 #: views/form.php:300 views/form.php:384 views/form.php:594
-#: views/quickCreate.php:12
+#: views/quickCreate.php:12 views/ucp_config.php:15
 msgid "No"
 msgstr ""
 
@@ -457,7 +489,7 @@ msgstr "无"
 msgid "Normal Extension Behavior"
 msgstr ""
 
-#: ucp/views/settings.php:6
+#: ucp/views/settings.php:29
 msgid ""
 "Note: Any local extension added will skip that local extension's FindMe/"
 "FollowMe, if you wish the system to use another extension's FindMe/FollowMe "
@@ -525,16 +557,16 @@ msgstr "重新设置"
 msgid "Ring"
 msgstr "振铃"
 
-#: ucp/views/settings.php:9
+#: ucp/views/settings.php:42
 #, php-format
 msgid "Ring %s First For"
 msgstr ""
 
-#: ucp/views/settings.php:18
+#: ucp/views/settings.php:51
 msgid "Ring Followme List For"
 msgstr ""
 
-#: functions.inc.php:701 views/form.php:428
+#: functions.inc.php:701 ucp/views/settings.php:34 views/form.php:428
 msgid "Ring Strategy"
 msgstr "振铃策略"
 
@@ -550,7 +582,7 @@ msgstr "振铃时间（最多60秒）"
 msgid "Ringer Volume Override"
 msgstr ""
 
-#: ucp/views/settings.php:12 ucp/views/settings.php:21
+#: ucp/views/settings.php:45 ucp/views/settings.php:54
 msgid "Seconds"
 msgstr ""
 
@@ -580,6 +612,12 @@ msgstr ""
 msgid "The number users will dial to ring extensions in this Followme group"
 msgstr ""
 
+#: views/ucp_config.php:55
+msgid ""
+"These are the assigned and active extensions which will show up for this "
+"user to control and edit in UCP"
+msgstr ""
+
 #: views/form.php:466
 msgid "This is in addition to the Initial Ring Time"
 msgstr ""
@@ -588,7 +626,7 @@ msgstr ""
 msgid "This is the default value for the Follow Me "
 msgstr ""
 
-#: functions.inc.php:675 ucp/views/settings.php:15 views/form.php:416
+#: functions.inc.php:675 ucp/views/settings.php:48 views/form.php:416
 msgid ""
 "This is the number of seconds to ring the primary extension prior to "
 "proceeding to the follow-me list. The extension can also be included in the "
@@ -597,7 +635,7 @@ msgstr ""
 "这是在转到“跟我来”列表之前，主分机响铃的秒数。分机也可以被包含在“跟我来”列表"
 "里。设置为0将忽略此功能。"
 
-#: ucp/views/settings.php:24
+#: ucp/views/settings.php:57
 msgid "Time in seconds that the phones will ring"
 msgstr ""
 
@@ -644,7 +682,7 @@ msgstr ""
 msgid "Transmits the Callers CID if allowed by the trunk."
 msgstr ""
 
-#: ucp/views/settings.php:27
+#: ucp/views/settings.php:60
 msgid "Use Confirmation"
 msgstr ""
 
@@ -656,6 +694,14 @@ msgstr ""
 #: views/bootnav.php:4
 msgid "User"
 msgstr "用户"
+
+#: Findmefollow.class.php:1286
+msgid "User Primary Extension"
+msgstr ""
+
+#: views/ucp_config.php:87
+msgid "User will have the Option to select followme ring Strategy in UCP"
+msgstr ""
 
 #: Findmefollow.class.php:93
 msgid "Warning! Extension"
@@ -686,7 +732,7 @@ msgstr ""
 #: functions.inc.php:534 functions.inc.php:557 functions.inc.php:633
 #: functions.inc.php:860 views/fmgrid.php:16 views/form.php:272
 #: views/form.php:298 views/form.php:382 views/form.php:592
-#: views/quickCreate.php:10
+#: views/quickCreate.php:10 views/ucp_config.php:13
 msgid "Yes"
 msgstr ""
 
@@ -740,15 +786,15 @@ msgstr "设备"
 msgid "extension"
 msgstr "分机"
 
-#: functions.inc.php:689 views/form.php:50
+#: functions.inc.php:689 ucp/views/settings.php:12 views/form.php:50
 msgid "firstavailable"
 msgstr "首个可用频道"
 
-#: functions.inc.php:690 views/form.php:52
+#: functions.inc.php:690 ucp/views/settings.php:14 views/form.php:52
 msgid "firstnotonphone"
 msgstr "第一个无通话"
 
-#: functions.inc.php:686 views/form.php:44
+#: functions.inc.php:686 ucp/views/settings.php:6 views/form.php:44
 msgid "hunt"
 msgstr "搜寻"
 
@@ -756,7 +802,7 @@ msgstr "搜寻"
 msgid "is not allowed for your account"
 msgstr " "
 
-#: functions.inc.php:687 views/form.php:46
+#: functions.inc.php:687 ucp/views/settings.php:8 views/form.php:46
 msgid "memoryhunt"
 msgstr "记忆性搜寻"
 
@@ -764,13 +810,13 @@ msgstr "记忆性搜寻"
 msgid "none"
 msgstr ""
 
-#: functions.inc.php:685 views/form.php:42
+#: functions.inc.php:685 ucp/views/settings.php:4 views/form.php:42
 msgid ""
 "ring Extension for duration set in Initial Ring Time, and then terminate "
 "call to Extension and ring Follow-Me List for duration set in Ring Time."
 msgstr ""
 
-#: views/form.php:40
+#: ucp/views/settings.php:2 views/form.php:40
 msgid ""
 "ring Extension for duration set in Initial Ring Time, and then, while "
 "continuing call to extension (only if extension is in the Group List), ring "
@@ -784,7 +830,7 @@ msgid ""
 "Time."
 msgstr ""
 
-#: functions.inc.php:687 views/form.php:46
+#: functions.inc.php:687 ucp/views/settings.php:8 views/form.php:46
 msgid ""
 "ring first extension in the list, then ring the 1st and 2nd extension, then "
 "ring 1st 2nd and 3rd extension in the list.... etc."
@@ -792,27 +838,27 @@ msgstr ""
 "首先使列表中第一个分机响铃，然后是第一个和第二个响，接着是第一、二、三个"
 "响。。。以次类推。"
 
-#: functions.inc.php:689 views/form.php:50
+#: functions.inc.php:689 ucp/views/settings.php:12 views/form.php:50
 msgid "ring only the first available channel"
 msgstr "只在第一个可用的通道响铃"
 
-#: functions.inc.php:690 views/form.php:52
+#: functions.inc.php:690 ucp/views/settings.php:14 views/form.php:52
 msgid "ring only the first channel which is not off hook - ignore CW"
 msgstr "只在第一个不是摘机状态下的通道响铃——忽略呼叫等待"
 
-#: functions.inc.php:685 views/form.php:42
+#: functions.inc.php:685 ucp/views/settings.php:4 views/form.php:42
 msgid "ringall"
 msgstr "全部响铃"
 
-#: functions.inc.php:684 views/form.php:40
+#: functions.inc.php:684 ucp/views/settings.php:2 views/form.php:40
 msgid "ringallv2"
 msgstr "全部响铃2"
 
-#: functions.inc.php:686 views/form.php:44
+#: functions.inc.php:686 ucp/views/settings.php:6 views/form.php:44
 msgid "take turns ringing each available extension"
 msgstr "在可用的分机上轮流响铃"
 
-#: functions.inc.php:688 views/form.php:48
+#: functions.inc.php:688 ucp/views/settings.php:10 views/form.php:48
 msgid ""
 "these modes act as described above. However, if the primary extension (first "
 "in list) is occupied, the other extensions will not be rung. If the primary "
@@ -822,9 +868,6 @@ msgstr ""
 "这些模式按上述的方式工作。然而，如果主分机（列表中的第一个）占线，其他的分机"
 "就不会响铃。如果主分机是设置了免打扰，它就不会振铃。如果主分机设置了无条件转"
 "移呼叫，那么所有的分机会响铃"
-
-#~ msgid "Enable"
-#~ msgstr "开启"
 
 #~ msgid "(pick extension)"
 #~ msgstr "（选取分机）"
@@ -865,9 +908,6 @@ msgstr ""
 
 #~ msgid "Delete Entries"
 #~ msgstr "删除项目"
-
-#~ msgid "Disable"
-#~ msgstr "禁用"
 
 #~ msgid "Edit %s"
 #~ msgstr "编辑 %s"
