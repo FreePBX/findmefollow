@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>15.0.1</version>
+	<version>15.0.2</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*15.0.2* FREEPBX-16513 Calendar Group under follow me broken 
 		*15.0.1* FREEPBX-13152
 	</changelog>
 	<depends>
@@ -54,9 +55,9 @@
 	    <field name="pre_ring" type="smallint" default="0"/>
 	    <field name="ringing" type="string" length="80" notnull="false"/>
 			<field name="calendar_enable" type="boolean" default="0" notnull="false"/>
-	    <field name="calendar_id" type="string" length="80" default='' notnull="false"/>
-			<field name="calendar_group_id" type="string" length="80" default='' notnull="false"/>
-	    <field name="calendar_match" type="string" length="4" default='yes' notnull="false"/>
+	    <field name="calendar_id" type="string" length="80" default="" notnull="false"/>
+			<field name="calendar_group_id" type="string" length="80" default="" notnull="false"/>
+	    <field name="calendar_match" type="string" length="4" default="yes" notnull="false"/>
 	  </table>
 	</database>
 	<location>release/2.11/findmefollow-2.11.0.3.tgz</location>
