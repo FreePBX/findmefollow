@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>14.0.1.15</version>
+	<version>14.0.1.16</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*14.0.1.16* FREEPBX-16513 Calendar Group under follow me broken 
 		*14.0.1.15* FREEPBX-15741 FREEPBX-15335 Ring strategy available in UCP
 		*14.0.1.14* FREEPBX-15429
 		*14.0.1.13* FREEPBX-15254 extension quick create - whoops when selecting Yes to enable follow-me
@@ -52,7 +53,7 @@
 			<method callingMethod="delUser" class="Findmefollow" namespace="FreePBX\modules">delUser</method>
 		</core>
                 <ucp class="Ucp">
-			<method namespace="FreePBX\modules" callingMethod="constructModuleConfigPages" class="Findmefollow" >ucpConfigPage</method>
+			<method namespace="FreePBX\modules" callingMethod="constructModuleConfigPages" class="Findmefollow">ucpConfigPage</method>
 			<method namespace="FreePBX\modules" callingMethod="addUser" class="Findmefollow">ucpAddUser</method>
 			<method namespace="FreePBX\modules" callingMethod="updateUser" class="Findmefollow">ucpUpdateUser</method>
 			<method namespace="FreePBX\modules" callingMethod="delUser" class="Findmefollow">ucpDelUser</method>
@@ -78,9 +79,9 @@
 	    <field name="pre_ring" type="smallint" default="0"/>
 	    <field name="ringing" type="string" length="80" notnull="false"/>
 			<field name="calendar_enable" type="boolean" default="0" notnull="false"/>
-	    <field name="calendar_id" type="string" length="80" default='' notnull="false"/>
-			<field name="calendar_group_id" type="string" length="80" default='' notnull="false"/>
-	    <field name="calendar_match" type="string" length="4" default='yes' notnull="false"/>
+	    <field name="calendar_id" type="string" length="80" default="" notnull="false"/>
+			<field name="calendar_group_id" type="string" length="80" default="" notnull="false"/>
+	    <field name="calendar_match" type="string" length="4" default="yes" notnull="false"/>
 	  </table>
 	</database>
 	<location>release/2.11/findmefollow-2.11.0.3.tgz</location>
