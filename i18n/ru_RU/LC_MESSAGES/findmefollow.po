@@ -324,8 +324,7 @@ msgstr "Список"
 
 #: functions.inc.php:729
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
-msgstr ""
-"Список \"СледуйтеСюда\" не может быть пустым если \"СледуйтеСюда\" включено"
+msgstr "Список СледуйтеСюда не может быть пустым если СледуйтеСюда включено"
 
 #: functions.inc.php:1198
 #, php-format
