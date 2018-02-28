@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>15.0.2</version>
+	<version>15.0.3</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*15.0.3* FREEPBX-16838 FreePBX 14.0.1.36 d'nt work button "save" 
 		*15.0.2* FREEPBX-16513 Calendar Group under follow me broken 
 		*15.0.1* FREEPBX-13152
 	</changelog>
