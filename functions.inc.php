@@ -448,7 +448,10 @@ function findmefollow_users_configpageload($pagename) {
 		);
 	}
 
-	$moh = music_list();
+	$moh = array();
+	if (function_exists('music_list')) {
+		$moh = music_list();
+	}
 	$recordings = recordings_list();
 	$recordingslist = array();
 	$recordingslist[] = array(
