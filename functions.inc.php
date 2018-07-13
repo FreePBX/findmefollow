@@ -250,7 +250,8 @@ function findmefollow_get_config($engine) {
 			$ext->add($contextname, '_X.', 'DIALGRP', new ext_execif('$[$["${DB(AMPUSER/${EXTEN}/followme/ringing)}"="Ring"] | $["${DB(AMPUSER/${EXTEN}/followme/ringing)}"=""]]','Set','DOPTS=${DIAL_OPTIONS}','Set','DOPTS=m(${DB(AMPUSER/${EXTEN}/followme/ringing)})${STRREPLACE(DIAL_OPTIONS,r)}'));
 			//FREEPBX 14945 Call Confirm Announcement under Virtual Queue module is broken.
 			 $ext->add($contextname, '_X.', '', new ext_set('__ALT_CONFIRM_MSG', '${IF($["${ALT_CONFIRM_MSG}"!=""]?${ALT_CONFIRM_MSG}:${IF($[${LEN(${VQ_CONFIRMMSG})}>1]?${VQ_CONFIRMMSG}:)})}'));
-			$ext->add($contextname, '_X.', '', new ext_gotoif('$[("${DB(AMPUSER/${EXTEN}/followme/grpconf)}"="ENABLED") | ("${FORCE_CONFIRM}"!="") | ($[${LEN(${VQ_CONFIRMMSG})}>1])]', 'doconfirm'));
+			//FREEPBX-17789 if the call is from RG and confirm is enabled , we dont want to do one more confirm from FMFM.
+			$ext->add($contextname, '_X.', '', new ext_gotoif('$[(("${DB(AMPUSER/${EXTEN}/followme/grpconf)}"="ENABLED") | ("${FORCE_CONFIRM}"!="") | ($[${LEN(${VQ_CONFIRMMSG})}>1])) & ("${RG_CONFIRM}" != "1")]', 'doconfirm'));
 
 			// Normal call
 			$ext->add($contextname, '_X.', '', new ext_gotoif('$["${CUT(STRATEGY,-,1)}"="ringallv2"]','ringallv21'));
