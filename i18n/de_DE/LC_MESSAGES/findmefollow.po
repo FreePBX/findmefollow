@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-13 17:40-0400\n"
+"POT-Creation-Date: 2018-07-13 18:25-0400\n"
 "PO-Revision-Date: 2017-01-13 19:27+0200\n"
 "Last-Translator: Sven <spiderrs4@web.de>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/"
@@ -52,10 +52,6 @@ msgstr ""
 #: functions.inc.php:745 views/form.php:78
 msgid "Announcement"
 msgstr "Ansage"
-
-#: findmefollow.i18n.php:6
-msgid "Applications"
-msgstr "Anwendungen"
 
 #: functions.inc.php:533
 msgid ""
@@ -114,26 +110,10 @@ msgstr ""
 msgid "Confirm Calls"
 msgstr "Anrufe bestätigen"
 
-#: findmefollow.i18n.php:12
-msgid "Create Follow Me at Extension Creation Time"
-msgstr ""
-
 #: functions.inc.php:879 functions.inc.php:958 functions.inc.php:971
 #: views/form.php:120 views/form.php:155 views/form.php:220 views/form.php:612
 msgid "Default"
 msgstr "Standard"
-
-#: findmefollow.i18n.php:26
-msgid "Default Follow Me Initial Ring Time"
-msgstr "Standard Folge mir Anfangsklingeldauer"
-
-#: findmefollow.i18n.php:30
-msgid "Default Follow Me Ring Strategy"
-msgstr "Standard Folge mir Klingelstrategie"
-
-#: findmefollow.i18n.php:22
-msgid "Default Follow Me Ring Time"
-msgstr "Standard Folge mir Klingeldauer"
 
 #: views/form.php:680
 msgid "Destination if no answer"
@@ -145,10 +125,6 @@ msgstr "Ziele"
 
 #: views/ucp_config.php:74
 msgid "Disable"
-msgstr ""
-
-#: findmefollow.i18n.php:18
-msgid "Disable Follow Me Upon Creation"
 msgstr ""
 
 #: ucp/views/widget.php:2
@@ -228,7 +204,7 @@ msgstr "Finde mich/Folge mir wurde aktualisiert!"
 msgid "Find Me/Follow Me for %s"
 msgstr ""
 
-#: findmefollow.i18n.php:34 install.php:5
+#: install.php:5
 msgid "Findme Follow Toggle"
 msgstr "Finde mich Folge mir Umschalten"
 
@@ -261,9 +237,8 @@ msgid ""
 "leading '+'."
 msgstr ""
 
-#: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
-#: ucp/Findmefollow.class.php:124 ucp/Findmefollow.class.php:141
-#: ucp/Findmefollow.class.php:179
+#: page.findmefollow.php:11 ucp/Findmefollow.class.php:124
+#: ucp/Findmefollow.class.php:141 ucp/Findmefollow.class.php:179
 msgid "Follow Me"
 msgstr "Folge mir"
 
@@ -274,10 +249,6 @@ msgstr "Folge mir aktivieren (Leer lassen zum deaktivieren)"
 #: Findmefollow.class.php:888 ucp/views/settings.php:27
 msgid "Follow Me List"
 msgstr "Folge mir Liste"
-
-#: findmefollow.i18n.php:14
-msgid "Follow Me Module"
-msgstr "Folge mir Modul"
 
 #: Findmefollow.class.php:891
 msgid "Follow Me No Answer Destination"
@@ -448,15 +419,6 @@ msgstr ""
 msgid "Mode"
 msgstr "Modus"
 
-#: findmefollow.i18n.php:8
-msgid ""
-"Much like a ring group, but works on individual extensions. When someone "
-"calls the extension, it can be setup to ring for a number of seconds before "
-"trying to ring other extensions and/or external numbers, or to ring all at "
-"once, or in other various 'hunt' configurations. Most commonly used to ring "
-"someone's cell phone if they don't answer their extension."
-msgstr ""
-
 #: functions.inc.php:542 functions.inc.php:565 functions.inc.php:641
 #: functions.inc.php:868 views/fmgrid.php:18 views/form.php:274
 #: views/form.php:300 views/form.php:384 views/form.php:594
@@ -577,24 +539,6 @@ msgstr "Sekunden"
 msgid "Submit"
 msgstr "Bestätigen"
 
-#: findmefollow.i18n.php:28
-msgid ""
-"The default Initial Ring Time for a Follow Me set upon creation and used if "
-"auto-created with a new extension."
-msgstr ""
-
-#: findmefollow.i18n.php:32
-msgid ""
-"The default Ring Strategy selected for a Follow Me set upon creation and "
-"used if auto-created with an extension."
-msgstr ""
-
-#: findmefollow.i18n.php:24
-msgid ""
-"The default Ring Time for a Follow Me set upon creation and used if auto-"
-"created with a new extension."
-msgstr ""
-
 #: views/form.php:255
 msgid "The number users will dial to ring extensions in this Followme group"
 msgstr ""
@@ -608,10 +552,6 @@ msgstr ""
 #: views/form.php:466
 msgid "This is in addition to the Initial Ring Time"
 msgstr ""
-
-#: findmefollow.i18n.php:20
-msgid "This is the default value for the Follow Me "
-msgstr "Dies ist der Standardwert für \"Folge mir\" "
 
 #: functions.inc.php:679 ucp/views/settings.php:48 views/form.php:416
 msgid ""
@@ -692,13 +632,6 @@ msgstr "Achtung! Nebenstelle"
 
 #: assets/js/findmefollow.js:71
 msgid "We received and sent your request but something failed"
-msgstr ""
-
-#: findmefollow.i18n.php:16
-msgid ""
-"When creating a new user or extension, setting this to true will "
-"automatically create a new Follow Me for that user using the default "
-"settings listed below"
 msgstr ""
 
 #: functions.inc.php:632 views/form.php:392
@@ -846,3 +779,21 @@ msgid ""
 "is FreePBX DND, it won't be rung. If the primary is FreePBX CF "
 "unconditional, then all will be rung"
 msgstr ""
+
+#~ msgid "Applications"
+#~ msgstr "Anwendungen"
+
+#~ msgid "Default Follow Me Initial Ring Time"
+#~ msgstr "Standard Folge mir Anfangsklingeldauer"
+
+#~ msgid "Default Follow Me Ring Strategy"
+#~ msgstr "Standard Folge mir Klingelstrategie"
+
+#~ msgid "Default Follow Me Ring Time"
+#~ msgstr "Standard Folge mir Klingeldauer"
+
+#~ msgid "Follow Me Module"
+#~ msgstr "Folge mir Modul"
+
+#~ msgid "This is the default value for the Follow Me "
+#~ msgstr "Dies ist der Standardwert für \"Folge mir\" "

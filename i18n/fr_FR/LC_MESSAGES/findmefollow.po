@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-13 17:40-0400\n"
+"POT-Creation-Date: 2018-07-13 18:25-0400\n"
 "PO-Revision-Date: 2016-11-23 13:46+0200\n"
 "Last-Translator: Pascal <pascal.noyel@ipexia.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
@@ -64,10 +64,6 @@ msgstr "Toujours transmettre la valeur CID fixe ci-dessous."
 #: functions.inc.php:745 views/form.php:78
 msgid "Announcement"
 msgstr "Annonce"
-
-#: findmefollow.i18n.php:6
-msgid "Applications"
-msgstr "Applications"
 
 #: functions.inc.php:533
 msgid ""
@@ -126,26 +122,10 @@ msgstr "Modifier la configuration de l'ID de appelant externe"
 msgid "Confirm Calls"
 msgstr "Confirmer les Appels"
 
-#: findmefollow.i18n.php:12
-msgid "Create Follow Me at Extension Creation Time"
-msgstr "Créer suivez-moi au poste à la création"
-
 #: functions.inc.php:879 functions.inc.php:958 functions.inc.php:971
 #: views/form.php:120 views/form.php:155 views/form.php:220 views/form.php:612
 msgid "Default"
 msgstr "Par Défaut"
-
-#: findmefollow.i18n.php:26
-msgid "Default Follow Me Initial Ring Time"
-msgstr "Durée de la sonnerie initiale par défaut pour le Suivez-Moi"
-
-#: findmefollow.i18n.php:30
-msgid "Default Follow Me Ring Strategy"
-msgstr "Stratégie de sonnerie par défaut pour le Suivez-Moi"
-
-#: findmefollow.i18n.php:22
-msgid "Default Follow Me Ring Time"
-msgstr "Durée de la sonnerie par défaut pour le Suivez-Moi"
 
 #: views/form.php:680
 msgid "Destination if no answer"
@@ -158,10 +138,6 @@ msgstr "Destinations"
 #: views/ucp_config.php:74
 msgid "Disable"
 msgstr "Désactiver"
-
-#: findmefollow.i18n.php:18
-msgid "Disable Follow Me Upon Creation"
-msgstr "Désactiver le Suivez-Moi lors de la création"
 
 #: ucp/views/widget.php:2
 msgid "Disabled"
@@ -257,7 +233,7 @@ msgstr "Suivez-Moi a été modifié !"
 msgid "Find Me/Follow Me for %s"
 msgstr ""
 
-#: findmefollow.i18n.php:34 install.php:5
+#: install.php:5
 msgid "Findme Follow Toggle"
 msgstr "Activer/Désactiver Suivez-Moi"
 
@@ -297,9 +273,8 @@ msgstr ""
 "La valeur fixe de la valeur du CID devrait être au format numérique, "
 "uniquement avec une option du format E164 utilisant en préfix le \"+\"."
 
-#: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
-#: ucp/Findmefollow.class.php:124 ucp/Findmefollow.class.php:141
-#: ucp/Findmefollow.class.php:179
+#: page.findmefollow.php:11 ucp/Findmefollow.class.php:124
+#: ucp/Findmefollow.class.php:141 ucp/Findmefollow.class.php:179
 msgid "Follow Me"
 msgstr "Suivez-Moi"
 
@@ -310,10 +285,6 @@ msgstr "Suivez-Moi activé [Vide pour désactiver]"
 #: Findmefollow.class.php:888 ucp/views/settings.php:27
 msgid "Follow Me List"
 msgstr "Liste des numéros (interne et externe) pour le Suivez-Moi"
-
-#: findmefollow.i18n.php:14
-msgid "Follow Me Module"
-msgstr "Module Suivez-Moi"
 
 #: Findmefollow.class.php:891
 msgid "Follow Me No Answer Destination"
@@ -507,15 +478,6 @@ msgstr "Méthode non supportée"
 msgid "Mode"
 msgstr "Mode"
 
-#: findmefollow.i18n.php:8
-msgid ""
-"Much like a ring group, but works on individual extensions. When someone "
-"calls the extension, it can be setup to ring for a number of seconds before "
-"trying to ring other extensions and/or external numbers, or to ring all at "
-"once, or in other various 'hunt' configurations. Most commonly used to ring "
-"someone's cell phone if they don't answer their extension."
-msgstr ""
-
 #: functions.inc.php:542 functions.inc.php:565 functions.inc.php:641
 #: functions.inc.php:868 views/fmgrid.php:18 views/form.php:274
 #: views/form.php:300 views/form.php:384 views/form.php:594
@@ -642,32 +604,6 @@ msgstr "Secondes"
 msgid "Submit"
 msgstr "Envoyer"
 
-#: findmefollow.i18n.php:28
-msgid ""
-"The default Initial Ring Time for a Follow Me set upon creation and used if "
-"auto-created with a new extension."
-msgstr ""
-"La durée de sonnerie par défaut initiale pour un suivez-moi mis à la "
-"création et si il se crée automatiquement avec un nouveau poste."
-
-#: findmefollow.i18n.php:32
-msgid ""
-"The default Ring Strategy selected for a Follow Me set upon creation and "
-"used if auto-created with an extension."
-msgstr ""
-"La Stratégie de sonnerie par défaut sélectionnée pour un suivez-moi mis à la "
-"création et utilisé si il se crée automatiquement avec la création d'un "
-"poste."
-
-#: findmefollow.i18n.php:24
-msgid ""
-"The default Ring Time for a Follow Me set upon creation and used if auto-"
-"created with a new extension."
-msgstr ""
-"Le temps de sonnerie par défaut sélectionnée pour un suivez-moi mis à la "
-"création et utilisé si il se crée automatiquement avec la création d'un "
-"poste."
-
 #: views/form.php:255
 msgid "The number users will dial to ring extensions in this Followme group"
 msgstr ""
@@ -683,10 +619,6 @@ msgstr ""
 #: views/form.php:466
 msgid "This is in addition to the Initial Ring Time"
 msgstr ""
-
-#: findmefollow.i18n.php:20
-msgid "This is the default value for the Follow Me "
-msgstr "Valeur par défaut du Suivez-Moi "
 
 #: functions.inc.php:679 ucp/views/settings.php:48 views/form.php:416
 msgid ""
@@ -787,16 +719,6 @@ msgstr "Attention ! L'Extension"
 #: assets/js/findmefollow.js:71
 msgid "We received and sent your request but something failed"
 msgstr "Echec suite à la reception et l'envoi de votre demande"
-
-#: findmefollow.i18n.php:16
-msgid ""
-"When creating a new user or extension, setting this to true will "
-"automatically create a new Follow Me for that user using the default "
-"settings listed below"
-msgstr ""
-"Lorsque vous créez un nouvel utilisateur ou le poste, la définition de cette "
-"option à vrai va créer automatiquement un nouveau suivez-moi pour cet "
-"utilisateur en utilisant les paramètres par défaut répertoriés ci-dessous"
 
 #: functions.inc.php:632 views/form.php:392
 msgid ""
@@ -961,6 +883,63 @@ msgstr ""
 "primaire (1e dans la liste) est occupée, les autres extensions ne sonneront "
 "pas. Si la primaire est FreePBX Ne pas Déranger, elle ne sonnera pas. Si la "
 "primaire est FreePBX Transfert d'Appel inconditionnel, alors toutes sonneront"
+
+#~ msgid "Applications"
+#~ msgstr "Applications"
+
+#~ msgid "Create Follow Me at Extension Creation Time"
+#~ msgstr "Créer suivez-moi au poste à la création"
+
+#~ msgid "Default Follow Me Initial Ring Time"
+#~ msgstr "Durée de la sonnerie initiale par défaut pour le Suivez-Moi"
+
+#~ msgid "Default Follow Me Ring Strategy"
+#~ msgstr "Stratégie de sonnerie par défaut pour le Suivez-Moi"
+
+#~ msgid "Default Follow Me Ring Time"
+#~ msgstr "Durée de la sonnerie par défaut pour le Suivez-Moi"
+
+#~ msgid "Disable Follow Me Upon Creation"
+#~ msgstr "Désactiver le Suivez-Moi lors de la création"
+
+#~ msgid "Follow Me Module"
+#~ msgstr "Module Suivez-Moi"
+
+#~ msgid ""
+#~ "The default Initial Ring Time for a Follow Me set upon creation and used "
+#~ "if auto-created with a new extension."
+#~ msgstr ""
+#~ "La durée de sonnerie par défaut initiale pour un suivez-moi mis à la "
+#~ "création et si il se crée automatiquement avec un nouveau poste."
+
+#~ msgid ""
+#~ "The default Ring Strategy selected for a Follow Me set upon creation and "
+#~ "used if auto-created with an extension."
+#~ msgstr ""
+#~ "La Stratégie de sonnerie par défaut sélectionnée pour un suivez-moi mis à "
+#~ "la création et utilisé si il se crée automatiquement avec la création "
+#~ "d'un poste."
+
+#~ msgid ""
+#~ "The default Ring Time for a Follow Me set upon creation and used if auto-"
+#~ "created with a new extension."
+#~ msgstr ""
+#~ "Le temps de sonnerie par défaut sélectionnée pour un suivez-moi mis à la "
+#~ "création et utilisé si il se crée automatiquement avec la création d'un "
+#~ "poste."
+
+#~ msgid "This is the default value for the Follow Me "
+#~ msgstr "Valeur par défaut du Suivez-Moi "
+
+#~ msgid ""
+#~ "When creating a new user or extension, setting this to true will "
+#~ "automatically create a new Follow Me for that user using the default "
+#~ "settings listed below"
+#~ msgstr ""
+#~ "Lorsque vous créez un nouvel utilisateur ou le poste, la définition de "
+#~ "cette option à vrai va créer automatiquement un nouveau suivez-moi pour "
+#~ "cet utilisateur en utilisant les paramètres par défaut répertoriés ci-"
+#~ "dessous"
 
 #~ msgid ""
 #~ "When enabled any call to this extension will go to this Follow-Me "
