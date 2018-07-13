@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>14.0.1.18</version>
+	<version>14.0.1.19</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*14.0.1.19* FREEPBX-17789 call confirmation message delivered twice 
 		*14.0.1.18* fixing bugfix/FREEPBX-17041 calling music_list api only if its available 
 		*14.0.1.17* FREEPBX-16838 FreePBX 14.0.1.36 d'nt work button "save" 
 		*14.0.1.16* FREEPBX-16513 Calendar Group under follow me broken 
