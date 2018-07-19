@@ -49,6 +49,14 @@ function findmefollow_get_config($engine) {
 	global $ext;  // is this the best way to pass this?
 	global $amp_conf;
 	global $astman;
+	$nt = FreePBX::Notifications();
+	$rawname = 'followmecal';
+	//Cleanup... only look at "notice"
+	foreach ($nt->list_all(600) as $notification) {
+		if(isset($notification['module']) && $notification['module'] == $rawname){
+			$nt->delete($rawname,$notification['id']);
+		}
+	}
 	switch($engine) {
 		case "asterisk":
 			if ($amp_conf['USEDEVSTATE']) {
@@ -75,7 +83,7 @@ function findmefollow_get_config($engine) {
 				$ext->addHint($contextname, "_".$fmf_code.'X.', "Custom:FOLLOWME".'${EXTEN:'.strlen($fmf_code).'}');
 			}
 
-
+			$iscal = FreePBX::Modules()->checkStatus('calendar');
 			$groups = FreePBX::Findmefollow()->getAllFollowmes();
 			$dial_options = FreePBX::Config()->get("DIAL_OPTIONS");
 			foreach($groups as $grp) {
@@ -87,13 +95,18 @@ function findmefollow_get_config($engine) {
 				$grppre = (isset($grp['grppre'])?$grp['grppre']:'');
 				$annmsg_id = $grp['annmsg_id'];
 				$dring = $grp['dring'];
+				$user = FreePBX::Userman()->getUserByDefaultExtension($grpnum);
+				$timezone = (isset($user['timezone']) && !empty($user['timezone']))?$user['timezone']:FreePBX::View()->getTimezone();
 				$rvolume = (isset($grp['rvolume'])?$grp['rvolume']:'');
-
 				$needsconf = $grp['needsconf'];
 				$remotealert_id = $grp['remotealert_id'];
 				$toolate_id = $grp['toolate_id'];
 				$ringing = $grp['ringing'];
 				$pre_ring = $grp['pre_ring'];
+				$calendar_enable = !empty($grp['calendar_enable']) ?true:false;
+				$calendar_id = !empty($grp['calendar_id'])?$grp['calendar_id']:false;
+				$calendar_group_id = !empty($grp['calendar_group_id'])?$grp['calendar_group_id']:false;
+				$calendar_match = !empty($grp['calendar_match'])?$grp['calendar_match']:'yes';
 
 				$astman->database_put("AMPUSER",$grpnum."/followme/grppre",isset($grppre)?$grppre:'');
 				$astman->database_put("AMPUSER",$grpnum."/followme/dring",isset($dring)?$dring:'');
@@ -119,9 +132,42 @@ function findmefollow_get_config($engine) {
 
 				//These two have to be here because of how they function in the dialplan.
 				//Dont try to make them dynamic, we really can't do that
-				$len=strlen($grpnum)+4;
-				$ext->add($grpcontextname, "_RG-".$grpnum.".", '', new ext_macro('dial','${DB(AMPUSER/'.$grpnum.'/followme/grptime)},' .$dialopts. 'M(confirm^'.$remotealert.'^'.$toolate.'^'.$grpnum.'),${EXTEN:'.$len.'}'),1,1);
-				$ext->add($contextname, $grpnum, '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/${EXTEN}/followme/ddial)} != 1 | "${DB(AMPUSER/${EXTEN}/followme/ddial)}" = "EXTENSION" ]', 'ext-local,${EXTEN},1','followme-check,${EXTEN},1'));
+				$len = strlen($grpnum)+5;
+				$ext->add($grpcontextname, "_RG-".$grpnum."*.", '', new ext_macro('dial','${DB(AMPUSER/'.$grpnum.'/followme/grptime)},' .$dialopts. 'M(confirm^'.$remotealert.'^'.$toolate.'^'.$grpnum.'),${EXTEN:'.$len.'}'),1,1);
+				if($calendar_enable && $iscal && (!empty($calendar_id) || !empty($calendar_group_id))){
+					if(!empty($calendar_group_id)) {
+						try {
+							$val = FreePBX::Calendar()->ext_calendar_group_variable($calendar_group_id,$timezone,true);
+							$ext->add($contextname, $grpnum, '', $val);
+						} catch (Exception $e) {
+							$uid = 'CALG-'.$calendar_group_id;
+							if(!$nt->exists($rawname, $uid)) {
+								$nt->add_notice($rawname, $uid, _("Calendar Not found"), _("Your followme is linked to a non-existant calendar group"), '?display=findmefollow&view=form&extdisplay='.$grpnum, true, false);
+							}
+							dbug($e->getMessage());
+						}
+					} else {
+						try {
+							$val = FreePBX::Calendar()->ext_calendar_variable($calendar_id,$timezone,true);
+							$ext->add($contextname, $grpnum, '', $val);
+						} catch (Exception $e) {
+							$uid = 'CAL-'.$calendar_group_id;
+							if(!$nt->exists($rawname, $uid)) {
+								$nt->add_notice($rawname, $uid, _("Calendar Not found"), _("Your followme is linked to a non-existant calendar"), '?display=findmefollow&view=form&extdisplay='.$grpnum, true, false);
+							}
+							dbug($e->getMessage());
+						}
+					}
+
+					$ext->add($contextname, $grpnum, '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/${EXTEN}/followme/ddial)} != 1 | "${DB(AMPUSER/${EXTEN}/followme/ddial)}" = "EXTENSION"]', 'ext-local,${EXTEN},1'));
+					if($calendar_match === 'yes'){
+						$ext->add($contextname, $grpnum, '', new ext_gotoif('$[${CALENDAR} = 0]', 'ext-local,${EXTEN},1','followme-check,${EXTEN},1'));
+					}else{
+						$ext->add($contextname, $grpnum, '', new ext_gotoif('$[${CALENDAR} = 1]', 'ext-local,${EXTEN},1','followme-check,${EXTEN},1'));
+					}
+				}else{
+					$ext->add($contextname, $grpnum, '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/${EXTEN}/followme/ddial)} != 1 | "${DB(AMPUSER/${EXTEN}/followme/ddial)}" = "EXTENSION"]', 'ext-local,${EXTEN},1','followme-check,${EXTEN},1'));
+				}
 			}
 
 			$ext->add($grpcontextname, "_RG-X.", '', new ext_nocdr(''));
@@ -202,7 +248,10 @@ function findmefollow_get_config($engine) {
 
 			// If grpconf == ENABLED call with confirmation ELSE call normal
 			$ext->add($contextname, '_X.', 'DIALGRP', new ext_execif('$[$["${DB(AMPUSER/${EXTEN}/followme/ringing)}"="Ring"] | $["${DB(AMPUSER/${EXTEN}/followme/ringing)}"=""]]','Set','DOPTS=${DIAL_OPTIONS}','Set','DOPTS=m(${DB(AMPUSER/${EXTEN}/followme/ringing)})${STRREPLACE(DIAL_OPTIONS,r)}'));
-			$ext->add($contextname, '_X.', '', new ext_gotoif('$[("${DB(AMPUSER/${EXTEN}/followme/grpconf)}"="ENABLED") | ("${FORCE_CONFIRM}"!="") ]', 'doconfirm'));
+			//FREEPBX 14945 Call Confirm Announcement under Virtual Queue module is broken.
+			 $ext->add($contextname, '_X.', '', new ext_set('__ALT_CONFIRM_MSG', '${IF($["${ALT_CONFIRM_MSG}"!=""]?${ALT_CONFIRM_MSG}:${IF($[${LEN(${VQ_CONFIRMMSG})}>1]?${VQ_CONFIRMMSG}:)})}'));
+			//FREEPBX-17789 if the call is from RG and confirm is enabled , we dont want to do one more confirm from FMFM.
+			$ext->add($contextname, '_X.', '', new ext_gotoif('$[(("${DB(AMPUSER/${EXTEN}/followme/grpconf)}"="ENABLED") | ("${FORCE_CONFIRM}"!="") | ($[${LEN(${VQ_CONFIRMMSG})}>1])) & ("${RG_CONFIRM}" != "1")]', 'doconfirm'));
 
 			// Normal call
 			$ext->add($contextname, '_X.', '', new ext_gotoif('$["${CUT(STRATEGY,-,1)}"="ringallv2"]','ringallv21'));
@@ -287,120 +336,6 @@ function findmefollow_get_config($engine) {
 	}
 }
 
-function findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre='',$annmsg_id=NULL,$dring,$needsconf,$remotealert_id=NULL,$toolate_id=NULL,$ringing,$pre_ring,$ddial,$changecid='default',$fixedcid='',$rvolume='') {
-	global $amp_conf;
-	global $astman;
-	global $db;
-
-	if (empty($postdest)) {
-		$postdest = "ext-local,$grpnum,dest";
-	}
-
-	//Follow Me auto # on external number.
-	//http://code.freepbx.org/cru/FREEPBX-51#CFR-111
-	$users = findmefollow_allusers();
-	$users = is_array($users) ? $users : array();
-	foreach ($users as $user) {
-		$extens[$user[0]] = $user[1];
-	}
-
-	$list = !is_array($grplist) ? explode("-", $grplist) : $grplist;
-	foreach (array_keys($list) as $key) {
-		// remove invalid chars
-		$hadPound = preg_match("/#$/",$list[$key]);
-		$list[$key] = preg_replace("/[^0-9*+]/", "", $list[$key]);
-
-		if ($list[$key] == "") {
-			unset($list[$key]);
-			continue;
-		}
-
-		if($hadPound) {
-			$list[$key].= '#';
-			continue;
-		}
-
-		if (empty($extens[$list[$key]])) {
-			/* Extension not found.  Must be an external number. */
-			$list[$key].= '#';
-		}
-	}
-	$grplist = implode("-", $list);
-	if ($annmsg_id == '') {
-		$annmsg_id = NULL;
-	}
-	if ($remotealert_id == '') {
-		$remotealert_id = NULL;
-	}
-	if ($toolate_id == '') {
-		$toolate_id = NULL;
-	}
-
-	$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, rvolume) VALUES (:grpnum, :strategy, :grptime, :grppre, :grplist, :annmsg_id, :postdest, :dring, :needsconf, :remotealert_id, :toolate_id, :ringing, :pre_ring, :rvolume)";
-	$sth = FreePBX::Database()->prepare($sql);
-	$sth->execute(array(
-		":grpnum" => $grpnum,
-		":strategy" => $strategy,
-		":grptime" => $grptime,
-		":grppre" => $grppre,
-		":grplist" => $grplist,
-		":annmsg_id" => $annmsg_id,
-		":postdest" => $postdest,
-		":dring" => $dring,
-		":needsconf" => $needsconf,
-		":remotealert_id" => $remotealert_id,
-		":toolate_id" => $toolate_id,
-		":ringing" => $ringing,
-		":pre_ring" => $pre_ring,
-		":rvolume" => $rvolume
-	));
-
-	if ($astman) {
-		$astman->database_put("AMPUSER",$grpnum."/followme/prering",isset($pre_ring)?$pre_ring:'');
-		$astman->database_put("AMPUSER",$grpnum."/followme/grptime",isset($grptime)?$grptime:'');
-		$astman->database_put("AMPUSER",$grpnum."/followme/grplist",isset($grplist)?$grplist:'');
-		$astman->database_put("AMPUSER",$grpnum."/followme/grppre",isset($grppre)?$grppre:'');
-		$astman->database_put("AMPUSER",$grpnum."/followme/rvolume",isset($rvolume)?$rvolume:'');
-
-		$needsconf = isset($needsconf)?$needsconf:'';
-		$confvalue = ($needsconf == 'CHECKED')?'ENABLED':'DISABLED';
-		$astman->database_put("AMPUSER",$grpnum."/followme/grpconf",$confvalue);
-
-		$ddial      = isset($ddial)?$ddial:'';
-		$ddialvalue = ($ddial == 'CHECKED')?'EXTENSION':'DIRECT';
-		$astman->database_put("AMPUSER",$grpnum."/followme/ddial",$ddialvalue);
-		if ($amp_conf['USEDEVSTATE']) {
-			$ddialstate = ($ddial == 'CHECKED')?'NOT_INUSE':'BUSY';
-
-			$devices = $astman->database_get("AMPUSER", $grpnum . "/device");
-			$device_arr = explode('&', $devices);
-			foreach ($device_arr as $device) {
-				$astman->set_global($amp_conf['AST_FUNC_DEVICE_STATE'] . "(Custom:FOLLOWME$device)", $ddialstate);
-			}
-		}
-
-		$astman->database_put("AMPUSER",$grpnum."/followme/changecid",$changecid);
-		$fixedcid = preg_replace("/[^0-9\+]/" ,"", trim($fixedcid));
-		$astman->database_put("AMPUSER",$grpnum."/followme/fixedcid",$fixedcid);
-	} else {
-		fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
-	}
-}
-
-function findmefollow_del($grpnum) {
-	global $amp_conf;
-	global $astman;
-	global $db;
-
-	$results = sql("DELETE FROM findmefollow WHERE grpnum = '".$db->escapeSimple($grpnum)."'","query");
-
-	if ($astman) {
-		$astman->database_deltree("AMPUSER/".$grpnum."/followme");
-	} else {
-		fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
-	}
-}
-
 function findmefollow_full_list() {
 	$results = sql("SELECT grpnum FROM findmefollow ORDER BY CAST(grpnum as UNSIGNED)","getAll",DB_FETCHMODE_ASSOC);
 	foreach ($results as $result) {
@@ -457,128 +392,6 @@ function findmefollow_allusers() {
 		return $users;
 }
 
-// Only check astdb if check_astdb is not 0. For some reason, this fails if the asterisk manager code
-// is included (executed) by all calls to this function. This results in silently not generating the
-// extensions_additional.conf file. page.findmefollow.php does set it to 1 which means that when running
-// the GUI, any changes not reflected in SQL will be detected and written back to SQL so that they are
-// in sync. Ideally, anything that changes the astdb should change SQL. (in some ways, these should both
-// not be here but ...
-//
-// Need to go back and confirm at some point that the $check_astdb error is still there and deal with it.
-// as variables like $ddial get introduced to only be in astdb, the result array will not include them
-// if not able to get to astdb. (I suspect in 2.2 and beyond this may all be fixed).
-//
-function findmefollow_get($grpnum, $check_astdb=0) {
-	global $amp_conf;
-	global $astman;
-	global $db;
-
-	$results = sql("SELECT grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, voicemail, rvolume FROM findmefollow INNER JOIN `users` ON `extension` = `grpnum` WHERE grpnum = '".$db->escapeSimple($grpnum)."'","getRow",DB_FETCHMODE_ASSOC);
-	if (\DB::IsError($results) || empty($results)) {
-		return array();
-	}
-
-	if (!isset($results['voicemail'])) {
-		$results['voicemail'] = sql("SELECT `voicemail` FROM `users` WHERE `extension` = '".$db->escapeSimple($grpnum)."'","getOne");
-	}
-	if (!isset($results['strategy'])) {
-		$results['strategy'] = $amp_conf['FOLLOWME_RG_STRATEGY'];
-	}
-
-	if ($check_astdb) {
-		if ($astman) {
-			$astdb_prering = $astman->database_get("AMPUSER",$grpnum."/followme/prering");
-			$astdb_grptime = $astman->database_get("AMPUSER",$grpnum."/followme/grptime");
-			$astdb_grplist = $astman->database_get("AMPUSER",$grpnum."/followme/grplist");
-			$astdb_grpconf = $astman->database_get("AMPUSER",$grpnum."/followme/grpconf");
-
-			$astdb_changecid = strtolower($astman->database_get("AMPUSER",$grpnum."/followme/changecid"));
-			switch($astdb_changecid) {
-				case 'default':
-				case 'did':
-				case 'forcedid':
-				case 'fixed':
-				case 'extern':
-					break;
-				default:
-					$astdb_changecid = 'default';
-			}
-			$results['changecid'] = $astdb_changecid;
-			$fixedcid = $astman->database_get("AMPUSER",$grpnum."/followme/fixedcid");
-			$results['fixedcid'] = preg_replace("/[^0-9\+]/" ,"", trim($fixedcid));
-		} else {
-			fatal("Cannot connect to Asterisk Manager with ".$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"]);
-		}
-		$astdb_ddial   = $astman->database_get("AMPUSER",$grpnum."/followme/ddial");
-		// If the values are different then use what is in astdb as it may have been changed.
-		// If sql returned no results for pre_ring/grptime then it's not configued so we reset
-		// the astdb defaults as well
-		//
-		$changed=0;
-		if (!isset($results['pre_ring'])) {
-			$results['pre_ring'] = $astdb_prering = $amp_conf['FOLLOWME_PRERING'];
-		}
-		if (!isset($results['grptime'])) {
-			$results['grptime'] = $astdb_grptime = $amp_conf['FOLLOWME_TIME'];
-		}
-		if (!isset($results['grplist'])) {
-			$results['grplist'] = '';
-		}
-		if (!isset($results['needsconf'])) {
-			$results['needsconf'] = '';
-		}
-		if (!isset($results['rvolume'])) {
-			$results['rvolume'] = '';
-		}
-		if (($astdb_prering != $results['pre_ring']) && ($astdb_prering >= 0)) {
-			$results['pre_ring'] = $astdb_prering;
-			$changed=1;
-		}
-		if (($astdb_grptime != $results['grptime']) && ($astdb_grptime > 0)) {
-			$results['grptime'] = $astdb_grptime;
-			$changed=1;
-		}
-		if ((trim($astdb_grplist) != trim($results['grplist'])) && (trim($astdb_grplist) != '')) {
-			$results['grplist'] = $astdb_grplist;
-			$changed=1;
-		}
-
-		if (trim($astdb_grpconf) == 'ENABLED') {
-			$confvalue = 'CHECKED';
-		} elseif (trim($astdb_grpconf) == 'DISABLED') {
-			$confvalue = '';
-		} else {
-			//Bogus value, should not get here but treat as disabled
-			$confvalue = '';
-		}
-		if ($confvalue != trim($results['needsconf'])) {
-			$results['needsconf'] = $confvalue;
-			$changed=1;
-		}
-
-		// Not in sql so no sanity check needed
-		//
-		if (trim($astdb_ddial) == 'EXTENSION') {
-			$ddial = 'CHECKED';
-		} elseif (trim($astdb_ddial) == 'DIRECT') {
-			$ddial = '';
-		} else {
-			// If here then followme must not be set so use default
-			$ddial = $amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '';
-		}
-		$results['ddial'] = $ddial;
-
-		if ($changed) {
-			$sql = "UPDATE findmefollow SET grptime = '".$results['grptime']."', grplist = '".
-				$db->escapeSimple(trim($results['grplist']))."', pre_ring = '".$results['pre_ring'].
-				"', needsconf = '".$results['needsconf']."' WHERE grpnum = '".$db->escapeSimple($grpnum)."' LIMIT 1";
-			$sql_results = sql($sql);
-		}
-	} // if check_astdb
-
-	return $results;
-}
-
 function findmefollow_users_configpageinit($pagename) {
 	global $currentcomponent;
 
@@ -616,7 +429,7 @@ function findmefollow_users_configpageload($pagename) {
 	$extdisplay		= isset($_REQUEST['extdisplay'])	? $_REQUEST['extdisplay']		: null;
 	$extension		= isset($_REQUEST['extension'])		? $_REQUEST['extension']		: null;
 	$tech_hardware	= isset($_REQUEST['tech_hardware'])	? $_REQUEST['tech_hardware']	: null;
-	$fmfm = (isset($extdisplay) && trim($extdisplay) != '') ? findmefollow_get($extdisplay, 1) : array();
+	$fmfm = (isset($extdisplay) && trim($extdisplay) != '') ? FreePBX::Findmefollow()->get($extdisplay, 1) : array();
 
 	if(empty($fmfm) && (!isset($extdisplay) || trim($extdisplay) == '')) {
 		$fmfm = array(
@@ -636,7 +449,10 @@ function findmefollow_users_configpageload($pagename) {
 		);
 	}
 
-	$moh = music_list();
+	$moh = array();
+	if (function_exists('music_list')) {
+		$moh = music_list();
+	}
 	$recordings = recordings_list();
 	$recordingslist = array();
 	$recordingslist[] = array(
@@ -732,6 +548,123 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 		"pairedvalues" => false
 	);
 	$currentcomponent->addguielem($section, new gui_radio(array_merge($guidefaults,$el)), $category);
+
+	if(FreePBX::Modules()->checkStatus('calendar')) {
+		$el = array(
+			"elemname" => "fmfm_calendar_enable",
+			"prompttext" => _('Enable Calendar Matching'),
+			"helptext" => _('Link this Follow Me to a Calendar or Calendar group to automatically Enable/Disable based on a schedule'),
+			"currentvalue" => $fmfm['calendar_enable'],
+			"valarray" => array(
+				array(
+					"value" => "1",
+					"text" => _("Yes")
+				),
+				array(
+					"value" => "0",
+					"text" => _("No")
+				)
+			),
+			"jsonclick" => "frm_${display}_fmfmCalChange(this)",
+			"class" => "",
+			"disable" => "",
+			"pairedvalues" => false
+		);
+		$currentcomponent->addguielem($section, new gui_radio(array_merge($guidefaults,$el)), $category);
+
+		$calendars = FreePBX::Calendar()->listCalendars();
+		$selects = array(
+			array(
+				"text" => _("--Not Calendar Controlled--"),
+				"value" => ""
+			)
+		);
+		foreach($calendars as $id => $cal) {
+			$selects[] = array(
+				"text" => $cal['name'],
+				"value" => $id
+			);
+		}
+		$el = array(
+			"elemname" => "fmfm_calendar_id",
+			"prompttext" => _('Calendar'),
+			"helptext" => _("If set the followme will only be active when the calendar has an event."),
+			"currentvalue" => $fmfm['calendar_id'],
+			"valarray" => $selects,
+			"class" => "calendar-element",
+			"canbeempty" => false,
+			"jsvalidation" => "",
+			"disable" => !$fmfm['calendar_enable'],
+			"onchange" => "frm_${display}_fmfmCalSelect(this)"
+		);
+		$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)), $category);
+
+		$groups = FreePBX::Calendar()->listGroups();
+		$selects = array(
+			array(
+				"text" => _("--Not Calendar Group Controlled--"),
+				"value" => ""
+			)
+		);
+		foreach($groups as $id => $gr) {
+			$selects[] = array(
+				"text" => $gr['name'],
+				"value" => $id
+			);
+		}
+		$el = array(
+			"elemname" => "fmfm_calendar_group_id",
+			"prompttext" => _('Calendar Group'),
+			"helptext" => _("If set the followme will only be active when the calendar group has an event."),
+			"currentvalue" => $fmfm['calendar_group_id'],
+			"valarray" => $selects,
+			"class" => "calendar-element",
+			"canbeempty" => false,
+			"jsvalidation" => "",
+			"disable" => !$fmfm['calendar_enable'],
+			"onchange" => "frm_${display}_fmfmCalSelect(this)"
+		);
+		$currentcomponent->addguielem($section, new gui_selectbox(array_merge($guidefaults,$el)), $category);
+
+		$el = array(
+			"elemname" => "fmfm_calendar_match",
+			"prompttext" => _('Calendar Match Inverse'),
+			"helptext" => _('When set to yes follow me will match (be enabled) whenever there is an event. When set to no followme will match (be enabled) whenever no event is present'),
+			"currentvalue" => $fmfm['calendar_match'],
+			"valarray" => array(
+				array(
+					"value" => "yes",
+					"text" => _("Yes")
+				),
+				array(
+					"value" => "no",
+					"text" => _("No")
+				)
+			),
+			"jsonclick" => "",
+			"class" => "calendar-element",
+			"disable" => !$fmfm['calendar_enable'],
+			"pairedvalues" => false
+		);
+		$currentcomponent->addguielem($section, new gui_radio(array_merge($guidefaults,$el)), $category);
+
+		$js = "
+			if($('#fmfm_calendar_id').val() !== '' && $('#fmfm_calendar_group_id').val() !== '') {
+				$(self).val('');
+				warnInvalid($(self),'"._("You can not set both a group and a calendar")."');
+			}
+		";
+		$currentcomponent->addjsfunc('fmfmCalSelect(self)', $js);
+
+		$js = "
+			if($(self).val() == '1') {
+				$('.calendar-element').prop('disabled',false);
+			} else {
+				$('.calendar-element').prop('disabled',true);
+			}
+		";
+		$currentcomponent->addjsfunc('fmfmCalChange(self)', $js);
+	}
 
 	$sixtey = array();
 	for ($i=0; $i <= 60; $i++) {
@@ -1167,14 +1100,10 @@ function findmefollow_users_configprocess() {
 					//dont let group list be empty. ever.
 					$settings['grplist'] = empty($settings['grplist']) ? $extdisplay : $settings['grplist'];
 					$settings['grplist'] = explode("\n",$settings['grplist']);
-					findmefollow_add($extdisplay, $settings['strategy'], $settings['grptime'],
-					$settings['grplist'], $settings['postdest'], $settings['grppre'], $settings['annmsg_id'], $settings['dring'],
-					$settings['needsconf'], $settings['remotealert_id'], $settings['toolate_id'], $settings['ringing'], $settings['pre_ring'],
-					$settings['ddial'], $settings['changecid'], $settings['fixedcid'], $settings['rvolume']);
+
+					FreePBX::Findmefollow()->add($extdisplay,$settings);
 				} elseif($amp_conf['FOLLOWME_AUTO_CREATE']) {
-					$ddial = $amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '';
-					findmefollow_add($extdisplay, $amp_conf['FOLLOWME_RG_STRATEGY'], $amp_conf['FOLLOWME_TIME'],
-					$extdisplay, 'ext-local,'.$extdisplay.',dest', "", "", "", "", "", "","", $amp_conf['FOLLOWME_PRERING'], $ddial,'default','','');
+					FreePBX::Findmefollow()->add($extdisplay);
 				}
 			}
 		break;
@@ -1183,25 +1112,10 @@ function findmefollow_users_configprocess() {
 				//Dont let group list be empty. Ever
 				$settings['grplist'] = empty($settings['grplist']) ? $extdisplay : $settings['grplist'];
 				$settings['grplist'] = explode("\n",$settings['grplist']);
-				findmefollow_update($extdisplay,$settings);
+				FreePBX::Findmefollow()->update($extdisplay,$settings);
 			}
 		break;
-		case "del":
-			//Note: dont need to run this as it's run through a process hook now
-			//findmefollow_del($extdisplay);
-		break;
 	}
-}
-
-function findmefollow_update($grpnum,$settings) {
-	$old = findmefollow_get($grpnum);
-	if(!empty($old)) {
-		findmefollow_del($grpnum);
-		$old['grplist'] = explode("-",$old['grplist']);
-		$settings = array_merge($old,$settings);
-	}
-	extract($settings);
-	findmefollow_add($grpnum,$strategy,$grptime,$grplist,$postdest,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid,$rvolume);
 }
 
 function findmefollow_configpageinit($dispnum) {
@@ -1228,7 +1142,7 @@ function findmefollow_getdestinfo($dest) {
 	if (substr(trim($dest),0,17) == 'ext-findmefollow,' || substr(trim($dest),0,10) == 'ext-local,' && substr(trim($dest),-4) == 'dest') {
 		$grp = explode(',',$dest);
 		$grp = ltrim($grp[1],'FM');
-		$thisgrp = findmefollow_get($grp);
+		$thisgrp = FreePBX::Findmefollow()->get($grp);
 		if (empty($thisgrp)) {
 			return array();
 		} else {

@@ -5,101 +5,34 @@ if (false) {
 _("Findme Follow Toggle");
 }
 
-$table = \FreePBX::Database()->migrate("findmefollow");
-$cols = array (
-  'grpnum' =>
-  array (
-    'type' => 'string',
-    'length' => '20',
-    'primaryKey' => true,
-  ),
-  'strategy' =>
-  array (
-    'type' => 'string',
-    'length' => '50',
-  ),
-  'grptime' =>
-  array (
-    'type' => 'smallint',
-  ),
-  'grppre' =>
-  array (
-    'type' => 'string',
-    'length' => '100',
-    'notnull' => false,
-  ),
-  'grplist' =>
-  array (
-    'type' => 'string',
-    'length' => '255',
-  ),
-  'annmsg_id' =>
-  array (
-    'type' => 'integer',
-    'notnull' => false,
-  ),
-  'postdest' =>
-  array (
-    'type' => 'string',
-    'length' => '255',
-    'notnull' => false,
-  ),
-  'dring' =>
-  array (
-    'type' => 'string',
-    'length' => '255',
-    'notnull' => false,
-  ),
-	'rvolume' =>
-	array (
-		'type' => 'string',
-		'length' => '2',
-		'notnull' => true,
-		'default' => ''
-	),
-  'remotealert_id' =>
-  array (
-    'type' => 'integer',
-    'notnull' => false,
-  ),
-  'needsconf' =>
-  array (
-    'type' => 'string',
-    'length' => '10',
-    'notnull' => false,
-  ),
-  'toolate_id' =>
-  array (
-    'type' => 'integer',
-    'notnull' => false,
-  ),
-  'pre_ring' =>
-  array (
-    'type' => 'smallint',
-    'default' => '0',
-  ),
-  'ringing' =>
-  array (
-    'type' => 'string',
-    'length' => '80',
-    'notnull' => false,
-  ),
-);
-
-
-$indexes = array (
-);
-$table->modify($cols, $indexes);
-unset($table);
-
-//TODO: Also need to create all the states if enabled
-
 $fcc = new featurecode('findmefollow', 'fmf_toggle');
 $fcc->setDescription('Findme Follow Toggle');
 $fcc->setDefault('*21');
 $fcc->update();
 unset($fcc);
 
+
+$sql = "SELECT * FROM findmefollow";
+$stmt = FreePBX::Database()->prepare($sql);
+$stmt->execute();
+$userresults = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+global $astman;
+//add details to astdb
+if ($astman) {
+	foreach($userresults as $usr) {
+		extract($usr);
+		$astman->database_put("AMPUSER",$grpnum."/followme/prering",isset($pre_ring)?$pre_ring:'');
+		$astman->database_put("AMPUSER",$grpnum."/followme/grptime",isset($grptime)?$grptime:'');
+		$astman->database_put("AMPUSER",$grpnum."/followme/grplist",isset($grplist)?$grplist:'');
+		$confvalue = ($needsconf == 'CHECKED')?'ENABLED':'DISABLED';
+		$astman->database_put("AMPUSER",$grpnum."/followme/grpconf",isset($needsconf)?$confvalue:'');
+		$ddial = $astman->database_get("AMPUSER",$grpnum."/followme/ddial");
+		$ddial = ($ddial == 'EXTENSION' || $ddial == 'DIRECT')?$ddial:'DIRECT';
+		$astman->database_put("AMPUSER",$grpnum."/followme/ddial",$ddial);
+	}
+} else {
+	echo _("Cannot connect to Asterisk Manager with ").$amp_conf["AMPMGRUSER"]."/".$amp_conf["AMPMGRPASS"];
+}
 
 $freepbx_conf =& freepbx_conf::create();
 

@@ -2,69 +2,38 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>13.0.38.11</version>
+	<version>14.0.1.20</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
-		*13.0.38.11* FREEPBX-15429 
-		*13.0.38.9* FREEPBX-14721 Enabling FMFM to external DIDs can add Alert-Info header(s) that interfere with SIP provider
-		*13.0.38.8* Make importing work using BulkHandler CSV
-		*13.0.38.7* FREEPBX-14200 Setting Ring Volume Override setting for Follow Me is ignored
-		*13.0.38.6* FREEPBX-13242 Fix bulkhandler export where enabled was inverted
-		*13.0.38.5* FREEPBX-12748 inserting '' instead of 0 or NULL
-		*13.0.38.3* Forum reported issue with get method and invalid data
-		*13.0.38.2* FREEPBX-13399 Missing sanity check for FindmeFollowme on UCP
-		*13.0.38.1* FREEPBX-13387 ring volume override feature breaks extension submission
-		*13.0.38* FREEPBX-13364 Ability to set ringer volumes
-		*13.0.37.2* FREEPBX-12255 Follow Me page no longer displays all extensions
-		*13.0.37.1* FREEPBX-12688 Bulkhandler does not export / import fields correctly
-		*13.0.37* FREEPBX-12935 dont loop twice in ringallv1
-		*13.0.36* FREEPBX-12828 Never accepts confirmation
-		*13.0.35* Add sound languages: it,fr,en_GB
-		*13.0.34* Quicken reload time. This signifcantly changes findme/followme, please check your systems!!
-		*13.0.33* FREEPBX-12493 Fix link to be relative
-		*13.0.32* FREEPBX-8768 add new component to allow quick picks
-		*13.0.31* Fix bug when saving
-		*13.0.30* FREEPBX-10685 Follow me list in UCP does not display # suffix when entered
-		*13.0.29* FREEPBX-11995 Make enabled button act in accordance with the labeling
-		*13.0.28* FREEPBX-11743 fix followmeform enable toggle
-		*13.0.27* FREEPBX-11215 Fix dynamic element binding
-		*13.0.26* FREEPBX-10961
-		*13.0.25* Support Alert Info in Extensions
-		*13.0.24* Support Alert Info Drop down
-		*13.0.23* FREEPBX-11167
-		*13.0.22* FREEPBX-9951 Japanese language prompts
-		*13.0.21* FREEPBX-10897
-		*13.0.20* Add slideout menu
-		*13.0.19* FREEPBX-10562 Poorly written hooks
-		*13.0.18* FREEPBX-10541 Fix variable, validate return from git to display smarter toast
-		*13.0.17* Numerous bad sql lookups
-		*13.0.16* FREEPBX-10464 move toggles to BMO AJAX internals
-		*13.0.15* FREEPBX-9372 Remove recording settings from UCP as they require a reload
-		*13.0.14* Add regardless
-		*13.0.13* FREEPBX-10314, FREEPBX-10315, FREEPBX-10316
-		*13.0.12* FREEPBX-10156 Update wording in extensions/devices
-		*13.0.11* Error on bulk handler import
-		*13.0.10.1* Minor layout changes
-		*13.0.10* FREEPBX-9867 set the extension destination correctly
-		*13.0.9* FREEPBX-9420 variable regression
-		*13.0.8* FREEPBX-9804 accept mixed arguments
-		*13.0.7* FREEPBX-9804 Multiple errors addressed
-		*13.0.6* FREEPBX-9622 Database duplicate key entry error after recreating a deleted extension
-		*13.0.5* FREEPBX-9586 fix functionality in extensions and quick create
-		*13.0.4* FREEPBX-9564 UCP goes offline after changing settings
-		*13.0.3* FREEPBX-9506 Minor display issue with Follow Me when no extensions entered
-		*13.0.2* Version bump Beta
-		*13.0.1alpha4* Add Spanish prompts
-		*13.0.1alpha3* Fixes to looping
-		*13.0.1alpha2* Support bulk handler
-		*13.0.1alpha1* Visual Changes
+		*14.0.1.20* FREEPBX-17089 Follow Me with callconfirm doesn't work with external numbers 
+		*14.0.1.19* FREEPBX-17789 call confirmation message delivered twice 
+		*14.0.1.18* fixing bugfix/FREEPBX-17041 calling music_list api only if its available 
+		*14.0.1.17* FREEPBX-16838 FreePBX 14.0.1.36 d'nt work button "save" 
+		*14.0.1.16* FREEPBX-16513 Calendar Group under follow me broken 
+		*14.0.1.15* FREEPBX-15741 FREEPBX-15335 Ring strategy available in UCP
+		*14.0.1.14* FREEPBX-15429
+		*14.0.1.13* FREEPBX-15254 extension quick create - whoops when selecting Yes to enable follow-me
+		*14.0.1.12* FREEPBX-14945 Call Confirm Announcement under Virtual Queue module is broken
+		*14.0.1.11* FREEPBX-15173 Catch Exceptions on reload
+		*14.0.1.10* FREEPBX-15166 Require User Manager
+		*14.0.1.9* FREEPBX-14788 :Issue in Find Me follow me list under Extensions
+		*14.0.1.8* Merge 13 changes
+		*14.0.1.7* Findmefollow.class.php: Fix processQuickCreate
+		*14.0.1.6* UCP fixes and updates
+		*14.0.1.5* Remove reference to fmfm_del from class function
+		*14.0.1.4* Calendar fixes
+		*14.0.1.3* Astman during install
+		*14.0.1.2* Update installer for new database definitions
+		*14.0.1* Merge from 13
+		*14.0.1alpha1* Inital Changes
 	</changelog>
 	<depends>
-		<module>core ge 13.0.114</module>
-		<module>framework ge 13.0.121</module>
+		<module>core ge 13.0.113.3</module>
+		<module>framework ge 13.0.117</module>
 		<module>recordings ge 3.3.8</module>
+		<module>userman ge 14.0.3.16</module>
 	</depends>
 	<category>Applications</category>
 	<description>
@@ -74,7 +43,7 @@
 		<findmefollow needsenginedb="yes">Follow Me</findmefollow>
 	</menuitems>
 	<supported>
-		<version>13.0</version>
+		<version>14.0</version>
 	</supported>
 	<hooks>
 		<bulkhandler class="Bulkhandler" namespace="FreePBX\modules">
@@ -87,7 +56,38 @@
 			<method callingMethod="processQuickCreate" class="Findmefollow" namespace="FreePBX\modules">processQuickCreate</method>
 			<method callingMethod="delUser" class="Findmefollow" namespace="FreePBX\modules">delUser</method>
 		</core>
+                <ucp class="Ucp">
+			<method namespace="FreePBX\modules" callingMethod="constructModuleConfigPages" class="Findmefollow">ucpConfigPage</method>
+			<method namespace="FreePBX\modules" callingMethod="addUser" class="Findmefollow">ucpAddUser</method>
+			<method namespace="FreePBX\modules" callingMethod="updateUser" class="Findmefollow">ucpUpdateUser</method>
+			<method namespace="FreePBX\modules" callingMethod="delUser" class="Findmefollow">ucpDelUser</method>
+			<method namespace="FreePBX\modules" callingMethod="addGroup" class="Findmefollow">ucpAddGroup</method>
+			<method namespace="FreePBX\modules" callingMethod="updateGroup" class="Findmefollow">ucpUpdateGroup</method>
+			<method namespace="FreePBX\modules" callingMethod="delGroup" class="Findmefollow">ucpDelGroup</method>
+		</ucp>
 	</hooks>
+	<database>
+	  <table name="findmefollow">
+	    <field name="grpnum" type="string" length="20" primaryKey="true"/>
+	    <field name="strategy" type="string" length="50"/>
+	    <field name="grptime" type="smallint"/>
+	    <field name="grppre" type="string" length="100" notnull="false"/>
+	    <field name="grplist" type="string" length="255"/>
+	    <field name="annmsg_id" type="integer" notnull="false"/>
+	    <field name="postdest" type="string" length="255" notnull="false"/>
+	    <field name="dring" type="string" length="255" notnull="false"/>
+	    <field name="rvolume" type="string" length="2" notnull="false"/>
+	    <field name="remotealert_id" type="integer" notnull="false"/>
+	    <field name="needsconf" type="string" length="10" notnull="false"/>
+	    <field name="toolate_id" type="integer" notnull="false"/>
+	    <field name="pre_ring" type="smallint" default="0"/>
+	    <field name="ringing" type="string" length="80" notnull="false"/>
+			<field name="calendar_enable" type="boolean" default="0" notnull="false"/>
+	    <field name="calendar_id" type="string" length="80" default="" notnull="false"/>
+			<field name="calendar_group_id" type="string" length="80" default="" notnull="false"/>
+	    <field name="calendar_match" type="string" length="4" default="yes" notnull="false"/>
+	  </table>
+	</database>
 	<location>release/2.11/findmefollow-2.11.0.3.tgz</location>
 	<md5sum>eb10d338f7206c288e52b240ccf4b850</md5sum>
 </module>

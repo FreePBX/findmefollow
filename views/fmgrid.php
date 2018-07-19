@@ -7,7 +7,7 @@ $fmlist = findmefollow_list();
 $fmlist = is_array($fmlist)?$fmlist:array();
 $fmrows = '';
 foreach($fmlist as $fm){
-	$thisg = findmefollow_get($fm,1);
+	$thisg = FreePBX::Findmefollow()->get($fm,1);
 	$fmrows .= '<tr>';
 	$fmrows .= '<td><a href="?display=findmefollow&view=form&extdisplay=GRP-'.urlencode($fm).'"><i class="fa fa-edit"></i>&nbsp;'.$fm.'</a></td>';
 	$fmrows .= '<td>';
