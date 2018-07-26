@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-19 18:07-0400\n"
-"PO-Revision-Date: 2018-07-18 19:13+0000\n"
+"PO-Revision-Date: 2018-07-27 15:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/findmefollow/de/>\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.19.1\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: functions.inc.php:692 ucp/views/settings.php:10 views/form.php:48
 msgid "*-prim"
@@ -35,7 +35,7 @@ msgstr ""
 #: views/form.php:548
 msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
 msgstr ""
-"ALARM_INFO kann für einen charakteristischen Klingelton auf SIP-Geräten "
+"ALERT_INFO kann für einen charakteristischen Klingelton auf SIP-Geräten "
 "genutzt werden."
 
 #: functions.inc.php:790 views/form.php:536
@@ -560,17 +560,19 @@ msgid ""
 "Override the ringer volume. Note: This is only valid for %s phones at this "
 "time"
 msgstr ""
+"Ruftonlautstärke übersteuern. Hinweis: Dies gilt zur Zeit nur für Telefone "
+"von %s"
 
 #: functions.inc.php:815
 msgid ""
 "Override the ringer volume. Note: This is only valid for Sangoma phones at "
 "this time"
 msgstr ""
-"Ruftonlautstärke überschreiben. Dies gilt zur Zeit nur für Sangoma-Telefone"
+"Ruftonlautstärke übersteuern. Dies gilt zur Zeit nur für Sangoma-Telefone"
 
 #: functions.inc.php:769 views/form.php:188
 msgid "Play Music On Hold"
-msgstr "Musik bei Halten"
+msgstr "Warteschleifenmusik abspielen"
 
 #: functions.inc.php:486
 #, php-format
@@ -881,8 +883,8 @@ msgstr "Es Klingelt nur der erste verfügbare Kanal."
 #: functions.inc.php:694 ucp/views/settings.php:14 views/form.php:52
 msgid "ring only the first channel which is not off hook - ignore CW"
 msgstr ""
-"Es Klingelt nur der erste verfügbare Kanal der nicht abgehoben ist - "
-"ignoriert Anklopfen."
+"nur den ersten verfügbaren Kanal, der nicht abgehoben ist, anklingeln - "
+"Anklopfen ignorieren"
 
 #: functions.inc.php:689 ucp/views/settings.php:4 views/form.php:42
 msgid "ringall"
