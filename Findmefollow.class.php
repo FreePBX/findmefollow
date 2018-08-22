@@ -1076,7 +1076,7 @@ class Findmefollow implements \BMO {
 	}
 
 	public function bulkhandlerExport($type, $astdb = true) {
-		$data = NULL;
+		$data = array();
 
 		switch ($type) {
 		case 'extensions':
