@@ -121,12 +121,7 @@ class Findmefollow implements \BMO {
 	public function uninstall() {
 
 	}
-	public function backup(){
 
-	}
-	public function restore($backup){
-
-	}
 	public function genConfig() {
 
 	}
@@ -1080,7 +1075,7 @@ class Findmefollow implements \BMO {
 		return $ret;
 	}
 
-	public function bulkhandlerExport($type) {
+	public function bulkhandlerExport($type, $astdb = true) {
 		$data = NULL;
 
 		switch ($type) {
@@ -1088,7 +1083,7 @@ class Findmefollow implements \BMO {
 			$extensions = $this->listAll();
 
 			foreach ($extensions as $extension) {
-				$settings = $this->getSettingsById($extension, true);
+				$settings = $this->getSettingsById($extension, $astdb);
 				$psettings = array();
 				foreach ($settings as $key => $value) {
 					switch ($key) {
@@ -1366,5 +1361,13 @@ class Findmefollow implements \BMO {
                $this->FreePBX->Ucp->setSettingByID($id,'Findmefollow','assigned',null);
         }
 	}
-
+	public function setDatabase($pdo){
+	$this->db = $pdo;
+	return $this;
+	}
+	
+	public function resetDatabase(){
+	$this->db = $this->FreePBX->Database;
+	return $this;
+	}
 }
