@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-19 18:07-0400\n"
-"PO-Revision-Date: 2018-07-27 15:00+0000\n"
+"PO-Revision-Date: 2018-08-25 15:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/findmefollow/de/>\n"
 "Language: de_DE\n"
@@ -146,7 +146,7 @@ msgstr "Ziele"
 
 #: views/ucp_config.php:74
 msgid "Disable"
-msgstr ""
+msgstr "Deaktivieren"
 
 #: findmefollow.i18n.php:18
 msgid "Disable Follow Me Upon Creation"
@@ -154,7 +154,7 @@ msgstr "Das Erzeugen von „Folge mir“ deaktivieren"
 
 #: ucp/views/widget.php:2
 msgid "Disabled"
-msgstr ""
+msgstr "Deaktiviert"
 
 #: views/ucp_config.php:72
 msgid "Enable"
@@ -630,7 +630,7 @@ msgstr "Sekunden"
 
 #: Findmefollow.class.php:598
 msgid "Submit"
-msgstr "Bestätigen"
+msgstr "Absenden"
 
 #: findmefollow.i18n.php:28
 msgid ""
