@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-19 18:07-0400\n"
+"POT-Creation-Date: 2018-09-05 22:45-0400\n"
 "PO-Revision-Date: 2015-05-01 13:02+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -250,7 +250,7 @@ msgstr ""
 msgid "Findme Follow Toggle"
 msgstr "Переключение Найти меня тут"
 
-#: Findmefollow.class.php:1303
+#: Findmefollow.class.php:1298
 msgid "FindmeFollow"
 msgstr ""
 
@@ -293,11 +293,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "Следуйте сюда"
 
-#: Findmefollow.class.php:885
+#: Findmefollow.class.php:880
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr ""
 
-#: Findmefollow.class.php:888 ucp/views/settings.php:27
+#: Findmefollow.class.php:883 ucp/views/settings.php:27
 msgid "Follow Me List"
 msgstr "Список Следуйте сюда"
 
@@ -305,7 +305,7 @@ msgstr "Список Следуйте сюда"
 msgid "Follow Me Module"
 msgstr "Модуль Следуйте сюда"
 
-#: Findmefollow.class.php:891
+#: Findmefollow.class.php:886
 msgid "Follow Me No Answer Destination"
 msgstr ""
 
@@ -600,7 +600,7 @@ msgstr "Удаленное приветствие"
 msgid "Request not received"
 msgstr "Запрос не принят"
 
-#: Findmefollow.class.php:603
+#: Findmefollow.class.php:598
 msgid "Reset"
 msgstr "Сброс"
 
@@ -637,7 +637,7 @@ msgstr ""
 msgid "Seconds"
 msgstr "Секунд"
 
-#: Findmefollow.class.php:598
+#: Findmefollow.class.php:593
 msgid "Submit"
 msgstr "Подтвердить"
 
@@ -769,7 +769,7 @@ msgstr "Использовать набранный номер"
 msgid "User"
 msgstr "Пользователь"
 
-#: Findmefollow.class.php:1286
+#: Findmefollow.class.php:1281
 msgid "User Primary Extension"
 msgstr ""
 

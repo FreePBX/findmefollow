@@ -209,7 +209,7 @@ msgstr ""
 msgid "Findme Follow Toggle"
 msgstr ""
 
-#: Findmefollow.class.php:1303
+#: Findmefollow.class.php:1298
 msgid "FindmeFollow"
 msgstr ""
 
@@ -244,11 +244,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr ""
 
-#: Findmefollow.class.php:885
+#: Findmefollow.class.php:880
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr ""
 
-#: Findmefollow.class.php:888 ucp/views/settings.php:27
+#: Findmefollow.class.php:883 ucp/views/settings.php:27
 msgid "Follow Me List"
 msgstr ""
 
@@ -256,7 +256,7 @@ msgstr ""
 msgid "Follow Me Module"
 msgstr ""
 
-#: Findmefollow.class.php:891
+#: Findmefollow.class.php:886
 msgid "Follow Me No Answer Destination"
 msgstr ""
 
@@ -513,7 +513,7 @@ msgstr ""
 msgid "Request not received"
 msgstr ""
 
-#: Findmefollow.class.php:603
+#: Findmefollow.class.php:598
 msgid "Reset"
 msgstr ""
 
@@ -550,7 +550,7 @@ msgstr ""
 msgid "Seconds"
 msgstr ""
 
-#: Findmefollow.class.php:598
+#: Findmefollow.class.php:593
 msgid "Submit"
 msgstr ""
 
@@ -655,7 +655,7 @@ msgstr ""
 msgid "User"
 msgstr ""
 
-#: Findmefollow.class.php:1286
+#: Findmefollow.class.php:1281
 msgid "User Primary Extension"
 msgstr ""
 

@@ -9,30 +9,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-19 18:07-0400\n"
+"POT-Creation-Date: 2018-09-05 22:45-0400\n"
 "PO-Revision-Date: 2018-08-29 13:00+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/findmefollow/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 3.0.1\n"
 
-#: functions.inc.php:692
-#: ucp/views/settings.php:10
-#: views/form.php:48
+#: functions.inc.php:692 ucp/views/settings.php:10 views/form.php:48
 msgid "*-prim"
 msgstr "*-prim"
 
-#: functions.inc.php:578
-#: views/form.php:324
+#: functions.inc.php:578 views/form.php:324
 msgid "--Not Calendar Controlled--"
 msgstr "--Není zkontrolován kalendář--"
 
-#: functions.inc.php:605
-#: views/form.php:353
+#: functions.inc.php:605 views/form.php:353
 msgid "--Not Calendar Group Controlled--"
 msgstr "--Není zkontrolána skupina kalendářů--"
 
@@ -40,8 +36,7 @@ msgstr "--Není zkontrolána skupina kalendářů--"
 msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
 msgstr "ALERT_INFO lze použít pro různé vyzvánění pro SIP zařízení."
 
-#: functions.inc.php:790
-#: views/form.php:536
+#: functions.inc.php:790 views/form.php:536
 msgid "Alert Info"
 msgstr "Alert Info"
 
@@ -49,13 +44,11 @@ msgstr "Alert Info"
 msgid "Allowed Extensions"
 msgstr "Povolené pobočky"
 
-#: functions.inc.php:959
-#: views/form.php:614
+#: functions.inc.php:959 views/form.php:614
 msgid "Always transmit the Fixed CID Value below."
 msgstr "Vždy přenášet hodnotu Fixed CID níže."
 
-#: functions.inc.php:745
-#: views/form.php:78
+#: functions.inc.php:745 views/form.php:78
 msgid "Announcement"
 msgstr "Oznámení"
 
@@ -97,28 +90,23 @@ msgstr ""
 "VmX Locater, kdy chcete zavolat přímo na pobočku, a pouze v případě "
 "nedostupnosti si volající může zvolit jiné číslo."
 
-#: functions.inc.php:780
-#: views/form.php:512
+#: functions.inc.php:780 views/form.php:512
 msgid "CID Name Prefix"
 msgstr "Prefix CID jména"
 
-#: functions.inc.php:590
-#: views/form.php:319
+#: functions.inc.php:590 views/form.php:319
 msgid "Calendar"
 msgstr "Kalendář"
 
-#: functions.inc.php:617
-#: views/form.php:348
+#: functions.inc.php:617 views/form.php:348
 msgid "Calendar Group"
 msgstr "Skupina kalendářů"
 
-#: functions.inc.php:631
-#: views/form.php:377
+#: functions.inc.php:631 views/form.php:377
 msgid "Calendar Match Inverse"
 msgstr "Záměna kalendářů"
 
-#: functions.inc.php:145
-#: functions.inc.php:156
+#: functions.inc.php:145 functions.inc.php:156
 msgid "Calendar Not found"
 msgstr "Kalendář nenalezen"
 
@@ -126,18 +114,15 @@ msgstr "Kalendář nenalezen"
 msgid "Call Confirmation Configuration"
 msgstr "Konfigurace potvrzení volání"
 
-#: install.php:34
-#: uninstall.php:30
+#: install.php:34 uninstall.php:30
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "Nelze se připojit k Asterisk manažeru pomocí "
 
-#: functions.inc.php:936
-#: views/form.php:630
+#: functions.inc.php:936 views/form.php:630
 msgid "Change External CID Configuration"
 msgstr "Změna konfigurace externího CID"
 
-#: functions.inc.php:858
-#: views/form.php:587
+#: functions.inc.php:858 views/form.php:587
 msgid "Confirm Calls"
 msgstr "Potvrdit volání"
 
@@ -145,13 +130,8 @@ msgstr "Potvrdit volání"
 msgid "Create Follow Me at Extension Creation Time"
 msgstr "Vytvořit FollowMe k pobočce (Extension Creation Time)"
 
-#: functions.inc.php:879
-#: functions.inc.php:958
-#: functions.inc.php:971
-#: views/form.php:120
-#: views/form.php:155
-#: views/form.php:220
-#: views/form.php:612
+#: functions.inc.php:879 functions.inc.php:958 functions.inc.php:971
+#: views/form.php:120 views/form.php:155 views/form.php:220 views/form.php:612
 msgid "Default"
 msgstr "Výchozí nastavení"
 
@@ -191,8 +171,7 @@ msgstr "Zakázáno"
 msgid "Enable"
 msgstr "Povolit"
 
-#: functions.inc.php:555
-#: views/form.php:293
+#: functions.inc.php:555 views/form.php:293
 msgid "Enable Calendar Matching"
 msgstr "Povolit kontrolu adresáře"
 
@@ -250,9 +229,7 @@ msgstr ""
 "tlačítko 1 na svém telefonu předtím, než se uskuteční hovor. Tato funkce "
 "funguje pouze při typu vyzvánění ringall/ringall-prim  ring"
 
-#: functions.inc.php:532
-#: ucp/views/widget.php:2
-#: views/fmgrid.php:27
+#: functions.inc.php:532 ucp/views/widget.php:2 views/fmgrid.php:27
 msgid "Enabled"
 msgstr "Povoleno"
 
@@ -260,8 +237,7 @@ msgstr "Povoleno"
 msgid "Error"
 msgstr "Chyba"
 
-#: views/bootnav.php:7
-#: views/bootnav.php:18
+#: views/bootnav.php:7 views/bootnav.php:18
 msgid "Extension"
 msgstr "Pobočka"
 
@@ -278,21 +254,16 @@ msgstr "FindMe/FollowMe byly aktualizovány!"
 msgid "Find Me/Follow Me for %s"
 msgstr "FindMe/FollowMe pro %s"
 
-#: findmefollow.i18n.php:34
-#: install.php:5
+#: findmefollow.i18n.php:34 install.php:5
 msgid "Findme Follow Toggle"
 msgstr "Přepnutí FindMe Follow"
 
-#: Findmefollow.class.php:1303
+#: Findmefollow.class.php:1298
 msgid "FindmeFollow"
 msgstr "FindmeFollow"
 
-#: functions.inc.php:959
-#: functions.inc.php:975
-#: functions.inc.php:998
-#: views/form.php:221
-#: views/form.php:614
-#: views/form.php:656
+#: functions.inc.php:959 functions.inc.php:975 functions.inc.php:998
+#: views/form.php:221 views/form.php:614 views/form.php:656
 msgid "Fixed CID Value"
 msgstr "Pevná hodnota CID"
 
@@ -324,21 +295,17 @@ msgstr ""
 "režimů. Mělo by být ve formátu číslic pouze s volbou formátu E164 "
 "začínajícího '+'."
 
-#: findmefollow.i18n.php:4
-#: findmefollow.i18n.php:10
-#: page.findmefollow.php:11
-#: ucp/Findmefollow.class.php:124
-#: ucp/Findmefollow.class.php:141
+#: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
+#: ucp/Findmefollow.class.php:124 ucp/Findmefollow.class.php:141
 #: ucp/Findmefollow.class.php:179
 msgid "Follow Me"
 msgstr "FollowMe"
 
-#: Findmefollow.class.php:885
+#: Findmefollow.class.php:880
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr "Povoleno FollowMe [Nechte prázdné pro zákaz této funkce]"
 
-#: Findmefollow.class.php:888
-#: ucp/views/settings.php:27
+#: Findmefollow.class.php:883 ucp/views/settings.php:27
 msgid "Follow Me List"
 msgstr "Seznam FollowMe"
 
@@ -346,7 +313,7 @@ msgstr "Seznam FollowMe"
 msgid "Follow Me Module"
 msgstr "Modul FollowMe"
 
-#: Findmefollow.class.php:891
+#: Findmefollow.class.php:886
 msgid "Follow Me No Answer Destination"
 msgstr "Žádná odpověď od volaného pro FollowMe"
 
@@ -360,8 +327,7 @@ msgstr "FollowMe: %s"
 msgid "Follow-Me"
 msgstr "Follow-Me"
 
-#: functions.inc.php:727
-#: views/form.php:478
+#: functions.inc.php:727 views/form.php:478
 msgid "Follow-Me List"
 msgstr "Seznam Follow-Me"
 
@@ -392,9 +358,7 @@ msgstr "Seznam Followme"
 msgid "Followme Ring Strategy Settings"
 msgstr "Nastavení strategie vyzvánění pro Followme"
 
-#: functions.inc.php:962
-#: functions.inc.php:987
-#: views/form.php:224
+#: functions.inc.php:962 functions.inc.php:987 views/form.php:224
 #: views/form.php:620
 msgid "Force Dialed Number"
 msgstr "Vynucené volání čísla"
@@ -411,23 +375,20 @@ msgstr "Obecná nastavení"
 msgid "Group Number"
 msgstr "Číslo skupiny"
 
-#: functions.inc.php:618
-#: views/form.php:365
+#: functions.inc.php:618 views/form.php:365
 msgid ""
 "If set the followme will only be active when the calendar group has an event."
 msgstr ""
 "Pokud je nastaveno, followme bude aktivní pouze pokud je ve skupině "
 "kalendářů nějaká událost."
 
-#: functions.inc.php:591
-#: views/form.php:336
+#: functions.inc.php:591 views/form.php:336
 msgid "If set the followme will only be active when the calendar has an event."
 msgstr ""
 "Pokud je nastaveno, followme bude aktivní pouze pokud je v kalendáři nějaká "
 "událost."
 
-#: functions.inc.php:770
-#: views/form.php:212
+#: functions.inc.php:770 views/form.php:212
 msgid ""
 "If you select a Music on Hold class to play, instead of 'Ring', they will "
 "hear that instead of Ringing while they are waiting for someone to pick up."
@@ -435,13 +396,11 @@ msgstr ""
 "Pokud nastavíte Music on Hold místo 'Vyzvánění', volající uslyší místo "
 "zvonění nastavenou hudbu, dokud někdo hovor nevyzvedne."
 
-#: views/ucp_config.php:18
-#: views/ucp_config.php:77
+#: views/ucp_config.php:18 views/ucp_config.php:77
 msgid "Inherit"
 msgstr "Zdědit"
 
-#: functions.inc.php:678
-#: views/form.php:404
+#: functions.inc.php:678 views/form.php:404
 msgid "Initial Ring Time"
 msgstr "Počáteční čas vyzvánění"
 
@@ -457,8 +416,7 @@ msgstr ""
 msgid "Invalid time specified"
 msgstr "Je zadán neplatný čas"
 
-#: functions.inc.php:556
-#: views/form.php:308
+#: functions.inc.php:556 views/form.php:308
 msgid ""
 "Link this Follow Me to a Calendar or Calendar group to automatically Enable/"
 "Disable based on a schedule"
@@ -470,8 +428,7 @@ msgstr ""
 msgid "List Followme Groups"
 msgstr "Seznam skupin Followme"
 
-#: functions.inc.php:728
-#: views/form.php:498
+#: functions.inc.php:728 views/form.php:498
 msgid ""
 "List extensions to ring, one per line, or use the Extension Quick Pick below."
 "<br><br>You can include an extension on a remote system, or an external "
@@ -484,10 +441,10 @@ msgstr ""
 "Seznam poboček pro vyzvánění, jeden na řádek, nebo použijte volbu rychlého "
 "výběru pobočky níže.<br><br>Můžete přidat pobočku ke vzdálenému systému nebo "
 "externí číslo přidáním křížku (#) jako příponu za číslo. Např. 2448089# "
-"zavolá číslo 2448089. na příslušné lince (viz Odchozí "
-"směrování).<br><br>Poznámka: Jakákoli přidaná místní pobočka přeskočí "
-"lokální FindMe/FollowMe, pokud chcete, aby systém používal jinou příponu "
-"FindMe/FollowMe, přidejte křížek za číslo pobočky, např. 105#"
+"zavolá číslo 2448089. na příslušné lince (viz Odchozí směrování)."
+"<br><br>Poznámka: Jakákoli přidaná místní pobočka přeskočí lokální FindMe/"
+"FollowMe, pokud chcete, aby systém používal jinou příponu FindMe/FollowMe, "
+"přidejte křížek za číslo pobočky, např. 105#"
 
 #: ucp/views/settings.php:29
 msgid ""
@@ -504,17 +461,18 @@ msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
 "additional recordings please use the \"System Recordings\" MENU above"
 msgstr ""
-"Zpráva, kterou chcete volajícímu přehrát, před vytočením této skupiny.<br><br"
-">Chcete-li přidat další nahrávky, použijte menu \"Systémové nahrávky\" výše"
+"Zpráva, kterou chcete volajícímu přehrát, před vytočením této skupiny."
+"<br><br>Chcete-li přidat další nahrávky, použijte menu \"Systémové nahrávky"
+"\" výše"
 
 #: functions.inc.php:746
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
 "additional recordings please use the \"System Recordings\" MENU to the left"
 msgstr ""
-"Zpráva, kterou chcete volajícímu přehrát, než je vytočena tato "
-"skupina.<br><br>Chcete-li přidat další nahrávky, použijte menu \"Systémové "
-"nahrávky\" nalevo"
+"Zpráva, kterou chcete volajícímu přehrát, než je vytočena tato skupina."
+"<br><br>Chcete-li přidat další nahrávky, použijte menu \"Systémové nahrávky"
+"\" nalevo"
 
 #: views/form.php:134
 msgid ""
@@ -522,9 +480,9 @@ msgid ""
 "enabled.<br><br>To add additional recordings use the \"System Recordings\" "
 "MENU above"
 msgstr ""
-"Zpráva přehrávaná příjemci hovoru, pokud je povoleno 'Potvrzení "
-"hovorů'.<br><br>Chcete-li přidat další nahrávky, použijte menu \"Systémové "
-"nahrávky\" výše"
+"Zpráva přehrávaná příjemci hovoru, pokud je povoleno 'Potvrzení hovorů'."
+"<br><br>Chcete-li přidat další nahrávky, použijte menu \"Systémové nahrávky"
+"\" výše"
 
 #: functions.inc.php:884
 msgid ""
@@ -532,9 +490,9 @@ msgid ""
 "enabled.<br><br>To add additional recordings use the \"System Recordings\" "
 "MENU to the left"
 msgstr ""
-"Zpráva přehrávaná příjemci hovoru, pokud je povoleno 'Potvrzení "
-"hovorů'.<br><br>Chcete-li přidat další nahrávky, použijte menu \"Systémové "
-"nahrávky\" nalevo"
+"Zpráva přehrávaná příjemci hovoru, pokud je povoleno 'Potvrzení hovorů'."
+"<br><br>Chcete-li přidat další nahrávky, použijte menu \"Systémové nahrávky"
+"\" nalevo"
 
 #: views/form.php:169
 msgid ""
@@ -542,9 +500,9 @@ msgid ""
 "already been accepted before they push 1.<br><br>To add additional "
 "recordings use the \"System Recordings\" MENU above"
 msgstr ""
-"Zpráva přehrávaná příjemci hovoru, pokud je hovor akceptován stisknutím "
-"1.<br><br>Chcete-li přidat další nahrávky, použijte menu \"Systémové "
-"nahrávky\" výše"
+"Zpráva přehrávaná příjemci hovoru, pokud je hovor akceptován stisknutím 1."
+"<br><br>Chcete-li přidat další nahrávky, použijte menu \"Systémové nahrávky"
+"\" výše"
 
 #: functions.inc.php:896
 msgid ""
@@ -552,16 +510,15 @@ msgid ""
 "already been accepted before they push 1.<br><br>To add additional "
 "recordings use the \"System Recordings\" MENU to the left"
 msgstr ""
-"Zpráva přehrávaná příjemci hovoru, pokud je hovor akceptován stisknutím "
-"1.<br><br>Chcete-li přidat další nahrávky, použijte menu \"Systémové "
-"nahrávky\" nalevo"
+"Zpráva přehrávaná příjemci hovoru, pokud je hovor akceptován stisknutím 1."
+"<br><br>Chcete-li přidat další nahrávky, použijte menu \"Systémové nahrávky"
+"\" nalevo"
 
 #: views/nogo.php:1
 msgid "Method not supported"
 msgstr "Metoda není podporována"
 
-#: functions.inc.php:965
-#: views/form.php:610
+#: functions.inc.php:965 views/form.php:610
 msgid "Mode"
 msgstr "Režim"
 
@@ -578,17 +535,10 @@ msgstr ""
 "přesměrováno na jinou poboočku a/nebo externí číslo. Nejčastěji se používá "
 "volání na mobilní číslo, pokud volaný nezvedá pevnou linku."
 
-#: functions.inc.php:542
-#: functions.inc.php:565
-#: functions.inc.php:641
-#: functions.inc.php:868
-#: views/fmgrid.php:18
-#: views/form.php:274
-#: views/form.php:300
-#: views/form.php:384
-#: views/form.php:594
-#: views/quickCreate.php:12
-#: views/ucp_config.php:15
+#: functions.inc.php:542 functions.inc.php:565 functions.inc.php:641
+#: functions.inc.php:868 views/fmgrid.php:18 views/form.php:274
+#: views/form.php:300 views/form.php:384 views/form.php:594
+#: views/quickCreate.php:12 views/ucp_config.php:15
 msgid "No"
 msgstr "Ne"
 
@@ -596,15 +546,12 @@ msgstr "Ne"
 msgid "No Answer"
 msgstr "Žádná odpověď"
 
-#: functions.inc.php:460
-#: functions.inc.php:800
-#: views/form.php:85
+#: functions.inc.php:460 functions.inc.php:800 views/form.php:85
 #: views/form.php:564
 msgid "None"
 msgstr "Žádný"
 
-#: functions.inc.php:21
-#: functions.inc.php:25
+#: functions.inc.php:21 functions.inc.php:25
 msgid "Normal Extension Behavior"
 msgstr "Normální chování pobočky"
 
@@ -636,9 +583,7 @@ msgstr ""
 "aktivním telefonu. Je-li telefon používán a hovor je ignorován, cíl se "
 "označí jako obsazený."
 
-#: functions.inc.php:960
-#: functions.inc.php:979
-#: views/form.php:222
+#: functions.inc.php:960 functions.inc.php:979 views/form.php:222
 #: views/form.php:616
 msgid "Outside Calls Fixed CID Value"
 msgstr "Externí volání Pevná hodnota CID"
@@ -660,8 +605,7 @@ msgstr ""
 "Potlačit hlasitost vyzvánění. Poznámka: Toto platí momentálně jen pro "
 "Sangoma telefony"
 
-#: functions.inc.php:769
-#: views/form.php:188
+#: functions.inc.php:769 views/form.php:188
 msgid "Play Music On Hold"
 msgstr "Přehrát Music on Hold"
 
@@ -674,8 +618,7 @@ msgstr "Zadejte prosím platné %s číslo"
 msgid "Please enter an extension list."
 msgstr "Zadejte prosím seznam poboček."
 
-#: functions.inc.php:883
-#: views/form.php:113
+#: functions.inc.php:883 views/form.php:113
 msgid "Remote Announce"
 msgstr "Vzdálená oznámení"
 
@@ -683,12 +626,11 @@ msgstr "Vzdálená oznámení"
 msgid "Request not received"
 msgstr "Žádost nebyla přijata"
 
-#: Findmefollow.class.php:603
+#: Findmefollow.class.php:598
 msgid "Reset"
 msgstr "Resetovat"
 
-#: functions.inc.php:757
-#: views/form.php:195
+#: functions.inc.php:757 views/form.php:195
 msgid "Ring"
 msgstr "Vyzvánění"
 
@@ -701,9 +643,7 @@ msgstr "Vyzvánění %s nejprve pro"
 msgid "Ring Followme List For"
 msgstr "Zavolat seznam Followme pro"
 
-#: functions.inc.php:705
-#: ucp/views/settings.php:34
-#: views/form.php:428
+#: functions.inc.php:705 ucp/views/settings.php:34 views/form.php:428
 msgid "Ring Strategy"
 msgstr "Vyzváněcí strategie"
 
@@ -715,17 +655,15 @@ msgstr "Čas vyzvánění"
 msgid "Ring Time (max 60 sec)"
 msgstr "Čas vyzvánění (max 60 sekund)"
 
-#: functions.inc.php:814
-#: views/form.php:559
+#: functions.inc.php:814 views/form.php:559
 msgid "Ringer Volume Override"
 msgstr "Potlačit hlasitosti vyzvánění"
 
-#: ucp/views/settings.php:45
-#: ucp/views/settings.php:54
+#: ucp/views/settings.php:45 ucp/views/settings.php:54
 msgid "Seconds"
 msgstr "Vteřin"
 
-#: Findmefollow.class.php:598
+#: Findmefollow.class.php:593
 msgid "Submit"
 msgstr "Potvrdit"
 
@@ -773,9 +711,7 @@ msgstr "Hodnota navíc k počátečnímu vyzváněcímu času"
 msgid "This is the default value for the Follow Me "
 msgstr "Toto je výhozí hodnota pro FollowMe "
 
-#: functions.inc.php:679
-#: ucp/views/settings.php:48
-#: views/form.php:416
+#: functions.inc.php:679 ucp/views/settings.php:48 views/form.php:416
 msgid ""
 "This is the number of seconds to ring the primary extension prior to "
 "proceeding to the follow-me list. The extension can also be included in the "
@@ -789,8 +725,7 @@ msgstr ""
 msgid "Time in seconds that the phones will ring"
 msgstr "Čas v sekundách, po které budou telefony zvonit"
 
-#: functions.inc.php:717
-#: views/form.php:466
+#: functions.inc.php:717 views/form.php:466
 msgid ""
 "Time in seconds that the phones will ring. For all hunt style ring "
 "strategies, this is the time for each iteration of phone(s) that are rung"
@@ -802,13 +737,11 @@ msgstr ""
 msgid "Time must be between 1 and 60 seconds"
 msgstr "Čas musí být mezi 1 a 60 sekundami"
 
-#: functions.inc.php:895
-#: views/form.php:148
+#: functions.inc.php:895 views/form.php:148
 msgid "Too-Late Announce"
 msgstr "Oznámení \"Příliš pozdě\""
 
-#: functions.inc.php:960
-#: views/form.php:616
+#: functions.inc.php:960 views/form.php:616
 msgid ""
 "Transmit the Fixed CID Value below on calls that come in from outside only. "
 "Internal extension to extension calls will continue to operate in default "
@@ -817,8 +750,7 @@ msgstr ""
 "Odeslat hodnotu Fixed CID níže pro hovory, které přicházejí pouze zvenčí. "
 "Interní hovory mezi pobočkami budou i nadále fungovat ve výchozím režimu."
 
-#: functions.inc.php:962
-#: views/form.php:620
+#: functions.inc.php:962 views/form.php:620
 msgid ""
 "Transmit the number that was dialed as the CID for calls coming from "
 "outside. Internal extension to extension calls will continue to operate in "
@@ -830,8 +762,7 @@ msgstr ""
 "znát DID na příchozích pravidlech. Toto bude přeneseno na linky, které "
 "blokují neznámá čísla."
 
-#: functions.inc.php:961
-#: views/form.php:618
+#: functions.inc.php:961 views/form.php:618
 msgid ""
 "Transmit the number that was dialed as the CID for calls coming from "
 "outside. Internal extension to extension calls will continue to operate in "
@@ -843,8 +774,7 @@ msgstr ""
 "znát DID na příchozích pravidlech. Toto bude blokováno na linkách, které "
 "blokují neznámá čísla."
 
-#: functions.inc.php:958
-#: views/form.php:612
+#: functions.inc.php:958 views/form.php:612
 msgid "Transmits the Callers CID if allowed by the trunk."
 msgstr "Přenáší číslo volajícího, pokud to dovoluje operátor."
 
@@ -852,9 +782,7 @@ msgstr "Přenáší číslo volajícího, pokud to dovoluje operátor."
 msgid "Use Confirmation"
 msgstr "Potvrdit"
 
-#: functions.inc.php:961
-#: functions.inc.php:983
-#: views/form.php:223
+#: functions.inc.php:961 functions.inc.php:983 views/form.php:223
 #: views/form.php:618
 msgid "Use Dialed Number"
 msgstr "Použít volané číslo"
@@ -863,7 +791,7 @@ msgstr "Použít volané číslo"
 msgid "User"
 msgstr "Uživatel"
 
-#: Findmefollow.class.php:1286
+#: Findmefollow.class.php:1281
 msgid "User Primary Extension"
 msgstr "Primární pobočka uživatele"
 
@@ -889,8 +817,7 @@ msgstr ""
 "vytvoří automaticky nové FollowMe pro tohoto uživatele pomocí výchozích "
 "nastavení uvedených níže"
 
-#: functions.inc.php:632
-#: views/form.php:392
+#: functions.inc.php:632 views/form.php:392
 msgid ""
 "When set to yes follow me will match (be enabled) whenever there is an "
 "event. When set to no followme will match (be enabled) whenever no event is "
@@ -904,17 +831,10 @@ msgstr ""
 msgid "Where to send callers if there is no answer."
 msgstr "Kam poslat volajícího, když není žádná odpověď."
 
-#: functions.inc.php:538
-#: functions.inc.php:561
-#: functions.inc.php:637
-#: functions.inc.php:864
-#: views/fmgrid.php:16
-#: views/form.php:272
-#: views/form.php:298
-#: views/form.php:382
-#: views/form.php:592
-#: views/quickCreate.php:10
-#: views/ucp_config.php:13
+#: functions.inc.php:538 functions.inc.php:561 functions.inc.php:637
+#: functions.inc.php:864 views/fmgrid.php:16 views/form.php:272
+#: views/form.php:298 views/form.php:382 views/form.php:592
+#: views/quickCreate.php:10 views/ucp_config.php:13
 msgid "Yes"
 msgstr "Ano"
 
@@ -974,21 +894,15 @@ msgstr "zařízení"
 msgid "extension"
 msgstr "pobočka"
 
-#: functions.inc.php:693
-#: ucp/views/settings.php:12
-#: views/form.php:50
+#: functions.inc.php:693 ucp/views/settings.php:12 views/form.php:50
 msgid "firstavailable"
 msgstr "prvnímožný"
 
-#: functions.inc.php:694
-#: ucp/views/settings.php:14
-#: views/form.php:52
+#: functions.inc.php:694 ucp/views/settings.php:14 views/form.php:52
 msgid "firstnotonphone"
 msgstr "prvnímimotelefon"
 
-#: functions.inc.php:690
-#: ucp/views/settings.php:6
-#: views/form.php:44
+#: functions.inc.php:690 ucp/views/settings.php:6 views/form.php:44
 #, fuzzy
 msgid "hunt"
 msgstr "hunt"
@@ -997,9 +911,7 @@ msgstr "hunt"
 msgid "is not allowed for your account"
 msgstr "není povoleno pro váš účet"
 
-#: functions.inc.php:691
-#: ucp/views/settings.php:8
-#: views/form.php:46
+#: functions.inc.php:691 ucp/views/settings.php:8 views/form.php:46
 #, fuzzy
 msgid "memoryhunt"
 msgstr "memoryhunt"
@@ -1008,9 +920,7 @@ msgstr "memoryhunt"
 msgid "none"
 msgstr "žádný"
 
-#: functions.inc.php:689
-#: ucp/views/settings.php:4
-#: views/form.php:42
+#: functions.inc.php:689 ucp/views/settings.php:4 views/form.php:42
 msgid ""
 "ring Extension for duration set in Initial Ring Time, and then terminate "
 "call to Extension and ring Follow-Me List for duration set in Ring Time."
@@ -1019,8 +929,7 @@ msgstr ""
 "ukončení hovoru na pobočce a vyzvánění na seznamu FollowMe po dobu "
 "nastavenou ve Vyzváněcím čase"
 
-#: ucp/views/settings.php:2
-#: views/form.php:40
+#: ucp/views/settings.php:2 views/form.php:40
 msgid ""
 "ring Extension for duration set in Initial Ring Time, and then, while "
 "continuing call to extension (only if extension is in the Group List), ring "
@@ -1040,9 +949,7 @@ msgstr ""
 "během vyzvánění na pobočce,  vyzvánění na seznamu FollowMe po dobu "
 "nastavenou ve Vyzváněcím čase"
 
-#: functions.inc.php:691
-#: ucp/views/settings.php:8
-#: views/form.php:46
+#: functions.inc.php:691 ucp/views/settings.php:8 views/form.php:46
 msgid ""
 "ring first extension in the list, then ring the 1st and 2nd extension, then "
 "ring 1st 2nd and 3rd extension in the list.... etc."
@@ -1050,41 +957,29 @@ msgstr ""
 "zvoní první pobočka v seznamu, poté zvoní první a druhá pobočka, poté první, "
 "druhá a třetí pobočka atd."
 
-#: functions.inc.php:693
-#: ucp/views/settings.php:12
-#: views/form.php:50
+#: functions.inc.php:693 ucp/views/settings.php:12 views/form.php:50
 msgid "ring only the first available channel"
 msgstr "zavolat pouze první dostupný kanál"
 
-#: functions.inc.php:694
-#: ucp/views/settings.php:14
-#: views/form.php:52
+#: functions.inc.php:694 ucp/views/settings.php:14 views/form.php:52
 msgid "ring only the first channel which is not off hook - ignore CW"
 msgstr "zavolat pouze první kanál, který není odpojen - ignorovat CW"
 
-#: functions.inc.php:689
-#: ucp/views/settings.php:4
-#: views/form.php:42
+#: functions.inc.php:689 ucp/views/settings.php:4 views/form.php:42
 #, fuzzy
 msgid "ringall"
 msgstr "ringall"
 
-#: functions.inc.php:688
-#: ucp/views/settings.php:2
-#: views/form.php:40
+#: functions.inc.php:688 ucp/views/settings.php:2 views/form.php:40
 #, fuzzy
 msgid "ringallv2"
 msgstr "ringallv2"
 
-#: functions.inc.php:690
-#: ucp/views/settings.php:6
-#: views/form.php:44
+#: functions.inc.php:690 ucp/views/settings.php:6 views/form.php:44
 msgid "take turns ringing each available extension"
 msgstr "postupně zvoní každá dostupná pobočka"
 
-#: functions.inc.php:692
-#: ucp/views/settings.php:10
-#: views/form.php:48
+#: functions.inc.php:692 ucp/views/settings.php:10 views/form.php:48
 msgid ""
 "these modes act as described above. However, if the primary extension (first "
 "in list) is occupied, the other extensions will not be rung. If the primary "

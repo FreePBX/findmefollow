@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-19 18:07-0400\n"
+"POT-Creation-Date: 2018-09-05 22:45-0400\n"
 "PO-Revision-Date: 2017-02-09 19:46+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -261,7 +261,7 @@ msgstr ""
 msgid "Findme Follow Toggle"
 msgstr "Alternar Encontre-Me Siga-Me"
 
-#: Findmefollow.class.php:1303
+#: Findmefollow.class.php:1298
 msgid "FindmeFollow"
 msgstr ""
 
@@ -302,11 +302,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "Siga-Me"
 
-#: Findmefollow.class.php:885
+#: Findmefollow.class.php:880
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr "Siga-Me Habilitado [Em branco para desabilitar]"
 
-#: Findmefollow.class.php:888 ucp/views/settings.php:27
+#: Findmefollow.class.php:883 ucp/views/settings.php:27
 msgid "Follow Me List"
 msgstr "Lista Siga-Me"
 
@@ -314,7 +314,7 @@ msgstr "Lista Siga-Me"
 msgid "Follow Me Module"
 msgstr "Módulo Siga-Me"
 
-#: Findmefollow.class.php:891
+#: Findmefollow.class.php:886
 msgid "Follow Me No Answer Destination"
 msgstr "Destino de Siga-me Sem Resposta"
 
@@ -622,7 +622,7 @@ msgstr "Anúncio Remoto"
 msgid "Request not received"
 msgstr "Solicitação não recebida"
 
-#: Findmefollow.class.php:603
+#: Findmefollow.class.php:598
 msgid "Reset"
 msgstr "Reiniciar"
 
@@ -659,7 +659,7 @@ msgstr "Substituição do Volume de Toque"
 msgid "Seconds"
 msgstr "Segundos"
 
-#: Findmefollow.class.php:598
+#: Findmefollow.class.php:593
 msgid "Submit"
 msgstr "Enviar"
 
@@ -786,7 +786,7 @@ msgstr "Usar Número Discado"
 msgid "User"
 msgstr "Usuário"
 
-#: Findmefollow.class.php:1286
+#: Findmefollow.class.php:1281
 msgid "User Primary Extension"
 msgstr ""
 
