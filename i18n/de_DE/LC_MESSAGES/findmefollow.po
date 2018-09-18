@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-19 18:07-0400\n"
-"PO-Revision-Date: 2018-08-25 15:00+0000\n"
+"PO-Revision-Date: 2018-09-18 15:38+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/findmefollow/de/>\n"
 "Language: de_DE\n"
@@ -138,7 +138,7 @@ msgstr "Standard Folge mir Klingeldauer"
 
 #: views/form.php:680
 msgid "Destination if no answer"
-msgstr "Ziel bei keine Antwort"
+msgstr "Ziel, falls der Anruf nicht angenommen wird"
 
 #: functions.inc.php:1015
 msgid "Destinations"
@@ -701,6 +701,9 @@ msgid ""
 "Internal extension to extension calls will continue to operate in default "
 "mode."
 msgstr ""
+"Die unten stehende feste Anruferkennung nur für Anrufe von außerhalb "
+"verwenden. Interne Anrufe von Nebenstelle zu Nebenstelle verwenden weiterhin "
+"den Standardmodus."
 
 #: functions.inc.php:962 views/form.php:620
 msgid ""
@@ -709,6 +712,11 @@ msgid ""
 "default mode. There must be a DID on the inbound route for this. This WILL "
 "be transmitted on trunks that block foreign CallerID"
 msgstr ""
+"Für Anrufe von außerhalb die gewählte Nummer als Anruferkennung übermitteln. "
+"Interne Anrufe von Nebenstelle zu Nebenstelle verwenden weiterhin den "
+"Standardmodus. Hierfür ist eine Durchwahl aus der eingehenden Route "
+"erforderlich. Diese Kennung WIRD auf Hauptleitungen übermittelt, die fremde "
+"Anruferkennungen blockieren."
 
 #: functions.inc.php:961 views/form.php:618
 msgid ""
@@ -717,6 +725,11 @@ msgid ""
 "default mode. There must be a DID on the inbound route for this. This will "
 "be BLOCKED on trunks that block foreign CallerID"
 msgstr ""
+"Für Anrufe von außerhalb die gewählte Nummer als Anruferkennung übermitteln. "
+"Interne Anrufe von Nebenstelle zu Nebenstelle verwenden weiterhin den "
+"Standardmodus. Hierfür ist eine Durchwahl aus der eingehenden Route "
+"erforderlich. Diese Kennung wird auf Hauptleitungen BLOCKIERT, die fremde "
+"Anruferkennungen blockieren."
 
 #: functions.inc.php:958 views/form.php:612
 msgid "Transmits the Callers CID if allowed by the trunk."
@@ -739,19 +752,23 @@ msgstr "Benutzer"
 
 #: Findmefollow.class.php:1286
 msgid "User Primary Extension"
-msgstr ""
+msgstr "Primäre Benutzernebenstelle"
 
 #: views/ucp_config.php:87
 msgid "User will have the Option to select followme ring Strategy in UCP"
 msgstr ""
+"Der Benutzer wird im UCP die Möglichkeit haben, die \"Folge mir\"-"
+"Wählstrategie auszuwählen"
 
 #: Findmefollow.class.php:93
 msgid "Warning! Extension"
-msgstr "Achtung! Nebenstelle"
+msgstr "Warnung! Nebenstelle"
 
 #: assets/js/findmefollow.js:71
 msgid "We received and sent your request but something failed"
 msgstr ""
+"Wir haben Ihre Anfrage erhalten und weitergeleitet, aber es hat etwas nicht "
+"funktioniert"
 
 #: findmefollow.i18n.php:16
 msgid ""
@@ -780,7 +797,7 @@ msgstr "Ja"
 
 #: functions.inc.php:654
 msgid "You can not set both a group and a calendar"
-msgstr ""
+msgstr "Sie können nicht gleichzeitig eine Gruppe und einen Kalender einstellen"
 
 #: functions.inc.php:791
 msgid ""
