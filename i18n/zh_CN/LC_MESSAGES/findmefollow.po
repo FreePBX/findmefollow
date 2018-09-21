@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Chinese (Simplified) (FreePBX)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-21 09:02+0000\n"
-"PO-Revision-Date: 2018-09-21 09:07+0000\n"
+"PO-Revision-Date: 2018-09-21 09:13+0000\n"
 "Last-Translator: james zhu <zhulizhong@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <http://*/projects/freepbx/findmefollow/"
 "zh_Hans/>\n"
@@ -39,7 +39,7 @@ msgstr "警告信息"
 
 #: views/ucp_config.php:39
 msgid "Allowed Extensions"
-msgstr ""
+msgstr "允许的分机"
 
 #: functions.inc.php:959 views/form.php:614
 msgid "Always transmit the Fixed CID Value below."
@@ -80,11 +80,11 @@ msgstr "主叫ID名的前缀"
 
 #: functions.inc.php:590 views/form.php:319
 msgid "Calendar"
-msgstr ""
+msgstr "日历"
 
 #: functions.inc.php:617 views/form.php:348
 msgid "Calendar Group"
-msgstr ""
+msgstr "日历组"
 
 #: functions.inc.php:631 views/form.php:377
 msgid "Calendar Match Inverse"
@@ -92,7 +92,7 @@ msgstr ""
 
 #: functions.inc.php:145 functions.inc.php:156
 msgid "Calendar Not found"
-msgstr ""
+msgstr "没有发现日历"
 
 #: functions.inc.php:835
 msgid "Call Confirmation Configuration"
@@ -121,15 +121,15 @@ msgstr "默认"
 
 #: findmefollow.i18n.php:26
 msgid "Default Follow Me Initial Ring Time"
-msgstr ""
+msgstr "默认分机随行初始振铃时间"
 
 #: findmefollow.i18n.php:30
 msgid "Default Follow Me Ring Strategy"
-msgstr ""
+msgstr "默认分机随行初始振铃策略"
 
 #: findmefollow.i18n.php:22
 msgid "Default Follow Me Ring Time"
-msgstr ""
+msgstr "默认分机随行振铃时长"
 
 #: views/form.php:680
 msgid "Destination if no answer"
@@ -145,11 +145,11 @@ msgstr "禁用"
 
 #: findmefollow.i18n.php:18
 msgid "Disable Follow Me Upon Creation"
-msgstr ""
+msgstr "关闭分机随行创建功能"
 
 #: ucp/views/widget.php:2
 msgid "Disabled"
-msgstr "关闭"
+msgstr "已关闭"
 
 #: views/ucp_config.php:72
 msgid "Enable"
@@ -165,7 +165,7 @@ msgstr "开启分机随行"
 
 #: views/ucp_config.php:7
 msgid "Enable Findme Follow"
-msgstr ""
+msgstr "开启分机随行"
 
 #: views/form.php:267
 msgid "Enable Followme"
@@ -208,7 +208,7 @@ msgstr "开启"
 
 #: assets/js/findmefollow.js:74
 msgid "Error"
-msgstr ""
+msgstr "错误"
 
 #: views/bootnav.php:7 views/bootnav.php:18
 msgid "Extension"
@@ -583,7 +583,7 @@ msgstr ""
 
 #: Findmefollow.class.php:598
 msgid "Submit"
-msgstr ""
+msgstr "提交"
 
 #: findmefollow.i18n.php:28
 msgid ""
@@ -679,12 +679,12 @@ msgstr ""
 
 #: ucp/views/settings.php:60
 msgid "Use Confirmation"
-msgstr ""
+msgstr "使用配置"
 
 #: functions.inc.php:961 functions.inc.php:983 views/form.php:223
 #: views/form.php:618
 msgid "Use Dialed Number"
-msgstr ""
+msgstr "启用已拨打号码"
 
 #: views/bootnav.php:4
 msgid "User"
@@ -783,7 +783,7 @@ msgstr "分机"
 
 #: functions.inc.php:693 ucp/views/settings.php:12 views/form.php:50
 msgid "firstavailable"
-msgstr "首个可用频道"
+msgstr "第一个可用通道"
 
 #: functions.inc.php:694 ucp/views/settings.php:14 views/form.php:52
 msgid "firstnotonphone"
@@ -803,7 +803,7 @@ msgstr "记忆性搜寻"
 
 #: views/form.php:198
 msgid "none"
-msgstr ""
+msgstr "无"
 
 #: functions.inc.php:689 ucp/views/settings.php:4 views/form.php:42
 msgid ""
