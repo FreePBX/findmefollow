@@ -1,23 +1,18 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
+"Project-Id-Version: Chinese (Simplified) (FreePBX)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-19 18:07-0400\n"
-"PO-Revision-Date: 2015-10-15 09:19+0200\n"
-"Last-Translator: james <zhulizhong@gmail.com>\n"
-"Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
-"freepbx/findmefollow/zh_CN/>\n"
+"POT-Creation-Date: 2018-09-21 09:02+0000\n"
+"PO-Revision-Date: 2018-09-21 09:07+0000\n"
+"Last-Translator: james zhu <zhulizhong@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <http://*/projects/freepbx/findmefollow/"
+"zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Poedit-Language: Chinese\n"
 "X-Poedit-Country: CHINA\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -154,7 +149,7 @@ msgstr ""
 
 #: ucp/views/widget.php:2
 msgid "Disabled"
-msgstr ""
+msgstr "关闭"
 
 #: views/ucp_config.php:72
 msgid "Enable"
@@ -234,11 +229,11 @@ msgstr ""
 
 #: findmefollow.i18n.php:34 install.php:5
 msgid "Findme Follow Toggle"
-msgstr "切换“跟我来”"
+msgstr "切换“分机随行”"
 
 #: Findmefollow.class.php:1303
 msgid "FindmeFollow"
-msgstr ""
+msgstr "分机随行"
 
 #: functions.inc.php:959 functions.inc.php:975 functions.inc.php:998
 #: views/form.php:221 views/form.php:614 views/form.php:656
@@ -269,19 +264,19 @@ msgstr ""
 #: ucp/Findmefollow.class.php:124 ucp/Findmefollow.class.php:141
 #: ucp/Findmefollow.class.php:179
 msgid "Follow Me"
-msgstr "跟我来"
+msgstr "分机随行"
 
 #: Findmefollow.class.php:885
 msgid "Follow Me Enabled [Blank to disable]"
-msgstr ""
+msgstr "开启分机随行"
 
 #: Findmefollow.class.php:888 ucp/views/settings.php:27
 msgid "Follow Me List"
-msgstr ""
+msgstr "分机随行列表"
 
 #: findmefollow.i18n.php:14
 msgid "Follow Me Module"
-msgstr ""
+msgstr "分机随行模块"
 
 #: Findmefollow.class.php:891
 msgid "Follow Me No Answer Destination"
@@ -298,7 +293,7 @@ msgstr ""
 
 #: functions.inc.php:727 views/form.php:478
 msgid "Follow-Me List"
-msgstr "“跟我来”列表"
+msgstr "“分机随行”列表"
 
 #: functions.inc.php:733
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
@@ -307,12 +302,12 @@ msgstr ""
 #: functions.inc.php:1202
 #, php-format
 msgid "Follow-Me User: %s"
-msgstr "“跟我来”用户：%s"
+msgstr "“分机随行”用户：%s"
 
 #: functions.inc.php:1179
 #, php-format
 msgid "Follow-Me: %s (%s)"
-msgstr "“跟我来”列表：%s (%s)"
+msgstr "“分机随行”列表：%s (%s)"
 
 #: views/fmgrid.php:26
 msgid "Followme Extension"
@@ -458,7 +453,7 @@ msgstr "此方法不支持"
 
 #: functions.inc.php:965 views/form.php:610
 msgid "Mode"
-msgstr ""
+msgstr "模式"
 
 #: findmefollow.i18n.php:8
 msgid ""
