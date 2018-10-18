@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-19 18:07-0400\n"
-"PO-Revision-Date: 2018-09-18 15:38+0000\n"
+"PO-Revision-Date: 2018-10-19 13:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/findmefollow/de/>\n"
 "Language: de_DE\n"
@@ -372,11 +372,11 @@ msgstr ""
 
 #: views/ucp_config.php:18 views/ucp_config.php:77
 msgid "Inherit"
-msgstr ""
+msgstr "Erben"
 
 #: functions.inc.php:678 views/form.php:404
 msgid "Initial Ring Time"
-msgstr "Anfangsklingeldauer"
+msgstr "Anfängliche Klingeldauer"
 
 #: assets/js/findmefollow.js:114
 msgid ""
@@ -521,7 +521,7 @@ msgstr "Verpasste Anrufe"
 #: functions.inc.php:460 functions.inc.php:800 views/form.php:85
 #: views/form.php:564
 msgid "None"
-msgstr "keine"
+msgstr "Kein*e"
 
 #: functions.inc.php:21 functions.inc.php:25
 msgid "Normal Extension Behavior"
