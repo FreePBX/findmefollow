@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>14.0.1.20</version>
+	<version>14.0.1.21</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*14.0.1.21* Feature/FREEPBX-15651 
 		*14.0.1.20* FREEPBX-17089 Follow Me with callconfirm doesn't work with external numbers 
 		*14.0.1.19* FREEPBX-17789 call confirmation message delivered twice 
 		*14.0.1.18* fixing bugfix/FREEPBX-17041 calling music_list api only if its available 

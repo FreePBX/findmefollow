@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX findmefollow\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-19 18:07-0400\n"
+"POT-Creation-Date: 2018-10-26 13:20-0400\n"
 "PO-Revision-Date: 2008-11-08 18:39+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -837,7 +837,7 @@ msgid ""
 "Time."
 msgstr ""
 
-#: functions.inc.php:691 ucp/views/settings.php:8 views/form.php:46
+#: functions.inc.php:691 ucp/views/settings.php:8
 msgid ""
 "ring first extension in the list, then ring the 1st and 2nd extension, then "
 "ring 1st 2nd and 3rd extension in the list.... etc."
@@ -845,14 +845,33 @@ msgstr ""
 "Ring första numret i listan, sedan 1:a och 2:a, därefter 1:a, 2:a och 3:"
 "e, ...... osv."
 
-#: functions.inc.php:693 ucp/views/settings.php:12 views/form.php:50
+#: views/form.php:46
+msgid ""
+"ring first extension in the list, then ring the 1st and 2nd extension, then "
+"ring 1st 2nd and 3rd extension in the list.... etc. This strategy will work "
+"only when Confirm Calls is disabled."
+msgstr ""
+
+#: functions.inc.php:693 ucp/views/settings.php:12
 msgid "ring only the first available channel"
 msgstr "ring bara den första tillgängliga kanalen"
 
-#: functions.inc.php:694 ucp/views/settings.php:14 views/form.php:52
+#: views/form.php:50
+msgid ""
+"ring only the first available channel. This strategy will work only when "
+"Confirm Calls is disabled."
+msgstr ""
+
+#: functions.inc.php:694 ucp/views/settings.php:14
 msgid "ring only the first channel which is not off hook - ignore CW"
 msgstr ""
 "ring bara den första kanalen som inte är upptagen - ignorera Samtal väntar"
+
+#: views/form.php:52
+msgid ""
+"ring only the first channel which is not off hook - ignore CW. This strategy "
+"will work only when Confirm Calls is disabled."
+msgstr ""
 
 #: functions.inc.php:689 ucp/views/settings.php:4 views/form.php:42
 msgid "ringall"

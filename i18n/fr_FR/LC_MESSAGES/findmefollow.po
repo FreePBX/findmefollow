@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-19 18:07-0400\n"
+"POT-Creation-Date: 2018-10-26 13:20-0400\n"
 "PO-Revision-Date: 2016-11-23 13:46+0200\n"
 "Last-Translator: Pascal <pascal.noyel@ipexia.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
@@ -920,7 +920,7 @@ msgstr ""
 "initiale, puis tout en continuant l'appel au poste faire sonner la liste de "
 "numéro du suivez-moi pour durée définie dans la durée de sonnerie ."
 
-#: functions.inc.php:691 ucp/views/settings.php:8 views/form.php:46
+#: functions.inc.php:691 ucp/views/settings.php:8
 msgid ""
 "ring first extension in the list, then ring the 1st and 2nd extension, then "
 "ring 1st 2nd and 3rd extension in the list.... etc."
@@ -928,15 +928,34 @@ msgstr ""
 "fait sonner la première extension dans la liste, puis fait sonner la 1e et "
 "la 2e extension, puis 1e, 2e et 3e extension de la liste, etc..."
 
-#: functions.inc.php:693 ucp/views/settings.php:12 views/form.php:50
+#: views/form.php:46
+msgid ""
+"ring first extension in the list, then ring the 1st and 2nd extension, then "
+"ring 1st 2nd and 3rd extension in the list.... etc. This strategy will work "
+"only when Confirm Calls is disabled."
+msgstr ""
+
+#: functions.inc.php:693 ucp/views/settings.php:12
 msgid "ring only the first available channel"
 msgstr "fait sonner uniquement le premier canal disponible"
 
-#: functions.inc.php:694 ucp/views/settings.php:14 views/form.php:52
+#: views/form.php:50
+msgid ""
+"ring only the first available channel. This strategy will work only when "
+"Confirm Calls is disabled."
+msgstr ""
+
+#: functions.inc.php:694 ucp/views/settings.php:14
 msgid "ring only the first channel which is not off hook - ignore CW"
 msgstr ""
 "fait sonner uniquement le premier canal qui n'est pas au téléphone - ignore "
 "les alertes d'appel "
+
+#: views/form.php:52
+msgid ""
+"ring only the first channel which is not off hook - ignore CW. This strategy "
+"will work only when Confirm Calls is disabled."
+msgstr ""
 
 #: functions.inc.php:689 ucp/views/settings.php:4 views/form.php:42
 msgid "ringall"
