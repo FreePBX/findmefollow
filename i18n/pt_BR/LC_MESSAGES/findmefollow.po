@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-31 16:59-0800\n"
+"POT-Creation-Date: 2018-10-26 13:20-0400\n"
 "PO-Revision-Date: 2017-02-09 19:46+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
 "freepbx/findmefollow/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -818,7 +818,7 @@ msgstr ""
 "enquanto continua a chamada para o ramal, toca na Lista Siga-Me pela duração "
 "definida em Tempo de Toque."
 
-#: functions.inc.php:758 views/form.php:39
+#: functions.inc.php:758
 msgid ""
 "ring first extension in the list, then ring the 1st and 2nd extension, then "
 "ring 1st 2nd and 3rd extension in the list.... etc."
@@ -826,15 +826,34 @@ msgstr ""
 "toca o primeiro ramal na lista, em seguida, toca o 1° e 2° ramal, em "
 "seguida, toca 1 ° 2° e 3° ramal na lista... etc."
 
-#: functions.inc.php:760 views/form.php:43
+#: views/form.php:39
+msgid ""
+"ring first extension in the list, then ring the 1st and 2nd extension, then "
+"ring 1st 2nd and 3rd extension in the list.... etc. This strategy will work "
+"only when Confirm Calls is disabled."
+msgstr ""
+
+#: functions.inc.php:760
 msgid "ring only the first available channel"
 msgstr "toca somente o primeiro canal disponível"
 
-#: functions.inc.php:761 views/form.php:45
+#: views/form.php:43
+msgid ""
+"ring only the first available channel. This strategy will work only when "
+"Confirm Calls is disabled."
+msgstr ""
+
+#: functions.inc.php:761
 msgid "ring only the first channel which is not off hook - ignore CW"
 msgstr ""
 "toca somente o primeiro canal que não estiver fora do gancho - ignora "
 "Chamada em Espera"
+
+#: views/form.php:45
+msgid ""
+"ring only the first channel which is not off hook - ignore CW. This strategy "
+"will work only when Confirm Calls is disabled."
+msgstr ""
 
 #: functions.inc.php:756 views/form.php:35
 msgid "ringall"
