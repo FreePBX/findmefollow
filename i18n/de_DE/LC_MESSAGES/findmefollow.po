@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-26 13:20-0400\n"
-"PO-Revision-Date: 2018-10-19 13:00+0000\n"
+"PO-Revision-Date: 2018-11-10 21:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/findmefollow/de/>\n"
 "Language: de_DE\n"
@@ -81,15 +81,15 @@ msgstr ""
 
 #: functions.inc.php:780 views/form.php:512
 msgid "CID Name Prefix"
-msgstr "CID Namenspräfix"
+msgstr "Namenspräfix für Anruferkennung"
 
 #: functions.inc.php:590 views/form.php:319
 msgid "Calendar"
-msgstr ""
+msgstr "Kalender"
 
 #: functions.inc.php:617 views/form.php:348
 msgid "Calendar Group"
-msgstr ""
+msgstr "Kalendergruppe"
 
 #: functions.inc.php:631 views/form.php:377
 msgid "Calendar Match Inverse"
@@ -97,7 +97,7 @@ msgstr ""
 
 #: functions.inc.php:145 functions.inc.php:156
 msgid "Calendar Not found"
-msgstr ""
+msgstr "Kalender nicht gefunden"
 
 #: functions.inc.php:835
 msgid "Call Confirmation Configuration"
@@ -105,11 +105,11 @@ msgstr "Anruf Konfigurationsbestätigung"
 
 #: install.php:34 uninstall.php:30
 msgid "Cannot connect to Asterisk Manager with "
-msgstr ""
+msgstr "Kann keine Verbindung mit Asterisk-Manager herstellen mit "
 
 #: functions.inc.php:936 views/form.php:630
 msgid "Change External CID Configuration"
-msgstr "Externe Konfiguration der Anurferkennung ändern"
+msgstr "Konfiguration der externen Anruferkennung ändern"
 
 #: functions.inc.php:858 views/form.php:587
 msgid "Confirm Calls"
@@ -232,7 +232,7 @@ msgstr "Finde mich/Folge mir wurde aktualisiert!"
 #: ucp/Findmefollow.class.php:110
 #, php-format
 msgid "Find Me/Follow Me for %s"
-msgstr ""
+msgstr "Finde mich/Folge mir für %s"
 
 #: findmefollow.i18n.php:34 install.php:5
 msgid "Findme Follow Toggle"
@@ -291,11 +291,11 @@ msgstr "Folge mir Liste"
 
 #: findmefollow.i18n.php:14
 msgid "Follow Me Module"
-msgstr "Folge mir Modul"
+msgstr "„Folge mir“-Modul"
 
 #: Findmefollow.class.php:891
 msgid "Follow Me No Answer Destination"
-msgstr "Folge mir Ziel bei keine Antwort"
+msgstr "„Folge mir“-Ziel bei keine Antwort"
 
 #: functions.inc.php:1150
 #, php-format
@@ -304,11 +304,11 @@ msgstr "Folge mir: %s"
 
 #: views/form.php:454
 msgid "Follow-Me"
-msgstr ""
+msgstr "Folge-mir"
 
 #: functions.inc.php:727 views/form.php:478
 msgid "Follow-Me List"
-msgstr "Folge mir Liste"
+msgstr "„Folge mir“-Liste"
 
 #: functions.inc.php:733
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
@@ -317,20 +317,20 @@ msgstr "„Folge mir“-Liste darf nicht leer sein, wenn „Folge mir“ aktivie
 #: functions.inc.php:1202
 #, php-format
 msgid "Follow-Me User: %s"
-msgstr "Folge-mir Benutzer: %s"
+msgstr "„Folge mir“-Benutzer: %s"
 
 #: functions.inc.php:1179
 #, php-format
 msgid "Follow-Me: %s (%s)"
-msgstr "Folge-mir: %s (%s)"
+msgstr "Folge mir: %s (%s)"
 
 #: views/fmgrid.php:26
 msgid "Followme Extension"
-msgstr "Folge mir Nebenstelle"
+msgstr "„Folge mir“-Nebenstelle"
 
 #: views/nogo.php:2
 msgid "Followme List"
-msgstr "Folge mir Liste"
+msgstr "„Folge mir“-Liste"
 
 #: views/ucp_config.php:67
 msgid "Followme Ring Strategy Settings"
@@ -343,7 +343,7 @@ msgstr "Gewählte Nummer erzwingen"
 
 #: functions.inc.php:41
 msgid "Force Follow Me"
-msgstr "Folge mir erzwingen"
+msgstr "„Folge mir“ erzwingen"
 
 #: functions.inc.php:508
 msgid "General Settings"
