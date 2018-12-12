@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>13.0.38.12</version>
+	<version>13.0.38.13</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*13.0.38.13* FREEPBX-18728 Follow Me with callconfirm doesn't work with external numbers 
 		*13.0.38.12* Feature/FREEPBX-15651 
 		*13.0.38.11* FREEPBX-15429 
 		*13.0.38.9* FREEPBX-14721 Enabling FMFM to external DIDs can add Alert-Info header(s) that interfere with SIP provider
