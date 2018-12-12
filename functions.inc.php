@@ -119,8 +119,8 @@ function findmefollow_get_config($engine) {
 
 				//These two have to be here because of how they function in the dialplan.
 				//Dont try to make them dynamic, we really can't do that
-				$len=strlen($grpnum)+4;
-				$ext->add($grpcontextname, "_RG-".$grpnum.".", '', new ext_macro('dial','${DB(AMPUSER/'.$grpnum.'/followme/grptime)},' .$dialopts. 'M(confirm^'.$remotealert.'^'.$toolate.'^'.$grpnum.'),${EXTEN:'.$len.'}'),1,1);
+				$len = strlen($grpnum)+5;
+				$ext->add($grpcontextname, "_RG-".$grpnum."*.", '', new ext_macro('dial','${DB(AMPUSER/'.$grpnum.'/followme/grptime)},' .$dialopts. 'M(confirm^'.$remotealert.'^'.$toolate.'^'.$grpnum.'),${EXTEN:'.$len.'}'),1,1);
 				$ext->add($contextname, $grpnum, '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/${EXTEN}/followme/ddial)} != 1 | "${DB(AMPUSER/${EXTEN}/followme/ddial)}" = "EXTENSION" ]', 'ext-local,${EXTEN},1','followme-check,${EXTEN},1'));
 			}
 
