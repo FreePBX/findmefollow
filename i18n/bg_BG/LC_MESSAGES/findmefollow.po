@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-26 13:20-0400\n"
+"POT-Creation-Date: 2019-02-21 16:48-0500\n"
 "PO-Revision-Date: 2015-03-11 21:58+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/"
@@ -238,7 +238,7 @@ msgstr ""
 msgid "Findme Follow Toggle"
 msgstr "Превключи Следвай Ме"
 
-#: Findmefollow.class.php:1298
+#: Findmefollow.class.php:1306
 msgid "FindmeFollow"
 msgstr ""
 
@@ -276,11 +276,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "Следвай Ме"
 
-#: Findmefollow.class.php:880
+#: Findmefollow.class.php:888
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr ""
 
-#: Findmefollow.class.php:883 ucp/views/settings.php:27
+#: Findmefollow.class.php:891 ucp/views/settings.php:27
 msgid "Follow Me List"
 msgstr ""
 
@@ -288,7 +288,7 @@ msgstr ""
 msgid "Follow Me Module"
 msgstr ""
 
-#: Findmefollow.class.php:886
+#: Findmefollow.class.php:894
 msgid "Follow Me No Answer Destination"
 msgstr ""
 
@@ -566,7 +566,7 @@ msgstr ""
 msgid "Request not received"
 msgstr ""
 
-#: Findmefollow.class.php:598
+#: Findmefollow.class.php:599
 msgid "Reset"
 msgstr ""
 
@@ -603,7 +603,7 @@ msgstr ""
 msgid "Seconds"
 msgstr ""
 
-#: Findmefollow.class.php:593
+#: Findmefollow.class.php:594
 msgid "Submit"
 msgstr ""
 
@@ -724,7 +724,7 @@ msgstr "Използвай Избрания Номер"
 msgid "User"
 msgstr "Потребител"
 
-#: Findmefollow.class.php:1281
+#: Findmefollow.class.php:1289
 msgid "User Primary Extension"
 msgstr ""
 

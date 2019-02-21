@@ -390,6 +390,7 @@ class Findmefollow implements \BMO {
 
 			switch($setting) {
 				case 'strategy':
+					$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/strategy",$value);
 					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
 				break;
 				case 'grptime':
@@ -685,11 +686,18 @@ class Findmefollow implements \BMO {
 		$stmt = $dbh->prepare($sql);
 		$results = $stmt->execute($insertarr);
 		if ($astman) {
+			$astman->database_put("AMPUSER",$grpnum."/followme/strategy",isset($strategy)?$strategy:'');
 			$astman->database_put("AMPUSER",$grpnum."/followme/prering",isset($pre_ring)?$pre_ring:'');
 			$astman->database_put("AMPUSER",$grpnum."/followme/grptime",isset($grptime)?$grptime:'');
 			$astman->database_put("AMPUSER",$grpnum."/followme/grplist",isset($grplist)?$grplist:'');
 			$astman->database_put("AMPUSER",$grpnum."/followme/grppre",isset($grppre)?$grppre:'');
 			$astman->database_put("AMPUSER",$grpnum."/followme/rvolume",isset($rvolume)?$rvolume:'');
+			$astman->database_put("AMPUSER",$grpnum."/followme/dring",isset($dring)?$dring:'');
+			$astman->database_put("AMPUSER",$grpnum."/followme/annmsg",(!empty($annmsg_id) ? recordings_get_file($annmsg_id) : ''));
+			$astman->database_put("AMPUSER",$grpnum."/followme/remotealertmsg",(!empty($remotealert_id) ? recordings_get_file($remotealert_id) : ''));
+			$astman->database_put("AMPUSER",$grpnum."/followme/toolatemsg",(!empty($toolate_id) ? recordings_get_file($toolate_id) : ''));
+			$astman->database_put("AMPUSER",$grpnum."/followme/postdest",$postdest);
+			$astman->database_put("AMPUSER",$grpnum."/followme/ringing",$ringing);
 
 			$needsconf = isset($needsconf)?$needsconf:'';
 			$confvalue = ($needsconf == 'CHECKED')?'ENABLED':'DISABLED';
@@ -1360,14 +1368,5 @@ class Findmefollow implements \BMO {
         } else {
                $this->FreePBX->Ucp->setSettingByID($id,'Findmefollow','assigned',null);
         }
-	}
-	public function setDatabase($pdo){
-	$this->db = $pdo;
-	return $this;
-	}
-	
-	public function resetDatabase(){
-	$this->db = $this->FreePBX->Database;
-	return $this;
 	}
 }
