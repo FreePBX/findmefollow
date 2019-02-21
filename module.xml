@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>15.0.8</version>
+	<version>15.0.9</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*15.0.9* fixing legacy restore 
 		*15.0.8* fixing legacy restore 
 		*15.0.7* Feature/FREEPBX-15651 
 		*15.0.6* Rest Api 

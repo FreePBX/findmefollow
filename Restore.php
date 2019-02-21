@@ -7,7 +7,7 @@ class Restore Extends Base\RestoreBase{
 				$this->FreePBX->Findmefollow->bulkhandlerImport('extensions', $configs);
 	}
 
-	public function processLegacy($pdo, $data, $tables, $unknownTables, $tmpfiledir){
+	public function processLegacy($pdo, $data, $tables, $unknownTables){
 		$this->restoreLegacyDatabase($pdo);
 	}
 }
