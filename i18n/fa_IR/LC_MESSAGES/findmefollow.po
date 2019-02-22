@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-26 13:20-0400\n"
+"POT-Creation-Date: 2019-02-22 14:47+0530\n"
 "PO-Revision-Date: 2019-01-25 15:49+0000\n"
 "Last-Translator: Media Mousavi <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://*/projects/freepbx/findmefollow/fa/>\n"
@@ -256,7 +256,7 @@ msgstr "یافتن من/دنبال کردن من برای ٪s1"
 msgid "Findme Follow Toggle"
 msgstr "مرا پیداو دنبال کن تغییر کرد"
 
-#: Findmefollow.class.php:1303
+#: Findmefollow.class.php:1304
 msgid "FindmeFollow"
 msgstr "Findmefollow"
 
@@ -299,11 +299,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "مرا دنبال کن"
 
-#: Findmefollow.class.php:885
+#: Findmefollow.class.php:886
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr "مرا دنبال کن فعال شد [خالی برای غیر فعال]"
 
-#: Findmefollow.class.php:888 ucp/views/settings.php:27
+#: Findmefollow.class.php:889 ucp/views/settings.php:27
 msgid "Follow Me List"
 msgstr "فهرست مرا دنبال کن"
 
@@ -311,7 +311,7 @@ msgstr "فهرست مرا دنبال کن"
 msgid "Follow Me Module"
 msgstr "ماژول مرا دنبال کن"
 
-#: Findmefollow.class.php:891
+#: Findmefollow.class.php:892
 msgid "Follow Me No Answer Destination"
 msgstr "مقصد مرا دنبال کن در صورت عدم پاسخ"
 
@@ -619,7 +619,7 @@ msgstr "اعلام راه دور"
 msgid "Request not received"
 msgstr "درخواستی دریافت نشد"
 
-#: Findmefollow.class.php:603
+#: Findmefollow.class.php:604
 msgid "Reset"
 msgstr "بازنشانی"
 
@@ -656,7 +656,7 @@ msgstr "رینگر دوره نادیده گرفتن"
 msgid "Seconds"
 msgstr "ثانیه ها"
 
-#: Findmefollow.class.php:598
+#: Findmefollow.class.php:599
 msgid "Submit"
 msgstr "ارسال"
 
@@ -785,7 +785,7 @@ msgstr "استفاده از شماره گرفته شده"
 msgid "User"
 msgstr "کاربر"
 
-#: Findmefollow.class.php:1286
+#: Findmefollow.class.php:1287
 msgid "User Primary Extension"
 msgstr "فرمت اولیه کاربر"
 
@@ -818,8 +818,8 @@ msgid ""
 "present"
 msgstr ""
 "وقتی که بله به دنبال من خواهد ملاقات (فعال شود) هر زمان یک رویداد وجود دارد. "
-"زمانی که هیچ رویدادی وجود نداشته باشد، هیچیک از موارد زیر تنظیم نخواهد شد ("
-"فعال شود)"
+"زمانی که هیچ رویدادی وجود نداشته باشد، هیچیک از موارد زیر تنظیم نخواهد شد "
+"(فعال شود)"
 
 #: views/form.php:692
 msgid "Where to send callers if there is no answer."
@@ -928,8 +928,8 @@ msgid ""
 "Follow-Me List for duration set in Ring Time."
 msgstr ""
 "Ring Extension برای مدت زمان تعیین شده در Ring Time Initial و سپس، در حالی "
-"که تماس به برنامه افزودنی (فقط در صورتی که برنامه افزودنی در لیست گروهی است)،"
-" Ring Follow-Me را برای مدت زمان تعیین شده در Ring Time دنبال کنید."
+"که تماس به برنامه افزودنی (فقط در صورتی که برنامه افزودنی در لیست گروهی "
+"است)، Ring Follow-Me را برای مدت زمان تعیین شده در Ring Time دنبال کنید."
 
 #: functions.inc.php:688
 msgid ""
