@@ -10,29 +10,27 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-26 13:20-0400\n"
-"PO-Revision-Date: 2016-07-17 10:16+0200\n"
-"Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
-"findmefollow/fa_IR/>\n"
+"PO-Revision-Date: 2019-01-25 15:49+0000\n"
+"Last-Translator: Media Mousavi <mousavi.media@gmail.com>\n"
+"Language-Team: Persian <http://*/projects/freepbx/findmefollow/fa/>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: functions.inc.php:692 ucp/views/settings.php:10 views/form.php:48
-#, fuzzy
 msgid "*-prim"
-msgstr "*-prim"
+msgstr "PRIM-*"
 
 #: functions.inc.php:578 views/form.php:324
 msgid "--Not Calendar Controlled--"
-msgstr ""
+msgstr "--تقویم کنترل نشده--"
 
 #: functions.inc.php:605 views/form.php:353
 msgid "--Not Calendar Group Controlled--"
-msgstr ""
+msgstr "--گروه تقویم کنترل نشده --"
 
 #: views/form.php:548
 msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
@@ -44,7 +42,7 @@ msgstr "اطلاعات هشدار"
 
 #: views/ucp_config.php:39
 msgid "Allowed Extensions"
-msgstr ""
+msgstr "مقاصد مجاز"
 
 #: functions.inc.php:959 views/form.php:614
 msgid "Always transmit the Fixed CID Value below."
@@ -98,19 +96,19 @@ msgstr "پیش شماره نام CID"
 
 #: functions.inc.php:590 views/form.php:319
 msgid "Calendar"
-msgstr ""
+msgstr "تقویم"
 
 #: functions.inc.php:617 views/form.php:348
 msgid "Calendar Group"
-msgstr ""
+msgstr "گروه تقویم"
 
 #: functions.inc.php:631 views/form.php:377
 msgid "Calendar Match Inverse"
-msgstr ""
+msgstr "معکوس تقویم"
 
 #: functions.inc.php:145 functions.inc.php:156
 msgid "Calendar Not found"
-msgstr ""
+msgstr "تقویم یافت نشد"
 
 #: functions.inc.php:835
 msgid "Call Confirmation Configuration"
@@ -159,7 +157,7 @@ msgstr "مقاصد"
 
 #: views/ucp_config.php:74
 msgid "Disable"
-msgstr ""
+msgstr "غیر فعال"
 
 #: findmefollow.i18n.php:18
 msgid "Disable Follow Me Upon Creation"
@@ -167,7 +165,7 @@ msgstr "غیرفعال کردن مرا دنبال کن ساخته شده"
 
 #: ucp/views/widget.php:2
 msgid "Disabled"
-msgstr ""
+msgstr "غیر فعال شده"
 
 #: views/ucp_config.php:72
 msgid "Enable"
@@ -175,7 +173,7 @@ msgstr "فعال کردن"
 
 #: functions.inc.php:555 views/form.php:293
 msgid "Enable Calendar Matching"
-msgstr ""
+msgstr "تقویم سازگاری را فعال کنید"
 
 #: views/quickCreate.php:5
 msgid "Enable Find Me/Follow Me"
@@ -183,7 +181,7 @@ msgstr "فعال کردن مرا دنبال کن /مرا پیدا کن"
 
 #: views/ucp_config.php:7
 msgid "Enable Findme Follow"
-msgstr ""
+msgstr "فعال کردن Findme دنبال کنید"
 
 #: views/form.php:267
 msgid "Enable Followme"
@@ -191,7 +189,7 @@ msgstr "فعال کردن مرا دنبال کن"
 
 #: views/ucp_config.php:28
 msgid "Enable the Findmefollow access in UCP for this user"
-msgstr ""
+msgstr "دسترسی کاربر Findmefollow را در UCP برای این کاربر فعال کنید"
 
 #: ucp/views/settings.php:62
 msgid ""
@@ -252,7 +250,7 @@ msgstr "مرا دنبال کن /مرا پیدا کن به روز رسانی شد
 #: ucp/Findmefollow.class.php:110
 #, php-format
 msgid "Find Me/Follow Me for %s"
-msgstr ""
+msgstr "یافتن من/دنبال کردن من برای ٪s1"
 
 #: findmefollow.i18n.php:34 install.php:5
 msgid "Findme Follow Toggle"
@@ -260,7 +258,7 @@ msgstr "مرا پیداو دنبال کن تغییر کرد"
 
 #: Findmefollow.class.php:1303
 msgid "FindmeFollow"
-msgstr ""
+msgstr "Findmefollow"
 
 #: functions.inc.php:959 functions.inc.php:975 functions.inc.php:998
 #: views/form.php:221 views/form.php:614 views/form.php:656
@@ -324,7 +322,7 @@ msgstr "مرا دنبال کن : %s"
 
 #: views/form.php:454
 msgid "Follow-Me"
-msgstr ""
+msgstr "مرا دنبال کن"
 
 #: functions.inc.php:727 views/form.php:478
 msgid "Follow-Me List"
@@ -354,7 +352,7 @@ msgstr "لیست مرا دنبال کن"
 
 #: views/ucp_config.php:67
 msgid "Followme Ring Strategy Settings"
-msgstr ""
+msgstr "تنظیمات استراتژی حلقه Followme"
 
 #: functions.inc.php:962 functions.inc.php:987 views/form.php:224
 #: views/form.php:620
@@ -377,10 +375,14 @@ msgstr "شماره گروه"
 msgid ""
 "If set the followme will only be active when the calendar group has an event."
 msgstr ""
+"اگر تنظیم کنید، دنباله زمانی فعال خواهد بود که گروه تقویم یک رویداد داشته "
+"باشد."
 
 #: functions.inc.php:591 views/form.php:336
 msgid "If set the followme will only be active when the calendar has an event."
 msgstr ""
+"اگر تنظیم کنید که followme فقط زمانی فعال خواهد بود که تقویم یک رویداد داشته "
+"باشد."
 
 #: functions.inc.php:770 views/form.php:212
 msgid ""
@@ -392,7 +394,7 @@ msgstr ""
 
 #: views/ucp_config.php:18 views/ucp_config.php:77
 msgid "Inherit"
-msgstr ""
+msgstr "وارث"
 
 #: functions.inc.php:678 views/form.php:404
 msgid "Initial Ring Time"
@@ -415,6 +417,8 @@ msgid ""
 "Link this Follow Me to a Calendar or Calendar group to automatically Enable/"
 "Disable based on a schedule"
 msgstr ""
+"پیوند این پیروی از من به تقویم یا گروه تقویم به طور خودکار فعال / غیر فعال "
+"کردن بر اساس یک برنامه"
 
 #: views/bootnav.php:12
 msgid "List Followme Groups"
@@ -584,12 +588,15 @@ msgid ""
 "Override the ringer volume. Note: This is only valid for %s phones at this "
 "time"
 msgstr ""
+"میزان رینگر را لغو کنید توجه: این در حال حاضر فقط برای تلفن های ٪s1 معتبر است"
 
 #: functions.inc.php:815
 msgid ""
 "Override the ringer volume. Note: This is only valid for Sangoma phones at "
 "this time"
 msgstr ""
+"میزان رینگر را لغو کنید توجه: این در حال حاضر فقط برای گوشی های Sangoma "
+"معتبر است"
 
 #: functions.inc.php:769 views/form.php:188
 msgid "Play Music On Hold"
@@ -643,7 +650,7 @@ msgstr "مدت زنگ خوردن (حداکثر 60 ثانیه)"
 
 #: functions.inc.php:814 views/form.php:559
 msgid "Ringer Volume Override"
-msgstr ""
+msgstr "رینگر دوره نادیده گرفتن"
 
 #: ucp/views/settings.php:45 ucp/views/settings.php:54
 msgid "Seconds"
@@ -686,10 +693,12 @@ msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
 msgstr ""
+"این پسوند اختصاص داده شده و فعال است که برای این کاربر برای کنترل و ویرایش "
+"در UCP نشان داده می شود"
 
 #: views/form.php:466
 msgid "This is in addition to the Initial Ring Time"
-msgstr ""
+msgstr "این علاوه بر زمان اولیه حلقه است"
 
 #: findmefollow.i18n.php:20
 msgid "This is the default value for the Follow Me "
@@ -778,11 +787,11 @@ msgstr "کاربر"
 
 #: Findmefollow.class.php:1286
 msgid "User Primary Extension"
-msgstr ""
+msgstr "فرمت اولیه کاربر"
 
 #: views/ucp_config.php:87
 msgid "User will have the Option to select followme ring Strategy in UCP"
-msgstr ""
+msgstr "کاربر گزینه ای برای انتخاب استراتژی حلقه پیگیری در UCP خواهد داشت"
 
 #: Findmefollow.class.php:93
 msgid "Warning! Extension"
@@ -808,6 +817,9 @@ msgid ""
 "event. When set to no followme will match (be enabled) whenever no event is "
 "present"
 msgstr ""
+"وقتی که بله به دنبال من خواهد ملاقات (فعال شود) هر زمان یک رویداد وجود دارد. "
+"زمانی که هیچ رویدادی وجود نداشته باشد، هیچیک از موارد زیر تنظیم نخواهد شد ("
+"فعال شود)"
 
 #: views/form.php:692
 msgid "Where to send callers if there is no answer."
@@ -822,7 +834,7 @@ msgstr "بله"
 
 #: functions.inc.php:654
 msgid "You can not set both a group and a calendar"
-msgstr ""
+msgstr "شما نمی توانید هر دو گروه و تقویم را تنظیم کنید"
 
 #: functions.inc.php:791
 msgid ""
@@ -854,15 +866,15 @@ msgstr ""
 
 #: assets/js/findmefollow.js:88
 msgid "You cant set both a group and a calendar"
-msgstr ""
+msgstr "شما می توانید هر دو گروه و تقویم را تنظیم کنید"
 
 #: functions.inc.php:156
 msgid "Your followme is linked to a non-existant calendar"
-msgstr ""
+msgstr "پیگیری شما به یک تقویم ناموجود مرتبط است"
 
 #: functions.inc.php:145
 msgid "Your followme is linked to a non-existant calendar group"
-msgstr ""
+msgstr "پیگیری شما به یک گروه تقویم ناموجود مرتبط است"
 
 #: views/form.php:199
 msgid "default"
@@ -915,6 +927,9 @@ msgid ""
 "continuing call to extension (only if extension is in the Group List), ring "
 "Follow-Me List for duration set in Ring Time."
 msgstr ""
+"Ring Extension برای مدت زمان تعیین شده در Ring Time Initial و سپس، در حالی "
+"که تماس به برنامه افزودنی (فقط در صورتی که برنامه افزودنی در لیست گروهی است)،"
+" Ring Follow-Me را برای مدت زمان تعیین شده در Ring Time دنبال کنید."
 
 #: functions.inc.php:688
 msgid ""
@@ -940,6 +955,9 @@ msgid ""
 "ring 1st 2nd and 3rd extension in the list.... etc. This strategy will work "
 "only when Confirm Calls is disabled."
 msgstr ""
+"اولین حلقه را در لیست قرار دهید، سپس حلقه های 1 و 2 را حل کنید، سپس حلقه های "
+"اول و دوم را در فهرست لیست کنید .... و غیره. این استراتژی فقط زمانی کار می "
+"کند که تایید کردن تماس غیرفعال شود."
 
 #: functions.inc.php:693 ucp/views/settings.php:12
 msgid "ring only the first available channel"
@@ -950,6 +968,8 @@ msgid ""
 "ring only the first available channel. This strategy will work only when "
 "Confirm Calls is disabled."
 msgstr ""
+"فقط اولین کانال موجود را رقم بزنید این استراتژی تنها زمانی کار می کند که "
+"تأیید تماس غیرفعال شود."
 
 #: functions.inc.php:694 ucp/views/settings.php:14
 msgid "ring only the first channel which is not off hook - ignore CW"
@@ -960,6 +980,8 @@ msgid ""
 "ring only the first channel which is not off hook - ignore CW. This strategy "
 "will work only when Confirm Calls is disabled."
 msgstr ""
+"حلقه تنها کانال اول است که خاموش قلاب - نادیده گرفتن CW. این استراتژی تنها "
+"زمانی کار می کند که تأیید تماس غیرفعال شود."
 
 #: functions.inc.php:689 ucp/views/settings.php:4 views/form.php:42
 msgid "ringall"
