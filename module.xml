@@ -2,20 +2,20 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>15.0.10</version>
+	<version>15.0.11</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
-		*15.0.10* Fixing FREEPBX-19518 Enabling Find me /follow me from quick extenstion creation is not working 
-		*15.0.9* fixing legacy restore 
-		*15.0.8* fixing legacy restore 
-		*15.0.7* Feature/FREEPBX-15651 
-		*15.0.6* Rest Api 
+		*15.0.10* Fixing FREEPBX-19518 Enabling Find me /follow me from quick extenstion creation is not working
+		*15.0.9* fixing legacy restore
+		*15.0.8* fixing legacy restore
+		*15.0.7* Feature/FREEPBX-15651
+		*15.0.6* Rest Api
 		*15.0.5* Packaging of ver 15.0.5
-		*15.0.4* Add Backup 15 
-		*15.0.3* FREEPBX-16838 FreePBX 14.0.1.36 d'nt work button "save" 
-		*15.0.2* FREEPBX-16513 Calendar Group under follow me broken 
+		*15.0.4* Add Backup 15
+		*15.0.3* FREEPBX-16838 FreePBX 14.0.1.36 d'nt work button "save"
+		*15.0.2* FREEPBX-16513 Calendar Group under follow me broken
 		*15.0.1* FREEPBX-13152
 	</changelog>
 	<depends>
