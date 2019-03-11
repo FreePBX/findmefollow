@@ -1353,7 +1353,7 @@ class Findmefollow implements \BMO {
 	    } elseif(isset($_POST['findmefollow_enable']) && $_POST['findmefollow_enable'] == 'no') {
 	          $this->FreePBX->Ucp->setSettingByID($id,'findmefollow','enable',$_POST['findmefollow_enable']);
 		}else{
-			 $this->FreePBX->Ucp->setSettingByID($id,'findmefollow','enable','');
+			 $this->FreePBX->Ucp->setSettingByID($id,'findmefollow','enable',null);
 		}
 
 		if(isset($_POST['fmr']) && $_POST['fmr'] == 'enable') {
@@ -1361,7 +1361,7 @@ class Findmefollow implements \BMO {
         } elseif(isset($_POST['fmr']) && $_POST['fmr'] == 'disable') {
             $this->FreePBX->Ucp->setSettingByID($id,'findmefollow','fmr','disable');
 		}else{
-			 $this->FreePBX->Ucp->setSettingByID($id,'findmefollow','fmr','');
+			 $this->FreePBX->Ucp->setSettingByID($id,'findmefollow','fmr',null);
 		}
 
 		if(!empty($_POST['followme_ext'])) {
