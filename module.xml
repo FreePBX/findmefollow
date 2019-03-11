@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>14.0.1.22</version>
+	<version>14.0.1.23</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*14.0.1.23* FREEPBX-19578 
 		*14.0.1.22* Fixing FREEPBX-19518 Enabling Find me /follow me from quick extenstion creation is not working 
 		*14.0.1.21* Feature/FREEPBX-15651 
 		*14.0.1.20* FREEPBX-17089 Follow Me with callconfirm doesn't work with external numbers 
