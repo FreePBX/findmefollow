@@ -6,8 +6,9 @@ class Backup Extends Base\BackupBase{
 		$this->addDependency('core');
 		$this->addDependency('userman');
 		$this->addDependency('recordings');
+
 		$this->addConfigs([
-			'data' => $this->FreePBX->Findmefollow->bulkhandlerExport('extensions'),
+			'tables' => $this->dumpTables(),
 			'features' => $this->dumpFeatureCodes()
 		]);
 	}
