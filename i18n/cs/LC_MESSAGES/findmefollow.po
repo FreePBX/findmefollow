@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-22 14:47+0530\n"
-"PO-Revision-Date: 2018-08-29 13:00+0000\n"
+"PO-Revision-Date: 2019-07-23 11:36+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/findmefollow/cs/>\n"
 "Language: cs\n"
@@ -323,7 +323,6 @@ msgid "Follow Me: %s"
 msgstr "FollowMe: %s"
 
 #: views/form.php:454
-#, fuzzy
 msgid "Follow-Me"
 msgstr "Follow-Me"
 
@@ -903,7 +902,6 @@ msgid "firstnotonphone"
 msgstr "prvnímimotelefon"
 
 #: functions.inc.php:690 ucp/views/settings.php:6 views/form.php:44
-#, fuzzy
 msgid "hunt"
 msgstr "hunt"
 
@@ -912,7 +910,6 @@ msgid "is not allowed for your account"
 msgstr "není povoleno pro váš účet"
 
 #: functions.inc.php:691 ucp/views/settings.php:8 views/form.php:46
-#, fuzzy
 msgid "memoryhunt"
 msgstr "memoryhunt"
 
@@ -963,6 +960,9 @@ msgid ""
 "ring 1st 2nd and 3rd extension in the list.... etc. This strategy will work "
 "only when Confirm Calls is disabled."
 msgstr ""
+"vyzvánět na první lice v seznamu, poté zazvonit 1. a 2. linku, poté zazvonit "
+"1. a 3. linku v seznamu .... atd. Tato strategie bude fungovat pouze v "
+"případě, že je zakázáno potvrzení hovorů."
 
 #: functions.inc.php:693 ucp/views/settings.php:12
 msgid "ring only the first available channel"
@@ -973,6 +973,8 @@ msgid ""
 "ring only the first available channel. This strategy will work only when "
 "Confirm Calls is disabled."
 msgstr ""
+"vyzvánět pouze první dostupný kanál. Tato strategie bude fungovat pouze v "
+"případě, že je potvrzeno volání zakázáno."
 
 #: functions.inc.php:694 ucp/views/settings.php:14
 msgid "ring only the first channel which is not off hook - ignore CW"
@@ -983,14 +985,14 @@ msgid ""
 "ring only the first channel which is not off hook - ignore CW. This strategy "
 "will work only when Confirm Calls is disabled."
 msgstr ""
+"vyzvánět pouze první kanál, který není zavěšen - ignorovat CW. Tato "
+"strategie bude fungovat pouze v případě, že je potvrzeno volání zakázáno."
 
 #: functions.inc.php:689 ucp/views/settings.php:4 views/form.php:42
-#, fuzzy
 msgid "ringall"
 msgstr "ringall"
 
 #: functions.inc.php:688 ucp/views/settings.php:2 views/form.php:40
-#, fuzzy
 msgid "ringallv2"
 msgstr "ringallv2"
 
