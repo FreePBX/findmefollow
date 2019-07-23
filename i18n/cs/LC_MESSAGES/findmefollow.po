@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-22 14:47+0530\n"
-"PO-Revision-Date: 2019-07-23 11:36+0000\n"
+"PO-Revision-Date: 2019-07-24 12:00+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/findmefollow/cs/>\n"
 "Language: cs\n"
@@ -759,7 +759,7 @@ msgstr ""
 "Odeslat číslo, které bylo vytočeno jako CID pro volání zvenčí. Interní "
 "hovory mezi pobočkami budou i nadále fungovat ve výchozím režimu. Je nutné "
 "znát DID na příchozích pravidlech. Toto bude přeneseno na linky, které "
-"blokují neznámá čísla."
+"blokují neznámá čísla"
 
 #: functions.inc.php:961 views/form.php:618
 msgid ""
@@ -771,7 +771,7 @@ msgstr ""
 "Odeslat číslo, které bylo vytočeno jako CID pro volání zvenčí. Interní "
 "hovory mezi pobočkami budou i nadále fungovat ve výchozím režimu. Je nutné "
 "znát DID na příchozích pravidlech. Toto bude blokováno na linkách, které "
-"blokují neznámá čísla."
+"blokují neznámá čísla"
 
 #: functions.inc.php:958 views/form.php:612
 msgid "Transmits the Callers CID if allowed by the trunk."
@@ -824,7 +824,7 @@ msgid ""
 msgstr ""
 "Pokud je nastaveno na Ano, followme zkontroluje (pokud je povoleno), zda je "
 "zrovna nějaká událost. Pokud je nastaveno na Ne, followme zkontroluje (pokud "
-"je povoleno), zda zrovna není žádná událost."
+"je povoleno), zda zrovna není žádná událost"
 
 #: views/form.php:692
 msgid "Where to send callers if there is no answer."
@@ -924,7 +924,7 @@ msgid ""
 msgstr ""
 "vyzvánění na pobočce po dobu nastavenou v Počátečním čase vyzvánění a poté "
 "ukončení hovoru na pobočce a vyzvánění na seznamu FollowMe po dobu "
-"nastavenou ve Vyzváněcím čase"
+"nastavenou ve Vyzváněcím čase."
 
 #: ucp/views/settings.php:2 views/form.php:40
 msgid ""
@@ -934,7 +934,7 @@ msgid ""
 msgstr ""
 "vyzvánění na pobočce po dobu nastavenou v Počátečním čase vyzvánění a poté "
 "během vyzvánění na pobočce (pouze pokud je pobočka v seznamu skupiny), "
-"vyzvánění na seznamu FollowMe po dobu nastavenou ve Vyzváněcím čase"
+"vyzvánění na seznamu FollowMe po dobu nastavenou ve Vyzváněcím čase."
 
 #: functions.inc.php:688
 msgid ""
@@ -944,7 +944,7 @@ msgid ""
 msgstr ""
 "vyzvánění na pobočce po dobu nastavenou v Počátečním čase vyzvánění a poté "
 "během vyzvánění na pobočce,  vyzvánění na seznamu FollowMe po dobu "
-"nastavenou ve Vyzváněcím čase"
+"nastavenou ve Vyzváněcím čase."
 
 #: functions.inc.php:691 ucp/views/settings.php:8
 msgid ""
