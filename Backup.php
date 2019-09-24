@@ -7,9 +7,15 @@ class Backup Extends Base\BackupBase{
 		$this->addDependency('userman');
 		$this->addDependency('recordings');
 
+		$followmeList = $this->FreePBX->Findmefollow->listAll();
+		foreach ($followmeList as $fl) {
+			$dDial = $this->FreePBX->Findmefollow->getDDial($fl);
+			$followmeStatus[] = array('grpnum' => $fl, 'ddial' => $dDial);
+		}
 		$this->addConfigs([
 			'tables' => $this->dumpTables(),
-			'features' => $this->dumpFeatureCodes()
+			'features' => $this->dumpFeatureCodes(),
+			'fmstatus' => $followmeStatus
 		]);
 	}
 }
