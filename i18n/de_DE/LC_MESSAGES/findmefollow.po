@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-22 14:47+0530\n"
-"PO-Revision-Date: 2018-11-10 21:00+0000\n"
-"Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
+"PO-Revision-Date: 2019-06-06 09:00+0000\n"
+"Last-Translator: florian alberts <alberts@ar-systems.de>\n"
 "Language-Team: German <http://*/projects/freepbx/findmefollow/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
@@ -26,11 +26,11 @@ msgstr "*-prim"
 
 #: functions.inc.php:578 views/form.php:324
 msgid "--Not Calendar Controlled--"
-msgstr ""
+msgstr "--Nicht Kalendergesteuert--"
 
 #: functions.inc.php:605 views/form.php:353
 msgid "--Not Calendar Group Controlled--"
-msgstr ""
+msgstr "--Nicht Kalendergruppengesteuert--"
 
 #: views/form.php:548
 msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
@@ -44,7 +44,7 @@ msgstr "Alarm Info"
 
 #: views/ucp_config.php:39
 msgid "Allowed Extensions"
-msgstr ""
+msgstr "Erlaubte Nebenstellen"
 
 #: functions.inc.php:959 views/form.php:614
 msgid "Always transmit the Fixed CID Value below."
@@ -93,7 +93,7 @@ msgstr "Kalendergruppe"
 
 #: functions.inc.php:631 views/form.php:377
 msgid "Calendar Match Inverse"
-msgstr ""
+msgstr "Inverses Kalendermatching"
 
 #: functions.inc.php:145 functions.inc.php:156
 msgid "Calendar Not found"
@@ -162,7 +162,7 @@ msgstr "Aktivieren"
 
 #: functions.inc.php:555 views/form.php:293
 msgid "Enable Calendar Matching"
-msgstr ""
+msgstr "Aktiviere Kalender Matching"
 
 #: views/quickCreate.php:5
 msgid "Enable Find Me/Follow Me"
@@ -170,7 +170,7 @@ msgstr "Aktiviere Finde mich/Folge mir"
 
 #: views/ucp_config.php:7
 msgid "Enable Findme Follow"
-msgstr ""
+msgstr "Aktiviere Folge mir"
 
 #: views/form.php:267
 msgid "Enable Followme"
