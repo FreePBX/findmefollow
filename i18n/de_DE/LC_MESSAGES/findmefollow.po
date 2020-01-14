@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-22 14:50+0530\n"
+"POT-Creation-Date: 2020-01-14 16:03+0530\n"
 "PO-Revision-Date: 2018-08-25 15:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/findmefollow/de/>\n"
@@ -32,11 +32,12 @@ msgstr ""
 msgid "--Not Calendar Group Controlled--"
 msgstr ""
 
-#: views/form.php:548
-msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
+#: functions.inc.php:791 views/form.php:548
+msgid ""
+"ALERT_INFO can be used for distinctive ring with SIP devices.<br>If you are "
+"having issues, see the \"Enforce RFC7462\" option found in Settings-"
+">Advanced Settings."
 msgstr ""
-"ALERT_INFO kann für einen charakteristischen Klingelton auf SIP-Geräten "
-"genutzt werden."
 
 #: functions.inc.php:790 views/form.php:536
 msgid "Alert Info"
@@ -53,10 +54,6 @@ msgstr "Immer die unten stehende Anruferkennung übermitteln."
 #: functions.inc.php:745 views/form.php:78
 msgid "Announcement"
 msgstr "Ansage"
-
-#: findmefollow.i18n.php:6
-msgid "Applications"
-msgstr "Anwendungen"
 
 #: functions.inc.php:533
 msgid ""
@@ -115,7 +112,7 @@ msgstr "Externe Konfiguration der Anurferkennung ändern"
 msgid "Confirm Calls"
 msgstr "Anrufe bestätigen"
 
-#: findmefollow.i18n.php:12
+#: findmefollow.i18n.php:4
 msgid "Create Follow Me at Extension Creation Time"
 msgstr "„Folge mir“ beim Erstellen der Nebenstelle erzeugen"
 
@@ -124,15 +121,15 @@ msgstr "„Folge mir“ beim Erstellen der Nebenstelle erzeugen"
 msgid "Default"
 msgstr "Standard"
 
-#: findmefollow.i18n.php:26
+#: findmefollow.i18n.php:18
 msgid "Default Follow Me Initial Ring Time"
 msgstr "Standard Folge mir Anfangsklingeldauer"
 
-#: findmefollow.i18n.php:30
+#: findmefollow.i18n.php:22
 msgid "Default Follow Me Ring Strategy"
 msgstr "Standard Folge mir Klingelstrategie"
 
-#: findmefollow.i18n.php:22
+#: findmefollow.i18n.php:14
 msgid "Default Follow Me Ring Time"
 msgstr "Standard Folge mir Klingeldauer"
 
@@ -148,7 +145,7 @@ msgstr "Ziele"
 msgid "Disable"
 msgstr "Deaktivieren"
 
-#: findmefollow.i18n.php:18
+#: findmefollow.i18n.php:10
 msgid "Disable Follow Me Upon Creation"
 msgstr "Das Erzeugen von „Folge mir“ deaktivieren"
 
@@ -234,7 +231,7 @@ msgstr "Finde mich/Folge mir wurde aktualisiert!"
 msgid "Find Me/Follow Me for %s"
 msgstr ""
 
-#: findmefollow.i18n.php:34 install.php:5
+#: findmefollow.i18n.php:26 install.php:5
 msgid "Findme Follow Toggle"
 msgstr "Finde mich Folge mir Umschalten"
 
@@ -275,9 +272,8 @@ msgstr ""
 "nur aus Ziffern bestehen, optional kann ein führendes '+' für das E164-"
 "Format verwendet werden."
 
-#: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
-#: ucp/Findmefollow.class.php:124 ucp/Findmefollow.class.php:141
-#: ucp/Findmefollow.class.php:179
+#: page.findmefollow.php:11 ucp/Findmefollow.class.php:124
+#: ucp/Findmefollow.class.php:141 ucp/Findmefollow.class.php:179
 msgid "Follow Me"
 msgstr "Folge mir"
 
@@ -289,7 +285,7 @@ msgstr "Folge mir aktivieren (Leer lassen zum deaktivieren)"
 msgid "Follow Me List"
 msgstr "Folge mir Liste"
 
-#: findmefollow.i18n.php:14
+#: findmefollow.i18n.php:6
 msgid "Follow Me Module"
 msgstr "Folge mir Modul"
 
@@ -498,15 +494,6 @@ msgstr ""
 msgid "Mode"
 msgstr "Modus"
 
-#: findmefollow.i18n.php:8
-msgid ""
-"Much like a ring group, but works on individual extensions. When someone "
-"calls the extension, it can be setup to ring for a number of seconds before "
-"trying to ring other extensions and/or external numbers, or to ring all at "
-"once, or in other various 'hunt' configurations. Most commonly used to ring "
-"someone's cell phone if they don't answer their extension."
-msgstr ""
-
 #: functions.inc.php:542 functions.inc.php:565 functions.inc.php:641
 #: functions.inc.php:868 views/fmgrid.php:18 views/form.php:274
 #: views/form.php:300 views/form.php:384 views/form.php:594
@@ -632,19 +619,19 @@ msgstr "Sekunden"
 msgid "Submit"
 msgstr "Absenden"
 
-#: findmefollow.i18n.php:28
+#: findmefollow.i18n.php:20
 msgid ""
 "The default Initial Ring Time for a Follow Me set upon creation and used if "
 "auto-created with a new extension."
 msgstr ""
 
-#: findmefollow.i18n.php:32
+#: findmefollow.i18n.php:24
 msgid ""
 "The default Ring Strategy selected for a Follow Me set upon creation and "
 "used if auto-created with an extension."
 msgstr ""
 
-#: findmefollow.i18n.php:24
+#: findmefollow.i18n.php:16
 msgid ""
 "The default Ring Time for a Follow Me set upon creation and used if auto-"
 "created with a new extension."
@@ -664,7 +651,7 @@ msgstr ""
 msgid "This is in addition to the Initial Ring Time"
 msgstr ""
 
-#: findmefollow.i18n.php:20
+#: findmefollow.i18n.php:12
 msgid "This is the default value for the Follow Me "
 msgstr "Dies ist der Standardwert für \"Folge mir\" "
 
@@ -753,7 +740,7 @@ msgstr "Achtung! Nebenstelle"
 msgid "We received and sent your request but something failed"
 msgstr ""
 
-#: findmefollow.i18n.php:16
+#: findmefollow.i18n.php:8
 msgid ""
 "When creating a new user or extension, setting this to true will "
 "automatically create a new Follow Me for that user using the default "
@@ -780,12 +767,6 @@ msgstr "Ja"
 
 #: functions.inc.php:654
 msgid "You can not set both a group and a calendar"
-msgstr ""
-
-#: functions.inc.php:791
-msgid ""
-"You can optionally include an Alert Info which can create distinctive rings "
-"on SIP phones."
 msgstr ""
 
 #: functions.inc.php:781
@@ -924,3 +905,11 @@ msgid ""
 "is FreePBX DND, it won't be rung. If the primary is FreePBX CF "
 "unconditional, then all will be rung"
 msgstr ""
+
+#~ msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
+#~ msgstr ""
+#~ "ALERT_INFO kann für einen charakteristischen Klingelton auf SIP-Geräten "
+#~ "genutzt werden."
+
+#~ msgid "Applications"
+#~ msgstr "Anwendungen"
