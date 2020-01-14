@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-22 14:47+0530\n"
+"POT-Creation-Date: 2020-01-14 16:02+0530\n"
 "PO-Revision-Date: 2017-07-25 15:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -33,10 +33,12 @@ msgstr ""
 msgid "--Not Calendar Group Controlled--"
 msgstr ""
 
-#: views/form.php:548
-msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
+#: functions.inc.php:791 views/form.php:548
+msgid ""
+"ALERT_INFO can be used for distinctive ring with SIP devices.<br>If you are "
+"having issues, see the \"Enforce RFC7462\" option found in Settings-"
+">Advanced Settings."
 msgstr ""
-"ALERT_INFO không thể được sử dụng để phân biệt chuông với các thiết bị SIP."
 
 #: functions.inc.php:790 views/form.php:536
 msgid "Alert Info"
@@ -53,10 +55,6 @@ msgstr "Luôn truyền gía trị CID cố định dưới đây."
 #: functions.inc.php:745 views/form.php:78
 msgid "Announcement"
 msgstr "Thông báo"
-
-#: findmefollow.i18n.php:6
-msgid "Applications"
-msgstr "Các ứng dụng"
 
 #: functions.inc.php:533
 msgid ""
@@ -128,7 +126,7 @@ msgstr "Thay đổi cấu hình CID nội bộ"
 msgid "Confirm Calls"
 msgstr "Xác nhận cuộc gọi"
 
-#: findmefollow.i18n.php:12
+#: findmefollow.i18n.php:4
 msgid "Create Follow Me at Extension Creation Time"
 msgstr "Tạo Follow Me tại Extension Creation Time"
 
@@ -137,15 +135,15 @@ msgstr "Tạo Follow Me tại Extension Creation Time"
 msgid "Default"
 msgstr "Mặc định"
 
-#: findmefollow.i18n.php:26
+#: findmefollow.i18n.php:18
 msgid "Default Follow Me Initial Ring Time"
 msgstr "Mặc định Thời gian đổ chuông ban đầu của Follow Me"
 
-#: findmefollow.i18n.php:30
+#: findmefollow.i18n.php:22
 msgid "Default Follow Me Ring Strategy"
 msgstr "Mặc định phương thức đổ chuông của Follow Me"
 
-#: findmefollow.i18n.php:22
+#: findmefollow.i18n.php:14
 msgid "Default Follow Me Ring Time"
 msgstr "Mặc định Thời gian đổ chuông cuả Follow Me"
 
@@ -161,7 +159,7 @@ msgstr "Các điểm đích"
 msgid "Disable"
 msgstr ""
 
-#: findmefollow.i18n.php:18
+#: findmefollow.i18n.php:10
 msgid "Disable Follow Me Upon Creation"
 msgstr "Vô hiệu Follow Me Upon Creation"
 
@@ -256,7 +254,7 @@ msgstr "Find Me/Follow Me vừa được cập nhật!"
 msgid "Find Me/Follow Me for %s"
 msgstr ""
 
-#: findmefollow.i18n.php:34 install.php:5
+#: findmefollow.i18n.php:26 install.php:5
 msgid "Findme Follow Toggle"
 msgstr "Chuyển đổi Findme Follow"
 
@@ -297,9 +295,8 @@ msgstr ""
 "trên. Gía trị cần được định dạng chữ số chỉ với tùy chọn định dạng E164 với "
 "bắt đầu bằng \"+\"."
 
-#: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
-#: ucp/Findmefollow.class.php:124 ucp/Findmefollow.class.php:141
-#: ucp/Findmefollow.class.php:179
+#: page.findmefollow.php:11 ucp/Findmefollow.class.php:124
+#: ucp/Findmefollow.class.php:141 ucp/Findmefollow.class.php:179
 msgid "Follow Me"
 msgstr "Tính năng Follow Me"
 
@@ -311,7 +308,7 @@ msgstr "Follow Me đã được kích hoạt [Đê trống nếu muốn vô hi�
 msgid "Follow Me List"
 msgstr "Danh sách Follow Me"
 
-#: findmefollow.i18n.php:14
+#: findmefollow.i18n.php:6
 msgid "Follow Me Module"
 msgstr "Mô đun Follow Me"
 
@@ -516,21 +513,6 @@ msgstr "Phương thức không được hỗ trợ"
 msgid "Mode"
 msgstr "Chế độ"
 
-#: findmefollow.i18n.php:8
-msgid ""
-"Much like a ring group, but works on individual extensions. When someone "
-"calls the extension, it can be setup to ring for a number of seconds before "
-"trying to ring other extensions and/or external numbers, or to ring all at "
-"once, or in other various 'hunt' configurations. Most commonly used to ring "
-"someone's cell phone if they don't answer their extension."
-msgstr ""
-"giống như một ring group, nhưng lại làm việc trên các máy nhánh cá nhấn. Khi "
-"ai đó gọi vào máy nhánh, nó cỏ thẻ được thiết lập đẻ đổ chuông trong khoảng "
-"ít giây trước khi đổ chuông các máy nhánh khác và/hoặc các số máy nội bộ, "
-"hoặc đổ chuông tất cả các máy trong cùng một lúc, hoặc trong các cấu hình "
-"'hunt'. Thông thường hầu hết nó được sử dụng để đổ chuông điện thoại di động "
-"của ai đó nếu họ không muốn trả lời máy nhánh của họ."
-
 #: functions.inc.php:542 functions.inc.php:565 functions.inc.php:641
 #: functions.inc.php:868 views/fmgrid.php:18 views/form.php:274
 #: views/form.php:300 views/form.php:384 views/form.php:594
@@ -664,7 +646,7 @@ msgstr "Giây"
 msgid "Submit"
 msgstr "Gửi đi"
 
-#: findmefollow.i18n.php:28
+#: findmefollow.i18n.php:20
 msgid ""
 "The default Initial Ring Time for a Follow Me set upon creation and used if "
 "auto-created with a new extension."
@@ -672,7 +654,7 @@ msgstr ""
 "Thời gian đổ chuông mặc định của chức năng Follow Me được thiết lập khi một "
 "máy nhánh mới được tạo theo phương thức auto-created."
 
-#: findmefollow.i18n.php:32
+#: findmefollow.i18n.php:24
 msgid ""
 "The default Ring Strategy selected for a Follow Me set upon creation and "
 "used if auto-created with an extension."
@@ -680,7 +662,7 @@ msgstr ""
 "Phương thức gọi mặc định của chức năng Follow Me được thiết lập khi một máy "
 "nhánh mới được tạo theo phương thức auto-created."
 
-#: findmefollow.i18n.php:24
+#: findmefollow.i18n.php:16
 msgid ""
 "The default Ring Time for a Follow Me set upon creation and used if auto-"
 "created with a new extension."
@@ -703,7 +685,7 @@ msgstr ""
 msgid "This is in addition to the Initial Ring Time"
 msgstr ""
 
-#: findmefollow.i18n.php:20
+#: findmefollow.i18n.php:12
 msgid "This is the default value for the Follow Me "
 msgstr "Đây là giá trị mặc định cho Follow Me "
 
@@ -806,7 +788,7 @@ msgid "We received and sent your request but something failed"
 msgstr ""
 "Chúng tôi đã nhận và đã gửi yêu cầu của bạn nhưng có một số không thành công"
 
-#: findmefollow.i18n.php:16
+#: findmefollow.i18n.php:8
 msgid ""
 "When creating a new user or extension, setting this to true will "
 "automatically create a new Follow Me for that user using the default "
@@ -837,14 +819,6 @@ msgstr "Có"
 #: functions.inc.php:654
 msgid "You can not set both a group and a calendar"
 msgstr ""
-
-#: functions.inc.php:791
-msgid ""
-"You can optionally include an Alert Info which can create distinctive rings "
-"on SIP phones."
-msgstr ""
-"Bạn có thể thêm vào một Alert Info và nó có thể tạo những chuông riêng biệt "
-"trên các điện thoại SIP."
 
 #: functions.inc.php:781
 msgid ""
@@ -1009,6 +983,36 @@ msgstr ""
 "đổ chuông. Nếu máy nhánh chính ở chế độ FreePBX DND, nó sẽ không đổ chuông. "
 "Nếu máy nhánh chính ở chế độ FreePBX CF Unconditional ( FreePBX Chuyến tiếp "
 "cuộc gọi vô điều kiện) thì nó sẽ đổ chuông"
+
+#~ msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
+#~ msgstr ""
+#~ "ALERT_INFO không thể được sử dụng để phân biệt chuông với các thiết bị "
+#~ "SIP."
+
+#~ msgid "Applications"
+#~ msgstr "Các ứng dụng"
+
+#~ msgid ""
+#~ "Much like a ring group, but works on individual extensions. When someone "
+#~ "calls the extension, it can be setup to ring for a number of seconds "
+#~ "before trying to ring other extensions and/or external numbers, or to "
+#~ "ring all at once, or in other various 'hunt' configurations. Most "
+#~ "commonly used to ring someone's cell phone if they don't answer their "
+#~ "extension."
+#~ msgstr ""
+#~ "giống như một ring group, nhưng lại làm việc trên các máy nhánh cá nhấn. "
+#~ "Khi ai đó gọi vào máy nhánh, nó cỏ thẻ được thiết lập đẻ đổ chuông trong "
+#~ "khoảng ít giây trước khi đổ chuông các máy nhánh khác và/hoặc các số máy "
+#~ "nội bộ, hoặc đổ chuông tất cả các máy trong cùng một lúc, hoặc trong các "
+#~ "cấu hình 'hunt'. Thông thường hầu hết nó được sử dụng để đổ chuông điện "
+#~ "thoại di động của ai đó nếu họ không muốn trả lời máy nhánh của họ."
+
+#~ msgid ""
+#~ "You can optionally include an Alert Info which can create distinctive "
+#~ "rings on SIP phones."
+#~ msgstr ""
+#~ "Bạn có thể thêm vào một Alert Info và nó có thể tạo những chuông riêng "
+#~ "biệt trên các điện thoại SIP."
 
 #~ msgid ""
 #~ "When enabled any call to this extension will go to this Follow-Me "
