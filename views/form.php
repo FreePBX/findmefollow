@@ -545,7 +545,7 @@ if (empty($goto)) {
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<span id="dring-help" class="help-block fpbx-help-block"><?php echo _("ALERT_INFO can be used for distinctive ring with SIP devices.")?></span>
+			<span id="dring-help" class="help-block fpbx-help-block"><?php echo _("ALERT_INFO can be used for distinctive ring with SIP devices.<br>If you are having issues, see the \"Enforce RFC7462\" option found in Settings->Advanced Settings.")?></span>
 		</div>
 	</div>
 </div>
