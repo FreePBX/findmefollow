@@ -788,7 +788,7 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 	$el = array(
 		"elemname" => "fmfm_dring",
 		"prompttext" => _('Alert Info'),
-		"helptext" => _('You can optionally include an Alert Info which can create distinctive rings on SIP phones.'),
+		"helptext" => _("ALERT_INFO can be used for distinctive ring with SIP devices.<br>If you are having issues, see the \"Enforce RFC7462\" option found in Settings->Advanced Settings."),
 		"currentvalue" => $fmfm['dring'],
 		"canbeempty" => true,
 		"class" => "fpbx-fmfm",
