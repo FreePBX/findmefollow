@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-14 16:02+0530\n"
-"PO-Revision-Date: 2020-02-05 12:00+0000\n"
+"PO-Revision-Date: 2020-02-11 09:30+0000\n"
 "Last-Translator: florian alberts <alberts@ar-systems.de>\n"
 "Language-Team: German <http://*/projects/freepbx/findmefollow/de/>\n"
 "Language: de_DE\n"
@@ -582,7 +582,7 @@ msgstr ""
 #: functions.inc.php:960 functions.inc.php:979 views/form.php:222
 #: views/form.php:616
 msgid "Outside Calls Fixed CID Value"
-msgstr ""
+msgstr "Feste Anruferkennung für externe Anrufe"
 
 #: views/form.php:576
 #, php-format
@@ -632,7 +632,7 @@ msgstr "Klingeln"
 #: ucp/views/settings.php:42
 #, php-format
 msgid "Ring %s First For"
-msgstr ""
+msgstr "Ring %s Zuerst für"
 
 #: ucp/views/settings.php:51
 msgid "Ring Followme List For"
@@ -902,15 +902,15 @@ msgstr "Nebenstelle"
 
 #: functions.inc.php:693 ucp/views/settings.php:12 views/form.php:50
 msgid "firstavailable"
-msgstr ""
+msgstr "zuerst verfügbar"
 
 #: functions.inc.php:694 ucp/views/settings.php:14 views/form.php:52
 msgid "firstnotonphone"
-msgstr ""
+msgstr "erster nicht am Telefon"
 
 #: functions.inc.php:690 ucp/views/settings.php:6 views/form.php:44
 msgid "hunt"
-msgstr ""
+msgstr "verfolgen"
 
 #: Findmefollow.class.php:93
 msgid "is not allowed for your account"
@@ -918,7 +918,7 @@ msgstr "ist nicht für Ihr Konto erlaubt"
 
 #: functions.inc.php:691 ucp/views/settings.php:8 views/form.php:46
 msgid "memoryhunt"
-msgstr ""
+msgstr "Erinnerungsverfolgung"
 
 #: views/form.php:198
 msgid "none"
