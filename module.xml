@@ -2,27 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>15.0.18</version>
+	<version>16.0.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
-		*15.0.18* FREEPBX-20683: mention the RFC7462 setting 
-		*15.0.17* FREEPBX-20934 Getting "Invalid argument supplied for foreach()" error in Findme Follow module while restoring the FreePBX 15 backup. 
-		*15.0.16* FREEPBX-20562 Restoring backup in FreePBX 15 system is disabling the followme. 
-		*15.0.15* Related to FREEPBX-20414: removed $jobid from runRestore() 
-		*15.0.14* FREEPBX-20258
-		*15.0.12* FREEPBX-19578 
-		*15.0.10* Fixing FREEPBX-19518 Enabling Find me /follow me from quick extenstion creation is not working
-		*15.0.9* fixing legacy restore
-		*15.0.8* fixing legacy restore
-		*15.0.7* Feature/FREEPBX-15651
-		*15.0.6* Rest Api
-		*15.0.5* Packaging of ver 15.0.5
-		*15.0.4* Add Backup 15
-		*15.0.3* FREEPBX-16838 FreePBX 14.0.1.36 d'nt work button "save"
-		*15.0.2* FREEPBX-16513 Calendar Group under follow me broken
-		*15.0.1* FREEPBX-13152
+		*16.0.1alpha* 16.0.1 alpha release
 	</changelog>
 	<depends>
 		<module>core ge 13.0.113.3</module>
@@ -38,7 +23,7 @@
 		<findmefollow needsenginedb="yes">Follow Me</findmefollow>
 	</menuitems>
 	<supported>
-		<version>15.0</version>
+		<version>16.0</version>
 	</supported>
 	<hooks>
 		<bulkhandler class="Bulkhandler" namespace="FreePBX\modules">
