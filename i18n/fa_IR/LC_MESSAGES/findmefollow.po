@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-14 16:03+0530\n"
+"POT-Creation-Date: 2020-03-16 14:34+0530\n"
 "PO-Revision-Date: 2016-07-17 10:16+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -56,6 +56,10 @@ msgstr "همیشه مقدار ثابت CID زیر را منتقل کن."
 #: functions.inc.php:745 views/form.php:78
 msgid "Announcement"
 msgstr "آگهی"
+
+#: findmefollow.i18n.php:6
+msgid "Applications"
+msgstr "درخواست"
 
 #: functions.inc.php:533
 msgid ""
@@ -127,7 +131,7 @@ msgstr "تنظیمات تغییر CID خارجی"
 msgid "Confirm Calls"
 msgstr "قبول تماس"
 
-#: findmefollow.i18n.php:4
+#: findmefollow.i18n.php:12
 msgid "Create Follow Me at Extension Creation Time"
 msgstr "ایجاد مرا دنبال کن زمانی در داخلی"
 
@@ -136,15 +140,15 @@ msgstr "ایجاد مرا دنبال کن زمانی در داخلی"
 msgid "Default"
 msgstr "پیشفرض"
 
-#: findmefollow.i18n.php:18
+#: findmefollow.i18n.php:26
 msgid "Default Follow Me Initial Ring Time"
 msgstr "پیشفرض اولیه مدت زنگ در مرا دنبال کن"
 
-#: findmefollow.i18n.php:22
+#: findmefollow.i18n.php:30
 msgid "Default Follow Me Ring Strategy"
 msgstr "استراتژی زنگ پیشفرض در مرا دنبال کن"
 
-#: findmefollow.i18n.php:14
+#: findmefollow.i18n.php:22
 msgid "Default Follow Me Ring Time"
 msgstr "مدت پیشفرض زنگ در مرا دنبال کن"
 
@@ -160,7 +164,7 @@ msgstr "مقاصد"
 msgid "Disable"
 msgstr ""
 
-#: findmefollow.i18n.php:10
+#: findmefollow.i18n.php:18
 msgid "Disable Follow Me Upon Creation"
 msgstr "غیرفعال کردن مرا دنبال کن ساخته شده"
 
@@ -253,7 +257,7 @@ msgstr "مرا دنبال کن /مرا پیدا کن به روز رسانی شد
 msgid "Find Me/Follow Me for %s"
 msgstr ""
 
-#: findmefollow.i18n.php:26 install.php:5
+#: findmefollow.i18n.php:34 install.php:5
 msgid "Findme Follow Toggle"
 msgstr "مرا پیداو دنبال کن تغییر کرد"
 
@@ -294,8 +298,9 @@ msgstr ""
 "Should be in a format of digits only with an option of E164 format using a "
 "leading '+'."
 
-#: page.findmefollow.php:11 ucp/Findmefollow.class.php:124
-#: ucp/Findmefollow.class.php:141 ucp/Findmefollow.class.php:179
+#: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
+#: ucp/Findmefollow.class.php:124 ucp/Findmefollow.class.php:141
+#: ucp/Findmefollow.class.php:179
 msgid "Follow Me"
 msgstr "مرا دنبال کن"
 
@@ -307,7 +312,7 @@ msgstr "مرا دنبال کن فعال شد [خالی برای غیر فعال]
 msgid "Follow Me List"
 msgstr "فهرست مرا دنبال کن"
 
-#: findmefollow.i18n.php:6
+#: findmefollow.i18n.php:14
 msgid "Follow Me Module"
 msgstr "ماژول مرا دنبال کن"
 
@@ -509,6 +514,20 @@ msgstr "این شیوه پشتیبانی نمیشود"
 msgid "Mode"
 msgstr "حالت"
 
+#: findmefollow.i18n.php:8
+msgid ""
+"Much like a ring group, but works on individual extensions. When someone "
+"calls the extension, it can be setup to ring for a number of seconds before "
+"trying to ring other extensions and/or external numbers, or to ring all at "
+"once, or in other various 'hunt' configurations. Most commonly used to ring "
+"someone's cell phone if they don't answer their extension."
+msgstr ""
+"Much like a ring group, but works on individual extensions. When someone "
+"calls the  extension, it can be setup to ring for a number of seconds before "
+"trying to ring other extensions and/or external numbers, or to ring all at "
+"once, or in other various 'hunt' configurations. Most commonly used to ring "
+"someone's cell phone if they don't answer their extension."
+
 #: functions.inc.php:542 functions.inc.php:565 functions.inc.php:641
 #: functions.inc.php:868 views/fmgrid.php:18 views/form.php:274
 #: views/form.php:300 views/form.php:384 views/form.php:594
@@ -637,7 +656,7 @@ msgstr "ثانیه ها"
 msgid "Submit"
 msgstr "ارسال"
 
-#: findmefollow.i18n.php:20
+#: findmefollow.i18n.php:28
 msgid ""
 "The default Initial Ring Time for a Follow Me set upon creation and used if "
 "auto-created with a new extension."
@@ -645,7 +664,7 @@ msgstr ""
 "The default  Initial Ring Time for a Follow Me set upon creation and used if "
 "auto-created with a new extension."
 
-#: findmefollow.i18n.php:24
+#: findmefollow.i18n.php:32
 msgid ""
 "The default Ring Strategy selected for a Follow Me set upon creation and "
 "used if auto-created with an extension."
@@ -653,7 +672,7 @@ msgstr ""
 "The default Ring Strategy selected  for a Follow Me set upon creation and "
 "used if auto-created with an extension."
 
-#: findmefollow.i18n.php:16
+#: findmefollow.i18n.php:24
 msgid ""
 "The default Ring Time for a Follow Me set upon creation and used if auto-"
 "created with a new extension."
@@ -675,7 +694,7 @@ msgstr ""
 msgid "This is in addition to the Initial Ring Time"
 msgstr ""
 
-#: findmefollow.i18n.php:12
+#: findmefollow.i18n.php:20
 msgid "This is the default value for the Follow Me "
 msgstr "این مقدار پیشفرض برای مرا دنبال کن است "
 
@@ -776,7 +795,7 @@ msgstr "هشدار! داخلی"
 msgid "We received and sent your request but something failed"
 msgstr "در حال دریافت و ارسال درخواست شما با شکست مواجه شدیم"
 
-#: findmefollow.i18n.php:8
+#: findmefollow.i18n.php:16
 msgid ""
 "When creating a new user or extension, setting this to true will "
 "automatically create a new Follow Me for that user using the default "
@@ -963,24 +982,6 @@ msgstr ""
 
 #~ msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
 #~ msgstr "اطلاعات هشدار میتواند برای تمایز زنگ وسایل SIP استفاده میشود."
-
-#~ msgid "Applications"
-#~ msgstr "درخواست"
-
-#~ msgid ""
-#~ "Much like a ring group, but works on individual extensions. When someone "
-#~ "calls the extension, it can be setup to ring for a number of seconds "
-#~ "before trying to ring other extensions and/or external numbers, or to "
-#~ "ring all at once, or in other various 'hunt' configurations. Most "
-#~ "commonly used to ring someone's cell phone if they don't answer their "
-#~ "extension."
-#~ msgstr ""
-#~ "Much like a ring group, but works on individual extensions. When someone "
-#~ "calls the  extension, it can be setup to ring for a number of seconds "
-#~ "before trying to ring other extensions and/or external numbers, or to "
-#~ "ring all at once, or in other various 'hunt' configurations. Most "
-#~ "commonly used to ring someone's cell phone if they don't answer their "
-#~ "extension."
 
 #~ msgid ""
 #~ "You can optionally include an Alert Info which can create distinctive "
