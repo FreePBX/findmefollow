@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-14 16:02+0530\n"
+"POT-Creation-Date: 2020-03-16 14:32+0530\n"
 "PO-Revision-Date: 2015-05-01 13:02+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -55,6 +55,10 @@ msgstr "Всегда передавать фиксированное значе�
 #: functions.inc.php:745 views/form.php:78
 msgid "Announcement"
 msgstr "Приветствие"
+
+#: findmefollow.i18n.php:6
+msgid "Applications"
+msgstr "Приложения"
 
 #: functions.inc.php:533
 msgid ""
@@ -115,7 +119,7 @@ msgstr "Изменять конфигурацию внешнего Caller ID"
 msgid "Confirm Calls"
 msgstr "Подтверждать вызовы"
 
-#: findmefollow.i18n.php:4
+#: findmefollow.i18n.php:12
 msgid "Create Follow Me at Extension Creation Time"
 msgstr "Создать Следуйте сюда во время создания внутреннего номера"
 
@@ -124,15 +128,15 @@ msgstr "Создать Следуйте сюда во время создани�
 msgid "Default"
 msgstr "По умолчанию"
 
-#: findmefollow.i18n.php:18
+#: findmefollow.i18n.php:26
 msgid "Default Follow Me Initial Ring Time"
 msgstr "Начальное время звонка по умолчанию для Следуйте сюда"
 
-#: findmefollow.i18n.php:22
+#: findmefollow.i18n.php:30
 msgid "Default Follow Me Ring Strategy"
 msgstr "Стратегия звонка Следуйте сюда по умолчанию"
 
-#: findmefollow.i18n.php:14
+#: findmefollow.i18n.php:22
 msgid "Default Follow Me Ring Time"
 msgstr "Время звонка 'Следуйте сюда' по умолчанию"
 
@@ -148,7 +152,7 @@ msgstr "Назначения"
 msgid "Disable"
 msgstr "Не использовать"
 
-#: findmefollow.i18n.php:10
+#: findmefollow.i18n.php:18
 msgid "Disable Follow Me Upon Creation"
 msgstr ""
 "Отключить создание Следуйте сюда при создании пользователя/внутреннего номера"
@@ -243,7 +247,7 @@ msgstr "Найти меня/Следуйте сюда был обновлен!"
 msgid "Find Me/Follow Me for %s"
 msgstr ""
 
-#: findmefollow.i18n.php:26 install.php:5
+#: findmefollow.i18n.php:34 install.php:5
 msgid "Findme Follow Toggle"
 msgstr "Переключение Найти меня тут"
 
@@ -284,8 +288,9 @@ msgstr ""
 "числовом формате с опцией стандарта  Е164 с использованием  знака \"+\" в "
 "начале."
 
-#: page.findmefollow.php:11 ucp/Findmefollow.class.php:124
-#: ucp/Findmefollow.class.php:141 ucp/Findmefollow.class.php:179
+#: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
+#: ucp/Findmefollow.class.php:124 ucp/Findmefollow.class.php:141
+#: ucp/Findmefollow.class.php:179
 msgid "Follow Me"
 msgstr "Следуйте сюда"
 
@@ -297,7 +302,7 @@ msgstr ""
 msgid "Follow Me List"
 msgstr "Список Следуйте сюда"
 
-#: findmefollow.i18n.php:6
+#: findmefollow.i18n.php:14
 msgid "Follow Me Module"
 msgstr "Модуль Следуйте сюда"
 
@@ -495,6 +500,23 @@ msgstr "Метод не поддерживается"
 msgid "Mode"
 msgstr "Режим"
 
+#: findmefollow.i18n.php:8
+msgid ""
+"Much like a ring group, but works on individual extensions. When someone "
+"calls the extension, it can be setup to ring for a number of seconds before "
+"trying to ring other extensions and/or external numbers, or to ring all at "
+"once, or in other various 'hunt' configurations. Most commonly used to ring "
+"someone's cell phone if they don't answer their extension."
+msgstr ""
+"Работает так же, как мини ринг-группа, но только индивидуально для каждого "
+"внутреннего номера. Если поступит вызов на какой-либо внутренний номер, то "
+"после указанного времени, в течение которого будет вызываться этот номер "
+"непосредственно, будет предпринята попытка вызова следующего по списку "
+"внутреннего или внешнего номера. Или, как вариант, будут звонить-все, или "
+"будут предприняты другие сценарии, например - серийное искание. Наиболее "
+"частое применение - для перенаправления вызова на мобильный телефон, если "
+"этот номер не отвечает."
+
 #: functions.inc.php:542 functions.inc.php:565 functions.inc.php:641
 #: functions.inc.php:868 views/fmgrid.php:18 views/form.php:274
 #: views/form.php:300 views/form.php:384 views/form.php:594
@@ -620,7 +642,7 @@ msgstr "Секунд"
 msgid "Submit"
 msgstr "Подтвердить"
 
-#: findmefollow.i18n.php:20
+#: findmefollow.i18n.php:28
 msgid ""
 "The default Initial Ring Time for a Follow Me set upon creation and used if "
 "auto-created with a new extension."
@@ -628,7 +650,7 @@ msgstr ""
 "Установка времени начального звонка для Следуйте сюда, используется если "
 "создается автоматически при создании нового внутреннего номера."
 
-#: findmefollow.i18n.php:24
+#: findmefollow.i18n.php:32
 msgid ""
 "The default Ring Strategy selected for a Follow Me set upon creation and "
 "used if auto-created with an extension."
@@ -637,7 +659,7 @@ msgstr ""
 "создания и используется если Следуйте сюда создается автоматически с "
 "внутренним номером."
 
-#: findmefollow.i18n.php:16
+#: findmefollow.i18n.php:24
 msgid ""
 "The default Ring Time for a Follow Me set upon creation and used if auto-"
 "created with a new extension."
@@ -661,7 +683,7 @@ msgstr ""
 msgid "This is in addition to the Initial Ring Time"
 msgstr ""
 
-#: findmefollow.i18n.php:12
+#: findmefollow.i18n.php:20
 msgid "This is the default value for the Follow Me "
 msgstr "Это значение по умолчанию для Следуйте сюда "
 
@@ -764,7 +786,7 @@ msgstr "Внимание! Внутренний номер"
 msgid "We received and sent your request but something failed"
 msgstr "Вы получили и передали ваш запрос, но произошла ошибка"
 
-#: findmefollow.i18n.php:8
+#: findmefollow.i18n.php:16
 msgid ""
 "When creating a new user or extension, setting this to true will "
 "automatically create a new Follow Me for that user using the default "
@@ -955,26 +977,6 @@ msgstr ""
 #~ msgstr ""
 #~ "ALERT_INFO может быть использован  с SIP-устройством  для особенной "
 #~ "мелодии звонка "
-
-#~ msgid "Applications"
-#~ msgstr "Приложения"
-
-#~ msgid ""
-#~ "Much like a ring group, but works on individual extensions. When someone "
-#~ "calls the extension, it can be setup to ring for a number of seconds "
-#~ "before trying to ring other extensions and/or external numbers, or to "
-#~ "ring all at once, or in other various 'hunt' configurations. Most "
-#~ "commonly used to ring someone's cell phone if they don't answer their "
-#~ "extension."
-#~ msgstr ""
-#~ "Работает так же, как мини ринг-группа, но только индивидуально для "
-#~ "каждого внутреннего номера. Если поступит вызов на какой-либо внутренний "
-#~ "номер, то после указанного времени, в течение которого будет вызываться "
-#~ "этот номер непосредственно, будет предпринята попытка вызова следующего "
-#~ "по списку внутреннего или внешнего номера. Или, как вариант, будут "
-#~ "звонить-все, или будут предприняты другие сценарии, например - серийное "
-#~ "искание. Наиболее частое применение - для перенаправления вызова на "
-#~ "мобильный телефон, если этот номер не отвечает."
 
 #~ msgid ""
 #~ "You can optionally include an Alert Info which can create distinctive "
