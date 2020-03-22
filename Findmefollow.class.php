@@ -920,7 +920,7 @@ class Findmefollow implements \BMO {
 								//ITS THE CODE FROM 7 YEARS AGO
 								//:'(
 								$value = trim($value);
-								$settings['ddial'] = (!empty($value) && ($value == 'yes')) ? true : false;
+								$settings['ddial'] = (!empty($value)) ? false : true;
 							break;
 							default:
 								$settings[$settingname] = $value;
