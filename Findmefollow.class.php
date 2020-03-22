@@ -1036,7 +1036,7 @@ class Findmefollow implements \BMO {
 							$this->FreePBX->astman->set_global($this->FreePBX->Config->get_conf_setting('AST_FUNC_DEVICE_STATE') . "(Custom:FOLLOWME$device)", $ddialstate);
 						}
 					}
-					if(!$value) {
+					if ((!$value) && empty($settings['grplist'])) {
 						$sql = "INSERT INTO findmefollow (grpnum,grptime,grplist) VALUES (:grpnum,20,:grpnum)";
 						$sth2 = $this->db->prepare($sql);
 						//wrapped into a try/catch incase the find me is already defined, then we won't do the additional steps.
