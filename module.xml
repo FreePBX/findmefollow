@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>15.0.19</version>
+	<version>15.0.20</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*15.0.20* Bugfix/FREEPBX-21287 
 		*15.0.19* Fixing FREEPBX-21287 
 		*15.0.18* FREEPBX-20683: mention the RFC7462 setting 
 		*15.0.17* FREEPBX-20934 Getting "Invalid argument supplied for foreach()" error in Findme Follow module while restoring the FreePBX 15 backup. 
