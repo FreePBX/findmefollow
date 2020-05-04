@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-14 16:03+0530\n"
+"POT-Creation-Date: 2020-03-16 14:34+0530\n"
 "PO-Revision-Date: 2018-08-29 13:00+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/findmefollow/cs/>\n"
@@ -54,6 +54,10 @@ msgstr "Vždy přenášet hodnotu Fixed CID níže."
 #: functions.inc.php:745 views/form.php:78
 msgid "Announcement"
 msgstr "Oznámení"
+
+#: findmefollow.i18n.php:6
+msgid "Applications"
+msgstr "Aplikace"
 
 #: functions.inc.php:533
 msgid ""
@@ -125,7 +129,7 @@ msgstr "Změna konfigurace externího CID"
 msgid "Confirm Calls"
 msgstr "Potvrdit volání"
 
-#: findmefollow.i18n.php:4
+#: findmefollow.i18n.php:12
 msgid "Create Follow Me at Extension Creation Time"
 msgstr "Vytvořit FollowMe k pobočce (Extension Creation Time)"
 
@@ -134,15 +138,15 @@ msgstr "Vytvořit FollowMe k pobočce (Extension Creation Time)"
 msgid "Default"
 msgstr "Výchozí nastavení"
 
-#: findmefollow.i18n.php:18
+#: findmefollow.i18n.php:26
 msgid "Default Follow Me Initial Ring Time"
 msgstr "Výchozí nastavení počáteční doby vyzvánění pro FollowMe"
 
-#: findmefollow.i18n.php:22
+#: findmefollow.i18n.php:30
 msgid "Default Follow Me Ring Strategy"
 msgstr "Výchozí nastavení vyzvánění pro FollowMe"
 
-#: findmefollow.i18n.php:14
+#: findmefollow.i18n.php:22
 msgid "Default Follow Me Ring Time"
 msgstr "Výchozí nastavení času vyzvánění pro FollowMe"
 
@@ -158,7 +162,7 @@ msgstr "Cílová čísla"
 msgid "Disable"
 msgstr "Zakázat"
 
-#: findmefollow.i18n.php:10
+#: findmefollow.i18n.php:18
 msgid "Disable Follow Me Upon Creation"
 msgstr "Při vytvoření zakázat FollowMe"
 
@@ -253,7 +257,7 @@ msgstr "FindMe/FollowMe byly aktualizovány!"
 msgid "Find Me/Follow Me for %s"
 msgstr "FindMe/FollowMe pro %s"
 
-#: findmefollow.i18n.php:26 install.php:5
+#: findmefollow.i18n.php:34 install.php:5
 msgid "Findme Follow Toggle"
 msgstr "Přepnutí FindMe Follow"
 
@@ -294,8 +298,9 @@ msgstr ""
 "režimů. Mělo by být ve formátu číslic pouze s volbou formátu E164 "
 "začínajícího '+'."
 
-#: page.findmefollow.php:11 ucp/Findmefollow.class.php:124
-#: ucp/Findmefollow.class.php:141 ucp/Findmefollow.class.php:179
+#: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
+#: ucp/Findmefollow.class.php:124 ucp/Findmefollow.class.php:141
+#: ucp/Findmefollow.class.php:179
 msgid "Follow Me"
 msgstr "FollowMe"
 
@@ -307,7 +312,7 @@ msgstr "Povoleno FollowMe [Nechte prázdné pro zákaz této funkce]"
 msgid "Follow Me List"
 msgstr "Seznam FollowMe"
 
-#: findmefollow.i18n.php:6
+#: findmefollow.i18n.php:14
 msgid "Follow Me Module"
 msgstr "Modul FollowMe"
 
@@ -520,6 +525,19 @@ msgstr "Metoda není podporována"
 msgid "Mode"
 msgstr "Režim"
 
+#: findmefollow.i18n.php:8
+msgid ""
+"Much like a ring group, but works on individual extensions. When someone "
+"calls the extension, it can be setup to ring for a number of seconds before "
+"trying to ring other extensions and/or external numbers, or to ring all at "
+"once, or in other various 'hunt' configurations. Most commonly used to ring "
+"someone's cell phone if they don't answer their extension."
+msgstr ""
+"Podobně jako vyzváněcí skupina, ale pracuje s pobočkami individuálně. Pokud "
+"někdo volá pobočku, lze nastavit čas vyzvánění v sekundách, než bude volání "
+"přesměrováno na jinou poboočku a/nebo externí číslo. Nejčastěji se používá "
+"volání na mobilní číslo, pokud volaný nezvedá pevnou linku."
+
 #: functions.inc.php:542 functions.inc.php:565 functions.inc.php:641
 #: functions.inc.php:868 views/fmgrid.php:18 views/form.php:274
 #: views/form.php:300 views/form.php:384 views/form.php:594
@@ -652,7 +670,7 @@ msgstr "Vteřin"
 msgid "Submit"
 msgstr "Potvrdit"
 
-#: findmefollow.i18n.php:20
+#: findmefollow.i18n.php:28
 msgid ""
 "The default Initial Ring Time for a Follow Me set upon creation and used if "
 "auto-created with a new extension."
@@ -660,7 +678,7 @@ msgstr ""
 "Výchozí hodnota počáteční doby vyzvánění pro FollowMe je nastavena a použita "
 "během automatického vytvoření nové pobočky."
 
-#: findmefollow.i18n.php:24
+#: findmefollow.i18n.php:32
 msgid ""
 "The default Ring Strategy selected for a Follow Me set upon creation and "
 "used if auto-created with an extension."
@@ -668,7 +686,7 @@ msgstr ""
 "Výchozí hodnota možností vyzvánění pro FollowMe je nastavena a použita během "
 "automatického vytvoření nové pobočky."
 
-#: findmefollow.i18n.php:16
+#: findmefollow.i18n.php:24
 msgid ""
 "The default Ring Time for a Follow Me set upon creation and used if auto-"
 "created with a new extension."
@@ -692,7 +710,7 @@ msgstr ""
 msgid "This is in addition to the Initial Ring Time"
 msgstr "Hodnota navíc k počátečnímu vyzváněcímu času"
 
-#: findmefollow.i18n.php:12
+#: findmefollow.i18n.php:20
 msgid "This is the default value for the Follow Me "
 msgstr "Toto je výhozí hodnota pro FollowMe "
 
@@ -792,7 +810,7 @@ msgstr "Varování! Pobočka"
 msgid "We received and sent your request but something failed"
 msgstr "Vaši žádost jsme obdrželi a odeslali, ale něco se nezdařilo"
 
-#: findmefollow.i18n.php:8
+#: findmefollow.i18n.php:16
 msgid ""
 "When creating a new user or extension, setting this to true will "
 "automatically create a new Follow Me for that user using the default "
@@ -989,23 +1007,6 @@ msgstr ""
 
 #~ msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
 #~ msgstr "ALERT_INFO lze použít pro různé vyzvánění pro SIP zařízení."
-
-#~ msgid "Applications"
-#~ msgstr "Aplikace"
-
-#~ msgid ""
-#~ "Much like a ring group, but works on individual extensions. When someone "
-#~ "calls the extension, it can be setup to ring for a number of seconds "
-#~ "before trying to ring other extensions and/or external numbers, or to "
-#~ "ring all at once, or in other various 'hunt' configurations. Most "
-#~ "commonly used to ring someone's cell phone if they don't answer their "
-#~ "extension."
-#~ msgstr ""
-#~ "Podobně jako vyzváněcí skupina, ale pracuje s pobočkami individuálně. "
-#~ "Pokud někdo volá pobočku, lze nastavit čas vyzvánění v sekundách, než "
-#~ "bude volání přesměrováno na jinou poboočku a/nebo externí číslo. "
-#~ "Nejčastěji se používá volání na mobilní číslo, pokud volaný nezvedá "
-#~ "pevnou linku."
 
 #~ msgid ""
 #~ "You can optionally include an Alert Info which can create distinctive "
