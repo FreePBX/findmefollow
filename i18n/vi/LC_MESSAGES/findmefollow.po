@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-16 14:32+0530\n"
+"POT-Creation-Date: 2020-06-24 03:38+0000\n"
 "PO-Revision-Date: 2017-07-25 15:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -21,26 +21,26 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: functions.inc.php:692 ucp/views/settings.php:10 views/form.php:48
+#: functions.inc.php:693 ucp/views/settings.php:10 views/form.php:48
 msgid "*-prim"
 msgstr "*-prim (Thuật toán prim )"
 
-#: functions.inc.php:578 views/form.php:324
+#: functions.inc.php:579 views/form.php:324
 msgid "--Not Calendar Controlled--"
 msgstr ""
 
-#: functions.inc.php:605 views/form.php:353
+#: functions.inc.php:606 views/form.php:353
 msgid "--Not Calendar Group Controlled--"
 msgstr ""
 
-#: functions.inc.php:791 views/form.php:548
+#: functions.inc.php:792 views/form.php:548
 msgid ""
 "ALERT_INFO can be used for distinctive ring with SIP devices.<br>If you are "
 "having issues, see the \"Enforce RFC7462\" option found in Settings-"
 ">Advanced Settings."
 msgstr ""
 
-#: functions.inc.php:790 views/form.php:536
+#: functions.inc.php:791 views/form.php:536
 msgid "Alert Info"
 msgstr "Thông tin cảnh báo"
 
@@ -48,11 +48,11 @@ msgstr "Thông tin cảnh báo"
 msgid "Allowed Extensions"
 msgstr ""
 
-#: functions.inc.php:959 views/form.php:614
+#: functions.inc.php:960 views/form.php:614
 msgid "Always transmit the Fixed CID Value below."
 msgstr "Luôn truyền gía trị CID cố định dưới đây."
 
-#: functions.inc.php:745 views/form.php:78
+#: functions.inc.php:746 views/form.php:78
 msgid "Announcement"
 msgstr "Thông báo"
 
@@ -60,7 +60,7 @@ msgstr "Thông báo"
 msgid "Applications"
 msgstr "Các ứng dụng"
 
-#: functions.inc.php:533
+#: functions.inc.php:534
 msgid ""
 "By default (Yes) any call to this extension will go to this Follow-Me "
 "instead, including directory calls by name from IVRs. If set to \"No\", "
@@ -94,19 +94,19 @@ msgstr ""
 "định vị VmX, nơi bạn muốn cuộc gọi đổ chuông máy nhánh và sau đó chỉ nếu khi "
 "người gọi chọn để tìm kiếm bạn, bạn có muốn cuôc gọi này đến đây không."
 
-#: functions.inc.php:780 views/form.php:512
+#: functions.inc.php:781 views/form.php:512
 msgid "CID Name Prefix"
 msgstr "Tiền tố của Tên CID"
 
-#: functions.inc.php:590 views/form.php:319
+#: functions.inc.php:591 views/form.php:319
 msgid "Calendar"
 msgstr ""
 
-#: functions.inc.php:617 views/form.php:348
+#: functions.inc.php:618 views/form.php:348
 msgid "Calendar Group"
 msgstr ""
 
-#: functions.inc.php:631 views/form.php:377
+#: functions.inc.php:632 views/form.php:377
 msgid "Calendar Match Inverse"
 msgstr ""
 
@@ -114,7 +114,7 @@ msgstr ""
 msgid "Calendar Not found"
 msgstr ""
 
-#: functions.inc.php:835
+#: functions.inc.php:836
 msgid "Call Confirmation Configuration"
 msgstr "Cấu hình xác nhận cuộc gọi"
 
@@ -122,11 +122,11 @@ msgstr "Cấu hình xác nhận cuộc gọi"
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "Không thể kết nối Trình quản lý Asterisk với "
 
-#: functions.inc.php:936 views/form.php:630
+#: functions.inc.php:937 views/form.php:630
 msgid "Change External CID Configuration"
 msgstr "Thay đổi cấu hình CID nội bộ"
 
-#: functions.inc.php:858 views/form.php:587
+#: functions.inc.php:859 views/form.php:587
 msgid "Confirm Calls"
 msgstr "Xác nhận cuộc gọi"
 
@@ -134,7 +134,7 @@ msgstr "Xác nhận cuộc gọi"
 msgid "Create Follow Me at Extension Creation Time"
 msgstr "Tạo Follow Me tại Extension Creation Time"
 
-#: functions.inc.php:879 functions.inc.php:958 functions.inc.php:971
+#: functions.inc.php:880 functions.inc.php:959 functions.inc.php:972
 #: views/form.php:120 views/form.php:155 views/form.php:220 views/form.php:612
 msgid "Default"
 msgstr "Mặc định"
@@ -155,7 +155,7 @@ msgstr "Mặc định Thời gian đổ chuông cuả Follow Me"
 msgid "Destination if no answer"
 msgstr "Điểm đích nếu không trả lời"
 
-#: functions.inc.php:1015
+#: functions.inc.php:1016
 msgid "Destinations"
 msgstr "Các điểm đích"
 
@@ -175,7 +175,7 @@ msgstr ""
 msgid "Enable"
 msgstr "Kích hoạt"
 
-#: functions.inc.php:555 views/form.php:293
+#: functions.inc.php:556 views/form.php:293
 msgid "Enable Calendar Matching"
 msgstr ""
 
@@ -220,7 +220,7 @@ msgstr ""
 "nhấn phím 1 trước khi cuộc gọi được kết nối. Tính năng này chỉ hoạt động với "
 "phương thức đổ chuông ringall"
 
-#: functions.inc.php:859
+#: functions.inc.php:860
 msgid ""
 "Enable this if you're calling external numbers that need confirmation - eg, "
 "a mobile phone may go to voicemail which will pick up the call. Enabling "
@@ -233,7 +233,7 @@ msgstr ""
 "nhấn phím 1 trước khi cuộc gọi được kết nối. Tính năng này chỉ hoạt động với "
 "phương thức đổ chuông ringall/ ringall-prim"
 
-#: functions.inc.php:532 ucp/views/widget.php:2 views/fmgrid.php:27
+#: functions.inc.php:533 ucp/views/widget.php:2 views/fmgrid.php:27
 msgid "Enabled"
 msgstr "Đã kích hoạt"
 
@@ -245,7 +245,7 @@ msgstr "Lỗi"
 msgid "Extension"
 msgstr "Máy nhánh"
 
-#: functions.inc.php:474
+#: functions.inc.php:475
 msgid "Find Me/Follow Me"
 msgstr "Tính năng Find Me/Follow Me"
 
@@ -266,12 +266,12 @@ msgstr "Chuyển đổi Findme Follow"
 msgid "FindmeFollow"
 msgstr ""
 
-#: functions.inc.php:959 functions.inc.php:975 functions.inc.php:998
+#: functions.inc.php:960 functions.inc.php:976 functions.inc.php:999
 #: views/form.php:221 views/form.php:614 views/form.php:656
 msgid "Fixed CID Value"
 msgstr "Gía trị CID cố định"
 
-#: functions.inc.php:1005
+#: functions.inc.php:1006
 msgid ""
 "Fixed CID Value should be in a format of digits only with an option of E164 "
 "format using a leading \"+\""
@@ -279,7 +279,7 @@ msgstr ""
 "Gía trị CID cố định phải được định dạng bằng chữ số chỉ với tùy chọn định "
 "dạng E164 với bắt đầu bằng '+\""
 
-#: functions.inc.php:999
+#: functions.inc.php:1000
 msgid ""
 "Fixed value to replace the CID with used with some of the modes above. "
 "Should be in a format of digits only with an option of E164 format using a "
@@ -321,7 +321,7 @@ msgstr "Mô đun Follow Me"
 msgid "Follow Me No Answer Destination"
 msgstr "Điểm đích không trả lời Follow Me"
 
-#: functions.inc.php:1150
+#: functions.inc.php:1151
 #, php-format
 msgid "Follow Me: %s"
 msgstr "Tính năng Follow Me: %s"
@@ -330,20 +330,20 @@ msgstr "Tính năng Follow Me: %s"
 msgid "Follow-Me"
 msgstr ""
 
-#: functions.inc.php:727 views/form.php:478
+#: functions.inc.php:728 views/form.php:478
 msgid "Follow-Me List"
 msgstr "Danh sách Follow-Me"
 
-#: functions.inc.php:733
+#: functions.inc.php:734
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
 msgstr "Danh sách Follow-Me không được để trống nếu kích hoạt Follow-Me"
 
-#: functions.inc.php:1202
+#: functions.inc.php:1203
 #, php-format
 msgid "Follow-Me User: %s"
 msgstr "Người dùng Follow-Me: %s"
 
-#: functions.inc.php:1179
+#: functions.inc.php:1180
 #, php-format
 msgid "Follow-Me: %s (%s)"
 msgstr "Tính năng Follow-Me: %s (%s)"
@@ -360,7 +360,7 @@ msgstr "Danh sách Followme"
 msgid "Followme Ring Strategy Settings"
 msgstr ""
 
-#: functions.inc.php:962 functions.inc.php:987 views/form.php:224
+#: functions.inc.php:963 functions.inc.php:988 views/form.php:224
 #: views/form.php:620
 msgid "Force Dialed Number"
 msgstr "Bắt buộc số đã quay"
@@ -369,7 +369,7 @@ msgstr "Bắt buộc số đã quay"
 msgid "Force Follow Me"
 msgstr "Bắt buộc Follow Me"
 
-#: functions.inc.php:508
+#: functions.inc.php:509
 msgid "General Settings"
 msgstr "Cài đặt chung"
 
@@ -377,16 +377,16 @@ msgstr "Cài đặt chung"
 msgid "Group Number"
 msgstr "Số nhóm"
 
-#: functions.inc.php:618 views/form.php:365
+#: functions.inc.php:619 views/form.php:365
 msgid ""
 "If set the followme will only be active when the calendar group has an event."
 msgstr ""
 
-#: functions.inc.php:591 views/form.php:336
+#: functions.inc.php:592 views/form.php:336
 msgid "If set the followme will only be active when the calendar has an event."
 msgstr ""
 
-#: functions.inc.php:770 views/form.php:212
+#: functions.inc.php:771 views/form.php:212
 msgid ""
 "If you select a Music on Hold class to play, instead of 'Ring', they will "
 "hear that instead of Ringing while they are waiting for someone to pick up."
@@ -398,7 +398,7 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
-#: functions.inc.php:678 views/form.php:404
+#: functions.inc.php:679 views/form.php:404
 msgid "Initial Ring Time"
 msgstr "Thời gian đổ chuông ban đầu"
 
@@ -414,7 +414,7 @@ msgstr ""
 msgid "Invalid time specified"
 msgstr "Thời gian không hợp lệ được xác định"
 
-#: functions.inc.php:556 views/form.php:308
+#: functions.inc.php:557 views/form.php:308
 msgid ""
 "Link this Follow Me to a Calendar or Calendar group to automatically Enable/"
 "Disable based on a schedule"
@@ -424,7 +424,7 @@ msgstr ""
 msgid "List Followme Groups"
 msgstr "Danh sách Nhóm Followme"
 
-#: functions.inc.php:728 views/form.php:498
+#: functions.inc.php:729 views/form.php:498
 msgid ""
 "List extensions to ring, one per line, or use the Extension Quick Pick below."
 "<br><br>You can include an extension on a remote system, or an external "
@@ -461,7 +461,7 @@ msgstr ""
 "<br><br> Để thêm các ghi âm bổ sung vui lòng sử dụng MENU \"System Recordings"
 "\" ở trên"
 
-#: functions.inc.php:746
+#: functions.inc.php:747
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
 "additional recordings please use the \"System Recordings\" MENU to the left"
@@ -480,7 +480,7 @@ msgstr ""
 "được bật . <br><br> Để thêm các ghi âm bổ sung hãy sử dụng MENU \"System "
 "Recordings\" ở trên"
 
-#: functions.inc.php:884
+#: functions.inc.php:885
 msgid ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' is "
 "enabled.<br><br>To add additional recordings use the \"System Recordings\" "
@@ -500,7 +500,7 @@ msgstr ""
 "chấp nhận trước khi nhấn phím 1 . <br><br> Để thêm các ghi âm bổ sung hãy sử "
 "dụng MENU \"System Recordings\" ở trên"
 
-#: functions.inc.php:896
+#: functions.inc.php:897
 msgid ""
 "Message to be played to the person RECEIVING the call, if the call has "
 "already been accepted before they push 1.<br><br>To add additional "
@@ -514,7 +514,7 @@ msgstr ""
 msgid "Method not supported"
 msgstr "Phương thức không được hỗ trợ"
 
-#: functions.inc.php:965 views/form.php:610
+#: functions.inc.php:966 views/form.php:610
 msgid "Mode"
 msgstr "Chế độ"
 
@@ -533,18 +533,18 @@ msgstr ""
 "'hunt'. Thông thường hầu hết nó được sử dụng để đổ chuông điện thoại di động "
 "của ai đó nếu họ không muốn trả lời máy nhánh của họ."
 
-#: functions.inc.php:542 functions.inc.php:565 functions.inc.php:641
-#: functions.inc.php:868 views/fmgrid.php:18 views/form.php:274
+#: functions.inc.php:543 functions.inc.php:566 functions.inc.php:642
+#: functions.inc.php:869 views/fmgrid.php:18 views/form.php:274
 #: views/form.php:300 views/form.php:384 views/form.php:594
 #: views/quickCreate.php:12 views/ucp_config.php:15
 msgid "No"
 msgstr "Không"
 
-#: functions.inc.php:1039
+#: functions.inc.php:1040
 msgid "No Answer"
 msgstr "Không trả lời"
 
-#: functions.inc.php:460 functions.inc.php:800 views/form.php:85
+#: functions.inc.php:461 functions.inc.php:801 views/form.php:85
 #: views/form.php:564
 msgid "None"
 msgstr "Không có"
@@ -572,7 +572,7 @@ msgstr ""
 "chỉ ringall, ringallv2, hunt và các phiên bản prim tương ứng mới được hỗ trợ "
 "khi bị kiểm tra xác nhận"
 
-#: functions.inc.php:1040
+#: functions.inc.php:1041
 msgid ""
 "Optional destination call is routed to when the call is not answered on an "
 "otherwise idle phone. If the phone is in use and the call is simply ignored, "
@@ -582,7 +582,7 @@ msgstr ""
 "lời trên một điện thoại đang rỗi. Nếu điện thoại đang được sử dụng và cuộc "
 "gọi bị bỏ qua, thì sau đó điểm đích bận sẽ được sử dụng."
 
-#: functions.inc.php:960 functions.inc.php:979 views/form.php:222
+#: functions.inc.php:961 functions.inc.php:980 views/form.php:222
 #: views/form.php:616
 msgid "Outside Calls Fixed CID Value"
 msgstr "Gía trị CID cố định của các cuộc gọi bên ngoài"
@@ -596,7 +596,7 @@ msgstr ""
 "Ghi đè âm lượng chuông. Lưu ý: Điều này chỉ hợp lệ cho điện thoại %s tại "
 "thời điểm này"
 
-#: functions.inc.php:815
+#: functions.inc.php:816
 msgid ""
 "Override the ringer volume. Note: This is only valid for Sangoma phones at "
 "this time"
@@ -604,11 +604,11 @@ msgstr ""
 "Ghi đè âm lượng chuông. Lưu ý: Điều này chỉ hợp lệ cho điện thoại Sangoma "
 "tại thời điểm này"
 
-#: functions.inc.php:769 views/form.php:188
+#: functions.inc.php:770 views/form.php:188
 msgid "Play Music On Hold"
 msgstr "Phát nhạc chờ"
 
-#: functions.inc.php:486
+#: functions.inc.php:487
 #, php-format
 msgid "Please enter a valid %s number"
 msgstr "Vui lòng nhập số %s hợp lệ"
@@ -617,7 +617,7 @@ msgstr "Vui lòng nhập số %s hợp lệ"
 msgid "Please enter an extension list."
 msgstr "Vui lòng nhập một danh sách máy nhánh."
 
-#: functions.inc.php:883 views/form.php:113
+#: functions.inc.php:884 views/form.php:113
 msgid "Remote Announce"
 msgstr "Thông báo từ xa"
 
@@ -629,7 +629,7 @@ msgstr "Không nhận được yêu cầu"
 msgid "Reset"
 msgstr "Cài đặt lại"
 
-#: functions.inc.php:757 views/form.php:195
+#: functions.inc.php:758 views/form.php:195
 msgid "Ring"
 msgstr "Đổ chuông"
 
@@ -642,11 +642,11 @@ msgstr "Đổ chuông %s đầu tiên cho"
 msgid "Ring Followme List For"
 msgstr "Đổ chuông danh sách Followme cho"
 
-#: functions.inc.php:705 ucp/views/settings.php:34 views/form.php:428
+#: functions.inc.php:706 ucp/views/settings.php:34 views/form.php:428
 msgid "Ring Strategy"
 msgstr "Phương thức đổ chuông"
 
-#: functions.inc.php:716
+#: functions.inc.php:717
 msgid "Ring Time"
 msgstr "Thời gian đổ chuông"
 
@@ -654,7 +654,7 @@ msgstr "Thời gian đổ chuông"
 msgid "Ring Time (max 60 sec)"
 msgstr "Thời gian đổ chuông ( tối đa 60 giây)"
 
-#: functions.inc.php:814 views/form.php:559
+#: functions.inc.php:815 views/form.php:559
 msgid "Ringer Volume Override"
 msgstr "Ghi đè âm lượng chuông"
 
@@ -709,7 +709,7 @@ msgstr ""
 msgid "This is the default value for the Follow Me "
 msgstr "Đây là giá trị mặc định cho Follow Me "
 
-#: functions.inc.php:679 ucp/views/settings.php:48 views/form.php:416
+#: functions.inc.php:680 ucp/views/settings.php:48 views/form.php:416
 msgid ""
 "This is the number of seconds to ring the primary extension prior to "
 "proceeding to the follow-me list. The extension can also be included in the "
@@ -723,7 +723,7 @@ msgstr ""
 msgid "Time in seconds that the phones will ring"
 msgstr "Thời gian tính bằng giây mà các điện thoại sẽ đổ chuông"
 
-#: functions.inc.php:717 views/form.php:466
+#: functions.inc.php:718 views/form.php:466
 msgid ""
 "Time in seconds that the phones will ring. For all hunt style ring "
 "strategies, this is the time for each iteration of phone(s) that are rung"
@@ -736,11 +736,11 @@ msgstr ""
 msgid "Time must be between 1 and 60 seconds"
 msgstr "Thời gian phải trong khoảng giữa 1-60 giây"
 
-#: functions.inc.php:895 views/form.php:148
+#: functions.inc.php:896 views/form.php:148
 msgid "Too-Late Announce"
 msgstr "Thông báo quá muộn"
 
-#: functions.inc.php:960 views/form.php:616
+#: functions.inc.php:961 views/form.php:616
 msgid ""
 "Transmit the Fixed CID Value below on calls that come in from outside only. "
 "Internal extension to extension calls will continue to operate in default "
@@ -750,7 +750,7 @@ msgstr ""
 "ngoài. Các máy nhánh nội bộ đến các cuộc gọi nội bộ sẽ tiếp tục hoạt động "
 "trên chế độ mặc định."
 
-#: functions.inc.php:962 views/form.php:620
+#: functions.inc.php:963 views/form.php:620
 msgid ""
 "Transmit the number that was dialed as the CID for calls coming from "
 "outside. Internal extension to extension calls will continue to operate in "
@@ -762,7 +762,7 @@ msgstr ""
 "trên chế độ mặc định. Việc này cần phải có một DID trn tuyến gọi ra. DID này "
 "sẽ được truyền trên các trung kế đã khóa các CallerID nước ngoài"
 
-#: functions.inc.php:961 views/form.php:618
+#: functions.inc.php:962 views/form.php:618
 msgid ""
 "Transmit the number that was dialed as the CID for calls coming from "
 "outside. Internal extension to extension calls will continue to operate in "
@@ -774,7 +774,7 @@ msgstr ""
 "trên chế độ mặc định. Việc này cần phải có một DID trn tuyến gọi ra. DID này "
 "sẽ được truyền trên các trung kế đã khóa các CallerID nước ngoài"
 
-#: functions.inc.php:958 views/form.php:612
+#: functions.inc.php:959 views/form.php:612
 msgid "Transmits the Callers CID if allowed by the trunk."
 msgstr "Truyền Caller ID nếu các trung kế cho phép."
 
@@ -782,7 +782,7 @@ msgstr "Truyền Caller ID nếu các trung kế cho phép."
 msgid "Use Confirmation"
 msgstr "Sử dụng Confirmation"
 
-#: functions.inc.php:961 functions.inc.php:983 views/form.php:223
+#: functions.inc.php:962 functions.inc.php:984 views/form.php:223
 #: views/form.php:618
 msgid "Use Dialed Number"
 msgstr "Sử dụng số đã quay"
@@ -818,7 +818,7 @@ msgstr ""
 "về true sẽ tự động tạo một Follow M mới cho người đang sử dụng các cài đặt "
 "mặc định được liệt kê dưới đây"
 
-#: functions.inc.php:632 views/form.php:392
+#: functions.inc.php:633 views/form.php:392
 msgid ""
 "When set to yes follow me will match (be enabled) whenever there is an "
 "event. When set to no followme will match (be enabled) whenever no event is "
@@ -829,18 +829,18 @@ msgstr ""
 msgid "Where to send callers if there is no answer."
 msgstr "Nơi để gửi người gọi nếu không có trả lời."
 
-#: functions.inc.php:538 functions.inc.php:561 functions.inc.php:637
-#: functions.inc.php:864 views/fmgrid.php:16 views/form.php:272
+#: functions.inc.php:539 functions.inc.php:562 functions.inc.php:638
+#: functions.inc.php:865 views/fmgrid.php:16 views/form.php:272
 #: views/form.php:298 views/form.php:382 views/form.php:592
 #: views/quickCreate.php:10 views/ucp_config.php:13
 msgid "Yes"
 msgstr "Có"
 
-#: functions.inc.php:654
+#: functions.inc.php:655
 msgid "You can not set both a group and a calendar"
 msgstr ""
 
-#: functions.inc.php:781
+#: functions.inc.php:782
 msgid ""
 "You can optionally prefix the Caller ID name when ringing extensions in this "
 "group. ie: If you prefix with \"Sales:\", a call from John Doe would display "
@@ -878,23 +878,23 @@ msgstr ""
 msgid "default"
 msgstr "Mặc định"
 
-#: functions.inc.php:486
+#: functions.inc.php:487
 msgid "device"
 msgstr "thiết bị"
 
-#: functions.inc.php:486
+#: functions.inc.php:487
 msgid "extension"
 msgstr "máy nhánh"
 
-#: functions.inc.php:693 ucp/views/settings.php:12 views/form.php:50
+#: functions.inc.php:694 ucp/views/settings.php:12 views/form.php:50
 msgid "firstavailable"
 msgstr "firstavailable ( khả dụng đầu tiên)"
 
-#: functions.inc.php:694 ucp/views/settings.php:14 views/form.php:52
+#: functions.inc.php:695 ucp/views/settings.php:14 views/form.php:52
 msgid "firstnotonphone"
 msgstr "firstnotonphone ( notophone đầu tiên)"
 
-#: functions.inc.php:690 ucp/views/settings.php:6 views/form.php:44
+#: functions.inc.php:691 ucp/views/settings.php:6 views/form.php:44
 msgid "hunt"
 msgstr "hunt ( kiểu hunt)"
 
@@ -902,7 +902,7 @@ msgstr "hunt ( kiểu hunt)"
 msgid "is not allowed for your account"
 msgstr "Tài khoản của bạn không được cho phép"
 
-#: functions.inc.php:691 ucp/views/settings.php:8 views/form.php:46
+#: functions.inc.php:692 ucp/views/settings.php:8 views/form.php:46
 msgid "memoryhunt"
 msgstr "Bộ nhớ hunt"
 
@@ -910,7 +910,7 @@ msgstr "Bộ nhớ hunt"
 msgid "none"
 msgstr "Không có"
 
-#: functions.inc.php:689 ucp/views/settings.php:4 views/form.php:42
+#: functions.inc.php:690 ucp/views/settings.php:4 views/form.php:42
 msgid ""
 "ring Extension for duration set in Initial Ring Time, and then terminate "
 "call to Extension and ring Follow-Me List for duration set in Ring Time."
@@ -932,7 +932,7 @@ msgstr ""
 "Follow-Me trong khoảng thời gian được cài trong Ring Time ( Thời gian đổ "
 "chuông)."
 
-#: functions.inc.php:688
+#: functions.inc.php:689
 msgid ""
 "ring Extension for duration set in Initial Ring Time, and then, while "
 "continuing call to extension, ring Follow-Me List for duration set in Ring "
@@ -943,7 +943,7 @@ msgstr ""
 "nhánh và đổ chuông danh sách Follow-Me trong khoảng thời gian được cài tại "
 "Ring Time ( Thời gian đổ chuông)."
 
-#: functions.inc.php:691 ucp/views/settings.php:8
+#: functions.inc.php:692 ucp/views/settings.php:8
 msgid ""
 "ring first extension in the list, then ring the 1st and 2nd extension, then "
 "ring 1st 2nd and 3rd extension in the list.... etc."
@@ -959,7 +959,7 @@ msgid ""
 "only when Confirm Calls is disabled."
 msgstr ""
 
-#: functions.inc.php:693 ucp/views/settings.php:12
+#: functions.inc.php:694 ucp/views/settings.php:12
 msgid "ring only the first available channel"
 msgstr "Chỉ đổ chuông kênh sẵn có đầu tiên"
 
@@ -969,7 +969,7 @@ msgid ""
 "Confirm Calls is disabled."
 msgstr ""
 
-#: functions.inc.php:694 ucp/views/settings.php:14
+#: functions.inc.php:695 ucp/views/settings.php:14
 msgid "ring only the first channel which is not off hook - ignore CW"
 msgstr "Chỉ đổ chuông kênh đầu tiên không off hook- bỏ qua CW"
 
@@ -979,19 +979,19 @@ msgid ""
 "will work only when Confirm Calls is disabled."
 msgstr ""
 
-#: functions.inc.php:689 ucp/views/settings.php:4 views/form.php:42
+#: functions.inc.php:690 ucp/views/settings.php:4 views/form.php:42
 msgid "ringall"
 msgstr "ringall ( Rung tất cả)"
 
-#: functions.inc.php:688 ucp/views/settings.php:2 views/form.php:40
+#: functions.inc.php:689 ucp/views/settings.php:2 views/form.php:40
 msgid "ringallv2"
 msgstr "ringallv2"
 
-#: functions.inc.php:690 ucp/views/settings.php:6 views/form.php:44
+#: functions.inc.php:691 ucp/views/settings.php:6 views/form.php:44
 msgid "take turns ringing each available extension"
 msgstr "Thay phiên đổ chuông từng máy nhánh khả dụng"
 
-#: functions.inc.php:692 ucp/views/settings.php:10 views/form.php:48
+#: functions.inc.php:693 ucp/views/settings.php:10 views/form.php:48
 msgid ""
 "these modes act as described above. However, if the primary extension (first "
 "in list) is occupied, the other extensions will not be rung. If the primary "

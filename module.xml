@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>14.0.1.26</version>
+	<version>14.0.1.27</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*14.0.1.27* FREEI-1706 avoiding to update callerid if blind/attended transfer 
 		*14.0.1.26* Bugfix/FREEPBX-21287 
 		*14.0.1.25* Fixing FREEPBX-21287 
 		*14.0.1.24* FREEPBX-20683: mention the RFC7462 setting 
