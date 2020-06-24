@@ -182,8 +182,9 @@ function findmefollow_get_config($engine) {
 			$ext->add($contextname, '_X.', '', new ext_hangup());
 
 			$contextname = 'followme-sub';
+			$ext->add($contextname, '_X!', '', new ext_gotoif('$[${LEN(${BLINDTRANSFER})} > 0 | ${LEN(${ATTENDEDTRANSFER})} > 0]','skipclid'));
 			$ext->add($contextname, '_X.', '', new ext_macro('user-callerid'));
-			$ext->add($contextname, '_X.', '', new ext_set('DIAL_OPTIONS','${DIAL_OPTIONS}I'));
+			$ext->add($contextname, '_X!', 'skipclid', new ext_set('DIAL_OPTIONS','${DIAL_OPTIONS}I'));
 			$ext->add($contextname, '_X.', '', new ext_set('CONNECTEDLINE(num,i)', '${EXTEN}'));
 			$cidnameval = '${DB(AMPUSER/${EXTEN}/cidname)}';
 			if ($amp_conf['AST_FUNC_PRESENCE_STATE'] && $amp_conf['CONNECTEDLINE_PRESENCESTATE']) {
