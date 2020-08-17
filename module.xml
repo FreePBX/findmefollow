@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>15.0.22</version>
+	<version>15.0.23</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*15.0.23* Packaging of ver 15.0.23
 		*15.0.22* FREEPBX-21579 restore from 14 to 15 (legacy) FMFM 
 		*15.0.21* FREEI-1706 avoiding to update callerid if blind/attended transfer 
 		*15.0.20* Bugfix/FREEPBX-21287 
@@ -38,6 +39,7 @@
 	<description>
 		Much like a ring group, but works on individual extensions. When someone calls the extension, it can be setup to ring for a number of seconds before trying to ring other extensions and/or external numbers, or to ring all at once, or in other various 'hunt' configurations. Most commonly used to ring someone's cell phone if they don't answer their extension.
 	</description>
+  	<more-info>https://wiki.freepbx.org/display/F2/Follow+Me+Module</more-info>
 	<menuitems>
 		<findmefollow needsenginedb="yes">Follow Me</findmefollow>
 	</menuitems>
