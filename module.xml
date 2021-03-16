@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>16.0.2</version>
+	<version>16.0.3</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*16.0.3* Packaging of ver 16.0.3
 		*16.0.2* FREEI-1706 avoiding to update callerid if blind/attended transfer 
 		*16.0.1alpha* 16.0.1 alpha release
 	</changelog>
