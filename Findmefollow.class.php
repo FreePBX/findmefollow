@@ -550,11 +550,11 @@ class Findmefollow implements \BMO {
 			if (!isset($results['needsconf'])) {
 				$results['needsconf'] = '';
 			}
-			if (($astdb_prering != $results['pre_ring']) && ($astdb_prering >= 0)) {
+			if (($astdb_prering != $results['pre_ring']) && (trim($astdb_prering) != '')) {
 				$results['pre_ring'] = $astdb_prering;
 				$changed=1;
 			}
-			if (($astdb_grptime != $results['grptime']) && ($astdb_grptime > 0)) {
+			if (($astdb_grptime != $results['grptime']) && (trim($astdb_grptime) != '')) {
 				$results['grptime'] = $astdb_grptime;
 				$changed=1;
 			}
@@ -772,10 +772,10 @@ class Findmefollow implements \BMO {
 
 		if ($check_astdb) {
 			if ($astman) {
-				$astdb_prering = $astman->database_get("AMPUSER",$grpnum."/followme/prering");
-				$astdb_grptime = $astman->database_get("AMPUSER",$grpnum."/followme/grptime");
-				$astdb_grplist = $astman->database_get("AMPUSER",$grpnum."/followme/grplist");
-				$astdb_grpconf = $astman->database_get("AMPUSER",$grpnum."/followme/grpconf");
+				$astdb_prering = $this->getPreRingTime($grpnum);
+				$astdb_grptime = $this->getListRingTime($grpnum);
+				$astdb_grplist = $this->getList($grpnum);
+				$astdb_grpconf = $this->getConfirm($grpnum);
 
 				$astdb_changecid = strtolower($astman->database_get("AMPUSER",$grpnum."/followme/changecid"));
 				switch($astdb_changecid) {
@@ -816,11 +816,11 @@ class Findmefollow implements \BMO {
 				$results['rvolume'] = '';
 			}
 
-			if (($astdb_prering != $results['pre_ring']) && ($astdb_prering >= 0)) {
+			if (($astdb_prering != $results['pre_ring']) && (trim($astdb_prering) != '')) {
 				$results['pre_ring'] = $astdb_prering;
 				$changed=1;
 			}
-			if (($astdb_grptime != $results['grptime']) && ($astdb_grptime > 0)) {
+			if (($astdb_grptime != $results['grptime']) && (trim($astdb_grptime) != '')) {
 				$results['grptime'] = $astdb_grptime;
 				$changed=1;
 			}
