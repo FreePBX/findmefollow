@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX findmefollow\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-24 03:25+0000\n"
+"POT-Creation-Date: 2021-05-18 06:05+0000\n"
 "PO-Revision-Date: 2008-11-08 18:39+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -237,7 +237,7 @@ msgstr ""
 msgid "Findme Follow Toggle"
 msgstr "Ställ om Följ-mig"
 
-#: Findmefollow.class.php:1307
+#: Findmefollow.class.php:1300
 msgid "FindmeFollow"
 msgstr ""
 
@@ -272,11 +272,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "Följ-mig"
 
-#: Findmefollow.class.php:889
+#: Findmefollow.class.php:882
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr ""
 
-#: Findmefollow.class.php:892 ucp/views/settings.php:27
+#: Findmefollow.class.php:885 ucp/views/settings.php:27
 msgid "Follow Me List"
 msgstr ""
 
@@ -284,7 +284,7 @@ msgstr ""
 msgid "Follow Me Module"
 msgstr ""
 
-#: Findmefollow.class.php:895
+#: Findmefollow.class.php:888
 msgid "Follow Me No Answer Destination"
 msgstr ""
 
@@ -701,7 +701,7 @@ msgstr ""
 msgid "User"
 msgstr "Användare"
 
-#: Findmefollow.class.php:1290
+#: Findmefollow.class.php:1283
 msgid "User Primary Extension"
 msgstr ""
 

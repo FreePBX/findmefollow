@@ -829,14 +829,7 @@ class Findmefollow implements \BMO {
 				$changed=1;
 			}
 
-			if (trim($astdb_grpconf) == 'ENABLED') {
-				$confvalue = 'CHECKED';
-			} elseif (trim($astdb_grpconf) == 'DISABLED') {
-				$confvalue = '';
-			} else {
-				//Bogus value, should not get here but treat as disabled
-				$confvalue = '';
-			}
+			$confvalue = ($astdb_grpconf) ? 'CHECKED' : '';
 			if ($confvalue != trim($results['needsconf'])) {
 				$results['needsconf'] = $confvalue;
 				$changed=1;

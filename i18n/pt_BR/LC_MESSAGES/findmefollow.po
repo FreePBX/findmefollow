@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-24 03:25+0000\n"
+"POT-Creation-Date: 2021-05-18 06:05+0000\n"
 "PO-Revision-Date: 2017-02-09 19:46+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -263,7 +263,7 @@ msgstr ""
 msgid "Findme Follow Toggle"
 msgstr "Alternar Encontre-Me Siga-Me"
 
-#: Findmefollow.class.php:1307
+#: Findmefollow.class.php:1300
 msgid "FindmeFollow"
 msgstr ""
 
@@ -304,11 +304,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "Siga-Me"
 
-#: Findmefollow.class.php:889
+#: Findmefollow.class.php:882
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr "Siga-Me Habilitado [Em branco para desabilitar]"
 
-#: Findmefollow.class.php:892 ucp/views/settings.php:27
+#: Findmefollow.class.php:885 ucp/views/settings.php:27
 msgid "Follow Me List"
 msgstr "Lista Siga-Me"
 
@@ -316,7 +316,7 @@ msgstr "Lista Siga-Me"
 msgid "Follow Me Module"
 msgstr "Módulo Siga-Me"
 
-#: Findmefollow.class.php:895
+#: Findmefollow.class.php:888
 msgid "Follow Me No Answer Destination"
 msgstr "Destino de Siga-me Sem Resposta"
 
@@ -788,7 +788,7 @@ msgstr "Usar Número Discado"
 msgid "User"
 msgstr "Usuário"
 
-#: Findmefollow.class.php:1290
+#: Findmefollow.class.php:1283
 msgid "User Primary Extension"
 msgstr ""
 
