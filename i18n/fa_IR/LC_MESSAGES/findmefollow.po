@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-18 06:05+0000\n"
+"POT-Creation-Date: 2021-06-17 09:01+0000\n"
 "PO-Revision-Date: 2016-07-17 10:16+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -261,7 +261,7 @@ msgstr ""
 msgid "Findme Follow Toggle"
 msgstr "مرا پیداو دنبال کن تغییر کرد"
 
-#: Findmefollow.class.php:1300
+#: Findmefollow.class.php:1334
 msgid "FindmeFollow"
 msgstr ""
 
@@ -304,11 +304,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "مرا دنبال کن"
 
-#: Findmefollow.class.php:882
+#: Findmefollow.class.php:916
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr "مرا دنبال کن فعال شد [خالی برای غیر فعال]"
 
-#: Findmefollow.class.php:885 ucp/views/settings.php:27
+#: Findmefollow.class.php:919 ucp/views/settings.php:27
 msgid "Follow Me List"
 msgstr "فهرست مرا دنبال کن"
 
@@ -316,7 +316,7 @@ msgstr "فهرست مرا دنبال کن"
 msgid "Follow Me Module"
 msgstr "ماژول مرا دنبال کن"
 
-#: Findmefollow.class.php:888
+#: Findmefollow.class.php:922
 msgid "Follow Me No Answer Destination"
 msgstr "مقصد مرا دنبال کن در صورت عدم پاسخ"
 
@@ -615,7 +615,7 @@ msgstr "اعلام راه دور"
 msgid "Request not received"
 msgstr "درخواستی دریافت نشد"
 
-#: Findmefollow.class.php:600
+#: Findmefollow.class.php:634
 msgid "Reset"
 msgstr "بازنشانی"
 
@@ -652,7 +652,7 @@ msgstr ""
 msgid "Seconds"
 msgstr "ثانیه ها"
 
-#: Findmefollow.class.php:595
+#: Findmefollow.class.php:629
 msgid "Submit"
 msgstr "ارسال"
 
@@ -779,7 +779,7 @@ msgstr "استفاده از شماره گرفته شده"
 msgid "User"
 msgstr "کاربر"
 
-#: Findmefollow.class.php:1283
+#: Findmefollow.class.php:1317
 msgid "User Primary Extension"
 msgstr ""
 

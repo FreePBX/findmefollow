@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>15.0.26</version>
+	<version>15.0.27</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*15.0.27* FREEI-3447 add a method getWidgetListByModule to findme follow me 
 		*15.0.26* FREEPBX-22522 Can't enable 'confirm calls' in FMFM 
 		*15.0.25* Bugfix/FREEPBX-22430 editing an extensions shows a php error message 
 		*15.0.24* Packaging of ver 15.0.24
