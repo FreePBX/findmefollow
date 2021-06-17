@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-18 06:05+0000\n"
+"POT-Creation-Date: 2021-06-17 09:01+0000\n"
 "PO-Revision-Date: 2018-08-25 15:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/findmefollow/de/>\n"
@@ -239,7 +239,7 @@ msgstr ""
 msgid "Findme Follow Toggle"
 msgstr "Finde mich Folge mir Umschalten"
 
-#: Findmefollow.class.php:1300
+#: Findmefollow.class.php:1334
 msgid "FindmeFollow"
 msgstr ""
 
@@ -282,11 +282,11 @@ msgstr ""
 msgid "Follow Me"
 msgstr "Folge mir"
 
-#: Findmefollow.class.php:882
+#: Findmefollow.class.php:916
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr "Folge mir aktivieren (Leer lassen zum deaktivieren)"
 
-#: Findmefollow.class.php:885 ucp/views/settings.php:27
+#: Findmefollow.class.php:919 ucp/views/settings.php:27
 msgid "Follow Me List"
 msgstr "Folge mir Liste"
 
@@ -294,7 +294,7 @@ msgstr "Folge mir Liste"
 msgid "Follow Me Module"
 msgstr "Folge mir Modul"
 
-#: Findmefollow.class.php:888
+#: Findmefollow.class.php:922
 msgid "Follow Me No Answer Destination"
 msgstr "Folge mir Ziel bei keine Antwort"
 
@@ -592,7 +592,7 @@ msgstr ""
 msgid "Request not received"
 msgstr "Anforderung nicht erhalten"
 
-#: Findmefollow.class.php:600
+#: Findmefollow.class.php:634
 msgid "Reset"
 msgstr "Zurücksetzen"
 
@@ -629,7 +629,7 @@ msgstr "Ruftonlautstärke überschreiben"
 msgid "Seconds"
 msgstr "Sekunden"
 
-#: Findmefollow.class.php:595
+#: Findmefollow.class.php:629
 msgid "Submit"
 msgstr "Absenden"
 
@@ -738,7 +738,7 @@ msgstr "Gewählte Nummer verwenden"
 msgid "User"
 msgstr "Benutzer"
 
-#: Findmefollow.class.php:1283
+#: Findmefollow.class.php:1317
 msgid "User Primary Extension"
 msgstr ""
 
