@@ -1134,6 +1134,10 @@ function findmefollow_configpageinit($dispnum) {
 	}
 }
 
+function findmefollow_get($grpnum, $check_astdb=0) {
+	return FreePBX::Findmefollow()->get($grpnum, $check_astdb);
+}
+
 // we only return the destination that other modules might use, e.g. extenions/users
 function findmefollow_getdest($exten) {
 	return array('ext-findmefollow,FM' . $exten . ',1');
