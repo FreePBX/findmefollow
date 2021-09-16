@@ -1375,6 +1375,9 @@ class Findmefollow implements \BMO {
 	}
 
 	public function ucpUpdateUser($id, $display, $data) {
+		if ($display != 'userman') {
+			return;
+		}
 		if(isset($_POST['findmefollow_enable']) && $_POST['findmefollow_enable'] == 'yes') {
 	          $this->FreePBX->Ucp->setSettingByID($id,'findmefollow','enable',$_POST['findmefollow_enable']);
 	    } elseif(isset($_POST['findmefollow_enable']) && $_POST['findmefollow_enable'] == 'no') {
