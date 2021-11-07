@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX findmefollow\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-09 03:20+0000\n"
+"POT-Creation-Date: 2021-11-07 02:26+0000\n"
 "PO-Revision-Date: 2008-11-08 18:39+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -288,7 +288,7 @@ msgstr ""
 msgid "Follow Me No Answer Destination"
 msgstr ""
 
-#: functions.inc.php:1155
+#: functions.inc.php:1214
 #, php-format
 msgid "Follow Me: %s"
 msgstr ""
@@ -305,12 +305,12 @@ msgstr "Följ-mig lista"
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
 msgstr ""
 
-#: functions.inc.php:1207
+#: functions.inc.php:1266
 #, php-format
 msgid "Follow-Me User: %s"
 msgstr "Följ-mig användare %s"
 
-#: functions.inc.php:1184
+#: functions.inc.php:1243
 #, php-format
 msgid "Follow-Me: %s (%s)"
 msgstr "Följ-mig: %s (%s)"

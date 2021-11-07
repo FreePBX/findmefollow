@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-09 03:20+0000\n"
+"POT-Creation-Date: 2021-11-07 02:26+0000\n"
 "PO-Revision-Date: 2017-02-09 19:46+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -320,7 +320,7 @@ msgstr "Módulo Siga-Me"
 msgid "Follow Me No Answer Destination"
 msgstr "Destino de Siga-me Sem Resposta"
 
-#: functions.inc.php:1155
+#: functions.inc.php:1214
 #, php-format
 msgid "Follow Me: %s"
 msgstr "Siga-Me: %s"
@@ -338,12 +338,12 @@ msgid "Follow-Me List can not be empty if Follow-Me is enabled"
 msgstr ""
 "A Lista Siga-Me não pode ficar em branco se o Siga-Me estiver habilitado"
 
-#: functions.inc.php:1207
+#: functions.inc.php:1266
 #, php-format
 msgid "Follow-Me User: %s"
 msgstr "Usuário Siga-Me: %s"
 
-#: functions.inc.php:1184
+#: functions.inc.php:1243
 #, php-format
 msgid "Follow-Me: %s (%s)"
 msgstr "Siga-Me: %s (%s)"
