@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-20 06:27+0000\n"
+"POT-Creation-Date: 2021-11-07 02:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -317,7 +317,7 @@ msgstr ""
 msgid "Follow Me No Answer Destination"
 msgstr ""
 
-#: functions.inc.php:1155
+#: functions.inc.php:1214
 #, php-format
 msgid "Follow Me: %s"
 msgstr ""
@@ -335,12 +335,12 @@ msgstr ""
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
 msgstr ""
 
-#: functions.inc.php:1207
+#: functions.inc.php:1266
 #, php-format
 msgid "Follow-Me User: %s"
 msgstr ""
 
-#: functions.inc.php:1184
+#: functions.inc.php:1243
 #, php-format
 msgid "Follow-Me: %s (%s)"
 msgstr ""

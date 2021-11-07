@@ -1138,6 +1138,65 @@ function findmefollow_get($grpnum, $check_astdb=0) {
 	return FreePBX::Findmefollow()->get($grpnum, $check_astdb);
 }
 
+function findmefollow_del($grpnum) {
+	return FreePBX::Findmefollow()->del($grpnum);
+}
+
+function findmefollow_add($grpnum,$strategy,$grptime, $grplist,$postdest,$grppre,$annmsg_id,$dring,$needsconf,$remotealert_id,$toolate_id,$ringing,$pre_ring,$ddial,$changecid,$fixedcid) {
+	$params = array();
+	if (!empty($strategy)) {
+		$params['strategy'] = $strategy;
+	}
+	if (!empty($grptime)) {
+		$params['grptime'] = $grptime;
+	}
+	if (!empty($grplist)) {
+		$params['grplist'] = $grplist;
+    }
+	if (!empty($postdest)) {
+		$params['postdest'] = $postdest;
+	}
+	if (!empty($grppre)) {
+		$params['grppre'] = $grppre;
+	}
+	if (!empty($annmsg_id)) {
+		$params['annmsg_id'] = $annmsg_id;
+	}
+	if (!empty($dring)) {
+		$params['dring'] = $dring;
+	}
+	if (!empty($needsconf)) {
+		$params['needsconf'] = $needsconf;
+	}
+	if (!empty($remotealert_id)) {
+		$params['remotealert_id'] = $remotealert_id;
+	}
+	if (!empty($toolate_id)) {
+		$params['toolate_id'] = $toolate_id;
+	}
+	if (!empty($ringing)) {
+		$params['ringing'] = $ringing;
+	}	
+	if (!empty($pre_ring)) {
+		$params['pre_ring'] = $pre_ring;
+	}
+  
+  	if (!empty(ddial)) {
+		$params['ddial'] = $dial;
+	} else {
+      $params['ddial'] = '';
+    }
+  
+  	if (!empty($changecid)) {
+		$params['changecid'] = $changecid;
+	}
+  	if (!empty($fixedcid)) {
+		$params['fixedcid'] = $fixedcid;
+	}
+	
+  	return FreePBX::Findmefollow()->add($grpnum,$params);
+}
+
 // we only return the destination that other modules might use, e.g. extenions/users
 function findmefollow_getdest($exten) {
 	return array('ext-findmefollow,FM' . $exten . ',1');
