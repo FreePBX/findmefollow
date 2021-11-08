@@ -1181,8 +1181,8 @@ function findmefollow_add($grpnum,$strategy,$grptime, $grplist,$postdest,$grppre
 		$params['pre_ring'] = $pre_ring;
 	}
   
-  	if (!empty(ddial)) {
-		$params['ddial'] = $dial;
+  	if (!empty($ddial)) {
+		$params['ddial'] = $ddial;
 	} else {
       $params['ddial'] = '';
     }
