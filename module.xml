@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>16.0.9</version>
+	<version>16.0.10</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*16.0.10* resolve issue with variable name in the new FindMeFollow ADD rest api integrations 
 		*16.0.9* create missing ties between findmefollow REST api and backend 
 		*16.0.8* FREEPBX-22639 FollowMe-Settings are dropped on Active Directory sync 
 		*16.0.7* FREEI-3760 RestAPI FollowMe Functions missing 
