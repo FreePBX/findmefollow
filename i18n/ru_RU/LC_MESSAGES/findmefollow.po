@@ -9,29 +9,29 @@ msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-24 03:38+0000\n"
-"PO-Revision-Date: 2015-05-01 13:02+0200\n"
-"Last-Translator: Yuriy <alliancesko@gmail.com>\n"
+"PO-Revision-Date: 2021-11-20 07:00+0000\n"
+"Last-Translator: Dmitriy Kuznetsov <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
-"findmefollow/ru_RU/>\n"
+"findmefollow/ru/>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: functions.inc.php:693 ucp/views/settings.php:10 views/form.php:48
 msgid "*-prim"
-msgstr "*-прим"
+msgstr "*-перв"
 
 #: functions.inc.php:579 views/form.php:324
 msgid "--Not Calendar Controlled--"
-msgstr ""
+msgstr "--Не управляется календарем--"
 
 #: functions.inc.php:606 views/form.php:353
 msgid "--Not Calendar Group Controlled--"
-msgstr ""
+msgstr "--Нет контролируемой календарной группы--"
 
 #: functions.inc.php:792 views/form.php:548
 msgid ""
@@ -39,22 +39,25 @@ msgid ""
 "having issues, see the \"Enforce RFC7462\" option found in Settings-"
 ">Advanced Settings."
 msgstr ""
+"ALERT_INFO можно использовать для особого звонка на SIP-устройствах.<br>Если "
+"у вас возникли проблемы - обратитесь к опции \"Соблюдение RFC 7462\", "
+"найденной в разделе Настройки->Расширенные настройки."
 
 #: functions.inc.php:791 views/form.php:536
 msgid "Alert Info"
-msgstr "Дополнительная информация"
+msgstr "Информация о сигнале"
 
 #: views/ucp_config.php:39
 msgid "Allowed Extensions"
-msgstr ""
+msgstr "Разрешенные внутренние номера"
 
 #: functions.inc.php:960 views/form.php:614
 msgid "Always transmit the Fixed CID Value below."
-msgstr "Всегда передавать фиксированное значение Caller ID указанное ниже."
+msgstr "Всегда передавать фиксированное значение CID, указанное ниже."
 
 #: functions.inc.php:746 views/form.php:78
 msgid "Announcement"
-msgstr "Приветствие"
+msgstr "Объявление"
 
 #: findmefollow.i18n.php:6
 msgid "Applications"
@@ -70,8 +73,14 @@ msgid ""
 "and then only if the caller chooses to find you do you want the call to go "
 "through FollowMe."
 msgstr ""
-"По умолчанию (Да) любые вызовы на этот внутренний номер пойдут на указанный "
-"для него СледуйтеСюда-номер,включая "
+"По умолчанию (Да), любые вызовы на этот номер будут отправляться на "
+"указанное для него назначение Следуйте-сюда, включая вызовы в сервис "
+"директорий по имени из Интерактивных меню. Если установлено значение «Нет», "
+"вызовы будут поступать только на внутр.номер. Направления, которые "
+"непосредственно указывают Следуйте-сюда, придут сюда независимо. Установка в "
+"«Нет» часто используется вместе с VmX-локатором, где после вызова на "
+"внутренний номер только позвонивший может выбрать как найти вас через модуль "
+"Следуйте-сюда."
 
 #: views/form.php:282
 msgid ""
@@ -82,26 +91,32 @@ msgid ""
 "where you want a call to ring the extension, and then only if the caller "
 "chooses to find you do you want it to come here."
 msgstr ""
+"По умолчанию (да) любой вызов этого внутр.номера будет идти к этому Следуйте-"
+"сюда вместо этого, в том числе каталог звонки по имени из IVR. Если нет - "
+"вызовы будут идти только к внутр.номеру.<BR>Тем не менее, направления, "
+"которые указывает Следуйте-сюда приведут сюда.<BR>Эта настройка часто "
+"используется в сочетании с VmX Locater, где вы хотите вызвать внутр.номер, и "
+"только если абонент выбирает найти вас вы хотите, чтобы он пришел сюда."
 
 #: functions.inc.php:781 views/form.php:512
 msgid "CID Name Prefix"
-msgstr "Префикс ИД имени"
+msgstr "Префикс CID имени"
 
 #: functions.inc.php:591 views/form.php:319
 msgid "Calendar"
-msgstr ""
+msgstr "Календарь"
 
 #: functions.inc.php:618 views/form.php:348
 msgid "Calendar Group"
-msgstr ""
+msgstr "Группа календаря"
 
 #: functions.inc.php:632 views/form.php:377
 msgid "Calendar Match Inverse"
-msgstr ""
+msgstr "Инверсия совпадения календаря"
 
 #: functions.inc.php:145 functions.inc.php:156
 msgid "Calendar Not found"
-msgstr ""
+msgstr "Календарь не найден"
 
 #: functions.inc.php:836
 msgid "Call Confirmation Configuration"
@@ -109,19 +124,19 @@ msgstr "Конфигурация подтверждения звонка"
 
 #: install.php:34 uninstall.php:30
 msgid "Cannot connect to Asterisk Manager with "
-msgstr "Невозможно соединится с Asterisk Manager как "
+msgstr "Невозможно подключиться к Asterisk Manager с "
 
 #: functions.inc.php:937 views/form.php:630
 msgid "Change External CID Configuration"
-msgstr "Изменять конфигурацию внешнего Caller ID"
+msgstr "Изменить конфигурацию внешнего CID"
 
 #: functions.inc.php:859 views/form.php:587
 msgid "Confirm Calls"
-msgstr "Подтверждать вызовы"
+msgstr "Подтверждение вызовов"
 
 #: findmefollow.i18n.php:12
 msgid "Create Follow Me at Extension Creation Time"
-msgstr "Создать Следуйте сюда во время создания внутреннего номера"
+msgstr "Создавать Следуйте-сюда во время создания внутреннего номера"
 
 #: functions.inc.php:880 functions.inc.php:959 functions.inc.php:972
 #: views/form.php:120 views/form.php:155 views/form.php:220 views/form.php:612
@@ -130,19 +145,19 @@ msgstr "По умолчанию"
 
 #: findmefollow.i18n.php:26
 msgid "Default Follow Me Initial Ring Time"
-msgstr "Начальное время звонка по умолчанию для Следуйте сюда"
+msgstr "Начальное время вызова Следуйте-сюда по-умолчанию"
 
 #: findmefollow.i18n.php:30
 msgid "Default Follow Me Ring Strategy"
-msgstr "Стратегия звонка Следуйте сюда по умолчанию"
+msgstr "Страгетия вызова Следуйте-сюда по-умолчанию"
 
 #: findmefollow.i18n.php:22
 msgid "Default Follow Me Ring Time"
-msgstr "Время звонка 'Следуйте сюда' по умолчанию"
+msgstr "Время вызова Следуйте-сюда по-умолчанию"
 
 #: views/form.php:680
 msgid "Destination if no answer"
-msgstr "Назначение если нет ответа"
+msgstr "Назначение при неответе"
 
 #: functions.inc.php:1016
 msgid "Destinations"
@@ -150,16 +165,15 @@ msgstr "Назначения"
 
 #: views/ucp_config.php:74
 msgid "Disable"
-msgstr "Не использовать"
+msgstr "Выключить"
 
 #: findmefollow.i18n.php:18
 msgid "Disable Follow Me Upon Creation"
-msgstr ""
-"Отключить создание Следуйте сюда при создании пользователя/внутреннего номера"
+msgstr "Отключить Следуйте-сюда при создании"
 
 #: ucp/views/widget.php:2
 msgid "Disabled"
-msgstr ""
+msgstr "Выключен"
 
 #: views/ucp_config.php:72
 msgid "Enable"
@@ -167,23 +181,23 @@ msgstr "Включить"
 
 #: functions.inc.php:556 views/form.php:293
 msgid "Enable Calendar Matching"
-msgstr ""
+msgstr "Включить сопоставление календаря"
 
 #: views/quickCreate.php:5
 msgid "Enable Find Me/Follow Me"
-msgstr "Включить НайдиМеня/СледуйтеСюда"
+msgstr "Включить Найди-Меня/Следуйте-Сюда"
 
 #: views/ucp_config.php:7
 msgid "Enable Findme Follow"
-msgstr ""
+msgstr "Включить Найди-меня Следуйте-сюда"
 
 #: views/form.php:267
 msgid "Enable Followme"
-msgstr "Включить СледуйтеСюда"
+msgstr "Включить Следуйте-Сюда"
 
 #: views/ucp_config.php:28
 msgid "Enable the Findmefollow access in UCP for this user"
-msgstr ""
+msgstr "Включить доступ Найди-меня/Следуй-сюда в UCP для этого пользователя"
 
 #: ucp/views/settings.php:62
 msgid ""
@@ -194,8 +208,8 @@ msgid ""
 msgstr ""
 "Используйте это, если звонок идёт на внешний номер, который нуждается в "
 "подтверждении. Например, мобильный телефон может включить головую почту, "
-"которая перехватит этот вызов. Нажатием на 1 можно заблокировать такие "
-"действия."
+"которая перехватит этот вызов. Нажатием на 1 можно заблокировать это "
+"действие."
 
 #: views/form.php:602
 msgid ""
@@ -204,11 +218,11 @@ msgid ""
 "this requires the remote side push 1 on their phone before the call is put "
 "through. This feature only works with the ringall ring strategy"
 msgstr ""
-"Включить это если  вызов идёт на внешние номера,когда нужно подтверждение- "
-"например когда мобильный телефон может быть переадресован на номер голосовой "
-"почты. Включение этой опции требует,чтобы  на удалённой стороне нажали \"1\" "
-"прежде чем вызов пойдёт далее.Эта возможность работает только если стратегия "
-"звонка в группе вызова установлена в значение \"Звонят все\""
+"Включить это если вызов идёт на внешние номера и тебуется подтверждение - "
+"например, когда мобильный телефон может быть переадресован на номер "
+"голосовой почты. Включение этой опции требует чтобы на удалённой стороне "
+"нажали \"1\" прежде чем вызов пойдёт далее. Эта функция работает только если "
+"стратегия вызова в группе вызова установлена в \"Звонят все\""
 
 #: functions.inc.php:860
 msgid ""
@@ -220,11 +234,12 @@ msgstr ""
 "Используйте это, если звонок идёт на внешний номер, который нуждается в "
 "подтверждении. Например, мобильный телефон может включить головую почту, "
 "которая перехватит этот вызов. Нажатием на 1 можно заблокировать такие "
-"действия. Опция действительна только при стратегии вызова звонят-все"
+"действия. Опция действительна только при стратегии вызова "
+"звонят-все/звонят-все-перв"
 
 #: functions.inc.php:533 ucp/views/widget.php:2 views/fmgrid.php:27
 msgid "Enabled"
-msgstr "Включено"
+msgstr "Включен"
 
 #: assets/js/findmefollow.js:74
 msgid "Error"
@@ -245,15 +260,15 @@ msgstr "Найти меня/Следуйте сюда был обновлен!"
 #: ucp/Findmefollow.class.php:110
 #, php-format
 msgid "Find Me/Follow Me for %s"
-msgstr ""
+msgstr "Найти меня/Следуйте сюда для %s"
 
 #: findmefollow.i18n.php:34 install.php:5
 msgid "Findme Follow Toggle"
-msgstr "Переключение Найти меня тут"
+msgstr "Переключение Найди меня/Следуйте сюда"
 
 #: Findmefollow.class.php:1304
 msgid "FindmeFollow"
-msgstr ""
+msgstr "Найди-меняСледуйте-сюда"
 
 #: functions.inc.php:960 functions.inc.php:976 functions.inc.php:999
 #: views/form.php:221 views/form.php:614 views/form.php:656
@@ -265,8 +280,8 @@ msgid ""
 "Fixed CID Value should be in a format of digits only with an option of E164 "
 "format using a leading \"+\""
 msgstr ""
-"фиксированное значение CID должно быть в числовом формате с опцией "
-"стандарта  Е164 с использованием  знака \"+\" в начале."
+"Фиксированное значение CID должно быть в числовом формате с опцией стандарта "
+"Е164 с использованием знака \"+\" в начале"
 
 #: functions.inc.php:1000
 msgid ""
@@ -275,8 +290,8 @@ msgid ""
 "leading \"+\"."
 msgstr ""
 "Фиксированное значение для замены Caller ID в зависимости от одного из "
-"режимов выше. Должен быть только в цифровом формате, или опционально - в "
-"формате Е164 с использованием \"+\" впереди номера."
+"режимов выше. Должен быть только в цифровом формате с опцией стандарта Е164 "
+"с использованием знака \"+\" вначале."
 
 #: views/form.php:668
 msgid ""
@@ -284,9 +299,9 @@ msgid ""
 "Should be in a format of digits only with an option of E164 format using a "
 "leading '+'."
 msgstr ""
-"Фикcированное значение для замены CID  в некоторых режимах. Должно быть  в "
-"числовом формате с опцией стандарта  Е164 с использованием  знака \"+\" в "
-"начале."
+"Фикcированное значение для замены CID в некоторых режимах. Должен быть "
+"только в цифровом формате с опцией стандарта Е164 с использованием знака \"+"
+"\" вначале."
 
 #: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
 #: ucp/Findmefollow.class.php:124 ucp/Findmefollow.class.php:141
@@ -296,7 +311,7 @@ msgstr "Следуйте сюда"
 
 #: Findmefollow.class.php:886
 msgid "Follow Me Enabled [Blank to disable]"
-msgstr ""
+msgstr "Следуйте сюда включено [Пусто для отключения]"
 
 #: Findmefollow.class.php:889 ucp/views/settings.php:27
 msgid "Follow Me List"
@@ -308,24 +323,24 @@ msgstr "Модуль Следуйте сюда"
 
 #: Findmefollow.class.php:892
 msgid "Follow Me No Answer Destination"
-msgstr ""
+msgstr "Назначение Следуйте-сюда при неответе"
 
 #: functions.inc.php:1151
 #, php-format
 msgid "Follow Me: %s"
-msgstr "Следуйте сюда: %s"
+msgstr "Следуйте-сюда: %s"
 
 #: views/form.php:454
 msgid "Follow-Me"
-msgstr ""
+msgstr "Следуйте-сюда"
 
 #: functions.inc.php:728 views/form.php:478
 msgid "Follow-Me List"
-msgstr "Список"
+msgstr "Список Следуйте-сюда"
 
 #: functions.inc.php:734
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
-msgstr "Список СледуйтеСюда не может быть пустым если СледуйтеСюда включено"
+msgstr "Список Следуйте-сюда не может быть пустым если Следуйте-сюда включено"
 
 #: functions.inc.php:1203
 #, php-format
@@ -335,28 +350,28 @@ msgstr "Пользователь Следуйте сюда: %s"
 #: functions.inc.php:1180
 #, php-format
 msgid "Follow-Me: %s (%s)"
-msgstr "Следуйте сюда: %s (%s)"
+msgstr "Следуйте-сюда: %s (%s)"
 
 #: views/fmgrid.php:26
 msgid "Followme Extension"
-msgstr "Внутренний номер для \"СледуйтеСюда\""
+msgstr "Внутренний номер для Следуйте-сюда"
 
 #: views/nogo.php:2
 msgid "Followme List"
-msgstr "Список \"СледуйтеСюда\""
+msgstr "Список Следуйтесюда"
 
 #: views/ucp_config.php:67
 msgid "Followme Ring Strategy Settings"
-msgstr ""
+msgstr "Настройки стратегии вызова Следуйте-сюда"
 
 #: functions.inc.php:963 functions.inc.php:988 views/form.php:224
 #: views/form.php:620
 msgid "Force Dialed Number"
-msgstr "Форсировать набранный номер"
+msgstr "Использовать набранный номер"
 
 #: functions.inc.php:41
 msgid "Force Follow Me"
-msgstr "Принудительно Следуйте сюда"
+msgstr "Использовать Следуйте-сюда"
 
 #: functions.inc.php:509
 msgid "General Settings"
@@ -370,48 +385,54 @@ msgstr "Номер группы"
 msgid ""
 "If set the followme will only be active when the calendar group has an event."
 msgstr ""
+"Если установлено - последующее действие будет активным только тогда, когда в "
+"группе календаря есть событие."
 
 #: functions.inc.php:592 views/form.php:336
 msgid "If set the followme will only be active when the calendar has an event."
 msgstr ""
+"Если установлено, последующее действие будет активным только тогда, когда в "
+"календаре есть событие."
 
 #: functions.inc.php:771 views/form.php:212
 msgid ""
 "If you select a Music on Hold class to play, instead of 'Ring', they will "
 "hear that instead of Ringing while they are waiting for someone to pick up."
 msgstr ""
-"Если выбран класс Музыки в ожидании вместо простого сигнала вызова, то "
+"Если выбран класс Музыки в ожидании вместо сигнала вызова (Звонок), то "
 "позвонивший будет слушать музыку, пока кто-то не поднимет трубку."
 
 #: views/ucp_config.php:18 views/ucp_config.php:77
 msgid "Inherit"
-msgstr ""
+msgstr "Наследовать"
 
 #: functions.inc.php:679 views/form.php:404
 msgid "Initial Ring Time"
-msgstr "Начальное время звонка"
+msgstr "Начальное время вызова"
 
 #: assets/js/findmefollow.js:114
 msgid ""
 "Invalid CID Number. Must be in a format of digits only with an option of "
 "E164 format using a leading \"+\""
 msgstr ""
-"Неверный формат Caller ID. Должен быть указан только цифрами, или, "
-"опционально, в полном Е164 формате с использованием \"+\" впереди номера"
+"Неверный формат CID. Должен быть в числовом формате с опцией стандарта Е164 "
+"с использованием знака \"+\" в начале"
 
 #: assets/js/findmefollow.js:111
 msgid "Invalid time specified"
-msgstr "Неверно указано время"
+msgstr "Указано неверное время"
 
 #: functions.inc.php:557 views/form.php:308
 msgid ""
 "Link this Follow Me to a Calendar or Calendar group to automatically Enable/"
 "Disable based on a schedule"
 msgstr ""
+"Свяжите эту функцию Follow Me с календарем или группой календарей для "
+"автоматического включения/отключения по расписанию"
 
 #: views/bootnav.php:12
 msgid "List Followme Groups"
-msgstr "Список групп \"СледуйтеСюда\""
+msgstr "Список групп Следуйте-сюда"
 
 #: functions.inc.php:729 views/form.php:498
 msgid ""
@@ -423,6 +444,14 @@ msgid ""
 "you wish the system to use another extension's FindMe/FollowMe append a # "
 "onto that extension, eg 105#"
 msgstr ""
+"Перечислите номера для вызова, по одному на строку или используйте быстрый "
+"выбор расширения ниже.<br><br>Вы можете добавить номер на удаленной системе "
+"или внешний номер, добавив суффиксом к номеру решетку (#).  напр:  2448089# "
+"наберет 2448089 через соответствующий транк (см. Исходящую "
+"маршрутизацию).<br><br>Примечание: любой добавленный локальный номер "
+"пропустит Найти-меня/Следуйте-сюда этого локального номера, если вы хотите, "
+"чтобы система использовала Найди-меня/Следуйте-сюда другого номера - "
+"добавьте # к этому номеру, например 105#"
 
 #: ucp/views/settings.php:29
 msgid ""
@@ -430,27 +459,27 @@ msgid ""
 "remote system, or an external number by suffixing a number with a pound "
 "(#).  ex:  2448089# would dial 2448089."
 msgstr ""
-"Список номеров для звонка, один в строке. Вы можете добавлять номера на "
-"другой системе или внешние номера с помощью добавления суффикса к номеру "
-"знаком решетки (#). Например: 2448089# наберется как 2448089."
+"Список номеров, по одному в строке. Можно включать номера из других "
+"удалённых систем, или внешние номера, с использованием знака # в качестве "
+"суффикса. Например: 2448089# наберёт номер 2448089."
 
 #: views/form.php:99
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
 "additional recordings please use the \"System Recordings\" MENU above"
 msgstr ""
-"Сообщение может быть воспроизведено вызывающей стороне перед набором номера "
-"этой группы.<br><br>Для добавления дополнительных записей пожалуйста "
-"используйте пункт меню  \"Системные записи\"."
+"Сообщение для воспроизведения вызывающей стороне перед набором номера этой "
+"группы.<br><br>Для добавления дополнительных записей пожалуйста используйте "
+"пункт меню «Системные записи» выше"
 
 #: functions.inc.php:747
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
 "additional recordings please use the \"System Recordings\" MENU to the left"
 msgstr ""
-"Сообщение, которое воспроизводится позвонившему прежде, чем звонок перйдёт в "
-"группу.<br><br>Для создания такого сообщения используйте раздел меню Запись "
-"сообщений."
+"Сообщение для воспроизведения вызывающей стороне перед набором номера этой "
+"группы.<br><br>Для добавления дополнительных записей пожалуйста используйте "
+"пункт меню «Системные записи» слева"
 
 #: views/form.php:134
 msgid ""
@@ -458,9 +487,9 @@ msgid ""
 "enabled.<br><br>To add additional recordings use the \"System Recordings\" "
 "MENU above"
 msgstr ""
-"Воспроизводимое сообщение персоне,ПРИНИМАЮЩЕЙ звонок, если 'Подтвердить "
-"вызовы' включено.<br><br> Для добавления дополнительных записей пожалуйста "
-"используйте пункт меню  \"Системные записи\"."
+"Сообщение для воспроизведения стороне ПРИНИМАЮЩЕЙ звонок, если включено «"
+"Подтвердить вызовы».<br><br> Для добавления дополнительных записей "
+"используйте пункт меню «Системные записи» выше"
 
 #: functions.inc.php:885
 msgid ""
@@ -468,9 +497,9 @@ msgid ""
 "enabled.<br><br>To add additional recordings use the \"System Recordings\" "
 "MENU to the left"
 msgstr ""
-"Сообщение, которое будет воспроизведено для адресата звонка, если "
-"задействована опция Подтверждение вызова.<br><br>Добавить запись можно в "
-"секции Запись сообщений в меню слева."
+"Сообщение для воспроизведения стороне ПРИНИМАЮЩЕЙ звонок, если включено «"
+"Подтвердить вызовы».<br><br> Для добавления дополнительных записей "
+"используйте пункт меню «Системные записи» слева"
 
 #: views/form.php:169
 msgid ""
