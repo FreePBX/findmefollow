@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-24 03:38+0000\n"
-"PO-Revision-Date: 2021-11-23 10:00+0000\n"
+"PO-Revision-Date: 2021-11-24 11:01+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
 "findmefollow/ru/>\n"
@@ -173,7 +173,7 @@ msgstr "Отключить Следуйте-сюда при создании"
 
 #: ucp/views/widget.php:2
 msgid "Disabled"
-msgstr "Выключен"
+msgstr "Выключено"
 
 #: views/ucp_config.php:72
 msgid "Enable"
@@ -239,7 +239,7 @@ msgstr ""
 
 #: functions.inc.php:533 ucp/views/widget.php:2 views/fmgrid.php:27
 msgid "Enabled"
-msgstr "Включен"
+msgstr "Включено"
 
 #: assets/js/findmefollow.js:74
 msgid "Error"
