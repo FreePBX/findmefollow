@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-07 02:26+0000\n"
+"POT-Creation-Date: 2022-02-08 04:16+0000\n"
 "PO-Revision-Date: 2018-08-29 13:00+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/findmefollow/cs/>\n"
@@ -42,6 +42,13 @@ msgstr ""
 #: functions.inc.php:791 views/form.php:536
 msgid "Alert Info"
 msgstr "Alert Info"
+
+#: Api/Gql/Findmefollow.php:251 Api/Gql/Findmefollow.php:467
+msgid ""
+"Alert Info can be used for distinctive ring with SIP devices. If you are "
+"having issues, see the \"Enforce RFC7462\" option found in Settings > "
+"Advanced Settings."
+msgstr ""
 
 #: views/ucp_config.php:39
 msgid "Allowed Extensions"
@@ -97,6 +104,10 @@ msgstr ""
 msgid "CID Name Prefix"
 msgstr "Prefix CID jména"
 
+#: Api/Gql/Findmefollow.php:223 Api/Gql/Findmefollow.php:451
+msgid "CID Name Prefix like `Sales:`"
+msgstr ""
+
 #: functions.inc.php:591 views/form.php:319
 msgid "Calendar"
 msgstr "Kalendář"
@@ -104,6 +115,14 @@ msgstr "Kalendář"
 #: functions.inc.php:618 views/form.php:348
 msgid "Calendar Group"
 msgstr "Skupina kalendářů"
+
+#: Api/Gql/Findmefollow.php:321 Api/Gql/Findmefollow.php:503
+msgid "Calendar Group Id"
+msgstr ""
+
+#: Api/Gql/Findmefollow.php:314 Api/Gql/Findmefollow.php:499
+msgid "Calendar Id"
+msgstr ""
 
 #: functions.inc.php:632 views/form.php:377
 msgid "Calendar Match Inverse"
@@ -124,6 +143,11 @@ msgstr "Nelze se připojit k Asterisk manažeru pomocí "
 #: functions.inc.php:937 views/form.php:630
 msgid "Change External CID Configuration"
 msgstr "Změna konfigurace externího CID"
+
+#: Api/Gql/Findmefollow.php:335 Api/Gql/Findmefollow.php:510
+msgid ""
+"Choose the CID Mode from the `externalcidmode` enum. Default is `default`."
+msgstr ""
 
 #: functions.inc.php:859 views/form.php:587
 msgid "Confirm Calls"
@@ -149,6 +173,15 @@ msgstr "Výchozí nastavení vyzvánění pro FollowMe"
 #: findmefollow.i18n.php:22
 msgid "Default Follow Me Ring Time"
 msgstr "Výchozí nastavení času vyzvánění pro FollowMe"
+
+#: Api/Gql/Findmefollow.php:279 Api/Gql/Findmefollow.php:483
+msgid ""
+"Default `Ring`. Custom values will be the category name of \"On Hold Music\"."
+msgstr ""
+
+#: Api/Gql/Findmefollow.php:244 Api/Gql/Findmefollow.php:463
+msgid "Destination after `followMeList` is rung and there was no answer"
+msgstr ""
 
 #: views/form.php:680
 msgid "Destination if no answer"
@@ -190,9 +223,20 @@ msgstr "Povolit Findme Follow"
 msgid "Enable Followme"
 msgstr "Povolit FollowMe"
 
+#: Api/Gql/Findmefollow.php:300 Api/Gql/Findmefollow.php:491
+msgid "Enable calendar for follow me (either group or single calendar)"
+msgstr ""
+
 #: views/ucp_config.php:28
 msgid "Enable the Findmefollow access in UCP for this user"
 msgstr "Povolit přístup funkci Findmefollow v UCP pro tohoto uživatele"
+
+#: Api/Gql/Findmefollow.php:258 Api/Gql/Findmefollow.php:471
+msgid ""
+"Enable this if you are calling external numbers that need confirmation. "
+"Enabling this requires the remote side push 1 on their phone before the call "
+"is put through. This feature only works with the ringall ring strategy"
+msgstr ""
 
 #: ucp/views/settings.php:62
 msgid ""
@@ -278,6 +322,13 @@ msgstr ""
 "Pevná hodnota CID by měla být ve formátu číslic pouze s volbou formátu E164 "
 "začínajícího \"+\""
 
+#: Api/Gql/Findmefollow.php:342 Api/Gql/Findmefollow.php:518
+msgid ""
+"Fixed CID Value. Fixed value to replace the CID with used with "
+"`externalCallerIdMode` fixed modes. Should be in a format of digits only "
+"with an option of E164 format using a leading `+`."
+msgstr ""
+
 #: functions.inc.php:1000
 msgid ""
 "Fixed value to replace the CID with used with some of the modes above. "
@@ -307,6 +358,10 @@ msgstr "FollowMe"
 #: Findmefollow.class.php:916
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr "Povoleno FollowMe [Nechte prázdné pro zákaz této funkce]"
+
+#: Api/Gql/Findmefollow.php:205 Api/Gql/Findmefollow.php:432
+msgid "Follow Me Extension Number"
+msgstr ""
 
 #: Findmefollow.class.php:919 ucp/views/settings.php:27
 msgid "Follow Me List"
@@ -378,6 +433,16 @@ msgstr "Obecná nastavení"
 msgid "Group Number"
 msgstr "Číslo skupiny"
 
+#: Api/Gql/Findmefollow.php:198 Api/Gql/Findmefollow.php:436
+msgid ""
+"If enabled, any call to this extension will go to this follow me instead, "
+"including directory calls by name from IVRs. If disabled, calls will go only "
+"to the extension. However, destinations that specify FollowMe will come "
+"here. This setting is often used in conjunction with VmX Locater, where you "
+"want a call to ring the extension, and then only if the caller chooses to "
+"find you do you want it to come here."
+msgstr ""
+
 #: functions.inc.php:619 views/form.php:365
 msgid ""
 "If set the followme will only be active when the calendar group has an event."
@@ -406,6 +471,13 @@ msgstr "Zdědit"
 #: functions.inc.php:679 views/form.php:404
 msgid "Initial Ring Time"
 msgstr "Počáteční čas vyzvánění"
+
+#: Api/Gql/Findmefollow.php:286 Api/Gql/Findmefollow.php:487
+msgid ""
+"Initial Ring Time. This is the number of seconds to ring the primary "
+"extension prior to proceeding to the `followMeList`. The extension can also "
+"be included in the `followMeList`. A 0 setting will bypass this."
+msgstr ""
 
 #: assets/js/findmefollow.js:114
 msgid ""
@@ -458,6 +530,10 @@ msgstr ""
 "Seznam poboček na vyzvánění, jedna na řádek. Můžete přidat pobočku ke "
 "vzdálenému systému nebo externí číslo přidáním křížku (#) jako příponu za "
 "číslo. Např. 2448089# zavolá číslo 2448089."
+
+#: Api/Gql/Findmefollow.php:194 Api/Gql/Findmefollow.php:685
+msgid "Message for the request"
+msgstr ""
 
 #: views/form.php:99
 msgid ""
@@ -621,6 +697,12 @@ msgstr "Zadejte prosím platné %s číslo"
 msgid "Please enter an extension list."
 msgstr "Zadejte prosím seznam poboček."
 
+#: Api/Gql/Findmefollow.php:293
+msgid ""
+"READONLY. If the value is `novm`, then there is no voicemail box for this "
+"extension."
+msgstr ""
+
 #: functions.inc.php:884 views/form.php:113
 msgid "Remote Announce"
 msgstr "Vzdálená oznámení"
@@ -658,17 +740,51 @@ msgstr "Čas vyzvánění"
 msgid "Ring Time (max 60 sec)"
 msgstr "Čas vyzvánění (max 60 sekund)"
 
+#: Api/Gql/Findmefollow.php:211 Api/Gql/Findmefollow.php:439
+msgid "Ring strategy for `followMeList`"
+msgstr ""
+
 #: functions.inc.php:815 views/form.php:559
 msgid "Ringer Volume Override"
 msgstr "Potlačit hlasitosti vyzvánění"
+
+#: Api/Gql/Findmefollow.php:328 Api/Gql/Findmefollow.php:507
+msgid ""
+"Ringer Volume Override. Note: This is only valid for Sangoma phones at this "
+"time"
+msgstr ""
 
 #: ucp/views/settings.php:45 ucp/views/settings.php:54
 msgid "Seconds"
 msgstr "Vteřin"
 
+#: Api/Gql/Findmefollow.php:190 Api/Gql/Findmefollow.php:681
+msgid "Status of the request"
+msgstr ""
+
 #: Findmefollow.class.php:629
 msgid "Submit"
 msgstr "Potvrdit"
+
+#: Api/Gql/Findmefollow.php:237 Api/Gql/Findmefollow.php:459
+msgid "System Recording ID. Announcement played to caller"
+msgstr ""
+
+#: Api/Gql/Findmefollow.php:265 Api/Gql/Findmefollow.php:475
+msgid ""
+"System Recording ID. Message to be played to the person RECEIVING the call, "
+"if `confirmCalls` is enabled."
+msgstr ""
+
+#: Api/Gql/Findmefollow.php:272 Api/Gql/Findmefollow.php:479
+msgid ""
+"System Recording ID. Message to be played to the person RECEIVING the call, "
+"if the call has already been accepted before they push 1."
+msgstr ""
+
+#: Api/Gql/Findmefollow.php:532 Api/Gql/Findmefollow.php:546
+msgid "The Follow Me Extension Number"
+msgstr ""
 
 #: findmefollow.i18n.php:28
 msgid ""
@@ -694,9 +810,19 @@ msgstr ""
 "Výchozí hodnota doby vyzvánění pro FollowMe je nastavena a použita během "
 "automatického vytvoření nové pobočky."
 
+#: Api/Gql/Findmefollow.php:133
+msgid "The extension number"
+msgstr ""
+
 #: views/form.php:255
 msgid "The number users will dial to ring extensions in this Followme group"
 msgstr "Čísla, které uživatelé použijí k vytočení poboček ve skupině Followme"
+
+#: Api/Gql/Findmefollow.php:230 Api/Gql/Findmefollow.php:455
+msgid ""
+"The numbers that will be dialed. Numbers are `-` separated. External numbers "
+"should have a `#` suffix."
+msgstr ""
 
 #: views/ucp_config.php:55
 msgid ""
@@ -705,6 +831,13 @@ msgid ""
 msgstr ""
 "Jedná se o přiřazené a aktivní pobočky, která se pro tohoto uživatele "
 "zobrazí pro ovládání a úpravu v UCP"
+
+#: Api/Gql/Findmefollow.php:307 Api/Gql/Findmefollow.php:495
+msgid ""
+"This determines how matching an event is handled (`enableCalendar` must be "
+"true to activate). If true, then follow me will match whenever there is an "
+"event. If false, follow me will match whenever no event is present"
+msgstr ""
 
 #: views/form.php:466
 msgid "This is in addition to the Initial Ring Time"
@@ -735,6 +868,10 @@ msgid ""
 msgstr ""
 "Čas v sekundách, po které budou telefony zvonit. Pro všechny možnosti "
 "vyzvánění typu \"hunt\" je tento čas pro každý telefon, který zvoní"
+
+#: Api/Gql/Findmefollow.php:216 Api/Gql/Findmefollow.php:447
+msgid "Time in seconds that the phones will ring. Max 60 seconds"
+msgstr ""
 
 #: assets/js/findmefollow.js:112
 msgid "Time must be between 1 and 60 seconds"
@@ -789,6 +926,10 @@ msgstr "Potvrdit"
 #: views/form.php:618
 msgid "Use Dialed Number"
 msgstr "Použít volané číslo"
+
+#: Api/Gql/Findmefollow.php:177
+msgid "Used to manage Follow Me"
+msgstr ""
 
 #: views/bootnav.php:4
 msgid "User"
