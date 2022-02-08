@@ -408,7 +408,7 @@ class Findmefollow implements \BMO {
 	}
 
 	function addSettingsById($grpnum,$settings) {
-		$valid = array('strategy','grptime','grppre','grplist','annmsg_id','postdest','dring','needsconf','remotealert_id','toolate_id','ringing','pre_ring','ddial','changecid','fixedcid','calendar_id','calendar_match');
+		$valid = array('strategy','grptime','grppre','grplist','annmsg_id','postdest','dring','needsconf','remotealert_id','toolate_id','ringing','pre_ring','ddial','changecid','fixedcid','calendar_id','calendar_match','calendar_group_id','calendar_enable', 'rvolume');
 
 		$settings = array_intersect_key($settings, array_flip($valid));
 
@@ -463,9 +463,23 @@ class Findmefollow implements \BMO {
 				case 'ringing':
 					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
 				break;
-				case 'calendar_id':
-				case 'calendar_match':
+				case 'rvolume':
 					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+				break;
+				case 'calendar_id':
+				case 'calendar_group_id':
+					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+				break;
+				case 'calendar_enable':
+					$enabled = $value ? 1 : 0;
+					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $enabled));
+				break;
+				case 'calendar_match':
+					$enabled = 'yes'; // Default value is `yes`
+					if ($value === 'no' || empty($value)) {
+						$enabled = 'no';
+					}
+					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $enabled));
 				break;
 				case 'pre_ring':
 					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
