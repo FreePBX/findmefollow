@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-08 04:16+0000\n"
+"POT-Creation-Date: 2022-03-08 04:15+0000\n"
 "PO-Revision-Date: 2016-11-23 13:46+0200\n"
 "Last-Translator: Pascal <pascal.noyel@ipexia.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
@@ -519,7 +519,7 @@ msgstr ""
 "poste sur un système distant, ou un numéro externe en suffixant un nombre "
 "avec un dièse (#) . ex : 2448089 # 2448089 serait composé."
 
-#: Api/Gql/Findmefollow.php:194 Api/Gql/Findmefollow.php:685
+#: Api/Gql/Findmefollow.php:194 Api/Gql/Findmefollow.php:707
 msgid "Message for the request"
 msgstr ""
 
@@ -731,7 +731,7 @@ msgstr ""
 msgid "Seconds"
 msgstr "Secondes"
 
-#: Api/Gql/Findmefollow.php:190 Api/Gql/Findmefollow.php:681
+#: Api/Gql/Findmefollow.php:190 Api/Gql/Findmefollow.php:703
 msgid "Status of the request"
 msgstr ""
 

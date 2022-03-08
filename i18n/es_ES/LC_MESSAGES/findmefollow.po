@@ -452,7 +452,7 @@ msgid ""
 "(#).  ex:  2448089# would dial 2448089."
 msgstr ""
 
-#: Api/Gql/Findmefollow.php:194 Api/Gql/Findmefollow.php:685
+#: Api/Gql/Findmefollow.php:194 Api/Gql/Findmefollow.php:707
 msgid "Message for the request"
 msgstr ""
 
@@ -645,7 +645,7 @@ msgstr ""
 msgid "Seconds"
 msgstr ""
 
-#: Api/Gql/Findmefollow.php:190 Api/Gql/Findmefollow.php:681
+#: Api/Gql/Findmefollow.php:190 Api/Gql/Findmefollow.php:703
 msgid "Status of the request"
 msgstr ""
 
