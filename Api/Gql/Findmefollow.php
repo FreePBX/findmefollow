@@ -564,6 +564,11 @@ class Findmefollow extends Base {
 
   protected function updateFollowMe($input) {
 
+    if (!$this->isValidRoute($input)) {
+      $destination = $input['noAnswerDestination'];
+      return $this->generateOutput("Invalid Route: $destination", false);
+    }
+
     $extensionId = $input['extensionId'];
     $input = $this->resolveInputNames($input);
 
@@ -571,6 +576,23 @@ class Findmefollow extends Base {
     $message = $status ? 'Follow me has been updated' : 'Sorry, follow me update failed';
 
     return $this->generateOutput($message, $status);
+  }
+
+  protected function isValidRoute($input) {
+    
+    // If the client hasn't requested to change the destination, then we'll assume it is accurate.
+    if (!isset($input['noAnswerDestination'])) {
+      return true;
+    }
+
+    $noAnswerDestination = $input['noAnswerDestination'];
+    $destinations = $this->freepbx->Destinations->identifyDestinations([$noAnswerDestination]);
+
+    // If identifyDestinations does not find the destination, then it will set that key as `false`
+    $destination = isset($destinations[$noAnswerDestination]) ? $destinations[$noAnswerDestination] : false;
+
+    $isValid =  $destination !== false;
+    return $isValid;
   }
   
   protected function enableFollowMe($input) {
