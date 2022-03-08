@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-08 04:16+0000\n"
+"POT-Creation-Date: 2022-03-08 04:15+0000\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -478,7 +478,7 @@ msgid ""
 "(#).  ex:  2448089# would dial 2448089."
 msgstr ""
 
-#: Api/Gql/Findmefollow.php:194 Api/Gql/Findmefollow.php:685
+#: Api/Gql/Findmefollow.php:194 Api/Gql/Findmefollow.php:707
 msgid "Message for the request"
 msgstr ""
 
@@ -681,7 +681,7 @@ msgstr ""
 msgid "Seconds"
 msgstr ""
 
-#: Api/Gql/Findmefollow.php:190 Api/Gql/Findmefollow.php:681
+#: Api/Gql/Findmefollow.php:190 Api/Gql/Findmefollow.php:703
 msgid "Status of the request"
 msgstr ""
 

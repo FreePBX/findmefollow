@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>15.0.33</version>
+	<version>15.0.34</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*15.0.34* FREEPBX-23272 GraphQL verify `noAnswerDestination` is valid before updating follow me 
 		*15.0.33* Add missing calendar keys to `addSettingsById` 
 		*15.0.32* Adding Findmefollow GraphQL API 
 		*15.0.31* resolve issue with variable name in the new FindMeFollow ADD rest api integrations 
