@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-23 12:14+0530\n"
-"PO-Revision-Date: 2022-04-19 05:25+0000\n"
+"PO-Revision-Date: 2022-04-21 09:01+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
 "findmefollow/ru/>\n"
@@ -675,7 +675,7 @@ msgstr "Секунды"
 
 #: Findmefollow.class.php:599
 msgid "Submit"
-msgstr "Сохранить"
+msgstr "Принять"
 
 #: findmefollow.i18n.php:28
 msgid ""
