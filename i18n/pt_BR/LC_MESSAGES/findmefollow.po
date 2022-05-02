@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-08 04:15+0000\n"
+"POT-Creation-Date: 2022-05-02 06:49+0000\n"
 "PO-Revision-Date: 2017-02-09 19:46+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -525,7 +525,7 @@ msgstr ""
 "sistema remoto, ou um número externo, sufixando um número com uma cerquilha "
 "(#) Ex: 2448089# discaria 2448089."
 
-#: Api/Gql/Findmefollow.php:194 Api/Gql/Findmefollow.php:707
+#: Api/Gql/Findmefollow.php:194 Api/Gql/Findmefollow.php:711
 msgid "Message for the request"
 msgstr ""
 
@@ -753,7 +753,7 @@ msgstr ""
 msgid "Seconds"
 msgstr "Segundos"
 
-#: Api/Gql/Findmefollow.php:190 Api/Gql/Findmefollow.php:703
+#: Api/Gql/Findmefollow.php:190 Api/Gql/Findmefollow.php:707
 msgid "Status of the request"
 msgstr ""
 
@@ -831,6 +831,10 @@ msgid ""
 "This determines how matching an event is handled (`enableCalendar` must be "
 "true to activate). If true, then follow me will match whenever there is an "
 "event. If false, follow me will match whenever no event is present"
+msgstr ""
+
+#: Api/Gql/Findmefollow.php:573
+msgid "This extension does not exist"
 msgstr ""
 
 #: views/form.php:466
