@@ -1,6 +1,6 @@
 <div class="element-container">
-	<div class="">
-		<div class="row form-group">
+	<div class="row">
+		<div class="form-group">
 			<div class="col-md-3">
 				<label class="control-label" for="fmfm"><?php echo _('Enable Find Me/Follow Me')?></label>
 			</div>
