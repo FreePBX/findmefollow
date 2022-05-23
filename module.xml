@@ -2,26 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>16.0.15</version>
+	<version>17.0.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
-		*16.0.15* FREEI-4793 
-		*16.0.14* FREEPBX-23469 
-		*16.0.13* FREEPBX-23272 GraphQL verify `noAnswerDestination` is valid before updating follow me 
-		*16.0.12* Add missing calendar keys to `addSettingsById` 
-		*16.0.11* Adding Findmefollow GraphQL API 
-		*16.0.10* resolve issue with variable name in the new FindMeFollow ADD rest api integrations 
-		*16.0.9* create missing ties between findmefollow REST api and backend 
-		*16.0.8* FREEPBX-22639 FollowMe-Settings are dropped on Active Directory sync 
-		*16.0.7* FREEI-3760 RestAPI FollowMe Functions missing 
-		*16.0.6* FREEI-3447 add a method getWidgetListByModule to findme follow me 
-		*16.0.5* FREEPBX-22522 Can't enable 'confirm calls' in FMFM 
-		*16.0.4* Bugfix/FREEPBX-22430 editing an extensions shows a php error message 
-		*16.0.3* Packaging of ver 16.0.3
-		*16.0.2* FREEI-1706 avoiding to update callerid if blind/attended transfer 
-		*16.0.1alpha* 16.0.1 alpha release
+		*17.0.1alpha* 17.0.1 alpha release
 	</changelog>
 	<depends>
 		<module>core ge 13.0.113.3</module>
@@ -38,7 +24,7 @@
 		<findmefollow needsenginedb="yes">Follow Me</findmefollow>
 	</menuitems>
 	<supported>
-		<version>16.0</version>
+		<version>17.0</version>
 	</supported>
 	<hooks>
 		<bulkhandler class="Bulkhandler" namespace="FreePBX\modules">
