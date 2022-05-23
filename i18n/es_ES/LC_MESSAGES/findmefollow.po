@@ -1,14 +1,30 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-25 01:00+0000\n"
+"PO-Revision-Date: 2022-05-25 01:00+0000\n"
+"Last-Translator: Santiago Pioli <spioli@sangoma.com>\n"
+"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
+"findmefollow/es/>\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.0.1\n"
+
 #: functions.inc.php:693 ucp/views/settings.php:10 views/form.php:48
 msgid "*-prim"
-msgstr ""
+msgstr "*-prim"
 
 #: functions.inc.php:579 views/form.php:324
 msgid "--Not Calendar Controlled--"
-msgstr ""
+msgstr "--No configurado con Calendario--"
 
 #: functions.inc.php:606 views/form.php:353
 msgid "--Not Calendar Group Controlled--"
-msgstr ""
+msgstr "--No configurado con Grupo de Calendario--"
 
 #: functions.inc.php:792 views/form.php:548
 msgid ""
@@ -16,26 +32,29 @@ msgid ""
 "having issues, see the \"Enforce RFC7462\" option found in Settings-"
 ">Advanced Settings."
 msgstr ""
+"ALERT_INFO puede ser usado por los tonos de llamada distintivos en equipos "
+"SIP. <br>Si tiene problemas, vea opción \"Aplicar RFC7462\" en "
+"Configuraciones->Configuraciones Avanzadas."
 
 #: functions.inc.php:791 views/form.php:536
 msgid "Alert Info"
-msgstr ""
+msgstr "Información de Alerta"
 
 #: views/ucp_config.php:39
 msgid "Allowed Extensions"
-msgstr ""
+msgstr "Extensiones permitidas"
 
 #: functions.inc.php:960 views/form.php:614
 msgid "Always transmit the Fixed CID Value below."
-msgstr ""
+msgstr "Transmitir siempre el valor de Identificador de Llamada Fijo de abajo."
 
 #: functions.inc.php:746 views/form.php:78
 msgid "Announcement"
-msgstr ""
+msgstr "Anuncio"
 
 #: findmefollow.i18n.php:6
 msgid "Applications"
-msgstr ""
+msgstr "Aplicaciones"
 
 #: functions.inc.php:534
 msgid ""
@@ -47,6 +66,13 @@ msgid ""
 "and then only if the caller chooses to find you do you want the call to go "
 "through FollowMe."
 msgstr ""
+"Por defecto (Si) cualquiera llamada a esta extensión va a ir a esta Sigue-"
+"Me, incluyendo llamadas al directorio por nombre desde IVRs. Si se "
+"selecciona 'No', las llamadas irán sólo a la extensión. Sin embargo, "
+"destinos que especifiquen directamente SigueMe vendrán aquí. Configurar esto "
+"en 'No' es usualmente utilizado en conjunto con VMX Locater, donde quiere "
+"sonar la llamada en la extensión, para luego sólo si el llamador elige "
+"buscarte, quieres que llamada vaya a través de SigueMe."
 
 #: views/form.php:282
 msgid ""
@@ -57,107 +83,114 @@ msgid ""
 "where you want a call to ring the extension, and then only if the caller "
 "chooses to find you do you want it to come here."
 msgstr ""
+"Por defecto (Si) cualquiera llamada a esta extensión va a ir a esta Sigue-"
+"Me, incluyendo llamadas al directorio por nombre desde IVRs. Si se "
+"selecciona 'No', las llamadas irán sólo a la extensión. <BR>Sin embargo, "
+"destinos que especifiquen directamente SigueMe vendrán aquí. <BR>Configurar "
+"esto en 'No' es usualmente utilizado en conjunto con VMX Locater, donde "
+"quiere sonar la llamada en la extensión, para luego sólo si el llamador "
+"elige buscarte, quieres que llamada vaya a través de SigueMe."
 
 #: functions.inc.php:781 views/form.php:512
 msgid "CID Name Prefix"
-msgstr ""
+msgstr "Prefijo Nombre Identificador de Llamadas"
 
 #: functions.inc.php:591 views/form.php:319
 msgid "Calendar"
-msgstr ""
+msgstr "Calendario"
 
 #: functions.inc.php:618 views/form.php:348
 msgid "Calendar Group"
-msgstr ""
+msgstr "Grupo de Calendario"
 
 #: functions.inc.php:632 views/form.php:377
 msgid "Calendar Match Inverse"
-msgstr ""
+msgstr "Coincidencia de Calendario Inversa"
 
 #: functions.inc.php:145 functions.inc.php:156
 msgid "Calendar Not found"
-msgstr ""
+msgstr "Calendario no encontrado"
 
 #: functions.inc.php:836
 msgid "Call Confirmation Configuration"
-msgstr ""
+msgstr "Configuración de Confirmación de llamada"
 
 #: install.php:34 uninstall.php:30
 msgid "Cannot connect to Asterisk Manager with "
-msgstr ""
+msgstr "No puede conectar con Administrador de Asterisk con "
 
 #: functions.inc.php:937 views/form.php:630
 msgid "Change External CID Configuration"
-msgstr ""
+msgstr "Cambiar Configuración Identificación de Llamada Externo"
 
 #: functions.inc.php:859 views/form.php:587
 msgid "Confirm Calls"
-msgstr ""
+msgstr "Confirmar llamadas"
 
 #: findmefollow.i18n.php:12
 msgid "Create Follow Me at Extension Creation Time"
-msgstr ""
+msgstr "Crear SigueMe en el momento de la creación de la Extensión"
 
 #: functions.inc.php:880 functions.inc.php:959 functions.inc.php:972
 #: views/form.php:120 views/form.php:155 views/form.php:220 views/form.php:612
 msgid "Default"
-msgstr ""
+msgstr "Por defecto"
 
 #: findmefollow.i18n.php:26
 msgid "Default Follow Me Initial Ring Time"
-msgstr ""
+msgstr "Tiempo de ringado inicial SigueMe por defecto"
 
 #: findmefollow.i18n.php:30
 msgid "Default Follow Me Ring Strategy"
-msgstr ""
+msgstr "Estrategia de ringado SigueMe por defecto"
 
 #: findmefollow.i18n.php:22
 msgid "Default Follow Me Ring Time"
-msgstr ""
+msgstr "Tiempo de ringado SigueMe por defecto"
 
 #: views/form.php:680
 msgid "Destination if no answer"
-msgstr ""
+msgstr "Destino si no contesta"
 
 #: functions.inc.php:1016
 msgid "Destinations"
-msgstr ""
+msgstr "Destinos"
 
 #: views/ucp_config.php:74
 msgid "Disable"
-msgstr ""
+msgstr "Deshabilitado"
 
 #: findmefollow.i18n.php:18
 msgid "Disable Follow Me Upon Creation"
-msgstr ""
+msgstr "Deshabilita SigueMe al momento de  la creación"
 
 #: ucp/views/widget.php:2
 msgid "Disabled"
-msgstr ""
+msgstr "Deshabilitado"
 
 #: views/ucp_config.php:72
 msgid "Enable"
-msgstr ""
+msgstr "Habilita"
 
 #: functions.inc.php:556 views/form.php:293
 msgid "Enable Calendar Matching"
-msgstr ""
+msgstr "Habilitar Coincidencia de Calendario"
 
 #: views/quickCreate.php:5
 msgid "Enable Find Me/Follow Me"
-msgstr ""
+msgstr "Habilitar EncuentraMe/SigueMe"
 
 #: views/ucp_config.php:7
 msgid "Enable Findme Follow"
-msgstr ""
+msgstr "Habilitar EncuentraMe SigueMe"
 
 #: views/form.php:267
 msgid "Enable Followme"
-msgstr ""
+msgstr "Habilitar EncuentraMe"
 
 #: views/ucp_config.php:28
 msgid "Enable the Findmefollow access in UCP for this user"
-msgstr ""
+msgstr "Habilitar el acceso a EncuentraMe/SigueMe en UCP para este usuario"
 
 #: ucp/views/settings.php:62
 msgid ""
@@ -166,6 +199,10 @@ msgid ""
 "this requires the remote side push 1 on their phone before the call is put "
 "through."
 msgstr ""
+"Habilite esto si está llamando números externos que necesitan confirmación. "
+"Por ejemplo, un número de celular podría ir al buzón de voz que podría "
+"atender la llamada. Habilitar esto requiere que el sitio remoto presione 1 "
+"en su teléfono antes de que se realice la llamada."
 
 #: views/form.php:602
 msgid ""
@@ -174,6 +211,11 @@ msgid ""
 "this requires the remote side push 1 on their phone before the call is put "
 "through. This feature only works with the ringall ring strategy"
 msgstr ""
+"Habilite esto si está llamando números externos que necesitan confirmación. "
+"Por ejemplo, un número de celular podría ir al buzón de voz que podría "
+"atender la llamada. Habilitar esto requiere que el sitio remoto presione 1 "
+"en su teléfono antes de que se realice la llamada. Esta característica solo "
+"funciona con la estrategia de ringado RingAll"
 
 #: functions.inc.php:860
 msgid ""
@@ -182,50 +224,57 @@ msgid ""
 "this requires the remote side push 1 on their phone before the call is put "
 "through. This feature only works with the ringall/ringall-prim  ring strategy"
 msgstr ""
+"Habilite esto si está llamando números externos que necesitan confirmación. "
+"Por ejemplo, un número de celular podría ir al buzón de voz que podría "
+"atender la llamada. Habilitar esto requiere que el sitio remoto presione 1 "
+"en su teléfono antes de que se realice la llamada. Esta característica solo "
+"funciona con la estrategia de ringado RingAll/RingAll-prim"
 
 #: functions.inc.php:533 ucp/views/widget.php:2 views/fmgrid.php:27
 msgid "Enabled"
-msgstr ""
+msgstr "Habilitado"
 
 #: assets/js/findmefollow.js:74
 msgid "Error"
-msgstr ""
+msgstr "Error"
 
 #: views/bootnav.php:7 views/bootnav.php:18
 msgid "Extension"
-msgstr ""
+msgstr "Extensión"
 
 #: functions.inc.php:475
 msgid "Find Me/Follow Me"
-msgstr ""
+msgstr "EncuentraMe/SigueMe"
 
 #: ucp/Findmefollow.class.php:67
 msgid "Find Me/Follow Me Has Been Updated!"
-msgstr ""
+msgstr "¡EncuentraMe/SigueMe ha sido actualizado!"
 
 #: ucp/Findmefollow.class.php:110
 #, php-format
 msgid "Find Me/Follow Me for %s"
-msgstr ""
+msgstr "EncuentraMe/SigueMe para %s"
 
 #: findmefollow.i18n.php:34 install.php:5
 msgid "Findme Follow Toggle"
-msgstr ""
+msgstr "EncuentraMe/SigueMe palanca"
 
 #: Findmefollow.class.php:1304
 msgid "FindmeFollow"
-msgstr ""
+msgstr "EncuentraMe/SigueMe"
 
 #: functions.inc.php:960 functions.inc.php:976 functions.inc.php:999
 #: views/form.php:221 views/form.php:614 views/form.php:656
 msgid "Fixed CID Value"
-msgstr ""
+msgstr "Valor de Identificador de Llamada fijo"
 
 #: functions.inc.php:1006
 msgid ""
 "Fixed CID Value should be in a format of digits only with an option of E164 "
 "format using a leading \"+\""
 msgstr ""
+"El valor de Identificador de Llamada debe estar en un formato de dígitos "
+"solamente con una opción de formato E164 usando un prefijo \"+\""
 
 #: functions.inc.php:1000
 msgid ""
@@ -233,6 +282,9 @@ msgid ""
 "Should be in a format of digits only with an option of E164 format using a "
 "leading \"+\"."
 msgstr ""
+"Valor fijo para reemplazar el Identificador de Llamada usado con alguno de "
+"los modos de arriba. Debería estar en un formato de dígitos solo con una "
+"opción de formato E164 usando prefijo \"+\"."
 
 #: views/form.php:668
 msgid ""
@@ -240,127 +292,140 @@ msgid ""
 "Should be in a format of digits only with an option of E164 format using a "
 "leading '+'."
 msgstr ""
+"Valor fijo para reemplazar el Identificador de Llamada usado con alguno de "
+"los modos de arriba. Debería estar en un formato de dígitos solo con una "
+"opción de formato E164 usando prefijo \"+\"."
 
 #: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
 #: ucp/Findmefollow.class.php:124 ucp/Findmefollow.class.php:141
 #: ucp/Findmefollow.class.php:179
 msgid "Follow Me"
-msgstr ""
+msgstr "SigueMe"
 
 #: Findmefollow.class.php:886
 msgid "Follow Me Enabled [Blank to disable]"
-msgstr ""
+msgstr "SigueMe Habilitado [blanco para deshabilitar]"
 
 #: Findmefollow.class.php:889 ucp/views/settings.php:27
 msgid "Follow Me List"
-msgstr ""
+msgstr "Lista SigueMe"
 
 #: findmefollow.i18n.php:14
 msgid "Follow Me Module"
-msgstr ""
+msgstr "Módulo SigueMe"
 
 #: Findmefollow.class.php:892
 msgid "Follow Me No Answer Destination"
-msgstr ""
+msgstr "SigueMe destino de Sin Respuesta"
 
 #: functions.inc.php:1151
 #, php-format
 msgid "Follow Me: %s"
-msgstr ""
+msgstr "SigueMe: %s"
 
 #: views/form.php:454
 msgid "Follow-Me"
-msgstr ""
+msgstr "SigueMe"
 
 #: functions.inc.php:728 views/form.php:478
 msgid "Follow-Me List"
-msgstr ""
+msgstr "Lista SigueMe"
 
 #: functions.inc.php:734
 msgid "Follow-Me List can not be empty if Follow-Me is enabled"
-msgstr ""
+msgstr "La lista SigueMe no puede ser vacía si SigueMe está habilitado"
 
 #: functions.inc.php:1203
 #, php-format
 msgid "Follow-Me User: %s"
-msgstr ""
+msgstr "Usuario SigueMe: %s"
 
 #: functions.inc.php:1180
 #, php-format
 msgid "Follow-Me: %s (%s)"
-msgstr ""
+msgstr "SigueMe: %s (%s)"
 
 #: views/fmgrid.php:26
 msgid "Followme Extension"
-msgstr ""
+msgstr "Extensión SigueMe"
 
 #: views/nogo.php:2
 msgid "Followme List"
-msgstr ""
+msgstr "Lista SigueMe"
 
 #: views/ucp_config.php:67
 msgid "Followme Ring Strategy Settings"
-msgstr ""
+msgstr "Ajustes de estrategias de ringado SigueMe"
 
 #: functions.inc.php:963 functions.inc.php:988 views/form.php:224
 #: views/form.php:620
 msgid "Force Dialed Number"
-msgstr ""
+msgstr "Forzar número discado"
 
 #: functions.inc.php:41
 msgid "Force Follow Me"
-msgstr ""
+msgstr "Forzar SigueMe"
 
 #: functions.inc.php:509
 msgid "General Settings"
-msgstr ""
+msgstr "Ajustes generales"
 
 #: views/form.php:243
 msgid "Group Number"
-msgstr ""
+msgstr "Número de Grupo"
 
 #: functions.inc.php:619 views/form.php:365
 msgid ""
 "If set the followme will only be active when the calendar group has an event."
 msgstr ""
+"Si se configura, el SigueMe sólo estará activo cuando el Grupo de Calendario "
+"tenga un evento."
 
 #: functions.inc.php:592 views/form.php:336
 msgid "If set the followme will only be active when the calendar has an event."
 msgstr ""
+"Si se configura, el SigueMe sólo estará activo cuando el Calendario tenga un "
+"evento."
 
 #: functions.inc.php:771 views/form.php:212
 msgid ""
 "If you select a Music on Hold class to play, instead of 'Ring', they will "
 "hear that instead of Ringing while they are waiting for someone to pick up."
 msgstr ""
+"Si selecciona una clase de Música en Espera para reproducir, en vez de "
+"'sonar', ellos escucharán eso cuando están esperando que alguien atienda."
 
 #: views/ucp_config.php:18 views/ucp_config.php:77
 msgid "Inherit"
-msgstr ""
+msgstr "Heredar"
 
 #: functions.inc.php:679 views/form.php:404
 msgid "Initial Ring Time"
-msgstr ""
+msgstr "Tiempo de Ringado Inicial"
 
 #: assets/js/findmefollow.js:114
 msgid ""
 "Invalid CID Number. Must be in a format of digits only with an option of "
 "E164 format using a leading \"+\""
 msgstr ""
+"Número de Identificador de Llamada inválido. Debe ser en un formato de "
+"dígitos solo con una opción de formato E164 usando un prefijo \"+\""
 
 #: assets/js/findmefollow.js:111
 msgid "Invalid time specified"
-msgstr ""
+msgstr "Tiempo especificado inválido"
 
 #: functions.inc.php:557 views/form.php:308
 msgid ""
 "Link this Follow Me to a Calendar or Calendar group to automatically Enable/"
 "Disable based on a schedule"
 msgstr ""
+"Vincule este SigueMe a un Calendario o Grupo de Calendario para "
+"automáticamente Habilitar/Deshabilitar basado en un calendario"
 
 #: views/bootnav.php:12
 msgid "List Followme Groups"
-msgstr ""
+msgstr "Lista de Grupos SigueMe"
 
 #: functions.inc.php:729 views/form.php:498
 msgid ""
@@ -372,6 +437,13 @@ msgid ""
 "you wish the system to use another extension's FindMe/FollowMe append a # "
 "onto that extension, eg 105#"
 msgstr ""
+"Lista de extensiones a sonar, una por línea, o use el Elige Extensión Rápido "
+"de abajo. <br><br>Puede incluir una extensión en un sistema remoto, o un "
+"número externo agregando un numeral (#) como sufijo. Por ejemplo: 2448089# "
+"marcará 2448089 en la línea apropiada (vea Rutas Salientes).<br><br>Nota: "
+"cualquiera extensión local agregada se salteará las configuraciones locales "
+"EncuentraMe/SigueMe, si desea que el sistema use EncuentraMe/SigueMe de otra "
+"extensión, agregue un # en la extensión, de este modo: 105#"
 
 #: ucp/views/settings.php:29
 msgid ""
@@ -379,18 +451,27 @@ msgid ""
 "remote system, or an external number by suffixing a number with a pound "
 "(#).  ex:  2448089# would dial 2448089."
 msgstr ""
+"Lista de extensiones a sonar, una por línea. Puede incluir una extensión en "
+"un sistema remoto, o un número externo agregando un numeral (#) como sufijo. "
+"Por ejemplo: 2448089# llamaría al 2448089."
 
 #: views/form.php:99
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
 "additional recordings please use the \"System Recordings\" MENU above"
 msgstr ""
+"Mensaje a reproducirse al llamador antes de discar este grupo.<br><br>Para "
+"agregar grabaciones adicionales por favor utilice el menú \"Grabaciones del "
+"Sistema\" de arriba"
 
 #: functions.inc.php:747
 msgid ""
 "Message to be played to the caller before dialing this group.<br><br>To add "
 "additional recordings please use the \"System Recordings\" MENU to the left"
 msgstr ""
+"Mensaje a reproducirse al llamador antes de discar este grupo.<br><br>Para "
+"agregar grabaciones adicionales por favor utilice el menú \"Grabaciones del "
+"Sistema\" de la izquierda"
 
 #: views/form.php:134
 msgid ""
@@ -398,6 +479,9 @@ msgid ""
 "enabled.<br><br>To add additional recordings use the \"System Recordings\" "
 "MENU above"
 msgstr ""
+"Mensaje a reproducirse a la persona RECIBIENDO la llamada, si \"Confirmar "
+"Llamadas\" está habilitado.<br><br>Para agregar grabaciones adicionales por "
+"favor utilice el menú \"Grabaciones del Sistema\" de arriba"
 
 #: functions.inc.php:885
 msgid ""
@@ -405,6 +489,9 @@ msgid ""
 "enabled.<br><br>To add additional recordings use the \"System Recordings\" "
 "MENU to the left"
 msgstr ""
+"Mensaje a reproducirse a la persona RECIBIENDO la llamada, si \"Confirmar "
+"Llamadas\" está habilitado.<br><br>Para agregar grabaciones adicionales por "
+"favor utilice el menú \"Grabaciones del Sistema\" de la izquierda"
 
 #: views/form.php:169
 msgid ""
@@ -412,6 +499,9 @@ msgid ""
 "already been accepted before they push 1.<br><br>To add additional "
 "recordings use the \"System Recordings\" MENU above"
 msgstr ""
+"Mensaje a reproducirse a la persona RECIBIENDO la llamada, si la llamada ha "
+"si ya aceptada antes de que presione 1.<br><br>Para agregar grabaciones "
+"adicionales por favor utilice el menú \"Grabaciones del Sistema\" de arriba"
 
 #: functions.inc.php:897
 msgid ""
@@ -419,14 +509,18 @@ msgid ""
 "already been accepted before they push 1.<br><br>To add additional "
 "recordings use the \"System Recordings\" MENU to the left"
 msgstr ""
+"Mensaje a reproducirse a la persona RECIBIENDO la llamada, si la llamada ha "
+"si ya aceptada antes de que presione 1.<br><br>Para agregar grabaciones "
+"adicionales por favor utilice el menú \"Grabaciones del Sistema\" de la "
+"izquierda"
 
 #: views/nogo.php:1
 msgid "Method not supported"
-msgstr ""
+msgstr "Método no soportado"
 
 #: functions.inc.php:966 views/form.php:610
 msgid "Mode"
-msgstr ""
+msgstr "Modo"
 
 #: findmefollow.i18n.php:8
 msgid ""
@@ -436,26 +530,32 @@ msgid ""
 "once, or in other various 'hunt' configurations. Most commonly used to ring "
 "someone's cell phone if they don't answer their extension."
 msgstr ""
+"Casi como un grupo de ringado, pero funciona con extensiones individuales. "
+"Cuando alguien llama a la extensión, puede configurarse para sonar por un "
+"número de segundos antes de tratar de sonar otra extensión y/o número "
+"externo, o para sonar todos a la vez, o en otras configuraciones de 'caza'. "
+"Más comúnmente usado para sonar el teléfono celular de alguien si no atiende "
+"su extensión."
 
 #: functions.inc.php:543 functions.inc.php:566 functions.inc.php:642
 #: functions.inc.php:869 views/fmgrid.php:18 views/form.php:274
 #: views/form.php:300 views/form.php:384 views/form.php:594
 #: views/quickCreate.php:12 views/ucp_config.php:15
 msgid "No"
-msgstr ""
+msgstr "No"
 
 #: functions.inc.php:1040
 msgid "No Answer"
-msgstr ""
+msgstr "No atiende"
 
 #: functions.inc.php:461 functions.inc.php:801 views/form.php:85
 #: views/form.php:564
 msgid "None"
-msgstr ""
+msgstr "Ninguno"
 
 #: functions.inc.php:21 functions.inc.php:25
 msgid "Normal Extension Behavior"
-msgstr ""
+msgstr "Comportamiento normal de la extensión"
 
 #: ucp/views/settings.php:29
 msgid ""
@@ -463,12 +563,18 @@ msgid ""
 "FollowMe, if you wish the system to use another extension's FindMe/FollowMe "
 "append a # onto that extension, eg 105#"
 msgstr ""
+"Nota: cualquier extensión local agregada evitará las configuraciones "
+"EncuentraMe/SigueMe locales de la extensión, si desea que el sistema use "
+"EncuentraMe/SigueMe de otra extensión agregue un # en la extensión, como ser:"
+" 105#"
 
 #: assets/js/findmefollow.js:113
 msgid ""
 "Only ringall, ringallv2, hunt and the respective -prim versions are "
 "supported when confirmation is checked"
 msgstr ""
+"Solo ringall, ringallv2, caza y las respectivas versiones -prim son "
+"soportadas cuando confirmación es seleccionada"
 
 #: functions.inc.php:1041
 msgid ""
@@ -476,11 +582,14 @@ msgid ""
 "otherwise idle phone. If the phone is in use and the call is simply ignored, "
 "then the busy destination will be used."
 msgstr ""
+"El destino de llamada opcional se enruta cuando la llamada no se responde en "
+"un teléfono inactivo. Si el teléfono está en uso y la llamada es simplemente "
+"ignorada, entonces el destino Ocupado será utilizado."
 
 #: functions.inc.php:961 functions.inc.php:980 views/form.php:222
 #: views/form.php:616
 msgid "Outside Calls Fixed CID Value"
-msgstr ""
+msgstr "Llamadas Externas Valor de Identificador de Llamadas Fijo"
 
 #: views/form.php:576
 #, php-format
@@ -488,37 +597,41 @@ msgid ""
 "Override the ringer volume. Note: This is only valid for %s phones at this "
 "time"
 msgstr ""
+"Anular el volumen de sonado. Nota: esto es sólo válido para teléfonos %s en "
+"este momento"
 
 #: functions.inc.php:816
 msgid ""
 "Override the ringer volume. Note: This is only valid for Sangoma phones at "
 "this time"
 msgstr ""
+"Anular el volumen de sonado. Nota: esto es solo válido para teléfonos "
+"Sangoma en este momento"
 
 #: functions.inc.php:770 views/form.php:188
 msgid "Play Music On Hold"
-msgstr ""
+msgstr "Reproducir Música en Espera"
 
 #: functions.inc.php:487
 #, php-format
 msgid "Please enter a valid %s number"
-msgstr ""
+msgstr "Por favor ingrese un número %s válido"
 
 #: assets/js/findmefollow.js:110
 msgid "Please enter an extension list."
-msgstr ""
+msgstr "Por favor ingrese una lista de extensiones."
 
 #: functions.inc.php:884 views/form.php:113
 msgid "Remote Announce"
-msgstr ""
+msgstr "Anuncio remoto"
 
 #: assets/js/findmefollow.js:74
 msgid "Request not received"
-msgstr ""
+msgstr "Consulta no recibida"
 
 #: Findmefollow.class.php:604
 msgid "Reset"
-msgstr ""
+msgstr "Reiniciar"
 
 #: functions.inc.php:758 views/form.php:195
 msgid "Ring"
