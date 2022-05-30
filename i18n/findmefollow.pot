@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-23 07:37+0000\n"
+"POT-Creation-Date: 2022-05-30 12:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -388,6 +388,13 @@ msgstr ""
 msgid "Follow Me: %s"
 msgstr ""
 
+#: Api/Gql/Findmefollow.php:582
+#, php-format
+msgid ""
+"Follow me allows only Same extension Behavior, Example: please provide this "
+"format `ext-local,%s,dest`"
+msgstr ""
+
 #: views/form.php:454
 msgid "Follow-Me"
 msgstr ""
@@ -530,7 +537,7 @@ msgid ""
 msgstr ""
 
 #: Api/Gql/Findmefollow.php:194
-#: Api/Gql/Findmefollow.php:711
+#: Api/Gql/Findmefollow.php:720
 msgid "Message for the request"
 msgstr ""
 
@@ -746,7 +753,7 @@ msgid "Seconds"
 msgstr ""
 
 #: Api/Gql/Findmefollow.php:190
-#: Api/Gql/Findmefollow.php:707
+#: Api/Gql/Findmefollow.php:716
 msgid "Status of the request"
 msgstr ""
 

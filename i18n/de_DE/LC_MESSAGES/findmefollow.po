@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-02 06:49+0000\n"
+"POT-Creation-Date: 2022-05-30 12:02+0000\n"
 "PO-Revision-Date: 2018-08-25 15:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/findmefollow/de/>\n"
@@ -358,6 +358,13 @@ msgstr "Folge mir Ziel bei keine Antwort"
 msgid "Follow Me: %s"
 msgstr "Folge mir: %s"
 
+#: Api/Gql/Findmefollow.php:582
+#, php-format
+msgid ""
+"Follow me allows only Same extension Behavior, Example: please provide this "
+"format `ext-local,%s,dest`"
+msgstr ""
+
 #: views/form.php:454
 msgid "Follow-Me"
 msgstr ""
@@ -503,7 +510,7 @@ msgstr ""
 "externe Nummern eintragen, wenn Sie ein '#' anhängen. 08154711# würde z.B. "
 "die 08154711 anwählen."
 
-#: Api/Gql/Findmefollow.php:194 Api/Gql/Findmefollow.php:711
+#: Api/Gql/Findmefollow.php:194 Api/Gql/Findmefollow.php:720
 msgid "Message for the request"
 msgstr ""
 
@@ -721,7 +728,7 @@ msgstr ""
 msgid "Seconds"
 msgstr "Sekunden"
 
-#: Api/Gql/Findmefollow.php:190 Api/Gql/Findmefollow.php:707
+#: Api/Gql/Findmefollow.php:190 Api/Gql/Findmefollow.php:716
 msgid "Status of the request"
 msgstr ""
 
