@@ -72,8 +72,8 @@ if(function_exists('recordings_list')) {
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="annmsg_id">'._("Announcement").'</label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="annmsg_id"></i>
@@ -107,8 +107,8 @@ if(function_exists('recordings_list')) {
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="remotealert_id">'._("Remote Announce").'</label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="remotealert_id"></i>
@@ -142,8 +142,8 @@ if(function_exists('recordings_list')) {
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="">
-						<div class="row form-group">
+					<div class="row">
+						<div class="form-group">
 							<div class="col-md-3">
 								<label class="control-label" for="toolate_id">'._("Too-Late Announce").'</label>
 								<i class="fa fa-question-circle fpbx-help-icon" data-for="toolate_id"></i>
@@ -182,8 +182,8 @@ if(function_exists('music_list')) {
 	<div class="element-container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="">
-					<div class="row form-group">
+				<div class="row">
+					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="ringing">'._("Play Music On Hold").'</label>
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="ringing"></i>
@@ -237,8 +237,8 @@ if (empty($goto)) {
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="account"><?php echo _("Group Number") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="account"></i>
@@ -261,8 +261,8 @@ if (empty($goto)) {
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="ddialw"><?php echo _("Enable Followme") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="ddialw"></i>
@@ -287,8 +287,8 @@ if (empty($goto)) {
 <div class="element-container <?php echo FreePBX::Modules()->checkStatus('calendar')?'':'hidden'?>">
   <div class="row">
     <div class="col-md-12">
-      <div class="">
-        <div class="row form-group">
+      <div class="row">
+        <div class="form-group">
           <div class="col-md-3">
             <label class="control-label" for="calendar_enable"><?php echo _("Enable Calendar Matching") ?></label>
             <i class="fa fa-question-circle fpbx-help-icon" data-for="calendar_enable"></i>
@@ -313,8 +313,8 @@ if (empty($goto)) {
 <div class="element-container calendar <?php echo FreePBX::Modules()->checkStatus('calendar') && $calendar_enable ?'':'hidden'?>">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="calendar_id"><?php echo _("Calendar") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="calendar_id"></i>
@@ -342,8 +342,8 @@ if (empty($goto)) {
 <div class="element-container calendar <?php echo FreePBX::Modules()->checkStatus('calendar') && $calendar_enable ?'':'hidden'?>">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="calendar_group_id"><?php echo _("Calendar Group") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="calendar_group_id"></i>
@@ -371,8 +371,8 @@ if (empty($goto)) {
 <div class="element-container calendar <?php echo FreePBX::Modules()->checkStatus('calendar') && $calendar_enable ?'':'hidden'?>">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="calendar_match"><?php echo _("Calendar Match Inverse") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="calendar_match"></i>
@@ -398,8 +398,8 @@ if (empty($goto)) {
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="pre_ring"><?php echo _("Initial Ring Time") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="pre_ring"></i>
@@ -422,8 +422,8 @@ if (empty($goto)) {
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="strategy"><?php echo _("Ring Strategy") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="strategy"></i>
@@ -448,8 +448,8 @@ if (empty($goto)) {
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="grptime"><?php echo _("Follow-Me")." ". _("Ring Time (max 60 sec)") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="grptime"></i>
@@ -472,8 +472,8 @@ if (empty($goto)) {
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="grplist"><?php echo _("Follow-Me List") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="grplist"></i>
@@ -506,8 +506,8 @@ if (empty($goto)) {
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="grppre"><?php echo _("CID Name Prefix") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="grppre"></i>
@@ -530,8 +530,8 @@ if (empty($goto)) {
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="dring"><?php echo _("Alert Info") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="dring"></i>
@@ -553,8 +553,8 @@ if (empty($goto)) {
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="rvolume"><?php echo _("Ringer Volume Override") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="rvolume"></i>
@@ -581,8 +581,8 @@ if (empty($goto)) {
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="needsconfw"><?php echo _("Confirm Calls") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="needsconfw"></i>
@@ -624,8 +624,8 @@ $ccidhelp = _("Mode").':'
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="changecid"><?php echo _("Change External CID Configuration") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="changecid"></i>
@@ -650,8 +650,8 @@ $ccidhelp = _("Mode").':'
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="fixedcid"><?php echo _("Fixed CID Value") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="fixedcid"></i>
@@ -674,8 +674,8 @@ $ccidhelp = _("Mode").':'
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="goto0"><?php echo _("Destination if no answer") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="goto0"></i>

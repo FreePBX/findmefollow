@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-02 06:49+0000\n"
+"POT-Creation-Date: 2022-05-30 12:02+0000\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -343,6 +343,13 @@ msgstr ""
 msgid "Follow Me: %s"
 msgstr ""
 
+#: Api/Gql/Findmefollow.php:582
+#, php-format
+msgid ""
+"Follow me allows only Same extension Behavior, Example: please provide this "
+"format `ext-local,%s,dest`"
+msgstr ""
+
 #: views/form.php:454
 msgid "Follow-Me"
 msgstr ""
@@ -478,7 +485,7 @@ msgid ""
 "(#).  ex:  2448089# would dial 2448089."
 msgstr ""
 
-#: Api/Gql/Findmefollow.php:194 Api/Gql/Findmefollow.php:711
+#: Api/Gql/Findmefollow.php:194 Api/Gql/Findmefollow.php:720
 msgid "Message for the request"
 msgstr ""
 
@@ -681,7 +688,7 @@ msgstr ""
 msgid "Seconds"
 msgstr ""
 
-#: Api/Gql/Findmefollow.php:190 Api/Gql/Findmefollow.php:707
+#: Api/Gql/Findmefollow.php:190 Api/Gql/Findmefollow.php:716
 msgid "Status of the request"
 msgstr ""
 
