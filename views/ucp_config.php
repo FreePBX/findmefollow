@@ -1,8 +1,8 @@
 <div class="element-container">
         <div class="row">
                 <div class="col-md-12">
-                        <div class="">
-                                <div class="row form-group">
+                        <div class="row">
+                                <div class="form-group">
                                         <div class="col-md-3">
                                                 <label class="control-label" for="findmefollow_enable"><?php echo _("Enable Findme Follow")?></label>
                                                 <i class="fa fa-question-circle fpbx-help-icon" data-for="findmefollow_enable"></i>
@@ -33,8 +33,8 @@
 <div class="element-container">
         <div class="row">
                 <div class="col-md-12">
-                        <div class="">
-                                <div class="row form-group">
+                        <div class="row">
+                                <div class="form-group">
                                         <div class="col-md-3">
                                                 <label class="control-label" for="followme_ext"><?php echo _("Allowed Extensions")?></label>
                                                 <i class="fa fa-question-circle fpbx-help-icon" data-for="followme_ext"></i>
@@ -61,8 +61,8 @@
  <div class="element-container">
                 <div class="row">
                         <div class="col-md-12">
-                                <div class="">
-                                        <div class="row form-group">
+                                <div class="row">
+                                        <div class="form-group">
                                                 <div class="col-md-3">
                                                         <label class="control-label" for="fmr_settings"><?php echo _("Followme Ring Strategy Settings")?></label>
                                                         <i class="fa fa-question-circle fpbx-help-icon" data-for="fmr_settings"></i>

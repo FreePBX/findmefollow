@@ -574,6 +574,15 @@ class Findmefollow extends Base {
       return ['message' => $input['extensionId']." : ".$message,'status' => false];
     }
     $extensionId = $input['extensionId'];
+    if(isset($input['noAnswerDestination'])) {
+      $noAnswerDesArray = explode(',',$input['noAnswerDestination']);
+      $destinationname = isset($noAnswerDesArray[0])? $noAnswerDesArray[0] :'';
+      $destinationid = isset($noAnswerDesArray[1])? $noAnswerDesArray[1] :'';
+      if ($destinationname =='ext-local' && $destinationid !=$extensionId) {
+        $message = sprintf(_("Follow me allows only Same extension Behavior, Example: please provide this format `ext-local,%s,dest`"),$extensionId);
+        return ['message' => $message,'status' => false];
+      }
+    }
     $input = $this->resolveInputNames($input);
 
     $status = $this->freepbx->Findmefollow->addSettingsById($extensionId, $input);
