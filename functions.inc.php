@@ -133,7 +133,7 @@ function findmefollow_get_config($engine) {
 				//These two have to be here because of how they function in the dialplan.
 				//Dont try to make them dynamic, we really can't do that
 				$len = strlen($grpnum)+5;
-				$ext->add($grpcontextname, "_RG-".$grpnum."*.", '', new ext_gosub('1','s','sub-dial','${DB(AMPUSER/'.$grpnum.'/followme/grptime)},' .$dialopts. 'M(confirm^'.$remotealert.'^'.$toolate.'^'.$grpnum.'),${EXTEN:'.$len.'}'),1,1);
+				$ext->add($grpcontextname, "_RG-".$grpnum."*.", '', new ext_gosub('1','s','sub-dial','${DB(AMPUSER/'.$grpnum.'/followme/grptime)},' .$dialopts. 'b(confirm^s^1('.$remotealert.'^'.$toolate.'^'.$grpnum.')),${EXTEN:'.$len.'}'),1,1);
 				if($calendar_enable && $iscal && (!empty($calendar_id) || !empty($calendar_group_id))){
 					if(!empty($calendar_group_id)) {
 						try {
