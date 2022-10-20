@@ -1041,7 +1041,8 @@ class Findmefollow implements \BMO {
 				break;
 				break;
 				case 'annmsg_id':
-					$set_keys[$setting] = (int) $value;
+					$v = (int) $value;
+					$set_keys[$setting] = ($v == 0)? '': $v ;
 				break;
 				case 'postdest':
 					$set_keys[$setting] = $value;
@@ -1056,10 +1057,12 @@ class Findmefollow implements \BMO {
 					$set_keys[$setting] = $value;
 				break;
 				case 'remotealert_id':
-					$set_keys[$setting] = (int) $value;
+					$v = (int) $value;
+					$set_keys[$setting] = ($v == 0)? '': $v ;
 				break;
 				case 'toolate_id':
-					$set_keys[$setting] = (int) $value;
+					$v = (int) $value;
+					$set_keys[$setting] = ($v == 0)? '': $v ;
 				break;
 				case 'ringing':
 					$set_keys[$setting] = $value;
