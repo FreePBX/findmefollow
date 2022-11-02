@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-08 04:15+0000\n"
+"POT-Creation-Date: 2022-11-02 04:27+0000\n"
 "PO-Revision-Date: 2017-07-25 15:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -306,7 +306,7 @@ msgstr ""
 msgid "Findme Follow Toggle"
 msgstr "Chuyển đổi Findme Follow"
 
-#: Findmefollow.class.php:1348
+#: Findmefollow.class.php:1351
 msgid "FindmeFollow"
 msgstr ""
 
@@ -932,7 +932,7 @@ msgstr ""
 msgid "User"
 msgstr "Người dùng"
 
-#: Findmefollow.class.php:1331
+#: Findmefollow.class.php:1334
 msgid "User Primary Extension"
 msgstr ""
 

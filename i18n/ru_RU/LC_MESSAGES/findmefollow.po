@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-08 04:15+0000\n"
+"POT-Creation-Date: 2022-11-02 04:27+0000\n"
 "PO-Revision-Date: 2015-05-01 13:02+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -295,7 +295,7 @@ msgstr ""
 msgid "Findme Follow Toggle"
 msgstr "Переключение Найти меня тут"
 
-#: Findmefollow.class.php:1348
+#: Findmefollow.class.php:1351
 msgid "FindmeFollow"
 msgstr ""
 
@@ -911,7 +911,7 @@ msgstr ""
 msgid "User"
 msgstr "Пользователь"
 
-#: Findmefollow.class.php:1331
+#: Findmefollow.class.php:1334
 msgid "User Primary Extension"
 msgstr ""
 
