@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-30 12:02+0000\n"
+"POT-Creation-Date: 2022-11-02 04:28+0000\n"
 "PO-Revision-Date: 2016-07-17 10:16+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -305,7 +305,7 @@ msgstr ""
 msgid "Findme Follow Toggle"
 msgstr "مرا پیداو دنبال کن تغییر کرد"
 
-#: Findmefollow.class.php:1348
+#: Findmefollow.class.php:1351
 msgid "FindmeFollow"
 msgstr ""
 
@@ -931,7 +931,7 @@ msgstr ""
 msgid "User"
 msgstr "کاربر"
 
-#: Findmefollow.class.php:1331
+#: Findmefollow.class.php:1334
 msgid "User Primary Extension"
 msgstr ""
 

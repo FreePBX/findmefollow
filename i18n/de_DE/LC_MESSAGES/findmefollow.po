@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-30 12:02+0000\n"
+"POT-Creation-Date: 2022-11-02 04:28+0000\n"
 "PO-Revision-Date: 2018-08-25 15:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/findmefollow/de/>\n"
@@ -283,7 +283,7 @@ msgstr ""
 msgid "Findme Follow Toggle"
 msgstr "Finde mich Folge mir Umschalten"
 
-#: Findmefollow.class.php:1348
+#: Findmefollow.class.php:1351
 msgid "FindmeFollow"
 msgstr ""
 
@@ -890,7 +890,7 @@ msgstr ""
 msgid "User"
 msgstr "Benutzer"
 
-#: Findmefollow.class.php:1331
+#: Findmefollow.class.php:1334
 msgid "User Primary Extension"
 msgstr ""
 

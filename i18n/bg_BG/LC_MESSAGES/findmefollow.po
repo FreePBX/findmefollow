@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-30 12:02+0000\n"
+"POT-Creation-Date: 2022-11-02 04:28+0000\n"
 "PO-Revision-Date: 2015-03-11 21:58+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/"
@@ -285,7 +285,7 @@ msgstr ""
 msgid "Findme Follow Toggle"
 msgstr "Превключи Следвай Ме"
 
-#: Findmefollow.class.php:1348
+#: Findmefollow.class.php:1351
 msgid "FindmeFollow"
 msgstr ""
 
@@ -879,7 +879,7 @@ msgstr ""
 msgid "User"
 msgstr "Потребител"
 
-#: Findmefollow.class.php:1331
+#: Findmefollow.class.php:1334
 msgid "User Primary Extension"
 msgstr ""
 
