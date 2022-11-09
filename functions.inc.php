@@ -133,7 +133,7 @@ function findmefollow_get_config($engine) {
 				//These two have to be here because of how they function in the dialplan.
 				//Dont try to make them dynamic, we really can't do that
 				$len = strlen($grpnum)+5;
-				$ext->add($grpcontextname, "_RG-".$grpnum."*.", '', new ext_gosub('1','s','sub-dial','${DB(AMPUSER/'.$grpnum.'/followme/grptime)},' .$dialopts. 'M(confirm^'.$remotealert.'^'.$toolate.'^'.$grpnum.'),${EXTEN:'.$len.'}'),1,1);
+				$ext->add($grpcontextname, "_RG-".$grpnum."*.", '', new ext_macro('dial','${DB(AMPUSER/'.$grpnum.'/followme/grptime)},' .$dialopts. 'M(confirm^'.$remotealert.'^'.$toolate.'^'.$grpnum.'),${EXTEN:'.$len.'}'),1,1);
 				if($calendar_enable && $iscal && (!empty($calendar_id) || !empty($calendar_group_id))){
 					if(!empty($calendar_group_id)) {
 						try {
@@ -183,7 +183,7 @@ function findmefollow_get_config($engine) {
 
 			$contextname = 'followme-sub';
 			$ext->add($contextname, '_X!', '', new ext_gotoif('$[${LEN(${BLINDTRANSFER})} > 0 | ${LEN(${ATTENDEDTRANSFER})} > 0]','skipclid'));
-			$ext->add($contextname, '_X!', '', new ext_gosub('1','s','sub-user-callerid'));
+			$ext->add($contextname, '_X!', '', new ext_macro('user-callerid'));
 			$ext->add($contextname, '_X!', 'skipclid', new ext_set('DIAL_OPTIONS','${DIAL_OPTIONS}I'));
 			$ext->add($contextname, '_X!', '', new ext_set('CONNECTEDLINE(num,i)', '${EXTEN}'));
 			$cidnameval = '${DB(AMPUSER/${EXTEN}/cidname)}';
@@ -196,13 +196,13 @@ function findmefollow_get_config($engine) {
 			$ext->add($contextname, '_X!', '', new ext_set('__EXTTOCALL','${EXTEN}'));
 			$ext->add($contextname, '_X!', '', new ext_set('__PICKUPMARK','${EXTEN}'));
 
-			// block voicemail until phone is answered at which point a gosub should be called on the answering
+			// block voicemail until phone is answered at which point a macro should be called on the answering
 			// line to clear this flag so that subsequent transfers can occur, if already set by a the caller
 			// then don't change.
 			//
-			$ext->add($contextname, '_X!', '', new ext_gosub('1','s','sub-blkvm-setifempty'));
+			$ext->add($contextname, '_X!', '', new ext_macro('blkvm-setifempty'));
 			$ext->add($contextname, '_X!', '', new ext_gotoif('$["${GOSUB_RETVAL}" = "TRUE"]', 'skipov'));
-			$ext->add($contextname, '_X!', '', new ext_gosub('1','s','sub-blkvm-set','reset'));
+			$ext->add($contextname, '_X!', '', new ext_macro('blkvm-set','reset'));
 			$ext->add($contextname, '_X!', '', new ext_setvar('__NODEST', ''));
 
 			// Remember if NODEST was set later, but clear it in case the call is answered so that subsequent
@@ -215,7 +215,7 @@ function findmefollow_get_config($engine) {
 
 			// deal with group CID prefix
 			$ext->add($contextname, '_X!', '', new ext_gotoif('$[ "${DB(AMPUSER/${EXTEN}/followme/grppre)}" = "" ]', 'skipprepend'));
-			$ext->add($contextname, '_X!', '', new ext_gosub('1','s','sub-prepend-cid', '${DB(AMPUSER/${EXTEN}/followme/grppre)}'));
+			$ext->add($contextname, '_X!', '', new ext_macro('prepend-cid', '${DB(AMPUSER/${EXTEN}/followme/grppre)}'));
 
 			// recording stuff
 			$ext->add($contextname, '_X!', 'skipprepend', new ext_setvar('RecordMethod','Group'));
@@ -235,7 +235,7 @@ function findmefollow_get_config($engine) {
 			$ext->add($contextname, '_X!', '', new ext_setvar('__RVOL','${DB(AMPUSER/${EXTEN}/followme/rvolume)}'));
 			$ext->add($contextname, '_X!', '', new ext_gotoif('$["${CUT(STRATEGY,-,1)}"="ringallv2"]','skipsimple'));
 			$ext->add($contextname, '_X!', '', new ext_gotoif('$[$[ "${DB(AMPUSER/${EXTEN}/followme/prering)}" = "0" ] | $[ "${DB(AMPUSER/${EXTEN}/followme/prering)}" = "" ]] ', 'skipsimple'));
-			$ext->add($contextname, '_X!', '', new ext_gosub('1','s','sub-simple-dial','${EXTEN},${DB(AMPUSER/${EXTEN}/followme/prering)}'));
+			$ext->add($contextname, '_X!', '', new ext_macro('simple-dial','${EXTEN},${DB(AMPUSER/${EXTEN}/followme/prering)}'));
 
 			// group dial
 			$ext->add($contextname, '_X!', 'skipsimple', new ext_setvar('RingGroupMethod','${STRATEGY}'));
@@ -256,16 +256,16 @@ function findmefollow_get_config($engine) {
 
 			// Normal call
 			$ext->add($contextname, '_X!', '', new ext_gotoif('$["${CUT(STRATEGY,-,1)}"="ringallv2"]','ringallv21'));
-			$ext->add($contextname, '_X!', '', new ext_gosub('1','s','sub-dial','${DB(AMPUSER/${EXTEN}/followme/grptime)},${DOPTS},'.'${DB(AMPUSER/${EXTEN}/followme/grplist)}'));
+			$ext->add($contextname, '_X!', '', new ext_macro('dial','${DB(AMPUSER/${EXTEN}/followme/grptime)},${DOPTS},'.'${DB(AMPUSER/${EXTEN}/followme/grplist)}'));
 			$ext->add($contextname, '_X!', '', new ext_goto('nextstep'));
-			$ext->add($contextname, '_X!', 'ringallv21', new ext_gosub('1','s','sub-dial','$[ ${DB(AMPUSER/${EXTEN}/followme/grptime)} + ${DB(AMPUSER/${EXTEN}/followme/prering)} ],${DOPTS},${DB(AMPUSER/${EXTEN}/followme/grplist)}'));
+			$ext->add($contextname, '_X!', 'ringallv21', new ext_macro('dial','$[ ${DB(AMPUSER/${EXTEN}/followme/grptime)} + ${DB(AMPUSER/${EXTEN}/followme/prering)} ],${DOPTS},${DB(AMPUSER/${EXTEN}/followme/grplist)}'));
 			$ext->add($contextname, '_X!', '', new ext_goto('nextstep'));
 
 			// Call Confirm call
 			$ext->add($contextname, '_X!', 'doconfirm', new ext_gotoif('$["${CUT(STRATEGY,-,1)}"="ringallv2"]','ringallv22'));
-			$ext->add($contextname, '_X!', '', new ext_gosub('1','s','sub-dial-confirm','${DB(AMPUSER/${EXTEN}/followme/grptime)},${DOPTS},'.'${DB(AMPUSER/${EXTEN}/followme/grplist)},${EXTEN}'));
+			$ext->add($contextname, '_X!', '', new ext_macro('dial-confirm','${DB(AMPUSER/${EXTEN}/followme/grptime)},${DOPTS},'.'${DB(AMPUSER/${EXTEN}/followme/grplist)},${EXTEN}'));
 			$ext->add($contextname, '_X!', '', new ext_goto('nextstep'));
-			$ext->add($contextname, '_X!', 'ringallv22', new ext_gosub('1','s','sub-dial-confirm','$[ ${DB(AMPUSER/${EXTEN}/followme/grptime)} + ${DB(AMPUSER/${EXTEN}/followme/prering)} ],${DOPTS},${DB(AMPUSER/${EXTEN}/followme/grplist)},${EXTEN}'));
+			$ext->add($contextname, '_X!', 'ringallv22', new ext_macro('dial-confirm','$[ ${DB(AMPUSER/${EXTEN}/followme/grptime)} + ${DB(AMPUSER/${EXTEN}/followme/prering)} ],${DOPTS},${DB(AMPUSER/${EXTEN}/followme/grplist)},${EXTEN}'));
 
 			$ext->add($contextname, '_X!', 'nextstep', new ext_setvar('RingGroupMethod',''));
 
@@ -275,7 +275,7 @@ function findmefollow_get_config($engine) {
 			$ext->add($contextname, '_X!', '', new ext_gotoif('$["foo${RRNODEST}" != "foo"]', 'nodest'));
 			$ext->add($contextname, '_X!', '', new ext_setvar('__NODEST', ''));
 			$ext->add($contextname, '_X!', '', new ext_set('__PICKUPMARK',''));
-			$ext->add($contextname, '_X!', '', new ext_gosub('1','s','sub-blkvm-clr'));
+			$ext->add($contextname, '_X!', '', new ext_macro('blkvm-clr'));
 
 			/* NOANSWER:    NOT_INUSE
 			 * CHANUNAVAIL: UNAVAILABLE, UNKNOWN, INVALID (or DIALSTATUS=CHANUNAVAIL)
@@ -1283,7 +1283,7 @@ function findmefollow_fmf_toggle($c) {
 
 	$ext->add($id, $c, 'start', new ext_answer(''));
 	$ext->add($id, $c, '', new ext_wait('1'));
-	$ext->add($id, $c, '', new ext_gosub('1','s','sub-user-callerid'));
+	$ext->add($id, $c, '', new ext_macro('user-callerid'));
 
 	$ext->add($id, $c, '', new ext_gotoif('$["${DB(AMPUSER/${AMPUSER}/followme/ddial)}" = "EXTENSION"]', 'activate'));
 	$ext->add($id, $c, '', new ext_gotoif('$["${DB(AMPUSER/${AMPUSER}/followme/ddial)}" = "DIRECT"]', 'deactivate','end'));
@@ -1298,7 +1298,7 @@ function findmefollow_fmf_toggle($c) {
 	} else {
 		$ext->add($id, $c, 'hook_off', new ext_playback('followme&de-activated'));
 	}
-	$ext->add($id, $c, 'end', new ext_gosub('1','s','sub-hangupcall'));
+	$ext->add($id, $c, 'end', new ext_macro('hangupcall'));
 
 	$ext->add($id, $c, 'activate', new ext_setvar('DB(AMPUSER/${AMPUSER}/followme/ddial)', 'DIRECT'));
 	if ($amp_conf['USEDEVSTATE']) {
@@ -1310,7 +1310,7 @@ function findmefollow_fmf_toggle($c) {
 	} else {
 		$ext->add($id, $c, 'hook_on', new ext_playback('followme&activated'));
 	}
-	$ext->add($id, $c, '', new ext_gosub('1','s','sub-hangupcall'));
+	$ext->add($id, $c, '', new ext_macro('hangupcall'));
 
 	if ($amp_conf['USEDEVSTATE']) {
 		$c = 'sstate';
