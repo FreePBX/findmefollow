@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-02 04:28+0000\n"
+"POT-Creation-Date: 2022-12-21 04:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -388,7 +388,7 @@ msgstr ""
 msgid "Follow Me: %s"
 msgstr ""
 
-#: Api/Gql/Findmefollow.php:582
+#: Api/Gql/Findmefollow.php:593
 #, php-format
 msgid ""
 "Follow me allows only Same extension Behavior, Example: please provide this "
@@ -537,7 +537,7 @@ msgid ""
 msgstr ""
 
 #: Api/Gql/Findmefollow.php:194
-#: Api/Gql/Findmefollow.php:720
+#: Api/Gql/Findmefollow.php:731
 msgid "Message for the request"
 msgstr ""
 
@@ -753,7 +753,7 @@ msgid "Seconds"
 msgstr ""
 
 #: Api/Gql/Findmefollow.php:190
-#: Api/Gql/Findmefollow.php:716
+#: Api/Gql/Findmefollow.php:727
 msgid "Status of the request"
 msgstr ""
 
@@ -832,7 +832,7 @@ msgid ""
 "event. If false, follow me will match whenever no event is present"
 msgstr ""
 
-#: Api/Gql/Findmefollow.php:573
+#: Api/Gql/Findmefollow.php:584
 msgid "This extension does not exist"
 msgstr ""
 
