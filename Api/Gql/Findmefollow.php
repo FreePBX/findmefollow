@@ -568,12 +568,23 @@ class Findmefollow extends Base {
       $destination = $input['noAnswerDestination'];
       return $this->generateOutput("Invalid Route: $destination", false);
     }
-    $res = $this->freepbx->Core->getDevice($input['extensionId']);
-    if(empty($res)){
-      $message = _("This extension does not exist");
-      return ['message' => $input['extensionId']." : ".$message,'status' => false];
-    }
+
     $extensionId = $input['extensionId'];
+    
+    // Attempt to get a device extension
+    $data = $this->freepbx->Core->getDevice($extensionId);
+
+    // If the device extension doesn't exist, attempt to find a virtual extension. 
+    if(empty($data) || empty($data['description'])) {
+      $data = $this->freepbx->Core->getUser($extensionId);
+    }
+
+    // If there is still no extension found, then it does not exist.
+    if(empty($data)){
+      $message = _("This extension does not exist");
+      return ['message' => $extensionId." : ".$message,'status' => false];
+    }
+    
     if(isset($input['noAnswerDestination'])) {
       $noAnswerDesArray = explode(',',$input['noAnswerDestination']);
       $destinationname = isset($noAnswerDesArray[0])? $noAnswerDesArray[0] :'';
