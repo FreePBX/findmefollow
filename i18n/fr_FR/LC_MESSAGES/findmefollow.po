@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-02 04:28+0000\n"
+"POT-Creation-Date: 2022-12-21 04:14+0000\n"
 "PO-Revision-Date: 2016-11-23 13:46+0200\n"
 "Last-Translator: Pascal <pascal.noyel@ipexia.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
@@ -380,7 +380,7 @@ msgstr "Suivez-Moi destination sur non réponse"
 msgid "Follow Me: %s"
 msgstr "Suivez-Moi: %s"
 
-#: Api/Gql/Findmefollow.php:582
+#: Api/Gql/Findmefollow.php:593
 #, php-format
 msgid ""
 "Follow me allows only Same extension Behavior, Example: please provide this "
@@ -526,7 +526,7 @@ msgstr ""
 "poste sur un système distant, ou un numéro externe en suffixant un nombre "
 "avec un dièse (#) . ex : 2448089 # 2448089 serait composé."
 
-#: Api/Gql/Findmefollow.php:194 Api/Gql/Findmefollow.php:720
+#: Api/Gql/Findmefollow.php:194 Api/Gql/Findmefollow.php:731
 msgid "Message for the request"
 msgstr ""
 
@@ -738,7 +738,7 @@ msgstr ""
 msgid "Seconds"
 msgstr "Secondes"
 
-#: Api/Gql/Findmefollow.php:190 Api/Gql/Findmefollow.php:716
+#: Api/Gql/Findmefollow.php:190 Api/Gql/Findmefollow.php:727
 msgid "Status of the request"
 msgstr ""
 
@@ -821,7 +821,7 @@ msgid ""
 "event. If false, follow me will match whenever no event is present"
 msgstr ""
 
-#: Api/Gql/Findmefollow.php:573
+#: Api/Gql/Findmefollow.php:584
 msgid "This extension does not exist"
 msgstr ""
 

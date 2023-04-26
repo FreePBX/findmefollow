@@ -323,7 +323,7 @@ msgstr ""
 msgid "Follow Me: %s"
 msgstr ""
 
-#: Api/Gql/Findmefollow.php:582
+#: Api/Gql/Findmefollow.php:593
 #, php-format
 msgid ""
 "Follow me allows only Same extension Behavior, Example: please provide this "
@@ -459,7 +459,7 @@ msgid ""
 "(#).  ex:  2448089# would dial 2448089."
 msgstr ""
 
-#: Api/Gql/Findmefollow.php:194 Api/Gql/Findmefollow.php:720
+#: Api/Gql/Findmefollow.php:194 Api/Gql/Findmefollow.php:731
 msgid "Message for the request"
 msgstr ""
 
@@ -652,7 +652,7 @@ msgstr ""
 msgid "Seconds"
 msgstr ""
 
-#: Api/Gql/Findmefollow.php:190 Api/Gql/Findmefollow.php:716
+#: Api/Gql/Findmefollow.php:190 Api/Gql/Findmefollow.php:727
 msgid "Status of the request"
 msgstr ""
 
@@ -725,7 +725,7 @@ msgid ""
 "event. If false, follow me will match whenever no event is present"
 msgstr ""
 
-#: Api/Gql/Findmefollow.php:573
+#: Api/Gql/Findmefollow.php:584
 msgid "This extension does not exist"
 msgstr ""
 
