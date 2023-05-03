@@ -1042,7 +1042,7 @@ class Findmefollow implements \BMO {
 				break;
 				case 'annmsg_id':
 					$v = (int) $value;
-					$set_keys[$setting] = ($v == 0)? '': $v ;
+					$set_keys[$setting] = ($v == 0)? NULL: $v ;
 				break;
 				case 'postdest':
 					$set_keys[$setting] = $value;
@@ -1058,11 +1058,11 @@ class Findmefollow implements \BMO {
 				break;
 				case 'remotealert_id':
 					$v = (int) $value;
-					$set_keys[$setting] = ($v == 0)? '': $v ;
+					$set_keys[$setting] = ($v == 0)? NULL: $v ;
 				break;
 				case 'toolate_id':
 					$v = (int) $value;
-					$set_keys[$setting] = ($v == 0)? '': $v ;
+					$set_keys[$setting] = ($v == 0)? NULL: $v ;
 				break;
 				case 'ringing':
 					$set_keys[$setting] = $value;
