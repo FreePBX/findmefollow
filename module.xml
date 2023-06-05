@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>16.0.20</version>
+	<version>16.0.21</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*16.0.21* FREEI-115 trigger event when find me follow me settings is updated 
 		*16.0.20* FREEPBX-24167 
 		*16.0.19* FREEPBX-23912 
 		*16.0.18* FREEPBX-23781 
