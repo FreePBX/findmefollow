@@ -100,7 +100,7 @@ class Findmefollow implements \BMO {
 
 				//del group
 				if ($action == 'delGRP') {
-					$this->del($account);
+					$this->del($account, true);
 					needreload();
 				}
 
@@ -151,7 +151,7 @@ class Findmefollow implements \BMO {
 			if(!function_exists('findmefollow_destinations')) {
 				$this->FreePBX->Modules->loadFunctionsInc('findmefollow');
 			}
-			$this->del($extension);
+			$this->del($extension, true);
 		}
 	}
 
@@ -351,6 +351,9 @@ class Findmefollow implements \BMO {
 				$this->FreePBX->astman->set_global($this->FreePBX->Config->get_conf_setting('AST_FUNC_DEVICE_STATE') . "(Custom:FOLLOWME$device)", $value_opt);
 			}
 		}
+
+		$this->triggerSettingsChangeEvent($exten);
+
 		return $response;
 	}
 
@@ -521,6 +524,8 @@ class Findmefollow implements \BMO {
 				break;
 			}
 		}
+
+		$this->triggerSettingsChangeEvent($grpnum);
 
 		return $ret;
 	}
@@ -771,9 +776,11 @@ class Findmefollow implements \BMO {
 		} else {
 			\fatal("Cannot connect to Asterisk Manager with ".$conf->get("AMPMGRUSER")."/".$conf->get("AMPMGRPASS"));
 		}
+		
+		$this->triggerSettingsChangeEvent($grpnum);
 	}
 
-	public function del($grpnum) {
+	public function del($grpnum, $triggerEvent = false) {
 		$astman = $this->FreePBX->astman;
 		$dbh = $this->db;
 		$conf = $this->FreePBX->Config();
@@ -786,7 +793,12 @@ class Findmefollow implements \BMO {
 		} else {
 			\fatal("Cannot connect to Asterisk Manager with ".$conf->get("AMPMGRUSER")."/".$conf->get("AMPMGRPASS"));
 		}
+
+		if ($triggerEvent) {
+			$this->triggerSettingsChangeEvent($grpnum);
+		}
 	}
+
 	// Only check astdb if check_astdb is not 0. For some reason, this fails if the asterisk manager code
 	// is included (executed) by all calls to this function. This results in silently not generating the
 	// extensions_additional.conf file. page.findmefollow.php does set it to 1 which means that when running
@@ -1416,5 +1428,16 @@ class Findmefollow implements \BMO {
         } else {
                $this->FreePBX->Ucp->setSettingByID($id,'Findmefollow','assigned',null);
         }
+	}
+
+	/**
+	 * find me follow me settings change event
+	 */
+	private function triggerSettingsChangeEvent($extension) {
+		$user = $this->FreePBX->Userman->getUserByDefaultExtension($extension);
+		$res =  $this->FreePBX->astman->send_request("UserEvent", array(
+			"userEvent" => "find-me-follow-me-settings-change",
+			"userId" => $user['id']
+		));
 	}
 }
