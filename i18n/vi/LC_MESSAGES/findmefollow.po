@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-02 04:27+0000\n"
+"POT-Creation-Date: 2023-06-05 14:10+0000\n"
 "PO-Revision-Date: 2017-07-25 15:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -306,7 +306,7 @@ msgstr ""
 msgid "Findme Follow Toggle"
 msgstr "Chuyển đổi Findme Follow"
 
-#: Findmefollow.class.php:1351
+#: Findmefollow.class.php:1363
 msgid "FindmeFollow"
 msgstr ""
 
@@ -356,7 +356,7 @@ msgstr ""
 msgid "Follow Me"
 msgstr "Tính năng Follow Me"
 
-#: Findmefollow.class.php:930
+#: Findmefollow.class.php:942
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr "Follow Me đã được kích hoạt [Đê trống nếu muốn vô hiệu hóa]"
 
@@ -364,7 +364,7 @@ msgstr "Follow Me đã được kích hoạt [Đê trống nếu muốn vô hi�
 msgid "Follow Me Extension Number"
 msgstr ""
 
-#: Findmefollow.class.php:933 ucp/views/settings.php:27
+#: Findmefollow.class.php:945 ucp/views/settings.php:27
 msgid "Follow Me List"
 msgstr "Danh sách Follow Me"
 
@@ -372,7 +372,7 @@ msgstr "Danh sách Follow Me"
 msgid "Follow Me Module"
 msgstr "Mô đun Follow Me"
 
-#: Findmefollow.class.php:936
+#: Findmefollow.class.php:948
 msgid "Follow Me No Answer Destination"
 msgstr "Điểm đích không trả lời Follow Me"
 
@@ -707,7 +707,7 @@ msgstr "Thông báo từ xa"
 msgid "Request not received"
 msgstr "Không nhận được yêu cầu"
 
-#: Findmefollow.class.php:648
+#: Findmefollow.class.php:653
 msgid "Reset"
 msgstr "Cài đặt lại"
 
@@ -758,7 +758,7 @@ msgstr "Giây"
 msgid "Status of the request"
 msgstr ""
 
-#: Findmefollow.class.php:643
+#: Findmefollow.class.php:648
 msgid "Submit"
 msgstr "Gửi đi"
 
@@ -932,7 +932,7 @@ msgstr ""
 msgid "User"
 msgstr "Người dùng"
 
-#: Findmefollow.class.php:1334
+#: Findmefollow.class.php:1346
 msgid "User Primary Extension"
 msgstr ""
 
