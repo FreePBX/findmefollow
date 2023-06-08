@@ -1435,9 +1435,11 @@ class Findmefollow implements \BMO {
 	 */
 	private function triggerSettingsChangeEvent($extension) {
 		$user = $this->FreePBX->Userman->getUserByDefaultExtension($extension);
-		$res =  $this->FreePBX->astman->send_request("UserEvent", array(
-			"userEvent" => "find-me-follow-me-settings-change",
-			"userId" => $user['id']
-		));
+		if(isset($user['id']) ){
+			$res =  $this->FreePBX->astman->send_request("UserEvent", array(
+				"userEvent" => "find-me-follow-me-settings-change",
+				"userId" => $user['id']
+			));
+		}
 	}
 }
