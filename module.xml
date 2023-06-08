@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>15.0.36</version>
+	<version>15.0.37</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*15.0.37* Packaging of ver 15.0.37
 		*15.0.36* FREEI-115 trigger event when find me follow me settings is updated 
 		*15.0.35* FREEPBX-23781 
 		*15.0.34* FREEPBX-23272 GraphQL verify `noAnswerDestination` is valid before updating follow me 
