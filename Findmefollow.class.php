@@ -826,7 +826,7 @@ class Findmefollow implements \BMO {
 
 			$results['voicemail'] = isset($user['voicemail'])?$user['voicemail']:'novm';
 		}
-		if (!isset($results['strategy'])) {
+		if (!isset($results['strategy']) || empty($results['strategy'])) {
 			$results['strategy'] = $conf->get('FOLLOWME_RG_STRATEGY');
 		}
 
@@ -1035,7 +1035,7 @@ class Findmefollow implements \BMO {
 		foreach ($settings as $setting => $value) {
 			switch($setting) {
 				case 'strategy':
-					$set_keys[$setting] = $value;
+					$set_keys[$setting] = ($value) ? $value : $this->FreePBX->Config->get('FOLLOWME_RG_STRATEGY');
 				break;
 				case 'grptime':
 					$this->setListRingTime($grpnum,$value);
