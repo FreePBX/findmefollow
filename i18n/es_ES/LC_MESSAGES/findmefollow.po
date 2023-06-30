@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-25 01:00+0000\n"
-"PO-Revision-Date: 2023-02-11 21:00+0000\n"
-"Last-Translator: Javier Pastor <jpastor@cerebelum.net>\n"
+"PO-Revision-Date: 2023-07-01 15:00+0000\n"
+"Last-Translator: Santiago Pioli <spioli@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
 "findmefollow/es/>\n"
 "Language: es_ES\n"
@@ -644,7 +644,7 @@ msgstr "Timbre %s Primero Para"
 
 #: ucp/views/settings.php:51
 msgid "Ring Followme List For"
-msgstr ""
+msgstr "Lista de SigueMe para llamar"
 
 #: functions.inc.php:706 ucp/views/settings.php:34 views/form.php:428
 msgid "Ring Strategy"
@@ -684,12 +684,17 @@ msgid ""
 "The default Ring Strategy selected for a Follow Me set upon creation and "
 "used if auto-created with an extension."
 msgstr ""
+"La Estrategia de Timbre predeterminada seleccionada para un conjunto SigueMe "
+"en el momento de la creación y se usa si se crea automáticamente con una "
+"extensión."
 
 #: findmefollow.i18n.php:24
 msgid ""
 "The default Ring Time for a Follow Me set upon creation and used if auto-"
 "created with a new extension."
 msgstr ""
+"El Tiempo de Timbrado predeterminado para un conjunto SigueMe en el momento "
+"de la creación y se usa si se crea automáticamente con una extensión."
 
 #: views/form.php:255
 msgid "The number users will dial to ring extensions in this Followme group"
@@ -711,7 +716,7 @@ msgstr "Esto se suma al Tiempo de Timbre Inicial"
 
 #: findmefollow.i18n.php:20
 msgid "This is the default value for the Follow Me "
-msgstr ""
+msgstr "Este es el valor por defecto para el SigueMe. "
 
 #: functions.inc.php:680 ucp/views/settings.php:48 views/form.php:416
 msgid ""
@@ -789,7 +794,7 @@ msgstr "Usar Confirmación"
 #: functions.inc.php:962 functions.inc.php:984 views/form.php:223
 #: views/form.php:618
 msgid "Use Dialed Number"
-msgstr ""
+msgstr "Utilizar el número discado"
 
 #: views/bootnav.php:4
 msgid "User"
@@ -907,11 +912,11 @@ msgstr "Cazar"
 
 #: Findmefollow.class.php:93
 msgid "is not allowed for your account"
-msgstr "no está permitida por su cuenta."
+msgstr "no está permitido por su cuenta"
 
 #: functions.inc.php:692 ucp/views/settings.php:8 views/form.php:46
 msgid "memoryhunt"
-msgstr ""
+msgstr "memoryhunt"
 
 #: views/form.php:198
 msgid "none"
