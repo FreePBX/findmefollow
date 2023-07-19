@@ -108,13 +108,11 @@ class Findmefollow extends Base {
       return;
     }
 
-    return function() {
-      return [
-        'updateFollowMe' => $this->updateFollowMeMutation(),
-        'enableFollowMe' => $this->enableFollowMeMutation(),
-        'disableFollowMe' => $this->disableFollowMeMutation()
-      ];
-    };
+    return fn() => [
+      'updateFollowMe' => $this->updateFollowMeMutation(),
+      'enableFollowMe' => $this->enableFollowMeMutation(),
+      'disableFollowMe' => $this->disableFollowMeMutation()
+    ];
   }
 
   public function queryCallback() {
@@ -123,40 +121,38 @@ class Findmefollow extends Base {
       return;
     }
 
-    return function() {
-      return [
-        'fetchFollowMe' => [
-          'type' => $this->typeContainer->get($this->module)->getObject(),
-          'args' => [
-            'extensionId' => [
-              'type' => Type::nonNull(Type::id()),
-              'description' => _('The extension number'),
-            ]
-          ],
-          'resolve' => function($root, $args) {
+    return fn() => [
+      'fetchFollowMe' => [
+        'type' => $this->typeContainer->get($this->module)->getObject(),
+        'args' => [
+          'extensionId' => [
+            'type' => Type::nonNull(Type::id()),
+            'description' => _('The extension number'),
+          ]
+        ],
+        'resolve' => function($root, $args) {
 
-            try {
-            
-              $extensionId = $args['extensionId'];
-              $followMe = $this->freepbx->Findmefollow->get($extensionId, 1);
+          try {
+          
+            $extensionId = $args['extensionId'];
+            $followMe = $this->freepbx->Findmefollow->get($extensionId, 1);
 
-              if (!empty($followMe)) {
+            if (!empty($followMe)) {
 
-                $followMe['status'] = true;
-                $followMe['message'] = 'Record found successfully';
+              $followMe['status'] = true;
+              $followMe['message'] = 'Record found successfully';
 
-                return $followMe;
-              } else {
-                return $this->generateOutput("No record found for $extensionId", false);
-              }
-
-            } catch (Exception $ex) {
-              FormattedError::setInternalErrorMessage($ex->getMessage());
+              return $followMe;
+            } else {
+              return $this->generateOutput("No record found for $extensionId", false);
             }
 
-          }]
-      ];
-    };
+          } catch (Exception $ex) {
+            FormattedError::setInternalErrorMessage($ex->getMessage());
+          }
+
+        }]
+    ];
   }
 
   // This needs to be static so it's callable from within the fieldCallback configuration
@@ -176,176 +172,128 @@ class Findmefollow extends Base {
     $followMe = $this->typeContainer->create($this->module);
     $followMe->setDescription(_('Used to manage Follow Me'));
 
-    $followMe->addInterfaceCallback(function() {
-      return [$this->getNodeDefinition()['nodeInterface']];
-    });
+    $followMe->addInterfaceCallback(fn() => [$this->getNodeDefinition()['nodeInterface']]);
 
-    $followMe->addFieldCallback(function() {
-      return [
-        'id' => Relay::globalIdField('extension', function($row) {
-          return Findmefollow::extractValue($row, 'grpnum');
-        }),
-        'status' => [
-          'type' => Type::boolean(),
-          'description' => _('Status of the request')
-        ],
-        'message' => [
-          'type' => Type::string(),
-          'description' => _('Message for the request')
-        ],
-        'enabled' => [
-          'type' => Type::nonNull(Type::boolean()), 
-          'description' => _('If enabled, any call to this extension will go to this follow me instead, including directory calls by name from IVRs. If disabled, calls will go only to the extension. However, destinations that specify FollowMe will come here. This setting is often used in conjunction with VmX Locater, where you want a call to ring the extension, and then only if the caller chooses to find you do you want it to come here.'),
-          'resolve' => function ($payload) {
-            return Findmefollow::extractValue($payload, 'ddial') !== 'CHECKED';
-          }
-        ],
-        'extensionId' => [
-          'type' => Type::nonNull(Type::id()),
-          'description' => _('Follow Me Extension Number'),
-          'resolve' => function ($payload) {
-            return Findmefollow::extractValue($payload, 'grpnum');
-          }
-        ],
-        'strategy' => [
-          'description' => _('Ring strategy for `followMeList`'),
-          'type' => $this->typeContainer->get($this->ringStrategiesEnum)->getObject()
-        ],
-        'ringTime' => [
-          'type' => Type::int(),
-          'description' => _('Time in seconds that the phones will ring. Max 60 seconds'),
-          'resolve' => function ($payload) {
-            return Findmefollow::extractValue($payload, 'grptime');
-          }
-        ],
-        'followMePrefix' => [
-          'type' => Type::string(),
-          'description' => _('CID Name Prefix like `Sales:`'),
-          'resolve' => function ($payload) {
-            return Findmefollow::extractValue($payload, 'grppre');
-          }
-        ],
-        'followMeList' => [
-          'type' => Type::string(),
-          'description' => _('The numbers that will be dialed. Numbers are `-` separated. External numbers should have a `#` suffix.'),
-          'resolve' => function ($payload) {
-            return Findmefollow::extractValue($payload, 'grplist');
-          }
-        ],
-        'callerMessage' => [
-          'type' => Type::id(),
-          'description' => _('System Recording ID. Announcement played to caller'),
-          'resolve' => function ($payload) {
-            return Findmefollow::extractValue($payload, 'annmsg_id');
-          }
-        ],
-        'noAnswerDestination' => [
-          'type' => Type::string(),
-          'description' => _('Destination after `followMeList` is rung and there was no answer'),
-          'resolve' => function ($payload) {
-            return Findmefollow::extractValue($payload, 'postdest');
-          }
-        ],
-        'alertInfo' => [
-          'type' => Type::string(),
-          'description' => _('Alert Info can be used for distinctive ring with SIP devices. If you are having issues, see the "Enforce RFC7462" option found in Settings > Advanced Settings.'),
-          'resolve' => function ($payload) {
-            return Findmefollow::extractValue($payload, 'dring');
-          }
-        ],
-        'confirmCalls' => [
-          'type' => Type::boolean(),
-          'description' => _('Enable this if you are calling external numbers that need confirmation. Enabling this requires the remote side push 1 on their phone before the call is put through. This feature only works with the ringall ring strategy'),
-          'resolve' => function ($payload) {
-            return Findmefollow::extractValue($payload, 'needsconf');
-          }
-        ],
-        'receiverMessageConfirmCall' => [
-          'type' => Type::id(),
-          'description' => _('System Recording ID. Message to be played to the person RECEIVING the call, if `confirmCalls` is enabled.'),
-          'resolve' => function ($payload) {
-            return Findmefollow::extractValue($payload, 'remotealert_id');
-          }
-        ],
-        'receiverMessageTooLate' => [
-          'type' => Type::id(),
-          'description' => _('System Recording ID. Message to be played to the person RECEIVING the call, if the call has already been accepted before they push 1.'),
-          'resolve' => function ($payload) {
-            return Findmefollow::extractValue($payload, 'toolate_id');
-          }
-        ],
-        'ringingMusic' => [
-          'type' => Type::string(),
-          'description' => _('Default `Ring`. Custom values will be the category name of "On Hold Music".'),
-          'resolve' => function ($payload) {
-            return Findmefollow::extractValue($payload, 'ringing');
-          }
-        ],
-        'initialRingTime' => [
-          'type' => Type::int(),
-          'description' => _('Initial Ring Time. This is the number of seconds to ring the primary extension prior to proceeding to the `followMeList`. The extension can also be included in the `followMeList`. A 0 setting will bypass this.'),
-          'resolve' => function ($payload) {
-            return Findmefollow::extractValue($payload, 'pre_ring');
-          }
-        ],
-        'voicemail' => [
-          'type' => Type::string(),
-          'description' => _('READONLY. If the value is `novm`, then there is no voicemail box for this extension.'),
-          'resolve' => function ($payload) {
-            return Findmefollow::extractValue($payload, 'voicemail');
-          }
-        ],
-        'enableCalendar' => [
-          'type' => Type::boolean(),
-          'description' => _('Enable calendar for follow me (either group or single calendar)'),
-          'resolve' => function ($payload) {
-            return Findmefollow::extractValue($payload, 'calendar_enable');
-          }
-        ],
-        'matchCalendar' => [
-          'type' => Type::boolean(),
-          'description' => _('This determines how matching an event is handled (`enableCalendar` must be true to activate). If true, then follow me will match whenever there is an event. If false, follow me will match whenever no event is present'),
-          'resolve' => function ($payload) {
-            return Findmefollow::extractValue($payload, 'calendar_match') === 'yes';
-          }
-        ],
-        'calendar' => [
-          'type' => Type::id(),
-          'description' => _('Calendar Id'),
-          'resolve' => function ($payload) {
-            return Findmefollow::extractValue($payload, 'calendar_id');
-          }
-        ],
-        'calendarGroup' => [
-          'type' => Type::id(),
-          'description' => _('Calendar Group Id'),
-          'resolve' => function ($payload) {
-            return Findmefollow::extractValue($payload, 'calendar_group_id');
-          }
-        ],
-        'overrideRingerVolume' => [
-          'type' => Type::int(),
-          'description' => _('Ringer Volume Override. Note: This is only valid for Sangoma phones at this time'),
-          'resolve' => function ($payload) {
-            return Findmefollow::extractValue($payload, 'rvolume');
-          }
-        ],
-        'externalCallerIdMode' => [
-          'type' => $this->typeContainer->get($this->externalCidModeEnum)->getObject(),
-          'description' => _('Choose the CID Mode from the `externalcidmode` enum. Default is `default`.'),
-          'resolve' => function ($payload) {
-            return Findmefollow::extractValue($payload, 'changecid', 'default');
-          }
-        ],
-        'fixedCallerId' => [
-          'type' => Type::string(),
-          'description' => _('Fixed CID Value. Fixed value to replace the CID with used with `externalCallerIdMode` fixed modes. Should be in a format of digits only with an option of E164 format using a leading `+`.'),
-          'resolve' => function ($payload) {
-            return Findmefollow::extractValue($payload, 'fixedcid');
-          }
-        ]
-      ];
-    });
+    $followMe->addFieldCallback(fn() => [
+      'id' => Relay::globalIdField('extension', fn($row) => Findmefollow::extractValue($row, 'grpnum')),
+      'status' => [
+        'type' => Type::boolean(),
+        'description' => _('Status of the request')
+      ],
+      'message' => [
+        'type' => Type::string(),
+        'description' => _('Message for the request')
+      ],
+      'enabled' => [
+        'type' => Type::nonNull(Type::boolean()), 
+        'description' => _('If enabled, any call to this extension will go to this follow me instead, including directory calls by name from IVRs. If disabled, calls will go only to the extension. However, destinations that specify FollowMe will come here. This setting is often used in conjunction with VmX Locater, where you want a call to ring the extension, and then only if the caller chooses to find you do you want it to come here.'),
+        'resolve' => fn($payload) => Findmefollow::extractValue($payload, 'ddial') !== 'CHECKED'
+      ],
+      'extensionId' => [
+        'type' => Type::nonNull(Type::id()),
+        'description' => _('Follow Me Extension Number'),
+        'resolve' => fn($payload) => Findmefollow::extractValue($payload, 'grpnum')
+      ],
+      'strategy' => [
+        'description' => _('Ring strategy for `followMeList`'),
+        'type' => $this->typeContainer->get($this->ringStrategiesEnum)->getObject()
+      ],
+      'ringTime' => [
+        'type' => Type::int(),
+        'description' => _('Time in seconds that the phones will ring. Max 60 seconds'),
+        'resolve' => fn($payload) => Findmefollow::extractValue($payload, 'grptime')
+      ],
+      'followMePrefix' => [
+        'type' => Type::string(),
+        'description' => _('CID Name Prefix like `Sales:`'),
+        'resolve' => fn($payload) => Findmefollow::extractValue($payload, 'grppre')
+      ],
+      'followMeList' => [
+        'type' => Type::string(),
+        'description' => _('The numbers that will be dialed. Numbers are `-` separated. External numbers should have a `#` suffix.'),
+        'resolve' => fn($payload) => Findmefollow::extractValue($payload, 'grplist')
+      ],
+      'callerMessage' => [
+        'type' => Type::id(),
+        'description' => _('System Recording ID. Announcement played to caller'),
+        'resolve' => fn($payload) => Findmefollow::extractValue($payload, 'annmsg_id')
+      ],
+      'noAnswerDestination' => [
+        'type' => Type::string(),
+        'description' => _('Destination after `followMeList` is rung and there was no answer'),
+        'resolve' => fn($payload) => Findmefollow::extractValue($payload, 'postdest')
+      ],
+      'alertInfo' => [
+        'type' => Type::string(),
+        'description' => _('Alert Info can be used for distinctive ring with SIP devices. If you are having issues, see the "Enforce RFC7462" option found in Settings > Advanced Settings.'),
+        'resolve' => fn($payload) => Findmefollow::extractValue($payload, 'dring')
+      ],
+      'confirmCalls' => [
+        'type' => Type::boolean(),
+        'description' => _('Enable this if you are calling external numbers that need confirmation. Enabling this requires the remote side push 1 on their phone before the call is put through. This feature only works with the ringall ring strategy'),
+        'resolve' => fn($payload) => Findmefollow::extractValue($payload, 'needsconf')
+      ],
+      'receiverMessageConfirmCall' => [
+        'type' => Type::id(),
+        'description' => _('System Recording ID. Message to be played to the person RECEIVING the call, if `confirmCalls` is enabled.'),
+        'resolve' => fn($payload) => Findmefollow::extractValue($payload, 'remotealert_id')
+      ],
+      'receiverMessageTooLate' => [
+        'type' => Type::id(),
+        'description' => _('System Recording ID. Message to be played to the person RECEIVING the call, if the call has already been accepted before they push 1.'),
+        'resolve' => fn($payload) => Findmefollow::extractValue($payload, 'toolate_id')
+      ],
+      'ringingMusic' => [
+        'type' => Type::string(),
+        'description' => _('Default `Ring`. Custom values will be the category name of "On Hold Music".'),
+        'resolve' => fn($payload) => Findmefollow::extractValue($payload, 'ringing')
+      ],
+      'initialRingTime' => [
+        'type' => Type::int(),
+        'description' => _('Initial Ring Time. This is the number of seconds to ring the primary extension prior to proceeding to the `followMeList`. The extension can also be included in the `followMeList`. A 0 setting will bypass this.'),
+        'resolve' => fn($payload) => Findmefollow::extractValue($payload, 'pre_ring')
+      ],
+      'voicemail' => [
+        'type' => Type::string(),
+        'description' => _('READONLY. If the value is `novm`, then there is no voicemail box for this extension.'),
+        'resolve' => fn($payload) => Findmefollow::extractValue($payload, 'voicemail')
+      ],
+      'enableCalendar' => [
+        'type' => Type::boolean(),
+        'description' => _('Enable calendar for follow me (either group or single calendar)'),
+        'resolve' => fn($payload) => Findmefollow::extractValue($payload, 'calendar_enable')
+      ],
+      'matchCalendar' => [
+        'type' => Type::boolean(),
+        'description' => _('This determines how matching an event is handled (`enableCalendar` must be true to activate). If true, then follow me will match whenever there is an event. If false, follow me will match whenever no event is present'),
+        'resolve' => fn($payload) => Findmefollow::extractValue($payload, 'calendar_match') === 'yes'
+      ],
+      'calendar' => [
+        'type' => Type::id(),
+        'description' => _('Calendar Id'),
+        'resolve' => fn($payload) => Findmefollow::extractValue($payload, 'calendar_id')
+      ],
+      'calendarGroup' => [
+        'type' => Type::id(),
+        'description' => _('Calendar Group Id'),
+        'resolve' => fn($payload) => Findmefollow::extractValue($payload, 'calendar_group_id')
+      ],
+      'overrideRingerVolume' => [
+        'type' => Type::int(),
+        'description' => _('Ringer Volume Override. Note: This is only valid for Sangoma phones at this time'),
+        'resolve' => fn($payload) => Findmefollow::extractValue($payload, 'rvolume')
+      ],
+      'externalCallerIdMode' => [
+        'type' => $this->typeContainer->get($this->externalCidModeEnum)->getObject(),
+        'description' => _('Choose the CID Mode from the `externalcidmode` enum. Default is `default`.'),
+        'resolve' => fn($payload) => Findmefollow::extractValue($payload, 'changecid', 'default')
+      ],
+      'fixedCallerId' => [
+        'type' => Type::string(),
+        'description' => _('Fixed CID Value. Fixed value to replace the CID with used with `externalCallerIdMode` fixed modes. Should be in a format of digits only with an option of E164 format using a leading `+`.'),
+        'resolve' => fn($payload) => Findmefollow::extractValue($payload, 'fixedcid')
+      ]
+    ]);
   }
 
   protected function initializeEnumTypes() {
@@ -438,9 +386,7 @@ class Findmefollow extends Base {
       'strategy' => [
         'description' => _('Ring strategy for `followMeList`'),
         'type' => $strategy,
-        'resolve' => function ($payload) {
-          return $strategy->getValue($payload['strategy']);
-        }
+        'resolve' => fn($payload) => $strategy->getValue($payload['strategy'])
       ],
       'ringTime' => [
         'type' => Type::int(),
@@ -509,9 +455,7 @@ class Findmefollow extends Base {
       'externalCallerIdMode' => [
         'description' => _('Choose the CID Mode from the `externalcidmode` enum. Default is `default`.'),
         'type' => $externalCid,
-        'resolve' => function ($payload) {
-          return $externalCid->getValue($payload['changecid']);
-        }
+        'resolve' => fn($payload) => $externalCid->getValue($payload['changecid'])
       ],
       'fixedCallerId' => [
         'type' => Type::string(),
@@ -519,9 +463,7 @@ class Findmefollow extends Base {
       ]
     ];
 
-    return $this->createMutation('updateFollowMe', 'Create/Update Follow Me', $inputFields, function ($input) {
-      return $this->updateFollowMe($input);
-    });
+    return $this->createMutation('updateFollowMe', 'Create/Update Follow Me', $inputFields, fn($input) => $this->updateFollowMe($input));
   }
 
   protected function enableFollowMeMutation() {
@@ -533,9 +475,7 @@ class Findmefollow extends Base {
       ]
     ];
 
-    return $this->createMutation('enableFollowMe', 'Enable Follow Me', $inputFields, function ($input) {
-      return $this->enableFollowMe($input);
-    });
+    return $this->createMutation('enableFollowMe', 'Enable Follow Me', $inputFields, fn($input) => $this->enableFollowMe($input));
   }
 
   protected function disableFollowMeMutation() {
@@ -547,9 +487,7 @@ class Findmefollow extends Base {
       ]
     ];
 
-    return $this->createMutation('disableFollowMe', 'Disable Follow Me', $inputFields, function ($input) {
-      return $this->disableFollowMe($input);
-    });
+    return $this->createMutation('disableFollowMe', 'Disable Follow Me', $inputFields, fn($input) => $this->disableFollowMe($input));
   }
 
   protected function createMutation($name, $description, $inputFields, $mutateAndGetPayload) {
@@ -586,9 +524,9 @@ class Findmefollow extends Base {
     }
     
     if(isset($input['noAnswerDestination'])) {
-      $noAnswerDesArray = explode(',',$input['noAnswerDestination']);
-      $destinationname = isset($noAnswerDesArray[0])? $noAnswerDesArray[0] :'';
-      $destinationid = isset($noAnswerDesArray[1])? $noAnswerDesArray[1] :'';
+      $noAnswerDesArray = explode(',',(string) $input['noAnswerDestination']);
+      $destinationname = $noAnswerDesArray[0] ?? '';
+      $destinationid = $noAnswerDesArray[1] ?? '';
       if ($destinationname =='ext-local' && $destinationid !=$extensionId) {
         $message = sprintf(_("Follow me allows only Same extension Behavior, Example: please provide this format `ext-local,%s,dest`"),$extensionId);
         return ['message' => $message,'status' => false];
@@ -613,7 +551,7 @@ class Findmefollow extends Base {
     $destinations = $this->freepbx->Destinations->identifyDestinations([$noAnswerDestination]);
 
     // If identifyDestinations does not find the destination, then it will set that key as `false`
-    $destination = isset($destinations[$noAnswerDestination]) ? $destinations[$noAnswerDestination] : false;
+    $destination = $destinations[$noAnswerDestination] ?? false;
 
     $isValid =  $destination !== false;
     return $isValid;
@@ -648,7 +586,7 @@ class Findmefollow extends Base {
 
     // `addSettingsById` expects the grplist to be an array
     if (Findmefollow::hasValue($input, 'followMeList')) {
-      $input['followMeList'] = explode('-', $input['followMeList']);
+      $input['followMeList'] = explode('-', (string) $input['followMeList']);
     }
 
     // You can not set both a group and a calendar

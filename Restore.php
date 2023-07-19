@@ -56,10 +56,10 @@ class Restore Extends Base\RestoreBase{
 
 		if(isset($data['astdb']['AMPUSER'])) {
 			foreach ($data['astdb']['AMPUSER'] as $key => $value) {
-				if(strpos($key, 'ddial') === false) {
+				if(!str_contains((string) $key, 'ddial')) {
 					continue;
 				}
-				$parts = explode('/', $key);
+				$parts = explode('/', (string) $key);
 				if($parts[2] !== 'ddial') {
 					continue;
 				}

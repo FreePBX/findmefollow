@@ -3,35 +3,35 @@
 //	Copyright 2015 Sangoma Technologies.
 //
 extract($request);
-$groups = (FreePBX::Modules()->checkStatus('calendar'))?FreePBX::Calendar()->listGroups():array();
-$calendars = (FreePBX::Modules()->checkStatus('calendar'))?FreePBX::Calendar()->listCalendars():array();
+$groups = (FreePBX::Modules()->checkStatus('calendar'))?FreePBX::Calendar()->listGroups():[];
+$calendars = (FreePBX::Modules()->checkStatus('calendar'))?FreePBX::Calendar()->listCalendars():[];
 
 if ($extdisplay != "") {
 	// We need to populate grplist with the existing extension list.
-	$extdisplay = ltrim($extdisplay,'GRP-');
+	$extdisplay = ltrim((string) $extdisplay,'GRP-');
 	$followme_exten = $extdisplay;
 	$thisgrp = FreePBX::Findmefollow()->get($extdisplay, 1);
-	$grpliststr = isset($thisgrp['grplist']) ? $thisgrp['grplist'] : '';
-	$grplist = explode("-", $grpliststr);
-	$strategy    = isset($thisgrp['strategy'])    ? $thisgrp['strategy']    : '';
-	$grppre      = isset($thisgrp['grppre'])      ? $thisgrp['grppre']      : '';
-	$grptime     = isset($thisgrp['grptime'])     ? $thisgrp['grptime']     : '';
-	$annmsg_id   = isset($thisgrp['annmsg_id'])      ? $thisgrp['annmsg_id']      : '';
-	$dring       = isset($thisgrp['dring'])       ? $thisgrp['dring']       : '';
-	$remotealert_id = isset($thisgrp['remotealert_id']) ? $thisgrp['remotealert_id'] : '';
-	$needsconf   = isset($thisgrp['needsconf'])   ? $thisgrp['needsconf']   : '';
-	$toolate_id  = isset($thisgrp['toolate_id'])     ? $thisgrp['toolate_id']     : '';
-	$ringing     = isset($thisgrp['ringing'])     ? $thisgrp['ringing']     : '';
-	$pre_ring    = isset($thisgrp['pre_ring'])    ? $thisgrp['pre_ring']    : '';
-	$ddial       = isset($thisgrp['ddial'])       ? $thisgrp['ddial']       : '';
-	$changecid   = isset($thisgrp['changecid'])   ? $thisgrp['changecid']   : 'default';
-	$fixedcid    = isset($thisgrp['fixedcid'])    ? $thisgrp['fixedcid']    : '';
-	$calendar_enable    = isset($thisgrp['calendar_enable'])    ? $thisgrp['calendar_enable']    : '0';
-	$calendar_id    = isset($thisgrp['calendar_id'])    ? $thisgrp['calendar_id']    : '';
-	$calendar_group_id    = isset($thisgrp['calendar_group_id'])    ? $thisgrp['calendar_group_id']    : '';
-	$calendar_match    = isset($thisgrp['calendar_match'])    ? $thisgrp['calendar_match']    : 'yes';
-	$rvolume     = isset($thisgrp['rvolume'])     ? $thisgrp['rvolume']     : '';
-	$goto = isset($thisgrp['postdest'])?$thisgrp['postdest']:((isset($thisgrp['voicemail']) && $thisgrp['voicemail'] != 'novm')?"ext-local,vmu$extdisplay,1":'');
+	$grpliststr = $thisgrp['grplist'] ?? '';
+	$grplist = explode("-", (string) $grpliststr);
+	$strategy    = $thisgrp['strategy'] ?? '';
+	$grppre      = $thisgrp['grppre'] ?? '';
+	$grptime     = $thisgrp['grptime'] ?? '';
+	$annmsg_id   = $thisgrp['annmsg_id'] ?? '';
+	$dring       = $thisgrp['dring'] ?? '';
+	$remotealert_id = $thisgrp['remotealert_id'] ?? '';
+	$needsconf   = $thisgrp['needsconf'] ?? '';
+	$toolate_id  = $thisgrp['toolate_id'] ?? '';
+	$ringing     = $thisgrp['ringing'] ?? '';
+	$pre_ring    = $thisgrp['pre_ring'] ?? '';
+	$ddial       = $thisgrp['ddial'] ?? '';
+	$changecid   = $thisgrp['changecid'] ?? 'default';
+	$fixedcid    = $thisgrp['fixedcid'] ?? '';
+	$calendar_enable    = $thisgrp['calendar_enable'] ?? '0';
+	$calendar_id    = $thisgrp['calendar_id'] ?? '';
+	$calendar_group_id    = $thisgrp['calendar_group_id'] ?? '';
+	$calendar_match    = $thisgrp['calendar_match'] ?? 'yes';
+	$rvolume     = $thisgrp['rvolume'] ?? '';
+	$goto = $thisgrp['postdest'] ?? ((isset($thisgrp['voicemail']) && $thisgrp['voicemail'] != 'novm')?"ext-local,vmu$extdisplay,1":'');
 	unset($grpliststr);
 	unset($thisgrp);
 }
@@ -52,8 +52,8 @@ $rshelp =    '<b>' . _("ringallv2"). 		'</b>: ' . _("ring Extension for duration
 			.'<b>' . _("firstnotonphone"). 	'</b>: ' . _("ring only the first channel which is not off hook - ignore CW. This strategy will work only when Confirm Calls is disabled.")
 			.'<br>';
 //Ring Strategy Select Options
-$default = (isset($strategy) ? $strategy : 'ringall');
-$items = array('ringallv2','ringallv2-prim','ringall','ringall-prim','hunt','hunt-prim','memoryhunt','memoryhunt-prim','firstavailable','firstnotonphone');
+$default = ($strategy ?? 'ringall');
+$items = ['ringallv2', 'ringallv2-prim', 'ringall', 'ringall-prim', 'hunt', 'hunt-prim', 'memoryhunt', 'memoryhunt-prim', 'firstavailable', 'firstnotonphone'];
 $rsrows = '';
 foreach ($items as $item) {
 	$rsrows .= '<option value="'.$item.'" '.($default == $item ? 'SELECTED' : '').'>'._($item).'</option>';
@@ -64,7 +64,7 @@ $qsagentlist = '';
 foreach($results as $result){
 	$qsagentlist .= "<option value='".$result[0]."'>".$result[0]." (".$result[1].")</option>\n";
 }
-$glrows = count($grplist)+1;
+$glrows = (is_countable($grplist) ? count($grplist) : 0)+1;
 $glrows = ($glrows < 4) ? 4 : (($glrows > 20) ? 20 : $glrows);
 if(function_exists('recordings_list')) {
 	$announcementhtml = '
@@ -81,7 +81,7 @@ if(function_exists('recordings_list')) {
 							<div class="col-md-9">
 								<select name="annmsg_id" id="annmsg_id" class="form-control">';
 								$tresults = recordings_list();
-								$default = (isset($annmsg_id) ? $annmsg_id : '');
+								$default = ($annmsg_id ?? '');
 								$announcementhtml .= '<option value="">'._("None")."</option>";
 								if (isset($tresults[0])) {
 									foreach ($tresults as $tresult) {
@@ -116,7 +116,7 @@ if(function_exists('recordings_list')) {
 							<div class="col-md-9">
 								<select name="remotealert_id" id="remotealert_id" class="form-control fmfm_remotealert_id" '.(($needsconf == "CHECKED") ? "" : "disabled").'>';
 								$tresults = recordings_list();
-								$default = (isset($remotealert_id) ? $remotealert_id : '');
+								$default = ($remotealert_id ?? '');
 								$remoteahtml .= '<option value="">'._("Default")."</option>";
 								if (isset($tresults[0])) {
 									foreach ($tresults as $tresult) {
@@ -151,7 +151,7 @@ if(function_exists('recordings_list')) {
 							<div class="col-md-9">
 								<select name="toolate_id" id="toolate_id" class="form-control fmfm_remotealert_id" '.(($needsconf == "CHECKED") ? "" : "disabled").'>';
 								$tresults = recordings_list();
-								$default = (isset($toolate_id) ? $toolate_id : '');
+								$default = ($toolate_id ?? '');
 								$toolatehtml .= '<option value="">'._("Default")."</option>";
 								if (isset($tresults[0])) {
 									foreach ($tresults as $tresult) {
@@ -173,7 +173,7 @@ if(function_exists('recordings_list')) {
 		<!--END Too-late Announce-->
 	';
 }else{
-	$default = (isset($annmsg_id) ? $annmsg_id : '');
+	$default = ($annmsg_id ?? '');
 	$announcementhtml = '<input type="hidden" name="annmsg_id" value="'.$default.'">';
 }
 if(function_exists('music_list')) {
@@ -190,7 +190,7 @@ if(function_exists('music_list')) {
 						</div>
 						<div class="col-md-9">
 							<select name="ringing" id="ringing" class="form-control">';
-							$cur = (isset($ringing) ? $ringing : 'Ring');
+							$cur = ($ringing ?? 'Ring');
 							$tresults = \music_list();
 							$ringhtml .= '<option value="Ring">'._("Ring").'</option>';
 							if (isset($tresults[0])) {
@@ -216,7 +216,7 @@ if(function_exists('music_list')) {
 	<!--END Music on Hold Class-->
 	';
 }
-$default = (isset($changecid) ? $changecid : 'default');
+$default = ($changecid ?? 'default');
 $ccidrows = '<option value="default" '.($default == 'default' ? 'SELECTED' : '').'>'._("Default").'</option>';
 $ccidrows .= '<option value="fixed" '.($default == 'fixed' ? 'SELECTED' : '').'>'._("Fixed CID Value").'</option>';
 $ccidrows .= '<option value="extern" '.($default == 'extern' ? 'SELECTED' : '').'>'._("Outside Calls Fixed CID Value").'</option>';
@@ -405,7 +405,7 @@ if (empty($goto)) {
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="pre_ring"></i>
 					</div>
 					<div class="col-md-9">
-						<input type="number" min="0" max="60" class="form-control" id="pre_ring" name="pre_ring" value="<?php echo (isset($pre_ring) ? $pre_ring : 0) ?>">
+						<input type="number" min="0" max="60" class="form-control" id="pre_ring" name="pre_ring" value="<?php echo ($pre_ring ?? 0) ?>">
 					</div>
 				</div>
 			</div>
@@ -455,7 +455,7 @@ if (empty($goto)) {
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="grptime"></i>
 					</div>
 					<div class="col-md-9">
-						<input type="number" min="0" max="60" class="form-control" id="grptime" name="grptime" value="<?php  echo $grptime?$grptime:20 ?>">
+						<input type="number" min="0" max="60" class="form-control" id="grptime" name="grptime" value="<?php  echo $grptime ?: 20 ?>">
 					</div>
 				</div>
 			</div>
@@ -537,7 +537,7 @@ if (empty($goto)) {
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="dring"></i>
 					</div>
 					<div class="col-md-9">
-						<?php echo FreePBX::View()->alertInfoDrawSelect("dring",(($dring)?$dring:''));?>
+						<?php echo FreePBX::View()->alertInfoDrawSelect("dring",($dring ?: ''));?>
 					</div>
 				</div>
 			</div>

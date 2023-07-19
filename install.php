@@ -21,9 +21,9 @@ global $astman;
 if ($astman) {
 	foreach($userresults as $usr) {
 		extract($usr);
-		$astman->database_put("AMPUSER",$grpnum."/followme/prering",isset($pre_ring)?$pre_ring:'');
-		$astman->database_put("AMPUSER",$grpnum."/followme/grptime",isset($grptime)?$grptime:'');
-		$astman->database_put("AMPUSER",$grpnum."/followme/grplist",isset($grplist)?$grplist:'');
+		$astman->database_put("AMPUSER",$grpnum."/followme/prering",$pre_ring ?? '');
+		$astman->database_put("AMPUSER",$grpnum."/followme/grptime",$grptime ?? '');
+		$astman->database_put("AMPUSER",$grpnum."/followme/grplist",$grplist ?? '');
 		$confvalue = ($needsconf == 'CHECKED')?'ENABLED':'DISABLED';
 		$astman->database_put("AMPUSER",$grpnum."/followme/grpconf",isset($needsconf)?$confvalue:'');
 		$ddial = $astman->database_get("AMPUSER",$grpnum."/followme/ddial");
@@ -114,7 +114,7 @@ $freepbx_conf->define_conf_setting('FOLLOWME_PRERING',$set);
 //
 $set['value'] = 'ringallv2-prim';
 $set['defaultval'] =& $set['value'];
-$set['options'] = array('ringallv2','ringallv2-prim','ringall','ringall-prim','hunt','hunt-prim','memoryhunt','memoryhunt-prim','firstavailable','firstnotonphone');
+$set['options'] = ['ringallv2', 'ringallv2-prim', 'ringall', 'ringall-prim', 'hunt', 'hunt-prim', 'memoryhunt', 'memoryhunt-prim', 'firstavailable', 'firstnotonphone'];
 $set['readonly'] = 0;
 $set['hidden'] = 0;
 $set['level'] = 1;

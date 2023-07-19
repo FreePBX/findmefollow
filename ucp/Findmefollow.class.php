@@ -11,7 +11,7 @@ class Findmefollow extends Modules{
 	}
 
 	function poll($data) {
-		$states = array();
+		$states = [];
 		foreach($data as $ext) {
 			if(!$this->_checkExtension($ext)) {
 				continue;
@@ -20,7 +20,7 @@ class Findmefollow extends Modules{
 			$states[$ext] = $settings['ddial'] ? false : true;
 		}
 
-		return array("states" => $states);
+		return ["states" => $states];
 	}
 
 	/**
@@ -36,13 +36,10 @@ class Findmefollow extends Modules{
 		if(!$this->_checkExtension($_POST['ext'])) {
 			return false;
 		}
-		switch($command) {
-			case 'settings':
-				return true;
-			default:
-				return false;
-			break;
-		}
+		return match ($command) {
+      'settings' => true,
+      default => false,
+  };
 	}
 
 	/**
@@ -53,10 +50,10 @@ class Findmefollow extends Modules{
 	 * @return mixed Output if success, otherwise false will generate a 500 error serverside
 	 */
 	function ajaxHandler() {
-		$return = array("status" => false, "message" => "");
+		$return = ["status" => false, "message" => ""];
 		switch($_REQUEST['command']) {
 			case 'settings':
-				$_POST['value'] = ($_POST['key'] == 'grplist') ? explode("\n",$_POST['value']) : $_POST['value'];
+				$_POST['value'] = ($_POST['key'] == 'grplist') ? explode("\n",(string) $_POST['value']) : $_POST['value'];
 				if($_POST['key'] == 'ddial') {
 					$_POST['value'] = ($_POST['value'] == 'true') ? false : true;
 				}
@@ -64,7 +61,7 @@ class Findmefollow extends Modules{
 					$_POST['value'] = ($_POST['value'] == 'true') ? true : false;
 				}
 				$this->UCP->FreePBX->Findmefollow->addSettingById($_POST['ext'],$_POST['key'],$_POST['value']);
-				return array("status" => true, "alert" => "success", "message" => _('Find Me/Follow Me Has Been Updated!'));
+				return ["status" => true, "alert" => "success", "message" => _('Find Me/Follow Me Has Been Updated!')];
 				break;
 			default:
 				return $return;
@@ -75,7 +72,7 @@ class Findmefollow extends Modules{
 	private function _checkExtension($extension) {
 		$user = $this->UCP->User->getUser();
 		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Findmefollow','assigned');
-		$extensions = is_array($extensions) ? $extensions : array();
+		$extensions = is_array($extensions) ? $extensions : [];
 		return in_array($extension,$extensions);
 	}
 
@@ -86,12 +83,12 @@ class Findmefollow extends Modules{
 	}
 
 	public function getSimpleWidgetList() {
-		$widgets = array();
+		$widgets = [];
 
 		$user = $this->UCP->User->getUser();
 		$enable = $this->UCP->getCombinedSettingByID($user['id'],'Findmefollow','enable');
 		if($enable == 'no')
-		{ return array();
+		{ return [];
 		}
 		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Findmefollow','assigned');
 
@@ -105,42 +102,25 @@ class Findmefollow extends Modules{
 					$name = $data['description'];
 				}
 
-				$widgets[$extension] = array(
-					"display" => $name,
-					"description" => sprintf(_("Find Me/Follow Me for %s"),$name),
-					"hasSettings" => true,
-					"defaultsize" => array("height" => 2, "width" => 1),
-					"minsize" => array("height" => 2, "width" => 1)
-				);
+				$widgets[$extension] = ["display" => $name, "description" => sprintf(_("Find Me/Follow Me for %s"),$name), "hasSettings" => true, "defaultsize" => ["height" => 2, "width" => 1], "minsize" => ["height" => 2, "width" => 1]];
 			}
 		}
 
 		if (empty($widgets)) {
-			return array();
+			return [];
 		}
 
-		return array(
-			"rawname" => "findmefollow",
-			"display" => _("Follow Me"),
-			"icon" => "fa fa-binoculars",
-			"list" => $widgets
-		);
+		return ["rawname" => "findmefollow", "display" => _("Follow Me"), "icon" => "fa fa-binoculars", "list" => $widgets];
 	}
 
 	public function getWidgetDisplay($id) {
 		if (!$this->_checkExtension($id)) {
-			return array();
+			return [];
 		}
 		$settings = $this->UCP->FreePBX->Findmefollow->getSettingsById($id, 1);
-		$displayvars = array(
-			"extension" => $id,
-			"enabled" => $settings['ddial'] ? false : true,
-		);
+		$displayvars = ["extension" => $id, "enabled" => $settings['ddial'] ? false : true];
 
-		$display = array(
-			'title' => _("Follow Me"),
-			'html' => $this->load_view(__DIR__.'/views/widget.php',$displayvars)
-		);
+		$display = ['title' => _("Follow Me"), 'html' => $this->load_view(__DIR__.'/views/widget.php',$displayvars)];
 
 		return $display;
 	}
@@ -151,7 +131,7 @@ class Findmefollow extends Modules{
 
 	public function getWidgetSettingsDisplay($id) {
 		if (!$this->_checkExtension($id)) {
-			return array();
+			return [];
 		}
 
 		$user = $this->UCP->User->getUser();
@@ -159,15 +139,7 @@ class Findmefollow extends Modules{
 		// need to get the group settings
 
 		$settings = $this->UCP->FreePBX->Findmefollow->getSettingsById($id,1);
-		$displayvars = array(
-			"extension" => $id,
-			"confirm" => $settings['needsconf'],
-			"list" => explode("-",$settings['grplist']),
-			"ringtime" => $settings['grptime'],
-			"fmr" => $fmr,
-			"strategy" => $settings['strategy'],
-			"prering" => $settings['pre_ring']
-		);
+		$displayvars = ["extension" => $id, "confirm" => $settings['needsconf'], "list" => explode("-",(string) $settings['grplist']), "ringtime" => $settings['grptime'], "fmr" => $fmr, "strategy" => $settings['strategy'], "prering" => $settings['pre_ring']];
 		for($i = 0;$i<=30;$i++) {
 			$displayvars['prering_time'][$i] = $i;
 		}
@@ -175,10 +147,7 @@ class Findmefollow extends Modules{
 			$displayvars['listring_time'][$i] = $i;
 		}
 
-		$display = array(
-			'title' => _("Follow Me"),
-			'html' => $this->load_view(__DIR__.'/views/settings.php',$displayvars)
-		);
+		$display = ['title' => _("Follow Me"), 'html' => $this->load_view(__DIR__.'/views/settings.php',$displayvars)];
 
 		return $display;
 	}

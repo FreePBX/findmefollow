@@ -10,7 +10,7 @@ class Backup Extends Base\BackupBase{
 		$followmeList = $this->FreePBX->Findmefollow->listAll();
 		foreach ($followmeList as $fl) {
 			$dDial = $this->FreePBX->Findmefollow->getDDial($fl);
-			$followmeStatus[] = array('grpnum' => $fl, 'ddial' => $dDial);
+			$followmeStatus[] = ['grpnum' => $fl, 'ddial' => $dDial];
 		}
 		$this->addConfigs([
 			'tables' => $this->dumpTables(),

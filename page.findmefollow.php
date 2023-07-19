@@ -10,20 +10,20 @@ $dispnum = 'findmefollow'; //used for switch on config.php
 
 $heading = _("Follow Me");
 
-$view = isset($request['view']) ? $request['view'] : '';
+$view = $request['view'] ?? '';
 switch($view){
 	case "form":
 		$cwidth = "9";
 		$bootnav ='
 			<div class="col-sm-3 hidden-xs bootnav">
 				<div class="list-group">
-					'.load_view(__DIR__.'/views/bootnav.php', array('request' => $request)) .'
+					'.load_view(__DIR__.'/views/bootnav.php', ['request' => $request]) .'
 				</div>
 			</div>
 		';
 		if($request['extdisplay'] != ''){
-			$heading .= ": Edit ".ltrim($request['extdisplay'],'GRP-');
-			$content = load_view(__DIR__.'/views/form.php', array('request' => $request));
+			$heading .= ": Edit ".ltrim((string) $request['extdisplay'],'GRP-');
+			$content = load_view(__DIR__.'/views/form.php', ['request' => $request]);
 		}else{
 			$content = load_view(__DIR__.'/views/nogo.php');
 		}

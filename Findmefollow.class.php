@@ -21,34 +21,16 @@ class Findmefollow implements \BMO {
 			return;
 		}
 		$request = $_REQUEST;
-		$action = isset($request['action']) ? $request['action'] : '';
-		$extdisplay= isset($request['extdisplay']) ? $request['extdisplay']: '';
-		$account = isset($request['account']) ? $request['account'] : '';
+		$action = $request['action'] ?? '';
+		$extdisplay= $request['extdisplay'] ?? '';
+		$account = $request['account'] ?? '';
 		//the extension we are currently displaying
-		$settings = array(
-			'grptime' => isset($request['grptime']) ? $request['grptime'] : $amp_conf['FOLLOWME_TIME'],
-			'grppre' => isset($request['grppre']) ? $request['grppre'] : '',
-			'strategy' => isset($request['strategy']) ? $request['strategy'] : $amp_conf['FOLLOWME_RG_STRATEGY'],
-			'annmsg_id' => isset($request['annmsg_id']) ? $request['annmsg_id'] : '',
-			'dring' => isset($request['dring']) ? $request['dring'] : '',
-			'needsconf' => isset($request['needsconf']) ? $request['needsconf'] : '',
-			'remotealert_id' => isset($request['remotealert_id']) ? $request['remotealert_id'] : '',
-			'toolate_id' => isset($request['toolate_id']) ? $request['toolate_id'] : '',
-			'ringing' => isset($request['ringing']) ? $request['ringing'] : '',
-			'pre_ring' => isset($request['pre_ring']) ? $request['pre_ring'] : $amp_conf['FOLLOWME_PRERING'],
-			'changecid' => isset($request['changecid']) ? $request['changecid'] : 'default',
-			'fixedcid' => isset($request['fixedcid']) ? $request['fixedcid'] : '',
-			'rvolume' => isset($request['rvolume']) ? $request['rvolume'] : '',
-			'calendar_enable' => isset($request['calendar_enable']) ? $request['calendar_enable']:'',
-			'calendar_id' => isset($request['calendar_id']) ? $request['calendar_id']:'',
-			'calendar_group_id' => isset($request['calendar_group_id']) ? $request['calendar_group_id']:'',
-			'calendar_match' => isset($request['calendar_match']) ? $request['calendar_match'] : 'yes'
-		);
+		$settings = ['grptime' => $request['grptime'] ?? $amp_conf['FOLLOWME_TIME'], 'grppre' => $request['grppre'] ?? '', 'strategy' => $request['strategy'] ?? $amp_conf['FOLLOWME_RG_STRATEGY'], 'annmsg_id' => $request['annmsg_id'] ?? '', 'dring' => $request['dring'] ?? '', 'needsconf' => $request['needsconf'] ?? '', 'remotealert_id' => $request['remotealert_id'] ?? '', 'toolate_id' => $request['toolate_id'] ?? '', 'ringing' => $request['ringing'] ?? '', 'pre_ring' => $request['pre_ring'] ?? $amp_conf['FOLLOWME_PRERING'], 'changecid' => $request['changecid'] ?? 'default', 'fixedcid' => $request['fixedcid'] ?? '', 'rvolume' => $request['rvolume'] ?? '', 'calendar_enable' => $request['calendar_enable'] ?? '', 'calendar_id' => $request['calendar_id'] ?? '', 'calendar_group_id' => $request['calendar_group_id'] ?? '', 'calendar_match' => $request['calendar_match'] ?? 'yes'];
 
 		if (isset($request['ddial'])) {
 			$settings['ddial'] =	$request['ddial'];
 		}	else {
-			$settings['ddial'] = isset($request['ddial_value']) ? $request['ddial_value'] : ($amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '');
+			$settings['ddial'] = $request['ddial_value'] ?? ($amp_conf['FOLLOWME_DISABLED'] ? 'CHECKED' : '');
 		}
 
 		if (isset($request['goto0']) && isset($request[$request['goto0']."0"])) {
@@ -58,7 +40,7 @@ class Findmefollow implements \BMO {
 		}
 
 		if (isset($request["grplist"])) {
-			$settings['grplist'] = explode("\n",$request["grplist"]);
+			$settings['grplist'] = explode("\n",(string) $request["grplist"]);
 
 			if (!$settings['grplist']) {
 				$settings['grplist'] = null;
@@ -72,7 +54,7 @@ class Findmefollow implements \BMO {
 				$settings['grplist'][$key] = preg_replace("/[^0-9#*+]/", "", $settings['grplist'][$key]);
 
 				//Dont allow self to be a local channel
-				if ($settings['grplist'][$key] == ltrim($extdisplay,'GRP-').'#') {
+				if ($settings['grplist'][$key] == ltrim((string) $extdisplay,'GRP-').'#') {
 					$settings['grplist'][$key] = rtrim($settings['grplist'][$key],'#');
 				}
 
@@ -129,15 +111,9 @@ class Findmefollow implements \BMO {
 	public function getQuickCreateDisplay() {
 		$fm = $this->FreePBX->Config->get('FOLLOWME_AUTO_CREATE');
 		if($fm) {
-			return array();
+			return [];
 		}
-		return array(
-			1 => array(
-				array(
-					'html' => load_view(__DIR__.'/views/quickCreate.php',array("fmfm" => !$this->FreePBX->Config->get('FOLLOWME_DISABLED')))
-				)
-			)
-		);
+		return [1 => [['html' => load_view(__DIR__.'/views/quickCreate.php',["fmfm" => !$this->FreePBX->Config->get('FOLLOWME_DISABLED')])]]];
 	}
 
 	/**
@@ -163,7 +139,7 @@ class Findmefollow implements \BMO {
 	public function getWidgetListByModule($defaultexten, $userid,$widget) {
 		// if the widget_type_id is not defaultextension and widget_type_id is not in extensions
 		// then return only the defaultexten details
-		$widgets = array();
+		$widgets = [];
 		$widget_type_id = $widget['widget_type_id'];// this will be an extension number
 		$enabled = $this->FreePBX->Ucp->getCombinedSettingByID($userid,'Findmefollow','enable');
 		if (!$enabled) {
@@ -213,7 +189,7 @@ class Findmefollow implements \BMO {
 	 */
 	function getConfirm($exten) {
 		$response = $this->FreePBX->astman->database_get("AMPUSER","$exten/followme/grpconf");
-		return preg_match("/ENABLED/",$response);
+		return preg_match("/ENABLED/",(string) $response);
 	}
 
 	/*
@@ -235,7 +211,7 @@ class Findmefollow implements \BMO {
 	 */
 	function setList($exten,$follow_me_list) {
 
-		$clean_follow_me_list = array();
+		$clean_follow_me_list = [];
 		foreach($follow_me_list as $value) {
 			$value = $this->lookupSetExtensionFormat($exten, $value);
 			if ($value) {
@@ -255,8 +231,8 @@ class Findmefollow implements \BMO {
 	 */
 	function lookupSetExtensionFormat($grp, $exten) {
 
-		$hadPound = preg_match("/#$/",$exten);
-		$exten = preg_replace("/[^0-9*+]/", "", $exten);
+		$hadPound = preg_match("/#$/",(string) $exten);
+		$exten = preg_replace("/[^0-9*+]/", "", (string) $exten);
 
 		// Rem: This was moved from above to catch also cases of lines containing only bogus stuf
 		if (trim($exten) == "") {
@@ -284,7 +260,7 @@ class Findmefollow implements \BMO {
 	 */
 	function getList($exten) {
 		$response = $this->FreePBX->astman->database_get("AMPUSER","$exten/followme/grplist");
-		return preg_replace("/[^0-9#*\-+]/", "", $response);
+		return preg_replace("/[^0-9#*\-+]/", "", (string) $response);
 	}
 
 	/*
@@ -346,7 +322,7 @@ class Findmefollow implements \BMO {
 		if ($this->FreePBX->Config->get_conf_setting('USEDEVSTATE')) {
 			$value_opt = ($follow_me_ddial)?'BUSY':'NOT_INUSE';
 			$devices = $this->FreePBX->astman->database_get("AMPUSER",$exten."/device");
-			$device_arr = explode('&',$devices);
+			$device_arr = explode('&',(string) $devices);
 			foreach ($device_arr as $device) {
 				$this->FreePBX->astman->set_global($this->FreePBX->Config->get_conf_setting('AST_FUNC_DEVICE_STATE') . "(Custom:FOLLOWME$device)", $value_opt);
 			}
@@ -362,9 +338,9 @@ class Findmefollow implements \BMO {
 	 */
 	function getDDial($exten) {
 		$response = $this->FreePBX->astman->database_get("AMPUSER",$exten."/followme/ddial");
-		if (trim($response) == 'EXTENSION') {
+		if (trim((string) $response) == 'EXTENSION') {
 			return true;
-		} elseif (trim($response) == 'DIRECT') {
+		} elseif (trim((string) $response) == 'DIRECT') {
 			return false;
 		} else {
 			// If here then followme must not be set so use default
@@ -386,13 +362,7 @@ class Findmefollow implements \BMO {
 
 		$follow_me_confirm = ($follow_me_confirm)?'CHECKED':'';
 		$sql = 'UPDATE findmefollow SET grptime = :grptime, grplist = :grplist, pre_ring = :pre_ring, needsconf = :needsconf WHERE grpnum = :grpnum LIMIT 1';
-		$params = array(
-				':grptime' => $follow_me_listring_time,
-				':grplist' => trim($follow_me_list),
-				':pre_ring' => $follow_me_prering_time,
-				':needsconf' => $follow_me_confirm,
-				':grpnum' => $exten
-		);
+		$params = [':grptime' => $follow_me_listring_time, ':grplist' => trim((string) $follow_me_list), ':pre_ring' => $follow_me_prering_time, ':needsconf' => $follow_me_confirm, ':grpnum' => $exten];
 		$stmt = $this->db->prepare($sql);
 		$sql_results = $stmt->execute($params);
 		return 1;
@@ -400,15 +370,15 @@ class Findmefollow implements \BMO {
 
 	function listAll() {
 		$list = findmefollow_list();
-		return !empty($list) ? $list : array();
+		return !empty($list) ? $list : [];
 	}
 
 	function addSettingById($grpnum,$setting,$value='') {
-		return $this->addSettingsById($grpnum, array($setting => $value));
+		return $this->addSettingsById($grpnum, [$setting => $value]);
 	}
 
 	function addSettingsById($grpnum,$settings) {
-		$valid = array('strategy','grptime','grppre','grplist','annmsg_id','postdest','dring','needsconf','remotealert_id','toolate_id','ringing','pre_ring','ddial','changecid','fixedcid','calendar_id','calendar_match','calendar_group_id','calendar_enable', 'rvolume');
+		$valid = ['strategy', 'grptime', 'grppre', 'grplist', 'annmsg_id', 'postdest', 'dring', 'needsconf', 'remotealert_id', 'toolate_id', 'ringing', 'pre_ring', 'ddial', 'changecid', 'fixedcid', 'calendar_id', 'calendar_match', 'calendar_group_id', 'calendar_enable', 'rvolume'];
 
 		$settings = array_intersect_key($settings, array_flip($valid));
 
@@ -426,63 +396,63 @@ class Findmefollow implements \BMO {
 			switch($setting) {
 				case 'strategy':
 					$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/strategy",$value);
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$sth->execute([':grpnum' => $grpnum, ':key' => $setting, ':value' => $value]);
 				break;
 				case 'grptime':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$sth->execute([':grpnum' => $grpnum, ':key' => $setting, ':value' => $value]);
 					$this->setListRingTime($grpnum,$value);
 				break;
 				case 'grppre':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$sth->execute([':grpnum' => $grpnum, ':key' => $setting, ':value' => $value]);
 				break;
 				case 'grplist':
 					$this->setList($grpnum,$value);
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => implode("-",$value)));
+					$sth->execute([':grpnum' => $grpnum, ':key' => $setting, ':value' => implode("-",$value)]);
 				break;
 				case 'annmsg_id':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$sth->execute([':grpnum' => $grpnum, ':key' => $setting, ':value' => $value]);
 				break;
 				case 'postdest':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$sth->execute([':grpnum' => $grpnum, ':key' => $setting, ':value' => $value]);
 				break;
 				case 'dring':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$sth->execute([':grpnum' => $grpnum, ':key' => $setting, ':value' => $value]);
 				break;
 				case 'needsconf':
 					$val = ($value) ? 'CHECKED' : '';
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $val));
+					$sth->execute([':grpnum' => $grpnum, ':key' => $setting, ':value' => $val]);
 					$val = ($value) ? 'ENABLED' : 'DISABLED';
 					$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/grpconf",$val);
 				break;
 				case 'remotealert_id':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$sth->execute([':grpnum' => $grpnum, ':key' => $setting, ':value' => $value]);
 				break;
 				case 'toolate_id':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$sth->execute([':grpnum' => $grpnum, ':key' => $setting, ':value' => $value]);
 				break;
 				case 'ringing':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$sth->execute([':grpnum' => $grpnum, ':key' => $setting, ':value' => $value]);
 				break;
 				case 'rvolume':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$sth->execute([':grpnum' => $grpnum, ':key' => $setting, ':value' => $value]);
 				break;
 				case 'calendar_id':
 				case 'calendar_group_id':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$sth->execute([':grpnum' => $grpnum, ':key' => $setting, ':value' => $value]);
 				break;
 				case 'calendar_enable':
 					$enabled = $value ? 1 : 0;
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $enabled));
+					$sth->execute([':grpnum' => $grpnum, ':key' => $setting, ':value' => $enabled]);
 				break;
 				case 'calendar_match':
 					$enabled = 'yes'; // Default value is `yes`
 					if ($value === 'no' || empty($value)) {
 						$enabled = 'no';
 					}
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $enabled));
+					$sth->execute([':grpnum' => $grpnum, ':key' => $setting, ':value' => $enabled]);
 				break;
 				case 'pre_ring':
-					$sth->execute(array(':grpnum' => $grpnum, ':key' => $setting, ':value' => $value));
+					$sth->execute([':grpnum' => $grpnum, ':key' => $setting, ':value' => $value]);
 					$this->setPreRingTime($grpnum,$value);
 				break;
 				case 'ddial':
@@ -492,7 +462,7 @@ class Findmefollow implements \BMO {
 					$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/ddial",$val);
 					if ($this->FreePBX->Config->get_conf_setting('USEDEVSTATE')) {
 						$devices = $this->FreePBX->astman->database_get("AMPUSER", $grpnum . "/device");
-						$device_arr = explode('&', $devices);
+						$device_arr = explode('&', (string) $devices);
 						foreach ($device_arr as $device) {
 							$this->FreePBX->astman->set_global($this->FreePBX->Config->get_conf_setting('AST_FUNC_DEVICE_STATE') . "(Custom:FOLLOWME$device)", $ddialstate);
 						}
@@ -502,18 +472,18 @@ class Findmefollow implements \BMO {
 						$sth = $this->db->prepare($sql);
 						//wrapped into a try/catch incase the find me is already defined, then we won't do the additional steps.
 						try {
-							$sth->execute(array(':grpnum' => $grpnum));
+							$sth->execute([':grpnum' => $grpnum]);
 							//these are the additional steps
 							$this->setListRingTime($grpnum,20);
-							$this->setList($grpnum,array($grpnum));
-						} catch(\Exception $e) {}
+							$this->setList($grpnum,[$grpnum]);
+						} catch(\Exception) {}
 					}
 				break;
 				case 'changecid':
 					$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/changecid",$value);
 				break;
 				case 'fixedcid':
-					$value = preg_replace("/[^0-9\+]/" ,"", trim($value));
+					$value = preg_replace("/[^0-9\+]/" ,"", trim((string) $value));
 					$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/fixedcid",$value);
 				break;
 				default:
@@ -526,31 +496,25 @@ class Findmefollow implements \BMO {
 	}
 
 	function getSettingsById($grpnum, $check_astdb=0) {
-		$db = $this->db;
+		$astdb_prering = null;
+  $astdb_grptime = null;
+  $astdb_grplist = null;
+  $astdb_grpconf = null;
+  $db = $this->db;
 		$sql = "SELECT grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, voicemail, calendar_id, calendar_match FROM findmefollow INNER JOIN `users` ON `extension` = `grpnum` WHERE grpnum = ?";
 		$sth = $db->prepare($sql);
-		$sth->execute(array($grpnum));
+		$sth->execute([$grpnum]);
 		$results = $sth->fetch(\PDO::FETCH_ASSOC);
 
 		if (empty($results)) {
 			//defaults
-			return array(
-				"ddial" => true,
-				"needsconf" => false,
-				"grplist" => $grpnum,
-				"pre_ring" => '',
-				"grpnum" => $grpnum,
-				"annmsg_id" => '',
-				"remotealert_id" => '',
-				"toolate_id" => '',
-				"grptime" => '20'
-			);
+			return ["ddial" => true, "needsconf" => false, "grplist" => $grpnum, "pre_ring" => '', "grpnum" => $grpnum, "annmsg_id" => '', "remotealert_id" => '', "toolate_id" => '', "grptime" => '20'];
 		}
 
 		if (!isset($results['voicemail'])) {
 			$sql = "SELECT `voicemail` FROM `users` WHERE `extension` = ?";
 			$sth = $db->prepare($sql);
-			$sth->execute(array($grpnum));
+			$sth->execute([$grpnum]);
 			$results['voicemail'] = $sth->fetchColumn();
 		}
 
@@ -565,7 +529,7 @@ class Findmefollow implements \BMO {
 				$astdb_grplist = $this->getList($grpnum);
 				$astdb_grpconf = $this->getConfirm($grpnum);
 
-				$astdb_changecid = strtolower($this->FreePBX->astman->database_get("AMPUSER",$grpnum."/followme/changecid"));
+				$astdb_changecid = strtolower((string) $this->FreePBX->astman->database_get("AMPUSER",$grpnum."/followme/changecid"));
 				switch($astdb_changecid) {
 					case 'default':
 					case 'did':
@@ -578,7 +542,7 @@ class Findmefollow implements \BMO {
 				}
 				$results['changecid'] = $astdb_changecid;
 				$fixedcid = $this->FreePBX->astman->database_get("AMPUSER",$grpnum."/followme/fixedcid");
-				$results['fixedcid'] = preg_replace("/[^0-9\+]/" ,"", trim($fixedcid));
+				$results['fixedcid'] = preg_replace("/[^0-9\+]/" ,"", trim((string) $fixedcid));
 			}
 			$astdb_ddial = $this->getDDial($grpnum);
 			// If the values are different then use what is in astdb as it may have been changed.
@@ -598,22 +562,22 @@ class Findmefollow implements \BMO {
 			if (!isset($results['needsconf'])) {
 				$results['needsconf'] = '';
 			}
-			if (($astdb_prering != $results['pre_ring']) && (trim($astdb_prering) != '')) {
+			if (($astdb_prering != $results['pre_ring']) && (trim((string) $astdb_prering) != '')) {
 				$results['pre_ring'] = $astdb_prering;
 				$changed=1;
 			}
-			if (($astdb_grptime != $results['grptime']) && (trim($astdb_grptime) != '')) {
+			if (($astdb_grptime != $results['grptime']) && (trim((string) $astdb_grptime) != '')) {
 				$results['grptime'] = $astdb_grptime;
 				$changed=1;
 			}
 
-			if ((trim($astdb_grplist) != trim($results['grplist'])) && (trim($astdb_grplist) != '')) {
+			if ((trim((string) $astdb_grplist) != trim((string) $results['grplist'])) && (trim((string) $astdb_grplist) != '')) {
 				$results['grplist'] = $astdb_grplist;
 				$changed=1;
 			}
 
 			$confvalue = ($astdb_grpconf) ? 'CHECKED' : '';
-			if ($confvalue != trim($results['needsconf'])) {
+			if ($confvalue != trim((string) $results['needsconf'])) {
 				$results['needsconf'] = $confvalue;
 				$changed=1;
 			}
@@ -623,7 +587,7 @@ class Findmefollow implements \BMO {
 			if ($changed) {
 				$sql = "UPDATE findmefollow SET grptime = ?, grplist = ?, pre_ring = ?, needsconf = ? WHERE grpnum = ? LIMIT 1";
 				$sth = $db->prepare($sql);
-				$sth->execute(array($results['grptime'],$results['grplist'],$results['pre_ring'],$results['needsconf'],$results['grpnum']));
+				$sth->execute([$results['grptime'], $results['grplist'], $results['pre_ring'], $results['needsconf'], $results['grpnum']]);
 			}
 		} // if check_astdb
 		$results['needsconf'] = ($results['needsconf'] == "CHECKED") ? true : false;
@@ -631,56 +595,31 @@ class Findmefollow implements \BMO {
 	}
 
 	public function getActionBar($request) {
-		if (empty($request['extdisplay']) || empty($request['view']) || $request['view'] != 'form') {
+		$buttons = null;
+  if (empty($request['extdisplay']) || empty($request['view']) || $request['view'] != 'form') {
 			return null;
 		}
 		switch($request['display']) {
 			case 'findmefollow':
-				$buttons = array(
-					'submit' => array(
-						'name' => 'submit',
-						'id' => 'submit',
-						'value' => _('Submit')
-					),
-					'reset' => array(
-						'name' => 'reset',
-						'id' => 'reset',
-						'value' => _('Reset')
-					)
-				);
+				$buttons = ['submit' => ['name' => 'submit', 'id' => 'submit', 'value' => _('Submit')], 'reset' => ['name' => 'reset', 'id' => 'reset', 'value' => _('Reset')]];
 				break;
 		}
 		return $buttons;
 	}
 	function add($grpnum,$data) {
-		if(!is_array($data)) {
+		$grplist = null;
+  $annmsg_id = null;
+  $remotealert_id = null;
+  $toolate_id = null;
+  $changecid = null;
+  $fixedcid = null;
+  if(!is_array($data)) {
 			throw new \Exception("The format for adding a fmfm has changed. Please fix the calling code to reflect this");
 		}
-		$defaults = array(
-			'strategy' => $this->FreePBX->Config->get('FOLLOWME_RG_STRATEGY'),
-			'grptime' => $this->FreePBX->Config->get('FOLLOWME_TIME'),
-			'grplist' => $grpnum,
-			'postdest' => 'ext-local,'.$grpnum.',dest',
-			'grppre' => '',
-			'annmsg_id' => '',
-			'dring' => '',
-			'needsconf' => '',
-			'remotealert_id' => '',
-			'toolate_id' => '',
-			'ringing' => 'Ring',
-			'pre_ring' => $this->FreePBX->Config->get('FOLLOWME_PRERING'),
-			'ddial' => $this->FreePBX->Config->get('FOLLOWME_DISABLED') ? 'CHECKED' : '',
-			'changecid' => 'default',
-			'fixedcid' => '',
-			'calendar_enable' => 0,
-			'calendar_id' => '',
-			'calendar_group_id' => '',
-			'calendar_match' => 'yes',
-			'rvolume'=>''
-		);
-		$final = array();
+		$defaults = ['strategy' => $this->FreePBX->Config->get('FOLLOWME_RG_STRATEGY'), 'grptime' => $this->FreePBX->Config->get('FOLLOWME_TIME'), 'grplist' => $grpnum, 'postdest' => 'ext-local,'.$grpnum.',dest', 'grppre' => '', 'annmsg_id' => '', 'dring' => '', 'needsconf' => '', 'remotealert_id' => '', 'toolate_id' => '', 'ringing' => 'Ring', 'pre_ring' => $this->FreePBX->Config->get('FOLLOWME_PRERING'), 'ddial' => $this->FreePBX->Config->get('FOLLOWME_DISABLED') ? 'CHECKED' : '', 'changecid' => 'default', 'fixedcid' => '', 'calendar_enable' => 0, 'calendar_id' => '', 'calendar_group_id' => '', 'calendar_match' => 'yes', 'rvolume'=>''];
+		$final = [];
 		foreach($defaults as $key => $val) {
-			$final[$key] = isset($data[$key]) ? $data[$key] : $val;
+			$final[$key] = $data[$key] ?? $val;
 		}
 		extract($final);
 
@@ -691,12 +630,12 @@ class Findmefollow implements \BMO {
 		//Follow Me auto # on external number.
 		//http://code.freepbx.org/cru/FREEPBX-51#CFR-111
 		$users = \findmefollow_allusers();
-		$users = is_array($users) ? $users : array();
+		$users = is_array($users) ? $users : [];
 		foreach ($users as $user) {
 			$extens[$user[0]] = $user[1];
 		}
 
-		$list = !is_array($grplist) ? explode("-", $grplist) : $grplist;
+		$list = !is_array($grplist) ? explode("-", (string) $grplist) : $grplist;
 		foreach (array_keys($list) as $key) {
 			// remove invalid chars
 			//FREEPBX-14788 -Issue in Find Me follow me list under Extensions.
@@ -730,43 +669,43 @@ class Findmefollow implements \BMO {
 			$toolate_id = NULL;
 		}
 		$sql = "INSERT INTO findmefollow (grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, calendar_enable, calendar_id, calendar_group_id, calendar_match, rvolume) VALUES (:grpnum, :strategy, :grptime, :grppre, :grplist, :annmsg_id, :postdest, :dring, :needsconf, :remotealert_id, :toolate_id, :ringing, :pre_ring, :calendar_enable, :calendar_id, :calendar_group_id, :calendar_match, :rvolume)";
-		$insertarr = array(':grpnum' => $grpnum , ':strategy' => $strategy , ':grptime' => $grptime , ':grppre' => $grppre , ':grplist' => $grplist , ':annmsg_id' => $annmsg_id , ':postdest' => $postdest , ':dring' => $dring , ':needsconf' => $needsconf , ':remotealert_id' => $remotealert_id , ':toolate_id' => $toolate_id , ':ringing' => $ringing , ':pre_ring' => $pre_ring, ':calendar_enable' => $calendar_enable, ':calendar_group_id' => $calendar_group_id, ':calendar_id' => $calendar_id, ':calendar_match' => $calendar_match, ':rvolume' => $rvolume);
+		$insertarr = [':grpnum' => $grpnum, ':strategy' => $strategy, ':grptime' => $grptime, ':grppre' => $grppre, ':grplist' => $grplist, ':annmsg_id' => $annmsg_id, ':postdest' => $postdest, ':dring' => $dring, ':needsconf' => $needsconf, ':remotealert_id' => $remotealert_id, ':toolate_id' => $toolate_id, ':ringing' => $ringing, ':pre_ring' => $pre_ring, ':calendar_enable' => $calendar_enable, ':calendar_group_id' => $calendar_group_id, ':calendar_id' => $calendar_id, ':calendar_match' => $calendar_match, ':rvolume' => $rvolume];
 
 		$stmt = $dbh->prepare($sql);
 		$results = $stmt->execute($insertarr);
 		if ($astman) {
-			$astman->database_put("AMPUSER",$grpnum."/followme/strategy",isset($strategy)?$strategy:'');
-			$astman->database_put("AMPUSER",$grpnum."/followme/prering",isset($pre_ring)?$pre_ring:'');
-			$astman->database_put("AMPUSER",$grpnum."/followme/grptime",isset($grptime)?$grptime:'');
-			$astman->database_put("AMPUSER",$grpnum."/followme/grplist",isset($grplist)?$grplist:'');
-			$astman->database_put("AMPUSER",$grpnum."/followme/grppre",isset($grppre)?$grppre:'');
-			$astman->database_put("AMPUSER",$grpnum."/followme/rvolume",isset($rvolume)?$rvolume:'');
-			$astman->database_put("AMPUSER",$grpnum."/followme/dring",isset($dring)?$dring:'');
+			$astman->database_put("AMPUSER",$grpnum."/followme/strategy",$strategy ?? '');
+			$astman->database_put("AMPUSER",$grpnum."/followme/prering",$pre_ring ?? '');
+			$astman->database_put("AMPUSER",$grpnum."/followme/grptime",$grptime ?? '');
+			$astman->database_put("AMPUSER",$grpnum."/followme/grplist",$grplist ?? '');
+			$astman->database_put("AMPUSER",$grpnum."/followme/grppre",$grppre ?? '');
+			$astman->database_put("AMPUSER",$grpnum."/followme/rvolume",$rvolume ?? '');
+			$astman->database_put("AMPUSER",$grpnum."/followme/dring",$dring ?? '');
 			$astman->database_put("AMPUSER",$grpnum."/followme/annmsg",(!empty($annmsg_id) ? recordings_get_file($annmsg_id) : ''));
 			$astman->database_put("AMPUSER",$grpnum."/followme/remotealertmsg",(!empty($remotealert_id) ? recordings_get_file($remotealert_id) : ''));
 			$astman->database_put("AMPUSER",$grpnum."/followme/toolatemsg",(!empty($toolate_id) ? recordings_get_file($toolate_id) : ''));
 			$astman->database_put("AMPUSER",$grpnum."/followme/postdest",$postdest);
 			$astman->database_put("AMPUSER",$grpnum."/followme/ringing",$ringing);
 
-			$needsconf = isset($needsconf)?$needsconf:'';
+			$needsconf ??= '';
 			$confvalue = ($needsconf == 'CHECKED')?'ENABLED':'DISABLED';
 			$astman->database_put("AMPUSER",$grpnum."/followme/grpconf",$confvalue);
 
-			$ddial      = isset($ddial)?$ddial:'';
+			$ddial ??= '';
 			$ddialvalue = ($ddial == 'CHECKED')?'EXTENSION':'DIRECT';
 			$astman->database_put("AMPUSER",$grpnum."/followme/ddial",$ddialvalue);
 			if ($conf->get('USEDEVSTATE')) {
 				$ddialstate = ($ddial == 'CHECKED')?'NOT_INUSE':'BUSY';
 
 				$devices = $astman->database_get("AMPUSER", $grpnum . "/device");
-				$device_arr = explode('&', $devices);
+				$device_arr = explode('&', (string) $devices);
 				foreach ($device_arr as $device) {
 					$astman->set_global($conf->get('AST_FUNC_DEVICE_STATE') . "(Custom:FOLLOWME$device)", $ddialstate);
 				}
 			}
 
 			$astman->database_put("AMPUSER",$grpnum."/followme/changecid",$changecid);
-			$fixedcid = preg_replace("/[^0-9\+]/" ,"", trim($fixedcid));
+			$fixedcid = preg_replace("/[^0-9\+]/" ,"", trim((string) $fixedcid));
 			$astman->database_put("AMPUSER",$grpnum."/followme/fixedcid",$fixedcid);
 		} else {
 			\fatal("Cannot connect to Asterisk Manager with ".$conf->get("AMPMGRUSER")."/".$conf->get("AMPMGRPASS"));
@@ -780,7 +719,7 @@ class Findmefollow implements \BMO {
 
 		$sql= "DELETE FROM findmefollow WHERE grpnum = :grpnum";
 		$stmt = $dbh->prepare($sql);
-		$results = $stmt->execute(array(':grpnum' => $grpnum));
+		$results = $stmt->execute([':grpnum' => $grpnum]);
 		if ($astman) {
 			$astman->database_deltree("AMPUSER/".$grpnum."/followme");
 		} else {
@@ -799,20 +738,24 @@ class Findmefollow implements \BMO {
 	// if not able to get to astdb. (I suspect in 2.2 and beyond this may all be fixed).
 	//
 	public function get($grpnum, $check_astdb=0) {
-		$astman = $this->FreePBX->astman;
+		$astdb_prering = null;
+  $astdb_grptime = null;
+  $astdb_grplist = null;
+  $astdb_grpconf = null;
+  $astman = $this->FreePBX->astman;
 		$dbh = $this->db;
 		$conf = $this->FreePBX->Config();
 		$user = $this->FreePBX->Core->getUser($grpnum);
 		$sql = 'SELECT grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, voicemail, calendar_enable, calendar_id, calendar_group_id, calendar_match, rvolume FROM findmefollow INNER JOIN `users` ON `extension` = `grpnum` WHERE grpnum = :grpnum LIMIT 1';
 		$stmt = $dbh->prepare($sql);
-		$stmt->execute(array(':grpnum'=> $grpnum));
+		$stmt->execute([':grpnum'=> $grpnum]);
 		$results = $stmt->fetch(\PDO::FETCH_ASSOC);
 		if (empty($results)) {
-			return array();
+			return [];
 		}
 		if (!isset($results['voicemail'])) {
 
-			$results['voicemail'] = isset($user['voicemail'])?$user['voicemail']:'novm';
+			$results['voicemail'] = $user['voicemail'] ?? 'novm';
 		}
 		if (!isset($results['strategy'])) {
 			$results['strategy'] = $conf->get('FOLLOWME_RG_STRATEGY');
@@ -825,7 +768,7 @@ class Findmefollow implements \BMO {
 				$astdb_grplist = $this->getList($grpnum);
 				$astdb_grpconf = $this->getConfirm($grpnum);
 
-				$astdb_changecid = strtolower($astman->database_get("AMPUSER",$grpnum."/followme/changecid"));
+				$astdb_changecid = strtolower((string) $astman->database_get("AMPUSER",$grpnum."/followme/changecid"));
 				switch($astdb_changecid) {
 					case 'default':
 					case 'did':
@@ -838,7 +781,7 @@ class Findmefollow implements \BMO {
 				}
 				$results['changecid'] = $astdb_changecid;
 				$fixedcid = $astman->database_get("AMPUSER",$grpnum."/followme/fixedcid");
-				$results['fixedcid'] = preg_replace("/[^0-9\+]/" ,"", trim($fixedcid));
+				$results['fixedcid'] = preg_replace("/[^0-9\+]/" ,"", trim((string) $fixedcid));
 			} else {
 				fatal("Cannot connect to Asterisk Manager with ".$conf->get('AMPMGRUSER')."/".$conf->get('AMPMGRPASS'));
 			}
@@ -864,30 +807,30 @@ class Findmefollow implements \BMO {
 				$results['rvolume'] = '';
 			}
 
-			if (($astdb_prering != $results['pre_ring']) && (trim($astdb_prering) != '')) {
+			if (($astdb_prering != $results['pre_ring']) && (trim((string) $astdb_prering) != '')) {
 				$results['pre_ring'] = $astdb_prering;
 				$changed=1;
 			}
-			if (($astdb_grptime != $results['grptime']) && (trim($astdb_grptime) != '')) {
+			if (($astdb_grptime != $results['grptime']) && (trim((string) $astdb_grptime) != '')) {
 				$results['grptime'] = $astdb_grptime;
 				$changed=1;
 			}
-			if ((trim($astdb_grplist) != trim($results['grplist'])) && (trim($astdb_grplist) != '')) {
+			if ((trim((string) $astdb_grplist) != trim((string) $results['grplist'])) && (trim((string) $astdb_grplist) != '')) {
 				$results['grplist'] = $astdb_grplist;
 				$changed=1;
 			}
 
 			$confvalue = ($astdb_grpconf) ? 'CHECKED' : '';
-			if ($confvalue != trim($results['needsconf'])) {
+			if ($confvalue != trim((string) $results['needsconf'])) {
 				$results['needsconf'] = $confvalue;
 				$changed=1;
 			}
 
 			// Not in sql so no sanity check needed
 			//
-			if (trim($astdb_ddial) == 'EXTENSION') {
+			if (trim((string) $astdb_ddial) == 'EXTENSION') {
 				$ddial = 'CHECKED';
-			} elseif (trim($astdb_ddial) == 'DIRECT') {
+			} elseif (trim((string) $astdb_ddial) == 'DIRECT') {
 				$ddial = '';
 			} else {
 				// If here then followme must not be set so use default
@@ -897,13 +840,7 @@ class Findmefollow implements \BMO {
 
 			if ($changed) {
 				$sql = 'UPDATE findmefollow SET grptime = :grptime, grplist = :grplist, pre_ring = :pre_ring, needsconf = :needsconf WHERE grpnum = :grpnum LIMIT 1';
-				$params = array(
-						':grptime' => $results['grptime'],
-						':grplist' => trim($results['grplist']),
-						':pre_ring' => $results['pre_ring'],
-						':needsconf' => $results['needsconf'],
-						':grpnum' => $grpnum
-				);
+				$params = [':grptime' => $results['grptime'], ':grplist' => trim((string) $results['grplist']), ':pre_ring' => $results['pre_ring'], ':needsconf' => $results['needsconf'], ':grpnum' => $grpnum];
 				$stmt = $this->db->prepare($sql);
 				$sql_results = $stmt->execute($params);
 			}
@@ -916,7 +853,7 @@ class Findmefollow implements \BMO {
 		$old = $this->get($grpnum);
 		if(!empty($old)) {
 			$this->del($grpnum);
-			$old['grplist'] = explode("-",$old['grplist']);
+			$old['grplist'] = explode("-",(string) $old['grplist']);
 			$settings = array_merge($old,$settings);
 		}
 		$this->add($grpnum,$settings);
@@ -925,19 +862,7 @@ class Findmefollow implements \BMO {
 	public function bulkhandlerGetHeaders($type) {
 		switch ($type) {
 		case 'extensions':
-			$headers = array(
-				'findmefollow_enabled' => array(
-					'description' => _('Follow Me Enabled [Blank to disable]')
-				),
-				'findmefollow_grplist' => array(
-					'description' => _('Follow Me List'),
-				),
-				'findmefollow_postdest' => array(
-					'description' => _('Follow Me No Answer Destination'),
-					"display" => false,
-					"type" => "destination"
-				),
-			);
+			$headers = ['findmefollow_enabled' => ['description' => _('Follow Me Enabled [Blank to disable]')], 'findmefollow_grplist' => ['description' => _('Follow Me List')], 'findmefollow_postdest' => ['description' => _('Follow Me No Answer Destination'), "display" => false, "type" => "destination"]];
 
 			return $headers;
 			break;
@@ -953,17 +878,17 @@ class Findmefollow implements \BMO {
 				$extension = $data['extension'];
 
 				foreach ($data as $key => $value) {
-					if (substr($key, 0, 13) == 'findmefollow_') {
-						$settingname = substr($key, 13);
+					if (str_starts_with((string) $key, 'findmefollow_')) {
+						$settingname = substr((string) $key, 13);
 						switch ($settingname) {
 							case 'grplist':
-								$settings[$settingname] = explode('-', $value);
+								$settings[$settingname] = explode('-', (string) $value);
 							break;
 							case 'enabled':
 								//reversy and backwards yeah. I know.
 								//ITS THE CODE FROM 7 YEARS AGO
 								//:'(
-								$value = trim($value);
+								$value = trim((string) $value);
 								$settings['ddial'] = (!empty($value)) ? false : true;
 							break;
 							default:
@@ -978,9 +903,7 @@ class Findmefollow implements \BMO {
 				}
 			}
 
-			$ret = array(
-				'status' => true,
-			);
+			$ret = ['status' => true];
 
 			break;
 		}
@@ -989,7 +912,7 @@ class Findmefollow implements \BMO {
 	}
 
 	function addSettingRow($grpnum,$settings) {
-		$valid = array('strategy','grptime','grppre','grplist','annmsg_id','postdest','dring','needsconf','remotealert_id','toolate_id','ringing','pre_ring','ddial','changecid','fixedcid');
+		$valid = ['strategy', 'grptime', 'grppre', 'grplist', 'annmsg_id', 'postdest', 'dring', 'needsconf', 'remotealert_id', 'toolate_id', 'ringing', 'pre_ring', 'ddial', 'changecid', 'fixedcid'];
 
 		$settings = array_intersect_key($settings, array_flip($valid));
 
@@ -1018,7 +941,7 @@ class Findmefollow implements \BMO {
 					WHERE grpnum = :grpnum";
 
 		$sth = $this->db->prepare($sql);
-		$set_keys = array();
+		$set_keys = [];
 		$grptime_not_null = false;
 		foreach ($settings as $setting => $value) {
 			switch($setting) {
@@ -1028,7 +951,7 @@ class Findmefollow implements \BMO {
 				case 'grptime':
 					$this->setListRingTime($grpnum,$value);
 					$set_keys[$setting] = $value;
-					if (trim($value) != '')
+					if (trim((string) $value) != '')
 						$grptime_not_null = true;
 				break;
 				case 'grppre':
@@ -1078,7 +1001,7 @@ class Findmefollow implements \BMO {
 					$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/ddial",$val);
 					if ($this->FreePBX->Config->get_conf_setting('USEDEVSTATE')) {
 						$devices = $this->FreePBX->astman->database_get("AMPUSER", $grpnum . "/device");
-						$device_arr = explode('&', $devices);
+						$device_arr = explode('&', (string) $devices);
 						foreach ($device_arr as $device) {
 							$this->FreePBX->astman->set_global($this->FreePBX->Config->get_conf_setting('AST_FUNC_DEVICE_STATE') . "(Custom:FOLLOWME$device)", $ddialstate);
 						}
@@ -1088,18 +1011,18 @@ class Findmefollow implements \BMO {
 						$sth2 = $this->db->prepare($sql);
 						//wrapped into a try/catch incase the find me is already defined, then we won't do the additional steps.
 						try {
-							$sth2->execute(array(':grpnum' => $grpnum));
+							$sth2->execute([':grpnum' => $grpnum]);
 							//these are the additional steps
 							$this->setListRingTime($grpnum,20);
-							$this->setList($grpnum,array($grpnum));
-						} catch(\Exception $e) {}
+							$this->setList($grpnum,[$grpnum]);
+						} catch(\Exception) {}
 					}
 				break;
 				case 'changecid':
 					$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/changecid",$value);
 				break;
 				case 'fixedcid':
-					$value = preg_replace("/[^0-9\+]/" ,"", trim($value));
+					$value = preg_replace("/[^0-9\+]/" ,"", trim((string) $value));
 					$this->FreePBX->astman->database_put("AMPUSER",$grpnum."/followme/fixedcid",$value);
 				break;
 				default:
@@ -1108,7 +1031,7 @@ class Findmefollow implements \BMO {
 			}
 		}
 
-		$except = array('ddial', 'changecid', 'fixedcid');
+		$except = ['ddial', 'changecid', 'fixedcid'];
 		foreach($valid as $key)
 		{
 			if (!in_array($key, $except) && !isset($set_keys[$key]))
@@ -1118,7 +1041,7 @@ class Findmefollow implements \BMO {
 		}
 		$set_keys['grpnum'] = $grpnum;
 
-		$parameters = array();
+		$parameters = [];
 		foreach($set_keys as $key => $value)
 			$parameters[':'.$key] = $value;
 
@@ -1129,7 +1052,7 @@ class Findmefollow implements \BMO {
 	}
 
 	public function bulkhandlerExport($type, $astdb = true) {
-		$data = array();
+		$data = [];
 
 		switch ($type) {
 		case 'extensions':
@@ -1137,7 +1060,7 @@ class Findmefollow implements \BMO {
 
 			foreach ($extensions as $extension) {
 				$settings = $this->getSettingsById($extension, $astdb);
-				$psettings = array();
+				$psettings = [];
 				foreach ($settings as $key => $value) {
 					switch ($key) {
 					case 'grpnum':
@@ -1162,20 +1085,15 @@ class Findmefollow implements \BMO {
 		return $data;
 	}
 	public function ajaxRequest($req, &$setting) {
-		switch ($req) {
-			case 'toggleFM':
-			case 'getJSON':
-				return true;
-			break;
-			default:
-				return false;
-			break;
-		}
+		return match ($req) {
+      'toggleFM', 'getJSON' => true,
+      default => false,
+  };
 	}
 	public function ajaxHandler(){
 		switch ($_REQUEST['command']) {
 			case 'toggleFM':
-				$extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:'';
+				$extdisplay = $_REQUEST['extdisplay'] ?? '';
 				$state = '';
 				if($_REQUEST['state'] == 'enable'){
 					$state = true;
@@ -1184,17 +1102,17 @@ class Findmefollow implements \BMO {
 					$state = false;
 				}
 				if($state === '' || empty($extdisplay)){
-					return array('toggle' => 'invalid');
+					return ['toggle' => 'invalid'];
 				}
 				$ret = $this->setDDial($extdisplay,$state);
-				return array('toggle' => 'received', 'return' => $ret );
+				return ['toggle' => 'received', 'return' => $ret];
 			break;
 			case 'getJSON':
 				switch ($_REQUEST['jdata']) {
 					case 'grid':
-						$ret = array();
+						$ret = [];
 						foreach($this->listFollowme() as $fm){
-							$ret[] = array('ext'=>$fm[0]);
+							$ret[] = ['ext'=>$fm[0]];
 						}
 						return array_values($ret);
 					break;
@@ -1226,7 +1144,7 @@ class Findmefollow implements \BMO {
 			return $grps;
 		}
 		else {
-			return array();
+			return [];
 		}
 	}
 
@@ -1241,23 +1159,23 @@ class Findmefollow implements \BMO {
 
 	public function getRightNav($request) {
 		if(isset($request['view'])&& $request['view'] == 'form'){
-			return load_view(__DIR__."/views/bootnav.php",array('request' => $request));
+			return load_view(__DIR__."/views/bootnav.php",['request' => $request]);
 		}
 	}
 	//Core extension Hooks
 	public function addUser($extension,$post,$editmode){
 		$conf = $this->FreePBX->Config();
-		$ext = isset($post['extdisplay'])?$post['extdisplay']:null;
-		$extn = isset($post['extension'])?$post['extension']:null;
+		$ext = $post['extdisplay'] ?? null;
+		$extn = $post['extension'] ?? null;
 
 		if ($ext=='') {
 			$extdisplay = $extn;
 		} else {
 			$extdisplay = $ext;
 		}
-		$settings = array();
+		$settings = [];
 		foreach($post as $key => $value) {
-			if(preg_match("/^fmfm_(.*)/",$key,$matches)) {
+			if(preg_match("/^fmfm_(.*)/",(string) $key,$matches)) {
 				$settings[$matches[1]] = $value;
 			}
 		}
@@ -1287,7 +1205,7 @@ class Findmefollow implements \BMO {
 			$settings['postdest'] = ($settings['postdest'] == 'ext-local,,dest') ? 'ext-local,'.$extdisplay.',dest' : $settings['postdest'];
 			//dont let group list be empty. ever.
 			$settings['grplist'] = empty($settings['grplist']) ? $extdisplay : $settings['grplist'];
-			$settings['grplist'] = explode("\n",$settings['grplist']);
+			$settings['grplist'] = explode("\n",(string) $settings['grplist']);
 			if($editmode){
 				$this->update($extdisplay, $settings);
 			}else{
@@ -1327,31 +1245,24 @@ class Findmefollow implements \BMO {
 			 }
 		 }
 
-		 $fmassigned = !empty($fmassigned) ? $fmassigned : array();
-		 $ausers = array();
+		 $fmassigned = !empty($fmassigned) ? $fmassigned : [];
+		 $ausers = [];
 		 $action = $_REQUEST['action'];
 		 if($action == "showgroup" || $action == "addgroup") {
              $ausers['self'] = _("User Primary Extension");
 		}
 
 		 if($action == "addgroup") {
-		     $fmassigned = array('self');
+		     $fmassigned = ['self'];
 	     }
 
 		 foreach(core_users_list() as $list) {
-		     $cul[$list[0]] = array(
-		               "name" => $list[1],
-		              "vmcontext" => $list[2]
-			           );
+		     $cul[$list[0]] = ["name" => $list[1], "vmcontext" => $list[2]];
 		     $ausers[$list[0]] = $list[1] . " &#60;".$list[0]."&#62;";
 	     }
 
-		$html = array();
-		$html[0] = array(
-		            "title" => _("FindmeFollow"),
-		           "rawname" => "findmefollow",
-		           "content" => load_view(dirname(__FILE__)."/views/ucp_config.php",array("enabled" => $enabled, "fmr" => $fmr, "mode" => $mode,"ausers" => $ausers, "fmassigned" => $fmassigned))
-					);
+		$html = [];
+		$html[0] = ["title" => _("FindmeFollow"), "rawname" => "findmefollow", "content" => load_view(__DIR__."/views/ucp_config.php",["enabled" => $enabled, "fmr" => $fmr, "mode" => $mode, "ausers" => $ausers, "fmassigned" => $fmassigned])];
        return $html;
 	}
 
@@ -1374,7 +1285,7 @@ class Findmefollow implements \BMO {
 				if(!empty($_POST['followme_ext'])) {
 	                $this->FreePBX->Ucp->setSettingByGID($id,'Findmefollow','assigned',$_POST['followme_ext']);
 	            } else {
-	                $this->FreePBX->Ucp->setSettingByGID($id,'Findmefollow','assigned',array('self'));
+	                $this->FreePBX->Ucp->setSettingByGID($id,'Findmefollow','assigned',['self']);
 	            }
 
        }
@@ -1388,7 +1299,7 @@ class Findmefollow implements \BMO {
 	}
 
 	public function ucpAddUser($id, $display, $ucpStatus, $data) {
-	     $this->ucpUpdateUser($id, $display, $ucpStatus, $data);
+	     $this->ucpUpdateUser($id, $display, $ucpStatus);
 	}
 
 	public function ucpUpdateUser($id, $display, $data) {

@@ -14,8 +14,8 @@ $rshelp =    '<b>' . _("ringallv2").            '</b>: ' . _("ring Extension for
                         .'<b>' . _("firstnotonphone").  '</b>: ' . _("ring only the first channel which is not off hook - ignore CW")
 			.'<br>';
 //Ring Strategy Select Options
-$default = (isset($strategy) ? $strategy : 'ringall');
-$items = array('ringallv2','ringallv2-prim','ringall','ringall-prim','hunt','hunt-prim','memoryhunt','memoryhunt-prim','firstavailable','firstnotonphone');
+$default = ($strategy ?? 'ringall');
+$items = ['ringallv2', 'ringallv2-prim', 'ringall', 'ringall-prim', 'hunt', 'hunt-prim', 'memoryhunt', 'memoryhunt-prim', 'firstavailable', 'firstnotonphone'];
 $rsrows = '';
 foreach ($items as $item) {
         $rsrows .= '<option value="'.$item.'" '.($default == $item ? 'SELECTED' : '').'>'._($item).'</option>';
@@ -25,7 +25,7 @@ foreach ($items as $item) {
 <form role="form">
 	<div class="form-group">
 		<label for="grplist" class="help"><?php echo _('Follow Me List')?> <i class="fa fa-question-circle"></i></label>
-		<textarea id="grplist" name="grplist" class="form-control" rows="<?php echo count($list) < 3 ? 3 : count($list)?>"><?php echo implode("\n",$list)?></textarea>
+		<textarea id="grplist" name="grplist" class="form-control" rows="<?php echo (is_countable($list) ? count($list) : 0) < 3 ? 3 : (is_countable($list) ? count($list) : 0)?>"><?php echo implode("\n",$list)?></textarea>
 		<span class="help-block help-hidden" data-for="grplist"><?php echo _('List extensions to ring, one per line. You can include an extension on a remote system, or an external number by suffixing a number with a pound (#).  ex:  2448089# would dial 2448089.')?><br><br><?php echo _("Note: Any local extension added will skip that local extension's FindMe/FollowMe, if you wish the system to use another extension's FindMe/FollowMe append a # onto that extension, eg 105#")?></span>
 	</div>
 <!-- ring strategy-->

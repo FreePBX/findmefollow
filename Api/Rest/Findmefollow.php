@@ -10,7 +10,8 @@ class Findmefollow extends Base {
 		* @uri /findmefollow/users
 		*/
 		$app->get('/users', function ($request, $response, $args) {
-			\FreePBX::Modules()->loadFunctionsInc('findmefollow');
+			$users = [];
+   \FreePBX::Modules()->loadFunctionsInc('findmefollow');
 			$findmefollow_allusers = findmefollow_allusers();
 
 			foreach ($findmefollow_allusers as $user) {
@@ -18,7 +19,7 @@ class Findmefollow extends Base {
 				unset($user);
 			}
 
-			$users = $users ? $users : false;
+			$users = $users ?: false;
 			return $response->withJson($users);
 		})->add($this->checkAllReadScopeMiddleware());
 
@@ -30,7 +31,7 @@ class Findmefollow extends Base {
 		$app->get('/users/{id}', function ($request, $response, $args) {
 			\FreePBX::Modules()->loadFunctionsInc('findmefollow');
 			$users = findmefollow_get($args['id'], 1);
-			$users = $users ? $users : false;
+			$users = $users ?: false;
 			return $response->withJson($users);
 		})->add($this->checkAllReadScopeMiddleware());
 
