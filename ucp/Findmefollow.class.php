@@ -5,9 +5,13 @@ use \UCP\Modules as Modules;
 
 class Findmefollow extends Modules{
 	protected $module = 'Findmefollow';
+	private $user = null;
+	private $userId = false;
 
 	function __construct($Modules) {
 		$this->Modules = $Modules;
+		$this->user = $this->UCP->User->getUser();
+		$this->userId = $this->user ? $this->user["id"] : false;
 	}
 
 	function poll($data) {
@@ -70,8 +74,7 @@ class Findmefollow extends Modules{
 	}
 
 	private function _checkExtension($extension) {
-		$user = $this->UCP->User->getUser();
-		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Findmefollow','assigned');
+		$extensions = $this->UCP->getCombinedSettingByID($this->userId,'Findmefollow','assigned');
 		$extensions = is_array($extensions) ? $extensions : [];
 		return in_array($extension,$extensions);
 	}
@@ -85,12 +88,11 @@ class Findmefollow extends Modules{
 	public function getSimpleWidgetList() {
 		$widgets = [];
 
-		$user = $this->UCP->User->getUser();
-		$enable = $this->UCP->getCombinedSettingByID($user['id'],'Findmefollow','enable');
+		$enable = $this->UCP->getCombinedSettingByID($this->userId,'Findmefollow','enable');
 		if($enable == 'no')
 		{ return [];
 		}
-		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Findmefollow','assigned');
+		$extensions = $this->UCP->getCombinedSettingByID($this->userId,'Findmefollow','assigned');
 
 		if (!empty($extensions)) {
 			foreach($extensions as $extension) {
@@ -134,8 +136,7 @@ class Findmefollow extends Modules{
 			return [];
 		}
 
-		$user = $this->UCP->User->getUser();
-		$fmr = $this->UCP->getCombinedSettingByID($user['id'],'Findmefollow','fmr');
+		$fmr = $this->UCP->getCombinedSettingByID($this->userId,'Findmefollow','fmr');
 		// need to get the group settings
 
 		$settings = $this->UCP->FreePBX->Findmefollow->getSettingsById($id,1);
