@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-31 05:42+0000\n"
+"POT-Creation-Date: 2023-08-10 10:03+0000\n"
 "PO-Revision-Date: 2016-11-23 13:46+0200\n"
 "Last-Translator: Pascal <pascal.noyel@ipexia.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/"
@@ -134,7 +134,7 @@ msgstr ""
 msgid "Call Confirmation Configuration"
 msgstr "Configuration de la Confirmation d'Appel"
 
-#: install.php:34 uninstall.php:30
+#: install.php:34 uninstall.php:32
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "Impossible de se connecter à Asterisk Manager avec "
 

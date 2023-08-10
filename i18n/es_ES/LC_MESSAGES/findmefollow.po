@@ -101,7 +101,7 @@ msgstr ""
 msgid "Call Confirmation Configuration"
 msgstr ""
 
-#: install.php:34 uninstall.php:30
+#: install.php:34 uninstall.php:32
 msgid "Cannot connect to Asterisk Manager with "
 msgstr ""
 

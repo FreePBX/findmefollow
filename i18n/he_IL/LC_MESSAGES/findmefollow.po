@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-31 05:42+0000\n"
+"POT-Creation-Date: 2023-08-10 10:03+0000\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -119,7 +119,7 @@ msgstr ""
 msgid "Call Confirmation Configuration"
 msgstr ""
 
-#: install.php:34 uninstall.php:30
+#: install.php:34 uninstall.php:32
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "לא מצליח להתחבר למנהל האסטריסק עם "
 

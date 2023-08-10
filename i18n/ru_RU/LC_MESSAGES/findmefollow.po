@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-31 05:42+0000\n"
+"POT-Creation-Date: 2023-08-10 10:03+0000\n"
 "PO-Revision-Date: 2015-05-01 13:02+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -126,7 +126,7 @@ msgstr ""
 msgid "Call Confirmation Configuration"
 msgstr "Конфигурация подтверждения звонка"
 
-#: install.php:34 uninstall.php:30
+#: install.php:34 uninstall.php:32
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "Невозможно соединится с Asterisk Manager как "
 

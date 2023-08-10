@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-31 05:42+0000\n"
+"POT-Creation-Date: 2023-08-10 10:03+0000\n"
 "PO-Revision-Date: 2014-02-21 03:21+0200\n"
 "Last-Translator: Kenichi Fukaumi <k.fukaumi@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/findmefollow/"
@@ -152,7 +152,7 @@ msgstr ""
 msgid "Call Confirmation Configuration"
 msgstr "コール確認設定"
 
-#: install.php:34 uninstall.php:30
+#: install.php:34 uninstall.php:32
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "アスタリスクマネージャーに接続できません。"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-31 05:42+0000\n"
+"POT-Creation-Date: 2023-08-10 10:03+0000\n"
 "PO-Revision-Date: 2017-07-25 15:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -137,7 +137,7 @@ msgstr ""
 msgid "Call Confirmation Configuration"
 msgstr "Cấu hình xác nhận cuộc gọi"
 
-#: install.php:34 uninstall.php:30
+#: install.php:34 uninstall.php:32
 msgid "Cannot connect to Asterisk Manager with "
 msgstr "Không thể kết nối Trình quản lý Asterisk với "
 
