@@ -501,7 +501,7 @@ if (empty($goto)) {
 </div>
 <!--END Follow-Me List-->
 <?php echo $announcementhtml?>
-<?php echo $ringhtml ?>
+<?php echo $ringhtml ?? ''; ?>
 <!--CID Name Prefix-->
 <div class="element-container">
 	<div class="row">
