@@ -47,7 +47,7 @@ function findmefollow_destinations($index) {
 }
 
 function findmefollow_get_config($engine) {
-	global $ext;  // is this the best way to pass this?
+	global $ext;  // is this the best way to pass this?`
 	global $amp_conf;
 	global $astman;
 	$nt = FreePBX::Notifications();
@@ -128,7 +128,7 @@ function findmefollow_get_config($engine) {
 					$dialopts = '${DIAL_OPTIONS}';
 				} else {
 					// We need the DIAL_OPTIONS variable
-					$dialopts = "m(${ringing})".str_replace('r', '', (string) $dial_options);
+					$dialopts = "m(".$ringing.")".str_replace('r', '', (string) $dial_options);
 				}
 
 				//These two have to be here because of how they function in the dialplan.
@@ -492,11 +492,11 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 	$section = _("General Settings");
 	$guidefaults = ["elemname" => "", "prompttext" => "", "helptext" => "", "currentvalue" => "", "valarray" => [], "jsonclick" => '', "jsvalidation" => "", "failvalidationmsg" => "", "canbeempty" => true, "maxchars" => 0, "disable" => false, "inputgroup" => false, "class" => "", "cblabel" => 'Enable', "disabled_value" => 'DEFAULT', "check_enables" => 'true', "cbdisable" => false, "cbclass" => ''];
 
-	$el = ["elemname" => "fmfm_ddial", "prompttext" => _('Enabled'), "helptext" => _('By default (Yes) any call to this extension will go to this Follow-Me instead, including directory calls by name from IVRs. If set to "No", calls will go only to the extension. Destinations that directly specify FollowMe will come here regardless. Setting this to "No" is often used in conjunction with VmX Locater, where you want a call to ring the extension, and then only if the caller chooses to find you do you want the call to go through FollowMe.'), "currentvalue" => (($fmfmdisabled) ? 'disabled' : 'enabled'), "valarray" => [["value" => "enabled", "text" => _("Yes")], ["value" => "disabled", "text" => _("No")]], "jsonclick" => "frm_${display}_fmfmEnabled() && frm_${display}_fmfmConfirmEnabled() && frm_${display}_fmfmCIDMode()", "class" => "", "disable" => "", "pairedvalues" => false];
+	$el = ["elemname" => "fmfm_ddial", "prompttext" => _('Enabled'), "helptext" => _('By default (Yes) any call to this extension will go to this Follow-Me instead, including directory calls by name from IVRs. If set to "No", calls will go only to the extension. Destinations that directly specify FollowMe will come here regardless. Setting this to "No" is often used in conjunction with VmX Locater, where you want a call to ring the extension, and then only if the caller chooses to find you do you want the call to go through FollowMe.'), "currentvalue" => (($fmfmdisabled) ? 'disabled' : 'enabled'), "valarray" => [["value" => "enabled", "text" => _("Yes")], ["value" => "disabled", "text" => _("No")]], "jsonclick" => "frm_".$display."_fmfmEnabled() && frm_".$display."_fmfmConfirmEnabled() && frm_".$display."_fmfmCIDMode()", "class" => "", "disable" => "", "pairedvalues" => false];
 	$currentcomponent->addguielem($section, new gui_radio([...$guidefaults, ...$el]), $category);
 
 	if(FreePBX::Modules()->checkStatus('calendar')) {
-		$el = ["elemname" => "fmfm_calendar_enable", "prompttext" => _('Enable Calendar Matching'), "helptext" => _('Link this Follow Me to a Calendar or Calendar group to automatically Enable/Disable based on a schedule'), "currentvalue" => $fmfm['calendar_enable'] ?? '', "valarray" => [["value" => "1", "text" => _("Yes")], ["value" => "0", "text" => _("No")]], "jsonclick" => "frm_${display}_fmfmCalChange(this)", "class" => "", "disable" => "", "pairedvalues" => false];
+		$el = ["elemname" => "fmfm_calendar_enable", "prompttext" => _('Enable Calendar Matching'), "helptext" => _('Link this Follow Me to a Calendar or Calendar group to automatically Enable/Disable based on a schedule'), "currentvalue" => $fmfm['calendar_enable'] ?? '', "valarray" => [["value" => "1", "text" => _("Yes")], ["value" => "0", "text" => _("No")]], "jsonclick" => "frm_".$display."_fmfmCalChange(this)", "class" => "", "disable" => "", "pairedvalues" => false];
 		$currentcomponent->addguielem($section, new gui_radio([...$guidefaults, ...$el]), $category);
 
 		$calendars = FreePBX::Calendar()->listCalendars();
@@ -504,7 +504,7 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 		foreach($calendars as $id => $cal) {
 			$selects[] = ["text" => $cal['name'], "value" => $id];
 		}
-		$el = ["elemname" => "fmfm_calendar_id", "prompttext" => _('Calendar'), "helptext" => _("If set the followme will only be active when the calendar has an event."), "currentvalue" => $fmfm['calendar_id'] ?? '', "valarray" => $selects, "class" => "calendar-element", "canbeempty" => false, "jsvalidation" => "", "disable" => $fmfm['calendar_enable'] ?? '', "onchange" => "frm_${display}_fmfmCalSelect(this)"];
+		$el = ["elemname" => "fmfm_calendar_id", "prompttext" => _('Calendar'), "helptext" => _("If set the followme will only be active when the calendar has an event."), "currentvalue" => $fmfm['calendar_id'] ?? '', "valarray" => $selects, "class" => "calendar-element", "canbeempty" => false, "jsvalidation" => "", "disable" => $fmfm['calendar_enable'] ?? '', "onchange" => "frm_".$display."_fmfmCalSelect(this)"];
 		$currentcomponent->addguielem($section, new gui_selectbox([...$guidefaults, ...$el]), $category);
 
 		$groups = FreePBX::Calendar()->listGroups();
@@ -512,7 +512,7 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 		foreach($groups as $id => $gr) {
 			$selects[] = ["text" => $gr['name'], "value" => $id];
 		}
-		$el = ["elemname" => "fmfm_calendar_group_id", "prompttext" => _('Calendar Group'), "helptext" => _("If set the followme will only be active when the calendar group has an event."), "currentvalue" => $fmfm['calendar_group_id'] ?? '', "valarray" => $selects, "class" => "calendar-element", "canbeempty" => false, "jsvalidation" => "", "disable" => $fmfm['calendar_enable'] ?? '', "onchange" => "frm_${display}_fmfmCalSelect(this)"];
+		$el = ["elemname" => "fmfm_calendar_group_id", "prompttext" => _('Calendar Group'), "helptext" => _("If set the followme will only be active when the calendar group has an event."), "currentvalue" => $fmfm['calendar_group_id'] ?? '', "valarray" => $selects, "class" => "calendar-element", "canbeempty" => false, "jsvalidation" => "", "disable" => $fmfm['calendar_enable'] ?? '', "onchange" => "frm_".$display."_fmfmCalSelect(this)"];
 		$currentcomponent->addguielem($section, new gui_selectbox([...$guidefaults, ...$el]), $category);
 
 		$el = ["elemname" => "fmfm_calendar_match", "prompttext" => _('Calendar Match Inverse'), "helptext" => _('When set to yes follow me will match (be enabled) whenever there is an event. When set to no followme will match (be enabled) whenever no event is present'), "currentvalue" => $fmfm['calendar_match'] ?? '', "valarray" => [["value" => "yes", "text" => _("Yes")], ["value" => "no", "text" => _("No")]], "jsonclick" => "", "class" => "calendar-element", "disable" => $fmfm['calendar_enable'] ?? '', "pairedvalues" => false];
@@ -540,7 +540,7 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 	for ($i=0; $i <= 60; $i++) {
 		$sixtey[] = ["value" => $i, "text" => $i];
 	}
-	$el = ["elemname" => "fmfm_pre_ring", "prompttext" => _('Initial Ring Time'), "helptext" => _("This is the number of seconds to ring the primary extension prior to proceeding to the follow-me list. The extension can also be included in the follow-me list. A 0 setting will bypass this."), "currentvalue" => $fmfm['pre_ring'], "valarray" => $sixtey, "class" => "fpbx-fmfm", "canbeempty" => false, "jsvalidation" => "frm_${display}_fmfmCheckFixed()"];
+	$el = ["elemname" => "fmfm_pre_ring", "prompttext" => _('Initial Ring Time'), "helptext" => _("This is the number of seconds to ring the primary extension prior to proceeding to the follow-me list. The extension can also be included in the follow-me list. A 0 setting will bypass this."), "currentvalue" => $fmfm['pre_ring'], "valarray" => $sixtey, "class" => "fpbx-fmfm", "canbeempty" => false, "jsvalidation" => "frm_".$display."_fmfmCheckFixed()"];
 	$currentcomponent->addguielem($section, new gui_selectbox([...$guidefaults, ...$el]), $category);
 
 	$helptext = '<b>'. _("ringallv2") .'</b>: '._("ring Extension for duration set in Initial Ring Time, and then, while continuing call to extension, ring Follow-Me List for duration set in Ring Time.").'<br>'.
@@ -561,7 +561,7 @@ function findmefollow_draw_general($fmfm,&$currentcomponent,$category,$fmfmdisab
 	$el = ["elemname" => "fmfm_grptime", "prompttext" => _('Ring Time'), "helptext" => _("Time in seconds that the phones will ring. For all hunt style ring strategies, this is the time for each iteration of phone(s) that are rung"), "currentvalue" => $fmfm['grptime'], "valarray" => $sixtey, "class" => "fpbx-fmfm", "canbeempty" => false];
 	$currentcomponent->addguielem($section, new gui_selectbox([...$guidefaults, ...$el]), $category);
 
-	$el = ["elemname" => "fmfm_grplist", "prompttext" => _('Follow-Me List'), "helptext" => _("List extensions to ring, one per line, or use the Extension Quick Pick below.<br><br>You can include an extension on a remote system, or an external number by suffixing a number with a pound (#).  ex:  2448089# would dial 2448089 on the appropriate trunk (see Outbound Routing).<br><br>Note: Any local extension added will skip that local extension's FindMe/FollowMe, if you wish the system to use another extension's FindMe/FollowMe append a # onto that extension, eg 105#"), "currentvalue" => str_replace("-","\n",(string) ($fmfm['grplist'] ?? '')), "canbeempty" => false, "class" => "fpbx-fmfm", "jsvalidation" => "frm_${display}_fmfmListEmpty()", "failvalidationmsg" => _('Follow-Me List can not be empty if Follow-Me is enabled')];
+	$el = ["elemname" => "fmfm_grplist", "prompttext" => _('Follow-Me List'), "helptext" => _("List extensions to ring, one per line, or use the Extension Quick Pick below.<br><br>You can include an extension on a remote system, or an external number by suffixing a number with a pound (#).  ex:  2448089# would dial 2448089 on the appropriate trunk (see Outbound Routing).<br><br>Note: Any local extension added will skip that local extension's FindMe/FollowMe, if you wish the system to use another extension's FindMe/FollowMe append a # onto that extension, eg 105#"), "currentvalue" => str_replace("-","\n",(string) ($fmfm['grplist'] ?? '')), "canbeempty" => false, "class" => "fpbx-fmfm", "jsvalidation" => "frm_".$display."_fmfmListEmpty()", "failvalidationmsg" => _('Follow-Me List can not be empty if Follow-Me is enabled')];
 	foreach (core_users_list() as $result) {
 		$el['select'][] = ["value" => $result[0], "text" => $result[0]." (".$result[1].")"];
 	}
@@ -609,7 +609,7 @@ function findmefollow_draw_confirm($fmfm,&$currentcomponent,$category,$fmfmdisab
 	$confimDisabled = (isset($fmfm['needsconf']) && ($fmfm['needsconf'] != 'CHECKED' || $fmfmdisabled));
 	$section = _("Call Confirmation Configuration");
 	$guidefaults = ["elemname" => "", "prompttext" => "", "helptext" => "", "currentvalue" => "", "valarray" => [], "jsonclick" => '', "jsvalidation" => "", "failvalidationmsg" => "", "canbeempty" => true, "maxchars" => 0, "disable" => false, "inputgroup" => false, "class" => "", "cblabel" => 'Enable', "disabled_value" => 'DEFAULT', "check_enables" => 'true', "cbdisable" => false, "cbclass" => ''];
-	$el = ["elemname" => "fmfm_needsconf", "prompttext" => _('Confirm Calls'), "helptext" => _('Enable this if you\'re calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through. This feature only works with the ringall/ringall-prim  ring strategy'), "currentvalue" => ((isset($fmfm['needsconf']) && $fmfm['needsconf'] != 'CHECKED') ? 'disabled' : 'enabled'), "valarray" => [["value" => "enabled", "text" => _("Yes")], ["value" => "disabled", "text" => _("No")]], "jsonclick" => "frm_${display}_fmfmConfirmEnabled()", "class" => "fpbx-fmfm", "pairedvalues" => false];
+	$el = ["elemname" => "fmfm_needsconf", "prompttext" => _('Confirm Calls'), "helptext" => _('Enable this if you\'re calling external numbers that need confirmation - eg, a mobile phone may go to voicemail which will pick up the call. Enabling this requires the remote side push 1 on their phone before the call is put through. This feature only works with the ringall/ringall-prim  ring strategy'), "currentvalue" => ((isset($fmfm['needsconf']) && $fmfm['needsconf'] != 'CHECKED') ? 'disabled' : 'enabled'), "valarray" => [["value" => "enabled", "text" => _("Yes")], ["value" => "disabled", "text" => _("No")]], "jsonclick" => "frm_".$display."_fmfmConfirmEnabled()", "class" => "fpbx-fmfm", "pairedvalues" => false];
 	$currentcomponent->addguielem($section, new gui_radio([...$guidefaults, ...$el]), $category);
 
 	$recordingslist[0] = ["value" => "", "text" => _("Default")];
@@ -658,10 +658,10 @@ function findmefollow_draw_cid($fmfm,&$currentcomponent,$category,$fmfmdisabled,
 	'<b>'. _("Outside Calls Fixed CID Value"). '</b>: '. _("Transmit the Fixed CID Value below on calls that come in from outside only. Internal extension to extension calls will continue to operate in default mode."). '<br>'.
 	'<b>'. _("Use Dialed Number"). '</b>: '. _("Transmit the number that was dialed as the CID for calls coming from outside. Internal extension to extension calls will continue to operate in default mode. There must be a DID on the inbound route for this. This will be BLOCKED on trunks that block foreign CallerID"). '<br>'.
 	'<b>'. _("Force Dialed Number"). '</b>:  '. _("Transmit the number that was dialed as the CID for calls coming from outside. Internal extension to extension calls will continue to operate in default mode. There must be a DID on the inbound route for this. This WILL be transmitted on trunks that block foreign CallerID");
-	$el = ["elemname" => "fmfm_changecid", "prompttext" => _('Mode'), "helptext" => $helptext, "currentvalue" => $fmfm['changecid'] ?? '', "valarray" => [["value" => "default", "text" => _("Default")], ["value" => "fixed", "text" => _("Fixed CID Value")], ["value" => "extern", "text" => _("Outside Calls Fixed CID Value")], ["value" => "did", "text" => _("Use Dialed Number")], ["value" => "forcedid", "text" => _("Force Dialed Number")]], "onchange" => "frm_${display}_fmfmCIDMode()", "class" => "fpbx-fmfm", "canbeempty" => false];
+	$el = ["elemname" => "fmfm_changecid", "prompttext" => _('Mode'), "helptext" => $helptext, "currentvalue" => $fmfm['changecid'] ?? '', "valarray" => [["value" => "default", "text" => _("Default")], ["value" => "fixed", "text" => _("Fixed CID Value")], ["value" => "extern", "text" => _("Outside Calls Fixed CID Value")], ["value" => "did", "text" => _("Use Dialed Number")], ["value" => "forcedid", "text" => _("Force Dialed Number")]], "onchange" => "frm_".$display."_fmfmCIDMode()", "class" => "fpbx-fmfm", "canbeempty" => false];
 	$currentcomponent->addguielem($section, new gui_selectbox([...$guidefaults, ...$el]), $category);
 
-	$el = ["elemname" => "fmfm_fixedcid", "prompttext" => _('Fixed CID Value'), "helptext" => _('Fixed value to replace the CID with used with some of the modes above. Should be in a format of digits only with an option of E164 format using a leading "+".'), "currentvalue" => $fmfm['fixedcid'] ?? '', "canbeempty" => true, "class" => "fpbx-fmfm-cid", "disable" => (!isset($fmfm['changecid']) || ($fmfm['changecid'] != "fixed" && $fmfm['changecid'] != "extern")), "jsvalidation" => "frm_${display}_fmfmCheckFixed()", "failvalidationmsg" => _('Fixed CID Value should be in a format of digits only with an option of E164 format using a leading "+"')];
+	$el = ["elemname" => "fmfm_fixedcid", "prompttext" => _('Fixed CID Value'), "helptext" => _('Fixed value to replace the CID with used with some of the modes above. Should be in a format of digits only with an option of E164 format using a leading "+".'), "currentvalue" => $fmfm['fixedcid'] ?? '', "canbeempty" => true, "class" => "fpbx-fmfm-cid", "disable" => (!isset($fmfm['changecid']) || ($fmfm['changecid'] != "fixed" && $fmfm['changecid'] != "extern")), "jsvalidation" => "frm_".$display."_fmfmCheckFixed()", "failvalidationmsg" => _('Fixed CID Value should be in a format of digits only with an option of E164 format using a leading "+"')];
 	$currentcomponent->addguielem($section, new gui_textbox([...$guidefaults, ...$el]),$category);
 }
 

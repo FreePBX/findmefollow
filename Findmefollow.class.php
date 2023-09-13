@@ -4,6 +4,7 @@ namespace FreePBX\modules;
 //	License for all code of this FreePBX module can be found in the license file inside the module directory
 //	Copyright 2013 Schmooze Com Inc.
 //
+#[\AllowDynamicProperties]
 class Findmefollow implements \BMO {
 
 	public function __construct($freepbx = null) {
