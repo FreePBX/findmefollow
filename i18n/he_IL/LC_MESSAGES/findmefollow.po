@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-10 10:03+0000\n"
+"POT-Creation-Date: 2023-09-13 06:21+0000\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -55,10 +55,6 @@ msgstr ""
 
 #: functions.inc.php:570 views/form.php:78
 msgid "Announcement"
-msgstr ""
-
-#: findmefollow.i18n.php:6
-msgid "Applications"
 msgstr ""
 
 #: functions.inc.php:495
@@ -136,25 +132,9 @@ msgstr ""
 msgid "Confirm Calls"
 msgstr "אשר שיחות"
 
-#: findmefollow.i18n.php:12
-msgid "Create Follow Me at Extension Creation Time"
-msgstr ""
-
 #: functions.inc.php:615 functions.inc.php:656 functions.inc.php:661
 #: views/form.php:120 views/form.php:155 views/form.php:220 views/form.php:612
 msgid "Default"
-msgstr ""
-
-#: findmefollow.i18n.php:26
-msgid "Default Follow Me Initial Ring Time"
-msgstr ""
-
-#: findmefollow.i18n.php:30
-msgid "Default Follow Me Ring Strategy"
-msgstr ""
-
-#: findmefollow.i18n.php:22
-msgid "Default Follow Me Ring Time"
 msgstr ""
 
 #: Api/Gql/Findmefollow.php:248 Api/Gql/Findmefollow.php:429
@@ -176,10 +156,6 @@ msgstr ""
 
 #: views/ucp_config.php:74
 msgid "Disable"
-msgstr ""
-
-#: findmefollow.i18n.php:18
-msgid "Disable Follow Me Upon Creation"
 msgstr ""
 
 #: ucp/views/widget.php:2
@@ -271,12 +247,12 @@ msgstr ""
 msgid "Find Me/Follow Me for %s"
 msgstr ""
 
-#: findmefollow.i18n.php:34 install.php:5
+#: install.php:5
 #, fuzzy
 msgid "Findme Follow Toggle"
 msgstr "הוסף עקוב אחרי"
 
-#: Findmefollow.class.php:1277
+#: Findmefollow.class.php:1278
 msgid "FindmeFollow"
 msgstr ""
 
@@ -312,13 +288,12 @@ msgid ""
 "leading '+'."
 msgstr ""
 
-#: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
-#: ucp/Findmefollow.class.php:115 ucp/Findmefollow.class.php:125
-#: ucp/Findmefollow.class.php:151
+#: page.findmefollow.php:11 ucp/Findmefollow.class.php:115
+#: ucp/Findmefollow.class.php:125 ucp/Findmefollow.class.php:151
 msgid "Follow Me"
 msgstr "עקוב אחרי"
 
-#: Findmefollow.class.php:877
+#: Findmefollow.class.php:878
 msgid "Follow Me Enabled [Blank to disable]"
 msgstr ""
 
@@ -326,15 +301,11 @@ msgstr ""
 msgid "Follow Me Extension Number"
 msgstr ""
 
-#: Findmefollow.class.php:877 ucp/views/settings.php:27
+#: Findmefollow.class.php:878 ucp/views/settings.php:27
 msgid "Follow Me List"
 msgstr ""
 
-#: findmefollow.i18n.php:14
-msgid "Follow Me Module"
-msgstr ""
-
-#: Findmefollow.class.php:877
+#: Findmefollow.class.php:878
 msgid "Follow Me No Answer Destination"
 msgstr ""
 
@@ -545,15 +516,6 @@ msgstr ""
 msgid "Mode"
 msgstr ""
 
-#: findmefollow.i18n.php:8
-msgid ""
-"Much like a ring group, but works on individual extensions. When someone "
-"calls the extension, it can be setup to ring for a number of seconds before "
-"trying to ring other extensions and/or external numbers, or to ring all at "
-"once, or in other various 'hunt' configurations. Most commonly used to ring "
-"someone's cell phone if they don't answer their extension."
-msgstr ""
-
 #: functions.inc.php:495 functions.inc.php:499 functions.inc.php:518
 #: functions.inc.php:612 views/fmgrid.php:18 views/form.php:274
 #: views/form.php:300 views/form.php:384 views/form.php:594
@@ -640,7 +602,7 @@ msgstr ""
 msgid "Request not received"
 msgstr ""
 
-#: Findmefollow.class.php:609
+#: Findmefollow.class.php:610
 msgid "Reset"
 msgstr ""
 
@@ -692,7 +654,7 @@ msgstr ""
 msgid "Status of the request"
 msgstr ""
 
-#: Findmefollow.class.php:609
+#: Findmefollow.class.php:610
 msgid "Submit"
 msgstr ""
 
@@ -714,24 +676,6 @@ msgstr ""
 
 #: Api/Gql/Findmefollow.php:474 Api/Gql/Findmefollow.php:486
 msgid "The Follow Me Extension Number"
-msgstr ""
-
-#: findmefollow.i18n.php:28
-msgid ""
-"The default Initial Ring Time for a Follow Me set upon creation and used if "
-"auto-created with a new extension."
-msgstr ""
-
-#: findmefollow.i18n.php:32
-msgid ""
-"The default Ring Strategy selected for a Follow Me set upon creation and "
-"used if auto-created with an extension."
-msgstr ""
-
-#: findmefollow.i18n.php:24
-msgid ""
-"The default Ring Time for a Follow Me set upon creation and used if auto-"
-"created with a new extension."
 msgstr ""
 
 #: Api/Gql/Findmefollow.php:130
@@ -767,10 +711,6 @@ msgstr ""
 
 #: views/form.php:466
 msgid "This is in addition to the Initial Ring Time"
-msgstr ""
-
-#: findmefollow.i18n.php:20
-msgid "This is the default value for the Follow Me "
 msgstr ""
 
 #: functions.inc.php:543 ucp/views/settings.php:48 views/form.php:416
@@ -848,7 +788,7 @@ msgstr ""
 msgid "User"
 msgstr ""
 
-#: Findmefollow.class.php:1264
+#: Findmefollow.class.php:1265
 msgid "User Primary Extension"
 msgstr ""
 
@@ -856,19 +796,12 @@ msgstr ""
 msgid "User will have the Option to select followme ring Strategy in UCP"
 msgstr ""
 
-#: Findmefollow.class.php:75
+#: Findmefollow.class.php:76
 msgid "Warning! Extension"
 msgstr "אזהרה! שלוחה"
 
 #: assets/js/findmefollow.js:71
 msgid "We received and sent your request but something failed"
-msgstr ""
-
-#: findmefollow.i18n.php:16
-msgid ""
-"When creating a new user or extension, setting this to true will "
-"automatically create a new Follow Me for that user using the default "
-"settings listed below"
 msgstr ""
 
 #: functions.inc.php:518 views/form.php:392
@@ -943,7 +876,7 @@ msgstr ""
 msgid "hunt"
 msgstr "ציד"
 
-#: Findmefollow.class.php:75
+#: Findmefollow.class.php:76
 msgid "is not allowed for your account"
 msgstr "אינה מורשית עבור חשבונך"
 
