@@ -1288,7 +1288,7 @@ class Findmefollow implements \BMO {
 	            if(isset($_POST['findmefollow_enable']) && $_POST['findmefollow_enable'] == 'yes') {
 		                $this->FreePBX->Ucp->setSettingByGID($id,'findmefollow','enable',$_POST['findmefollow_enable']);
 	            } else {
-		                $this->FreePBX->Ucp->setSettingByGID($id,'findmefollow','enable',$_POST['findmefollow_enable']);
+		                $this->FreePBX->Ucp->setSettingByGID($id,'findmefollow','enable',($_POST['findmefollow_enable'] ?? ''));
 				}
 				if(isset($_POST['fmr']) && $_POST['fmr'] == 'enable') {
                         $this->FreePBX->Ucp->setSettingByGID($id,'findmefollow','fmr','enable');
