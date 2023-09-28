@@ -56,10 +56,10 @@
 	<database>
 	  <table name="findmefollow">
 	    <field name="grpnum" type="string" length="20" primaryKey="true"/>
-	    <field name="strategy" type="string" length="50"/>
-	    <field name="grptime" type="smallint"/>
+	    <field name="strategy" type="string" length="50" notnull="false"/>
+	    <field name="grptime" type="smallint" notnull="false"/>
 	    <field name="grppre" type="string" length="100" notnull="false"/>
-	    <field name="grplist" type="string" length="255"/>
+	    <field name="grplist" type="string" length="255" notnull="false"/>
 	    <field name="annmsg_id" type="integer" notnull="false"/>
 	    <field name="postdest" type="string" length="255" notnull="false"/>
 	    <field name="dring" type="string" length="255" notnull="false"/>
@@ -67,7 +67,7 @@
 	    <field name="remotealert_id" type="integer" notnull="false"/>
 	    <field name="needsconf" type="string" length="10" notnull="false"/>
 	    <field name="toolate_id" type="integer" notnull="false"/>
-	    <field name="pre_ring" type="smallint" default="0"/>
+	    <field name="pre_ring" type="smallint" default="0" notnull="false"/>
 	    <field name="ringing" type="string" length="80" notnull="false"/>
 			<field name="calendar_enable" type="boolean" default="0" notnull="false"/>
 	    <field name="calendar_id" type="string" length="80" default="" notnull="false"/>
