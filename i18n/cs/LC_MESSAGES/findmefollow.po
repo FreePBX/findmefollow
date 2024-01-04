@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-13 06:21+0000\n"
+"POT-Creation-Date: 2024-01-04 06:51-0500\n"
 "PO-Revision-Date: 2018-08-29 13:00+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/findmefollow/cs/>\n"
@@ -61,6 +61,10 @@ msgstr "Vždy přenášet hodnotu Fixed CID níže."
 #: functions.inc.php:570 views/form.php:78
 msgid "Announcement"
 msgstr "Oznámení"
+
+#: findmefollow.i18n.php:6
+msgid "Applications"
+msgstr "Aplikace"
 
 #: functions.inc.php:495
 msgid ""
@@ -325,8 +329,9 @@ msgstr ""
 "režimů. Mělo by být ve formátu číslic pouze s volbou formátu E164 "
 "začínajícího '+'."
 
-#: page.findmefollow.php:11 ucp/Findmefollow.class.php:115
-#: ucp/Findmefollow.class.php:125 ucp/Findmefollow.class.php:151
+#: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
+#: ucp/Findmefollow.class.php:115 ucp/Findmefollow.class.php:125
+#: ucp/Findmefollow.class.php:151
 msgid "Follow Me"
 msgstr "FollowMe"
 
@@ -519,8 +524,8 @@ msgid ""
 "additional recordings please use the \"System Recordings\" MENU above"
 msgstr ""
 "Zpráva, kterou chcete volajícímu přehrát, před vytočením této skupiny."
-"<br><br>Chcete-li přidat další nahrávky, použijte menu \"Systémové nahrávky"
-"\" výše"
+"<br><br>Chcete-li přidat další nahrávky, použijte menu \"Systémové "
+"nahrávky\" výše"
 
 #: functions.inc.php:570
 msgid ""
@@ -528,8 +533,8 @@ msgid ""
 "additional recordings please use the \"System Recordings\" MENU to the left"
 msgstr ""
 "Zpráva, kterou chcete volajícímu přehrát, než je vytočena tato skupina."
-"<br><br>Chcete-li přidat další nahrávky, použijte menu \"Systémové nahrávky"
-"\" nalevo"
+"<br><br>Chcete-li přidat další nahrávky, použijte menu \"Systémové "
+"nahrávky\" nalevo"
 
 #: views/form.php:134
 msgid ""
@@ -538,8 +543,8 @@ msgid ""
 "MENU above"
 msgstr ""
 "Zpráva přehrávaná příjemci hovoru, pokud je povoleno 'Potvrzení hovorů'."
-"<br><br>Chcete-li přidat další nahrávky, použijte menu \"Systémové nahrávky"
-"\" výše"
+"<br><br>Chcete-li přidat další nahrávky, použijte menu \"Systémové "
+"nahrávky\" výše"
 
 #: functions.inc.php:616
 msgid ""
@@ -548,8 +553,8 @@ msgid ""
 "MENU to the left"
 msgstr ""
 "Zpráva přehrávaná příjemci hovoru, pokud je povoleno 'Potvrzení hovorů'."
-"<br><br>Chcete-li přidat další nahrávky, použijte menu \"Systémové nahrávky"
-"\" nalevo"
+"<br><br>Chcete-li přidat další nahrávky, použijte menu \"Systémové "
+"nahrávky\" nalevo"
 
 #: views/form.php:169
 msgid ""
@@ -558,8 +563,8 @@ msgid ""
 "recordings use the \"System Recordings\" MENU above"
 msgstr ""
 "Zpráva přehrávaná příjemci hovoru, pokud je hovor akceptován stisknutím 1."
-"<br><br>Chcete-li přidat další nahrávky, použijte menu \"Systémové nahrávky"
-"\" výše"
+"<br><br>Chcete-li přidat další nahrávky, použijte menu \"Systémové "
+"nahrávky\" výše"
 
 #: functions.inc.php:619
 msgid ""
@@ -568,8 +573,8 @@ msgid ""
 "recordings use the \"System Recordings\" MENU to the left"
 msgstr ""
 "Zpráva přehrávaná příjemci hovoru, pokud je hovor akceptován stisknutím 1."
-"<br><br>Chcete-li přidat další nahrávky, použijte menu \"Systémové nahrávky"
-"\" nalevo"
+"<br><br>Chcete-li přidat další nahrávky, použijte menu \"Systémové "
+"nahrávky\" nalevo"
 
 #: views/nogo.php:1
 msgid "Method not supported"
@@ -578,6 +583,19 @@ msgstr "Metoda není podporována"
 #: functions.inc.php:661 views/form.php:610
 msgid "Mode"
 msgstr "Režim"
+
+#: findmefollow.i18n.php:8
+msgid ""
+"Much like a ring group, but works on individual extensions. When someone "
+"calls the extension, it can be setup to ring for a number of seconds before "
+"trying to ring other extensions and/or external numbers, or to ring all at "
+"once, or in other various 'hunt' configurations. Most commonly used to ring "
+"someone's cell phone if they don't answer their extension."
+msgstr ""
+"Podobně jako vyzváněcí skupina, ale pracuje s pobočkami individuálně. Pokud "
+"někdo volá pobočku, lze nastavit čas vyzvánění v sekundách, než bude volání "
+"přesměrováno na jinou poboočku a/nebo externí číslo. Nejčastěji se používá "
+"volání na mobilní číslo, pokud volaný nezvedá pevnou linku."
 
 #: functions.inc.php:495 functions.inc.php:499 functions.inc.php:518
 #: functions.inc.php:612 views/fmgrid.php:18 views/form.php:274
@@ -1077,9 +1095,6 @@ msgstr ""
 "FreePBX DND, nebude zvonit. Pokud je primární bezpodmínkové FreePBX CF, pak "
 "budou zvonit všechny pobočky"
 
-#~ msgid "Applications"
-#~ msgstr "Aplikace"
-
 #~ msgid "Create Follow Me at Extension Creation Time"
 #~ msgstr "Vytvořit FollowMe k pobočce (Extension Creation Time)"
 
@@ -1097,20 +1112,6 @@ msgstr ""
 
 #~ msgid "Follow Me Module"
 #~ msgstr "Modul FollowMe"
-
-#~ msgid ""
-#~ "Much like a ring group, but works on individual extensions. When someone "
-#~ "calls the extension, it can be setup to ring for a number of seconds "
-#~ "before trying to ring other extensions and/or external numbers, or to "
-#~ "ring all at once, or in other various 'hunt' configurations. Most "
-#~ "commonly used to ring someone's cell phone if they don't answer their "
-#~ "extension."
-#~ msgstr ""
-#~ "Podobně jako vyzváněcí skupina, ale pracuje s pobočkami individuálně. "
-#~ "Pokud někdo volá pobočku, lze nastavit čas vyzvánění v sekundách, než "
-#~ "bude volání přesměrováno na jinou poboočku a/nebo externí číslo. "
-#~ "Nejčastěji se používá volání na mobilní číslo, pokud volaný nezvedá "
-#~ "pevnou linku."
 
 #~ msgid ""
 #~ "The default Initial Ring Time for a Follow Me set upon creation and used "

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-13 06:21+0000\n"
+"POT-Creation-Date: 2024-01-04 06:51-0500\n"
 "PO-Revision-Date: 2016-07-17 10:16+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -63,6 +63,10 @@ msgstr "همیشه مقدار ثابت CID زیر را منتقل کن."
 #: functions.inc.php:570 views/form.php:78
 msgid "Announcement"
 msgstr "آگهی"
+
+#: findmefollow.i18n.php:6
+msgid "Applications"
+msgstr "درخواست"
 
 #: functions.inc.php:495
 msgid ""
@@ -325,8 +329,9 @@ msgstr ""
 "Should be in a format of digits only with an option of E164 format using a "
 "leading '+'."
 
-#: page.findmefollow.php:11 ucp/Findmefollow.class.php:115
-#: ucp/Findmefollow.class.php:125 ucp/Findmefollow.class.php:151
+#: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
+#: ucp/Findmefollow.class.php:115 ucp/Findmefollow.class.php:125
+#: ucp/Findmefollow.class.php:151
 msgid "Follow Me"
 msgstr "مرا دنبال کن"
 
@@ -527,8 +532,8 @@ msgid ""
 "MENU above"
 msgstr ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' "
-"is  enabled.<br><br>To add additional recordings use the \"System Recordings"
-"\" MENU above"
+"is  enabled.<br><br>To add additional recordings use the \"System "
+"Recordings\" MENU above"
 
 #: functions.inc.php:616
 msgid ""
@@ -537,8 +542,8 @@ msgid ""
 "MENU to the left"
 msgstr ""
 "Message to be played to the person RECEIVING the call, if 'Confirm Calls' "
-"is  enabled.<br><br>To add additional recordings use the \"System Recordings"
-"\" MENU to the left"
+"is  enabled.<br><br>To add additional recordings use the \"System "
+"Recordings\" MENU to the left"
 
 #: views/form.php:169
 msgid ""
@@ -567,6 +572,20 @@ msgstr "این شیوه پشتیبانی نمیشود"
 #: functions.inc.php:661 views/form.php:610
 msgid "Mode"
 msgstr "حالت"
+
+#: findmefollow.i18n.php:8
+msgid ""
+"Much like a ring group, but works on individual extensions. When someone "
+"calls the extension, it can be setup to ring for a number of seconds before "
+"trying to ring other extensions and/or external numbers, or to ring all at "
+"once, or in other various 'hunt' configurations. Most commonly used to ring "
+"someone's cell phone if they don't answer their extension."
+msgstr ""
+"Much like a ring group, but works on individual extensions. When someone "
+"calls the  extension, it can be setup to ring for a number of seconds before "
+"trying to ring other extensions and/or external numbers, or to ring all at "
+"once, or in other various 'hunt' configurations. Most commonly used to ring "
+"someone's cell phone if they don't answer their extension."
 
 #: functions.inc.php:495 functions.inc.php:499 functions.inc.php:518
 #: functions.inc.php:612 views/fmgrid.php:18 views/form.php:274
@@ -1051,9 +1070,6 @@ msgstr ""
 "is FreePBX DND, it won't be rung. If the primary is FreePBX CF "
 "unconditional, then all will be rung"
 
-#~ msgid "Applications"
-#~ msgstr "درخواست"
-
 #~ msgid "Create Follow Me at Extension Creation Time"
 #~ msgstr "ایجاد مرا دنبال کن زمانی در داخلی"
 
@@ -1071,21 +1087,6 @@ msgstr ""
 
 #~ msgid "Follow Me Module"
 #~ msgstr "ماژول مرا دنبال کن"
-
-#~ msgid ""
-#~ "Much like a ring group, but works on individual extensions. When someone "
-#~ "calls the extension, it can be setup to ring for a number of seconds "
-#~ "before trying to ring other extensions and/or external numbers, or to "
-#~ "ring all at once, or in other various 'hunt' configurations. Most "
-#~ "commonly used to ring someone's cell phone if they don't answer their "
-#~ "extension."
-#~ msgstr ""
-#~ "Much like a ring group, but works on individual extensions. When someone "
-#~ "calls the  extension, it can be setup to ring for a number of seconds "
-#~ "before trying to ring other extensions and/or external numbers, or to "
-#~ "ring all at once, or in other various 'hunt' configurations. Most "
-#~ "commonly used to ring someone's cell phone if they don't answer their "
-#~ "extension."
 
 #~ msgid ""
 #~ "The default Initial Ring Time for a Follow Me set upon creation and used "

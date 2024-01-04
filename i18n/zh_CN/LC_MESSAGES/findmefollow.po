@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-13 06:21+0000\n"
+"POT-Creation-Date: 2024-01-04 06:51-0500\n"
 "PO-Revision-Date: 2015-10-15 09:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -63,6 +63,10 @@ msgstr "总是传输以下固定CID"
 #: functions.inc.php:570 views/form.php:78
 msgid "Announcement"
 msgstr "播报"
+
+#: findmefollow.i18n.php:6
+msgid "Applications"
+msgstr "应用"
 
 #: functions.inc.php:495
 msgid ""
@@ -295,8 +299,9 @@ msgid ""
 "leading '+'."
 msgstr ""
 
-#: page.findmefollow.php:11 ucp/Findmefollow.class.php:115
-#: ucp/Findmefollow.class.php:125 ucp/Findmefollow.class.php:151
+#: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
+#: ucp/Findmefollow.class.php:115 ucp/Findmefollow.class.php:125
+#: ucp/Findmefollow.class.php:151
 msgid "Follow Me"
 msgstr "跟我来"
 
@@ -515,6 +520,15 @@ msgstr "此方法不支持"
 
 #: functions.inc.php:661 views/form.php:610
 msgid "Mode"
+msgstr ""
+
+#: findmefollow.i18n.php:8
+msgid ""
+"Much like a ring group, but works on individual extensions. When someone "
+"calls the extension, it can be setup to ring for a number of seconds before "
+"trying to ring other extensions and/or external numbers, or to ring all at "
+"once, or in other various 'hunt' configurations. Most commonly used to ring "
+"someone's cell phone if they don't answer their extension."
 msgstr ""
 
 #: functions.inc.php:495 functions.inc.php:499 functions.inc.php:518
@@ -969,9 +983,6 @@ msgstr ""
 "这些模式按上述的方式工作。然而，如果主分机（列表中的第一个）占线，其他的分机"
 "就不会响铃。如果主分机是设置了免打扰，它就不会振铃。如果主分机设置了无条件转"
 "移呼叫，那么所有的分机会响铃"
-
-#~ msgid "Applications"
-#~ msgstr "应用"
 
 #~ msgid "ALERT_INFO can be used for distinctive ring with SIP devices."
 #~ msgstr "ALERT_INFO 用来支持SIP 设备的distinctive ring 功能。"

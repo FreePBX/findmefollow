@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-13 06:21+0000\n"
+"POT-Creation-Date: 2024-01-04 06:51-0500\n"
 "PO-Revision-Date: 2015-03-11 21:58+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/"
@@ -63,6 +63,10 @@ msgstr "Винаги предава Фиксиран CID определен по
 #: functions.inc.php:570 views/form.php:78
 msgid "Announcement"
 msgstr "Съобщение"
+
+#: findmefollow.i18n.php:6
+msgid "Applications"
+msgstr "Приложения"
 
 #: functions.inc.php:495
 msgid ""
@@ -300,8 +304,9 @@ msgid ""
 "leading '+'."
 msgstr ""
 
-#: page.findmefollow.php:11 ucp/Findmefollow.class.php:115
-#: ucp/Findmefollow.class.php:125 ucp/Findmefollow.class.php:151
+#: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
+#: ucp/Findmefollow.class.php:115 ucp/Findmefollow.class.php:125
+#: ucp/Findmefollow.class.php:151
 msgid "Follow Me"
 msgstr "Следвай Ме"
 
@@ -526,6 +531,21 @@ msgstr ""
 #: functions.inc.php:661 views/form.php:610
 msgid "Mode"
 msgstr "Режим"
+
+#: findmefollow.i18n.php:8
+msgid ""
+"Much like a ring group, but works on individual extensions. When someone "
+"calls the extension, it can be setup to ring for a number of seconds before "
+"trying to ring other extensions and/or external numbers, or to ring all at "
+"once, or in other various 'hunt' configurations. Most commonly used to ring "
+"someone's cell phone if they don't answer their extension."
+msgstr ""
+"Като група на звънене, но работи за индивидуални вътрешни линии. Когато се "
+"получи обаждане за вътрешната линия, може да се настрои да звъни за даден "
+"брой секунди преди да се опита да звъни на други вътрешни линии и/или външни "
+"номера, или да звънят всички заедно, или в някакво настроено преследване. "
+"Най-често се използва за прехвърляне на обажданията към мобилен телефон ако "
+"вътрешния номер не отговаря."
 
 #: functions.inc.php:495 functions.inc.php:499 functions.inc.php:518
 #: functions.inc.php:612 views/fmgrid.php:18 views/form.php:274
@@ -995,24 +1015,6 @@ msgstr ""
 "(първата в списъка) е заета, другите вътрешни линии няма да звънят. Ако "
 "основната е FreePBX DND, няма да звъни. Ако основната е безусловен FreePBX "
 "CF, тогава всички ще звънят"
-
-#~ msgid "Applications"
-#~ msgstr "Приложения"
-
-#~ msgid ""
-#~ "Much like a ring group, but works on individual extensions. When someone "
-#~ "calls the extension, it can be setup to ring for a number of seconds "
-#~ "before trying to ring other extensions and/or external numbers, or to "
-#~ "ring all at once, or in other various 'hunt' configurations. Most "
-#~ "commonly used to ring someone's cell phone if they don't answer their "
-#~ "extension."
-#~ msgstr ""
-#~ "Като група на звънене, но работи за индивидуални вътрешни линии. Когато "
-#~ "се получи обаждане за вътрешната линия, може да се настрои да звъни за "
-#~ "даден брой секунди преди да се опита да звъни на други вътрешни линии и/"
-#~ "или външни номера, или да звънят всички заедно, или в някакво настроено "
-#~ "преследване. Най-често се използва за прехвърляне на обажданията към "
-#~ "мобилен телефон ако вътрешния номер не отговаря."
 
 #~ msgid ""
 #~ "You can optionally include an Alert Info which can create distinctive "

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX findmefollow\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-13 06:21+0000\n"
+"POT-Creation-Date: 2024-01-04 06:51-0500\n"
 "PO-Revision-Date: 2008-11-08 18:39+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -58,6 +58,10 @@ msgstr ""
 
 #: functions.inc.php:570 views/form.php:78
 msgid "Announcement"
+msgstr ""
+
+#: findmefollow.i18n.php:6
+msgid "Applications"
 msgstr ""
 
 #: functions.inc.php:495
@@ -293,8 +297,9 @@ msgid ""
 "leading '+'."
 msgstr ""
 
-#: page.findmefollow.php:11 ucp/Findmefollow.class.php:115
-#: ucp/Findmefollow.class.php:125 ucp/Findmefollow.class.php:151
+#: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
+#: ucp/Findmefollow.class.php:115 ucp/Findmefollow.class.php:125
+#: ucp/Findmefollow.class.php:151
 msgid "Follow Me"
 msgstr "Följ-mig"
 
@@ -516,6 +521,15 @@ msgstr ""
 
 #: functions.inc.php:661 views/form.php:610
 msgid "Mode"
+msgstr ""
+
+#: findmefollow.i18n.php:8
+msgid ""
+"Much like a ring group, but works on individual extensions. When someone "
+"calls the extension, it can be setup to ring for a number of seconds before "
+"trying to ring other extensions and/or external numbers, or to ring all at "
+"once, or in other various 'hunt' configurations. Most commonly used to ring "
+"someone's cell phone if they don't answer their extension."
 msgstr ""
 
 #: functions.inc.php:495 functions.inc.php:499 functions.inc.php:518

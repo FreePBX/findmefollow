@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-13 06:21+0000\n"
+"POT-Creation-Date: 2024-01-04 06:51-0500\n"
 "PO-Revision-Date: 2017-02-09 19:46+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -63,6 +63,10 @@ msgstr "Transmitir sempre o Valor de CID Fixo abaixo."
 msgid "Announcement"
 msgstr "Anúncio"
 
+#: findmefollow.i18n.php:6
+msgid "Applications"
+msgstr "Aplicações"
+
 #: functions.inc.php:495
 msgid ""
 "By default (Yes) any call to this extension will go to this Follow-Me "
@@ -74,12 +78,12 @@ msgid ""
 "through FollowMe."
 msgstr ""
 "Por padrão (Sim) qualquer chamada para este ramal irá para este Siga-Me, "
-"incluindo chamadas por nome no diretório de URAs. Se configurado como \"Não"
-"\", as chamadas só irão para o ramal. Os destinos que especificam "
-"diretamente o Siga-Me virão aqui independentemente. Definir isso como \"Não"
-"\" é freqüentemente usado em conjunto com o VmX Locater, onde você deseja "
-"que uma chamada toque no ramal e, em seguida, somente se o usuário chamador "
-"escolher achar que você quer que a chamada passe pelo Siga-Me."
+"incluindo chamadas por nome no diretório de URAs. Se configurado como "
+"\"Não\", as chamadas só irão para o ramal. Os destinos que especificam "
+"diretamente o Siga-Me virão aqui independentemente. Definir isso como "
+"\"Não\" é freqüentemente usado em conjunto com o VmX Locater, onde você "
+"deseja que uma chamada toque no ramal e, em seguida, somente se o usuário "
+"chamador escolher achar que você quer que a chamada passe pelo Siga-Me."
 
 #: views/form.php:282
 msgid ""
@@ -325,8 +329,9 @@ msgstr ""
 "Valor fixo para substituir o CID usado com alguns dos modos acima. Deve "
 "estar em um formato de dígitos apenas com a opção E164 usando o prefixo '+' ."
 
-#: page.findmefollow.php:11 ucp/Findmefollow.class.php:115
-#: ucp/Findmefollow.class.php:125 ucp/Findmefollow.class.php:151
+#: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
+#: ucp/Findmefollow.class.php:115 ucp/Findmefollow.class.php:125
+#: ucp/Findmefollow.class.php:151
 msgid "Follow Me"
 msgstr "Siga-Me"
 
@@ -572,6 +577,20 @@ msgstr "Método não suportado"
 #: functions.inc.php:661 views/form.php:610
 msgid "Mode"
 msgstr "Modo"
+
+#: findmefollow.i18n.php:8
+msgid ""
+"Much like a ring group, but works on individual extensions. When someone "
+"calls the extension, it can be setup to ring for a number of seconds before "
+"trying to ring other extensions and/or external numbers, or to ring all at "
+"once, or in other various 'hunt' configurations. Most commonly used to ring "
+"someone's cell phone if they don't answer their extension."
+msgstr ""
+"Muito parecido com um grupo de toque, mas funciona em ramais individuais. "
+"Quando alguém chama o ramal, ele pode ser configurado para tocar por alguns "
+"segundos antes de tentar tocar outros ramais e/ou números externos, ou tocar "
+"de uma só vez, ou em várias outras configurações 'hunt'. Mais comumente "
+"usado para tocar o telefone celular de alguém se eles não respondem ao ramal."
 
 #: functions.inc.php:495 functions.inc.php:499 functions.inc.php:518
 #: functions.inc.php:612 views/fmgrid.php:18 views/form.php:274
@@ -1065,9 +1084,6 @@ msgstr ""
 "Se o primário for FreePBX DND, ele não será tocado. Se o primário é FreePBX "
 "CF incondicional, então todos serão tocados"
 
-#~ msgid "Applications"
-#~ msgstr "Aplicações"
-
 #~ msgid "Create Follow Me at Extension Creation Time"
 #~ msgstr "Criar Siga-me no Tempo de Criação do Ramal"
 
@@ -1085,21 +1101,6 @@ msgstr ""
 
 #~ msgid "Follow Me Module"
 #~ msgstr "Módulo Siga-Me"
-
-#~ msgid ""
-#~ "Much like a ring group, but works on individual extensions. When someone "
-#~ "calls the extension, it can be setup to ring for a number of seconds "
-#~ "before trying to ring other extensions and/or external numbers, or to "
-#~ "ring all at once, or in other various 'hunt' configurations. Most "
-#~ "commonly used to ring someone's cell phone if they don't answer their "
-#~ "extension."
-#~ msgstr ""
-#~ "Muito parecido com um grupo de toque, mas funciona em ramais individuais. "
-#~ "Quando alguém chama o ramal, ele pode ser configurado para tocar por "
-#~ "alguns segundos antes de tentar tocar outros ramais e/ou números "
-#~ "externos, ou tocar de uma só vez, ou em várias outras configurações "
-#~ "'hunt'. Mais comumente usado para tocar o telefone celular de alguém se "
-#~ "eles não respondem ao ramal."
 
 #~ msgid ""
 #~ "The default Initial Ring Time for a Follow Me set upon creation and used "

@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-13 06:21+0000\n"
+"POT-Creation-Date: 2024-01-04 06:51-0500\n"
 "PO-Revision-Date: 2014-02-21 03:21+0200\n"
 "Last-Translator: Kenichi Fukaumi <k.fukaumi@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/findmefollow/"
@@ -90,6 +90,10 @@ msgstr "常に以下の固定のCID値を渡す。"
 #: functions.inc.php:570 views/form.php:78
 msgid "Announcement"
 msgstr ""
+
+#: findmefollow.i18n.php:6
+msgid "Applications"
+msgstr "アプリケーション"
 
 #: functions.inc.php:495
 msgid ""
@@ -327,8 +331,9 @@ msgid ""
 "leading '+'."
 msgstr ""
 
-#: page.findmefollow.php:11 ucp/Findmefollow.class.php:115
-#: ucp/Findmefollow.class.php:125 ucp/Findmefollow.class.php:151
+#: findmefollow.i18n.php:4 findmefollow.i18n.php:10 page.findmefollow.php:11
+#: ucp/Findmefollow.class.php:115 ucp/Findmefollow.class.php:125
+#: ucp/Findmefollow.class.php:151
 msgid "Follow Me"
 msgstr "フォローミー"
 
@@ -553,6 +558,20 @@ msgstr ""
 #: functions.inc.php:661 views/form.php:610
 msgid "Mode"
 msgstr "モード"
+
+#: findmefollow.i18n.php:8
+msgid ""
+"Much like a ring group, but works on individual extensions. When someone "
+"calls the extension, it can be setup to ring for a number of seconds before "
+"trying to ring other extensions and/or external numbers, or to ring all at "
+"once, or in other various 'hunt' configurations. Most commonly used to ring "
+"someone's cell phone if they don't answer their extension."
+msgstr ""
+"着信グループに非常に似ていますが、個人の内線で機能します。誰かが内線を呼び出"
+"した時に、他の内線や外線を呼び出そうとする前に、もしくは一斉着信する前に、ま"
+"たは他の様々な'ハント'設定を実行する前に第二の番号を着信させることができま"
+"す。最も一般的には、かれらが内線に応答しない場合、誰かの携帯電話を鳴らすとき"
+"などに使用されます。"
 
 #: functions.inc.php:495 functions.inc.php:499 functions.inc.php:518
 #: functions.inc.php:612 views/fmgrid.php:18 views/form.php:274
@@ -1023,9 +1042,6 @@ msgstr ""
 "not disturb)の場合は鳴りません。もしメインがFreePBX 無条件転送の場合、全てが"
 "鳴ります。"
 
-#~ msgid "Applications"
-#~ msgstr "アプリケーション"
-
 #~ msgid "Create Follow Me at Extension Creation Time"
 #~ msgstr "内線作成時にフォローミーを作成する"
 
@@ -1043,20 +1059,6 @@ msgstr ""
 
 #~ msgid "Follow Me Module"
 #~ msgstr "フォローミーモジュール"
-
-#~ msgid ""
-#~ "Much like a ring group, but works on individual extensions. When someone "
-#~ "calls the extension, it can be setup to ring for a number of seconds "
-#~ "before trying to ring other extensions and/or external numbers, or to "
-#~ "ring all at once, or in other various 'hunt' configurations. Most "
-#~ "commonly used to ring someone's cell phone if they don't answer their "
-#~ "extension."
-#~ msgstr ""
-#~ "着信グループに非常に似ていますが、個人の内線で機能します。誰かが内線を呼び"
-#~ "出した時に、他の内線や外線を呼び出そうとする前に、もしくは一斉着信する前"
-#~ "に、または他の様々な'ハント'設定を実行する前に第二の番号を着信させることが"
-#~ "できます。最も一般的には、かれらが内線に応答しない場合、誰かの携帯電話を鳴"
-#~ "らすときなどに使用されます。"
 
 #~ msgid ""
 #~ "The default Initial Ring Time for a Follow Me set upon creation and used "
