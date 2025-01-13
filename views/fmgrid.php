@@ -12,9 +12,9 @@ foreach($fmlist as $fm){
 	$fmrows .= '<td><a href="?display=findmefollow&view=form&extdisplay=GRP-'.urlencode((string) $fm).'"><i class="fa fa-edit"></i>&nbsp;'.$fm.'</a></td>';
 	$fmrows .= '<td>';
 	$fmrows .= '<span class="radioset">';
-	$fmrows .= '<input type="radio" name="fmtoggle'.$fm.'" id="fmtoggle'.$fm.'yes" data-for="'.$fm.'" '.($thisg['ddial'] == 'CHECKED'?'':'CHECKED').'>';
+	$fmrows .= '<input type="radio" name="fmtoggle'.$fm.'" id="fmtoggle'.$fm.'yes" data-for="'.$fm.'" '.(($thisg['ddial'] ?? '') == 'CHECKED'?'':'CHECKED').'>';
 	$fmrows .= '<label for="fmtoggle'.$fm.'yes">'._("Yes").'</label>';
-	$fmrows .= '<input type="radio" name="fmtoggle'.$fm.'" id="fmtoggle'.$fm.'no" data-for="'.$fm.'" '.($thisg['ddial'] == 'CHECKED'?'CHECKED':'' ).' value="CHECKED">';
+	$fmrows .= '<input type="radio" name="fmtoggle'.$fm.'" id="fmtoggle'.$fm.'no" data-for="'.$fm.'" '.(($thisg['ddial'] ?? 'CHECKED') == 'CHECKED'?'CHECKED':'' ).' value="CHECKED">';
 	$fmrows .= '<label for="fmtoggle'.$fm.'no">'._("No").'</label>';
 	$fmrows .= '</span>';
 }
