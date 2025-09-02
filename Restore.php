@@ -30,6 +30,17 @@ class Restore Extends Base\RestoreBase{
 			foreach($fmstatus as $rows) {
 				$rows['ddial'] = ($rows['ddial'])?false:true;
 				$this->FreePBX->Findmefollow->setDDial($rows['grpnum'],$rows['ddial']);
+				if(isset($rows['changecid'])) {
+					$astman->database_put("AMPUSER",$rows['grpnum']."/followme/changecid",$rows['changecid']);
+				} else {
+					$astman->database_put("AMPUSER",$rows['grpnum']."/followme/changecid",'default');
+				}
+
+				if(isset($rows['fixedcid'])) {
+					$astman->database_put("AMPUSER",$rows['grpnum']."/followme/fixedcid",$rows['fixedcid']);
+				} else {
+					$astman->database_put("AMPUSER",$rows['grpnum']."/followme/fixedcid",'default');
+				}
 			}
 		}
 
