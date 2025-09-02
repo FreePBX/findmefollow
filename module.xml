@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>16.0.23</version>
+	<version>16.0.24</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*16.0.24* Issue-852 Backup &amp;amp; Restore module does not restore some Follow Me settings 
 		*16.0.23* Packaging of ver 16.0.23
 		*16.0.22* Packaging of ver 16.0.22
 		*16.0.21* FREEI-115 trigger event when find me follow me settings is updated 
