@@ -2,11 +2,12 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>17.0.4.11</version>
+	<version>17.0.4.12</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
+		*17.0.4.12* Issue-852 Backup &amp;amp; Restore module does not restore some Follow Me settings 
 		*17.0.4.11* FREEI-1586 exception when accessing the FM/FM page after upgrade FreePBX 
 		*17.0.4.10 bump 
 		*17.0.1alpha* 17.0.1 alpha release
