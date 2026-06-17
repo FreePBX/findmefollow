@@ -10,7 +10,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 function findmefollow_destinations($index) {
 	$extens = [];
- global $display;
+	global $display;
 	global $extdisplay;
 	global $followme_exten;
 	global $db;
@@ -184,7 +184,7 @@ function findmefollow_get_config($engine) {
 
 			$contextname = 'followme-sub';
 			$ext->add($contextname, '_X!', '', new ext_gotoif('$[${LEN(${BLINDTRANSFER})} > 0 | ${LEN(${ATTENDEDTRANSFER})} > 0]','skipclid'));
-			$ext->add($contextname, '_X!', '', new ext_macro('user-callerid'));
+			$ext->add($contextname, '_X!', '', new ext_gosub('1', 's', 'macro-user-callerid', '${EXTEN}'));
 			$ext->add($contextname, '_X!', 'skipclid', new ext_set('DIAL_OPTIONS','${DIAL_OPTIONS}I'));
 			$ext->add($contextname, '_X!', '', new ext_set('CONNECTEDLINE(num,i)', '${EXTEN}'));
 			$cidnameval = '${DB(AMPUSER/${EXTEN}/cidname)}';
