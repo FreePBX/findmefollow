@@ -2,22 +2,18 @@
 	<rawname>findmefollow</rawname>
 	<repo>standard</repo>
 	<name>Follow Me</name>
-	<version>17.0.4.13</version>
+	<version>18.0.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<changelog>
-		*17.0.4.13* FREEI-2663 Undefined array key 
-		*17.0.4.12* Issue-852 Backup &amp;amp; Restore module does not restore some Follow Me settings 
-		*17.0.4.11* FREEI-1586 exception when accessing the FM/FM page after upgrade FreePBX 
-		*17.0.4.10 bump 
-		*17.0.1alpha* 17.0.1 alpha release
+		*18.0.1* initial release
 	</changelog>
 	<depends>
-		<module>core ge 17.0.1</module>
-		<module>framework ge 17.0.1</module>
-		<module>recordings ge 17.0.1</module>
-		<module>userman ge 17.0.1</module>
+		<module>core ge 18.0.1</module>
+		<module>framework ge 18.0.1</module>
+		<module>recordings ge 18.0.1</module>
+		<module>userman ge 18.0.1</module>
 	</depends>
 	<category>Applications</category>
 	<description>
@@ -28,7 +24,7 @@
 		<findmefollow needsenginedb="yes">Follow Me</findmefollow>
 	</menuitems>
 	<supported>
-		<version>17.0</version>
+		<version>18.0</version>
 	</supported>
 	<hooks>
 		<bulkhandler class="Bulkhandler" namespace="FreePBX\modules">
