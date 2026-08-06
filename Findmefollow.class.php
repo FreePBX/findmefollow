@@ -532,7 +532,7 @@ class Findmefollow implements \BMO {
 
 	function getSettingsById($grpnum, $check_astdb=0) {
 		$db = $this->db;
-		$sql = "SELECT grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, voicemail, calendar_id, calendar_match FROM findmefollow INNER JOIN `users` ON `extension` = `grpnum` WHERE grpnum = ?";
+		$sql = "SELECT grpnum, strategy, grptime, grppre, grplist, annmsg_id, postdest, dring, needsconf, remotealert_id, toolate_id, ringing, pre_ring, voicemail, calendar_enable, calendar_id, calendar_group_id, calendar_match FROM findmefollow INNER JOIN `users` ON `extension` = `grpnum` WHERE grpnum = ?";
 		$sth = $db->prepare($sql);
 		$sth->execute(array($grpnum));
 		$results = $sth->fetch(\PDO::FETCH_ASSOC);
@@ -949,6 +949,18 @@ class Findmefollow implements \BMO {
 					"display" => false,
 					"type" => "destination"
 				),
+				'findmefollow_calendar_enable' => array(
+					'description' => _('Follow Me Enable Calendar Matching [0/1]')
+				),
+				'findmefollow_calendar_id' => array(
+					'description' => _('Follow Me Calendar Id [Mapped only if calendar exists]')
+				),
+				'findmefollow_calendar_group_id' => array(
+					'description' => _('Follow Me Calendar Group Id [Mapped only if group exists; cannot set with calendar id]')
+				),
+				'findmefollow_calendar_match' => array(
+					'description' => _('Follow Me Calendar Match Inverse [yes/no]')
+				),
 			);
 
 			return $headers;
@@ -963,6 +975,8 @@ class Findmefollow implements \BMO {
 		case 'extensions':
 			foreach ($rawData as $data) {
 				$extension = $data['extension'];
+				$settings = array();
+				$calendarSettings = array();
 
 				foreach ($data as $key => $value) {
 					if (substr($key, 0, 13) == 'findmefollow_') {
@@ -978,6 +992,12 @@ class Findmefollow implements \BMO {
 								$value = trim($value);
 								$settings['ddial'] = (!empty($value)) ? false : true;
 							break;
+							case 'calendar_enable':
+							case 'calendar_id':
+							case 'calendar_group_id':
+							case 'calendar_match':
+								$calendarSettings[$settingname] = $value;
+							break;
 							default:
 								$settings[$settingname] = $value;
 							break;
@@ -987,6 +1007,10 @@ class Findmefollow implements \BMO {
 
 				if (!empty($settings) && count($settings) > 0) {
 					$this->addSettingRow($extension, $settings);
+				}
+
+				if (!empty($calendarSettings)) {
+					$this->applyBulkCalendarSettings($extension, $calendarSettings);
 				}
 			}
 
@@ -998,6 +1022,65 @@ class Findmefollow implements \BMO {
 		}
 
 		return $ret;
+	}
+
+	/**
+	 * Apply Find Me/Follow Me calendar settings from bulk import.
+	 * calendar_id / calendar_group_id are mapped only when the target exists.
+	 * Both cannot be set at the same time.
+	 *
+	 * @param string $grpnum Extension / followme group number
+	 * @param array $calendarSettings Calendar-related settings from CSV
+	 */
+	private function applyBulkCalendarSettings($grpnum, $calendarSettings) {
+		if (!$this->FreePBX->Modules->checkStatus('calendar')) {
+			return;
+		}
+
+		$toApply = array();
+		$calendarId = isset($calendarSettings['calendar_id']) ? trim($calendarSettings['calendar_id']) : null;
+		$calendarGroupId = isset($calendarSettings['calendar_group_id']) ? trim($calendarSettings['calendar_group_id']) : null;
+
+		// Cannot set both a calendar and a calendar group
+		if (!empty($calendarId) && !empty($calendarGroupId)) {
+			$calendarId = null;
+			$calendarGroupId = null;
+		}
+
+		if ($calendarId !== null) {
+			if ($calendarId === '') {
+				$toApply['calendar_id'] = '';
+			} else {
+				$calendars = $this->FreePBX->Calendar->listCalendars();
+				if (!empty($calendars[$calendarId])) {
+					$toApply['calendar_id'] = $calendarId;
+					$toApply['calendar_group_id'] = '';
+				}
+			}
+		}
+
+		if ($calendarGroupId !== null) {
+			if ($calendarGroupId === '') {
+				$toApply['calendar_group_id'] = '';
+			} else {
+				$groups = $this->FreePBX->Calendar->listGroups();
+				if (!empty($groups[$calendarGroupId])) {
+					$toApply['calendar_group_id'] = $calendarGroupId;
+					$toApply['calendar_id'] = '';
+				}
+			}
+		}
+
+		if (array_key_exists('calendar_enable', $calendarSettings)) {
+			$toApply['calendar_enable'] = $calendarSettings['calendar_enable'];
+		}
+		if (array_key_exists('calendar_match', $calendarSettings)) {
+			$toApply['calendar_match'] = $calendarSettings['calendar_match'];
+		}
+
+		if (!empty($toApply)) {
+			$this->addSettingsById($grpnum, $toApply);
+		}
 	}
 
 	function addSettingRow($grpnum,$settings) {
