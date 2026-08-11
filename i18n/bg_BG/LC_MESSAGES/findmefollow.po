@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-05 14:10+0000\n"
+"POT-Creation-Date: 2026-08-11 07:06+0000\n"
 "PO-Revision-Date: 2015-03-11 21:58+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/"
@@ -285,7 +285,7 @@ msgstr ""
 msgid "Findme Follow Toggle"
 msgstr "Превключи Следвай Ме"
 
-#: Findmefollow.class.php:1363
+#: Findmefollow.class.php:1446
 msgid "FindmeFollow"
 msgstr ""
 
@@ -329,6 +329,24 @@ msgstr ""
 #: ucp/Findmefollow.class.php:179
 msgid "Follow Me"
 msgstr "Следвай Ме"
+
+#: Findmefollow.class.php:959
+msgid ""
+"Follow Me Calendar Group Id [Mapped only if group exists; cannot set with "
+"calendar id]"
+msgstr ""
+
+#: Findmefollow.class.php:956
+msgid "Follow Me Calendar Id [Mapped only if calendar exists]"
+msgstr ""
+
+#: Findmefollow.class.php:962
+msgid "Follow Me Calendar Match Inverse [yes/no]"
+msgstr ""
+
+#: Findmefollow.class.php:953
+msgid "Follow Me Enable Calendar Matching [0/1]"
+msgstr ""
 
 #: Findmefollow.class.php:942
 msgid "Follow Me Enabled [Blank to disable]"
@@ -879,7 +897,7 @@ msgstr ""
 msgid "User"
 msgstr "Потребител"
 
-#: Findmefollow.class.php:1346
+#: Findmefollow.class.php:1429
 msgid "User Primary Extension"
 msgstr ""
 

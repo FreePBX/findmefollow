@@ -256,7 +256,7 @@ msgstr ""
 msgid "Findme Follow Toggle"
 msgstr ""
 
-#: Findmefollow.class.php:1363
+#: Findmefollow.class.php:1446
 msgid "FindmeFollow"
 msgstr ""
 
@@ -296,6 +296,24 @@ msgstr ""
 #: ucp/Findmefollow.class.php:124 ucp/Findmefollow.class.php:141
 #: ucp/Findmefollow.class.php:179
 msgid "Follow Me"
+msgstr ""
+
+#: Findmefollow.class.php:959
+msgid ""
+"Follow Me Calendar Group Id [Mapped only if group exists; cannot set with "
+"calendar id]"
+msgstr ""
+
+#: Findmefollow.class.php:956
+msgid "Follow Me Calendar Id [Mapped only if calendar exists]"
+msgstr ""
+
+#: Findmefollow.class.php:962
+msgid "Follow Me Calendar Match Inverse [yes/no]"
+msgstr ""
+
+#: Findmefollow.class.php:953
+msgid "Follow Me Enable Calendar Matching [0/1]"
 msgstr ""
 
 #: Findmefollow.class.php:942
@@ -810,7 +828,7 @@ msgstr ""
 msgid "User"
 msgstr ""
 
-#: Findmefollow.class.php:1346
+#: Findmefollow.class.php:1429
 msgid "User Primary Extension"
 msgstr ""
 
