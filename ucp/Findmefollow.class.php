@@ -2,7 +2,6 @@
 
 namespace UCP\Modules;
 use \UCP\Modules as Modules;
-#[\AllowDynamicProperties]
 class Findmefollow extends Modules{
 	protected $module = 'Findmefollow';
 	private $user = null;
